@@ -11,10 +11,13 @@ name: integrity
 #      with independently of the manifest).
 #   3. The MANIFEST_DIGEST const in each crate's src/lib.rs matches
 #      its manifest.sha256.
-#   4. cargo check + cargo test pass workspace-wide (which means
+#   4. tools/published.toml is in sync with the publish flags in per-crate
+#      Cargo.toml files and the PUBLISHED_PACKAGES const in
+#      crates/ism-data/src/lib.rs (catches hand-edits of derived state).
+#   5. cargo check + cargo test pass workspace-wide (which means
 #      build.rs successfully re-verified every per-crate slice at
 #      consumer compile time).
-#   5. The full-tree heavyweight test passes (--ignored).
+#   6. The full-tree heavyweight test passes (--ignored).
 #
 # A weekly cron run catches situations where main has been modified
 # externally since the last PR.
@@ -75,6 +78,11 @@ jobs:
             fi
           done
           exit $fail
+
+      - name: Verify tools/published.toml is in sync with derived files
+        # Catches hand-edits of per-crate `publish` fields or the
+        # PUBLISHED_PACKAGES marker block in ism-data/src/lib.rs.
+        run: python3 tools/sync_published.py --check
 
   cargo-test:
     name: cargo build verifies + workspace tests pass

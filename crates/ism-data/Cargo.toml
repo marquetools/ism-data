@@ -10,6 +10,8 @@ repository.workspace = true
 readme = "README.md"
 keywords = ["odni", "ic", "ism", "xml", "schema"]
 categories = ["data-structures", "parsing"]
+# Override workspace default — listed in tools/published.toml.
+publish = true
 
 include = [
     "src/**/*",

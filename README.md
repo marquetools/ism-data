@@ -58,13 +58,23 @@ their `*-Public-Standalone.zip`, so all relative `xs:import` /
 ## Consume from your project
 
 Add only the per-package crates your codegen needs as
-`[build-dependencies]`:
+`[build-dependencies]`. A small allowlist of crates is published to
+crates.io (see [`tools/published.toml`](tools/published.toml)); everything
+else is reachable only via git dependency. To detect at runtime which
+packages are crates.io-reachable, use `ism_data::is_published(pkg)`.
 
 ```toml
+# crates.io (preferred when available)
 [build-dependencies]
-ism-data    = { git = "https://github.com/marquetools/ism-data", tag = "v2023.06.09" }
-ism-ismcat  = { git = "https://github.com/marquetools/ism-data", tag = "v2023.06.09" }
-ism-ic-edh  = { git = "https://github.com/marquetools/ism-data", tag = "v2023.06.09" }
+ism-data    = "20230609.0.0"
+ism-ismcat  = "20230609.0.0"
+ism-ic-edh  = "20230609.0.0"
+
+# OR, git tag (any package, including those not on crates.io)
+[build-dependencies]
+ism-data    = { git = "https://github.com/marquetools/ism-data", tag = "v20230609.0.0" }
+ism-ismcat  = { git = "https://github.com/marquetools/ism-data", tag = "v20230609.0.0" }
+ism-ic-edh  = { git = "https://github.com/marquetools/ism-data", tag = "v20230609.0.0" }
 ```
 
 ```rust

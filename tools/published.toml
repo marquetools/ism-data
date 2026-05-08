@@ -1,0 +1,46 @@
+# SPDX-License-Identifier: MIT-0 OR Unlicense
+#
+# crates.io publish allowlist for the ism-data workspace.
+#
+# This file is the single source of truth for which crates in this workspace
+# are published to crates.io. Everything else stays workspace-local and is
+# only reachable via git dependency.
+#
+# Why an allowlist?
+#   The workspace ships 60 crates (1 meta + 59 per-package). crates.io enforces
+#   a ~10-minute pause between *new-crate* first publishes per account, so
+#   publishing all 60 at once would take ~10 hours and produce a lot of crates
+#   nobody asked for. We only publish what an actual consumer needs.
+#
+# How to add a crate:
+#   1. Add an entry under [meta] (for ism-data) or [packages] (for a per-package
+#      crate). Use the upstream ODNI package name as the key for [packages]
+#      (e.g. "ISMCAT", not "ism-ismcat").
+#   2. Set `since` to the current workspace.package.version (the YYYYMMDD.0.0
+#      snapshot version this crate first ships at).
+#   3. Run `python3 tools/sync_published.py` to propagate the change to per-crate
+#      Cargo.toml `publish` fields and the `PUBLISHED_PACKAGES` slice in
+#      crates/ism-data/src/lib.rs.
+#   4. Run `python3 tools/release.py --dry-run` to preview the publish plan.
+#   5. When ready, `python3 tools/release.py` to publish (paces new crates at
+#      crates.io's ~10-min new-crate rate limit).
+#
+# Versioning:
+#   `since` always matches workspace.package.version at the time of first
+#   publish. The version scheme is YYYYMMDD.MAJOR.PATCH where MAJOR is reserved
+#   (always 0 for now) and PATCH is the tooling-revision counter for the same
+#   schema snapshot. New ODNI snapshot bumps the YYYYMMDD; tooling-only fixes
+#   bump PATCH.
+
+schema_version = 1
+
+# The metadata crate is the discovery surface — consumers depend on it to
+# resolve namespaces. It must be published whenever any per-package crate is.
+[meta]
+"ism-data" = { since = "20230609.0.0" }
+
+# Per-package crates published to crates.io. Add entries only when a
+# downstream consumer (e.g. Marque) needs the package via crates.io.
+[packages]
+# Marque uses ISMCAT for codegen.
+"ISMCAT" = { since = "20230609.0.0" }

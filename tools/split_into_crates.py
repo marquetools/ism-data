@@ -29,11 +29,27 @@ import os
 import re
 import shutil
 import sys
+import tomllib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 CRATES = ROOT / "crates"
+PUBLISHED_TOML = ROOT / "tools" / "published.toml"
+
+
+def load_published_packages() -> set[str]:
+    """Return the set of upstream ODNI package names allowlisted for crates.io.
+
+    Reads `tools/published.toml`'s `[packages]` table. Returns an empty set if
+    the file is missing — that means no per-package crates are published, only
+    the meta crate (which is managed separately).
+    """
+    if not PUBLISHED_TOML.exists():
+        return set()
+    with open(PUBLISHED_TOML, "rb") as fh:
+        data = tomllib.load(fh)
+    return set(data.get("packages", {}).keys())
 
 # --- name conversion --------------------------------------------------------
 
@@ -144,7 +160,7 @@ version.workspace = true
 edition.workspace = true
 description = "ODNI {pkg} schema package, vendored. Designed as a build-dependency for codegen. SHA-256 verified at compile time."
 license.workspace = true
-repository.workspace = true
+repository.workspace = true{publish_block}
 readme = "README.md"
 keywords = ["odni", "ic", "ism", "xml", "schema"]
 categories = ["data-structures", "parsing"]
@@ -711,6 +727,7 @@ def scaffold_crate(
     pkg: str,
     ns_entries: list[tuple[str, str]],
     move_data: bool,
+    published: bool,
 ) -> dict:
     """Scaffold a single per-package crate. Returns summary info."""
     cdir = crate_dir(pkg)
@@ -749,10 +766,17 @@ def scaffold_crate(
     write_if_changed(cdata / "_provenance" / "manifest.sha256", manifest_digest + "\n")
     write_if_changed(cdata / "_provenance" / "README.md", PROVENANCE_README)
 
-    # 5. Write Cargo.toml
+    # 5. Write Cargo.toml. If the package is on the crates.io allowlist
+    #    (tools/published.toml), override the workspace `publish = false`
+    #    default with `publish = true`.
+    publish_block = (
+        "\n# Override workspace default — listed in tools/published.toml.\npublish = true"
+        if published
+        else ""
+    )
     write_if_changed(
         cdir / "Cargo.toml",
-        CARGO_TEMPLATE.format(crate=cname, pkg=pkg),
+        CARGO_TEMPLATE.format(crate=cname, pkg=pkg, publish_block=publish_block),
     )
 
     # 6. Write build.rs
@@ -818,11 +842,32 @@ def main() -> int:
         file=sys.stderr,
     )
 
+    published_set = load_published_packages()
+    if published_set:
+        print(
+            f"  {len(published_set)} package(s) allowlisted for crates.io: "
+            f"{', '.join(sorted(published_set))}",
+            file=sys.stderr,
+        )
+    else:
+        print(
+            "  no per-package crates allowlisted for crates.io "
+            "(tools/published.toml [packages] is empty)",
+            file=sys.stderr,
+        )
+
     CRATES.mkdir(exist_ok=True)
     summaries = []
     for pkg in packages:
         print(f"scaffolding {pkg} -> {crate_name(pkg)}", file=sys.stderr)
-        summaries.append(scaffold_crate(pkg, ns_entries, move_data=not args.regen))
+        summaries.append(
+            scaffold_crate(
+                pkg,
+                ns_entries,
+                move_data=not args.regen,
+                published=pkg in published_set,
+            )
+        )
 
     # Print summary as JSON-ish for downstream tooling.
     total_files = sum(s["file_count"] for s in summaries)

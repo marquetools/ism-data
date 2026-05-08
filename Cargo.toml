@@ -5,10 +5,21 @@ resolver = "3"
 members = ["crates/*"]
 
 [workspace.package]
-version = "2023.6.9"
+# Version scheme: YYYYMMDD.MAJOR.PATCH
+#   YYYYMMDD = ODNI snapshot date (drives the data tree).
+#   MAJOR    = reserved (always 0 for now).
+#   PATCH    = tooling revision for the same schema snapshot — bump for fixes
+#              to build.rs, integrity logic, generated code, etc., that don't
+#              change schema bytes.
+# A new ODNI snapshot bumps YYYYMMDD and resets PATCH to 0. See CLAUDE.md.
+version = "20230609.0.0"
 edition = "2024"
 license = "LicenseRef-PublicDomain AND (MIT-0 OR Unlicense)"
 repository = "https://github.com/marquetools/ism-data"
+# Default: do not publish to any registry. Per-crate Cargo.toml files in the
+# allowlist (tools/published.toml) override this with `publish = true`. Keeps
+# us from accidentally pushing 60 crates to crates.io.
+publish = false
 
 [workspace.dependencies]
 sha2 = "0.11"

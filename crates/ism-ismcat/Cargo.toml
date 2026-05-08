@@ -7,6 +7,8 @@ edition.workspace = true
 description = "ODNI ISMCAT schema package, vendored. Designed as a build-dependency for codegen. SHA-256 verified at compile time."
 license.workspace = true
 repository.workspace = true
+# Override workspace default — listed in tools/published.toml.
+publish = true
 readme = "README.md"
 keywords = ["odni", "ic", "ism", "xml", "schema"]
 categories = ["data-structures", "parsing"]
