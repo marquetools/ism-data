@@ -40,19 +40,20 @@ fn main() {
     println!("cargo:rerun-if-env-changed=ODNI_SCHEMAS_SKIP_VERIFY");
 
     if env::var_os("ODNI_SCHEMAS_SKIP_VERIFY").is_some() {
-        println!("cargo:warning=odni-schemas: integrity check SKIPPED (ODNI_SCHEMAS_SKIP_VERIFY set)");
+        println!(
+            "cargo:warning=odni-schemas: integrity check SKIPPED (ODNI_SCHEMAS_SKIP_VERIFY set)"
+        );
         return;
     }
 
     // 1. Verify the top-level digest matches the manifest.
-    let manifest_bytes =
-        std::fs::read(&manifest_path).unwrap_or_else(|e| {
-            panic!(
-                "odni-schemas: cannot read manifest.txt at {}: {}",
-                manifest_path.display(),
-                e
-            )
-        });
+    let manifest_bytes = std::fs::read(&manifest_path).unwrap_or_else(|e| {
+        panic!(
+            "odni-schemas: cannot read manifest.txt at {}: {}",
+            manifest_path.display(),
+            e
+        )
+    });
     let manifest_digest_actual = hex_digest(&manifest_bytes);
     let manifest_digest_expected = std::fs::read_to_string(&digest_path)
         .unwrap_or_else(|e| {
