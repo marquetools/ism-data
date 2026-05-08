@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: MIT-0 OR Unlicense
+
+[package]
+name = "ism-uias"
+version.workspace = true
+edition.workspace = true
+description = "ODNI UIAS schema package, vendored. Designed as a build-dependency for codegen. SHA-256 verified at compile time."
+license.workspace = true
+repository.workspace = true
+readme = "README.md"
+keywords = ["odni", "ic", "ism", "xml", "schema"]
+categories = ["data-structures", "parsing"]
+build = "build.rs"
+
+include = [
+    "src/**/*",
+    "data/**/*",
+    "build.rs",
+    "Cargo.toml",
+    "README.md",
+    "LICENSE*",
+]
+
+[lib]
+path = "src/lib.rs"
+
+[features]
+default = ["verify-on-build"]
+# Verify every file under data/ against the baked SHA-256 manifest at the
+# *consumer's* compile time. Disable only if you understand what you're
+# giving up — typically a CI environment that runs the same verification
+# more thoroughly out of band.
+verify-on-build = []
+
+[dependencies]
+sha2 = { workspace = true }
+
+[build-dependencies]
+sha2 = { workspace = true }

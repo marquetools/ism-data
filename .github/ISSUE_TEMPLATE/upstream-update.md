@@ -19,31 +19,40 @@ labels: re-vendor
 ### Consolidate
 
 - [ ] Run the consolidation pipeline against the new zips
-- [ ] Run `tools/rederive_manifest.py` and inspect the resulting `manifest.txt`
-- [ ] Recompute the manifest digest; record as the new `MANIFEST_DIGEST`
-- [ ] Generate the new `provenance.toml` with all 58 (or however many) upstream zip hashes
+- [ ] Place the consolidated tree under `crates/ism-<pkg>/data/<PKG>/`
+      for every ODNI package (one crate per package)
+- [ ] Run `tools/rederive_manifest.py --write` to regenerate every
+      per-crate `manifest.txt`, `manifest.sha256`, and `MANIFEST_DIGEST`
+      const
 
-### Update crate metadata
+### Update workspace metadata
 
-- [ ] Bump `version` in `Cargo.toml` to the new ODNI snapshot date
-- [ ] Replace `data/` with the new materialized tree
-- [ ] Replace `data/_provenance/manifest.txt`
-- [ ] Replace `data/_provenance/manifest.sha256`
-- [ ] Update `MANIFEST_DIGEST` const in `src/lib.rs`
-- [ ] Replace `data/_provenance/provenance.toml`
-- [ ] Update `tools/upstream_baseline.json` with new URLs / Last-Modified / Content-Length
+- [ ] Bump `version` in workspace `Cargo.toml` (`[workspace.package].version`)
+      to the new ODNI snapshot date
+- [ ] Replace `provenance.toml` at workspace root with new snapshot
+      metadata + upstream zip hashes
+- [ ] If new packages appear: create a new `crates/ism-<pkg>/` (use
+      `tools/split_into_crates.py` to scaffold), add their names to
+      `crates/ism-data/src/lib.rs` `PACKAGES` const
+- [ ] If namespaces change: regenerate the namespace tables in
+      `crates/ism-data/src/lib.rs` and per-package `crates/ism-*/src/lib.rs`
+- [ ] Update `tools/upstream_baseline.json` with new URLs /
+      Last-Modified / Content-Length
 
 ### Verify
 
-- [ ] `cargo check` passes (build.rs verifies the new manifest)
-- [ ] `cargo test` passes
-- [ ] `cargo test -- --ignored verify_full_tree` passes
-- [ ] Trigger `reproduce-from-zips` workflow; confirm match
-- [ ] Diff `data/_provenance/manifest.txt` against previous snapshot; spot-check the moves
+- [ ] `cargo check --workspace --all-features` passes (every per-crate
+      build.rs verifies its slice)
+- [ ] `cargo test --workspace --all-features` passes
+- [ ] `cargo test --workspace --all-features -- --ignored` passes
+      (full-tree per-crate verification)
+- [ ] Trigger `reproduce-from-zips` workflow; confirm match per package
+- [ ] Diff each per-crate `manifest.txt` against previous snapshot;
+      spot-check the moves
 
 ### Release
 
-- [ ] Open PR; require 2-person review on `data/` changes
+- [ ] Open PR; require 2-person review on every `crates/*/data/` change
 - [ ] Merge to `main`
 - [ ] Create signed git tag (`git tag -s vYYYY.M.D`)
 - [ ] Push tag; verify workflows pass on the tag
@@ -51,7 +60,7 @@ labels: re-vendor
 
 ### Downstream rollout
 
-- [ ] Bump `odni-schemas` rev/tag in Marque's `Cargo.toml`
+- [ ] Bump `ism-*` crate revs/tags in Marque's `Cargo.toml`
 - [ ] Spot-check Marque's codegen output for unexpected diffs
 - [ ] Run Marque's full test suite against the new schemas
 - [ ] Merge Marque PR

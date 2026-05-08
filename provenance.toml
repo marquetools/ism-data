@@ -1,0 +1,29 @@
+# SPDX-License-Identifier: MIT-0 OR Unlicense
+
+# Provenance for the ism-data workspace — DO NOT EDIT BY HAND
+# Regenerate during re-vendoring.
+
+[snapshot]
+consolidation_tool = "https://github.com/marquetools/ism-data"
+snapshot_date = "2023-06-09"
+data_files = 15578
+packages = 59
+notes = '''
+Initial vendor of ODNI 2023-06-09 snapshot. Upstream zip hashes were
+not recorded for this initial vendor (the zips were deleted after
+consolidation before hashing). The next re-vendor cycle MUST hash the
+zips before deletion and populate the [[upstream_zips]] section below.
+
+Each per-package crate `crates/ism-<pkg>/` carries its own
+`data/_provenance/manifest.txt` + `manifest.sha256`, and the matching
+`MANIFEST_DIGEST` const is exported from the crate's `src/lib.rs` for
+external attestation. File-level tampering is detectable per-crate.
+Upstream-zip hashes only matter for cross-checking against ODNI's
+published downloads.
+'''
+
+# [[upstream_zips]]
+# name = "ISMCAT-Public-Standalone.zip"
+# sha256 = "..."
+# size = 0
+# (one block per zip in the next vendor cycle)

@@ -1,40 +1,14 @@
 # SPDX-License-Identifier: MIT-0 OR Unlicense
 
-[package]
-name = "ism-data"
+[workspace]
+resolver = "3"
+members = ["crates/*"]
+
+[workspace.package]
 version = "2023.6.9"
 edition = "2024"
-description = "Vendored ODNI public XML schemas, deduplicated and consolidated. Designed to be consumed as a build-dependency for codegen. Includes SHA-256 integrity checks at compile time."
 license = "LicenseRef-PublicDomain AND (MIT-0 OR Unlicense)"
 repository = "https://github.com/marquetools/ism-data"
-readme = "README.md"
-keywords = ["odni", "ic", "ism", "xml", "schema"]
-categories = ["data-structures", "parsing"]
-build = "build.rs"
 
-include = [
-    "src/**/*",
-    "data/**/*",
-    "build.rs",
-    "Cargo.toml",
-    "README.md",
-    "SECURITY.md",
-    "LICENSE*",
-]
-
-[lib]
-path = "src/lib.rs"
-
-[features]
-default = ["verify-on-build"]
-# Verify every file under data/ against the baked SHA-256 manifest at the
-# *consumer's* compile time. Disable only if you understand what you're
-# giving up — typically a CI environment that runs the same verification
-# more thoroughly out of band.
-verify-on-build = []
-
-[dependencies]
-sha2 = { version = "0.11" }
-
-[build-dependencies]
-sha2 = { version = "0.11" }
+[workspace.dependencies]
+sha2 = "0.11"

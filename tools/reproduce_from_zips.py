@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: MIT-0 OR Unlicense
 
 """
-Reproduce the manifest from a directory of upstream ODNI zip files.
+Reproduce per-crate manifests from a directory of upstream ODNI zip files.
 
 Used by the reproduce-from-zips CI workflow to verify that the
 consolidation process is deterministic. Given the same input zips, the
@@ -12,26 +12,25 @@ has tampered with the data/ tree, the consolidation tool, or the zips.
 
 USAGE
 -----
-  reproduce_from_zips.py --zips DIR [--manifest manifest.txt] \
-                         [--provenance provenance.toml]
+  reproduce_from_zips.py --zips DIR [--provenance provenance.toml]
 
 WHAT IT DOES
 ------------
 1. Verify each zip's SHA-256 against the recorded provenance.toml
-   (if provided). Bail on mismatch — the inputs aren't what we
-   expected, no point continuing.
+   (if provided). Bail on mismatch.
 2. Extract every zip into a clean staging area.
-3. Walk every package's tree and compute SHA-256 for each file.
-4. Build a sorted manifest.txt-format output: "<sha>  <pkg>/<rel>"
-5. Diff against the committed manifest.txt. Exit non-zero on mismatch.
+3. For each top-level <pkg> dir in the extraction, find the matching
+   crates/ism-<pkg>/data/_provenance/manifest.txt and compare the
+   re-hashed contents line-by-line.
+4. Exit non-zero on any mismatch.
 
 WHY NOT GO THROUGH consolidate.py?
 ----------------------------------
-consolidate.py is responsible for the dedup/symlink layout, which is a
-delivery optimization. The security boundary is "do the upstream bytes
-hash to the manifest we shipped?". That question is independent of how
-files are organized inside the crate, so we can answer it more directly
-(and with less code) by hashing files immediately after unzip.
+consolidate.py is responsible for the dedup/symlink layout — a delivery
+optimization. The security boundary is "do the upstream bytes hash to
+the manifests we shipped?". That question is independent of how files
+are organized inside crates, so we answer it more directly by hashing
+files immediately after unzip.
 """
 from __future__ import annotations
 
@@ -42,6 +41,9 @@ import sys
 import tempfile
 import zipfile
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+CRATES = ROOT / "crates"
 
 
 def sha256_of(p: Path) -> str:
@@ -73,7 +75,6 @@ def parse_provenance(path: Path) -> dict[str, str]:
         elif s.startswith("sha256 = "):
             cur_sha = s.split("=", 1)[1].strip().strip('"')
         elif s.startswith("["):
-            # Started a different table; flush.
             if cur_name and cur_sha:
                 out[cur_name] = cur_sha
             cur_name = cur_sha = None
@@ -84,10 +85,12 @@ def parse_provenance(path: Path) -> dict[str, str]:
 
 
 def verify_zips(zips_dir: Path, expected: dict[str, str]) -> list[str]:
-    """Return list of human-readable mismatch messages."""
     errors: list[str] = []
     if not expected:
-        return ["provenance.toml has no [[upstream_zips]] entries — cannot verify zip identities"]
+        return [
+            "provenance.toml has no [[upstream_zips]] entries — "
+            "cannot verify zip identities"
+        ]
     for name, expected_sha in expected.items():
         candidate = zips_dir / name
         if not candidate.exists():
@@ -104,42 +107,43 @@ def verify_zips(zips_dir: Path, expected: dict[str, str]) -> list[str]:
 
 
 def extract_zips(zips_dir: Path, dst: Path) -> None:
-    """Extract every zip into dst/. Each zip should contain one top-level dir."""
     dst.mkdir(parents=True, exist_ok=True)
     for zip_path in sorted(zips_dir.glob("*.zip")):
         with zipfile.ZipFile(zip_path) as zf:
             zf.extractall(dst)
 
 
-def derive_manifest(extracted: Path) -> str:
-    """Hash every file under extracted/<pkg>/, return sorted manifest text."""
+def derive_pkg_manifest(pkg_dir: Path, pkg_name: str) -> str:
+    """Hash every file under pkg_dir, return manifest text in '<sha>  <pkg>/<rel>' form."""
     entries: list[tuple[str, str]] = []
-    for pkg_dir in extracted.iterdir():
-        if not pkg_dir.is_dir():
-            continue
-        pkg_name = pkg_dir.name
-        for dirpath, _, files in os.walk(pkg_dir):
-            for fname in files:
-                full = Path(dirpath) / fname
-                rel_pkg = full.relative_to(pkg_dir).as_posix()
-                rel_data = f"{pkg_name}/{rel_pkg}"
-                entries.append((rel_data, sha256_of(full)))
+    for dirpath, _, files in os.walk(pkg_dir):
+        for fname in files:
+            full = Path(dirpath) / fname
+            rel = full.relative_to(pkg_dir).as_posix()
+            entries.append((f"{pkg_name}/{rel}", sha256_of(full)))
     entries.sort()
     return "".join(f"{sha}  {rel}\n" for rel, sha in entries)
 
 
+def find_crate_for_package(pkg_name: str) -> Path | None:
+    cdir = CRATES / f"ism-{pkg_name.lower()}"
+    return cdir if cdir.is_dir() else None
+
+
 def main(argv: list[str]) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--zips", required=True, type=Path,
-                    help="Directory containing the upstream *.zip files.")
-    ap.add_argument("--manifest", type=Path,
-                    default=Path(__file__).resolve().parent.parent
-                              / "data/_provenance/manifest.txt",
-                    help="Path to the committed manifest.txt to compare against.")
-    ap.add_argument("--provenance", type=Path,
-                    default=Path(__file__).resolve().parent.parent
-                              / "data/_provenance/provenance.toml",
-                    help="Path to provenance.toml carrying expected zip hashes.")
+    ap.add_argument(
+        "--zips",
+        required=True,
+        type=Path,
+        help="Directory containing the upstream *.zip files.",
+    )
+    ap.add_argument(
+        "--provenance",
+        type=Path,
+        default=ROOT / "provenance.toml",
+        help="Path to provenance.toml carrying expected zip hashes.",
+    )
     args = ap.parse_args(argv)
 
     if not args.zips.is_dir():
@@ -149,8 +153,11 @@ def main(argv: list[str]) -> int:
     print(f"Step 1/4: verify zip hashes against {args.provenance}", file=sys.stderr)
     expected_zips = parse_provenance(args.provenance) if args.provenance.exists() else {}
     if not expected_zips:
-        print("  WARN: no zip hashes in provenance.toml — proceeding without input verification",
-              file=sys.stderr)
+        print(
+            "  WARN: no zip hashes in provenance.toml — "
+            "proceeding without input verification",
+            file=sys.stderr,
+        )
     else:
         errs = verify_zips(args.zips, expected_zips)
         if errs:
@@ -158,38 +165,68 @@ def main(argv: list[str]) -> int:
             for e in errs:
                 print(f"  {e}", file=sys.stderr)
             return 1
-        print(f"  OK: {len(expected_zips)} zips match provenance.toml", file=sys.stderr)
+        print(
+            f"  OK: {len(expected_zips)} zips match provenance.toml",
+            file=sys.stderr,
+        )
 
     with tempfile.TemporaryDirectory(prefix="reproduce_") as tmp:
         extracted = Path(tmp) / "extracted"
         print(f"Step 2/4: extract zips to {extracted}", file=sys.stderr)
         extract_zips(args.zips, extracted)
-        n_pkgs = sum(1 for p in extracted.iterdir() if p.is_dir())
-        print(f"  OK: extracted {n_pkgs} packages", file=sys.stderr)
+        pkg_dirs = sorted(p for p in extracted.iterdir() if p.is_dir())
+        print(f"  OK: extracted {len(pkg_dirs)} packages", file=sys.stderr)
 
-        print("Step 3/4: hash every file and build manifest", file=sys.stderr)
-        derived = derive_manifest(extracted)
-        n_lines = derived.count("\n")
-        print(f"  OK: hashed {n_lines} files", file=sys.stderr)
+        print("Step 3/4: hash every file per-package", file=sys.stderr)
+        per_pkg: dict[str, str] = {}
+        for pdir in pkg_dirs:
+            per_pkg[pdir.name] = derive_pkg_manifest(pdir, pdir.name)
+        total_lines = sum(t.count("\n") for t in per_pkg.values())
+        print(f"  OK: hashed {total_lines} files across {len(per_pkg)} packages", file=sys.stderr)
 
-        print(f"Step 4/4: diff against {args.manifest}", file=sys.stderr)
-        committed = args.manifest.read_text() if args.manifest.exists() else ""
-        if derived == committed:
-            print(f"  OK: derived manifest matches committed manifest exactly", file=sys.stderr)
-            return 0
-        # Show a brief diff
-        derived_lines = set(derived.splitlines())
-        committed_lines = set(committed.splitlines())
-        only_committed = sorted(committed_lines - derived_lines)
-        only_derived = sorted(derived_lines - committed_lines)
-        print("FAIL: manifest mismatch", file=sys.stderr)
-        print(f"  in committed but not derived: {len(only_committed)} lines", file=sys.stderr)
-        print(f"  in derived but not committed: {len(only_derived)} lines", file=sys.stderr)
-        for line in only_committed[:5]:
-            print(f"    -{line}", file=sys.stderr)
-        for line in only_derived[:5]:
-            print(f"    +{line}", file=sys.stderr)
-        return 1
+        print("Step 4/4: diff each derived manifest against the committed per-crate manifest",
+              file=sys.stderr)
+        failed = 0
+        for pkg, derived in per_pkg.items():
+            crate = find_crate_for_package(pkg)
+            if crate is None:
+                print(f"  FAIL {pkg}: no matching ism-{pkg.lower()} crate", file=sys.stderr)
+                failed += 1
+                continue
+            committed_path = crate / "data" / "_provenance" / "manifest.txt"
+            committed = (
+                committed_path.read_text(encoding="utf-8")
+                if committed_path.exists()
+                else ""
+            )
+            if derived == committed:
+                print(f"  OK   {pkg} ({derived.count(chr(10))} files)", file=sys.stderr)
+                continue
+            failed += 1
+            derived_lines = set(derived.splitlines())
+            committed_lines = set(committed.splitlines())
+            only_committed = sorted(committed_lines - derived_lines)
+            only_derived = sorted(derived_lines - committed_lines)
+            print(
+                f"  FAIL {pkg}: -{len(only_committed)} +{len(only_derived)}",
+                file=sys.stderr,
+            )
+            for line in only_committed[:3]:
+                print(f"    -{line}", file=sys.stderr)
+            for line in only_derived[:3]:
+                print(f"    +{line}", file=sys.stderr)
+
+        if failed:
+            print(
+                f"\n{failed} package(s) failed reproduction.",
+                file=sys.stderr,
+            )
+            return 1
+        print(
+            f"\nAll {len(per_pkg)} packages reproduced exactly from upstream zips.",
+            file=sys.stderr,
+        )
+        return 0
 
 
 if __name__ == "__main__":

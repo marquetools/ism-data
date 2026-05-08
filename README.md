@@ -4,109 +4,153 @@ SPDX-License-Identifier: MIT-0 OR Unlicense
 
 # ism-data
 
-Vendored ODNI public XML schemas, enums, and specs, deduplicated and consolidated. Designed
-to be consumed as a `[build-dependencies]` entry by Rust projects that
-codegen Rust types from the ODNI XSDs (e.g. [Marque](https://github.com/marquetools/marque))
+Vendored ODNI public XML schemas, deduplicated and consolidated, split
+into one crate per ODNI package. Designed to be consumed as
+`[build-dependencies]` by Rust projects that codegen Rust types from
+the ODNI XSDs (e.g. [Marque](https://github.com/marquetools/marque)).
 
-The crate ships **58 ODNI packages** (596 MB of schemas, schematron, XSL,
-and supporting docs) under `data/`, plus a small Rust API that exposes
-their on-disk locations to your `build.rs`.
-
-## Design
-
-The crate has one transitive dependency (`sha2` from RustCrypto, used
-for integrity verification). Its entire job is:
-
-1. Carry the schema files as part of the package source, materialized
-   (no symlinks) so they work the same on every OS.
-2. Expose small helper functions so consumers don't have to hard-code
-   paths or parse JSON in their build scripts:
-   - `data_root()` — `PathBuf` to the `data/` directory.
-   - `package(name)` — `PathBuf` to a specific ODNI package directory.
-   - `resolve_namespace(uri)` — `Option<PathBuf>` to the canonical XSD
-     that declares a given XML namespace.
-   - `verify_integrity()` / `verify_file(rel)` — runtime SHA-256 checks.
-3. Verify integrity at the *consumer's* compile time. The crate's
-   `build.rs` (always-on by default) re-hashes every file under `data/`
-   against `data/_provenance/manifest.txt` and refuses to compile on
-   mismatch. See `SECURITY.md` for the full threat model.
-4. Expose `PACKAGES` (58 names) and `MANIFEST_DIGEST` consts for
-   compile-time use.
-
-`env!("CARGO_MANIFEST_DIR")` resolves at the consumer's build time to
-the location where Cargo placed this crate's source — typically inside
-`~/.cargo/git/checkouts/` when consumed as a git dependency. That's
-exactly where the data files live, so paths Just Work.
-
-## Consume from your project
-
-The package is way too large to publish on crates.io, you can add it with:
-
-```toml
-# Cargo.toml
-[build-dependencies]
-odni-schemas = { git = "https://github.com/marquetools/ism-data", tag = "v2023.06.09" }
-```
-
-```rust
-// build.rs
-fn main() {
-    // Locate a specific schema
-    let ismcat = ism_data::package("ISMCAT");
-    let xsd = ismcat.join("Schema/ISMCAT/ISMCAT.xsd");
-    println!("cargo:rerun-if-changed={}", xsd.display());
-
-    // Or resolve by namespace URI
-    let common = odni_schemas::resolve_namespace("urn:us:gov:ic:common")
-        .expect("IC-Common namespace is part of the ODNI set");
-
-    // Pass to your codegen
-    my_codegen::generate_rust(&xsd, /* ... */);
-    my_codegen::generate_rust(&common, /* ... */);
-}
-```
+The workspace ships **59 ODNI packages** (~700 MB of schemas,
+schematron, XSL, and supporting docs) split across 59 per-package
+crates plus a metadata-only meta-crate.
 
 ## Layout
 
-```
-ism-data/
-  Cargo.toml
+```text
+ism-data/                          (workspace root)
+  Cargo.toml                       ← virtual workspace
   README.md
-  SECURITY.md            ← threat model + consumer hardening checklist
-  build.rs               ← runs SHA-256 integrity check at compile time
-  src/
-    lib.rs               ← API + sorted namespace lookup table + verify()
-  data/                  ← ~700 MB, 14,632 files across 58 packages
-    _provenance/
-      manifest.txt       ← SHA-256 of every file under data/
-      manifest.sha256    ← SHA-256 of manifest.txt itself
-      provenance.toml    ← upstream ODNI snapshot info + zip hashes
-      README.md
-    ADD-ERM/  ARH/  ATOM/  ...
-    AUDIT/Schema/AUDIT/IC-AUDIT.xsd
-    ISMCAT/Schema/ISMCAT/ISMCAT.xsd
-    ...
+  SECURITY.md                      ← threat model + consumer hardening
+  provenance.toml                  ← upstream ODNI snapshot info + zip hashes
+  crates/
+    ism-data/                      ← metadata-only meta crate
+      Cargo.toml
+      src/lib.rs                   ← PACKAGES list + namespace registry
+    ism-ismcat/                    ← one crate per ODNI package
+      Cargo.toml
+      build.rs                     ← verifies its data/ slice at compile time
+      src/lib.rs                   ← package API
+      data/                        ← ISMCAT files only
+        ISMCAT/...
+        _provenance/
+          manifest.txt             ← SHA-256 of every file under data/
+          manifest.sha256          ← SHA-256 of manifest.txt itself
+    ism-ic-edh/
+    ism-base-tdf/
+    ... (59 total per-package crates)
+  tools/                           ← regen + reproduce scripts
+  .github/workflows/               ← integrity + reproduce CI
 ```
+
+Per-package crate names are `ism-{lowercased}`:
+
+| ODNI package | Crate name      |
+|--------------|------------------|
+| ISMCAT       | `ism-ismcat`     |
+| IC-Docbook   | `ism-ic-docbook` |
+| BASE-TDF     | `ism-base-tdf`   |
+| RR-SM        | `ism-rr-sm`      |
+| RevRecall    | `ism-revrecall`  |
 
 Within each package, the directory shape is exactly what ODNI ships in
 their `*-Public-Standalone.zip`, so all relative `xs:import` /
 `schemaLocation` references resolve as the schemas' authors intended.
 
+## Consume from your project
+
+Add only the per-package crates your codegen needs as
+`[build-dependencies]`:
+
+```toml
+[build-dependencies]
+ism-data    = { git = "https://github.com/marquetools/ism-data", tag = "v2023.06.09" }
+ism-ismcat  = { git = "https://github.com/marquetools/ism-data", tag = "v2023.06.09" }
+ism-ic-edh  = { git = "https://github.com/marquetools/ism-data", tag = "v2023.06.09" }
+```
+
+```rust
+// build.rs
+fn main() {
+    // Per-package crate API: get a path to a specific schema.
+    let xsd = ism_ismcat::package_root().join("Schema/ISMCAT/ISMCAT.xsd");
+    println!("cargo:rerun-if-changed={}", xsd.display());
+
+    // Meta crate: resolve a namespace to (package, relpath).
+    let (pkg, rel) = ism_data::resolve_namespace("urn:us:gov:ic:edh")
+        .expect("IC-EDH namespace is part of the ODNI set");
+    assert_eq!(pkg, "IC-EDH");
+    let edh_xsd = ism_ic_edh::package_root().join(rel);
+
+    // Pass to your codegen.
+    my_codegen::generate_rust(&xsd);
+    my_codegen::generate_rust(&edh_xsd);
+}
+```
+
+## Per-package crate API
+
+Every `ism-{pkg}` crate exposes:
+
+```rust
+pub const PACKAGE_NAME: &str;          // e.g. "ISMCAT"
+pub const MANIFEST_DIGEST: &str;       // SHA-256 of data/_provenance/manifest.txt
+pub const FILE_COUNT: usize;           // count of files under data/
+
+pub fn data_root() -> PathBuf;         // -> .../crates/ism-ismcat/data
+pub fn package_root() -> PathBuf;      // -> .../crates/ism-ismcat/data/ISMCAT
+pub fn resolve_namespace(uri: &str) -> Option<PathBuf>;
+pub fn known_namespaces() -> impl Iterator<Item = (&'static str, &'static str)>;
+
+pub fn verify_integrity() -> Result<usize, VerifyError>;
+pub fn verify_file(rel: &str) -> Result<(), VerifyError>;
+```
+
+`env!("CARGO_MANIFEST_DIR")` resolves at the consumer's build time to
+the location where Cargo placed the per-package crate's source —
+typically inside `~/.cargo/git/checkouts/` when consumed as a git
+dependency. That's exactly where the data files live, so paths Just
+Work.
+
+## Meta crate API
+
+`ism-data` (the meta crate) carries no schema files. It exposes:
+
+```rust
+pub const PACKAGES: &[&str];           // 59 ODNI package names
+
+pub fn resolve_namespace(uri: &str) -> Option<(&'static str, &'static str)>;
+pub fn package_for_namespace(uri: &str) -> Option<&'static str>;
+pub fn relpath_for_namespace(uri: &str) -> Option<&'static str>;
+pub fn known_namespaces() -> impl Iterator<Item = (&'static str, &'static str, &'static str)>;
+pub fn crate_name_for(package: &str) -> Option<String>;  // e.g. "ISMCAT" -> "ism-ismcat"
+```
+
+## Integrity
+
+Every per-package crate's `build.rs` re-hashes every file under its own
+`data/` against `data/_provenance/manifest.txt` at the consumer's
+compile time and refuses to compile on mismatch. A single modified byte
+under `crates/ism-ismcat/data/` breaks any consumer's build of that
+crate. See `SECURITY.md` for the full threat model.
+
+For runtime checks, use `verify_integrity()` / `verify_file(rel)` on
+the per-package crate, or `MANIFEST_DIGEST` for external attestation.
+
 ## Versioning
 
-The crate version (`Cargo.toml`'s `version`) tracks the date stamp of
-the latest ISM package in the upstream ODNI snapshot that was consolidated. Bump it whenever you
-re-vendor. Each package is independently versioned; in practice most get published at the same time, but there is drift between packages.
+The workspace version (`Cargo.toml`'s `[workspace.package].version`)
+tracks the date stamp of the latest ISM package in the upstream ODNI
+snapshot consolidated. All per-package crates inherit it via
+`version.workspace = true`. Bump it whenever you re-vendor.
 
 ## CI / automation
 
 Three GitHub Actions workflows live under `.github/workflows/`:
 
-- **integrity.yml** — runs on every PR and weekly. Re-derives the
-  manifest from `data/`, diffs against the committed manifest, runs
-  `cargo test --all-features -- --ignored` (which exercises the
-  full-tree integrity check). Prevents drift between `data/` and
-  `manifest.txt`.
+- **integrity.yml** — runs on every PR and weekly. Re-derives every
+  per-crate manifest from `crates/*/data/`, diffs against the committed
+  manifests, runs `cargo test --workspace --all-features -- --ignored`
+  (which exercises the full-tree integrity check across every crate).
+  Prevents drift between any crate's `data/` and its `manifest.txt`.
 - **check-upstream.yml** — weekly cron, plus manual trigger. Runs
   `tools/check_upstream.py` to HEAD-check known ODNI zip URLs and
   scrape the standards listing page; opens a tracking issue when
@@ -115,70 +159,69 @@ Three GitHub Actions workflows live under `.github/workflows/`:
   useful.
 - **reproduce-from-zips.yml** — manual trigger. Given a URL to a
   bundle of the upstream zips, downloads them, verifies against
-  `provenance.toml`, runs the consolidation, and asserts the resulting
-  manifest matches the committed one. The strongest available proof
-  that "what we vendored" came from "what ODNI published".
+  `provenance.toml`, runs the per-package consolidation, and asserts
+  every per-crate manifest matches the committed one. The strongest
+  available proof that "what we vendored" came from "what ODNI
+  published".
 
 ## Re-vendoring
 
-When ODNI publishes new package versions:
+When ODNI publishes new package versions, see
+`.github/ISSUE_TEMPLATE/upstream-update.md` for the full re-vendor
+checklist. The high-level flow:
 
-1. Drop the new `*-Public-Standalone.zip` files into a clean folder.
+1. Download the new `*-Public-Standalone.zip` files.
 2. Run the consolidation script (lives in the parent project at
    `_meta/consolidate.py`) to produce a deduplicated tree.
-3. Run `_meta/materialize_symlinks.sh` on the result to flatten symlinks.
-4. Replace this crate's `data/` directory with the materialized tree.
-5. Regenerate the namespace table in `src/lib.rs` with the script in
-   `tools/regen_ns_table.py` (TODO: ship that with the crate).
-6. Bump `version` in `Cargo.toml` to the new ODNI snapshot date.
-7. Commit, tag, push.
+3. Move the tree under `crates/ism-<pkg>/data/<PKG>/` for every package.
+4. Run `tools/rederive_manifest.py --write` to regenerate every
+   per-crate `manifest.txt`, `manifest.sha256`, and `MANIFEST_DIGEST`.
+5. Bump `[workspace.package].version` in the workspace `Cargo.toml`.
+6. Update workspace `provenance.toml` with the new snapshot date and
+   upstream zip hashes.
+7. If new packages appear, scaffold them with
+   `tools/split_into_crates.py` and add to `crates/ism-data/src/lib.rs`
+   `PACKAGES` const.
+8. Commit, tag, push.
 
-## Namespaces known to the crate
+## Namespaces known to the workspace
 
-228 namespaces have a canonical-path mapping baked in. Iterate them all:
+235 namespaces have a canonical-path mapping baked into the meta crate.
+Iterate them all:
 
 ```rust
-for (uri, relpath) in ism_data::known_namespaces() {
-    println!("{} -> {}", uri, relpath);
+for (uri, pkg, rel) in ism_data::known_namespaces() {
+    println!("{} -> {} / {}", uri, pkg, rel);
 }
 ```
 
-Namespaces from upstream standards (W3C XLink, GML, DocBook, etc.) that
-happen to appear in the bundled schemas are *not* part of this table —
-only the ODNI / IC namespaces are. If you need to validate documents
-that pull from those upstream standards, configure your XML library
-with the appropriate catalogs separately.
+Namespaces from upstream standards (W3C XLink, GML, DocBook, etc.)
+that happen to appear in the bundled schemas *are* present in the
+table when ODNI redistributes them — those entries point at the
+ODNI-bundled copy. If you need authoritative upstream behavior, point
+your XML library at the appropriate upstream catalog separately.
 
 ## What's intentionally not here
 
-- **No runtime parsing or validation.** This crate is data + path
+- **No runtime parsing or validation.** This workspace is data + path
   helpers only. Pair it with `quick-xml`, `xmlschema`, `roxmltree`, or
   whatever XML library suits your codegen.
 - **No XML catalog file.** Cargo doesn't have a clean way to surface
-  static asset paths to non-Rust tools, and most codegen we've seen
-  works directly off file paths. If you do need a catalog file, it's
-  trivial to generate one from `known_namespaces()` at build time.
-- **No upstream ODNI namespaces de-dupe.** Some ODNI packages bundle
-  copies of upstream specs (DocBook, W3C). Those copies are present
-  but `resolve_namespace` won't return them — by design, since you
-  shouldn't be relying on a bundled copy for upstream W3C semantics.
+  static asset paths to non-Rust tools. If you need a catalog, it's
+  trivial to generate one from `ism_data::known_namespaces()` at build
+  time.
 
 ## Size
 
-Compressed `git clone` of this repo runs around 50–80 MB, depending on
-git's pack settings — git's delta compression collapses the redundant
-content very efficiently. The working-tree size after clone is
-~700 MB. For a crate consumed only at build time, this is acceptable.
-
-If the working-tree size becomes an issue (e.g. CI build minutes
-dominated by clone time), the next step is splitting per-ODNI-package
-into separate crates and depending on only what your codegen actually
-uses.
+Compressed `git clone` of this repo runs around 50–80 MB; git's delta
+compression collapses the redundant content very efficiently. The
+working-tree size after clone is ~700 MB across all 59 crates. For a
+workspace consumed only at build time, this is acceptable — and
+consumers that publish individual crates to crates.io can ship
+just the slices they need.
 
 ## License
 
-Everything in this package is published without copyright in the U.S.,
-as it was released into the Public Domain. See [LICENSE](./LICENSE.md).
-In that spirit, anything not in the public domain, namely the Rust src,
-config files in repo root, and CI actions, are all released under the
-Unlicense or MIT-0, your choice.
+Schemas are U.S. Government public-domain works. Crate scaffolding
+(Rust source, build scripts, CI, config) is dual-licensed under MIT-0
+or Unlicense. See [LICENSES/](./LICENSES) and the `LICENSE-*` files.

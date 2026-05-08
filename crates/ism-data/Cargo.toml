@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: MIT-0 OR Unlicense
+
+[package]
+name = "ism-data"
+version.workspace = true
+edition.workspace = true
+description = "ODNI public XML schema metadata: package list and namespace registry. For schema files, see the per-package ism-{pkg} crates."
+license.workspace = true
+repository.workspace = true
+readme = "README.md"
+keywords = ["odni", "ic", "ism", "xml", "schema"]
+categories = ["data-structures", "parsing"]
+
+include = [
+    "src/**/*",
+    "Cargo.toml",
+    "README.md",
+    "LICENSE*",
+]
+
+[lib]
+path = "src/lib.rs"
+
+# No dependencies — this crate is metadata-only.
+[dependencies]

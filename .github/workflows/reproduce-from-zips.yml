@@ -4,33 +4,33 @@ name: reproduce-from-zips
 
 # Manually-triggered workflow that re-runs the consolidation against a
 # bundle of the upstream ODNI *.zip files and asserts that the resulting
-# manifest matches the committed one. This is the strongest available
-# proof that:
+# per-package manifests match the committed ones in each per-package
+# crate. This is the strongest available proof that:
 #
 #   - the inputs ODNI shipped haven't been swapped for tampered ones, AND
 #   - the consolidation tool we use is deterministic on those inputs
 #
 # Trigger this from the Actions tab when:
-#   - bumping the crate to a new ODNI snapshot (verifies the new vendor)
+#   - bumping the workspace to a new ODNI snapshot (verifies the vendor)
 #   - investigating a suspected supply-chain issue
 #   - quarterly, as a routine integrity audit
 #
 # Inputs
 # ------
-# zips_url: URL to a tar.gz / zip containing the 58 ODNI *.zip files.
+# zips_url: URL to a tar.gz / zip containing the 59 ODNI *.zip files.
 #           Typically a presigned S3 URL or a GitHub release artifact.
 #           This is NOT committed to the repo — too large.
 #
 # Why a URL rather than committing the zips? They total ~295 MB, fine
-# for cold storage but heavy for the repo. The provenance.toml in the
-# crate carries SHA-256 hashes for each upstream zip, so the workflow
-# can verify that whatever URL it's given served the right files.
+# for cold storage but heavy for the repo. The provenance.toml at the
+# workspace root carries SHA-256 hashes for each upstream zip, so the
+# workflow can verify that whatever URL it's given served the right files.
 
 on:
   workflow_dispatch:
     inputs:
       zips_url:
-        description: 'URL of a bundle (tar.gz or zip) containing the 58 ODNI standalone zips'
+        description: 'URL of a bundle (tar.gz or zip) containing the 59 ODNI standalone zips'
         required: true
         type: string
 
