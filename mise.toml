@@ -3,3 +3,16 @@
 [tools]
 "pipx:reuse" = "6.2.0"
 rust = "1.89"
+
+[tasks]
+
+[tasks.fix]
+run = '''
+cargo fix --workspace --all-targets --all-features --allow-dirty
+'''
+
+[tasks.fmt]
+run = '''
+cargo fmt --all
+'''
+
