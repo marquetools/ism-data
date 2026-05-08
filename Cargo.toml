@@ -1,10 +1,12 @@
+# SPDX-License-Identifier: MIT-0 OR Unlicense
+
 [package]
-name = "odni-schemas"
+name = "ism-data"
 version = "2023.6.9"
-edition = "2021"
+edition = "2024"
 description = "Vendored ODNI public XML schemas, deduplicated and consolidated. Designed to be consumed as a build-dependency for codegen. Includes SHA-256 integrity checks at compile time."
-license = "LicenseRef-PublicDomain"
-repository = "https://github.com/knitli/odni-schemas"
+license = "LicenseRef-PublicDomain AND (MIT-0 OR Unlicense)"
+repository = "https://github.com/marquetools/ism-data"
 readme = "README.md"
 keywords = ["odni", "ic", "ism", "xml", "schema"]
 categories = ["data-structures", "parsing"]
@@ -32,7 +34,7 @@ default = ["verify-on-build"]
 verify-on-build = []
 
 [dependencies]
-sha2 = { version = "0.10", default-features = false, features = ["std"] }
+sha2 = { version = "0.11" }
 
 [build-dependencies]
-sha2 = { version = "0.10", default-features = false, features = ["std"] }
+sha2 = { version = "0.11" }

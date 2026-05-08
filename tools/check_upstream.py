@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+
+# SPDX-License-Identifier: MIT-0 OR Unlicense
+
 """
 Check whether ODNI has updated any of the standalone schema zips since
 the last vendor.

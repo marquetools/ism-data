@@ -1,3 +1,7 @@
+<!--
+SPDX-License-Identifier: MIT-0 OR Unlicense
+-->
+
 # Security model for `odni-schemas`
 
 This crate is consumed at *build time* by Marque (and any other Rust

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT-0 OR Unlicense
+
 //! Build-time integrity check.
 //!
 //! Re-hashes every file under `data/` and compares against

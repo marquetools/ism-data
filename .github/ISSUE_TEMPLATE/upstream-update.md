@@ -1,4 +1,6 @@
 ---
+# SPDX-License-Identifier: MIT-0 OR Unlicense
+
 name: Upstream ODNI update — re-vendor checklist
 about: Use when ODNI publishes new schema zips (e.g. when the upstream-canary fires)
 title: 'Re-vendor: ODNI <date> snapshot'

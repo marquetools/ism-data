@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+
+# SPDX-License-Identifier: MIT-0 OR Unlicense
+
 """
 Re-derive the manifest from data/ on disk and write it to stdout.
 

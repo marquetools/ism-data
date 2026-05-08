@@ -1,8 +1,12 @@
-# odni-schemas
+<!--
+SPDX-License-Identifier: MIT-0 OR Unlicense
+-->
 
-Vendored ODNI public XML schemas, deduplicated and consolidated. Designed
+# ism-data
+
+Vendored ODNI public XML schemas, enums, and specs, deduplicated and consolidated. Designed
 to be consumed as a `[build-dependencies]` entry by Rust projects that
-codegen Rust types from the ODNI XSDs.
+codegen Rust types from the ODNI XSDs (e.g. [Marque](https://github.com/marquetools/marque))
 
 The crate ships **58 ODNI packages** (596 MB of schemas, schematron, XSL,
 and supporting docs) under `data/`, plus a small Rust API that exposes
@@ -36,17 +40,19 @@ exactly where the data files live, so paths Just Work.
 
 ## Consume from your project
 
+The package is way too large to publish on crates.io, you can add it with:
+
 ```toml
 # Cargo.toml
 [build-dependencies]
-odni-schemas = { git = "https://github.com/knitli/odni-schemas", tag = "v2023.06.09" }
+odni-schemas = { git = "https://github.com/marquetools/ism-data", tag = "v2023.06.09" }
 ```
 
 ```rust
 // build.rs
 fn main() {
     // Locate a specific schema
-    let ismcat = odni_schemas::package("ISMCAT");
+    let ismcat = ism_data::package("ISMCAT");
     let xsd = ismcat.join("Schema/ISMCAT/ISMCAT.xsd");
     println!("cargo:rerun-if-changed={}", xsd.display());
 
@@ -63,7 +69,7 @@ fn main() {
 ## Layout
 
 ```
-odni-schemas/
+ism-data/
   Cargo.toml
   README.md
   SECURITY.md            ← threat model + consumer hardening checklist
@@ -89,8 +95,8 @@ their `*-Public-Standalone.zip`, so all relative `xs:import` /
 ## Versioning
 
 The crate version (`Cargo.toml`'s `version`) tracks the date stamp of
-the upstream ODNI snapshot that was consolidated. Bump it whenever you
-re-vendor.
+the latest ISM package in the upstream ODNI snapshot that was consolidated. Bump it whenever you
+re-vendor. Each package is independently versioned; in practice most get published at the same time, but there is drift between packages.
 
 ## CI / automation
 
@@ -132,7 +138,7 @@ When ODNI publishes new package versions:
 228 namespaces have a canonical-path mapping baked in. Iterate them all:
 
 ```rust
-for (uri, relpath) in odni_schemas::known_namespaces() {
+for (uri, relpath) in ism_data::known_namespaces() {
     println!("{} -> {}", uri, relpath);
 }
 ```
@@ -171,6 +177,8 @@ uses.
 
 ## License
 
-The Rust code in `src/` is Apache-2.0. The ODNI schemas under `data/`
-are public-release government work, distributed by ODNI without
-copyright in the United States.
+Everything in this package is published without copyright in the U.S.,
+as it was released into the Public Domain. See [LICENSE](./LICENSE.md).
+In that spirit, anything not in the public domain, namely the Rust src,
+config files in repo root, and CI actions, are all released under the
+Unlicense or MIT-0, your choice.

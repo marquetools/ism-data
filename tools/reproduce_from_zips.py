@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+
+# SPDX-License-Identifier: MIT-0 OR Unlicense
+
 """
 Reproduce the manifest from a directory of upstream ODNI zip files.
 

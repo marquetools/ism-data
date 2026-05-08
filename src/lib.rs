@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT-0 OR Unlicense
+
 //! ODNI public XML schemas, deduplicated and consolidated.
 //!
 //! Intended to be consumed as a `[build-dependencies]` entry by Rust
