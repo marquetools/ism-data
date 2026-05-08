@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXActivityWeaponsCyber">
+   <define name="CVEnumDOMEXActivityWeaponsCyber.cve">
+      <choice>
+         <value>Actions</value>
+         <value>FIS</value>
+         <value>Logo</value>
+         <value>Other</value>
+         <value>Reporting</value>
+         <value>Tools</value>
+         <value>Training</value>
+      </choice>
+   </define>
+</grammar>

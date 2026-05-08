@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:cemxml:commdatatype"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:cemxml:commdatatype"
+            version="201804">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumCemCommDataType Version 2.1 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumCemCommDataType.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumCemCommDataType">
+      <xsd:annotation>
+         <xsd:documentation>(U) Communication Data Types
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumCemCommDataType.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="IPv4">
+            <xsd:annotation>
+               <xsd:documentation>Internet Protocol version 4 'address'</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="IPv6">
+            <xsd:annotation>
+               <xsd:documentation>Internet Protocol version 6 'address'</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="WebAddress">
+            <xsd:annotation>
+               <xsd:documentation>
+   		        The 'address' of a resource on the Internet or an intranet.
+   		        Usually starts with the protocol (http://, https://, or other protocol),
+   		        a domain name (sometimes called server name), file path, and resource
+   		        name. (ex: http://www.qwert.com/local/daily/news.html).
+   		    </xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Protocol">
+            <xsd:annotation>
+               <xsd:documentation>Protocol used for communication</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Email">
+            <xsd:annotation>
+               <xsd:documentation>
+   	            E-Mail address.  Includes the group or individual address, the
+   	            '@' separator, and mail domain. (ex. noone@qwert.com)
+   	        </xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Port">
+            <xsd:annotation>
+               <xsd:documentation>Network port numbers</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MobilePhone">
+            <xsd:annotation>
+               <xsd:documentation> 
+   	            Specialized type of dialed communications CommData object
+   	            (specific type of 'Telephone').  Used for Cellular and other mobile 
+   	            devices (ex: satellite phones) that use dialing conventions, not
+   	            landline phones that have 'wireless' handsets).
+   	        </xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Telephone">
+            <xsd:annotation>
+               <xsd:documentation>
+   	            For all references to telephone numbers when they appear
+   	            in the narrative of a report as intelligence (not for contact or POC
+   	            Information).  Includes all 'parts' of a phone number: country code,
+   	            area code, exchange, local number, extension, (etc).  Requires the use
+   	            of 'commDataNormalized' attribute to elaborate on a 'local' or
+   	            'national' structure and its international equivalent.  'Telephone' 
+   	            is used for all 'dialed' CommData objects unless they can be more 
+   	            specifically identified.
+   	        </xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Fax">
+            <xsd:annotation>
+               <xsd:documentation>
+   	            Specialized type of dialed communications CommData object
+   	            (specific type of 'Telephone').  A device/CommData object used primarily for
+   	            facsimile, but can also have the capability of being used for voice communications.
+   	            (A person's or organization's 'phone' number that is answered by a fax
+   	            device, not by a person.)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Telex">
+            <xsd:annotation>
+               <xsd:documentation>Telex addresses</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MalFile">
+            <xsd:annotation>
+               <xsd:documentation>
+   	            Identification of various malicious files such as virus, 'bad'
+   	            cookies, trojans, etc.
+   	        </xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

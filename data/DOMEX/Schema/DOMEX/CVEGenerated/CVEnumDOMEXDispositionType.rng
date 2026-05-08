@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXDispositionType">
+   <define name="CVEnumDOMEXDispositionType.cve">
+      <choice>
+         <value>Overt</value>
+         <value>Deleted</value>
+         <value>Derived</value>
+         <value>Residual</value>
+         <value>Generated</value>
+         <value>Uploaded</value>
+      </choice>
+   </define>
+</grammar>

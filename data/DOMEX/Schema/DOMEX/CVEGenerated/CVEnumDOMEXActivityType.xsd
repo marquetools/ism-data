@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXActivityType"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXActivityType"
+            version="202111">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumDOMEXActivityType Version 2 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumDOMEXActivityType.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumDOMEXActivityType">
+      <xsd:annotation>
+         <xsd:documentation>(U) Valid range for activities.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumDOMEXActivityType.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="Combat Operations">
+            <xsd:annotation>
+               <xsd:documentation>Used to tag objects where the preponderance of the content is related to Combat operations of a target group</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Communications">
+            <xsd:annotation>
+               <xsd:documentation>Used to tag objects where the preponderance of the content is related to communications of a target group</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Criminal Activities">
+            <xsd:annotation>
+               <xsd:documentation>Used to tag objects where the preponderance of the content is related to Criminal Activities of a target group</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Finance">
+            <xsd:annotation>
+               <xsd:documentation>Used to tag objects where the preponderance of the content is related to financial matters of a target group</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Hostage Operations">
+            <xsd:annotation>
+               <xsd:documentation>Used to tag objects where the preponderance of the content is related to one or more hostages</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Individual">
+            <xsd:annotation>
+               <xsd:documentation>Used to tag objects where the preponderance of the content is related to an individual</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Personnel Management">
+            <xsd:annotation>
+               <xsd:documentation>Used to tag objects where the preponderance of the content is related to the management of a target staff</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Planning, General">
+            <xsd:annotation>
+               <xsd:documentation>Used to tag objects where the preponderance of the content is related to planning of a target group</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Propaganda Production and Distribution">
+            <xsd:annotation>
+               <xsd:documentation>Used to tag objects where the preponderance of the content is related to the production, distribution or final products related to propaganda</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Recruitment Operations">
+            <xsd:annotation>
+               <xsd:documentation>Used to tag objects where the preponderance of the content is related to recruitment, training, facilitation and travel to place of employment</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Religious">
+            <xsd:annotation>
+               <xsd:documentation>Used to tag objects where the preponderance of the content is related to a Religion</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Weapons of Mass Destruction">
+            <xsd:annotation>
+               <xsd:documentation>Used to tag objects where the preponderance of the content is related to Weapons of Mass Destruction</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Weapons, Cyber">
+            <xsd:annotation>
+               <xsd:documentation>Used to tag objects where the preponderance of the content is related to cyber Weapons (hacking tools)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Weapons, Improvised">
+            <xsd:annotation>
+               <xsd:documentation>Used to tag objects where the preponderance of the content is related to improvised weapons.  This category doesn't include commercially manufactured </xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Weapons, Manufactured">
+            <xsd:annotation>
+               <xsd:documentation>Used to tag objects where the preponderance of the content is related to commercially manufactured weapons.  This category doesn't include Improvised </xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

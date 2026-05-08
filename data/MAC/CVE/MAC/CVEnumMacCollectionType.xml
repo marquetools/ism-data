@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       --><cve:CVE xmlns:cve="urn:us:gov:ic:cve" xmlns:ism="urn:us:gov:ic:ism" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ism:compliesWith="USGov USIC" ism:ownerProducer="USA" ism:classification="U" ism:DESVersion="201609.201707" ism:ISMCATCESVersion="201609" ism:resourceElement="true" CVEVersion="2.1" specVersion="201609" ism:createDate="2012-12-21" xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+	
+	  <cve:IRM>
+		    <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:mac:collectionType</URN>
+		    <Title xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">CVEnumMacCollectionType</Title>
+		    <Description xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">All currently authorized collection types used by MAC.</Description>
+		
+		    <cve:Created>2012-12-21T10:47:00-05:00</cve:Created>
+		
+	  	  <Source ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">IC-CIO</Source>	
+	  	  <PointOfContact ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">
+         <Name>Office IC CIO</Name>
+         <Email>ic-standards-support@iarpa.gov</Email>
+      </PointOfContact>
+	  </cve:IRM>
+	
+	  <cve:Enumeration multivalue="true" ism:ownerProducer="USA" ism:classification="U">
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Tearline</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">A Tearline collection denotes that the members of the collection express 
+			      	the same information sanitized to different classification levels.</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Format</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">A Format collection denotes that the members of the collection are the 
+			       same asset in different formats. (i.e. Word, PDF)</Description>
+		    </Term>
+		  	<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+		  		   <Value ism:classification="U" ism:ownerProducer="USA">Role</Value>
+		  		   <Description ism:classification="U" ism:ownerProducer="USA">A Role collection denotes that the members of the collection are the 
+		  			same asset in the same format with differences in content based on the role of the viewer. (i.e. Developer, System Administrator, 
+		  			Manager)</Description>
+		  	</Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA" regularExpression="true">other:[A-Z][a-zA-Z_]*</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">This is to denote that the collection is of some other type that is not defined 
+			      in this CVE.</Description>
+		    </Term>
+	  </cve:Enumeration>
+	
+</cve:CVE>

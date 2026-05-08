@@ -1,0 +1,1157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for component cem:CityName</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        var propertiesBoxes= new Array('properties_CityName', 
+				'properties_CityName_category');
+var facetsBoxes= new Array('facets_CityName_category');
+var usedByBoxes= new Array('usedBy_CityName', 
+				'usedBy_CityName_category');
+var sourceBoxes= new Array('source_CityName', 
+				'source_CityName_category');
+var instanceBoxes= new Array('instance_CityName');
+var diagramBoxes= new Array('diagram_CityName');
+var annotationBoxes= new Array('annotations_CityName', 
+				'annotations_CityName_category');
+var attributesBoxes= new Array('attributes_CityName');
+var modelBoxes= new Array('model_CityName');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //
+--></script>
+   </head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_content" rowspan="1" colspan="1">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, annotationBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Annotations</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, attributesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Attributes </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Diagrams</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, facetsBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Facets </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, instanceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Instances</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Model </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Properties </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Source</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Used by </span>
+                        </td>
+                     </tr>
+                  </table>
+                  <div align="right">
+                     <span>
+                        <input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close"></input>
+                     </span>
+                  </div>
+               </td>
+               <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+            </tr>
+         </table>
+      </div>
+      <a id="CityName" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">cem:CityName</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:cem</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_CityName" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_CityName');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_CityName" style="display:block">
+                              <div class="annotation">
+                                 
+                                 <p> The name of a population center
+                                    when used as a geographic location. </p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_CityName" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_CityName');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_CityName" style="display:block">
+                              <img alt="Diagram" border="0" src="img/CEM-XML_xsd_Element_cem_CityName.png" usemap="#CEM-XML_xsd_Element_cem_CityName"></img>
+                              <map name="CEM-XML_xsd_Element_cem_CityName" id="CEM-XML_xsd_Element_cem_CityName">
+                                 <area alt="CEM-XML_xsd_Attribute_Group_cem_CommonAttributesGroup.tmp#CommonAttributesGroup" href="ed338cc2-fa85-4d76-9a2f-9361f16c4100.html#CommonAttributesGroup" coords="389,101,613,127" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_Account.tmp#Account" href="CEM-XML_xsd_Element_cem_Account.html#Account" coords="528,237,838,279" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_BEnumber.tmp#BEnumber" href="CEM-XML_xsd_Element_cem_BEnumber.html#BEnumber" coords="528,332,788,374" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_CommData.tmp#CommData" href="CEM-XML_xsd_Element_cem_CommData.html#CommData" coords="528,427,838,469" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_CityName.tmp#CityName" href="CEM-XML_xsd_Element_cem_CityName.html#CityName" coords="528,522,827,564" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_Commodity.tmp#Commodity" href="CEM-XML_xsd_Element_cem_Commodity.html#Commodity" coords="528,604,838,646" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_Concept.tmp#Concept" href="CEM-XML_xsd_Element_cem_Concept.html#Concept" coords="528,699,838,741" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_CountryName.tmp#CountryName" href="CEM-XML_xsd_Element_cem_CountryName.html#CountryName" coords="528,794,838,836" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_Date.tmp#Date" href="CEM-XML_xsd_Element_cem_Date.html#Date" coords="528,876,838,918" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_DateTime.tmp#DateTime" href="CEM-XML_xsd_Element_cem_DateTime.html#DateTime" coords="528,971,838,1013" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_Drug.tmp#Drug" href="CEM-XML_xsd_Element_cem_Drug.html#Drug" coords="528,1066,614,1090" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_EntityUntyped.tmp#EntityUntyped" href="d28d667e-1838-4cee-905f-51ed880e2c63.html#EntityUntyped" coords="528,1156,838,1198" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_Equipment.tmp#Equipment" href="CEM-XML_xsd_Element_cem_Equipment.html#Equipment" coords="528,1251,838,1293" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_Event.tmp#Event" href="CEM-XML_xsd_Element_cem_Event.html#Event" coords="528,1346,838,1388" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_Facility.tmp#Facility" href="CEM-XML_xsd_Element_cem_Facility.html#Facility" coords="528,1441,838,1483" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_GeoFeature.tmp#GeoFeature" href="CEM-XML_xsd_Element_cem_GeoFeature.html#GeoFeature" coords="528,1536,838,1578" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_GeoRef.tmp#GeoRef" href="CEM-XML_xsd_Element_cem_GeoRef.html#GeoRef" coords="528,1618,838,1660" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_Identifier.tmp#Identifier" href="CEM-XML_xsd_Element_cem_Identifier.html#Identifier" coords="528,1713,838,1755" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_InfoBearer.tmp#InfoBearer" href="CEM-XML_xsd_Element_cem_InfoBearer.html#InfoBearer" coords="528,1808,838,1850" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_LocationOfInterest.tmp#LocationOfInterest" href="80270bd3-940f-4c57-8073-927dbc75eb5f.html#LocationOfInterest" coords="528,1903,838,1945" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_MilitaryUnit.tmp#MilitaryUnit" href="78349a48-30d6-43f9-829a-501cce477a73.html#MilitaryUnit" coords="528,1998,838,2040" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_Money.tmp#Money" href="CEM-XML_xsd_Element_cem_Money.html#Money" coords="528,2080,838,2122" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_Nomenclature.tmp#Nomenclature" href="2fe19478-359f-4c4e-9098-544758e59044.html#Nomenclature" coords="528,2162,838,2204" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_Organization.tmp#Organization" href="53f54928-541d-4ccf-9e34-b01fe115b88c.html#Organization" coords="528,2244,838,2286" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_Person.tmp#Person" href="CEM-XML_xsd_Element_cem_Person.html#Person" coords="528,2339,838,2381" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_QuantityReference.tmp#QuantityReference" href="69bb8ade-3843-4482-b484-5cc05f765559.html#QuantityReference" coords="528,2434,838,2476" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_SystemClass.tmp#SystemClass" href="CEM-XML_xsd_Element_cem_SystemClass.html#SystemClass" coords="528,2529,838,2571" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_Term.tmp#Term" href="CEM-XML_xsd_Element_cem_Term.html#Term" coords="528,2624,838,2666" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_Time.tmp#Time" href="CEM-XML_xsd_Element_cem_Time.html#Time" coords="528,2719,838,2761" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_TransportationNetwork.tmp#TransportationNetwork" href="bee23984-e8a3-4b2b-a655-74a2042d4769.html#TransportationNetwork" coords="528,2801,838,2843" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_Vehicle.tmp#Vehicle" href="CEM-XML_xsd_Element_cem_Vehicle.html#Vehicle" coords="528,2896,838,2938" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_Weapon.tmp#Weapon" href="CEM-XML_xsd_Element_cem_Weapon.html#Weapon" coords="528,2991,838,3033" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_Group_cem_DescriptiveElementsGroup.tmp#DescriptiveElementsGroup" href="d7992193-8eed-4f32-b6cb-84ccd630e175.html#DescriptiveElementsGroup" coords="446,196,680,222" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Complex_Type_cem_DescriptiveElementType.tmp#DescriptiveElementType" href="14ceb208-a4b0-49b6-ab04-c8587774a83f.html#DescriptiveElementType" coords="361,5,675,45" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Element_cem_CityName.tmp#CityName_category" href="CEM-XML_xsd_Element_cem_CityName.html#CityName_category" coords="372,3182,641,3224" shape="rect"></area>
+                                 <area alt="CEM-XML_xsd_Attribute_Group_cem_CoordinatesAttributeGroup.tmp#CoordinatesAttributeGroup" href="d39fe325-964b-4eec-9110-acf6295e5b61.html#CoordinatesAttributeGroup" coords="375,3267,610,3293" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">extension of <b>
+                              <a href="14ceb208-a4b0-49b6-ab04-c8587774a83f.html#DescriptiveElementType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:DescriptiveElementType')" shape="rect">cem:DescriptiveElementType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type hierarchy</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <ul class="internal">
+                              <li class="internal">
+                                 <b>
+                                    <a href="14ceb208-a4b0-49b6-ab04-c8587774a83f.html#DescriptiveElementType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:DescriptiveElementType')" shape="rect">cem:DescriptiveElementType</a>
+                                 </b>
+                              </li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_CityName" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_CityName');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_CityName" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_CityName" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_CityName');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_CityName" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Element Group </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="d7992193-8eed-4f32-b6cb-84ccd630e175.html#DescriptiveElementsGroup" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:DescriptiveElementsGroup')" shape="rect">cem:DescriptiveElementsGroup</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_CityName" type="image" src="img/btM.gif" value="-" onclick="switchState('model_CityName');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_CityName" style="display:block">
+                              <b>
+                                 <a href="CEM-XML_xsd_Element_cem_Account.html#Account" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Account{0,1}')" shape="rect">cem:Account{0,1}</a>
+                              </b> | <b>
+                                 <a href="CEM-XML_xsd_Element_cem_BEnumber.html#BEnumber" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:BEnumber{0,1}')" shape="rect">cem:BEnumber{0,1}</a>
+                              </b> | <b>
+                                 <a href="CEM-XML_xsd_Element_cem_CommData.html#CommData" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CommData{0,1}')" shape="rect">cem:CommData{0,1}</a>
+                              </b> | <b>
+                                 <a href="CEM-XML_xsd_Element_cem_CityName.html#CityName" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CityName{0,1}')" shape="rect">cem:CityName{0,1}</a>
+                              </b> | <b>
+                                 <a href="CEM-XML_xsd_Element_cem_Commodity.html#Commodity" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Commodity{0,1}')" shape="rect">cem:Commodity{0,1}</a>
+                              </b> | <b>
+                                 <a href="CEM-XML_xsd_Element_cem_Concept.html#Concept" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Concept{0,1}')" shape="rect">cem:Concept{0,1}</a>
+                              </b> | <b>
+                                 <a href="CEM-XML_xsd_Element_cem_CountryName.html#CountryName" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CountryName{0,1}')" shape="rect">cem:CountryName{0,1}</a>
+                              </b> | <b>
+                                 <a href="CEM-XML_xsd_Element_cem_Date.html#Date" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Date{0,1}')" shape="rect">cem:Date{0,1}</a>
+                              </b> | <b>
+                                 <a href="CEM-XML_xsd_Element_cem_DateTime.html#DateTime" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:DateTime{0,1}')" shape="rect">cem:DateTime{0,1}</a>
+                              </b> | <b>
+                                 <a href="CEM-XML_xsd_Element_cem_Drug.html#Drug" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Drug{0,1}')" shape="rect">cem:Drug{0,1}</a>
+                              </b> | <b>
+                                 <a href="d28d667e-1838-4cee-905f-51ed880e2c63.html#EntityUntyped" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:EntityUntyped{0,1}')" shape="rect">cem:EntityUntyped{0,1}</a>
+                              </b> | <b>
+                                 <a href="CEM-XML_xsd_Element_cem_Equipment.html#Equipment" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Equipment{0,1}')" shape="rect">cem:Equipment{0,1}</a>
+                              </b> | <b>
+                                 <a href="CEM-XML_xsd_Element_cem_Event.html#Event" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Event{0,1}')" shape="rect">cem:Event{0,1}</a>
+                              </b> | <b>
+                                 <a href="CEM-XML_xsd_Element_cem_Facility.html#Facility" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Facility{0,1}')" shape="rect">cem:Facility{0,1}</a>
+                              </b> | <b>
+                                 <a href="CEM-XML_xsd_Element_cem_GeoFeature.html#GeoFeature" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:GeoFeature{0,1}')" shape="rect">cem:GeoFeature{0,1}</a>
+                              </b> | <b>
+                                 <a href="CEM-XML_xsd_Element_cem_GeoRef.html#GeoRef" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:GeoRef{0,1}')" shape="rect">cem:GeoRef{0,1}</a>
+                              </b> | <b>
+                                 <a href="CEM-XML_xsd_Element_cem_Identifier.html#Identifier" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Identifier{0,1}')" shape="rect">cem:Identifier{0,1}</a>
+                              </b> | <b>
+                                 <a href="CEM-XML_xsd_Element_cem_InfoBearer.html#InfoBearer" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:InfoBearer{0,1}')" shape="rect">cem:InfoBearer{0,1}</a>
+                              </b> | <b>
+                                 <a href="80270bd3-940f-4c57-8073-927dbc75eb5f.html#LocationOfInterest" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:LocationOfInterest{0,1}')" shape="rect">cem:LocationOfInterest{0,1}</a>
+                              </b> | <b>
+                                 <a href="78349a48-30d6-43f9-829a-501cce477a73.html#MilitaryUnit" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:MilitaryUnit{0,1}')" shape="rect">cem:MilitaryUnit{0,1}</a>
+                              </b> | <b>
+                                 <a href="CEM-XML_xsd_Element_cem_Money.html#Money" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Money{0,1}')" shape="rect">cem:Money{0,1}</a>
+                              </b> | <b>
+                                 <a href="2fe19478-359f-4c4e-9098-544758e59044.html#Nomenclature" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Nomenclature{0,1}')" shape="rect">cem:Nomenclature{0,1}</a>
+                              </b> | <b>
+                                 <a href="53f54928-541d-4ccf-9e34-b01fe115b88c.html#Organization" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Organization{0,1}')" shape="rect">cem:Organization{0,1}</a>
+                              </b> | <b>
+                                 <a href="CEM-XML_xsd_Element_cem_Person.html#Person" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Person{0,1}')" shape="rect">cem:Person{0,1}</a>
+                              </b> | <b>
+                                 <a href="69bb8ade-3843-4482-b484-5cc05f765559.html#QuantityReference" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:QuantityReference{0,1}')" shape="rect">cem:QuantityReference{0,1}</a>
+                              </b> | <b>
+                                 <a href="CEM-XML_xsd_Element_cem_SystemClass.html#SystemClass" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:SystemClass{0,1}')" shape="rect">cem:SystemClass{0,1}</a>
+                              </b> | <b>
+                                 <a href="CEM-XML_xsd_Element_cem_Term.html#Term" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Term{0,1}')" shape="rect">cem:Term{0,1}</a>
+                              </b> | <b>
+                                 <a href="CEM-XML_xsd_Element_cem_Time.html#Time" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Time{0,1}')" shape="rect">cem:Time{0,1}</a>
+                              </b> | <b>
+                                 <a href="bee23984-e8a3-4b2b-a655-74a2042d4769.html#TransportationNetwork" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:TransportationNetwork{0,1}')" shape="rect">cem:TransportationNetwork{0,1}</a>
+                              </b> | <b>
+                                 <a href="CEM-XML_xsd_Element_cem_Vehicle.html#Vehicle" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Vehicle{0,1}')" shape="rect">cem:Vehicle{0,1}</a>
+                              </b> | <b>
+                                 <a href="CEM-XML_xsd_Element_cem_Weapon.html#Weapon" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Weapon{0,1}')" shape="rect">cem:Weapon{0,1}</a>
+                              </b>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="CEM-XML_xsd_Element_cem_Account.html#Account" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Account')" shape="rect">cem:Account</a>
+                           </b>, <b>
+                              <a href="CEM-XML_xsd_Element_cem_BEnumber.html#BEnumber" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:BEnumber')" shape="rect">cem:BEnumber</a>
+                           </b>, <b>
+                              <a href="CEM-XML_xsd_Element_cem_CityName.html#CityName" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CityName')" shape="rect">cem:CityName</a>
+                           </b>, <b>
+                              <a href="CEM-XML_xsd_Element_cem_CommData.html#CommData" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CommData')" shape="rect">cem:CommData</a>
+                           </b>, <b>
+                              <a href="CEM-XML_xsd_Element_cem_Commodity.html#Commodity" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Commodity')" shape="rect">cem:Commodity</a>
+                           </b>, <b>
+                              <a href="CEM-XML_xsd_Element_cem_Concept.html#Concept" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Concept')" shape="rect">cem:Concept</a>
+                           </b>, <b>
+                              <a href="CEM-XML_xsd_Element_cem_CountryName.html#CountryName" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CountryName')" shape="rect">cem:CountryName</a>
+                           </b>, <b>
+                              <a href="CEM-XML_xsd_Element_cem_Date.html#Date" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Date')" shape="rect">cem:Date</a>
+                           </b>, <b>
+                              <a href="CEM-XML_xsd_Element_cem_DateTime.html#DateTime" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:DateTime')" shape="rect">cem:DateTime</a>
+                           </b>, <b>
+                              <a href="CEM-XML_xsd_Element_cem_Drug.html#Drug" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Drug')" shape="rect">cem:Drug</a>
+                           </b>, <b>
+                              <a href="d28d667e-1838-4cee-905f-51ed880e2c63.html#EntityUntyped" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:EntityUntyped')" shape="rect">cem:EntityUntyped</a>
+                           </b>, <b>
+                              <a href="CEM-XML_xsd_Element_cem_Equipment.html#Equipment" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Equipment')" shape="rect">cem:Equipment</a>
+                           </b>, <b>
+                              <a href="CEM-XML_xsd_Element_cem_Event.html#Event" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Event')" shape="rect">cem:Event</a>
+                           </b>, <b>
+                              <a href="CEM-XML_xsd_Element_cem_Facility.html#Facility" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Facility')" shape="rect">cem:Facility</a>
+                           </b>, <b>
+                              <a href="CEM-XML_xsd_Element_cem_GeoFeature.html#GeoFeature" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:GeoFeature')" shape="rect">cem:GeoFeature</a>
+                           </b>, <b>
+                              <a href="CEM-XML_xsd_Element_cem_GeoRef.html#GeoRef" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:GeoRef')" shape="rect">cem:GeoRef</a>
+                           </b>, <b>
+                              <a href="CEM-XML_xsd_Element_cem_Identifier.html#Identifier" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Identifier')" shape="rect">cem:Identifier</a>
+                           </b>, <b>
+                              <a href="CEM-XML_xsd_Element_cem_InfoBearer.html#InfoBearer" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:InfoBearer')" shape="rect">cem:InfoBearer</a>
+                           </b>, <b>
+                              <a href="80270bd3-940f-4c57-8073-927dbc75eb5f.html#LocationOfInterest" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:LocationOfInterest')" shape="rect">cem:LocationOfInterest</a>
+                           </b>, <b>
+                              <a href="78349a48-30d6-43f9-829a-501cce477a73.html#MilitaryUnit" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:MilitaryUnit')" shape="rect">cem:MilitaryUnit</a>
+                           </b>, <b>
+                              <a href="CEM-XML_xsd_Element_cem_Money.html#Money" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Money')" shape="rect">cem:Money</a>
+                           </b>, <b>
+                              <a href="2fe19478-359f-4c4e-9098-544758e59044.html#Nomenclature" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Nomenclature')" shape="rect">cem:Nomenclature</a>
+                           </b>, <b>
+                              <a href="53f54928-541d-4ccf-9e34-b01fe115b88c.html#Organization" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Organization')" shape="rect">cem:Organization</a>
+                           </b>, <b>
+                              <a href="CEM-XML_xsd_Element_cem_Person.html#Person" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Person')" shape="rect">cem:Person</a>
+                           </b>, <b>
+                              <a href="69bb8ade-3843-4482-b484-5cc05f765559.html#QuantityReference" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:QuantityReference')" shape="rect">cem:QuantityReference</a>
+                           </b>, <b>
+                              <a href="CEM-XML_xsd_Element_cem_SystemClass.html#SystemClass" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:SystemClass')" shape="rect">cem:SystemClass</a>
+                           </b>, <b>
+                              <a href="CEM-XML_xsd_Element_cem_Term.html#Term" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Term')" shape="rect">cem:Term</a>
+                           </b>, <b>
+                              <a href="CEM-XML_xsd_Element_cem_Time.html#Time" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Time')" shape="rect">cem:Time</a>
+                           </b>, <b>
+                              <a href="bee23984-e8a3-4b2b-a655-74a2042d4769.html#TransportationNetwork" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:TransportationNetwork')" shape="rect">cem:TransportationNetwork</a>
+                           </b>, <b>
+                              <a href="CEM-XML_xsd_Element_cem_Vehicle.html#Vehicle" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Vehicle')" shape="rect">cem:Vehicle</a>
+                           </b>, <b>
+                              <a href="CEM-XML_xsd_Element_cem_Weapon.html#Weapon" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Weapon')" shape="rect">cem:Weapon</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Instance</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_instance_CityName" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_CityName');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="instance_CityName" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;cem:CityName</span><span class="tT"> </span><span class="tAN">cem:category=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:decimalDegreeCoordinates=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">xmlns:cem=</span><span class="tAV">"urn:us:gov:ic:cem"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:Account</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:Account&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:BEnumber</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:BEnumber&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:CommData</span><span class="tT"> </span><span class="tAN">cem:commDataNormalized=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:commDataType=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:serviceProvider=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:CommData&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:CityName</span><span class="tT"> </span><span class="tAN">cem:category=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:decimalDegreeCoordinates=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:CityName&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:Commodity</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:Commodity&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:Concept</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:Concept&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:CountryName</span><span class="tT"> </span><span class="tAN">cem:countryCode=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:countryCodeVocabulary=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:decimalDegreeCoordinates=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:CountryName&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:Date</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:normalizedDate=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:Date&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:DateTime</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:normalizedDateTime=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:DateTime&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:Drug</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:Drug&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:EntityUntyped</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:EntityUntyped&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:Equipment</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:Equipment&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:Event</span><span class="tT"> </span><span class="tAN">cem:dateTime=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:dateTimeRange=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:location=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:posList=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:Event&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:Facility</span><span class="tT"> </span><span class="tAN">cem:BEnumber=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:categoryCode=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:decimalDegreeCoordinates=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:geographicReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:Osuffix=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:posList=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:Facility&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:GeoFeature</span><span class="tT"> </span><span class="tAN">cem:decimalDegreeCoordinates=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:geoFeatureType=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:GeoFeature&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:GeoRef</span><span class="tT"> </span><span class="tAN">cem:decimalDegreeCoordinates=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:posList=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:referenceType=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:GeoRef&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:Identifier</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:identifierType=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:Identifier&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:InfoBearer</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:identifierType=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:InfoBearer&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:LocationOfInterest</span><span class="tT"> </span><span class="tAN">cem:decimalDegreeCoordinates=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:LocationOfInterest&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:MilitaryUnit</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:MilitaryUnit&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:Money</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:Money&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:Nomenclature</span><span class="tT"> </span><span class="tAN">cem:alias=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:vocabulary=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:Nomenclature&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:Organization</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:Organization&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:Person</span><span class="tT"> </span><span class="tAN">cem:format=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:givenName=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:honorific=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:KTC=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:nickname=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:phonetic=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:position=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:rank=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:surname=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:Person&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:QuantityReference</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:normalizedQuantity=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:unitOfMeasure=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:unitOfMeasureVocabulary=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:QuantityReference&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:SystemClass</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:SystemClass&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:Term</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:termDefinition=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:termType=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:vocabulary=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:Term&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:Time</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:normalizedTime=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:Time&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:TransportationNetwork</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:TransportationNetwork&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:Vehicle</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:Vehicle&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cem:Weapon</span><span class="tT"> </span><span class="tAN">cem:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:IDReference=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:qualifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">cem:styleType=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cem:Weapon&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/cem:CityName&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Attributes</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_attributes_CityName" type="image" src="img/btM.gif" value="-" onclick="switchState('attributes_CityName');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="attributes_CityName" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th rowspan="1" colspan="1">QName</th>
+                                       <th width="10%" rowspan="1" colspan="1">Type</th>
+                                       <th width="5%" rowspan="1" colspan="1">Use</th>
+                                       <th width="100%" rowspan="1" colspan="1">Annotation</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="ed338cc2-fa85-4d76-9a2f-9361f16c4100.html#CommonAttributesGroup_IDReference" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:IDReference')" shape="rect">cem:IDReference</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>xsd:IDREFS</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">
+                                          
+                                          <p> A cross-reference to a unique
+                                             identifier used to point from one element to one or more other elements. The value
+                                             of
+                                             the attribute must be one or more XML unique identifiers that are the value(s) of
+                                             id
+                                             attribute(s) elsewhere in the document. </p>
+                                          </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="CEM-XML_xsd_Element_cem_CityName.html#CityName_category" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:category')" shape="rect">cem:category</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="860fbf5d-53a5-4c6f-9550-eb79341ab9ba.html#CVEnumCemCityCategory" target="mainFrame" title="urn:us:gov:ic:cvenum:cemxml:citycategory" onclick="updatePageTitle('Schema documentation for component CVEnumCemCityCategory')" shape="rect">CVEnumCemCityCategory</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">
+                                          
+                                          <p>The category type of the city.</p>
+                                          </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="d39fe325-964b-4eec-9110-acf6295e5b61.html#CoordinatesAttributeGroup_decimalDegreeCoordinates" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:decimalDegreeCoordinates')" shape="rect">cem:decimalDegreeCoordinates</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="277356fa-8c6a-44e1-9bb8-f03a106f4268.html#decimalDegreeCoordinatesType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:decimalDegreeCoordinatesType')" shape="rect">cem:decimalDegreeCoordinatesType</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">
+                                          
+                                          <p>Expresses location using latitude and longitude geographic coordinates as decimal
+                                             fractions.</p>
+                                          </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="ed338cc2-fa85-4d76-9a2f-9361f16c4100.html#CommonAttributesGroup_id" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:id')" shape="rect">cem:id</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>xsd:ID</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">
+                                          
+                                          <p> A unique XML identifier used to
+                                             assign an XML unique identifier to an element, such as a paragraph, note or table.
+                                             </p>
+                                          </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="ed338cc2-fa85-4d76-9a2f-9361f16c4100.html#CommonAttributesGroup_qualifier" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:qualifier')" shape="rect">cem:qualifier</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>xsd:string</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">
+                                          
+                                          <p> A user-defined property within an
+                                             element for general purpose processing used with block objects to provide supplemental
+                                             information over and above that conveyed by the element name. This attribute is
+                                             analogous to HTML's "class" attribute. </p>
+                                          </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="ed338cc2-fa85-4d76-9a2f-9361f16c4100.html#CommonAttributesGroup_styleType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:styleType')" shape="rect">cem:styleType</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>xsd:string</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">
+                                          
+                                          <p> A user-defined property within an
+                                             element for representing the formatting/style to be applied. </p>
+                                          </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_CityName" type="image" src="img/btM.gif" value="-" onclick="switchState('source_CityName');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_CityName" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"CityName"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tAN"> xml:lang=</span><span class="tAV">"en"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The name of a population center when used as a geographic location.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:complexType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:complexContent</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:extension</span><span class="tAN"> base=</span><span class="tAV">"cem:DescriptiveElementType"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:attributeGroup</span><span class="tAN"> ref=</span><span class="tAV">"virt:OptionalResourceLinkAttributesGroup"</span><span class="tEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"category"</span><span class="tAN"> type=</span><span class="tAV">"cemcitcat:CVEnumCemCityCategory"</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xsd:documentation</span><span class="tAN"> xml:lang=</span><span class="tAV">"en"</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The category type of the city.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:attribute&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:attributeGroup</span><span class="tAN"> ref=</span><span class="tAV">"cem:CoordinatesAttributeGroup"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:extension&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:complexContent&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:complexType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/CEM/CEM-XML.xsd">CEM-XML.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="CityName_category" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Attribute <span class="qname">
+            <b>
+               <a href="CEM-XML_xsd_Element_cem_CityName.html#CityName" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CityName')" shape="rect">cem:CityName</a>
+            </b> / @cem:category</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:cem</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_CityName_category" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_CityName_category');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_CityName_category" style="display:block">
+                              <div class="annotation">
+                                 
+                                 <p>The category type of the city.</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="860fbf5d-53a5-4c6f-9550-eb79341ab9ba.html#CVEnumCemCityCategory" target="mainFrame" title="urn:us:gov:ic:cvenum:cemxml:citycategory" onclick="updatePageTitle('Schema documentation for component CVEnumCemCityCategory')" shape="rect">CVEnumCemCityCategory</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_CityName_category" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_CityName_category');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_CityName_category" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Facets</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_facets_CityName_category" type="image" src="img/btM.gif" value="-" onclick="switchState('facets_CityName_category');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="facets_CityName_category" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>POPCTR</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Population Center</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>METROAREA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Metropolitan Area</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>MAJORCITY</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">A major city; has worldwide reputation</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>NATCAP</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">National Capital</div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_CityName_category" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_CityName_category');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_CityName_category" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Element </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="CEM-XML_xsd_Element_cem_CityName.html#CityName" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CityName')" shape="rect">cem:CityName</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_CityName_category" type="image" src="img/btM.gif" value="-" onclick="switchState('source_CityName_category');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_CityName_category" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"category"</span><span class="tAN"> type=</span><span class="tAV">"cemcitcat:CVEnumCemCityCategory"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tAN"> xml:lang=</span><span class="tAV">"en"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The category type of the city.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/CEM/CEM-XML.xsd">CEM-XML.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //
+--></script>
+   </body>
+</html>

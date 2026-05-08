@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXAgencyUSA">
+   <define name="CVEnumDOMEXAgencyUSA.cve">
+      <choice>
+         <value>202MI</value>
+         <value>300MI</value>
+         <value>470MI</value>
+         <value>500MI</value>
+         <value>513MI</value>
+         <value>524MI</value>
+         <value>66MI</value>
+         <value>ARMY</value>
+         <value>BIMA</value>
+         <value>INSCOM</value>
+         <value>NGIC</value>
+         <value>RLSP</value>
+      </choice>
+   </define>
+</grammar>

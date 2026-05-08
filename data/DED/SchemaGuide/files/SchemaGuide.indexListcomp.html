@@ -1,0 +1,916 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for </title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                        //
+--></script>
+   </head>
+   <body>
+      <h2>
+         <a id="INDEX" shape="rect">Table of Contents</a>
+      </h2>
+      <p>
+         <a href="SchemaGuide.indexList.html" shape="rect">Components</a>
+         <span> | </span>
+         <a href="schHierarchy.html" shape="rect">Resource Hierarchy</a>
+      </p>
+      <hr></hr>
+      <div class="toc">
+         <form action="none" method="get" enctype="application/x-www-form-urlencoded">
+            <div>
+               <span> Group by: <select id="selectTOC" onchange="selectTOCGroupBy(this.options[this.selectedIndex].value, true, 'SchemaGuide.indexList.html', 'SchemaGuide.indexListns.html', 'SchemaGuide.indexListcomp.html');">
+                     <option value="toc_group_by_namespace">Namespace</option>
+                     <option value="toc_group_by_location">Location</option>
+                     <option value="toc_group_by_component_type" selected="selected">Component Type</option>
+                  </select>
+               </span>
+            </div>
+         </form>
+         <div class="level1" id="toc_group_by_component_type" style="display:block">
+            <div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Main_schema" type="image" value="-" src="img/btM.gif" onclick="switchState('Main_schema');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Main Schema</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Main_schema" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="DED_xsd_Main_schema_DED_xsd.html#DED.xsd" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component DED.xsd')" shape="rect">DED.xsd</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Imported_schema" type="image" value="-" src="img/btM.gif" onclick="switchState('Imported_schema');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Imported Schemas</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Imported_schema" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="f805a716-7ef4-4ed9-a821-e67516ed465c.html#CVEnumUNECE20UnitsOfMeasure.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:unece20:measure" onclick="updatePageTitle('Schema documentation for component CVEnumUNECE20UnitsOfMeasure.xsd')" shape="rect">CVEnumUNECE20UnitsOfMeasure.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="433c4311-ed66-40e5-9b92-32b110af43e6.html#IC-EDH.xsd" target="mainFrame" title="urn:us:gov:ic:edh" onclick="updatePageTitle('Schema documentation for component IC-EDH.xsd')" shape="rect">IC-EDH.xsd</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Element" type="image" value="-" src="img/btM.gif" onclick="switchState('Element');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Elements</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Element" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="DED_xsd_Element_ded_DataElement.html#DataElement" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:DataElement')" shape="rect">ded:DataElement</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="8269b0be-4fba-4569-b35d-90deb40642fd.html#DataElementDictionary" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:DataElementDictionary')" shape="rect">ded:DataElementDictionary</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="DED_xsd_Element_ded_DedHeader.html#DedHeader" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:DedHeader')" shape="rect">ded:DedHeader</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="DED_xsd_Element_ded_DedPoc.html#DedPoc" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:DedPoc')" shape="rect">ded:DedPoc</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="DED_xsd_Element_ded_DedPurpose.html#DedPurpose" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:DedPurpose')" shape="rect">ded:DedPurpose</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="DED_xsd_Element_ded_DedShortName.html#DedShortName" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:DedShortName')" shape="rect">ded:DedShortName</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="DED_xsd_Element_ded_DedSubjectType.html#DedSubjectType" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:DedSubjectType')" shape="rect">ded:DedSubjectType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="DED_xsd_Element_ded_DedTitle.html#DedTitle" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:DedTitle')" shape="rect">ded:DedTitle</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="DED_xsd_Element_ded_DedVersion.html#DedVersion" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:DedVersion')" shape="rect">ded:DedVersion</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="DED_xsd_Element_ded_ElementComment.html#ElementComment" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:ElementComment')" shape="rect">ded:ElementComment</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="DED_xsd_Element_ded_ElementComments.html#ElementComments" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:ElementComments')" shape="rect">ded:ElementComments</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="DED_xsd_Element_ded_ElementDataType.html#ElementDataType" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:ElementDataType')" shape="rect">ded:ElementDataType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="2179773c-3c65-4b48-9e0d-0f46db924fc3.html#ElementDefaultValue" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:ElementDefaultValue')" shape="rect">ded:ElementDefaultValue</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="01b20b1e-c119-49b4-8be4-2dd9433c0d24.html#ElementDefinition" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:ElementDefinition')" shape="rect">ded:ElementDefinition</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="0ae16953-9158-4dfe-9b37-b1a3255c2b01.html#ElementDefinitionSource" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:ElementDefinitionSource')" shape="rect">ded:ElementDefinitionSource</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="DED_xsd_Element_ded_ElementDomain.html#ElementDomain" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:ElementDomain')" shape="rect">ded:ElementDomain</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="DED_xsd_Element_ded_ElementId.html#ElementId" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:ElementId')" shape="rect">ded:ElementId</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="fc8702f1-99fa-4795-8759-cd6353d0786d.html#ElementMultiplicity" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:ElementMultiplicity')" shape="rect">ded:ElementMultiplicity</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="DED_xsd_Element_ded_ElementName.html#ElementName" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:ElementName')" shape="rect">ded:ElementName</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="7392e7f4-2b34-48a8-9af4-0225dc7fda40.html#ElementObjectType" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:ElementObjectType')" shape="rect">ded:ElementObjectType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ceef95d4-09de-467d-bbdf-f4154df52af3.html#ElementObligation" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:ElementObligation')" shape="rect">ded:ElementObligation</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="2f4b3031-9b32-45ef-bf8b-7ce1f22a57c0.html#ElementParentName" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:ElementParentName')" shape="rect">ded:ElementParentName</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="753efb67-3314-4e73-bfc9-d16a44c6ae3a.html#ElementRestriction" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:ElementRestriction')" shape="rect">ded:ElementRestriction</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="7244e627-02a8-41ea-b176-bce589f3b4a0.html#ElementRestrictions" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:ElementRestrictions')" shape="rect">ded:ElementRestrictions</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="181e8b76-9466-4712-9621-853b9b4b3b32.html#ElementUnitOfMeasure" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:ElementUnitOfMeasure')" shape="rect">ded:ElementUnitOfMeasure</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="DED_xsd_Element_ded_Relationship.html#Relationship" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:Relationship')" shape="rect">ded:Relationship</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="d49d172c-c56a-4c28-8eae-2ad0926a0758.html#RelationshipComment" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:RelationshipComment')" shape="rect">ded:RelationshipComment</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="feaa6192-e090-4e9d-9d3f-8c06858c8ed3.html#RelationshipComments" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:RelationshipComments')" shape="rect">ded:RelationshipComments</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="f9727c8b-f8a2-4471-9663-ba8820454c48.html#RelationshipDefinition" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:RelationshipDefinition')" shape="rect">ded:RelationshipDefinition</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="44501de6-9a17-4230-93fb-86f467835587.html#RelationshipDefinitionSource" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:RelationshipDefinitionSource')" shape="rect">ded:RelationshipDefinitionSource</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="DED_xsd_Element_ded_RelationshipId.html#RelationshipId" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:RelationshipId')" shape="rect">ded:RelationshipId</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ad48df51-80b1-49ae-b3f8-b3e2d8da29ec.html#RelationshipLinkADomain" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:RelationshipLinkADomain')" shape="rect">ded:RelationshipLinkADomain</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="4fef47de-5a5e-437b-ad93-c68747135ef1.html#RelationshipLinkAMultiplicity" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:RelationshipLinkAMultiplicity')" shape="rect">ded:RelationshipLinkAMultiplicity</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="5eff84a5-57ad-4a63-85d4-49a2b64975ef.html#RelationshipLinkAName" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:RelationshipLinkAName')" shape="rect">ded:RelationshipLinkAName</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="70bc0908-8f3a-4ef6-b84a-6755227d4292.html#RelationshipLinkBDomain" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:RelationshipLinkBDomain')" shape="rect">ded:RelationshipLinkBDomain</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="1f738f7c-d678-4f73-af0f-9c843e665ed4.html#RelationshipLinkBMultiplicity" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:RelationshipLinkBMultiplicity')" shape="rect">ded:RelationshipLinkBMultiplicity</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="b8c3efe4-663f-44aa-a871-a26c1ffc27cc.html#RelationshipLinkBName" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:RelationshipLinkBName')" shape="rect">ded:RelationshipLinkBName</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="a4a682b7-ad2a-4766-b7ff-e62f1477952a.html#RelationshipName" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:RelationshipName')" shape="rect">ded:RelationshipName</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="7f214d4a-a024-471b-af91-8acd50b591a0.html#AuthorizationReference" target="mainFrame" title="urn:us:gov:ic:edh" onclick="updatePageTitle('Schema documentation for component edh:AuthorizationReference')" shape="rect">edh:AuthorizationReference</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-EDH_xsd_Element_edh_Country.html#Country" target="mainFrame" title="urn:us:gov:ic:edh" onclick="updatePageTitle('Schema documentation for component edh:Country')" shape="rect">edh:Country</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="b74321da-dc58-43f4-9437-063dc620a70c.html#DataItemCreateDateTime" target="mainFrame" title="urn:us:gov:ic:edh" onclick="updatePageTitle('Schema documentation for component edh:DataItemCreateDateTime')" shape="rect">edh:DataItemCreateDateTime</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-EDH_xsd_Element_edh_DataSet.html#DataSet" target="mainFrame" title="urn:us:gov:ic:edh" onclick="updatePageTitle('Schema documentation for component edh:DataSet')" shape="rect">edh:DataSet</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-EDH_xsd_Element_edh_Edh.html#Edh" target="mainFrame" title="urn:us:gov:ic:edh" onclick="updatePageTitle('Schema documentation for component edh:Edh')" shape="rect">edh:Edh</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-EDH_xsd_Element_edh_ExternalEdh.html#ExternalEdh" target="mainFrame" title="urn:us:gov:ic:edh" onclick="updatePageTitle('Schema documentation for component edh:ExternalEdh')" shape="rect">edh:ExternalEdh</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-EDH_xsd_Element_edh_Organization.html#Organization" target="mainFrame" title="urn:us:gov:ic:edh" onclick="updatePageTitle('Schema documentation for component edh:Organization')" shape="rect">edh:Organization</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="46ad4a2f-60de-4faf-a02c-d9349e70fad3.html#ResponsibleEntity" target="mainFrame" title="urn:us:gov:ic:edh" onclick="updatePageTitle('Schema documentation for component edh:ResponsibleEntity')" shape="rect">edh:ResponsibleEntity</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="0b70fb9f-82f3-4638-a2a4-b386d4a8238d.html#SubOrganization" target="mainFrame" title="urn:us:gov:ic:edh" onclick="updatePageTitle('Schema documentation for component edh:SubOrganization')" shape="rect">edh:SubOrganization</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Complex_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('Complex_Type');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Complex Types</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Complex_Type" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="2998a3df-5090-489d-a462-70fa94dd6955.html#DataElementDictionaryType" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:DataElementDictionaryType')" shape="rect">ded:DataElementDictionaryType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="9648c06c-cd21-49af-8c16-2c02dfd5e47c.html#DataElementType" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:DataElementType')" shape="rect">ded:DataElementType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="43125319-73cf-4bcf-85ba-27a4b5003c08.html#DedHeaderType" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:DedHeaderType')" shape="rect">ded:DedHeaderType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="8b7271ad-fe67-4c8a-963a-45285597cf39.html#ElementCommentsType" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:ElementCommentsType')" shape="rect">ded:ElementCommentsType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="a86597da-2b7e-4315-956e-362d7b7d3a6e.html#ElementRestrictionsType" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:ElementRestrictionsType')" shape="rect">ded:ElementRestrictionsType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="a344f143-00e2-4592-9e46-687af6ee4a79.html#LocalIdTokenListSecureType" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:LocalIdTokenListSecureType')" shape="rect">ded:LocalIdTokenListSecureType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="5603e628-0f96-4b8b-97e9-0467f8bd3aaf.html#ObligationType" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:ObligationType')" shape="rect">ded:ObligationType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="718f1f90-3ef7-4d00-9c52-c7119d52d2ab.html#RelationshipCommentsType" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:RelationshipCommentsType')" shape="rect">ded:RelationshipCommentsType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="188024f7-8abb-4f2c-bb1c-2ac144ad1149.html#RelationshipType" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:RelationshipType')" shape="rect">ded:RelationshipType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-EDH_xsd_Complex_Type_edh_EdhType.html#EdhType" target="mainFrame" title="urn:us:gov:ic:edh" onclick="updatePageTitle('Schema documentation for component edh:EdhType')" shape="rect">edh:EdhType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="1bc956c5-264a-4738-b408-25642bbc15c6.html#ResponsibleEntityType" target="mainFrame" title="urn:us:gov:ic:edh" onclick="updatePageTitle('Schema documentation for component edh:ResponsibleEntityType')" shape="rect">edh:ResponsibleEntityType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="0ed0a596-b10f-4efe-962a-242e1a60593f.html#ResponsibleEntityWithRoleType" target="mainFrame" title="urn:us:gov:ic:edh" onclick="updatePageTitle('Schema documentation for component edh:ResponsibleEntityWithRoleType')" shape="rect">edh:ResponsibleEntityWithRoleType</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Simple_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('Simple_Type');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Simple Types</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Simple_Type" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="9e8e4be3-fc3b-4ba8-a80b-848b5c51afb5.html#CVEnumUNECE20UnitsOfMeasure" target="mainFrame" title="urn:us:gov:ic:cvenum:unece20:measure" onclick="updatePageTitle('Schema documentation for component CVEnumUNECE20UnitsOfMeasure')" shape="rect">CVEnumUNECE20UnitsOfMeasure</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="c7a85d60-01da-4420-82b1-1181ddc80b1b.html#LocalIdTokenListType" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:LocalIdTokenListType')" shape="rect">ded:LocalIdTokenListType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="c99ae143-8b47-4ebd-9748-6566d5455bda.html#MultiplicityStringType" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:MultiplicityStringType')" shape="rect">ded:MultiplicityStringType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="f361254b-d17e-4a0f-82b1-e22a0098a749.html#ObligationEnumType" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:ObligationEnumType')" shape="rect">ded:ObligationEnumType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="b45f8373-abdf-4263-99a5-c27cd8a23ab1.html#SubjectTypeType" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:SubjectTypeType')" shape="rect">ded:SubjectTypeType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="26d043f5-834b-45de-bd96-9a660bb91a03.html#AuthorizationReferenceType" target="mainFrame" title="urn:us:gov:ic:edh" onclick="updatePageTitle('Schema documentation for component edh:AuthorizationReferenceType')" shape="rect">edh:AuthorizationReferenceType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="8824c185-1016-40d1-8550-bf0c99a75b5f.html#ResponsibleEntityRoleType" target="mainFrame" title="urn:us:gov:ic:edh" onclick="updatePageTitle('Schema documentation for component edh:ResponsibleEntityRoleType')" shape="rect">edh:ResponsibleEntityRoleType</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Attribute" type="image" value="-" src="img/btM.gif" onclick="switchState('Attribute');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Attributes</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Attribute" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="DED_xsd_Attribute_ded_DESVersion.html#urn_us_gov_ic_ded_DESVersion" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component @ded:DESVersion')" shape="rect">@ded:DESVersion</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-EDH_xsd_Attribute_edh_DESVersion.html#DESVersion" target="mainFrame" title="urn:us:gov:ic:edh" onclick="updatePageTitle('Schema documentation for component @edh:DESVersion')" shape="rect">@edh:DESVersion</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="0ed0a596-b10f-4efe-962a-242e1a60593f.html#ResponsibleEntityWithRoleType_role" target="mainFrame" title="urn:us:gov:ic:edh" onclick="updatePageTitle('Schema documentation for component edh:ResponsibleEntityWithRoleType/@edh:role')" shape="rect">edh:ResponsibleEntityWithRoleType/@edh:role</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Attribute_Group" type="image" value="-" src="img/btM.gif" onclick="switchState('Attribute_Group');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Attribute Groups</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Attribute_Group" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="cd986a1b-8ae0-40c1-b9e0-a653baca49b4.html#RootAttributesGroup" target="mainFrame" title="urn:us:gov:ic:ded" onclick="updatePageTitle('Schema documentation for component ded:RootAttributesGroup')" shape="rect">ded:RootAttributesGroup</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div style="clear:left"></div>
+            </div>
+         </div>
+      </div>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+   </body>
+</html>

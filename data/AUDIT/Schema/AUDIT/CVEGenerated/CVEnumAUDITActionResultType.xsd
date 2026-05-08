@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+            xml:lang="en">
+   <xsd:annotation>
+      <xsd:documentation>
+                    W3C XML Schema fragment encoding types for Controlled vocabulary encodings CVEnumAuditActionResultType. This file is generated so edits should be made to the CVEnumAuditActionResultType the CVE it is based on instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+<!--Generated TYPE DEFINITIONS ..................................-->
+<!--*************************************************************-->
+<xsd:simpleType name="CVEnumAuditActionResultType">
+      <xsd:annotation>
+         <xsd:documentation>(U) All currently authorized action result types.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumAuditActionResultType.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="SUCCESS">
+            <xsd:annotation>
+               <xsd:documentation>The event completed successfully.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FAILURE">
+            <xsd:annotation>
+               <xsd:documentation>The event did not complete successfully.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GRANT">
+            <xsd:annotation>
+               <xsd:documentation>The event was granted permission.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DENY">
+            <xsd:annotation>
+               <xsd:documentation>The event was not granted permission.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

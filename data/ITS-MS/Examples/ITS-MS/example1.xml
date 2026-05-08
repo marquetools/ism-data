@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/IC-EDH/IC-EDH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-ID/IC-ID_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/ITS-MS/ITS-MS_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/USAgency/USAgency_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-TDF/IC-TDF_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- Distro Statement: Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<!-- All classification marks in this example are   
+         for illustrative purposes only, there are no   
+      actual classified data contained in this example -->
+<TrustedDataObject xmlns="urn:us:gov:ic:tdf"
+                   xmlns:tdf="urn:us:gov:ic:tdf"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   tdf:version="202111-IC-TDF.202111"
+                   xsi:schemaLocation="urn:us:gov:ic:its ../../Schema/ITS-MS/ITS-MS.xsd urn:us:gov:ic:tdf ../../Schema/IC-TDF/IC-TDF.xsd">
+  <HandlingAssertion tdf:scope="TDO">
+    <HandlingStatement>
+      <Edh xmlns="urn:us:gov:ic:edh"
+           xmlns:usagency="urn:us:gov:ic:usagency"
+           xmlns:icid="urn:us:gov:ic:id"
+           xmlns:edh="urn:us:gov:ic:edh"
+           xmlns:ism="urn:us:gov:ic:ism"
+           usagency:CESVersion="202207"
+           icid:DESVersion="202111"
+           edh:DESVersion="201903"
+           ism:DESVersion="202111.202211"
+           ism:ISMCATCESVersion="202211">
+        <icid:Identifier>guide://999990/ItsMsInstance</icid:Identifier>
+        <DataItemCreateDateTime>2016-01-08T20:00:00Z</DataItemCreateDateTime>
+        <ResponsibleEntity edh:role="Custodian">
+          <Country>USA</Country>
+          <Organization>USA.DNI</Organization>
+        </ResponsibleEntity>
+        <Security xmlns="urn:us:gov:ic:arh"
+                  ism:compliesWith="USGov USIC"
+                  ism:DESVersion="202111.202211"
+                  ism:ISMCATCESVersion="202211"
+                  ism:resourceElement="true"
+                  ism:createDate="2016-02-21"
+                  ism:classification="U"
+                  ism:ownerProducer="USA" />
+      </Edh>
+    </HandlingStatement>
+  </HandlingAssertion>
+  <HandlingAssertion tdf:scope="PAYL">
+    <HandlingStatement>
+      <Edh xmlns="urn:us:gov:ic:edh"
+           xmlns:ism="urn:us:gov:ic:ism"
+           xmlns:usagency="urn:us:gov:ic:usagency"
+           xmlns:icid="urn:us:gov:ic:id"
+           xmlns:edh="urn:us:gov:ic:edh"
+           ism:ISMCATCESVersion="202211"
+           usagency:CESVersion="202207"
+           icid:DESVersion="202111"
+           edh:DESVersion="201903">
+        <icid:Identifier>guide://999001/00001</icid:Identifier>
+        <DataItemCreateDateTime>2010-10-26T00:00:00Z</DataItemCreateDateTime>
+        <ResponsibleEntity edh:role="Custodian">
+          <Country>USA</Country>
+          <Organization>USA.DNI</Organization>
+        </ResponsibleEntity>
+        <Security xmlns="urn:us:gov:ic:arh"
+                  ism:compliesWith="USGov USIC"
+                  ism:resourceElement="true"
+                  ism:createDate="2011-03-01"
+                  ism:classification="U"
+                  ism:ownerProducer="USA" />
+      </Edh>
+    </HandlingStatement>
+  </HandlingAssertion>
+  <Assertion tdf:scope="TDO">
+    <StatementMetadata>
+      <Security xmlns="urn:us:gov:ic:arh"
+                xmlns:ism="urn:us:gov:ic:ism"
+                ism:compliesWith="USGov USIC"
+                ism:DESVersion="202111.202211"
+                ism:ISMCATCESVersion="202211"
+                ism:resourceElement="true"
+                ism:createDate="2012-07-21"
+                ism:classification="U"
+                ism:ownerProducer="USA" />
+    </StatementMetadata>
+    <StructuredStatement>
+      <its:Its xmlns:its="urn:us:gov:ic:its"
+               xsi:schemaLocation="urn:us:gov:ic:its ../../Schema/ITS-MS/ITS-MS.xsd"
+               DESVersion="201502.201807">
+        <its:MessageId>7874ea40-1a1b-4229-a8e0-d301dbf145ec</its:MessageId>
+        <its:ObjectType>AUDIT</its:ObjectType>
+        <its:Priority>ROUTINE</its:Priority>
+        <its:PublishDateTime>2001-12-17T09:30:47.0Z</its:PublishDateTime>
+        <its:Originator xmlns:ism="urn:us:gov:ic:ism"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">
+          <its:Client ism:classification="U"
+                      ism:ownerProducer="USA">
+            <its:ClientId>nro-ea</its:ClientId>
+          </its:Client>
+          <its:CreateDateTime>2013-03-25T09:30:47.0Z</its:CreateDateTime>
+          <its:OriginatorObjectID ism:classification="U"
+                                  ism:ownerProducer="USA">InternalIDForTheTDO-NRO_12341</its:OriginatorObjectID>
+          <its:POC ism:classification="U"
+                   ism:ownerProducer="USA">String</its:POC>
+        </its:Originator>
+        <its:RecipientList xmlns:ism="urn:us:gov:ic:ism"
+                           ism:classification="U"
+                           ism:ownerProducer="USA">
+          <its:Client ism:classification="U"
+                      ism:ownerProducer="USA">
+            <its:ClientId>nro-ea</its:ClientId>
+          </its:Client>
+        </its:RecipientList>
+        <its:Topic xmlns:ism="urn:us:gov:ic:ism"
+                   ism:classification="U"
+                   ism:ownerProducer="USA">top1</its:Topic>
+        <its:Topic xmlns:ism="urn:us:gov:ic:ism"
+                   ism:classification="U"
+                   ism:ownerProducer="USA">top2</its:Topic>
+        <its:encryptTDO>true</its:encryptTDO>
+        <its:Description xmlns:ism="urn:us:gov:ic:ism"
+                         ism:classification="U"
+                         ism:ownerProducer="USA">TDO only</its:Description>
+        <its:Fabric xmlns:ism="urn:us:gov:ic:ism"
+                    ism:classification="U"
+                    ism:ownerProducer="USA">EA-SCI</its:Fabric>
+      </its:Its>
+    </StructuredStatement>
+  </Assertion>
+  <StringPayload>I am an example payload of an ITS-MS transaction.</StringPayload>
+</TrustedDataObject>

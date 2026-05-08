@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+            xml:lang="en">
+   <xsd:annotation>
+      <xsd:documentation>
+                    W3C XML Schema fragment encoding types for Controlled vocabulary encodings CVEnumAuditActionType. This file is generated so edits should be made to the CVEnumAuditActionType the CVE it is based on instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+<!--Generated TYPE DEFINITIONS ..................................-->
+<!--*************************************************************-->
+<xsd:simpleType name="CVEnumAuditActionType">
+      <xsd:annotation>
+         <xsd:documentation>(U) All currently authorized action types.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumAuditActionType.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="ADD">
+            <xsd:annotation>
+               <xsd:documentation>Append an instance or instances of a payload object at the end of the collection or list.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ACTIVATE">
+            <xsd:annotation>
+               <xsd:documentation>Activate state or resource(s).</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CLEAR">
+            <xsd:annotation>
+               <xsd:documentation>Delete all the element *values* in a payload object but not deleting the object.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CREATE">
+            <xsd:annotation>
+               <xsd:documentation>Create a NEW instance or instances of a payload object.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DEACTIVATE">
+            <xsd:annotation>
+               <xsd:documentation>Deactivate state or resource(s).</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DELETE">
+            <xsd:annotation>
+               <xsd:documentation>Delete an instance or instances of a payload object.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="EXECUTE">
+            <xsd:annotation>
+               <xsd:documentation>Execute an instance or instances of a payload object.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="INSERT">
+            <xsd:annotation>
+               <xsd:documentation>Insert an instance or instances of a payload object into a collection or list.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MOVE">
+            <xsd:annotation>
+               <xsd:documentation>Relocate a payload object from one location to another.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="READ">
+            <xsd:annotation>
+               <xsd:documentation>Initiate a payload object read. .</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="RETRIEVE">
+            <xsd:annotation>
+               <xsd:documentation>Get (or access) an instance or instances of a resource(s).</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="REMOVE">
+            <xsd:annotation>
+               <xsd:documentation>Remove, but not delete, the resource(s).</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SET">
+            <xsd:annotation>
+               <xsd:documentation>Change the information, but does not save it.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SAVE">
+            <xsd:annotation>
+               <xsd:documentation>Save an instance or instances of a payload object.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ACCESS_DECISION">
+            <xsd:annotation>
+               <xsd:documentation>Assert using a policy evaluation "engine" which applies security policy based on various inputs (e.g., the target resource, the action request, the requestor's identity, etc.) and authorization queries</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="AUTHENTICATE">
+            <xsd:annotation>
+               <xsd:documentation>Verify the identity of a person or non-person entity.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="EXECUTE_PRIVILEDGED_COMMAND">
+            <xsd:annotation>
+               <xsd:documentation>Execute a person or non-person entity command for a higher level of trust that current operating state of that person or non-person entity.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="EXPORT">
+            <xsd:annotation>
+               <xsd:documentation>Export of data to a file on share.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LOAD">
+            <xsd:annotation>
+               <xsd:documentation>Import data or configuration information from a payload object.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LOCK">
+            <xsd:annotation>
+               <xsd:documentation>Restrict access to a payload object by only allowing one user or process access at any specific time.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LOGIN">
+            <xsd:annotation>
+               <xsd:documentation>Connect to the computer OS or application, which typically requires entry of a user ID and password into a computer terminal or PKI Certificate for an application.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LOGOUT">
+            <xsd:annotation>
+               <xsd:documentation>Disconnect from the computer OS or application.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MODIFY">
+            <xsd:annotation>
+               <xsd:documentation>Export data to a  payload object.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PRINT">
+            <xsd:annotation>
+               <xsd:documentation>Print an object to a device (printer) or file.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="STARTUP">
+            <xsd:annotation>
+               <xsd:documentation>Initiate an application specific event.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SHUTDOWN">
+            <xsd:annotation>
+               <xsd:documentation>Shutdown the OS or an application.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="UNLOCK">
+            <xsd:annotation>
+               <xsd:documentation>Remove the restricted access to a payload object.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="RESTART">
+            <xsd:annotation>
+               <xsd:documentation>Reboot the OS or an application, which is to shutdown the system with the intention of immediately restoring it.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

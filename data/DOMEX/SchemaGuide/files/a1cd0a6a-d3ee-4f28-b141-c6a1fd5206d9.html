@@ -1,0 +1,1974 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for component cr:origTitle</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        var propertiesBoxes= new Array('properties_CalendarEventType_origTitle', 
+				'properties_CalendarEventType_transTitle', 
+				'properties_CalendarEventType_origMessText', 
+				'properties_CalendarEventType_transMessText', 
+				'properties_CalendarEventType_eventLocation', 
+				'properties_CalendarEventType_startDateTime', 
+				'properties_CalendarEventType_endDateTime', 
+				'properties_CalendarEventType_isReoccuring');
+var usedByBoxes= new Array('usedBy_CalendarEventType');
+var sourceBoxes= new Array('source_CalendarEventType_origTitle', 
+				'source_CalendarEventType_transTitle', 
+				'source_CalendarEventType_origMessText', 
+				'source_CalendarEventType_transMessText', 
+				'source_CalendarEventType_eventLocation', 
+				'source_CalendarEventType_startDateTime', 
+				'source_CalendarEventType_endDateTime', 
+				'source_CalendarEventType_isReoccuring', 
+				'source_CalendarEventType');
+var instanceBoxes= new Array('instance_CalendarEventType_eventLocation');
+var diagramBoxes= new Array('diagram_CalendarEventType_origTitle', 
+				'diagram_CalendarEventType_transTitle', 
+				'diagram_CalendarEventType_origMessText', 
+				'diagram_CalendarEventType_transMessText', 
+				'diagram_CalendarEventType_eventLocation', 
+				'diagram_CalendarEventType_startDateTime', 
+				'diagram_CalendarEventType_endDateTime', 
+				'diagram_CalendarEventType_isReoccuring', 
+				'diagram_CalendarEventType');
+var annotationBoxes= new Array('annotations_CalendarEventType_origTitle', 
+				'annotations_CalendarEventType_transTitle', 
+				'annotations_CalendarEventType_origMessText', 
+				'annotations_CalendarEventType_transMessText', 
+				'annotations_CalendarEventType_eventLocation', 
+				'annotations_CalendarEventType_startDateTime', 
+				'annotations_CalendarEventType_endDateTime', 
+				'annotations_CalendarEventType_isReoccuring');
+var attributesBoxes= new Array('attributes_CalendarEventType_startDateTime', 
+				'attributes_CalendarEventType_endDateTime');
+var modelBoxes= new Array('model_CalendarEventType_eventLocation', 
+				'model_CalendarEventType');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //
+--></script>
+   </head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_content" rowspan="1" colspan="1">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, annotationBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Annotations</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, attributesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Attributes </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Diagrams</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, instanceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Instances</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Model </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Properties </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Source</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Used by </span>
+                        </td>
+                     </tr>
+                  </table>
+                  <div align="right">
+                     <span>
+                        <input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close"></input>
+                     </span>
+                  </div>
+               </td>
+               <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+            </tr>
+         </table>
+      </div>
+      <a id="CalendarEventType_origTitle" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:CalendarEventType')" shape="rect">cr:CalendarEventType</a>
+            </b> / cr:origTitle</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_CalendarEventType_origTitle" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_CalendarEventType_origTitle');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_CalendarEventType_origTitle" style="display:block">
+                              <div class="annotation"> Original title of the calendar event; may be in non-English
+                                 						form. </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_CalendarEventType_origTitle" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_CalendarEventType_origTitle');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_CalendarEventType_origTitle" style="display:block">
+                              <img alt="Diagram" border="0" src="img/63688056-9da9-43f4-b929-7e6b6af59ea6.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_CalendarEventType_origTitle" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_CalendarEventType_origTitle');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_CalendarEventType_origTitle" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_CalendarEventType_origTitle" type="image" src="img/btM.gif" value="-" onclick="switchState('source_CalendarEventType_origTitle');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_CalendarEventType_origTitle" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"origTitle"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Original title of the calendar event; may be in non-English form.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="CalendarEventType_transTitle" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:CalendarEventType')" shape="rect">cr:CalendarEventType</a>
+            </b> / cr:transTitle</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_CalendarEventType_transTitle" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_CalendarEventType_transTitle');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_CalendarEventType_transTitle" style="display:block">
+                              <div class="annotation"> Translation of the original event title. </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_CalendarEventType_transTitle" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_CalendarEventType_transTitle');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_CalendarEventType_transTitle" style="display:block">
+                              <img alt="Diagram" border="0" src="img/b1bc98de-f003-4332-8982-72f9e2cb13d6.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_CalendarEventType_transTitle" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_CalendarEventType_transTitle');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_CalendarEventType_transTitle" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_CalendarEventType_transTitle" type="image" src="img/btM.gif" value="-" onclick="switchState('source_CalendarEventType_transTitle');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_CalendarEventType_transTitle" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"transTitle"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Translation of the original event title.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="CalendarEventType_origMessText" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:CalendarEventType')" shape="rect">cr:CalendarEventType</a>
+            </b> / cr:origMessText</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_CalendarEventType_origMessText" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_CalendarEventType_origMessText');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_CalendarEventType_origMessText" style="display:block">
+                              <div class="annotation"> Original text describing the calendar event; may be in
+                                 						non-English form. </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_CalendarEventType_origMessText" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_CalendarEventType_origMessText');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_CalendarEventType_origMessText" style="display:block">
+                              <img alt="Diagram" border="0" src="img/a0d50346-41c8-4af8-b28a-8c35135ed875.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_CalendarEventType_origMessText" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_CalendarEventType_origMessText');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_CalendarEventType_origMessText" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_CalendarEventType_origMessText" type="image" src="img/btM.gif" value="-" onclick="switchState('source_CalendarEventType_origMessText');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_CalendarEventType_origMessText" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"origMessText"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Original text describing the calendar event; may be in non-English form.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="CalendarEventType_transMessText" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:CalendarEventType')" shape="rect">cr:CalendarEventType</a>
+            </b> / cr:transMessText</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_CalendarEventType_transMessText" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_CalendarEventType_transMessText');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_CalendarEventType_transMessText" style="display:block">
+                              <div class="annotation"> Translation of the original calendar event description text.
+                                 					</div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_CalendarEventType_transMessText" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_CalendarEventType_transMessText');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_CalendarEventType_transMessText" style="display:block">
+                              <img alt="Diagram" border="0" src="img/1d48bb43-e9ca-4217-95a4-c4a5aa51c9d3.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_CalendarEventType_transMessText" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_CalendarEventType_transMessText');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_CalendarEventType_transMessText" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_CalendarEventType_transMessText" type="image" src="img/btM.gif" value="-" onclick="switchState('source_CalendarEventType_transMessText');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_CalendarEventType_transMessText" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"transMessText"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Translation of the original calendar event description text.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="CalendarEventType_eventLocation" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:CalendarEventType')" shape="rect">cr:CalendarEventType</a>
+            </b> / cr:eventLocation</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_CalendarEventType_eventLocation" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_CalendarEventType_eventLocation');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_CalendarEventType_eventLocation" style="display:block">
+                              <div class="annotation"> Location of the calendar event. Locations include GPS
+                                 						WayPoints, Latitude/Longitude, and Military Grid Reference System (MGRS).
+                                 					</div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_CalendarEventType_eventLocation" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_CalendarEventType_eventLocation');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_CalendarEventType_eventLocation" style="display:block">
+                              <img alt="Diagram" border="0" src="img/ee92ed95-bf95-4fbf-94b4-ed4c8c4894f7.png" usemap="#CellexReport_xsd_Element_cr_eventLocation"></img>
+                              <map name="CellexReport_xsd_Element_cr_eventLocation" id="CellexReport_xsd_Element_cr_eventLocation">
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_LocationType.tmp#LocationType_isGPSWayPoint" href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_isGPSWayPoint" coords="242,40,357,64" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_LocationType.tmp#LocationType_wayPointName" href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_wayPointName" coords="242,104,356,128" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_LocationType.tmp#LocationType_lastSelectedDtg" href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_lastSelectedDtg" coords="242,168,362,192" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_LocationType.tmp#LocationType_rawLatitude" href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_rawLatitude" coords="242,232,339,256" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_LocationType.tmp#LocationType_rawLongitude" href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_rawLongitude" coords="242,296,349,320" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_LocationType.tmp#LocationType_normalizedLatitude" href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_normalizedLatitude" coords="242,360,380,384" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_LocationType.tmp#LocationType_normalizedLongitude" href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_normalizedLongitude" coords="242,424,390,448" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_LocationType.tmp#LocationType_rawMGRS" href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_rawMGRS" coords="242,488,327,512" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_LocationType.tmp#LocationType_normalizedMGRS" href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_normalizedMGRS" coords="242,565,368,589" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_LocationType.tmp#LocationType" href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType" coords="160,3,300,25" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:LocationType')" shape="rect">cr:LocationType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_CalendarEventType_eventLocation" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_CalendarEventType_eventLocation');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_CalendarEventType_eventLocation" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_CalendarEventType_eventLocation" type="image" src="img/btM.gif" value="-" onclick="switchState('model_CalendarEventType_eventLocation');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_CalendarEventType_eventLocation" style="display:block">ALL(<b>
+                                 <a href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_isGPSWayPoint" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:isGPSWayPoint{0,1}')" shape="rect">cr:isGPSWayPoint{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_wayPointName" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:wayPointName{0,1}')" shape="rect">cr:wayPointName{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_lastSelectedDtg" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:lastSelectedDtg{0,1}')" shape="rect">cr:lastSelectedDtg{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_rawLatitude" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:rawLatitude{0,1}')" shape="rect">cr:rawLatitude{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_rawLongitude" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:rawLongitude{0,1}')" shape="rect">cr:rawLongitude{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_normalizedLatitude" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:normalizedLatitude{0,1}')" shape="rect">cr:normalizedLatitude{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_normalizedLongitude" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:normalizedLongitude{0,1}')" shape="rect">cr:normalizedLongitude{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_rawMGRS" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:rawMGRS{0,1}')" shape="rect">cr:rawMGRS{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_normalizedMGRS" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:normalizedMGRS{0,1}')" shape="rect">cr:normalizedMGRS{0,1}</a>
+                              </b>)</div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_isGPSWayPoint" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:isGPSWayPoint')" shape="rect">cr:isGPSWayPoint</a>
+                           </b>, <b>
+                              <a href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_lastSelectedDtg" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:lastSelectedDtg')" shape="rect">cr:lastSelectedDtg</a>
+                           </b>, <b>
+                              <a href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_normalizedLatitude" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:normalizedLatitude')" shape="rect">cr:normalizedLatitude</a>
+                           </b>, <b>
+                              <a href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_normalizedLongitude" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:normalizedLongitude')" shape="rect">cr:normalizedLongitude</a>
+                           </b>, <b>
+                              <a href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_normalizedMGRS" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:normalizedMGRS')" shape="rect">cr:normalizedMGRS</a>
+                           </b>, <b>
+                              <a href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_rawLatitude" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:rawLatitude')" shape="rect">cr:rawLatitude</a>
+                           </b>, <b>
+                              <a href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_rawLongitude" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:rawLongitude')" shape="rect">cr:rawLongitude</a>
+                           </b>, <b>
+                              <a href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_rawMGRS" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:rawMGRS')" shape="rect">cr:rawMGRS</a>
+                           </b>, <b>
+                              <a href="84ecbb37-a18f-4d82-9698-cca100aacb92.html#LocationType_wayPointName" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:wayPointName')" shape="rect">cr:wayPointName</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Instance</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_instance_CalendarEventType_eventLocation" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_CalendarEventType_eventLocation');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="instance_CalendarEventType_eventLocation" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;cr:eventLocation</span><span class="tT"> </span><span class="tAN">xmlns:cr=</span><span class="tAV">"urn:CellexReport"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cr:isGPSWayPoint</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cr:isGPSWayPoint&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cr:wayPointName</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cr:wayPointName&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cr:lastSelectedDtg</span><span class="tT"> </span><span class="tAN">normalizedDate=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">normalizedDateTime=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">rawDateTime=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cr:lastSelectedDtg&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cr:rawLatitude</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cr:rawLatitude&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cr:rawLongitude</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cr:rawLongitude&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cr:normalizedLatitude</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cr:normalizedLatitude&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cr:normalizedLongitude</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cr:normalizedLongitude&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cr:rawMGRS</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cr:rawMGRS&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cr:normalizedMGRS</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cr:normalizedMGRS&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/cr:eventLocation&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_CalendarEventType_eventLocation" type="image" src="img/btM.gif" value="-" onclick="switchState('source_CalendarEventType_eventLocation');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_CalendarEventType_eventLocation" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"eventLocation"</span><span class="tAN"> type=</span><span class="tAV">"cr:LocationType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Location of the calendar event. Locations include GPS WayPoints, Latitude/Longitude, and Military Grid Reference System (MGRS).</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="CalendarEventType_startDateTime" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:CalendarEventType')" shape="rect">cr:CalendarEventType</a>
+            </b> / cr:startDateTime</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_CalendarEventType_startDateTime" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_CalendarEventType_startDateTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_CalendarEventType_startDateTime" style="display:block">
+                              <div class="annotation"> Starting time of the calendar event </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_CalendarEventType_startDateTime" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_CalendarEventType_startDateTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_CalendarEventType_startDateTime" style="display:block">
+                              <img alt="Diagram" border="0" src="img/28c16cfa-a715-4fb5-947b-47e5293c59ca.png" usemap="#CellexReport_xsd_Element_cr_startDateTime"></img>
+                              <map name="CellexReport_xsd_Element_cr_startDateTime" id="CellexReport_xsd_Element_cr_startDateTime">
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_NormalizedDateTimeType.tmp#NormalizedDateTimeType_rawDateTime" href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_rawDateTime" coords="188,78,314,102" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_NormalizedDateTimeType.tmp#NormalizedDateTimeType_normalizedDateTime" href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_normalizedDateTime" coords="188,112,355,136" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_NormalizedDateTimeType.tmp#NormalizedDateTimeType_normalizedDate" href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_normalizedDate" coords="188,146,327,170" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_NormalizedDateTimeType.tmp#NormalizedDateTimeType" href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType" coords="163,3,373,25" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:NormalizedDateTimeType')" shape="rect">cr:NormalizedDateTimeType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_CalendarEventType_startDateTime" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_CalendarEventType_startDateTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_CalendarEventType_startDateTime" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Attributes</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_attributes_CalendarEventType_startDateTime" type="image" src="img/btM.gif" value="-" onclick="switchState('attributes_CalendarEventType_startDateTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="attributes_CalendarEventType_startDateTime" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th rowspan="1" colspan="1">QName</th>
+                                       <th width="10%" rowspan="1" colspan="1">Type</th>
+                                       <th width="5%" rowspan="1" colspan="1">Use</th>
+                                       <th width="100%" rowspan="1" colspan="1"></th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_normalizedDate" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component normalizedDate')" shape="rect">normalizedDate</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>xs:date</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_normalizedDateTime" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component normalizedDateTime')" shape="rect">normalizedDateTime</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>xs:dateTime</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_rawDateTime" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component rawDateTime')" shape="rect">rawDateTime</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>xs:string</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">required</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_CalendarEventType_startDateTime" type="image" src="img/btM.gif" value="-" onclick="switchState('source_CalendarEventType_startDateTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_CalendarEventType_startDateTime" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"startDateTime"</span><span class="tAN"> type=</span><span class="tAV">"cr:NormalizedDateTimeType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Starting time of the calendar event</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="CalendarEventType_endDateTime" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:CalendarEventType')" shape="rect">cr:CalendarEventType</a>
+            </b> / cr:endDateTime</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_CalendarEventType_endDateTime" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_CalendarEventType_endDateTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_CalendarEventType_endDateTime" style="display:block">
+                              <div class="annotation"> Ending time of the calendar event </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_CalendarEventType_endDateTime" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_CalendarEventType_endDateTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_CalendarEventType_endDateTime" style="display:block">
+                              <img alt="Diagram" border="0" src="img/1e9f8128-0549-46fb-8068-685f9551210e.png" usemap="#CellexReport_xsd_Element_cr_endDateTime"></img>
+                              <map name="CellexReport_xsd_Element_cr_endDateTime" id="CellexReport_xsd_Element_cr_endDateTime">
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_NormalizedDateTimeType.tmp#NormalizedDateTimeType_rawDateTime" href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_rawDateTime" coords="182,78,308,102" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_NormalizedDateTimeType.tmp#NormalizedDateTimeType_normalizedDateTime" href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_normalizedDateTime" coords="182,112,349,136" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_NormalizedDateTimeType.tmp#NormalizedDateTimeType_normalizedDate" href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_normalizedDate" coords="182,146,321,170" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_NormalizedDateTimeType.tmp#NormalizedDateTimeType" href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType" coords="157,3,367,25" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:NormalizedDateTimeType')" shape="rect">cr:NormalizedDateTimeType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_CalendarEventType_endDateTime" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_CalendarEventType_endDateTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_CalendarEventType_endDateTime" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Attributes</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_attributes_CalendarEventType_endDateTime" type="image" src="img/btM.gif" value="-" onclick="switchState('attributes_CalendarEventType_endDateTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="attributes_CalendarEventType_endDateTime" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th rowspan="1" colspan="1">QName</th>
+                                       <th width="10%" rowspan="1" colspan="1">Type</th>
+                                       <th width="5%" rowspan="1" colspan="1">Use</th>
+                                       <th width="100%" rowspan="1" colspan="1"></th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_normalizedDate" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component normalizedDate')" shape="rect">normalizedDate</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>xs:date</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_normalizedDateTime" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component normalizedDateTime')" shape="rect">normalizedDateTime</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>xs:dateTime</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_rawDateTime" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component rawDateTime')" shape="rect">rawDateTime</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>xs:string</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">required</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_CalendarEventType_endDateTime" type="image" src="img/btM.gif" value="-" onclick="switchState('source_CalendarEventType_endDateTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_CalendarEventType_endDateTime" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"endDateTime"</span><span class="tAN"> type=</span><span class="tAV">"cr:NormalizedDateTimeType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Ending time of the calendar event</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="CalendarEventType_isReoccuring" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:CalendarEventType')" shape="rect">cr:CalendarEventType</a>
+            </b> / cr:isReoccuring</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_CalendarEventType_isReoccuring" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_CalendarEventType_isReoccuring');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_CalendarEventType_isReoccuring" style="display:block">
+                              <div class="annotation"> Boolean Value </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_CalendarEventType_isReoccuring" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_CalendarEventType_isReoccuring');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_CalendarEventType_isReoccuring" style="display:block">
+                              <img alt="Diagram" border="0" src="img/64106bde-851e-4259-af0e-f3444fcc3297.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:boolean</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_CalendarEventType_isReoccuring" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_CalendarEventType_isReoccuring');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_CalendarEventType_isReoccuring" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">default</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>false</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_CalendarEventType_isReoccuring" type="image" src="img/btM.gif" value="-" onclick="switchState('source_CalendarEventType_isReoccuring');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_CalendarEventType_isReoccuring" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"isReoccuring"</span><span class="tAN"> type=</span><span class="tAV">"xs:boolean"</span><span class="tAN"> default=</span><span class="tAV">"false"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Boolean Value</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="CalendarEventType" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Complex Type <span class="qname">cr:CalendarEventType</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_CalendarEventType" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_CalendarEventType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_CalendarEventType" style="display:block">
+                              <img alt="Diagram" border="0" src="img/3e014820-aee7-41ff-aa86-f36f73a9e34c.png" usemap="#CellexReport_xsd_Complex_Type_cr_CalendarEventType"></img>
+                              <map name="CellexReport_xsd_Complex_Type_cr_CalendarEventType" id="CellexReport_xsd_Complex_Type_cr_CalendarEventType">
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_CalendarEventType.tmp#CalendarEventType_origTitle" href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_origTitle" coords="263,0,340,24" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_CalendarEventType.tmp#CalendarEventType_transTitle" href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_transTitle" coords="263,77,348,101" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_CalendarEventType.tmp#CalendarEventType_origMessText" href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_origMessText" coords="263,141,370,165" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_CalendarEventType.tmp#CalendarEventType_transMessText" href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_transMessText" coords="263,218,378,242" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_CalendarEventType.tmp#CalendarEventType_eventLocation" href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_eventLocation" coords="263,282,372,306" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_CalendarEventType.tmp#CalendarEventType_startDateTime" href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_startDateTime" coords="263,372,375,396" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_CalendarEventType.tmp#CalendarEventType_endDateTime" href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_endDateTime" coords="263,436,369,460" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_CalendarEventType.tmp#CalendarEventType_isReoccuring" href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_isReoccuring" coords="263,500,366,524" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_CalendarEventType" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_CalendarEventType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_CalendarEventType" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Element </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="bf5f1de4-b124-439e-89a5-9f8b411ba173.html#CalendarEventsType_calendarEvent" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:CalendarEventsType/cr:calendarEvent')" shape="rect">cr:CalendarEventsType/cr:calendarEvent</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_CalendarEventType" type="image" src="img/btM.gif" value="-" onclick="switchState('model_CalendarEventType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_CalendarEventType" style="display:block">ALL(<b>
+                                 <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_origTitle" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:origTitle{0,1}')" shape="rect">cr:origTitle{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_transTitle" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:transTitle{0,1}')" shape="rect">cr:transTitle{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_origMessText" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:origMessText{0,1}')" shape="rect">cr:origMessText{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_transMessText" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:transMessText{0,1}')" shape="rect">cr:transMessText{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_eventLocation" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:eventLocation{0,1}')" shape="rect">cr:eventLocation{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_startDateTime" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:startDateTime{0,1}')" shape="rect">cr:startDateTime{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_endDateTime" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:endDateTime{0,1}')" shape="rect">cr:endDateTime{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_isReoccuring" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:isReoccuring{0,1}')" shape="rect">cr:isReoccuring{0,1}</a>
+                              </b>)</div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_endDateTime" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:endDateTime')" shape="rect">cr:endDateTime</a>
+                           </b>, <b>
+                              <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_eventLocation" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:eventLocation')" shape="rect">cr:eventLocation</a>
+                           </b>, <b>
+                              <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_isReoccuring" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:isReoccuring')" shape="rect">cr:isReoccuring</a>
+                           </b>, <b>
+                              <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_origMessText" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:origMessText')" shape="rect">cr:origMessText</a>
+                           </b>, <b>
+                              <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_origTitle" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:origTitle')" shape="rect">cr:origTitle</a>
+                           </b>, <b>
+                              <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_startDateTime" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:startDateTime')" shape="rect">cr:startDateTime</a>
+                           </b>, <b>
+                              <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_transMessText" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:transMessText')" shape="rect">cr:transMessText</a>
+                           </b>, <b>
+                              <a href="a1cd0a6a-d3ee-4f28-b141-c6a1fd5206d9.html#CalendarEventType_transTitle" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:transTitle')" shape="rect">cr:transTitle</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_CalendarEventType" type="image" src="img/btM.gif" value="-" onclick="switchState('source_CalendarEventType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_CalendarEventType" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:complexType</span><span class="tAN"> name=</span><span class="tAV">"CalendarEventType"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:all</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"origTitle"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Original title of the calendar event; may be in non-English form.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"transTitle"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Translation of the original event title.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"origMessText"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Original text describing the calendar event; may be in non-English form.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"transMessText"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Translation of the original calendar event description text.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"eventLocation"</span><span class="tAN"> type=</span><span class="tAV">"cr:LocationType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Location of the calendar event. Locations include GPS WayPoints, Latitude/Longitude, and Military Grid Reference System (MGRS).</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"startDateTime"</span><span class="tAN"> type=</span><span class="tAV">"cr:NormalizedDateTimeType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Starting time of the calendar event</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"endDateTime"</span><span class="tAN"> type=</span><span class="tAV">"cr:NormalizedDateTimeType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Ending time of the calendar event</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"isReoccuring"</span><span class="tAN"> type=</span><span class="tAV">"xs:boolean"</span><span class="tAN"> default=</span><span class="tAV">"false"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Boolean Value</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:all&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:complexType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //
+--></script>
+   </body>
+</html>

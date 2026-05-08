@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       --><cve:CVE xmlns:cve="urn:us:gov:ic:cve" xmlns:ism="urn:us:gov:ic:ism" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ism:compliesWith="USGov USIC" ism:ownerProducer="USA" ism:classification="U" ism:DESVersion="202111" ism:ISMCATCESVersion="202205" ism:resourceElement="true" CVEVersion="2" ism:createDate="2011-12-27" xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+
+	<cve:IRM>
+		<URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:domex:CVEnumDOMEXFileType</URN>
+		<Title xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">CVEnumDOMEXFileType</Title>
+		<Description xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">Valid range for legacy file types.</Description>
+
+		<cve:Created>2013-04-01</cve:Created>
+
+		<Source ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">Authoritative source for Legacy File Types</Source>
+		<PointOfContact ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">
+			<Name>DOMEX Metadata Working Group</Name>
+		</PointOfContact>
+	</cve:IRM>
+
+	<!--Legacy File Type-->
+	<cve:Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">OCR</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">OCR Output</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">XT</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Extracted Text</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">SCN</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Scanned Images</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">ELC</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Electronic Files</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">IDX</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Index</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">OTR</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Other</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">MT</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Machine Translation</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">HT</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Human Translation</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">D2CXT</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">D2C Extracted Text</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">MAP</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Map Image</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">PIC</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Photos</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">EE</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Extracted Entity Index</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">VKF</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Video Key Frames</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">DASXML</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">D2C Imported DAS Files</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">PEDREPORT</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">D2C Imported PED Report</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">TSETREPORT</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">D2C Imported TSET Report</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">RPT</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Report Files</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">PHIND</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Phonetic Index</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">STRCP</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Streamable Copy</Description>
+		</Term>
+	</cve:Enumeration>
+	<!-- ****************************************************************    					-->
+	<!--      Formal Change List for DOMEX Module                            					-->
+	<!-- ****************************************************************    					-->
+	<!-- For all changes, provide:																-->
+	<!--     version, date, modified by, and purpose information.            					-->
+	<!-- ******************************************************************* 					-->
+	<!--                                                                                        -->
+	<!--  2014-12-10  Created in response to change request                                     -->
+	<!--              Change Request #532 DOMEX: File Types - Accommodate Legacy Data Stores    -->
+	<!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI                       -->
+	<!--                                                                                        -->
+	<!-- ****************************************************************    					-->
+</cve:CVE>

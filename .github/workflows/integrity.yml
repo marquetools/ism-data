@@ -1,0 +1,88 @@
+name: integrity
+
+# This workflow runs on every change. It establishes that:
+#   1. data/ matches data/_provenance/manifest.txt (no drift between
+#      the bytes on disk and what the manifest claims).
+#   2. data/_provenance/manifest.txt matches data/_provenance/manifest.sha256
+#      (the digest hasn't been tampered with independently of the manifest).
+#   3. The crate compiles with default features (which means build.rs
+#      successfully re-verified everything at consumer compile time).
+#   4. cargo test passes, including the heavyweight verify_full_tree
+#      test that walks all 14k files at runtime.
+#
+# A weekly cron run catches situations where main has been modified
+# externally (history rewrite, GitHub-side issue) since the last PR.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '0 12 * * 1'   # Mondays 12:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  manifest-consistency:
+    name: data/ matches manifest.txt
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify manifest digest matches manifest.sha256
+        run: |
+          set -euo pipefail
+          actual=$(sha256sum data/_provenance/manifest.txt | awk '{print $1}')
+          expected=$(tr -d '[:space:]' < data/_provenance/manifest.sha256)
+          if [ "$actual" != "$expected" ]; then
+            echo "::error::manifest.sha256 ($expected) does not match SHA-256 of manifest.txt ($actual)"
+            exit 1
+          fi
+          echo "OK: manifest digest matches ($actual)"
+
+      - name: Re-derive manifest from data/ and diff
+        run: |
+          set -euo pipefail
+          python3 tools/rederive_manifest.py > /tmp/derived.txt
+          if ! diff -u data/_provenance/manifest.txt /tmp/derived.txt; then
+            echo "::error::data/ does not match data/_provenance/manifest.txt — see diff above. Regenerate manifest with tools/regen_manifest.py before merging."
+            exit 1
+          fi
+          echo "OK: data/ contents match manifest.txt exactly"
+
+      - name: Verify MANIFEST_DIGEST const in lib.rs matches
+        run: |
+          set -euo pipefail
+          expected=$(tr -d '[:space:]' < data/_provenance/manifest.sha256)
+          # Extract the const string from src/lib.rs
+          actual=$(grep -oE 'MANIFEST_DIGEST: &str = "[0-9a-f]{64}"' src/lib.rs | grep -oE '[0-9a-f]{64}')
+          if [ "$actual" != "$expected" ]; then
+            echo "::error::MANIFEST_DIGEST in src/lib.rs ($actual) does not match data/_provenance/manifest.sha256 ($expected)"
+            exit 1
+          fi
+          echo "OK: MANIFEST_DIGEST const matches"
+
+  cargo-test:
+    name: cargo build verifies + tests pass
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: cargo check (runs build.rs verification)
+        run: cargo check --all-features
+
+      - name: cargo test
+        run: cargo test --all-features
+
+      - name: cargo test -- --ignored (full-tree integrity)
+        run: cargo test --all-features -- --ignored
+
+      - name: cargo build with verify-on-build disabled (sanity)
+        # Confirm consumers can opt out cleanly.
+        run: cargo check --no-default-features

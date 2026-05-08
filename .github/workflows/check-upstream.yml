@@ -1,0 +1,106 @@
+name: check-upstream
+
+# Weekly canary that checks whether ODNI has updated any of the
+# standalone schema zips. ODNI publishes new versions every 3-5 years
+# without an obvious feed, so this workflow watches:
+#
+#   - HTTP HEAD on each known zip URL — change in Last-Modified or
+#     Content-Length means the file was re-published
+#   - the standards listing page itself — new zip filenames in <a href>
+#     mean ODNI added a package
+#
+# When changes are detected, the workflow opens (or updates) a tracking
+# issue with the diff so the maintainer can decide whether to re-vendor.
+
+on:
+  schedule:
+    - cron: '0 12 * * 1'    # Mondays 12:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run upstream check
+        id: check
+        # Use a multi-line capture so we get the markdown report into
+        # the GITHUB_OUTPUT for the issue creation step.
+        run: |
+          set -euo pipefail
+          report=$(python3 tools/check_upstream.py)
+          if [ -z "$report" ] || [ "$report" = "No upstream changes detected." ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No changes."
+            exit 0
+          fi
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          {
+            echo 'report<<__END__'
+            echo "$report"
+            echo '__END__'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Open / update tracking issue
+        if: steps.check.outputs.changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const report = `${{ steps.check.outputs.report }}`;
+            const title = 'Possible upstream ODNI update detected';
+            const body = [
+              'The weekly upstream-canary detected changes against',
+              '`tools/upstream_baseline.json`. Review the diff below',
+              'and decide whether to re-vendor.',
+              '',
+              report,
+              '',
+              '---',
+              '',
+              'Re-vendor checklist (see `.github/ISSUE_TEMPLATE/upstream-update.md`):',
+              '- [ ] Download the new zips and verify SHA-256 against any official ODNI hashes',
+              '- [ ] Run consolidation pipeline',
+              '- [ ] Bump `version` in `Cargo.toml` to the new snapshot date',
+              '- [ ] Regenerate `data/`, `manifest.txt`, `manifest.sha256`, `MANIFEST_DIGEST`',
+              '- [ ] Regenerate `provenance.toml` with new zip hashes',
+              '- [ ] Update `tools/upstream_baseline.json` with new Last-Modified/Content-Length',
+              '- [ ] Tag and push a signed release',
+              '- [ ] Bump consumers (Marque) to the new commit SHA',
+            ].join('\n');
+
+            // Look for an existing open canary issue and update it instead of opening a duplicate.
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'upstream-canary',
+              per_page: 5,
+            });
+            if (existing.data.length > 0) {
+              const issue = existing.data[0];
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: `Re-detected upstream change at ${new Date().toISOString()}\n\n${body}`,
+              });
+              console.log(`Updated existing issue #${issue.number}`);
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ['upstream-canary'],
+              });
+              console.log('Opened new tracking issue');
+            }

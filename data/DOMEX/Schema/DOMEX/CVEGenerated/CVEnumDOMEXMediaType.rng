@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXMediaType">
+   <define name="CVEnumDOMEXMediaType.cve">
+      <choice>
+         <value>Unknown</value>
+         <value>Cannot tell</value>
+         <value>Analog audio tape</value>
+         <value>Analog video tape</value>
+         <value>Beta</value>
+         <value>BD</value>
+         <value>CASS</value>
+         <value>CD</value>
+         <value>Cellphone</value>
+         <value>CF</value>
+         <value>DMP</value>
+         <value>DVD</value>
+         <value>DigCam</value>
+         <value>Docs</value>
+         <value>FD</value>
+         <value>FILM</value>
+         <value>GPS</value>
+         <value>HD</value>
+         <value>M2</value>
+         <value>MMC</value>
+         <value>MS</value>
+         <value>MicroSD</value>
+         <value>Other</value>
+         <value>RS-MMC</value>
+         <value>SD</value>
+         <value>SIM</value>
+         <value>Smrtphone</value>
+         <value>Solid state device</value>
+         <value>Source Sensitive</value>
+         <value>TD</value>
+         <value>USB</value>
+         <value>VHS</value>
+         <value>Video Camera</value>
+         <value>VCR</value>
+      </choice>
+   </define>
+</grammar>

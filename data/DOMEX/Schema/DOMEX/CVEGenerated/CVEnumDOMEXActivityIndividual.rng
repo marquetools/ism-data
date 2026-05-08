@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXActivityIndividual">
+   <define name="CVEnumDOMEXActivityIndividual.cve">
+      <choice>
+         <value>Actions</value>
+         <value>Biographic data</value>
+         <value>Biological Weapons</value>
+         <value>Biometric data</value>
+         <value>Chemical Weapons</value>
+         <value>Drug trafficking</value>
+         <value>Explosives</value>
+         <value>Extortion</value>
+         <value>Facilitation</value>
+         <value>FIS</value>
+         <value>Human Trafficking</value>
+         <value>MAMS</value>
+         <value>Martyrdom</value>
+         <value>Non-US Citizen</value>
+         <value>Nuclear Weapons</value>
+         <value>Operations</value>
+         <value>Organization</value>
+         <value>Personal Communications</value>
+         <value>Proof of Life</value>
+         <value>Records</value>
+         <value>Reporting</value>
+         <value>Robbery</value>
+         <value>Training</value>
+         <value>US Person</value>
+      </choice>
+   </define>
+</grammar>

@@ -1,0 +1,1125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:unece20:measure">
+   <define name="CVEnumUNECE20UnitsOfMeasure.cve">
+      <choice>
+         <value>cal₁₅</value>
+         <value>acre</value>
+         <value>A</value>
+         <value>A·h</value>
+         <value>A/cm</value>
+         <value>A/kg</value>
+         <value>A/m</value>
+         <value>A/mm</value>
+         <value>A/cm²</value>
+         <value>A/m²</value>
+         <value>A/(m²·K²)</value>
+         <value>A/mm²</value>
+         <value>A·s</value>
+         <value>A·m²</value>
+         <value>A·m²/(J·s)</value>
+         <value>A²·s</value>
+         <value>Å</value>
+         <value>a</value>
+         <value>ua</value>
+         <value>aF</value>
+         <value>aJ</value>
+         <value>bar</value>
+         <value>bar·m³/s</value>
+         <value>bar·l/s</value>
+         <value>bar/bar</value>
+         <value>bar/K</value>
+         <value>b</value>
+         <value>b/eV</value>
+         <value>b/sr</value>
+         <value>b/(sr·eV)</value>
+         <value>bbl (UK liq.)</value>
+         <value>bbl (UK liq.)/d</value>
+         <value>bbl (UK liq.)/h</value>
+         <value>bbl (UK liq.)/min</value>
+         <value>bbl (UK liq.)/s</value>
+         <value>bbl (US)/h</value>
+         <value>bbl (US)/s</value>
+         <value>barrel (US)</value>
+         <value>barrel (US)/min</value>
+         <value>Bq</value>
+         <value>Bq/m³</value>
+         <value>Bq/kg</value>
+         <value>BHP</value>
+         <value>BtuIT</value>
+         <value>BtuIT·ft/(h·ft²·°F)</value>
+         <value>BtuIT·in/(h·ft²·°F)</value>
+         <value>BtuIT·in/(s·ft²·°F)</value>
+         <value>BtuIT/h</value>
+         <value>BtuIT/(h·ft²·°R)</value>
+         <value>BtuIT/min</value>
+         <value>BtuIT/lb</value>
+         <value>BtuIT/(lb·°F)</value>
+         <value>Btu/IT(lb·°R)</value>
+         <value>BtuIT/s</value>
+         <value>BtuIT/(s·ft·°R)</value>
+         <value>BtuIT/(s·ft²·°R)</value>
+         <value>Btu</value>
+         <value>Btuth·ft/(h·ft²·°F)</value>
+         <value>Btuth·in/(h·ft²·°F)</value>
+         <value>Btuth·in/(s·ft²·°F)</value>
+         <value>Btuth/h</value>
+         <value>Btuth/min</value>
+         <value>Btuth/(lb·°F)</value>
+         <value>Btuth/s</value>
+         <value>bushel (UK)</value>
+         <value>bu (UK)/d</value>
+         <value>bu (UK)/h</value>
+         <value>bu (UK)/min</value>
+         <value>bu (UK)/s</value>
+         <value>bu (US dry)/d</value>
+         <value>bu (US dry)/h</value>
+         <value>bu (US dry)/min</value>
+         <value>bu (US dry)/s</value>
+         <value>bu (US)</value>
+         <value>calIT/g</value>
+         <value>calIT/(g·°C)</value>
+         <value>calIT/(g·K)</value>
+         <value>cal</value>
+         <value>calth</value>
+         <value>calth/(cm·s·°C)</value>
+         <value>calth/g</value>
+         <value>calth/(g·°C)</value>
+         <value>calth/(g·K)</value>
+         <value>calth/min</value>
+         <value>calth/s</value>
+         <value>calth/(s·cm·K)</value>
+         <value>calth/(s·cm²·K)</value>
+         <value>cd</value>
+         <value>cd/m²</value>
+         <value>cg</value>
+         <value>cl</value>
+         <value>cm</value>
+         <value>cm Hg</value>
+         <value>cm/bar</value>
+         <value>cm/h</value>
+         <value>cm/K</value>
+         <value>cm/s</value>
+         <value>(cm/s)/bar</value>
+         <value>(cm/s)/K</value>
+         <value>cN·m</value>
+         <value>cP</value>
+         <value>cP/bar</value>
+         <value>cP/K</value>
+         <value>cSt</value>
+         <value>CV</value>
+         <value>clo</value>
+         <value>y (365 days)</value>
+         <value>cm H₂O</value>
+         <value>mm Hg</value>
+         <value>mm H₂O</value>
+         <value>C</value>
+         <value>C·m</value>
+         <value>C·m²/V</value>
+         <value>C/cm³</value>
+         <value>C/m³</value>
+         <value>C/mm³</value>
+         <value>C/kg</value>
+         <value>C/(kg·s)</value>
+         <value>C/mol</value>
+         <value>C/cm²</value>
+         <value>C/m²</value>
+         <value>C/mm²</value>
+         <value>C·m²/kg</value>
+         <value>cm³</value>
+         <value>cm³/bar</value>
+         <value>cm³/m³</value>
+         <value>cm³/d</value>
+         <value>cm³/(d·bar)</value>
+         <value>cm³/(d·K)</value>
+         <value>cm³/h</value>
+         <value>cm³/(h·bar)</value>
+         <value>cm³/(h·K)</value>
+         <value>cm³/K</value>
+         <value>cm³/min</value>
+         <value>cm³/(min·bar)</value>
+         <value>cm³/(min·K)</value>
+         <value>cm³/mol</value>
+         <value>cm³/s</value>
+         <value>cm³/(s·bar)</value>
+         <value>cm³/(s·K)</value>
+         <value>dam³</value>
+         <value>dm³</value>
+         <value>dm³/m³</value>
+         <value>dm³/d</value>
+         <value>dm³/h</value>
+         <value>dm³/min</value>
+         <value>dm³/mol</value>
+         <value>dm³/s</value>
+         <value>ft³</value>
+         <value>ft³/d</value>
+         <value>ft³/°F</value>
+         <value>ft³/h</value>
+         <value>ft³/min</value>
+         <value>ft³/(min/ft²)</value>
+         <value>ft³/psi</value>
+         <value>hm³</value>
+         <value>in³</value>
+         <value>in³/h</value>
+         <value>in³/min</value>
+         <value>in³/s</value>
+         <value>km³</value>
+         <value>m³</value>
+         <value>m³/bar</value>
+         <value>m³/C</value>
+         <value>m³/m³</value>
+         <value>m³/d</value>
+         <value>m³/(d·bar)</value>
+         <value>m³/(d·K)</value>
+         <value>m³/h</value>
+         <value>m³/(h·bar)</value>
+         <value>m³/(h·K)</value>
+         <value>m³/K</value>
+         <value>m³/kg</value>
+         <value>m³/min</value>
+         <value>m³/(min·bar)</value>
+         <value>m³/(min·K)</value>
+         <value>m³/mol</value>
+         <value>m³/s</value>
+         <value>m³/(s·bar)</value>
+         <value>m³/(s·K)</value>
+         <value>mm³</value>
+         <value>mm³/m³</value>
+         <value>yd³</value>
+         <value>yd³/d</value>
+         <value>yd³/°F</value>
+         <value>yd³/h</value>
+         <value>yd³/min</value>
+         <value>yd³/psi</value>
+         <value>yd³/s</value>
+         <value>cup (US)</value>
+         <value>Ci</value>
+         <value>Ci/kg</value>
+         <value>d</value>
+         <value>dag</value>
+         <value>dal</value>
+         <value>dam</value>
+         <value>daPa</value>
+         <value>daa</value>
+         <value>dB</value>
+         <value>dB/km</value>
+         <value>dB/m</value>
+         <value>dg</value>
+         <value>dl</value>
+         <value>dl/g</value>
+         <value>dm</value>
+         <value>dN·m</value>
+         <value>dt</value>
+         <value>dtn</value>
+         <value>°</value>
+         <value>°C</value>
+         <value>°C/bar</value>
+         <value>°C/h</value>
+         <value>°C/K</value>
+         <value>°C/min</value>
+         <value>°C/s</value>
+         <value>°F</value>
+         <value>°F·h·ft²/BtuIT</value>
+         <value>°F·h·ft²/Btuth</value>
+         <value>°F/bar</value>
+         <value>°F/h</value>
+         <value>°F/K</value>
+         <value>°F/min</value>
+         <value>°F/s</value>
+         <value>°/m</value>
+         <value>°/s</value>
+         <value>°R</value>
+         <value>°R/h</value>
+         <value>°R/min</value>
+         <value>°R/s</value>
+         <value>bbl (US)</value>
+         <value>dry gal (US)</value>
+         <value>dry pt (US)</value>
+         <value>dry qt (US)</value>
+         <value>dyn</value>
+         <value>dyn·cm</value>
+         <value>dyn/cm</value>
+         <value>dyn/cm²</value>
+         <value>dyn·s/cm</value>
+         <value>dyn·s/cm⁵</value>
+         <value>dyn·s/cm³</value>
+         <value>eV</value>
+         <value>eV/m</value>
+         <value>eV·m²</value>
+         <value>eV·m²/kg</value>
+         <value>erg</value>
+         <value>erg/cm</value>
+         <value>erg/cm³</value>
+         <value>erg/g</value>
+         <value>erg/g·s</value>
+         <value>erg/s</value>
+         <value>erg/(s·cm²)</value>
+         <value>erg/(cm²·s)</value>
+         <value>erg·cm²</value>
+         <value>erg·cm²/g</value>
+         <value>EJ</value>
+         <value>F</value>
+         <value>F/km</value>
+         <value>F/m</value>
+         <value>fth</value>
+         <value>fJ</value>
+         <value>fm</value>
+         <value>fl oz (UK)</value>
+         <value>fl oz (US)</value>
+         <value>ft</value>
+         <value>ft Hg</value>
+         <value>ft H₂O</value>
+         <value>ft/°F</value>
+         <value>ft/h</value>
+         <value>ft/min</value>
+         <value>ft/psi</value>
+         <value>ft/s</value>
+         <value>(ft/s)/°F</value>
+         <value>(ft/s)/psi</value>
+         <value>ft/s²</value>
+         <value>ft·lbf</value>
+         <value>ft·lbf/h</value>
+         <value>ft·lbf/min</value>
+         <value>ft·lbf/s</value>
+         <value>Fg</value>
+         <value>Gal</value>
+         <value>gal (UK)</value>
+         <value>gal (UK)/d</value>
+         <value>gal (UK)/h</value>
+         <value>gal (UK)/s</value>
+         <value>gal (US liq.)/s</value>
+         <value>gal (US)</value>
+         <value>gal/h</value>
+         <value>GBq</value>
+         <value>GC/m³</value>
+         <value>GeV</value>
+         <value>GHz</value>
+         <value>GHz·m</value>
+         <value>GJ</value>
+         <value>GΩ</value>
+         <value>GΩ·m</value>
+         <value>GΩ/m</value>
+         <value>GPa</value>
+         <value>GW</value>
+         <value>GW·h</value>
+         <value>gi (UK)/d</value>
+         <value>gi (UK)/h</value>
+         <value>gi (UK)/min</value>
+         <value>gi (UK)/s</value>
+         <value>gi (US)/d</value>
+         <value>gi (US)/h</value>
+         <value>gi (US)/min</value>
+         <value>gi (US)/s</value>
+         <value>gon</value>
+         <value>gr</value>
+         <value>gr/gal (US)</value>
+         <value>g</value>
+         <value>g·mm</value>
+         <value>g/bar</value>
+         <value>g/cm³</value>
+         <value>g/(cm³·bar)</value>
+         <value>g/(cm³·K)</value>
+         <value>g/dm³</value>
+         <value>g/(dm³·bar)</value>
+         <value>g/(dm³·K)</value>
+         <value>g/m³</value>
+         <value>g/(m³·bar)</value>
+         <value>g/(m³·K)</value>
+         <value>g/d</value>
+         <value>g/(d·bar)</value>
+         <value>g/(d·K)</value>
+         <value>g/Hz</value>
+         <value>g/h</value>
+         <value>g/(h·bar)</value>
+         <value>g/(h·K)</value>
+         <value>g/K</value>
+         <value>g/l</value>
+         <value>g/(l·bar)</value>
+         <value>g/(l·K)</value>
+         <value>g/m</value>
+         <value>g/ml</value>
+         <value>g/(ml·bar)</value>
+         <value>g/(ml·K)</value>
+         <value>g/mm</value>
+         <value>g/min</value>
+         <value>g/(min·bar)</value>
+         <value>g/(min·K)</value>
+         <value>g/mol</value>
+         <value>g/s</value>
+         <value>g/(s·bar)</value>
+         <value>g/(s·K)</value>
+         <value>g/cm²</value>
+         <value>g/m²</value>
+         <value>gf/cm²</value>
+         <value>Gy</value>
+         <value>Gy/s</value>
+         <value>ch (UK)</value>
+         <value>ha</value>
+         <value>hbar</value>
+         <value>hg</value>
+         <value>hl</value>
+         <value>hm</value>
+         <value>hPa</value>
+         <value>hPa·m³/s</value>
+         <value>hPa·l/s</value>
+         <value>hPa/bar</value>
+         <value>hPa/K</value>
+         <value>H</value>
+         <value>H/kΩ</value>
+         <value>H/m</value>
+         <value>H/Ω</value>
+         <value>Hz</value>
+         <value>Hz·m</value>
+         <value>boiler hp</value>
+         <value>electric hp</value>
+         <value>h</value>
+         <value>cwt (US)</value>
+         <value>cwt (UK)</value>
+         <value>gal (UK) /min</value>
+         <value>in</value>
+         <value>inHg</value>
+         <value>inH₂O</value>
+         <value>in/°F</value>
+         <value>in/psi</value>
+         <value>in/s</value>
+         <value>(in/s)/°F</value>
+         <value>(in/s)/psi</value>
+         <value>in/s²</value>
+         <value>in/revolution</value>
+         <value>in·lb</value>
+         <value>in⁴</value>
+         <value>calIT</value>
+         <value>calIT/(s·cm·K)</value>
+         <value>calIT/(s·cm²·K)</value>
+         <value>J</value>
+         <value>J/m³</value>
+         <value>J/g</value>
+         <value>J/K</value>
+         <value>J/kg</value>
+         <value>J/(kg·K)</value>
+         <value>J/m</value>
+         <value>J/m⁴</value>
+         <value>J/mol</value>
+         <value>J/(mol·K)</value>
+         <value>J/m²</value>
+         <value>J·s</value>
+         <value>J·m²</value>
+         <value>J·m²/kg</value>
+         <value>kat</value>
+         <value>K</value>
+         <value>K·m/W</value>
+         <value>K/bar</value>
+         <value>K/h</value>
+         <value>K/K</value>
+         <value>K/min</value>
+         <value>K/s</value>
+         <value>K/W</value>
+         <value>kA</value>
+         <value>kA·h</value>
+         <value>kA/m</value>
+         <value>kA/m²</value>
+         <value>kbar</value>
+         <value>kBq</value>
+         <value>kBq/kg</value>
+         <value>kcalIT</value>
+         <value>kcal/(m·h·°C)</value>
+         <value>kcal</value>
+         <value>kcalth</value>
+         <value>kcalth/h</value>
+         <value>kcalth/min</value>
+         <value>kcalth/s</value>
+         <value>kC</value>
+         <value>kC/m³</value>
+         <value>kC/m²</value>
+         <value>kCi</value>
+         <value>keV</value>
+         <value>kg</value>
+         <value>kg·m/s</value>
+         <value>kg·m²</value>
+         <value>kg·m²/s</value>
+         <value>kg/bar</value>
+         <value>kg/cm³</value>
+         <value>kg/(cm³·bar)</value>
+         <value>kg/(cm³·K)</value>
+         <value>kg/dm³</value>
+         <value>(kg/dm³)/bar</value>
+         <value>(kg/dm³)/K</value>
+         <value>kg/m³</value>
+         <value>kg/(m³·bar)</value>
+         <value>kg/(m³·K)</value>
+         <value>kg/d</value>
+         <value>kg/(d·bar)</value>
+         <value>kg/(d·K)</value>
+         <value>kg/h</value>
+         <value>kg/(h·bar)</value>
+         <value>kg/(h·K)</value>
+         <value>kg/K</value>
+         <value>kg/kg</value>
+         <value>kg/km</value>
+         <value>kg/kmol</value>
+         <value>kg/l</value>
+         <value>kg/L</value>
+         <value>kg/(l·bar)</value>
+         <value>kg/(l·K)</value>
+         <value>kg/m</value>
+         <value>kg/mm</value>
+         <value>kg/min</value>
+         <value>kg/(min·bar)</value>
+         <value>kg/(min·K)</value>
+         <value>kg/mol</value>
+         <value>kg/s</value>
+         <value>kg/(s·bar)</value>
+         <value>kg/(s·K)</value>
+         <value>kg/cm²</value>
+         <value>kg/m²</value>
+         <value>kg/(m²·s)</value>
+         <value>kg·cm²</value>
+         <value>kg·mm²</value>
+         <value>kgf</value>
+         <value>kgf·m</value>
+         <value>kgf·m/s</value>
+         <value>kgf/cm²</value>
+         <value>kgf/m²</value>
+         <value>kgf·m/cm²</value>
+         <value>kHz</value>
+         <value>kHz·m</value>
+         <value>kJ</value>
+         <value>kJ/K</value>
+         <value>kJ/kg</value>
+         <value>kJ/(kg·K)</value>
+         <value>kJ/mol</value>
+         <value>kl</value>
+         <value>kl/h</value>
+         <value>km</value>
+         <value>km/h</value>
+         <value>kmol</value>
+         <value>kmol/m³</value>
+         <value>(kmol/m³)/bar</value>
+         <value>(kmol/m³)/K</value>
+         <value>kmol/h</value>
+         <value>kmol/min</value>
+         <value>kmol/s</value>
+         <value>kN</value>
+         <value>kN·m</value>
+         <value>kΩ</value>
+         <value>kΩ·m</value>
+         <value>kPa</value>
+         <value>kPa/bar</value>
+         <value>kPa/K</value>
+         <value>kPa/mm</value>
+         <value>kPa·m²/g</value>
+         <value>kp</value>
+         <value>kR</value>
+         <value>ks</value>
+         <value>kS</value>
+         <value>kS/m</value>
+         <value>kt</value>
+         <value>kV</value>
+         <value>kV·A</value>
+         <value>kvar</value>
+         <value>kV/m</value>
+         <value>kW</value>
+         <value>kW·h</value>
+         <value>kWb/m</value>
+         <value>kn</value>
+         <value>ly</value>
+         <value>liq pt (US)</value>
+         <value>liq qt (US)</value>
+         <value>l</value>
+         <value>l/bar</value>
+         <value>l/d</value>
+         <value>l/(d·bar)</value>
+         <value>l/(d·K)</value>
+         <value>l/(h·bar)</value>
+         <value>l/(h·K)</value>
+         <value>l/K</value>
+         <value>l/kg</value>
+         <value>l/l</value>
+         <value>l/min</value>
+         <value>l/(min·bar)</value>
+         <value>l/(min·K)</value>
+         <value>l/mol</value>
+         <value>l/s</value>
+         <value>l/(s·bar)</value>
+         <value>l/(s·K)</value>
+         <value>lm</value>
+         <value>lm·h</value>
+         <value>lm/m²</value>
+         <value>lm/W</value>
+         <value>lm·s</value>
+         <value>lx</value>
+         <value>lx·h</value>
+         <value>lx·s</value>
+         <value>Ml</value>
+         <value>MA</value>
+         <value>MA/m²</value>
+         <value>MBq</value>
+         <value>MBq/kg</value>
+         <value>MC</value>
+         <value>MC/m³</value>
+         <value>MC/m²</value>
+         <value>MeV</value>
+         <value>Mg</value>
+         <value>Mg/m³</value>
+         <value>MHz</value>
+         <value>MHz·km</value>
+         <value>MHz·m</value>
+         <value>MJ</value>
+         <value>MJ/m³</value>
+         <value>MJ/kg</value>
+         <value>MN</value>
+         <value>MN·m</value>
+         <value>MΩ</value>
+         <value>MΩ·km</value>
+         <value>MΩ·m</value>
+         <value>MΩ/km</value>
+         <value>MΩ/m</value>
+         <value>MPa</value>
+         <value>MPa·m³/s</value>
+         <value>MPa·l/s</value>
+         <value>MPa/bar</value>
+         <value>MPa/K</value>
+         <value>MS/m</value>
+         <value>MV</value>
+         <value>MV·A</value>
+         <value>MV/m</value>
+         <value>MW</value>
+         <value>MW·h</value>
+         <value>m</value>
+         <value>m·K</value>
+         <value>m/bar</value>
+         <value>m/K</value>
+         <value>m/min</value>
+         <value>m/s</value>
+         <value>(m/s)/bar</value>
+         <value>(m/s)/K</value>
+         <value>m/s²</value>
+         <value>m/(V·s)</value>
+         <value>m⁴</value>
+         <value>metric hp</value>
+         <value>µA</value>
+         <value>µbar</value>
+         <value>µBq</value>
+         <value>µC</value>
+         <value>µC/m³</value>
+         <value>µC/m²</value>
+         <value>µCi</value>
+         <value>µF</value>
+         <value>µF/km</value>
+         <value>µF/m</value>
+         <value>µg</value>
+         <value>µg/m³</value>
+         <value>(µg/m³)/bar</value>
+         <value>(µg/m³)/K</value>
+         <value>µg/kg</value>
+         <value>µg/l</value>
+         <value>µH</value>
+         <value>µH/kΩ</value>
+         <value>µH/m</value>
+         <value>µH/Ω</value>
+         <value>µin</value>
+         <value>µl</value>
+         <value>µl/l</value>
+         <value>µm</value>
+         <value>µm/K</value>
+         <value>µmol</value>
+         <value>µN</value>
+         <value>µN·m</value>
+         <value>µΩ</value>
+         <value>µΩ·m</value>
+         <value>µPa</value>
+         <value>µP</value>
+         <value>µrad</value>
+         <value>µs</value>
+         <value>µS</value>
+         <value>µS/cm</value>
+         <value>µS/m</value>
+         <value>µT</value>
+         <value>µV</value>
+         <value>µV/m</value>
+         <value>µW</value>
+         <value>µW/m²</value>
+         <value>mile</value>
+         <value>mile/h</value>
+         <value>mA</value>
+         <value>mA/bar</value>
+         <value>mA/in</value>
+         <value>mA/(l·min)</value>
+         <value>mA/mm</value>
+         <value>mA/(lbf/in²)</value>
+         <value>mbar</value>
+         <value>mbar·m³/s</value>
+         <value>mbar·l/s</value>
+         <value>mbar/bar</value>
+         <value>mbar/K</value>
+         <value>mC</value>
+         <value>mC/m³</value>
+         <value>mC/kg</value>
+         <value>mC/m²</value>
+         <value>mCi</value>
+         <value>mF</value>
+         <value>mGal</value>
+         <value>mg</value>
+         <value>mg/bar</value>
+         <value>mg/m³</value>
+         <value>(mg/m³)/bar</value>
+         <value>(mg/m³)/K</value>
+         <value>mg/d</value>
+         <value>mg/(d·bar)</value>
+         <value>mg/(d·K)</value>
+         <value>mg/g</value>
+         <value>mg/h</value>
+         <value>mg/(h·bar)</value>
+         <value>mg/(h·K)</value>
+         <value>mg/K</value>
+         <value>mg/kg</value>
+         <value>mg/l</value>
+         <value>mg/m</value>
+         <value>mg/min</value>
+         <value>mg/(min·bar)</value>
+         <value>mg/(min·K)</value>
+         <value>mg/s</value>
+         <value>mg/(s·bar)</value>
+         <value>mg/(s·K)</value>
+         <value>mg/cm²</value>
+         <value>mg/m²</value>
+         <value>mGy</value>
+         <value>mH</value>
+         <value>mH/kΩ</value>
+         <value>mH/Ω</value>
+         <value>mil</value>
+         <value>mJ</value>
+         <value>ml</value>
+         <value>ml/bar</value>
+         <value>ml/m³</value>
+         <value>ml/d</value>
+         <value>ml/(d·bar)</value>
+         <value>ml/(d·K)</value>
+         <value>ml/h</value>
+         <value>ml/(h·bar)</value>
+         <value>ml/(h·K)</value>
+         <value>ml/K</value>
+         <value>ml/kg</value>
+         <value>ml/l</value>
+         <value>ml/min</value>
+         <value>ml/(min·bar)</value>
+         <value>ml/(min·K)</value>
+         <value>ml/s</value>
+         <value>ml/(s·bar)</value>
+         <value>ml/(s·K)</value>
+         <value>(ml/min)/cm²</value>
+         <value>ml/(cm²·s)</value>
+         <value>mm</value>
+         <value>mm/bar</value>
+         <value>mm/(°C·m)</value>
+         <value>mm/h</value>
+         <value>mm/K</value>
+         <value>mm/min</value>
+         <value>mm/s</value>
+         <value>mm/y</value>
+         <value>mm²/s</value>
+         <value>mm⁴</value>
+         <value>mmol</value>
+         <value>mmol/g</value>
+         <value>mmol/kg</value>
+         <value>mmol/l</value>
+         <value>mN</value>
+         <value>mN·m</value>
+         <value>mN/m</value>
+         <value>mΩ</value>
+         <value>mΩ·m</value>
+         <value>mΩ/m</value>
+         <value>mPa</value>
+         <value>mPa·s</value>
+         <value>mPa·s/bar</value>
+         <value>mPa·s/K</value>
+         <value>mrad</value>
+         <value>mR</value>
+         <value>mrem</value>
+         <value>ms</value>
+         <value>mS</value>
+         <value>mS/cm</value>
+         <value>mSv</value>
+         <value>mT</value>
+         <value>mV</value>
+         <value>mV·A</value>
+         <value>mV/K</value>
+         <value>mV/m</value>
+         <value>mV/min</value>
+         <value>mW</value>
+         <value>mW/m²</value>
+         <value>mWb</value>
+         <value>'</value>
+         <value>min</value>
+         <value>mol</value>
+         <value>mol/dm³</value>
+         <value>mol/m³</value>
+         <value>(mol/m³)/bar</value>
+         <value>(mol/m³)/K</value>
+         <value>mol/h</value>
+         <value>mol/kg</value>
+         <value>(mol/kg)/bar</value>
+         <value>(mol/kg)/K</value>
+         <value>mol/l</value>
+         <value>(mol/l)/bar</value>
+         <value>(mol/l)/K</value>
+         <value>mol/min</value>
+         <value>mol/s</value>
+         <value>mo</value>
+         <value>nA</value>
+         <value>nC</value>
+         <value>nF</value>
+         <value>nF/m</value>
+         <value>ng/kg</value>
+         <value>nH</value>
+         <value>nH/m</value>
+         <value>nm</value>
+         <value>nΩ·m</value>
+         <value>ns</value>
+         <value>nS/cm</value>
+         <value>nS/m</value>
+         <value>nT</value>
+         <value>nW</value>
+         <value>n mile</value>
+         <value>Np</value>
+         <value>Np/s</value>
+         <value>N</value>
+         <value>N·cm</value>
+         <value>N·m</value>
+         <value>N·m/A</value>
+         <value>Nm/°</value>
+         <value>N·m/kg</value>
+         <value>N·m/m²</value>
+         <value>N·m·s</value>
+         <value>N·m²/kg²</value>
+         <value>N·m·W⁻⁰‧⁵</value>
+         <value>N/A</value>
+         <value>N/cm</value>
+         <value>N/m</value>
+         <value>N/mm</value>
+         <value>N/m²</value>
+         <value>N/mm²</value>
+         <value>N·s</value>
+         <value>N·s/m</value>
+         <value>Ω</value>
+         <value>Ω·cm</value>
+         <value>Ω·km</value>
+         <value>Ω·m</value>
+         <value>Ω/km</value>
+         <value>Ω/m</value>
+         <value>Ω/mi</value>
+         <value>1</value>
+         <value>oz</value>
+         <value>oz/in³</value>
+         <value>oz/yd³</value>
+         <value>oz/d</value>
+         <value>oz/gal (UK)</value>
+         <value>oz/gal (US)</value>
+         <value>oz/h</value>
+         <value>oz/min</value>
+         <value>oz/s</value>
+         <value>ozf</value>
+         <value>ozf·in</value>
+         <value>fl oz (UK)/d</value>
+         <value>fl oz (UK)/h</value>
+         <value>fl oz (UK)/min</value>
+         <value>fl oz (UK)/s</value>
+         <value>fl oz (US)/d</value>
+         <value>fl oz (US)/h</value>
+         <value>fl oz (US)/min</value>
+         <value>fl oz (US)/s</value>
+         <value>oz·ft</value>
+         <value>oz·in</value>
+         <value>oz/ft²</value>
+         <value>oz/(ft²/cin)</value>
+         <value>oz/yd²</value>
+         <value>pc</value>
+         <value>Pa</value>
+         <value>Pa·m³/s</value>
+         <value>Pa·l/s</value>
+         <value>Pa/bar</value>
+         <value>Pa/K</value>
+         <value>Pa/m</value>
+         <value>Pa·s</value>
+         <value>Pa·s/bar</value>
+         <value>Pa·s/m³</value>
+         <value>Pa.s/K</value>
+         <value>Pa·s/l</value>
+         <value>Pa· s/m</value>
+         <value>pk (US)</value>
+         <value>pk (UK)</value>
+         <value>pk (UK)/d</value>
+         <value>pk (UK)/h</value>
+         <value>pk (UK)/min</value>
+         <value>pk (UK)/s</value>
+         <value>pk (US dry)/d</value>
+         <value>pk (US dry)/h</value>
+         <value>pk (US dry)/min</value>
+         <value>pk (US dry)/s</value>
+         <value>PJ</value>
+         <value>pA</value>
+         <value>pC</value>
+         <value>pF</value>
+         <value>pF/m</value>
+         <value>pH</value>
+         <value>pm</value>
+         <value>pPa/km</value>
+         <value>ps</value>
+         <value>pW</value>
+         <value>pW/m²</value>
+         <value>pS/m</value>
+         <value>pt (UK)</value>
+         <value>pt (UK)/d</value>
+         <value>pt (UK)/h</value>
+         <value>pt (UK)/min</value>
+         <value>pt (UK)/s</value>
+         <value>pt (US dry)</value>
+         <value>pt (US liq.)/d</value>
+         <value>pt (US liq.)/h</value>
+         <value>pt (US liq.)/min</value>
+         <value>pt (US liq.)/s</value>
+         <value>pt (US)</value>
+         <value>P</value>
+         <value>P/bar</value>
+         <value>P/K</value>
+         <value>lb</value>
+         <value>(lb/ft³)/°F</value>
+         <value>(lb/ft³)/psi</value>
+         <value>(lb/in³)/°F</value>
+         <value>(lb/in³)/psi</value>
+         <value>lb/d</value>
+         <value>lb/°F</value>
+         <value>lb/gal (UK)</value>
+         <value>(lb/h)/°F</value>
+         <value>(lb/h)/psi</value>
+         <value>lb/min</value>
+         <value>lb/(min·°F)</value>
+         <value>(lb/min)/psi</value>
+         <value>lb/psi</value>
+         <value>lb/s</value>
+         <value>(lb/s)/°F</value>
+         <value>(lb/s)/psi</value>
+         <value>lb·ft²</value>
+         <value>lb·in²</value>
+         <value>lb/ft³</value>
+         <value>lb/in³</value>
+         <value>lb/yd³</value>
+         <value>lb/ft</value>
+         <value>lb/(ft·h)</value>
+         <value>lb/(ft·s)</value>
+         <value>lb/gal (US)</value>
+         <value>lb/h</value>
+         <value>lb/in</value>
+         <value>lb/ft²</value>
+         <value>lb/in²</value>
+         <value>lbf</value>
+         <value>lbf·ft/A</value>
+         <value>lbf·ft/lb</value>
+         <value>lbf·in</value>
+         <value>lbf/ft</value>
+         <value>lbf/in</value>
+         <value>lbf/ft²</value>
+         <value>lbf/in²</value>
+         <value>psi/°F</value>
+         <value>lbf·s/ft²</value>
+         <value>lbf·s/in²</value>
+         <value>psi·in³/s</value>
+         <value>psi·m³/s</value>
+         <value>psi·yd³/s</value>
+         <value>psi·l/s</value>
+         <value>psi/psi</value>
+         <value>qt (UK liq.)/d</value>
+         <value>qt (UK liq.)/h</value>
+         <value>qt (UK liq.)/min</value>
+         <value>qt (UK liq.)/s</value>
+         <value>qt (UK)</value>
+         <value>qt (US dry)</value>
+         <value>qt (US liq.)/d</value>
+         <value>qt (US liq.)/h</value>
+         <value>qt (US liq.)/min</value>
+         <value>qt (US liq.)/s</value>
+         <value>qt (US)</value>
+         <value>rad</value>
+         <value>rad/m</value>
+         <value>rad/s</value>
+         <value>rad/s²</value>
+         <value>rad·m²/kg</value>
+         <value>rad·m²/mol</value>
+         <value>Å⁻¹</value>
+         <value>1/bar</value>
+         <value>cm⁻³</value>
+         <value>1/ft³</value>
+         <value>1/in³</value>
+         <value>m⁻³</value>
+         <value>m⁻³/s</value>
+         <value>1/mm³</value>
+         <value>1/yd³</value>
+         <value>1/°F</value>
+         <value>eV⁻¹/m³</value>
+         <value>H⁻¹</value>
+         <value>1/h</value>
+         <value>J⁻¹/m³</value>
+         <value>K⁻¹</value>
+         <value>1/kVAh</value>
+         <value>1/l</value>
+         <value>1/MK</value>
+         <value>m⁻¹</value>
+         <value>m⁻²/s</value>
+         <value>min⁻¹</value>
+         <value>mol⁻¹</value>
+         <value>1/mo</value>
+         <value>Pa⁻¹</value>
+         <value>1/psi</value>
+         <value>s⁻¹</value>
+         <value>s⁻¹/m³</value>
+         <value>s⁻¹/m²</value>
+         <value>s⁻¹/sr</value>
+         <value>s⁻¹/(sr·m²)</value>
+         <value>m⁻²</value>
+         <value>1/(V·A·s)</value>
+         <value>1/wk</value>
+         <value>1/y</value>
+         <value>rem</value>
+         <value>r/min</value>
+         <value>r/s</value>
+         <value>rd (US)</value>
+         <value>R</value>
+         <value>R/s</value>
+         <value>"</value>
+         <value>s</value>
+         <value>s/m³</value>
+         <value>s/(rad·m³)</value>
+         <value>y (sidereal)</value>
+         <value>S</value>
+         <value>S/cm</value>
+         <value>S/m</value>
+         <value>S·m²/mol</value>
+         <value>Sv</value>
+         <value>slug</value>
+         <value>slug/ft³</value>
+         <value>slug/d</value>
+         <value>slug/(ft·s)</value>
+         <value>slug/h</value>
+         <value>slug/min</value>
+         <value>slug/s</value>
+         <value>cm²</value>
+         <value>cm²/erg</value>
+         <value>cm²/g</value>
+         <value>cm²/(sr·erg)</value>
+         <value>dam²</value>
+         <value>dm²</value>
+         <value>ft²</value>
+         <value>ft²/s</value>
+         <value>hm²</value>
+         <value>in²</value>
+         <value>in²/s</value>
+         <value>km²</value>
+         <value>m²</value>
+         <value>m²·h·°C/kcal</value>
+         <value>m²·K/W</value>
+         <value>m²/J</value>
+         <value>m²/kg</value>
+         <value>m²/mol</value>
+         <value>m²/N</value>
+         <value>m²/s</value>
+         <value>m²/(s·bar)</value>
+         <value>m²/(s·K)</value>
+         <value>m²/sr</value>
+         <value>m²/(sr·J)</value>
+         <value>m²/(V·s)</value>
+         <value>µm²</value>
+         <value>mi²</value>
+         <value>mm²</value>
+         <value>yd²</value>
+         <value>gn</value>
+         <value>atm</value>
+         <value>std</value>
+         <value>sr</value>
+         <value>st</value>
+         <value>St</value>
+         <value>St/bar</value>
+         <value>St/K</value>
+         <value>tablespoon (US)</value>
+         <value>teaspoon (US)</value>
+         <value>at</value>
+         <value>THz</value>
+         <value>TJ</value>
+         <value>TΩ</value>
+         <value>TW</value>
+         <value>TW·h</value>
+         <value>T</value>
+         <value>ton.l/yd³ (UK)</value>
+         <value>British shipping ton</value>
+         <value>ton (UK)</value>
+         <value>(US) shipping ton</value>
+         <value>ton.s/yd³ (US)</value>
+         <value>ton (US)</value>
+         <value>ton (US) /h</value>
+         <value>ton (UK)/d</value>
+         <value>ton (US)/d</value>
+         <value>ton (US)/°F</value>
+         <value>ton (US)/(h·°F)</value>
+         <value>(ton (US)/h)/psi</value>
+         <value>ton (US)/psi</value>
+         <value>ton.sh-force</value>
+         <value>t</value>
+         <value>t/bar</value>
+         <value>t/m³</value>
+         <value>(t/m³)/bar</value>
+         <value>(t/m³)/K</value>
+         <value>t/d</value>
+         <value>(t/d)/bar</value>
+         <value>(t/d)/K</value>
+         <value>(t/h)/bar</value>
+         <value>(t/h)/K</value>
+         <value>t/K</value>
+         <value>t/min</value>
+         <value>(t/min)/bar</value>
+         <value>(t/min)/K</value>
+         <value>t/s</value>
+         <value>(t/s)/bar</value>
+         <value>(t/s)/K</value>
+         <value>Torr</value>
+         <value>y (tropical)</value>
+         <value>tr oz</value>
+         <value>u</value>
+         <value>gal (US) /min</value>
+         <value>var</value>
+         <value>V</value>
+         <value>V·A</value>
+         <value>V/bar</value>
+         <value>V/cm</value>
+         <value>V/in</value>
+         <value>V/K</value>
+         <value>V/(l·min)</value>
+         <value>V/m</value>
+         <value>V/µs</value>
+         <value>V/mm</value>
+         <value>V/s</value>
+         <value>V·s/m</value>
+         <value>V/(lbf/in²)</value>
+         <value>V²/K²</value>
+         <value>W</value>
+         <value>W·h</value>
+         <value>W/m³</value>
+         <value>W/K</value>
+         <value>W/m</value>
+         <value>W/(m·K)</value>
+         <value>W/m²</value>
+         <value>W/(m²·K)</value>
+         <value>W/(m²·K⁴)</value>
+         <value>W/sr</value>
+         <value>W/(sr·m²)</value>
+         <value>W·s</value>
+         <value>Wb</value>
+         <value>Wb/m</value>
+         <value>Wb/mm</value>
+         <value>wk</value>
+         <value>yd</value>
+         <value>yd/°F</value>
+         <value>yd/psi</value>
+         <value>y</value>
+      </choice>
+   </define>
+</grammar>

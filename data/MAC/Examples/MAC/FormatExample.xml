@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/ARH/ARH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-EDH/IC-EDH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-ID/IC-ID_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/MAC/MAC_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/NTK/NTK_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-TDF/IC-TDF_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/MIME/MIME_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<!-- All classification marks in this example are   -->
+<!-- for illustrative purposes only, there are no   -->
+<!-- actual classified data contained in this example -->
+
+<!-- NOTE: This example uses IRM, PUBS, and VIRT for illustrative purposes,    -->
+<!--       but IRM, PUBS, and VIRT are not included in the convenience package -->
+<!--       since they are not actually dependencies of MAC. This file will not -->
+<!--       validate unless IRM, PUBS, and VIRT are manually added to the       -->
+<!--       convenience package. THIS BEHAVIOR IS INTENTIONAL.                  -->
+<TrustedDataCollection xmlns="urn:us:gov:ic:tdf"
+                       xmlns:tdf="urn:us:gov:ic:tdf"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                       tdf:version="201412.201707"
+                       xsi:schemaLocation="urn:us:gov:ic:mac ../../Schema/MAC/MAC-XML.xsd urn:us:gov:ic:tdf ../../Schema/IC-TDF/IC-TDF.xsd">
+   <tdf:HandlingAssertion tdf:scope="TDC">
+      <tdf:HandlingStatement>
+         <edh:Edh xmlns:edh="urn:us:gov:ic:edh"
+                  xmlns:usagency="urn:us:gov:ic:usagency"
+                  xmlns:icid="urn:us:gov:ic:id"
+                  xmlns:ism="urn:us:gov:ic:ism"
+                  xmlns:ntk="urn:us:gov:ic:ntk"
+                  xmlns:arh="urn:us:gov:ic:arh"
+                  usagency:CESVersion="201609"
+                  icid:DESVersion="1"
+                  edh:DESVersion="201609"
+                  ism:DESVersion="201609.201707"
+                  ism:ISMCATCESVersion="201709"
+                  ntk:DESVersion="201508"
+                  arh:DESVersion="3">
+            <icid:Identifier>guide://999990/MAC-IRMexample</icid:Identifier>
+            <edh:DataItemCreateDateTime>2009-10-30T11:22:50.062-04:00</edh:DataItemCreateDateTime>
+            <edh:ResponsibleEntity edh:role="Custodian">
+               <edh:Country>USA</edh:Country>
+               <edh:Organization>DNI</edh:Organization>
+            </edh:ResponsibleEntity>
+            <arh:Security ism:compliesWith="USGov USIC"
+                          ism:DESVersion="201609.201707"
+                          ism:ISMCATCESVersion="201709"
+                          ism:classification="U"
+                          ism:ownerProducer="USA"
+                          ism:resourceElement="true"
+                          ism:createDate="2012-06-04"/>
+         </edh:Edh>
+      </tdf:HandlingStatement>
+   </tdf:HandlingAssertion>
+   <tdf:Assertion tdf:scope="TDC">
+      <tdf:StatementMetadata>
+         <arh:Security xmlns:arh="urn:us:gov:ic:arh"
+                       xmlns:ism="urn:us:gov:ic:ism"
+                       ism:classification="U"
+                       ism:ownerProducer="USA"/>
+      </tdf:StatementMetadata>
+      <tdf:StructuredStatement>
+         <mac:MultiAudience xmlns:mac="urn:us:gov:ic:mac"
+                            mac:DESVersion="201609"
+                            mac:multiAudienceType="Format"/>
+      </tdf:StructuredStatement>
+   </tdf:Assertion>
+   <TrustedDataObject>
+      <tdf:HandlingAssertion tdf:scope="TDO">
+         <tdf:HandlingStatement>
+            <edh:Edh xmlns:edh="urn:us:gov:ic:edh"
+                     xmlns:usagency="urn:us:gov:ic:usagency"
+                     xmlns:icid="urn:us:gov:ic:id"
+                     xmlns:ism="urn:us:gov:ic:ism"
+                     xmlns:ntk="urn:us:gov:ic:ntk"
+                     xmlns:arh="urn:us:gov:ic:arh"
+                     usagency:CESVersion="201609"
+                     icid:DESVersion="1"
+                     edh:DESVersion="201609"
+                     ism:DESVersion="201609.201707"
+                     ism:ISMCATCESVersion="201709"
+                     ntk:DESVersion="201508"
+                     arh:DESVersion="3">
+               <icid:Identifier>guide://999990/PubsInstance</icid:Identifier>
+               <edh:DataItemCreateDateTime>2003-01-01T20:00:00Z</edh:DataItemCreateDateTime>
+               <edh:ResponsibleEntity edh:role="Custodian">
+                  <edh:Country>USA</edh:Country>
+                  <edh:Organization>DNI</edh:Organization>
+               </edh:ResponsibleEntity>
+               <arh:Security ism:compliesWith="USGov USIC"
+                             ism:DESVersion="201609.201707"
+                             ism:ISMCATCESVersion="201709"
+                             ism:resourceElement="true"
+                             ism:createDate="2005-07-21"
+                             ism:classification="U"
+                             ism:ownerProducer="USA"/>
+            </edh:Edh>
+         </tdf:HandlingStatement>
+      </tdf:HandlingAssertion>
+      <tdf:HandlingAssertion tdf:scope="PAYL">
+         <tdf:HandlingStatement>
+            <edh:ExternalEdh xmlns:edh="urn:us:gov:ic:edh"
+                             xmlns:usagency="urn:us:gov:ic:usagency"
+                             xmlns:icid="urn:us:gov:ic:id"
+                             xmlns:ism="urn:us:gov:ic:ism"
+                             xmlns:ntk="urn:us:gov:ic:ntk"
+                             xmlns:arh="urn:us:gov:ic:arh"
+                             usagency:CESVersion="201609"
+                             icid:DESVersion="1"
+                             edh:DESVersion="201609"
+                             ism:DESVersion="201609.201707"
+                             ism:ISMCATCESVersion="201709"
+                             ntk:DESVersion="201508"
+                             arh:DESVersion="3">
+               <icid:Identifier>guide://999990/DIA-CNTRL-NO-1754-1763-A</icid:Identifier>
+               <edh:DataItemCreateDateTime>2012-10-30T11:22:50.062-04:00</edh:DataItemCreateDateTime>
+               <edh:ResponsibleEntity edh:role="Custodian">
+                  <edh:Country>USA</edh:Country>
+                  <edh:Organization>DNI</edh:Organization>
+               </edh:ResponsibleEntity>
+               <arh:ExternalSecurity ism:classification="U"
+                                     ism:ownerProducer="USA"
+                                     ism:excludeFromRollup="true"/>
+            </edh:ExternalEdh>
+         </tdf:HandlingStatement>
+      </tdf:HandlingAssertion>
+      <tdf:Assertion tdf:scope="PAYL">
+         <tdf:StatementMetadata>
+            <arh:Security xmlns:arh="urn:us:gov:ic:arh"
+                          xmlns:ism="urn:us:gov:ic:ism"
+                          ism:compliesWith="USGov USIC"
+                          ism:DESVersion="201609.201707"
+                          ism:ISMCATCESVersion="201709"
+                          ism:resourceElement="true"
+                          ism:createDate="2005-07-21"
+                          ism:classification="U"
+                          ism:ownerProducer="USA"/>
+         </tdf:StatementMetadata>
+         <tdf:StructuredStatement>
+            <mac:MultiAudienceObject xmlns:mac="urn:us:gov:ic:mac"
+                                     xmlns:mime="urn:us:gov:ic:mime"
+                                     mac:original="true"
+                                     mime:mimeType="application/pdf"/>
+         </tdf:StructuredStatement>
+      </tdf:Assertion>
+      <tdf:ReferenceValuePayload tdf:uri="path/to/msword.doc"/>
+   </TrustedDataObject>
+   <TrustedDataObject tdf:version="201412.201707">
+      <tdf:HandlingAssertion tdf:scope="TDO">
+         <tdf:HandlingStatement>
+            <edh:Edh xmlns:edh="urn:us:gov:ic:edh"
+                     xmlns:usagency="urn:us:gov:ic:usagency"
+                     xmlns:icid="urn:us:gov:ic:id"
+                     xmlns:ism="urn:us:gov:ic:ism"
+                     xmlns:ntk="urn:us:gov:ic:ntk"
+                     xmlns:arh="urn:us:gov:ic:arh"
+                     usagency:CESVersion="201609"
+                     icid:DESVersion="1"
+                     edh:DESVersion="201609"
+                     ism:DESVersion="201609.201707"
+                     ism:ISMCATCESVersion="201709"
+                     ntk:DESVersion="201508"
+                     arh:DESVersion="3">
+               <icid:Identifier>guide://999990/PubsInstance</icid:Identifier>
+               <edh:DataItemCreateDateTime>2003-01-01T20:00:00Z</edh:DataItemCreateDateTime>
+               <edh:ResponsibleEntity edh:role="Custodian">
+                  <edh:Country>USA</edh:Country>
+                  <edh:Organization>DNI</edh:Organization>
+               </edh:ResponsibleEntity>
+               <arh:Security ism:compliesWith="USGov USIC"
+                             ism:DESVersion="201609.201707"
+                             ism:ISMCATCESVersion="201709"
+                             ism:resourceElement="true"
+                             ism:createDate="2005-07-21"
+                             ism:classification="U"
+                             ism:ownerProducer="USA"/>
+            </edh:Edh>
+         </tdf:HandlingStatement>
+      </tdf:HandlingAssertion>
+      <tdf:HandlingAssertion tdf:scope="PAYL">
+         <tdf:HandlingStatement>
+            <edh:ExternalEdh xmlns:edh="urn:us:gov:ic:edh"
+                             xmlns:usagency="urn:us:gov:ic:usagency"
+                             xmlns:ism="urn:us:gov:ic:ism"
+                             xmlns:ntk="urn:us:gov:ic:ntk"
+                             xmlns:arh="urn:us:gov:ic:arh"
+                             usagency:CESVersion="201609"
+                             edh:DESVersion="201609"
+                             ism:DESVersion="201609.201707"
+                             ism:ISMCATCESVersion="201709"
+                             ntk:DESVersion="201508"
+                             arh:DESVersion="3">
+               <icid:Identifier xmlns:icid="urn:us:gov:ic:id">guide://999990/DIA-CNTRL-NO-1754-1763</icid:Identifier>
+               <edh:DataItemCreateDateTime>2012-10-30T11:22:50.062-04:00</edh:DataItemCreateDateTime>
+               <edh:ResponsibleEntity edh:role="Custodian">
+                  <edh:Country>USA</edh:Country>
+                  <edh:Organization>DIA</edh:Organization>
+               </edh:ResponsibleEntity>
+               <arh:ExternalSecurity ism:classification="U"
+                                     ism:ownerProducer="USA"
+                                     ism:excludeFromRollup="true"/>
+            </edh:ExternalEdh>
+         </tdf:HandlingStatement>
+      </tdf:HandlingAssertion>
+      <tdf:ReferenceValuePayload tdf:uri="path/to/pdf.pdf"/>
+   </TrustedDataObject>
+</TrustedDataCollection>

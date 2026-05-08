@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cve:CVE xmlns:cve="urn:us:gov:ic:cve:v1" xmlns:ddms="http://metadata.dod.mil/mdr/ns/DDMS/3.0/"
+	xmlns="urn:us:gov:ic:cve:v1" xmlns:ism="urn:us:gov:ic:ism"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:us:gov:ic:cve:v1 ../Schema/CVEXml.xsd" ism:ownerProducer="USA"
+	ism:classification="U" ism:DESVersion="7" ism:resourceElement="true" ism:createDate="2011-09-01">
+
+	<cve:IRM>
+		<ddms:identifier ddms:qualifier="name" ddms:value="urn:us:gov:ic:cvenum:audit:recordtype:v1"/>
+		<ddms:title ism:ownerProducer="USA" ism:classification="U">CVEnumAuditRecordType</ddms:title>
+		<ddms:description ism:ownerProducer="USA" ism:classification="U">All currently authorized record types.</ddms:description>
+
+		<cve:Created>2011-09-01T11:19:00-04:00</cve:Created>
+
+		<ddms:source ddms:value="Authoritative source for Record Types"/>
+		<ddms:pointOfContact>
+			<ddms:Organization>
+				<ddms:name>Office IC CIO</ddms:name>
+				<ddms:email>datastandardssupport@ugov.gov</ddms:email>
+			</ddms:Organization>
+		</ddms:pointOfContact>
+	</cve:IRM>
+
+	<cve:Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">GENERIC</Value>
+			<ddms:description ism:classification="U" ism:ownerProducer="USA">An audit record of generic type.</ddms:description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">BUSINESS_ANALYTICS</Value>
+			<ddms:description ism:classification="U" ism:ownerProducer="USA">An audit record of business analytics type.</ddms:description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">COUNTER_INTELLIGENCE</Value>
+			<ddms:description ism:classification="U" ism:ownerProducer="USA">An audit record of counter intelligence type.</ddms:description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">INFORMATION_ASSURANCE</Value>
+			<ddms:description ism:classification="U" ism:ownerProducer="USA">An audit record of information assurance type.</ddms:description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">LAW_ENFORCEMENT</Value>
+			<ddms:description ism:classification="U" ism:ownerProducer="USA">An audit record of law enforcement type.</ddms:description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">PERSONNEL_SECURITY</Value>
+			<ddms:description ism:classification="U" ism:ownerProducer="USA">An audit record of personnel security type.</ddms:description>
+		</Term>
+
+	</cve:Enumeration>
+</cve:CVE>

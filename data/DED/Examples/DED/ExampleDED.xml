@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/IC-EDH/IC-EDH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/USAgency/USAgency_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/DED/DED_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-ID/IC-ID_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<ded:DataElementDictionary xmlns:ded="urn:us:gov:ic:ded"
+                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           xmlns:icid="urn:us:gov:ic:id"
+                           xmlns:edh="urn:us:gov:ic:edh"
+                           xmlns:arh="urn:us:gov:ic:arh"
+                           xmlns:ism="urn:us:gov:ic:ism"
+                           xmlns:usagency="urn:us:gov:ic:usagency"
+                           xsi:schemaLocation="urn:us:gov:ic:ded ../../Schema/DED/DED.xsd"
+                           ded:DESVersion="201903"
+                           icid:DESVersion="202111">
+  <ded:DedHeader>
+    <edh:Edh edh:DESVersion="201903"
+             usagency:CESVersion="202207">
+      <icid:Identifier>guide://999002/test1</icid:Identifier>
+      <edh:DataItemCreateDateTime>2018-10-12T18:25:00Z</edh:DataItemCreateDateTime>
+      <edh:ResponsibleEntity edh:role="Custodian">
+        <edh:Country>USA</edh:Country>
+        <edh:Organization>USA.DNI</edh:Organization>
+      </edh:ResponsibleEntity>
+      <arh:Security ism:DESVersion="202111.202211"
+                    ism:ISMCATCESVersion="202211"
+                    ism:resourceElement="true"
+                    ism:compliesWith="USGov USIC"
+                    ism:createDate="2018-10-12"
+                    ism:classification="U"
+                    ism:ownerProducer="USA" />
+    </edh:Edh>
+    <ded:DedTitle ism:classification="U"
+                  ism:ownerProducer="USA">DED.XML</ded:DedTitle>
+    <ded:DedPurpose ism:classification="U"
+                    ism:ownerProducer="USA">This is the DED for creating DEDs somewhat a Meta DED</ded:DedPurpose>
+    <ded:DedSubjectType>XML</ded:DedSubjectType>
+    <ded:DedVersion>2019-MAR</ded:DedVersion>
+    <ded:DedPoc ism:classification="U"
+                ism:ownerProducer="USA">ic-standards-support@iarpa.gov</ded:DedPoc>
+  </ded:DedHeader>
+  <ded:DataElement ism:classification="U"
+                   ism:ownerProducer="USA">
+    <ded:ElementName ism:classification="U"
+                     ism:ownerProducer="USA">Name0</ded:ElementName>
+    <ded:ElementDefinition ism:classification="U"
+                           ism:ownerProducer="USA">Definition0</ded:ElementDefinition>
+    <ded:ElementObligation ism:classification="U"
+                           ism:ownerProducer="USA">Conditional</ded:ElementObligation>
+    <ded:ElementDefinitionSource ism:classification="U"
+                                 ism:ownerProducer="USA" />
+    <ded:ElementId>guide://999002/test1</ded:ElementId>
+    <ded:ElementRestrictions>
+      <ded:ElementRestriction ism:classification="U"
+                              ism:ownerProducer="USA">A</ded:ElementRestriction>
+    </ded:ElementRestrictions>
+    <ded:ElementMultiplicity>[0..n]</ded:ElementMultiplicity>
+    <ded:ElementDataType ism:classification="U"
+                         ism:ownerProducer="USA">XSD type ObligationEnumType</ded:ElementDataType>
+    <ded:ElementObjectType ism:classification="U"
+                           ism:ownerProducer="USA">Enumerated_List_Value</ded:ElementObjectType>
+  </ded:DataElement>
+  <ded:DataElement ism:classification="U"
+                   ism:ownerProducer="USA">
+    <ded:ElementName ism:classification="U"
+                     ism:ownerProducer="USA">Name0</ded:ElementName>
+    <ded:ElementDefinition ism:classification="U"
+                           ism:ownerProducer="USA">Definition0</ded:ElementDefinition>
+    <ded:ElementObligation ism:classification="U"
+                           ism:ownerProducer="USA">Conditional</ded:ElementObligation>
+    <ded:ElementDefinitionSource ism:classification="U"
+                                 ism:ownerProducer="USA" />
+    <ded:ElementId>guide://999002/test1</ded:ElementId>
+    <ded:ElementRestrictions>
+      <ded:ElementRestriction ism:classification="U"
+                              ism:ownerProducer="USA">A</ded:ElementRestriction>
+    </ded:ElementRestrictions>
+    <ded:ElementMultiplicity>[0..6]</ded:ElementMultiplicity>
+  </ded:DataElement>
+</ded:DataElementDictionary>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<d:book xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlns:xi="http://www.w3.org/2001/XInclude"
+        xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+        xmlns:d="http://docbook.org/ns/docbook"
+        xmlns:xl="http://www.w3.org/1999/xlink"
+        version="5.0"
+        xml:lang="en">
+   <d:info>
+      <d:author>
+         <d:personname>
+            <d:surname>Joint Chiefs of Staff Pub 2.0: Appendix B - Intelligence Disciplines -  http://www.dtic.mil/doctrine/new_pubs/jp2_0.pdf IC-CIO</d:surname>
+         </d:personname>
+      </d:author>
+      <d:releaseinfo>
+         <block text-align="center" font-weight="bold" font-size="12pt">UNCLASSIFIED</block>
+      </d:releaseinfo>
+      <d:mediaobject xml:id="image_odni">
+         <d:imageobject>
+            <d:imagedata fileref="../common/images/odni.jpg" width="1.59in" align="center"/>
+         </d:imageobject>
+      </d:mediaobject>
+      <d:title>RR-SM Schematron Guide</d:title>
+      <d:subtitle>Guide to Schematron Rules and Patterns</d:subtitle>
+      <d:productname>RR-SM Schematron Guide 
+				   		 </d:productname>
+      <d:edition>Version 2</d:edition>
+      <d:author>
+         <d:orgname>Prepared by the Joint Chiefs of Staff Pub 2.0: Appendix B - Intelligence Disciplines -  http://www.dtic.mil/doctrine/new_pubs/jp2_0.pdf IC-CIO</d:orgname>
+      </d:author>
+      <d:pubdate>27 January 2013</d:pubdate>
+      <d:date>14 January 2013</d:date>
+      <d:address>Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       </d:address>
+      <d:releaseinfo>
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See 'Distribution Notice' for details.
+       </d:releaseinfo>
+   </d:info>
+   <d:chapter>
+      <d:title>Introduction</d:title>
+      <d:sect1>
+         <d:title>Purpose</d:title>
+         <d:para>(U) The following documentation is informative. The actual Schematron files are the
+								normative record. This documentation is generated from the Schematron files via XSLT
+								it may be missing some file or pieces of a file but whatever is here other than titles
+								came from the original file.</d:para>
+         <d:para>(U) It is envisioned that this will be a useful resource to search and read but for
+								questions and debates the source files should be consulted.</d:para>
+         <d:para>(U) Rules identifiers are all of the format RR-SM-ID-XXXXX, with
+				        		rule files named RR-SM_ID_XXXXX.sch. Any other heading indicates a supporting file
+								that may strongly influence a rule but is not actually a numbered rule.</d:para>
+      </d:sect1>
+   </d:chapter>
+   <d:chapter>
+      <d:title>Rules</d:title>
+      <d:para>All of the numbered Rules for RR-SM are listed in this section. 
+					These rules may	depend strongly on patterns defined in the Abstract Patterns section or on 
+					variables defined in the Schematron Schema section.</d:para>
+      <?hard-pagebreak?><d:sect1>
+         <d:title>.//Rules/GeneralConstraints/RR-SM_ID_00001.sch</d:title>
+         <d:para> Rule Description: 
+RR-SM-ID-00001
+    
+        [RR-SM-ID-00001][Error] The @ism:DESVersion is less than the minimum version 
+        allowed: 9. 
+        
+        Human Readable: The ism version imported by RR-SM must be greater than or equal to 9. 
+    </d:para>
+         <d:para>Code Description: 
+        For all elements that contain @ism:DESVersion, we verify that the version
+        is greater than or equal to the minimum allowed version: 9.  
+    </d:para> 
+         <d:para>Schematron Code:<d:programlisting><![CDATA[<?ICEA pattern?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<sch:pattern id="RR-SM-ID-00001">
+         
+         
+                  <sch:rule context="*[@ism:DESVersion]">
+                     <sch:assert test="number(@ism:DESVersion) &gt;= 9" flag="error">
+            [RR-SM-ID-00001][Error] The @ism:DESVersion is less than the minimum version 
+            allowed: 9. 
+            
+            Human Readable: The ism version imported by RR-SM must be greater than or equal to 9. 
+        </sch:assert>
+                  </sch:rule>
+               </sch:pattern>
+   ]]></d:programlisting>
+         </d:para>
+      </d:sect1>
+      <?hard-pagebreak?><d:sect1>
+         <d:title>.//Rules/GeneralConstraints/RR-SM_ID_00002.sch</d:title>
+         <d:para> Rule Description: 
+RR-SM-ID-00002
+    
+        [RR-SM-ID-00002][Error] The @arh:DESVersion is less than the minimum version 
+        allowed: 1. 
+        
+        Human Readable: The arh version imported by RR-SM must be greater than or equal to 1. 
+    </d:para>
+         <d:para>Code Description: 
+        For all elements that contain @arh:DESVersion, we verify that the version
+        is greater than or equal to the minimum allowed version: 1.  
+    </d:para> 
+         <d:para>Schematron Code:<d:programlisting><![CDATA[<?ICEA pattern?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<sch:pattern id="RR-SM-ID-00002">
+         
+         
+                  <sch:rule context="*[@arh:DESVersion]">
+                     <sch:assert test="number(@arh:DESVersion) &gt;= 1" flag="error">
+            [RR-SM-ID-00002][Error] The @arh:DESVersion is less than the minimum version 
+            allowed: 1. 
+            
+            Human Readable: The arh version imported by RR-SM must be greater than or equal to 1. 
+        </sch:assert>
+                  </sch:rule>
+               </sch:pattern>
+   ]]></d:programlisting>
+         </d:para>
+      </d:sect1>
+   </d:chapter>
+   <d:chapter>
+      <d:title>Abstract Patterns</d:title>
+      <d:para>All of the Abstract Patterns for RR-SM are listed in this section. 
+					These patterns may	depend strongly on 
+					variables defined in the Schematron Schema section.</d:para>
+   </d:chapter>
+   <d:chapter>
+      <d:title>Schematron Schema</d:title>
+      <d:para>The top level Schematron file for RR-SM is in this section. 
+					This file imports all of the others and also defines many global variables they are all dependent on.</d:para>
+      <?hard-pagebreak?><d:sect1>
+         <d:title>.//RR-SM_XML.sch</d:title>
+         <d:para> Rule Description: 
+
+         
+         
+         
+         
+
+         
+
+
+
+
+   
+         
+      
+    </d:para>
+         <d:para>Code Description: </d:para> 
+         <d:para>Schematron Code:<d:programlisting><![CDATA[<?ICEA master?><!-- UNCLASSIFIED --><!-- Notices - Distribution Notice:
+            This document is being made available by the Intelligence Community Chief Information Officer
+            to Federal, State, Local, Tribal, and Foreign Partners and associated contractors. Approval for
+            any further distribution must be coordinated via the Intelligence Community Chief Information 
+            Officer, Mission Engagement Division at standardssupport@dni.gov--><!-- WARNING: 
+    Once compiled into an XSLT the result will 
+    be the aggregate classification of all the CVES 
+    and included .sch files
+-->
+<sch:schema xmlns:xsl="http://www.w3.org/1999/XSL/Transform" queryBinding="xslt2">
+                  <sch:ns uri="http://www.w3.org/1999/xlink" prefix="xlink"/>
+                  <sch:ns uri="http://www.w3.org/2001/XMLSchema" prefix="xs"/>
+                  <sch:ns uri="urn:us:gov:ic:ism" prefix="ism"/>
+                  <sch:ns uri="urn:us:gov:ic:arh" prefix="arh"/>
+
+                  <!--****************************-->
+<!-- (U) RR-SM ID Rules -->
+<!--****************************-->
+
+<!--(U) GeneralConstraints-->
+   <sch:include href="./Rules/GeneralConstraints/RR-SM_ID_00001.sch"/>
+                  <sch:include href="./Rules/GeneralConstraints/RR-SM_ID_00002.sch"/>
+               </sch:schema>
+   ]]></d:programlisting>
+         </d:para>
+      </d:sect1>
+   </d:chapter>
+   <d:chapter>
+      <d:title>Removed Rules</d:title>
+      <d:para>All of the numbered Rules for RR-SM that have been removed are listed in this section. 
+					This section is just a reference for what rule numbers have been dropped. In many but not all cases there will be a reason
+				listed. In all cases the version that the rule was dropped in is listed.</d:para>
+   </d:chapter>
+</d:book>

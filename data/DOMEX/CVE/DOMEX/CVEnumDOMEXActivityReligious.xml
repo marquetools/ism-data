@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<cve:CVE xmlns:cve="urn:us:gov:ic:cve"
+         xmlns:ism="urn:us:gov:ic:ism"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         
+         ism:compliesWith="USGov USIC"
+         ism:ownerProducer="USA"
+         ism:classification="U"
+         ism:DESVersion="202111"
+         ism:ISMCATCESVersion="202205"
+         ism:resourceElement="true"
+         CVEVersion="2"
+         ism:createDate="2015-02-25"
+         xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+
+    <!-- Change Request #889 - Activity and Sub-Activity Elements  -->
+    <cve:IRM>
+        <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:domex:CVEnumDOMEXActivityReligious</URN>
+        <Title xmlns="urn:us:gov:ic:cve"
+             ism:ownerProducer="USA"
+             ism:classification="U">CVEnumDOMEXActivityReligious</Title>
+        <Description xmlns="urn:us:gov:ic:cve"
+                   ism:ownerProducer="USA"
+                   ism:classification="U">Valid range for sub-activities.</Description>
+
+        <cve:Created>2015-02-25</cve:Created>
+
+        <Source ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">Authoritative source for sub-activities</Source>
+        <PointOfContact ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">
+         <Name>DOMEX Metadata Working Group</Name>
+      </PointOfContact>
+    </cve:IRM>
+    
+    <cve:Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Tanakh</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">Jewish religious book</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Quran</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">Islamic religious book</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Bible</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">Christian religious book</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Torah</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">Jewish religious book (first five chapters of the Tanakh, bible and the Quran</Description>
+        </cve:Term>
+    </cve:Enumeration>
+</cve:CVE>

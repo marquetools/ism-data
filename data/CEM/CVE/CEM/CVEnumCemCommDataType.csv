@@ -1,0 +1,43 @@
+﻿"ValueClassification","Value","DescriptionClassification","Description","DeprecationDate"
+"(U) ","IPv4","(U) ","Internet Protocol version 4 'address'",
+"(U) ","IPv6","(U) ","Internet Protocol version 6 'address'",
+"(U) ","WebAddress","(U) ","
+   		        The 'address' of a resource on the Internet or an intranet.
+   		        Usually starts with the protocol (http://, https://, or other protocol),
+   		        a domain name (sometimes called server name), file path, and resource
+   		        name. (ex: http://www.qwert.com/local/daily/news.html).
+   		    ",
+"(U) ","Protocol","(U) ","Protocol used for communication",
+"(U) ","Email","(U) ","
+   	            E-Mail address.  Includes the group or individual address, the
+   	            '@' separator, and mail domain. (ex. noone@qwert.com)
+   	        ",
+"(U) ","Port","(U) ","Network port numbers",
+"(U) ","MobilePhone","(U) "," 
+   	            Specialized type of dialed communications CommData object
+   	            (specific type of 'Telephone').  Used for Cellular and other mobile 
+   	            devices (ex: satellite phones) that use dialing conventions, not
+   	            landline phones that have 'wireless' handsets).
+   	        ",
+"(U) ","Telephone","(U) ","
+   	            For all references to telephone numbers when they appear
+   	            in the narrative of a report as intelligence (not for contact or POC
+   	            Information).  Includes all 'parts' of a phone number: country code,
+   	            area code, exchange, local number, extension, (etc).  Requires the use
+   	            of 'commDataNormalized' attribute to elaborate on a 'local' or
+   	            'national' structure and its international equivalent.  'Telephone' 
+   	            is used for all 'dialed' CommData objects unless they can be more 
+   	            specifically identified.
+   	        ",
+"(U) ","Fax","(U) ","
+   	            Specialized type of dialed communications CommData object
+   	            (specific type of 'Telephone').  A device/CommData object used primarily for
+   	            facsimile, but can also have the capability of being used for voice communications.
+   	            (A person's or organization's 'phone' number that is answered by a fax
+   	            device, not by a person.)",
+"(U) ","Telex","(U) ","Telex addresses",
+"(U) ","MalFile","(U) ","
+   	            Identification of various malicious files such as virus, 'bad'
+   	            cookies, trojans, etc.
+   	        ",
+

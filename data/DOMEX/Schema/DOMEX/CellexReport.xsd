@@ -1,0 +1,1089 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><xs:schema xmlns:cr="urn:CellexReport" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ism="urn:us:gov:ic:ism" xmlns:xhtml="http://www.w3.org/1999/xhtml-StopBrowserRendering" targetNamespace="urn:CellexReport" elementFormDefault="qualified" ism:compliesWith="USGov USIC" ism:resourceElement="true" ism:createDate="2019-09-18" ism:DESVersion="202111" ism:ISMCATCESVersion="202205" ism:classification="U" ism:ownerProducer="USA" version="202111">
+	  <xs:import namespace="urn:us:gov:ic:ism" schemaLocation="../ISM/IC-ISM.xsd"/>
+	  <xs:annotation>
+		    <xs:documentation> This schema is a modified version of the Coral Reef cellex schema. The
+			structure of the schema is intact, however for DOMEX purposes, the case of numerous
+			element names were changed to correspond with the DOMEX capitalization standards. Also,
+			the "Bluetooth Address" element and e-mail "cc" address structure was added. E-mail "to"
+			address was changed to allow multiple occurrences. </xs:documentation>
+	  </xs:annotation>
+	  <xs:complexType name="BaseReportDataType">
+		    <xs:all>
+			      <xs:element name="displayId" type="xs:string"/>
+			      <!--xs:element name="classification" type="xs:string"/-->
+				     <xs:element name="uniqueId" type="xs:string"/>
+			      <xs:element name="batchId" type="xs:string" minOccurs="0"/>
+			      <xs:element name="harmonyNumber" type="xs:string" minOccurs="0"/>
+			      <xs:element name="objName" type="xs:string" minOccurs="0"/>
+			      <xs:element name="circumstance" type="xs:string" minOccurs="0"/>
+			      <xs:element name="reportDate" type="cr:NormalizedDateTimeType"/>
+			      <xs:element name="reportSerialNumber" type="xs:string" minOccurs="0"/>
+			      <xs:element name="isIEDRelated" type="xs:boolean" nillable="true"/>
+			      <xs:element name="reportCategory" type="cr:ReportCategoryType" minOccurs="0"/>
+			      <xs:element name="detaineeName" type="xs:string" nillable="true" minOccurs="0"/>
+			      <xs:element name="detaineeCaptureTag" type="xs:string" minOccurs="0"/>
+			      <xs:element name="isn" type="xs:string" minOccurs="0"/>
+			      <xs:element name="batId" type="xs:string" minOccurs="0"/>
+			      <xs:element name="sigActId" type="xs:string" minOccurs="0"/>
+			      <xs:element name="acquireDate" type="cr:NormalizedDateTimeType" minOccurs="0"/>
+			      <xs:element name="acquiringUnit" type="xs:string" minOccurs="0"/>
+			      <xs:element name="forensicUnits" minOccurs="0">
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:element name="forensicUnit" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+					          </xs:sequence>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="locationOfCapture" type="cr:LocationType" minOccurs="0"/>
+			      <xs:element name="detaineePhotoName" minOccurs="0">
+				        <xs:complexType>
+					          <xs:all>
+						            <xs:element name="full" type="xs:string" minOccurs="0"/>
+						            <xs:element name="thumb" type="xs:string" minOccurs="0"/>
+					          </xs:all>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="comments" type="xs:string" minOccurs="0"/>
+		    </xs:all>
+		    <xs:attributeGroup ref="ism:SecurityAttributesGroup"/>
+	  </xs:complexType>
+	  <xs:complexType name="UserDefinedTagsType">
+		    <xs:sequence>
+			      <xs:element name="userDefinedTag" minOccurs="0" maxOccurs="unbounded">
+				        <xs:complexType>
+					          <xs:all>
+						            <xs:element name="tagName" type="xs:string"/>
+						            <xs:element name="tagValue" type="xs:string"/>
+					          </xs:all>
+					          <xs:attribute name="tagKey" type="xs:string"/>
+				        </xs:complexType>
+			      </xs:element>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <!--ReportType used in BaseReport metadata-->
+	  <xs:simpleType name="ReportCategoryType">
+		    <xs:restriction base="xs:string">
+			      <xs:enumeration value="CELLEX"/>
+			      <xs:enumeration value="DOCEX"/>
+			      <xs:enumeration value="MEDEX"/>
+			      <xs:enumeration value="Unknown"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <!--Selector Fields  -->
+	  <xs:complexType name="SelectorsType">
+		    <xs:choice minOccurs="0" maxOccurs="unbounded">
+			      <xs:element name="selector" type="cr:SelectorType"/>
+			      <xs:element name="stoppedSelector" type="cr:SelectorType"/>
+		    </xs:choice>
+	  </xs:complexType>
+	  <xs:complexType name="SelectorType">
+		    <xs:annotation>
+			      <xs:documentation> A unique number, email address, or URL which can be attributed back
+				to an entity. A selector may have an attribute of 'stopped'. </xs:documentation>
+		    </xs:annotation>
+		    <xs:all>
+			      <xs:element name="value" type="xs:string">
+				        <xs:annotation>
+					          <xs:documentation> None provided </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="realm" type="cr:SelectorRealmType">
+				        <xs:annotation>
+					          <xs:documentation> Refers to the type of selector, i.e. MSISDN (phone number),
+						IMSI, IMEI, etc. Valid values are: IMEI, IMSI, MSISDN, EMAIL, IPV4, MAC,
+						URL, MGRS, ESN. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="isValidated" type="xs:boolean">
+				        <xs:annotation>
+					          <xs:documentation> Boolean value indicating if a human has verified the entity
+						is of the type indicated. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="identities" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Free text field. </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:element name="identity" type="xs:string" maxOccurs="unbounded"/>
+					          </xs:sequence>
+					          <xs:attribute name="searchKey" type="xs:string"/>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="locations">
+				        <xs:annotation>
+					          <xs:documentation> Free text field. </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:element name="location" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+					          </xs:sequence>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="normTechVersion" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Normalized selector value </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="rawValues">
+				        <xs:annotation>
+					          <xs:documentation> Original selector value extracted from the device.
+					</xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:element name="rawValue" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+					          </xs:sequence>
+				        </xs:complexType>
+			      </xs:element>
+		    </xs:all>
+		    <xs:attribute name="searchKey" type="xs:string"/>
+	  </xs:complexType>
+	  <xs:element name="selectorRealm" type="cr:SelectorRealmType"/>
+	  <xs:simpleType name="SelectorRealmType">
+		    <xs:restriction base="xs:string">
+			      <xs:enumeration value="IMEI"/>
+			      <xs:enumeration value="IMSI"/>
+			      <xs:enumeration value="MSISDN"/>
+			      <xs:enumeration value="EMAIL"/>
+			      <xs:enumeration value="IPV4"/>
+			      <xs:enumeration value="MAC"/>
+			      <xs:enumeration value="URL"/>
+			      <xs:enumeration value="MGRS"/>
+			      <xs:enumeration value="ESN"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <!--Optional Location data found in the report-->
+	  <xs:complexType name="GpsLocationsType">
+		    <xs:sequence>
+			      <xs:element name="gpsLocation" type="cr:LocationType" maxOccurs="unbounded"/>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="LocationType">
+		    <xs:annotation>
+			      <xs:documentation> The exploited device may be a Global Positioning System (GP) device.
+				The device may contain multiple stored locations. </xs:documentation>
+		    </xs:annotation>
+		    <xs:all>
+			      <xs:element name="isGPSWayPoint" type="xs:boolean" default="false" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Boolean. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="wayPointName" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Name assigned to the GPS Way Point </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="lastSelectedDtg" type="cr:NormalizedDateTimeType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Last Date/Time selected in the GPS device in GMT format.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="rawLatitude" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Latitude as stored in the GPS device. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="rawLongitude" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Longitude as stored in the GPS device. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="normalizedLatitude" type="xs:double" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Longitude normalized to standard display format
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="normalizedLongitude" type="xs:double" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Latitude normalized to standard display format
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="rawMGRS" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Military Grid Reference system geocoordinates as stored on
+						the device. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="normalizedMGRS" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Military Grid Reference System geocoordinates normalized to
+						standard display format </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:all>
+	  </xs:complexType>
+	  <!--Calendar Events-->
+	  <xs:complexType name="CalendarEventsType">
+		    <xs:sequence>
+			      <xs:element name="calendarEvent" type="cr:CalendarEventType" maxOccurs="unbounded"/>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="CalendarEventType">
+		    <xs:all>
+			      <xs:element name="origTitle" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Original title of the calendar event; may be in non-English
+						form. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="transTitle" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Translation of the original event title. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="origMessText" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Original text describing the calendar event; may be in
+						non-English form. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="transMessText" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Translation of the original calendar event description text.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="eventLocation" type="cr:LocationType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Location of the calendar event. Locations include GPS
+						WayPoints, Latitude/Longitude, and Military Grid Reference System (MGRS).
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="startDateTime" type="cr:NormalizedDateTimeType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Starting time of the calendar event </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="endDateTime" type="cr:NormalizedDateTimeType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Ending time of the calendar event </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="isReoccuring" type="xs:boolean" default="false" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Boolean Value </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:all>
+	  </xs:complexType>
+	  <!--URLS-->
+	  <xs:complexType name="UrlHistoryType">
+		    <xs:sequence>
+			      <xs:element name="url" type="cr:UrlType" maxOccurs="unbounded"/>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="UrlType">
+		    <xs:all>
+			      <xs:element name="ip" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Protocol address </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="url" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Uniform Resource Locator </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:all>
+	  </xs:complexType>
+	  <!--Files-->
+	  <xs:complexType name="FilesType">
+		    <xs:sequence>
+			      <xs:element name="file" type="cr:FileType" maxOccurs="unbounded"/>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="FileType">
+		    <xs:all>
+			      <xs:element name="fileCategory" type="cr:FileCategoryType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The file type category. Categories include: Picture, Video,
+						Audio, Ringtone, Document, and Unknown </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="fileName" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Name of the file; may be non-English form.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="fileFullPath" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Full path name of the file as stored on the original media.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="fileMD5" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> MD5 hash code value of the file. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="fileSize" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Size of the file in bytes. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:all>
+	  </xs:complexType>
+	  <!--EMAIL Messages-->
+	  <xs:complexType name="EmailMessagesType">
+		    <xs:annotation>
+			      <xs:documentation> Email messages extracted from the cell phone </xs:documentation>
+		    </xs:annotation>
+		    <xs:sequence>
+			      <xs:element name="emailMessage" type="cr:EmailMessageType" maxOccurs="unbounded"/>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="EmailMessageType">
+		    <xs:all>
+			      <xs:element name="name" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Subject of the email </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="fromAddress" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> From email address. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="to" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The To email addressees. </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:element name="toAddress" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+					          </xs:sequence>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="cc" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> "Carbon" Copy addressees. </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:element name="ccAddress" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+					          </xs:sequence>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="bcc" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Blind Copy addressees. </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:element name="bccAddress" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+					          </xs:sequence>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="dateTime" type="cr:NormalizedDateTimeType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Date and time of the message in ZULU format
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="origMessText" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Original text of the message; may be in non-English form.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="transMessText" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Translated text of the email message. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="emailFolder" type="cr:EmailDirType" nillable="true" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Folder where the email was stored. Values include: Missed,
+						Received, Dialed, Fixed, Own, Inbox, Outbox, Draft, Sent, Deleted Sent,
+						Deleted Received, Other. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="memoryLocation" type="cr:MemoryLocationType" nillable="false" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Location on the device where the email was stored. Values
+						include: Handset, SIM, and External Memory Card. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:all>
+	  </xs:complexType>
+	  <!-- Upload Info -->
+	  <xs:complexType name="UploadInfoType">
+		    <xs:all>
+			      <xs:element name="uploadStatus" type="xs:string"/>
+			      <xs:element name="uploadOwner" type="xs:string"/>
+			      <xs:element name="uploadDTG" type="xs:dateTime"/>
+			      <xs:element name="uploadDate" type="xs:date"/>
+			      <xs:element name="origFileName" type="xs:string"/>
+			      <xs:element name="uploadOrganizations" minOccurs="0">
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:element name="uploadOrganization" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+					          </xs:sequence>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="uploadErrorMsg" type="xs:string" minOccurs="0"/>
+		    </xs:all>
+	  </xs:complexType>
+	  <!-- Alert Info -->
+	  <xs:complexType name="AlertInfoType">
+		    <xs:sequence>
+			      <xs:element name="alertLevel" type="xs:string" minOccurs="0"/>
+			      <xs:element name="targets" type="cr:TargetsType" minOccurs="0"/>
+			      <xs:element name="alertTypeCount" type="xs:int" minOccurs="0"/>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="TargetsType">
+		    <xs:sequence>
+			      <xs:element name="target" type="cr:TargetType" minOccurs="0" maxOccurs="unbounded"/>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="TargetType">
+		    <xs:sequence>
+			      <xs:element name="alertTargetId" type="xs:string" minOccurs="0"/>
+			      <xs:element name="targetLevel" type="xs:integer" minOccurs="0"/>
+			      <xs:element name="targetType" type="xs:string" minOccurs="0"/>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <!--Certificate-->
+	  <xs:complexType name="CertificatesType">
+		    <xs:sequence>
+			      <xs:element name="certificate" type="cr:CertificateType" maxOccurs="unbounded"/>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="CertificateType">
+		    <xs:all>
+			      <xs:element name="ca" type="xs:string" minOccurs="0"/>
+			      <xs:element name="dn" type="xs:string" minOccurs="0"/>
+			      <xs:element name="certSerial" type="xs:string" minOccurs="0"/>
+		    </xs:all>
+	  </xs:complexType>
+	  <!--Clocks-->
+	  <xs:complexType name="ClocksType">
+		    <xs:sequence>
+			      <xs:element name="clock" type="cr:ClockType" maxOccurs="unbounded"/>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="ClockType">
+		    <xs:all>
+			      <xs:element name="location" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> A free text field. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="setTime" type="cr:NormalizedDateTimeType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Time to which the clock is set. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:all>
+	  </xs:complexType>
+	  <xs:complexType name="NormalizedDateTimeType">
+		    <xs:attribute name="rawDateTime" type="xs:string" use="required"/>
+		    <xs:attribute name="normalizedDateTime" type="xs:dateTime" use="optional"/>
+		    <xs:attribute name="normalizedDate" type="xs:date" use="optional"/>
+	  </xs:complexType>
+	  <!--  change history stuff added 1/20/11 JWB -->
+	  <xs:complexType name="ChangeHistoryType">
+		    <xs:sequence>
+			      <xs:element name="changeSet" type="cr:ChangeSetType" minOccurs="0" maxOccurs="unbounded"/>
+		    </xs:sequence>
+		    <xs:attribute name="uniqueId" type="xs:string" use="optional"/>
+	  </xs:complexType>
+	  <xs:complexType name="ChangeSetType">
+		    <xs:sequence>
+			      <xs:element name="change" type="cr:ChangeType" minOccurs="0" maxOccurs="unbounded"/>
+		    </xs:sequence>
+		    <xs:attribute name="userCredential" type="xs:string" use="optional"/>
+		    <xs:attribute name="changeDtg" type="xs:dateTime" use="required"/>
+		    <xs:attribute name="changeDocId" type="xs:string" use="optional"/>
+	  </xs:complexType>
+	  <xs:complexType name="ChangeType">
+		    <xs:attribute name="name" type="xs:string" use="required"/>
+		    <xs:attribute name="old" type="xs:string" use="required"/>
+		    <xs:attribute name="new" type="xs:string" use="required"/>
+		    <xs:attribute name="xpath" type="xs:string" use="required"/>
+		    <xs:attribute name="userCredential" type="xs:string" use="required"/>
+		    <xs:attribute name="changeDtg" type="xs:dateTime" use="required"/>
+		    <xs:attribute name="source" type="xs:string" use="required"/>
+	  </xs:complexType>
+	  <!--COMMON ENUMs-->
+	  <xs:simpleType name="FileCategoryType">
+		    <xs:restriction base="xs:string">
+			      <xs:enumeration value="Picture"/>
+			      <xs:enumeration value="Video"/>
+			      <xs:enumeration value="Audio"/>
+			      <xs:enumeration value="Ringtone"/>
+			      <xs:enumeration value="Document"/>
+			      <xs:enumeration value="Unknown"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="EmailDirType">
+		    <xs:restriction base="xs:string">
+			      <xs:enumeration value="Missed"/>
+			      <xs:enumeration value="Received"/>
+			      <xs:enumeration value="Dailed"/>
+			      <xs:enumeration value="Fixed"/>
+			      <xs:enumeration value="Own"/>
+			      <xs:enumeration value="Inbox"/>
+			      <xs:enumeration value="Outbox"/>
+			      <xs:enumeration value="Draft"/>
+			      <xs:enumeration value="Sent"/>
+			      <xs:enumeration value="DeletedSent"/>
+			      <xs:enumeration value="DeletedRec"/>
+			      <xs:enumeration value="Other"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="MemoryLocationType">
+		    <xs:restriction base="xs:string">
+			      <xs:enumeration value="Handset"/>
+			      <xs:enumeration value="SIM"/>
+			      <xs:enumeration value="ExtMemCard"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:complexType name="ImeiRecord">
+		    <xs:all>
+			      <xs:element name="make" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Company that manufactured the device, derived from the TAC.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="model" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Model of the electronic device </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="tac" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Type Allocation Code. Initial 8-digit portion of the IMEI.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="reportingBody" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> First 2 digits of the TAC. Identifies the GSMA-approved group
+						that allocated the TAC. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="approvedIn" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> None provided </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="bands" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> None provided </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:all>
+	  </xs:complexType>
+	  <xs:complexType name="CellexReportDataType">
+		    <xs:all>
+			      <xs:element name="kitNumber" type="xs:string" minOccurs="0"/>
+			      <xs:element name="kitSchemaVersion" type="xs:string" minOccurs="0"/>
+			      <xs:element name="kitSoftwareVersion" type="xs:string" minOccurs="0"/>
+			      <xs:element name="owner" type="xs:string" nillable="true" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Owner of the device </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="serviceProvider" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Company that is providing service for the electronic device
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="isTrigger" type="xs:boolean" nillable="true"/>
+			      <xs:element name="serviceType" type="cr:ServiceCategoryType" minOccurs="0"/>
+			      <xs:element name="handsetInfo" type="cr:HandsetDeviceType" minOccurs="0"/>
+			      <xs:element name="serviceTechnologyInfo" type="cr:ServiceTechnologyType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The type of service technology. Valid values are: GSM, CDMA,
+						Thuraya, Unknown. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="phoneBookEntries" type="cr:PhoneBookEntriesType" minOccurs="0"/>
+			      <xs:element name="callLogEntries" type="cr:CallLogEntriesType" minOccurs="0"/>
+			      <xs:element name="smsMessages" type="cr:SmsMessagesType" minOccurs="0"/>
+			      <xs:element name="mmsMessages" type="cr:MmsMessagesType" minOccurs="0"/>
+			      <xs:element name="calendarEvents" type="cr:CalendarEventsType" minOccurs="0"/>
+		    </xs:all>
+	  </xs:complexType>
+	  <!--CELLEX HandSet Fields-->
+	  <xs:complexType name="HandsetDeviceType">
+		    <xs:all>
+			      <xs:element name="handsetMake" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Company that manufactured handset. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="handsetModel" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Model number of handset </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="imei" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> International Mobile Equipment Identity or IMEI is a number
+						(decimal), usually unique to identify GSM, WCDMA, and iDEN mobile phones, as
+						well as some satellite phones. It is usually found printed inside the
+						battery compartment of the phone. It can also be displayed on the screen of
+						the phone by entering *#06# into the keypad on most phones.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="hardwareVersion" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Refers to the version of the hardware of a handset or a
+						CELLEX kit. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="softwareVersion" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Refers to the software version of a handset.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="timeSetTo" type="cr:NormalizedDateTimeType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Refers to the time that the handset was set once the phone
+						was exploited. Most of the time it will be the same as Actual Time, but
+						there have been cases where phones were not in sync with the real time.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="actualTime" type="cr:NormalizedDateTimeType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The actual time when the handset is exploited by a CELLEX
+						kit. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="memoryCards" minOccurs="0">
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:element name="memoryCard" type="xs:string" maxOccurs="unbounded">
+							              <xs:annotation>
+								                <xs:documentation> Refers to whether a phone has a memory card
+									within it during capture. Typical memory cards are SD cards.
+								</xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+					          </xs:sequence>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="greetingMessage" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Refers to a possible message on a handset, which is displayed
+						once the handset is turned on. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="keypadLockCode" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The code to unlock a locked phone. Typically a 4 digit
+						number. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="bluetoothID" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The unique 48-bit address of the Bluetooth device.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:all>
+	  </xs:complexType>
+	  <!--CELLEX SIM Cards-->
+	  <xs:complexType name="ServiceTechnologyType">
+		    <xs:all>
+			      <xs:element name="MSISDN" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> A number uniquely identifying a subscription in a Global
+						System for Mobile Communications (GSM) or a Universal Mobile
+						Telecommunications System (UMTS) mobile network. The abbreviation has
+						several interpretations, the most common one being Mobile Subscriber
+						Integrated Services Digital Network Number </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="IMSI" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> An International Mobile Subscriber Identity or IMSI is a
+						unique identification associated with all GSM and UMTS network mobile phone
+						users. It is stored as a 64-bit field in the SIM inside the phone and is
+						sent by the phone to the network. It is also used for acquiring other
+						details of the mobile in the Home Location Register (HLR) or as locally
+						copied in the Visitor Location Register. To prevent eavesdroppers
+						identifying and tracking the subscriber on the radio interface, the IMSI is
+						sent as rarely as possible and a randomly-generated TMSI is sent instead.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="TMSI" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The "Temporary Mobile Subscriber Identity" (TMSI) is the
+						identity that is most commonly sent between the mobile and the network. TMSI
+						is randomly assigned by the VLR to every mobile in the area, the moment it
+						is switched on. The number is local to a location area, and so it has to be
+						updated each time the mobile moves to a new geographical area.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="MMC" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Multi Media Card </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="MNC" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Is used in combination with a Mobile Country Code (MCC) (also
+						known as a "MCC / MNC tuple") to uniquely identify a mobile phone
+						operator/carrier using the GSM/LTE, CDMA, iDEN, TETRA and UMTS public land
+						mobile networks and some satellite mobile networks. The ITU-T Recommendation
+						E.212 defines mobile country codes. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="LAC" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Location Area Code </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="ICCID" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Integrated circuit card identifier (ICCID). Each SIM is
+						internationally identified by its ICCID. ICCIDs are stored in the SIM cards
+						and are also engraved or printed on the SIM card body during a process
+						called personalization. The ICCID is defined by the ITU-T recommendation
+						E.118. According to E.118 the number is up to 19 digits long including a
+						single check digit calculated using the Luhn algorithm. However, the GSM
+						Phase 1 defined the ICC-ID length as 10 octets with operator-specific
+						structure. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="SimCardType" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> A subscriber identity module (SIM) on a removable SIM card
+						securely stores the service subscriber key (IMSI) used to identify a
+						subscriber on mobile telephone devices (such as mobile phones and
+						computers). The SIM card allows users to change phones by simply removing
+						the SIM card from one mobile phone and inserting it into another mobile
+						phone or broadband telephony device. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="ESN" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> An electronic serial number (ESN) is the unique
+						identification number embedded or inscribed on the microchip in a wireless
+						phone by the manufacturer. Each time a call is placed, the ESN is
+						automatically transmitted to the base station so the wireless carrier's
+						mobile switching office check the call's validity. the ESN cannot easily be
+						altered in the field. The ESN differs from the mobile identification number
+						(MIN) which is the wireless carrier's identifier for a phone in the network.
+						MINs and ESNs can be electronically checked to help prevent fraud. ESNs are
+						mainly used with AMPS, TDMA and CDMA phones in the United States, compared
+						to International Mobile Equipment Identity (IMEI) numbers used by all GSM
+						phones. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:all>
+	  </xs:complexType>
+	  <!--CELLEX Phone Book Messages-->
+	  <xs:complexType name="PhoneBookEntriesType">
+		    <xs:annotation>
+			      <xs:documentation> The device's phone book may contain multiple entries. Each entry will
+				optionally contain: index, name, number, original name, memory location, and
+				designation. </xs:documentation>
+		    </xs:annotation>
+		    <xs:sequence>
+			      <xs:element name="phoneBookEntry" type="cr:PhoneBookEntryType" maxOccurs="unbounded"/>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="PhoneBookEntryType">
+		    <xs:all>
+			      <xs:element name="index" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Number associated with the phone book entry name.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="name" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Translated Name of the phone book entry. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="number" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Number of the associated with the phone book entry name.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="origName" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Original name of the phone book entry; can be in non-English
+						form. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="memoryLocation" type="cr:MemoryLocationType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Memory or SIM. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="designation" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> None provided </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:all>
+	  </xs:complexType>
+	  <!--CELLEX Call Log Messages-->
+	  <xs:complexType name="CallLogEntriesType">
+		    <xs:sequence>
+			      <xs:element name="callLogEntry" type="cr:CallLogEntryType" maxOccurs="unbounded"/>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="CallLogEntryType">
+		    <xs:all>
+			      <xs:element name="index" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Index Number associated with the call log entry.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="name" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Translated Name of the call log entry. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="number" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Called number. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="origName" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Original name of the phone book entry; can be in non-English
+						form. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="dateTime" type="cr:NormalizedDateTimeType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Date and Time of the call, normalized to GMT.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="callLogLoc" type="cr:LogType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Handset, SIM, or External Memory Card. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="memoryLocation" type="cr:MemoryLocationType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Handset, SIM, or External Memory Card. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="duration" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Duration of the call. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:all>
+	  </xs:complexType>
+	  <!--CELLEX SMS-->
+	  <xs:complexType name="SmsMessagesType">
+		    <xs:sequence>
+			      <xs:element name="smsMessage" type="cr:SmsMessageType" maxOccurs="unbounded"/>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="SmsMessageType">
+		    <xs:all>
+			      <xs:element name="name" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Name of the message sender. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="number" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Telephone number to which the SMS message was sent or
+						received from. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="dateTime" type="cr:NormalizedDateTimeType" nillable="true" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Date and Time of the SMS message. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="origMessText" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Original text of the SMS message. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="transMessText" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> English language translation of the SMS message.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="status" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Status of the received message: Read/Unread
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="smsDirection" type="cr:LogType" nillable="true" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Direction of the message. Acceptable values: Missed,
+						Received, Dialed, Fixed, Own, Inbox, Outbox, Draft, Sent, DeletedSent,
+						DeletedReceived, Other. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="memoryLocation" type="cr:MemoryLocationType" nillable="true" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Handset, SIM, or External Memory Card. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:all>
+	  </xs:complexType>
+	  <!--CELLEX MMS-->
+	  <xs:complexType name="MmsMessagesType">
+		    <xs:annotation>
+			      <xs:documentation> A Multi-Media Messaging Service message that includes multimedia
+				content sent between mobile phones. </xs:documentation>
+		    </xs:annotation>
+		    <xs:sequence>
+			      <xs:element name="mmsMessage" type="cr:MmsMessageType" maxOccurs="unbounded"/>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="MmsMessageType">
+		    <xs:all>
+			      <xs:element name="name" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Name of the message sender. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="number" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Number of the message sender. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="dateTime" type="cr:NormalizedDateTimeType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Date and time of the message. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="origMessText" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Original text of the message; can be in non-English form.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="transMessText" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Translation of the original message text. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="mmsDirection" type="cr:LogType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Direction of the message. Acceptable values: Missed,
+						Received, Dialed, Fixed, Own, Inbox, Outbox, Draft, Sent, DeletedSent,
+						DeletedReceived, Other. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="fileName" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> File name of the multimedia content. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="fileMD5" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> MD5 Hash Code Value of the message </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="status" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Status of the received message: Read/Unread
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="memoryLocation" type="cr:MemoryLocationType" nillable="true" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Handset, SIM, or External Memory Card. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:all>
+	  </xs:complexType>
+	  <!--CELLEX ENUMs-->
+	  <xs:simpleType name="ServiceCategoryType">
+		    <xs:restriction base="xs:string">
+			      <xs:enumeration value="GSM"/>
+			      <xs:enumeration value="CDMA"/>
+			      <xs:enumeration value="THURAYA"/>
+			      <xs:enumeration value="Unknown"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="LogType">
+		    <xs:restriction base="xs:string">
+			      <xs:enumeration value="Missed"/>
+			      <xs:enumeration value="Received"/>
+			      <xs:enumeration value="Dialed"/>
+			      <xs:enumeration value="Fixed"/>
+			      <xs:enumeration value="Own"/>
+			      <xs:enumeration value="Inbox"/>
+			      <xs:enumeration value="Outbox"/>
+			      <xs:enumeration value="Draft"/>
+			      <xs:enumeration value="Sent"/>
+			      <xs:enumeration value="DeletedSent"/>
+			      <xs:enumeration value="DeletedRec"/>
+			      <xs:enumeration value="Other"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <!-- ************************************************************* -->
+	  <!-- Attribute - DESVersion                                        -->
+	  <!-- ************************************************************* -->
+	  <xs:attribute name="DESVersion">
+		    <xs:annotation>
+			      <xs:documentation xml:lang="en">
+				        <xhtml:p ism:ownerProducer="USA" ism:classification="U">The version number of
+					the specification. This attribute is intended for processing systems to
+					determine the appropriate versions of Schema, Schematron, and CVE values for
+					validation and interpretation of an instance document. </xhtml:p>
+				        <xhtml:p ism:ownerProducer="USA" ism:classification="U">If there are multiple of
+					this attribute specified in an instance document, the first one in document
+					order is the one that will apply to the entire document. Document order is
+					defined in <xhtml:a href="https://www.w3.org/TR/xpath-datamodel/#document-order">https://www.w3.org/TR/xpath-datamodel/#document-order</xhtml:a>
+				        </xhtml:p>
+			      </xs:documentation>
+		    </xs:annotation>
+		    <xs:simpleType>
+			      <xs:restriction base="xs:string">
+				        <xs:pattern value="[0-9]{6}(\.[0-9]{6})?(\-.{1,23})?"/>
+			      </xs:restriction>
+		    </xs:simpleType>
+	  </xs:attribute>
+	  <xs:complexType name="CellexReportType">
+		    <xs:all>
+			      <xs:element name="version" type="xs:string" minOccurs="0"/>
+			      <xs:element name="baseReportData" type="cr:BaseReportDataType"/>
+			      <xs:element name="cellexReportData" type="cr:CellexReportDataType" minOccurs="0"/>
+			      <xs:element name="urlHistory" type="cr:UrlHistoryType" minOccurs="0"/>
+			      <xs:element name="files" type="cr:FilesType" minOccurs="0"/>
+			      <xs:element name="emailMessages" type="cr:EmailMessagesType" minOccurs="0"/>
+			      <xs:element name="selectors" type="cr:SelectorsType" minOccurs="0"/>
+			      <xs:element name="gpsLocations" type="cr:GpsLocationsType" minOccurs="0"/>
+			      <xs:element name="clocks" type="cr:ClocksType" minOccurs="0"/>
+			      <!-- artf14835 - Make uploadInfo optional -->
+				     <xs:element name="uploadInfo" type="cr:UploadInfoType" minOccurs="0"/>
+			      <xs:element name="alertInfo" type="cr:AlertInfoType" minOccurs="0"/>
+			      <xs:element name="userDefinedTags" type="cr:UserDefinedTagsType" minOccurs="0"/>
+			      <xs:element name="changeHistory" type="cr:ChangeHistoryType" minOccurs="0"/>
+		    </xs:all>
+    		<xs:attribute ref="cr:DESVersion" use="optional"/>
+	  </xs:complexType>
+	
+	  <xs:element name="cellexReport" type="cr:CellexReportType"/>
+	
+</xs:schema>

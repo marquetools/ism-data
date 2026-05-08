@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?><?skip-unit-test-PI-validation?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:us:gov:ic:tdf" xmlns:dhzm="urn:us:gov:ic:digitalhazmat" xmlns:sfhashv="urn:us:gov:ic:sf:hashverification" xmlns:sf="urn:us:gov:ic:sf" xmlns:anlys="urn:us:gov:ic:anlysassert" xmlns:tdfsigal="urn:us:gov:ic:cvenum:tdf:signaturealgorithm" xmlns:tdfstate="urn:us:gov:ic:cvenum:tdf:state" xmlns:tdfhashal="urn:us:gov:ic:cvenum:tdf:hashalgorithm" targetNamespace="urn:us:gov:ic:tdf" elementFormDefault="qualified" attributeFormDefault="qualified" version="202111">
+   <xs:import namespace="urn:us:gov:ic:cvenum:tdf:signaturealgorithm" schemaLocation="../BASE-TDF/CVEGenerated/CVEnumTDFSignatureAlgorithm.xsd"/>
+   <xs:import namespace="urn:us:gov:ic:cvenum:tdf:hashalgorithm" schemaLocation="../BASE-TDF/CVEGenerated/CVEnumTDFHashAlgorithm.xsd"/>
+   <xs:import namespace="urn:us:gov:ic:cvenum:tdf:state" schemaLocation="../BASE-TDF/CVEGenerated/CVEnumTDFAppliesToState.xsd"/>
+   <xs:import namespace="urn:us:gov:ic:sf:hashverification" schemaLocation="../IC-SF/HashVerification.xsd"/>
+   <xs:import namespace="urn:us:gov:ic:sf" schemaLocation="../IC-SF/IC-SF.xsd"/>
+   <xs:import namespace="urn:us:gov:ic:digitalhazmat" schemaLocation="../DHZM/DHZM.xsd"/>
+   <xs:import namespace="urn:us:gov:ic:anlysassert" schemaLocation="../ANLYS/ANLYS.xsd"/>
+   <xs:element name="TrustedDataCollection" type="TrustedDataCollectionType"/>
+   <xs:element name="TrustedDataObject" type="TrustedDataObjectType"/>
+   <xs:attribute name="version">
+      <xs:simpleType>
+         <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{6}(\.[0-9]{6})?\-DHZMC\-TDF\.[0-9]{6}(\.[0-9]{6})?(\-.{1,23})?"/>
+         </xs:restriction>
+      </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name="mediaType" type="MediaTypeType"/>
+   <xs:attribute name="id" type="xs:ID"/>
+   <xs:attribute name="idRef" type="xs:IDREF"/>
+   <xs:attribute name="filename" type="xs:string"/>
+   <xs:attribute name="scope">
+      <xs:simpleType>
+         <xs:restriction base="xs:string">
+            <xs:enumeration value="TDO"/>
+            <xs:enumeration value="TDC"/>
+            <xs:enumeration value="PAYL"/>
+            <xs:enumeration value="EXPLICIT"/>
+            <xs:enumeration value="DESC_TDO"/>
+            <xs:enumeration value="DESC_PAYL"/>
+            <xs:enumeration value="TDC_MEMBER"/>
+         </xs:restriction>
+      </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name="isEncrypted" type="xs:boolean"/>
+   <xs:attribute name="includesStatementMetadata" type="xs:boolean"/>
+   <xs:attribute name="normalizationMethod" type="xs:anyURI"/>
+   <xs:attribute name="uri" type="xs:anyURI"/>
+   <xs:complexType name="TrustedDataCollectionType">
+      <xs:sequence>
+         <xs:group ref="AssertionGroup"/>
+         <xs:choice maxOccurs="unbounded">
+            <xs:element ref="TrustedDataCollection"/>
+            <xs:element ref="TrustedDataObject"/>
+         </xs:choice>
+      </xs:sequence>
+      <xs:attribute ref="version" use="required"/>
+      <xs:attribute ref="sf:DESVersion" use="optional"/>
+   </xs:complexType>
+   <xs:complexType name="TrustedDataObjectType">
+      <xs:sequence>
+         <xs:group ref="AssertionGroup"/>
+         <xs:group ref="EncryptionInformationGroupRequired"/>
+         <xs:group ref="PayloadGroup"/>
+      </xs:sequence>
+      <xs:attribute ref="version"/>
+      <xs:attribute ref="sf:DESVersion" use="optional"/>
+      <xs:attribute ref="id" use="optional"/>
+   </xs:complexType>
+   <xs:complexType name="EncryptionMethodType">
+      <xs:sequence>
+         <xs:element name="KeySize" type="xs:integer" minOccurs="0"/>
+         <xs:element name="KeyEncodingFormat" type="xs:string" minOccurs="0"/>
+         <xs:element name="IVParams" type="xs:base64Binary" minOccurs="0"/>
+         <xs:element name="OaepParams" type="xs:base64Binary" minOccurs="0"/>
+         <xs:element name="HashAlgorithm" type="xs:anyURI" minOccurs="0"/>
+         <xs:element name="MGFAlgorithm" type="xs:anyURI" minOccurs="0"/>
+         <xs:element name="Tweak" type="xs:base64Binary" minOccurs="0"/>
+         <xs:element name="Nonce" type="xs:base64Binary" minOccurs="0"/>
+         <xs:element name="AdditionalAuthenticatedData" type="xs:base64Binary" minOccurs="0"/>
+         <xs:element name="AuthenticationTag" type="xs:base64Binary" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute name="algorithm" type="xs:anyURI" use="required"/>
+   </xs:complexType>
+   <xs:group name="AssertionGroup">
+      <xs:sequence>
+         <xs:element name="Assertion" type="AssertionType" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+   </xs:group>
+   <xs:group name="BindingGroup">
+      <xs:choice>
+         <xs:element name="Binding" type="BindingType" maxOccurs="unbounded"/>
+         <xs:element name="ReferenceList" type="ReferenceListType"/>
+      </xs:choice>
+   </xs:group>
+   <xs:group name="EncryptionInformationGroupRequired">
+      <xs:sequence>
+         <xs:element maxOccurs="unbounded" name="EncryptionInformation">
+            <xs:complexType>
+               <xs:choice>
+                  <xs:sequence>
+                     <xs:element name="KeyAccess" type="KeyAccessType"/>
+                     <xs:element name="EncryptionMethod" type="EncryptionMethodType"/>
+                  </xs:sequence>
+               </xs:choice>
+               <xs:attribute name="sequenceNum" type="xs:integer" use="optional"/>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:group>
+   <xs:group name="EncryptionInformationGroup">
+      <xs:sequence>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="EncryptionInformation">
+            <xs:complexType>
+               <xs:choice>
+                  <xs:sequence>
+                     <xs:element name="KeyAccess" type="KeyAccessType"/>
+                     <xs:element name="EncryptionMethod" type="EncryptionMethodType"/>
+                  </xs:sequence>
+               </xs:choice>
+               <xs:attribute name="sequenceNum" type="xs:integer" use="optional"/>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:group>
+   <xs:group name="PayloadGroup">
+      <xs:choice>
+         <xs:element name="Base64BinaryPayload" type="Base64BinaryValueType"/>
+         <xs:element name="ReferenceValuePayload" type="ReferenceValueType"/>
+      </xs:choice>
+   </xs:group>
+   <xs:group name="StatementGroup">
+      <xs:choice>
+         <xs:element name="StringStatement" type="StringValueType"/>
+         <xs:element name="Base64BinaryStatement" type="Base64BinaryValueType"/>
+         <xs:element name="ReferenceStatement" type="ReferenceValueType"/>
+         <xs:element name="StructuredStatement" type="StructuredValueType"/>
+      </xs:choice>
+   </xs:group>
+   <xs:complexType name="AssertionType">
+      <xs:sequence>
+         <xs:element name="StatementMetadata" type="StatementMetadataType" minOccurs="0" maxOccurs="2"/>
+         <xs:group ref="EncryptionInformationGroup"/>
+         <xs:group ref="StatementGroup"/>
+         <xs:group ref="BindingGroup" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute ref="scope" use="required"/>
+      <xs:attribute name="type" type="xs:string"/>
+      <xs:attribute ref="id" use="optional"/>
+   </xs:complexType>
+   <xs:complexType name="StatementMetadataType">
+      <xs:sequence>
+         <xs:any namespace="##other" processContents="skip"/>
+      </xs:sequence>
+      <xs:attribute name="appliesToState" type="tdfstate:CVEnumTDFAppliesToState" use="optional"/>
+   </xs:complexType>
+   <xs:complexType name="Base64BinaryValueType">
+      <xs:simpleContent>
+         <xs:extension base="Base64BinaryRestrictedType">
+            <xs:attribute ref="mediaType" use="optional"/>
+            <xs:attribute ref="filename" use="optional"/>
+            <xs:attribute ref="isEncrypted" use="optional"/>
+            <xs:attribute ref="id" use="optional"/>
+         </xs:extension>
+      </xs:simpleContent>
+   </xs:complexType>
+   <xs:simpleType name="Base64BinaryRestrictedType">
+      <xs:restriction base="xs:base64Binary">
+         <xs:maxLength value="10000000"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:complexType name="ReferenceValueType">
+      <xs:sequence minOccurs="0">
+         <xs:sequence minOccurs="0">
+            <xs:element name="ReferenceValueBlock" type="ReferenceValueBlockType" minOccurs="2" maxOccurs="unbounded"/>
+         </xs:sequence>
+         <xs:element ref="sfhashv:ContentEncodedHashVerification" minOccurs="0"/>
+         <xs:element ref="sfhashv:ContentDecodedHashVerification" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute ref="uri" use="required"/>
+      <xs:attribute ref="id" use="optional"/>
+      <xs:attribute ref="mediaType" use="optional"/>
+      <xs:attribute ref="isEncrypted" use="optional"/>
+      <xs:attribute ref="sfhashv:totalBlocks" use="optional"/>
+   </xs:complexType>
+   <xs:complexType name="ReferenceValueBlockType">
+      <xs:attribute ref="uri" use="required"/>
+      <xs:attribute ref="sfhashv:block" use="required"/>
+   </xs:complexType>
+   <xs:complexType name="StringValueType">
+      <xs:simpleContent>
+         <xs:extension base="xs:string">
+            <xs:attribute ref="filename" use="optional"/>
+            <xs:attribute ref="isEncrypted" use="optional"/>
+            <xs:attribute ref="id" use="optional"/>
+         </xs:extension>
+      </xs:simpleContent>
+   </xs:complexType>
+   <xs:complexType name="StructuredValueType">
+      <xs:sequence>
+         <xs:choice>
+            <xs:element ref="dhzm:DigitalHazMatAssertion"/>
+            <xs:element ref="dhzm:ProvenanceAssertion"/>
+            <xs:element ref="anlys:AnalysisAssertion"/>
+         </xs:choice>
+      </xs:sequence>
+      <xs:attribute ref="id" use="optional"/>
+      <xs:attribute ref="filename" use="optional"/>
+      <xs:attribute ref="isEncrypted" use="optional"/>
+   </xs:complexType>
+   <xs:complexType name="BindingType">
+      <xs:sequence>
+         <xs:choice>
+            <xs:element name="Signer">
+               <xs:complexType>
+                  <xs:attribute name="subject" type="xs:string"/>
+                  <xs:attribute name="issuer" type="xs:string"/>
+                  <xs:attribute name="serial" type="xs:string"/>
+               </xs:complexType>
+            </xs:element>
+         </xs:choice>
+         <xs:element name="SignatureValue" type="SignatureValueType"/>
+         <xs:element name="BoundValueList" type="BoundValueListType" minOccurs="0"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="BoundValueListType">
+      <xs:sequence>
+         <xs:element name="BoundValue" type="BoundValueType" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="BoundValueType">
+      <xs:simpleContent>
+         <xs:extension base="xs:base64Binary">
+            <xs:attribute ref="idRef" use="required"/>
+            <xs:attribute name="hashAlgorithm" type="tdfhashal:CVEnumTDFHashAlgorithm" use="required"/>
+            <xs:attribute ref="normalizationMethod" use="required"/>
+            <xs:attribute ref="includesStatementMetadata" use="optional"/>
+         </xs:extension>
+      </xs:simpleContent>
+   </xs:complexType>
+   <xs:complexType name="SignatureValueType">
+      <xs:simpleContent>
+         <xs:extension base="xs:base64Binary">
+            <xs:attribute name="signatureAlgorithm" type="tdfsigal:CVEnumTDFSignatureAlgorithm" use="required"/>
+            <xs:attribute ref="normalizationMethod" use="required"/>
+            <xs:attribute ref="includesStatementMetadata" use="optional"/>
+         </xs:extension>
+      </xs:simpleContent>
+   </xs:complexType>
+   <xs:complexType name="KeyAccessType">
+      <xs:choice maxOccurs="unbounded">
+         <xs:element name="RemoteStoredKey" type="RemoteStoredKeyType"/>
+         <xs:element name="WrappedKey" type="WrappedKeyType"/>
+         <xs:element name="PasswordKey" type="PasswordKeyType"/>
+         <xs:element name="PreSharedKey" type="PreSharedKeyType"/>
+         <xs:element name="AttachedKey" type="AttachedKeyType"/>
+         <xs:element name="WrappedPDPKey" type="WrappedPDPKeyType"/>
+      </xs:choice>
+   </xs:complexType>
+   <xs:complexType name="ReferenceListType">
+      <xs:sequence>
+         <xs:element name="Reference" type="ReferenceType" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ReferenceType">
+      <xs:attribute ref="idRef" use="required"/>
+      <xs:attribute ref="includesStatementMetadata" use="optional"/>
+   </xs:complexType>
+   <xs:simpleType name="MediaTypeType">
+      <xs:restriction base="xs:string">
+         <xs:pattern value="[a-zA-Z]*/[a-zA-Z+-.]*"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:complexType name="AttachedKeyType">
+      <xs:sequence>
+         <xs:element name="KeyValue" type="xs:base64Binary"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PreSharedKeyType">
+      <xs:attribute name="alias" type="xs:string" use="required"/>
+      <xs:attribute name="store" type="xs:anyURI" use="optional"/>
+   </xs:complexType>
+   <xs:complexType name="RemoteStoredKeyType">
+      <xs:attribute name="protocol" type="xs:string" use="required"/>
+      <xs:attribute ref="uri" use="required"/>
+   </xs:complexType>
+   <xs:complexType name="PasswordKeyType">
+      <xs:attribute name="algorithm" type="xs:string" use="required"/>
+   </xs:complexType>
+   <xs:complexType name="WrappedKeyType">
+      <xs:sequence>
+         <xs:element name="KeyValue" type="xs:base64Binary"/>
+         <xs:group ref="EncryptionInformationGroup"/>
+      </xs:sequence>
+      <xs:attribute name="keyIdentifier" type="xs:string" use="optional"/>
+   </xs:complexType>
+   <xs:complexType name="WrappedPDPKeyType">
+      <xs:sequence>
+         <xs:element name="EncryptedPolicyObject" type="xs:base64Binary"/>
+         <xs:group ref="EncryptionInformationGroup"/>
+      </xs:sequence>
+      <xs:attribute name="keyIdentifier" type="xs:string" use="optional"/>
+   </xs:complexType>
+</xs:schema>

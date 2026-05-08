@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXActivityIndividual"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXActivityIndividual"
+            version="202111">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumDOMEXActivityIndividual Version 2 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumDOMEXActivityIndividual.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumDOMEXActivityIndividual">
+      <xsd:annotation>
+         <xsd:documentation>(U) Valid range for sub-activities.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumDOMEXActivityIndividual.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="Actions">
+            <xsd:annotation>
+               <xsd:documentation>Items showing an individual's activities of interest but unrelated to a target group</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Biographic data">
+            <xsd:annotation>
+               <xsd:documentation>Biographical data tied directly to an individual</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Biological Weapons">
+            <xsd:annotation>
+               <xsd:documentation>Items showing an individual's direct connection to biological weapons</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Biometric data">
+            <xsd:annotation>
+               <xsd:documentation>Biometric data tied directly to an individual</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Chemical Weapons">
+            <xsd:annotation>
+               <xsd:documentation>Items showing an individual's direct connection to Chemical Weapons</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Drug trafficking">
+            <xsd:annotation>
+               <xsd:documentation>Items showing an individual's direct connection to Drug trafficking</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Explosives">
+            <xsd:annotation>
+               <xsd:documentation>Items showing an individual's direct connection to explosives acquisition or production</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Extortion">
+            <xsd:annotation>
+               <xsd:documentation>Items showing an individual's direct connection to Extortion</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Facilitation">
+            <xsd:annotation>
+               <xsd:documentation>Items showing an individual's direct connection to facilitation support for a target group</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FIS">
+            <xsd:annotation>
+               <xsd:documentation>Items identifying an individual's connection to a FIS</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Human Trafficking">
+            <xsd:annotation>
+               <xsd:documentation>Items showing an individual's direct connection to Human Trafficking</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MAMS">
+            <xsd:annotation>
+               <xsd:documentation>Items showing an individual is a military aged male</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Martyrdom">
+            <xsd:annotation>
+               <xsd:documentation>Items showing an individual's direct connection to suicide operations</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Non-US Citizen">
+            <xsd:annotation>
+               <xsd:documentation>Items showing individual is not a US Citizen</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Nuclear Weapons">
+            <xsd:annotation>
+               <xsd:documentation>Items showing an individual's direct connection to nuclear or radiological weapons</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Operations">
+            <xsd:annotation>
+               <xsd:documentation>Items showing an individual's activities related to a target group</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Organization">
+            <xsd:annotation>
+               <xsd:documentation>Items showing an individual's direct connection to a target organization</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Personal Communications">
+            <xsd:annotation>
+               <xsd:documentation>Items used for personal communication</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Proof of Life">
+            <xsd:annotation>
+               <xsd:documentation>Items that provide Proof of Life for an individual</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Records">
+            <xsd:annotation>
+               <xsd:documentation>Items related to an individual's persona</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Reporting">
+            <xsd:annotation>
+               <xsd:documentation>Reporting about an individual by others</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Robbery">
+            <xsd:annotation>
+               <xsd:documentation>Items showing an individual's direct connection to Robbery</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Training">
+            <xsd:annotation>
+               <xsd:documentation>Items from an individual describing training</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="US Person">
+            <xsd:annotation>
+               <xsd:documentation>Items showing individual is a US Citizen</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

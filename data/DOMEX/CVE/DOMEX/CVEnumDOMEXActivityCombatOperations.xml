@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<cve:CVE xmlns:cve="urn:us:gov:ic:cve"
+         xmlns:ism="urn:us:gov:ic:ism"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         
+         ism:compliesWith="USGov USIC"
+         ism:ownerProducer="USA"
+         ism:classification="U"
+         ism:DESVersion="202111"
+         ism:ISMCATCESVersion="202205"
+         ism:resourceElement="true"
+         CVEVersion="2"
+         ism:createDate="2015-02-25"
+         xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+
+    <!-- Change Request #889 - Activity and Sub-Activity Elements  -->
+    <cve:IRM>
+        <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:domex:CVEnumDOMEXActivityCombatOperations</URN>
+        <Title xmlns="urn:us:gov:ic:cve"
+             ism:ownerProducer="USA"
+             ism:classification="U">CVEnumDOMEXActivityCombatOperations</Title>
+        <Description xmlns="urn:us:gov:ic:cve"
+                   ism:ownerProducer="USA"
+                   ism:classification="U">Valid range for sub-activities.</Description>
+
+        <cve:Created>2013-12-10</cve:Created>
+
+        <Source ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">Authoritative source for sub-activities</Source>
+        <PointOfContact ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">
+         <Name>DOMEX Metadata Working Group</Name>
+      </PointOfContact>
+    </cve:IRM>
+    
+    <cve:Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Actions</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">Documentation of actual combat operations</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FIS</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">Items indicating FIS involvement in target group combat operations</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Logistics</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">Items related to support of combat ops, things like supplying transportation, fuel, etc.</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Logo</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">Combat Operations items that have a logo or flag embedded</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Martyrdom</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">Documents related to actual or planned martyrdom operations</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Other</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">Misc items related to primary activity</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Planning</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Active planning for combat operations</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Reporting</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Reporting related to all phases of combat operations and training for combat</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Training</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Combat training materials created by target organization and documentation of that training</Description>
+        </cve:Term>
+    </cve:Enumeration>
+</cve:CVE>

@@ -1,0 +1,632 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for component boe:SSPType</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        var usedByBoxes= new Array('usedBy_SSPType');
+var sourceBoxes= new Array('source_SSPType');
+var diagramBoxes= new Array('diagram_SSPType');
+var modelBoxes= new Array('model_SSPType');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //
+--></script>
+   </head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_content" rowspan="1" colspan="1">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Diagrams</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Model </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Source</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Used by </span>
+                        </td>
+                     </tr>
+                  </table>
+                  <div align="right">
+                     <span>
+                        <input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close"></input>
+                     </span>
+                  </div>
+               </td>
+               <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+            </tr>
+         </table>
+      </div>
+      <a id="SSPType" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Complex Type <span class="qname">boe:SSPType</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:boe</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_SSPType" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_SSPType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_SSPType" style="display:block">
+                              <img alt="Diagram" border="0" src="img/BOE_xsd_Complex_Type_boe_SSPType.png" usemap="#BOE_xsd_Complex_Type_boe_SSPType"></img>
+                              <map name="BOE_xsd_Complex_Type_boe_SSPType" id="BOE_xsd_Complex_Type_boe_SSPType">
+                                 <area alt="BOE_xsd_Element_boe_AuthorizationBoundaryDiagram.tmp#AuthorizationBoundaryDiagram" href="72a14964-9138-4393-bdea-be5b1b863059.html#AuthorizationBoundaryDiagram" coords="204,0,435,42" shape="rect"></area>
+                                 <area alt="BOE_xsd_Element_boe_AuthorizationStatus.tmp#AuthorizationStatus" href="b1659d4d-6bd2-4b96-a914-39ce470612ee.html#AuthorizationStatus" coords="204,95,432,137" shape="rect"></area>
+                                 <area alt="BOE_xsd_Element_boe_AuthorizationTerminationDate.tmp#AuthorizationTerminationDate" href="4a00598b-639a-4217-9572-8a5fe933dc1d.html#AuthorizationTerminationDate" coords="204,203,495,245" shape="rect"></area>
+                                 <area alt="BOE_xsd_Element_boe_CryptographicKey.tmp#CryptographicKey" href="4733af74-792d-45e7-b085-2237250416ac.html#CryptographicKey" coords="204,324,421,366" shape="rect"></area>
+                                 <area alt="BOE_xsd_Element_boe_EAuthenticationAssessment.tmp#EAuthenticationAssessment" href="1fbbdf6f-c5a6-4008-8034-08328fad001a.html#EAuthenticationAssessment" coords="204,419,485,461" shape="rect"></area>
+                                 <area alt="BOE_xsd_Element_boe_ExternalSecurityServices.tmp#ExternalSecurityServices" href="03ee4ebd-5127-4412-a5ce-c118b732738d.html#ExternalSecurityServices" coords="204,527,430,569" shape="rect"></area>
+                                 <area alt="BOE_xsd_Element_boe_HardwareInventory.tmp#HardwareInventory" href="08406b03-bb61-43bc-a9b5-4a10e9aca1d7.html#HardwareInventory" coords="204,622,462,664" shape="rect"></area>
+                                 <area alt="BOE_xsd_Element_boe_SoftwareInventory.tmp#SoftwareInventory" href="56914c82-24d0-41f1-875e-66eb4ec3bcbc.html#SoftwareInventory" coords="204,743,458,785" shape="rect"></area>
+                                 <area alt="BOE_xsd_Element_boe_ExternalSystemInterfaceDiagram.tmp#ExternalSystemInterfaceDiagram" href="aec57d20-cdbe-4ed4-93c0-be58e45ebb92.html#ExternalSystemInterfaceDiagram" coords="204,851,447,893" shape="rect"></area>
+                                 <area alt="BOE_xsd_Element_boe_InternalSystemInterfaceDiagram.tmp#InternalSystemInterfaceDiagram" href="708a3994-2948-49d3-96b3-27e9e49d7cd0.html#InternalSystemInterfaceDiagram" coords="204,959,444,1001" shape="rect"></area>
+                                 <area alt="BOE_xsd_Element_boe_NetworkConnectionRules.tmp#NetworkConnectionRules" href="1509713d-0b73-45ca-a5e3-5e9c6aa8dfd4.html#NetworkConnectionRules" coords="204,1067,441,1109" shape="rect"></area>
+                                 <area alt="BOE_xsd_Element_boe_InformationType.tmp#InformationType" href="BOE_xsd_Element_boe_InformationType.html#InformationType" coords="204,1175,441,1217" shape="rect"></area>
+                                 <area alt="BOE_xsd_Element_boe_InformationFlowDiagram.tmp#InformationFlowDiagram" href="49be696d-3096-4b95-bb12-4f59f19c3c1b.html#InformationFlowDiagram" coords="204,1283,414,1325" shape="rect"></area>
+                                 <area alt="BOE_xsd_Element_boe_MissionCriticality.tmp#MissionCriticality" href="fb759959-8784-45d0-a349-021cfc5bdcaf.html#MissionCriticality" coords="204,1404,485,1446" shape="rect"></area>
+                                 <area alt="BOE_xsd_Element_boe_Overlays.tmp#Overlays" href="BOE_xsd_Element_boe_Overlays.html#Overlays" coords="204,1512,385,1554" shape="rect"></area>
+                                 <area alt="BOE_xsd_Element_boe_PhysicalEnvironment.tmp#PhysicalEnvironment" href="416a4280-d6ab-4e63-a00e-96c31d642f37.html#PhysicalEnvironment" coords="204,1633,441,1675" shape="rect"></area>
+                                 <area alt="BOE_xsd_Element_boe_KeyRoles.tmp#KeyRoles" href="BOE_xsd_Element_boe_KeyRoles.html#KeyRoles" coords="204,1728,373,1770" shape="rect"></area>
+                                 <area alt="BOE_xsd_Element_boe_SecurityControlList.tmp#SecurityControlList" href="59bb247a-f3e0-426b-a439-2a3fed28d517.html#SecurityControlList" coords="204,1849,429,1891" shape="rect"></area>
+                                 <area alt="BOE_xsd_Element_boe_SecurityReviewDate.tmp#SecurityReviewDate" href="11abfdb9-e639-4d9c-8d97-d091c0b08beb.html#SecurityReviewDate" coords="204,1957,485,1999" shape="rect"></area>
+                                 <area alt="BOE_xsd_Element_boe_SystemFunctionDescription.tmp#SystemFunctionDescription" href="7ff13068-923d-4f91-9bf3-1a2e9b76bd89.html#SystemFunctionDescription" coords="204,2065,441,2107" shape="rect"></area>
+                                 <area alt="BOE_xsd_Element_boe_SystemLifecyclePhase.tmp#SystemLifecyclePhase" href="1de04c92-4f98-4d46-9d17-d9771a01932c.html#SystemLifecyclePhase" coords="204,2160,487,2202" shape="rect"></area>
+                                 <area alt="BOE_xsd_Element_boe_SystemOwnership.tmp#SystemOwnership" href="BOE_xsd_Element_boe_SystemOwnership.html#SystemOwnership" coords="204,2268,426,2310" shape="rect"></area>
+                                 <area alt="BOE_xsd_Element_boe_SystemUserCategories.tmp#SystemUserCategories" href="783f16a2-680b-4034-bcb3-71603a44ccf7.html#SystemUserCategories" coords="204,2376,463,2418" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_SSPType" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_SSPType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_SSPType" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Element </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="BOE_xsd_Element_boe_SSP.html#SSP" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:SSP')" shape="rect">boe:SSP</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_SSPType" type="image" src="img/btM.gif" value="-" onclick="switchState('model_SSPType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_SSPType" style="display:block">ALL(<b>
+                                 <a href="72a14964-9138-4393-bdea-be5b1b863059.html#AuthorizationBoundaryDiagram" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:AuthorizationBoundaryDiagram{0,1}')" shape="rect">boe:AuthorizationBoundaryDiagram{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="b1659d4d-6bd2-4b96-a914-39ce470612ee.html#AuthorizationStatus" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:AuthorizationStatus')" shape="rect">boe:AuthorizationStatus</a>
+                              </b> 
+                              <b>
+                                 <a href="4a00598b-639a-4217-9572-8a5fe933dc1d.html#AuthorizationTerminationDate" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:AuthorizationTerminationDate{0,1}')" shape="rect">boe:AuthorizationTerminationDate{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="4733af74-792d-45e7-b085-2237250416ac.html#CryptographicKey" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:CryptographicKey{0,1}')" shape="rect">boe:CryptographicKey{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="1fbbdf6f-c5a6-4008-8034-08328fad001a.html#EAuthenticationAssessment" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:EAuthenticationAssessment{0,1}')" shape="rect">boe:EAuthenticationAssessment{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="03ee4ebd-5127-4412-a5ce-c118b732738d.html#ExternalSecurityServices" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:ExternalSecurityServices{0,1}')" shape="rect">boe:ExternalSecurityServices{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="08406b03-bb61-43bc-a9b5-4a10e9aca1d7.html#HardwareInventory" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:HardwareInventory{0,1}')" shape="rect">boe:HardwareInventory{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="56914c82-24d0-41f1-875e-66eb4ec3bcbc.html#SoftwareInventory" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:SoftwareInventory{0,1}')" shape="rect">boe:SoftwareInventory{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="aec57d20-cdbe-4ed4-93c0-be58e45ebb92.html#ExternalSystemInterfaceDiagram" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:ExternalSystemInterfaceDiagram{0,1}')" shape="rect">boe:ExternalSystemInterfaceDiagram{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="708a3994-2948-49d3-96b3-27e9e49d7cd0.html#InternalSystemInterfaceDiagram" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:InternalSystemInterfaceDiagram{0,1}')" shape="rect">boe:InternalSystemInterfaceDiagram{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="1509713d-0b73-45ca-a5e3-5e9c6aa8dfd4.html#NetworkConnectionRules" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:NetworkConnectionRules{0,1}')" shape="rect">boe:NetworkConnectionRules{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Element_boe_InformationType.html#InformationType" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:InformationType{0,1}')" shape="rect">boe:InformationType{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="49be696d-3096-4b95-bb12-4f59f19c3c1b.html#InformationFlowDiagram" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:InformationFlowDiagram{0,1}')" shape="rect">boe:InformationFlowDiagram{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="fb759959-8784-45d0-a349-021cfc5bdcaf.html#MissionCriticality" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:MissionCriticality{0,1}')" shape="rect">boe:MissionCriticality{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Element_boe_Overlays.html#Overlays" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Overlays{0,1}')" shape="rect">boe:Overlays{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="416a4280-d6ab-4e63-a00e-96c31d642f37.html#PhysicalEnvironment" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:PhysicalEnvironment{0,1}')" shape="rect">boe:PhysicalEnvironment{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Element_boe_KeyRoles.html#KeyRoles" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:KeyRoles{0,1}')" shape="rect">boe:KeyRoles{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="59bb247a-f3e0-426b-a439-2a3fed28d517.html#SecurityControlList" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:SecurityControlList{0,1}')" shape="rect">boe:SecurityControlList{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="11abfdb9-e639-4d9c-8d97-d091c0b08beb.html#SecurityReviewDate" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:SecurityReviewDate{0,1}')" shape="rect">boe:SecurityReviewDate{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="7ff13068-923d-4f91-9bf3-1a2e9b76bd89.html#SystemFunctionDescription" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:SystemFunctionDescription{0,1}')" shape="rect">boe:SystemFunctionDescription{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="1de04c92-4f98-4d46-9d17-d9771a01932c.html#SystemLifecyclePhase" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:SystemLifecyclePhase{0,1}')" shape="rect">boe:SystemLifecyclePhase{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Element_boe_SystemOwnership.html#SystemOwnership" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:SystemOwnership{0,1}')" shape="rect">boe:SystemOwnership{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="783f16a2-680b-4034-bcb3-71603a44ccf7.html#SystemUserCategories" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:SystemUserCategories{0,1}')" shape="rect">boe:SystemUserCategories{0,1}</a>
+                              </b>)</div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="72a14964-9138-4393-bdea-be5b1b863059.html#AuthorizationBoundaryDiagram" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:AuthorizationBoundaryDiagram')" shape="rect">boe:AuthorizationBoundaryDiagram</a>
+                           </b>, <b>
+                              <a href="b1659d4d-6bd2-4b96-a914-39ce470612ee.html#AuthorizationStatus" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:AuthorizationStatus')" shape="rect">boe:AuthorizationStatus</a>
+                           </b>, <b>
+                              <a href="4a00598b-639a-4217-9572-8a5fe933dc1d.html#AuthorizationTerminationDate" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:AuthorizationTerminationDate')" shape="rect">boe:AuthorizationTerminationDate</a>
+                           </b>, <b>
+                              <a href="4733af74-792d-45e7-b085-2237250416ac.html#CryptographicKey" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:CryptographicKey')" shape="rect">boe:CryptographicKey</a>
+                           </b>, <b>
+                              <a href="1fbbdf6f-c5a6-4008-8034-08328fad001a.html#EAuthenticationAssessment" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:EAuthenticationAssessment')" shape="rect">boe:EAuthenticationAssessment</a>
+                           </b>, <b>
+                              <a href="03ee4ebd-5127-4412-a5ce-c118b732738d.html#ExternalSecurityServices" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:ExternalSecurityServices')" shape="rect">boe:ExternalSecurityServices</a>
+                           </b>, <b>
+                              <a href="aec57d20-cdbe-4ed4-93c0-be58e45ebb92.html#ExternalSystemInterfaceDiagram" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:ExternalSystemInterfaceDiagram')" shape="rect">boe:ExternalSystemInterfaceDiagram</a>
+                           </b>, <b>
+                              <a href="08406b03-bb61-43bc-a9b5-4a10e9aca1d7.html#HardwareInventory" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:HardwareInventory')" shape="rect">boe:HardwareInventory</a>
+                           </b>, <b>
+                              <a href="49be696d-3096-4b95-bb12-4f59f19c3c1b.html#InformationFlowDiagram" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:InformationFlowDiagram')" shape="rect">boe:InformationFlowDiagram</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Element_boe_InformationType.html#InformationType" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:InformationType')" shape="rect">boe:InformationType</a>
+                           </b>, <b>
+                              <a href="708a3994-2948-49d3-96b3-27e9e49d7cd0.html#InternalSystemInterfaceDiagram" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:InternalSystemInterfaceDiagram')" shape="rect">boe:InternalSystemInterfaceDiagram</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Element_boe_KeyRoles.html#KeyRoles" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:KeyRoles')" shape="rect">boe:KeyRoles</a>
+                           </b>, <b>
+                              <a href="fb759959-8784-45d0-a349-021cfc5bdcaf.html#MissionCriticality" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:MissionCriticality')" shape="rect">boe:MissionCriticality</a>
+                           </b>, <b>
+                              <a href="1509713d-0b73-45ca-a5e3-5e9c6aa8dfd4.html#NetworkConnectionRules" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:NetworkConnectionRules')" shape="rect">boe:NetworkConnectionRules</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Element_boe_Overlays.html#Overlays" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Overlays')" shape="rect">boe:Overlays</a>
+                           </b>, <b>
+                              <a href="416a4280-d6ab-4e63-a00e-96c31d642f37.html#PhysicalEnvironment" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:PhysicalEnvironment')" shape="rect">boe:PhysicalEnvironment</a>
+                           </b>, <b>
+                              <a href="59bb247a-f3e0-426b-a439-2a3fed28d517.html#SecurityControlList" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:SecurityControlList')" shape="rect">boe:SecurityControlList</a>
+                           </b>, <b>
+                              <a href="11abfdb9-e639-4d9c-8d97-d091c0b08beb.html#SecurityReviewDate" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:SecurityReviewDate')" shape="rect">boe:SecurityReviewDate</a>
+                           </b>, <b>
+                              <a href="56914c82-24d0-41f1-875e-66eb4ec3bcbc.html#SoftwareInventory" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:SoftwareInventory')" shape="rect">boe:SoftwareInventory</a>
+                           </b>, <b>
+                              <a href="7ff13068-923d-4f91-9bf3-1a2e9b76bd89.html#SystemFunctionDescription" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:SystemFunctionDescription')" shape="rect">boe:SystemFunctionDescription</a>
+                           </b>, <b>
+                              <a href="1de04c92-4f98-4d46-9d17-d9771a01932c.html#SystemLifecyclePhase" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:SystemLifecyclePhase')" shape="rect">boe:SystemLifecyclePhase</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Element_boe_SystemOwnership.html#SystemOwnership" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:SystemOwnership')" shape="rect">boe:SystemOwnership</a>
+                           </b>, <b>
+                              <a href="783f16a2-680b-4034-bcb3-71603a44ccf7.html#SystemUserCategories" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:SystemUserCategories')" shape="rect">boe:SystemUserCategories</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_SSPType" type="image" src="img/btM.gif" value="-" onclick="switchState('source_SSPType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_SSPType" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:complexType</span><span class="tAN"> name=</span><span class="tAV">"SSPType"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:all</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> ref=</span><span class="tAV">"boe:AuthorizationBoundaryDiagram"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> ref=</span><span class="tAV">"boe:AuthorizationStatus"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> ref=</span><span class="tAV">"boe:AuthorizationTerminationDate"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> ref=</span><span class="tAV">"boe:CryptographicKey"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> ref=</span><span class="tAV">"boe:EAuthenticationAssessment"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> ref=</span><span class="tAV">"boe:ExternalSecurityServices"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> ref=</span><span class="tAV">"boe:HardwareInventory"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> ref=</span><span class="tAV">"boe:SoftwareInventory"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> ref=</span><span class="tAV">"boe:ExternalSystemInterfaceDiagram"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> ref=</span><span class="tAV">"boe:InternalSystemInterfaceDiagram"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> ref=</span><span class="tAV">"boe:NetworkConnectionRules"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> ref=</span><span class="tAV">"boe:InformationType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> ref=</span><span class="tAV">"boe:InformationFlowDiagram"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> ref=</span><span class="tAV">"boe:MissionCriticality"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> ref=</span><span class="tAV">"boe:Overlays"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> ref=</span><span class="tAV">"boe:PhysicalEnvironment"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> ref=</span><span class="tAV">"boe:KeyRoles"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> ref=</span><span class="tAV">"boe:SecurityControlList"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> ref=</span><span class="tAV">"boe:SecurityReviewDate"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> ref=</span><span class="tAV">"boe:SystemFunctionDescription"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> ref=</span><span class="tAV">"boe:SystemLifecyclePhase"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> ref=</span><span class="tAV">"boe:SystemOwnership"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> ref=</span><span class="tAV">"boe:SystemUserCategories"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:all&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:complexType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/BOE/BOE.xsd">BOE.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //
+--></script>
+   </body>
+</html>

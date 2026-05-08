@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/CEM/CEM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron" title="Main CEM Schematron File" ?>
+<test:TestRoot xmlns:test="test:cem"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns:cem="urn:us:gov:ic:cem"
+               xsi:schemaLocation="test:cem ./test_cem.xsd urn:us:gov:ic:cem ../../Schema/CEM/CEM-XML.xsd"
+               cem:DESVersion="201804">
+  <Person xmlns="urn:us:gov:ic:cem"
+          cem:givenName="John"
+          cem:surname="Smith">
+    <Identifier cem:identifierType="DriversLicence">A12345678</Identifier>
+  </Person>
+  <CountryName xmlns="urn:us:gov:ic:cem"
+               cem:countryCodeVocabulary="ISO-3"
+               cem:countryCode="USA">United States of America</CountryName>
+  <LocationOfInterest xmlns="urn:us:gov:ic:cem">
+    <CityName>Black Rock Desert, NV</CityName>
+  </LocationOfInterest>
+  <Event xmlns="urn:us:gov:ic:cem"
+         cem:dateTimeRange="2017-08-27T05:30:00.999Z 2017-09-04T05:30:00.999Z">2017 Burning Man</Event>
+</test:TestRoot>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:cemxml:identifiertype">
+   <define name="CVEnumCemIdentifierType.cve">
+      <choice>
+         <value>NationalID</value>
+         <value>DriversLicence</value>
+         <value>Passport</value>
+         <value>Visa</value>
+         <value>CommercialID</value>
+         <value>CreditCard</value>
+      </choice>
+   </define>
+</grammar>

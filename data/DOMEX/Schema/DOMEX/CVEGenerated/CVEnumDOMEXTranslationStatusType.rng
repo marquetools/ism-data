@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXTranslationStatusType">
+   <define name="CVEnumDOMEXTranslationStatusType.cve">
+      <choice>
+         <value>AC</value>
+         <value>AP</value>
+         <value>AR</value>
+         <value>AS</value>
+         <value>AU</value>
+         <value>CR</value>
+         <value>EM</value>
+         <value>FF</value>
+         <value>LD</value>
+         <value>NA</value>
+         <value>RV</value>
+         <value>UP</value>
+      </choice>
+   </define>
+</grammar>

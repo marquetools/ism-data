@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXMediaType"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXMediaType"
+            version="202111">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumDOMEXMediaType Version 2 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumDOMEXMediaType.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumDOMEXMediaType">
+      <xsd:annotation>
+         <xsd:documentation>(U) Valid range for media type.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumDOMEXMediaType.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="Unknown">
+            <xsd:annotation>
+               <xsd:documentation>Unknown</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Cannot tell">
+            <xsd:annotation>
+               <xsd:documentation>Cannot tell</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Analog audio tape">
+            <xsd:annotation>
+               <xsd:documentation>Analog audio tape</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Analog video tape">
+            <xsd:annotation>
+               <xsd:documentation>Analog video tape</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Beta">
+            <xsd:annotation>
+               <xsd:documentation>Beta Tape</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BD">
+            <xsd:annotation>
+               <xsd:documentation>Blu-Ray Disc</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CASS">
+            <xsd:annotation>
+               <xsd:documentation>Cassette, Analog audio or video</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CD">
+            <xsd:annotation>
+               <xsd:documentation>Compact Disc</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Cellphone">
+            <xsd:annotation>
+               <xsd:documentation>Cellphone</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CF">
+            <xsd:annotation>
+               <xsd:documentation>Compact Flash Card</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DMP">
+            <xsd:annotation>
+               <xsd:documentation>Digital Media Player</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DVD">
+            <xsd:annotation>
+               <xsd:documentation>Digital Video Disc</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DigCam">
+            <xsd:annotation>
+               <xsd:documentation>Digital Camera</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Docs">
+            <xsd:annotation>
+               <xsd:documentation>Printed Document</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FD">
+            <xsd:annotation>
+               <xsd:documentation>Floppy Disc</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FILM">
+            <xsd:annotation>
+               <xsd:documentation>Film (Photographic)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GPS">
+            <xsd:annotation>
+               <xsd:documentation>GPS Device</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HD">
+            <xsd:annotation>
+               <xsd:documentation>Hard Drive</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="M2">
+            <xsd:annotation>
+               <xsd:documentation>M2 Memory Stick Micro</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MMC">
+            <xsd:annotation>
+               <xsd:documentation>MMC Memory Card</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MS">
+            <xsd:annotation>
+               <xsd:documentation>Memory Stick</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MicroSD">
+            <xsd:annotation>
+               <xsd:documentation>MicroSD Memory Card</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Other">
+            <xsd:annotation>
+               <xsd:documentation>Other media type not listed</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="RS-MMC">
+            <xsd:annotation>
+               <xsd:documentation>Reduced size MMC</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SD">
+            <xsd:annotation>
+               <xsd:documentation>SD Memory Card</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SIM">
+            <xsd:annotation>
+               <xsd:documentation>SIM Card</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Smrtphone">
+            <xsd:annotation>
+               <xsd:documentation>Smart Phone</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Solid state device">
+            <xsd:annotation>
+               <xsd:documentation>Solid State Device</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Source Sensitive">
+            <xsd:annotation>
+               <xsd:documentation>Source device is sensitive</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TD">
+            <xsd:annotation>
+               <xsd:documentation>Thumb Drive</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="USB">
+            <xsd:annotation>
+               <xsd:documentation>USB Device</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="VHS">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Video Camera">
+            <xsd:annotation>
+               <xsd:documentation>Video Camera</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="VCR">
+            <xsd:annotation>
+               <xsd:documentation>Video Cassette Recorder</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

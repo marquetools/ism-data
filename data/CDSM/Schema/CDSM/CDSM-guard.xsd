@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?><?skip-unit-test-PI-validation?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:us:gov:ic:cdsmanifest" xmlns:cdsm="urn:us:gov:ic:cdsmanifest" xmlns:tdf="urn:us:gov:ic:tdf" targetNamespace="urn:us:gov:ic:cdsmanifest" elementFormDefault="qualified" attributeFormDefault="qualified" version="202111">
+   <xs:element name="CdsManifestAssertion" type="cdsm:CdsAssertionType"/>
+   <xs:element name="Originator" type="cdsm:OriginatorType"/>
+   <xs:element name="Product" type="cdsm:ProductType"/>
+   <xs:element name="PayloadVersion" type="cdsm:PayloadVersionType"/>
+   <xs:element name="CPE" type="cdsm:CPEType"/>
+   <xs:element name="Arch" type="cdsm:ArchType"/>
+   <xs:element name="Routing" type="MediumStringType"/>
+   <xs:element name="WorkFlowid" type="MediumStringType"/>
+   <xs:element name="Userkey" type="MediumStringType"/>
+   <xs:element name="VendorChecksum" type="cdsm:VendorChecksumType"/>
+   <xs:element name="VirusScanList" type="cdsm:VirusScanListType"/>
+   <xs:element name="VirusScan" type="cdsm:VirusScanType"/>
+   <xs:element name="MD5" type="cdsm:MD5Type"/>
+   <xs:element name="SHA256" type="cdsm:SHA256Type"/>
+   <xs:element name="SHA512" type="cdsm:SHA512Type"/>
+   <xs:element name="ScanVendor" type="cdsm:ScanVendorType"/>
+   <xs:element name="ScanVersion" type="cdsm:ScanVersionType"/>
+   <xs:element name="SignatureDate" type="cdsm:SignatureDateType"/>
+   <xs:element name="ScanResult" type="cdsm:ScanResultType"/>
+   <xs:attribute name="DESVersion" type="cdsm:DESVersionType"/>
+   <xs:complexType name="CdsAssertionType">
+      <xs:all>
+         <xs:element ref="cdsm:Originator"/>
+         <xs:element ref="cdsm:Product"/>
+         <xs:element ref="cdsm:PayloadVersion"/>
+         <xs:element ref="cdsm:Arch"/>
+         <xs:element ref="cdsm:VirusScanList"/>
+         <xs:element ref="cdsm:CPE" minOccurs="0"/>
+         <xs:element ref="cdsm:Routing" minOccurs="0"/>
+         <xs:element ref="cdsm:WorkFlowid" minOccurs="0"/>
+         <xs:element ref="cdsm:Userkey" minOccurs="0"/>
+         <xs:element ref="cdsm:VendorChecksum" minOccurs="0"/>
+      </xs:all>
+      <xs:attribute ref="cdsm:DESVersion" use="required"/>
+   </xs:complexType>
+   <xs:complexType name="VirusScanListType">
+      <xs:sequence>
+         <xs:element ref="cdsm:VirusScan" maxOccurs="10"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:simpleType name="MediumStringType">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="1024"/>
+         <xs:pattern value="([a-zA-Z0-9\s_-])*"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:complexType name="VendorChecksumType">
+      <xs:sequence>
+         <xs:element ref="cdsm:MD5" minOccurs="0"/>
+         <xs:element ref="cdsm:SHA256"/>
+         <xs:element ref="cdsm:SHA512" minOccurs="0"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="VirusScanType">
+      <xs:sequence>
+         <xs:element ref="cdsm:ScanVendor"/>
+         <xs:element ref="cdsm:ScanVersion"/>
+         <xs:element ref="cdsm:SignatureDate"/>
+         <xs:element ref="cdsm:ScanResult"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:simpleType name="OriginatorType">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="50"/>
+         <xs:pattern value="([a-zA-Z0-9\s_-])*"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="ProductType">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="256"/>
+         <xs:pattern value="([a-zA-Z0-9\s_-])*"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="PayloadVersionType">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="30"/>
+         <xs:pattern value="([a-zA-Z0-9\.-])*"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="CPEType">
+      <xs:restriction base="xs:anyURI">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="1024"/>
+         <xs:pattern value="([c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\._\-~%]*){0,6})|(cpe:2\.3:[aho\*\-](:(((\?*|\*?)([a-zA-Z0-9\-\._]|(\\[\\\*\?!&#34;#$$%&amp;'\(\)\+,/:;&lt;=&gt;@\[\]\^`\{\|}~]))+(\?*|\*?))|[\*\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\*\-]))(:(((\?*|\*?)([a-zA-Z0-9\-\._]|(\\[\\\*\?!&#34;#$$%&amp;'\(\)\+,/:;&lt;=&gt;@\[\]\^`\{\|}~]))+(\?*|\*?))|[\*\-])){4})"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="ArchType">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="i386"/>
+         <xs:enumeration value="i486"/>
+         <xs:enumeration value="i586"/>
+         <xs:enumeration value="i686"/>
+         <xs:enumeration value="x86_64"/>
+         <xs:enumeration value="amd64"/>
+         <xs:enumeration value="ia64"/>
+         <xs:enumeration value="armv6l"/>
+         <xs:enumeration value="armv7l"/>
+         <xs:enumeration value="sparc"/>
+         <xs:enumeration value="sparc64"/>
+         <xs:enumeration value="sparc64v"/>
+         <xs:enumeration value="ppc"/>
+         <xs:enumeration value="ppc64"/>
+         <xs:enumeration value="ppc64le"/>
+         <xs:enumeration value="s390"/>
+         <xs:enumeration value="s390x"/>
+         <xs:enumeration value="64-bit"/>
+         <xs:enumeration value="32-bit"/>
+         <xs:enumeration value="none"/>
+         <xs:enumeration value="noarch"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="MD5Type">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="32"/>
+         <xs:maxLength value="32"/>
+         <xs:pattern value="([a-fA-F0-9])*"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="SHA256Type">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="64"/>
+         <xs:maxLength value="64"/>
+         <xs:pattern value="([a-fA-F0-9])*"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="SHA512Type">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="128"/>
+         <xs:maxLength value="128"/>
+         <xs:pattern value="([a-fA-F0-9])*"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="ScanVendorType">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="3"/>
+         <xs:maxLength value="20"/>
+         <xs:pattern value="([a-zA-Z0-9\s_-])*"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="ScanVersionType">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="20"/>
+         <xs:pattern value="([a-zA-Z0-9\.-])*"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="SignatureDateType">
+      <xs:restriction base="xs:dateTime"/>
+   </xs:simpleType>
+   <xs:simpleType name="ScanResultType">
+      <xs:restriction base="xs:string">
+         <xs:pattern value="pass|clean|Pass|Clean"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="DESVersionType">
+      <xs:restriction base="xs:string">
+         <xs:pattern value="[0-9]{6}(\.[0-9]{6})?(\-.{1,23})?"/>
+      </xs:restriction>
+   </xs:simpleType>
+</xs:schema>

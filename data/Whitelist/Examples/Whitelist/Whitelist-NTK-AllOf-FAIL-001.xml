@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/Whitelist/Whitelist_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<!-- All classification marks in this example are   -->
+<!-- for illustrative purposes only, there are no   -->
+<!-- actual classified data contained in this example -->
+<!-- 
+      To run whitelist tests, copy contents of example_whitelist_config.xml to ../../Schematron/Whitelist/whitelist_config.xml 
+-->
+<!-- 
+     Goal:  Passing test of whitelist configuration for NTK AllOf Access Profiles
+     Test Config File:      ../example_whitelist_config.xml
+     Test Config Setting:   <NtkAccessProfile type="whitelist"
+                                             accessPolicy="urn:us:gov:ic:aces:ntk:permissive">
+                                ...
+                             </NtkAccessProfile>
+     Expected Test Result:   FAIL
+     Expected Error Message: WLNtkAccessProfileValue-ID-00002
+          
+     To run this test:
+          1. copy contents of Test Config File to ../../Schematron/Whitelist/whitelist_config.xml    
+-->
+<test:root xmlns:test="test:ntk"
+           xmlns:ism="urn:us:gov:ic:ism"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           ism:compliesWith="USGov USIC"
+           ism:resourceElement="true"
+           ism:createDate="2012-05-28"
+           ism:DESVersion="202111.202211"
+           ism:ISMCATCESVersion="202211"
+           ism:classification="S"
+           ism:ownerProducer="USA"
+           ism:disseminationControls="NF"
+           ism:derivativelyClassifiedBy="Fred"
+           ism:derivedFrom="Some Guide"
+           ism:declassDate="2020-01-01"
+           xsi:schemaLocation="test:ntk ../ISM/test_ntk.xsd">
+  <arh:Security xmlns:arh="urn:us:gov:ic:arh"
+                ism:classification="U"
+                ism:ownerProducer="USA"
+                ism:resourceElement="true"
+                ism:compliesWith="USGov USIC"
+                ism:createDate="2019-12-19">
+    <ntk:Access xmlns:ntk="urn:us:gov:ic:ntk"
+                ism:classification="U"
+                ism:ownerProducer="USA">
+      <ntk:RequiresAllOf>
+        <ntk:AccessProfileList>
+          <ntk:AccessProfile ism:classification="U"
+                             ism:ownerProducer="USA">
+            <ntk:AccessPolicy>urn:us:gov:ic:aces:ntk:permissive</ntk:AccessPolicy>
+            <ntk:ProfileDes>urn:us:gov:ic:ntk:profile:grp-ind</ntk:ProfileDes>
+            <ntk:VocabularyType ntk:name="group:bob_ldap"
+                                ntk:source="Bob_LDAP" />
+            <ntk:AccessProfileValue ntk:vocabulary="group:bob_ldap">Wheel</ntk:AccessProfileValue>
+            <ntk:AccessProfileValue ntk:vocabulary="group:bob_ldap">SuperUser</ntk:AccessProfileValue>
+          </ntk:AccessProfile>
+          <ntk:AccessProfile ism:classification="U"
+                             ism:ownerProducer="USA">
+            <ntk:AccessPolicy>urn:us:gov:ic:aces:ntk:permissive</ntk:AccessPolicy>
+            <ntk:ProfileDes>urn:us:gov:ic:ntk:profile:grp-ind</ntk:ProfileDes>
+            <ntk:VocabularyType ntk:name="group:chris_ldap"
+                                ntk:source="Chris_LDAP" />
+            <ntk:AccessProfileValue ntk:vocabulary="group:chris_ldap">Wheel</ntk:AccessProfileValue>
+            <ntk:AccessProfileValue ntk:vocabulary="group:chris_ldap">SuperUser</ntk:AccessProfileValue>
+          </ntk:AccessProfile>
+        </ntk:AccessProfileList>
+      </ntk:RequiresAllOf>
+    </ntk:Access>
+  </arh:Security>
+  <test:portion ism:classification="S"
+                ism:ownerProducer="USA"
+                ism:disseminationControls="NF" />
+</test:root>

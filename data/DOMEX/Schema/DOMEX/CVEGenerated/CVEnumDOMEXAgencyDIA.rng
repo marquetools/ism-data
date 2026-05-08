@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXAgencyDIA">
+   <define name="CVEnumDOMEXAgencyDIA.cve">
+      <choice>
+         <value>DCHC</value>
+         <value>CEA</value>
+         <value>DHM-2A</value>
+         <value>DHX</value>
+         <value>FOB/K</value>
+         <value>LAN</value>
+         <value>NMEC-5</value>
+         <value>NMECO1</value>
+         <value>JITF/CT</value>
+         <value>MSIC</value>
+         <value>NMEC</value>
+      </choice>
+   </define>
+</grammar>

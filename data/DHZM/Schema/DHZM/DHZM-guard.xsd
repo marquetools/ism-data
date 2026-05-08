@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?><?skip-unit-test-PI-validation?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:us:gov:ic:digitalhazmat" xmlns:dhzm="urn:us:gov:ic:digitalhazmat" xmlns:tdf="urn:us:gov:ic:tdf" targetNamespace="urn:us:gov:ic:digitalhazmat" elementFormDefault="qualified" attributeFormDefault="qualified" version="202111">
+   <xs:element name="DigitalHazMatAssertion" type="dhzm:DigitalHazMatAssertionType"/>
+   <xs:element name="ProvenanceAssertion" type="dhzm:ProvenanceAssertionType"/>
+   <xs:element name="DigitalHazMat" type="dhzm:DigitalHazMatType"/>
+   <xs:element name="ContentCollectionTimestamp" type="dhzm:ContentCollectionTimestampType"/>
+   <xs:element name="ContentSize" type="dhzm:ContentSizeType"/>
+   <xs:element name="ContentEncodingMethod" type="dhzm:ContentEncodingMethodType"/>
+   <xs:element name="ContentEncodedSize" type="dhzm:ContentEncodedSizeType"/>
+   <xs:element name="ContentCollectionHost" type="dhzm:ContentCollectionHostType"/>
+   <xs:element name="ContentCollectionMethod" type="dhzm:ContentCollectionMethodType"/>
+   <xs:element name="ContentCollectionHostList" type="dhzm:ContentCollectionHostListType"/>
+   <xs:element name="ContentCollectionMethodList" type="dhzm:ContentCollectionMethodListType"/>
+   <xs:element name="ContentCollectionExternalId" type="dhzm:ContentCollectionExternalIdType"/>
+   <xs:element name="OriginContentUid" type="dhzm:OriginContentUidType"/>
+   <xs:element name="OriginContentOwner" type="dhzm:OriginContentOwnerType"/>
+   <xs:element name="OriginContentGroup" type="dhzm:OriginContentGroupType"/>
+   <xs:element name="OriginContentInode" type="dhzm:OriginContentInodeType"/>
+   <xs:element name="OriginContentDevice" type="dhzm:OriginContentDeviceType"/>
+   <xs:element name="OriginContentPathList" type="dhzm:OriginContentPathListType"/>
+   <xs:element name="OriginContentPath" type="dhzm:OriginContentPathType"/>
+   <xs:element name="OriginContentFilename" type="dhzm:OriginContentFilenameType"/>
+   <xs:element name="OriginContentCreated" type="dhzm:OriginContentCreatedType"/>
+   <xs:element name="OriginContentLastModified" type="dhzm:OriginContentLastModifiedType"/>
+   <xs:element name="OriginContentLastAccessed" type="dhzm:OriginContentLastAccessedType"/>
+   <xs:element name="OriginContentOS" type="dhzm:OriginContentOSType"/>
+   <xs:element name="OriginContentOSVersion" type="dhzm:OriginContentOSVersionType"/>
+   <xs:element name="OriginContentArch" type="dhzm:OriginContentArchType"/>
+   <xs:element name="OriginContentSourceMac" type="dhzm:OriginContentSourceMacType"/>
+   <xs:element name="OriginContentSourceIpv4" type="dhzm:OriginContentSourceIpv4Type"/>
+   <xs:element name="OriginContentSourceIpv6" type="dhzm:OriginContentSourceIpv6Type"/>
+   <xs:element name="OriginContentSourceSystem" type="dhzm:OriginContentSourceSystemType"/>
+   <xs:element name="SourceDomain" type="dhzm:SourceDomainType"/>
+   <xs:element name="DestinationDomain" type="dhzm:DestinationDomainType"/>
+   <xs:element name="WorkFlowId" type="dhzm:WorkFlowIdType"/>
+   <xs:attribute name="DESVersion" type="dhzm:DESVersionType"/>
+   <xs:complexType name="DigitalHazMatAssertionType">
+      <xs:all>
+         <xs:element ref="dhzm:DigitalHazMat"/>
+      </xs:all>
+      <xs:attribute ref="dhzm:DESVersion" use="required"/>
+   </xs:complexType>
+   <xs:complexType name="ProvenanceAssertionType">
+      <xs:all>
+         <xs:element ref="dhzm:ContentCollectionTimestamp"/>
+         <xs:element ref="dhzm:ContentSize"/>
+         <xs:element ref="dhzm:ContentEncodedSize"/>
+         <xs:element ref="dhzm:ContentEncodingMethod"/>
+         <xs:element ref="dhzm:ContentCollectionHostList" minOccurs="0"/>
+         <xs:element ref="dhzm:ContentCollectionMethodList" minOccurs="0"/>
+         <xs:element ref="dhzm:ContentCollectionExternalId" minOccurs="0"/>
+         <xs:element ref="dhzm:OriginContentUid" minOccurs="0"/>
+         <xs:element ref="dhzm:OriginContentOwner" minOccurs="0"/>
+         <xs:element ref="dhzm:OriginContentGroup" minOccurs="0"/>
+         <xs:element ref="dhzm:OriginContentInode" minOccurs="0"/>
+         <xs:element ref="dhzm:OriginContentDevice" minOccurs="0"/>
+         <xs:element ref="dhzm:OriginContentPathList" minOccurs="0"/>
+         <xs:element ref="dhzm:OriginContentFilename" minOccurs="0"/>
+         <xs:element ref="dhzm:OriginContentCreated" minOccurs="0"/>
+         <xs:element ref="dhzm:OriginContentLastModified" minOccurs="0"/>
+         <xs:element ref="dhzm:OriginContentLastAccessed" minOccurs="0"/>
+         <xs:element ref="dhzm:OriginContentOS" minOccurs="0"/>
+         <xs:element ref="dhzm:OriginContentOSVersion" minOccurs="0"/>
+         <xs:element ref="dhzm:OriginContentArch" minOccurs="0"/>
+         <xs:element ref="dhzm:OriginContentSourceMac" minOccurs="0"/>
+         <xs:element ref="dhzm:OriginContentSourceIpv4" minOccurs="0"/>
+         <xs:element ref="dhzm:OriginContentSourceIpv6" minOccurs="0"/>
+         <xs:element ref="dhzm:OriginContentSourceSystem" minOccurs="0"/>
+         <xs:element ref="dhzm:SourceDomain" minOccurs="0"/>
+         <xs:element ref="dhzm:DestinationDomain" minOccurs="0"/>
+         <xs:element ref="dhzm:WorkFlowId" minOccurs="0"/>
+      </xs:all>
+      <xs:attribute ref="dhzm:DESVersion" use="required"/>
+   </xs:complexType>
+   <xs:simpleType name="ContentCollectionTimestampType">
+      <xs:restriction base="xs:dateTime"/>
+   </xs:simpleType>
+   <xs:simpleType name="ContentSizeType">
+      <xs:restriction base="xs:integer"/>
+   </xs:simpleType>
+   <xs:simpleType name="ContentEncodingMethodType">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="XOR"/>
+         <xs:enumeration value="ENCRYPTED"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="ContentEncodedSizeType">
+      <xs:restriction base="xs:integer"/>
+   </xs:simpleType>
+   <xs:simpleType name="DESVersionType">
+      <xs:restriction base="xs:string">
+         <xs:pattern value="[0-9]{6}(\.[0-9]{6})?(\-.{1,23})?"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="ContentCollectionHostType">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="255"/>
+         <xs:pattern value="([a-zA-Z0-9_\.-])*"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="ContentCollectionMethodType">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="LOG"/>
+         <xs:enumeration value="FILE"/>
+         <xs:enumeration value="MEMORY-DUMP"/>
+         <xs:enumeration value="PACKET-CAPTURE"/>
+         <xs:enumeration value="OTHER"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:complexType name="ContentCollectionHostListType">
+      <xs:sequence>
+         <xs:element ref="dhzm:ContentCollectionHost" maxOccurs="5"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ContentCollectionMethodListType">
+      <xs:sequence>
+         <xs:element ref="dhzm:ContentCollectionMethod" maxOccurs="5"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="OriginContentPathListType">
+      <xs:sequence>
+         <xs:element ref="dhzm:OriginContentPath" maxOccurs="256"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:simpleType name="ContentCollectionExternalIdType">
+      <xs:restriction base="xs:anyURI">
+         <xs:maxLength value="1024"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="OriginContentUidType">
+      <xs:restriction base="xs:integer">
+         <xs:minInclusive value="1"/>
+         <xs:maxInclusive value="65335"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="OriginContentOwnerType">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="255"/>
+         <xs:pattern value="([a-zA-Z0-9\s_-])*"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="OriginContentGroupType">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="255"/>
+         <xs:pattern value="([a-zA-Z0-9\s_-])*"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="OriginContentInodeType">
+      <xs:restriction base="xs:integer"/>
+   </xs:simpleType>
+   <xs:simpleType name="OriginContentDeviceType">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="255"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="OriginContentCreatedType">
+      <xs:restriction base="xs:dateTime"/>
+   </xs:simpleType>
+   <xs:simpleType name="OriginContentLastModifiedType">
+      <xs:restriction base="xs:dateTime"/>
+   </xs:simpleType>
+   <xs:simpleType name="OriginContentLastAccessedType">
+      <xs:restriction base="xs:dateTime"/>
+   </xs:simpleType>
+   <xs:simpleType name="OriginContentOSType">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="windows"/>
+         <xs:enumeration value="macOS"/>
+         <xs:enumeration value="linux"/>
+         <xs:enumeration value="android"/>
+         <xs:enumeration value="iOS"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="OriginContentOSVersionType">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="255"/>
+         <xs:pattern value="([a-zA-Z0-9\.-])*"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="OriginContentArchType">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="i386"/>
+         <xs:enumeration value="i486"/>
+         <xs:enumeration value="i586"/>
+         <xs:enumeration value="i686"/>
+         <xs:enumeration value="x86_64"/>
+         <xs:enumeration value="amd64"/>
+         <xs:enumeration value="ia64"/>
+         <xs:enumeration value="armv6l"/>
+         <xs:enumeration value="armv7l"/>
+         <xs:enumeration value="sparc"/>
+         <xs:enumeration value="sparc64"/>
+         <xs:enumeration value="sparc64v"/>
+         <xs:enumeration value="ppc"/>
+         <xs:enumeration value="ppc64"/>
+         <xs:enumeration value="ppc64le"/>
+         <xs:enumeration value="s390"/>
+         <xs:enumeration value="s390x"/>
+         <xs:enumeration value="64-bit"/>
+         <xs:enumeration value="32-bit"/>
+         <xs:enumeration value="none"/>
+         <xs:enumeration value="noarch"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="OriginContentSourceMacType">
+      <xs:restriction base="xs:hexBinary">
+         <xs:minLength value="6"/>
+         <xs:maxLength value="7"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="OriginContentSourceIpv4Type">
+      <xs:restriction base="xs:hexBinary">
+         <xs:length value="4"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="OriginContentSourceIpv6Type">
+      <xs:restriction base="xs:hexBinary">
+         <xs:length value="16"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="OriginContentSourceSystemType">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="255"/>
+         <xs:pattern value="([a-zA-Z0-9\._-])*"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="SourceDomainType">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="255"/>
+         <xs:pattern value="([a-zA-Z0-9])*"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="DestinationDomainType">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="255"/>
+         <xs:pattern value="([a-zA-Z0-9])*"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="DigitalHazMatType">
+      <xs:restriction base="xs:string">
+         <xs:pattern value="\s*This\s+element\s+describes\s+an\s+obfuscated\s+payload\s+which\s+is\s+either\s+known\s+or\s+suspected\s+to\s+contain\s+software\s+or\s+similar\s+data\s+which\s+could\s+cause\s+harm\s+to\s+information\s+processing\s+systems\.\s+It\s+has\s+been\s+encapsulated\s+to\s+render\s+it\s+inert\.\s+Any\s+attempt\s+to\s+decode\s+this\s+payload\s+outside\s+a\s+safe\s+analysis\s+environment\s+may\s+pose\s+a\s+danger\s+to\s+your\s+system\.\s*"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="OriginContentPathType">
+      <xs:restriction base="xs:anyURI">
+         <xs:maxLength value="1024"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="OriginContentFilenameType">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="1024"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="WorkFlowIdType">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="255"/>
+         <xs:pattern value="([a-zA-Z0-9\s:\._-])*"/>
+      </xs:restriction>
+   </xs:simpleType>
+</xs:schema>

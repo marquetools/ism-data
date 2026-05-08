@@ -1,0 +1,323 @@
+{
+  "_comment": "Configuration for tools/check_upstream.py. Populate `url`, `last_modified`, and `content_length` for each zip from a real HEAD against ODNI's published download URLs. Run check_upstream.py locally first to see how the script handles each entry, then commit the populated baseline. After that, the weekly CI catches drift automatically.",
+  "_setup_steps": [
+    "URL patterns:",
+    "  Dec2022/<PKG>/<PKG>-Public-Standalone.zip      (most ISIM packages)",
+    "  Jan2021/<PKG>/<PKG>-Public-Standalone.zip      (NTK, NTK-ACES \u2014 older snapshots)",
+    "  <NATO_codename>/<basename>                      (CDR family + WSS variants + older versioned)",
+    "    - Foxtrot:    RR-SM",
+    "    - Golf_Hotel: ATOM, CDR-RA, WSS-HLG",
+    "    - India:      ARH-V3, BRK-V2-SRCH, ICO-V1-ACES, ICO-V10-NTK, OC-NTK-ACES-V1",
+    "    - Juliet:     DELIVER, MANAGE, QM, WSS-SIGENC",
+    "  (root)/<basename>                               (AUDIT-V4-2011, RR-ID \u2014 flat at ICEA root)",
+    "",
+    "These are tracked by the canary so we hear about upstream changes, but their content",
+    "isn't shipped under data/.",
+    "",
+    "Setup:",
+    "1. Run: python3 tools/check_upstream.py --populate",
+    "   to HEAD-validate every URL and capture Last-Modified.",
+    "2. Fix any 404s manually.",
+    "3. Commit the populated baseline. Weekly CI takes over from there."
+  ],
+  "listing_urls": [
+    "https://www.dni.gov/index.php/who-we-are/organizations/ic-cio/ic-technical-specifications"
+  ],
+  "zips": {
+    "ADD-ERM-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/ADD-ERM/ADD-ERM-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "ARH-_V3_Public.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/India/ARH-_V3_Public.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "ATOMPublic.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Golf_Hotel/ATOMPublic.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "AUDITPublic-V4-20111214.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/AUDITPublic-V4-20111214.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "AUTHCAT-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/AUTHCAT/AUTHCAT-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "BASE-TDF-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/BASE-TDF/BASE-TDF-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "BOE-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/BOE/BOE-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "BRK-V2-SRCH-Public.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/India/BRK-V2-SRCH-Public.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "CDR-RAPublic.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Golf_Hotel/CDR-RAPublic.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "CDSM-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/CDSM/CDSM-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "CDSM-TDF-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/CDSM-TDF/CDSM-TDF-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "CEM-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/CEM/CEM-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "CSR-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/CSR/CSR-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "DED-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/DED/DED-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "DELIVER-Public.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Juliet/DELIVER-Public.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "DHZM-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/DHZM/DHZM-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "DHZM-TDF-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/DHZM-TDF/DHZM-TDF-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "DHZMC-TDF-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/DHZMC-TDF/DHZMC-TDF-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "DOMEX-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/DOMEX/DOMEX-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "ERM-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/ERM/ERM-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "FAC-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/FAC/FAC-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "FSD-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/FSD/FSD-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "IC-Docbook-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/IC-Docbook/IC-Docbook-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "IC-EDH-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/IC-EDH/IC-EDH-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "IC-GENC-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/IC-GENC/IC-GENC-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "IC-ID-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/IC-ID/IC-ID-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "IC-SF-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/IC-SF/IC-SF-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "ICO-V1-ACES-Public.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/India/ICO-V1-ACES-Public.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "ICO-V10-NTK-Public.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/India/ICO-V10-NTK-Public.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "INTDIS-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/INTDIS/INTDIS-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "IRM-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/IRM/IRM-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "ISM-ACES-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/ISM-ACES/ISM-ACES-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "ISM-Rollup-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/ISM-Rollup/ISM-Rollup-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "ISMCAT-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/ISMCAT/ISMCAT-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "ITS-MS-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/ITS-MS/ITS-MS-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "ITS-OM-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/ITS-OM/ITS-OM-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "LIC-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/LIC/LIC-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "MAC-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/MAC/MAC-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "MANAGE-Public.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Juliet/MANAGE-Public.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "MIME-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/MIME/MIME-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "MN-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/MN/MN-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "MNT-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/MNT/MNT-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "NTK-ACES-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Jan2021/NTK-ACES/NTK-ACES-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "NTK-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Jan2021/NTK/NTK-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "OC-NTK-ACES-V1-Public.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/India/OC-NTK-ACES-V1-Public.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "PM-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/PM/PM-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "PMA-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/PMA/PMA-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "QM-Public.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Juliet/QM-Public.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "ROLE-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/ROLE/ROLE-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "RR-IDPublic.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/RR-IDPublic.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "RevRecall-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/RevRecall/RevRecall-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "UIAS-APCS-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/UIAS-APCS/UIAS-APCS-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "UIAS-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/UIAS/UIAS-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "USAgency-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/USAgency/USAgency-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "VIRT-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/VIRT/VIRT-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "WSS-HLGPublic.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Golf_Hotel/WSS-HLGPublic.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "WSS-SIGENC-Public.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Juliet/WSS-SIGENC-Public.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "Whitelist-Public-Standalone.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/Whitelist/Whitelist-Public-Standalone.zip",
+      "last_modified": "",
+      "content_length": ""
+    },
+    "RR-SMPublic.zip": {
+      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Foxtrot/RR-SMPublic.zip",
+      "last_modified": "",
+      "content_length": ""
+    }
+  }
+}

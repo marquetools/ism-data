@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       --><cve:CVE xmlns:cve="urn:us:gov:ic:cve" xmlns:ism="urn:us:gov:ic:ism" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  ism:compliesWith="USGov USIC" ism:ownerProducer="USA" ism:classification="U" ism:DESVersion="202111" ism:ISMCATCESVersion="202205" ism:resourceElement="true" CVEVersion="2" ism:createDate="2013-12-10" xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+
+    <!-- artf14837 - Create DOMEX Agency List  -->
+    <cve:IRM>
+        <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:domex:CVEnumDOMEXAgencyCIA</URN>
+        <Title xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">CVEnumDOMEXAgencyCIA</Title>
+        <Description xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">Valid range for CIA agencies.</Description>
+
+        <cve:Created>2013-12-10</cve:Created>
+
+        <Source ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">Authoritative source for CIA Agencies</Source>
+        <PointOfContact ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">
+         <Name>DOMEX Metadata Working Group</Name>
+      </PointOfContact>
+    </cve:IRM>
+    
+    <cve:Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">CTC</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">CIA CTC</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">NE</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">CIA NE</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FBIS</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBIS -- Foreign Broadcast Information Service</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">IOC</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">CENTRAL INTELLIGENCE AGENCY</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">OSC</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">OSC -- DNI Open Source Center</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">OSC/FBIS</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">OSC/FBIS -- Open Source
+                Center/FBIS</Description>
+        </cve:Term>
+    </cve:Enumeration>
+</cve:CVE>

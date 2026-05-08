@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXFlightTypeType">
+   <define name="CVEnumDOMEXFlightTypeType.cve">
+      <choice>
+         <value>Domestic</value>
+         <value>Extra-territorial</value>
+         <value>International</value>
+      </choice>
+   </define>
+</grammar>

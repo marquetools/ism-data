@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen SCHSchema="../../Schematron/ISM/ISM_XML.sch"?>
+<?oxygen SCHSchema="../../Schematron/NTK/NTK_XML.sch"?>
+<AuditRecordList
+    xmlns="urn:us:gov:ic:audit"
+    xmlns:audit="urn:us:gov:ic:audit"
+    xmlns:ism="urn:us:gov:ic:ism"
+    xmlns:ntk="urn:us:gov:ic:ntk"
+    xmlns:iccve="urn:us:gov:ic:ism-cvenum"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:cve="urn:us:gov:ic:audit-cvenum"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:us:gov:ic:audit ../../Schema/AUDIT/IC-AUDIT.xsd" 
+    audit:DESVersion="4" 
+    ism:DESVersion="7" 
+    ntk:DESVersion="5"
+    ism:resourceElement="true" 
+    ism:createDate="2011-03-01"
+    ism:classification="U"
+    ism:ownerProducer="USA">
+    <AuditRecord auditRecordType="INFORMATION_ASSURANCE" ism:classification="U" ism:ownerProducer="USA">
+        <Id>
+            <TypeOfGenericIdentifier>GUIDE</TypeOfGenericIdentifier>
+            <GenericIdentifierValue>999123/012345</GenericIdentifierValue>
+        </Id>
+        <Creator>
+            <TypeOfIdentityIdentifier>DEVICE_ID</TypeOfIdentityIdentifier>
+            <IdentityIdentifierValue>LogServer-356</IdentityIdentifierValue>
+        </Creator>
+        <DateTime>2011-03-01T10:08:42Z</DateTime>
+        <SessionId>WKS-232-J 2005-10-30 T 10:45 UTC</SessionId>
+        <WorkflowId>F9168C5E-CEB2-4faa-B6BF-329BF39FA1E4</WorkflowId>
+        <Message>See https://guide.cia to evaluate URLs</Message>
+        <Action>READ</Action>
+        <ActionResult>SUCCESS</ActionResult>
+        <ActionInitiator>
+            <TypeOfIdentityIdentifier>IP_ADDRESS</TypeOfIdentityIdentifier>
+            <IdentityIdentifierValue>192.168.1.1</IdentityIdentifierValue>
+        </ActionInitiator>
+        <ActionTarget>
+            <TypeOfIdentityIdentifier>WORKSTATION_ID</TypeOfIdentityIdentifier>
+            <IdentityIdentifierValue>TLA-WebSrvr_01</IdentityIdentifierValue>
+        </ActionTarget>
+        <Resource>
+            <TypeOfResource>
+                <ValueOfResourceType>BuddyLists.xml</ValueOfResourceType>
+                <NamespaceOfResourceType>urn:us:gov:ic:nebula.buddylist</NamespaceOfResourceType>
+                <SourceOfResourceType>https://shareit.mae.ic.gov/LandingPage</SourceOfResourceType>
+            </TypeOfResource>
+            <Id>
+                <GenericIdentifierValue>999123/567439</GenericIdentifierValue>
+                <TypeOfGenericIdentifier>GUIDE</TypeOfGenericIdentifier>
+            </Id>
+            <Creator>
+                <TypeOfIdentityIdentifier>FULLY_QUALIFIED_DOMAIN_NAME</TypeOfIdentityIdentifier>
+                <IdentityIdentifierValue>https://www.TLA.gov/common/user123/buddylist.xml</IdentityIdentifierValue>
+            </Creator>
+        </Resource>
+    </AuditRecord>
+</AuditRecordList>

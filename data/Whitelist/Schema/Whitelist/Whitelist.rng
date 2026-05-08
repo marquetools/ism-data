@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar 
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    <start>
+        <element name="Whitelist">
+            <interleave>
+            <!-- Whitelist only elements -->          
+            <optional>
+                <element name="Classification">
+                    <ref name="whitelistOnlyValues"/>
+                </element>
+            </optional>
+            
+            <optional>
+                <element name="DisseminationControls">
+                    <ref name="whitelistOnlyValues"/>
+                </element>
+            </optional>
+                                 
+            <optional>
+                <element name="AtomicEnergyMarkings">
+                    <ref name="whitelistOnlyValues"/>
+                </element>
+            </optional>
+            
+            <optional>
+                <element name="NonICmarkings">
+                    <ref name="whitelistOnlyValues"/>
+                </element>
+            </optional>
+            
+            <optional>
+                <element name="NonUSControls">
+                    <ref name="whitelistOnlyValues"/>
+                </element>
+            </optional>
+            
+            <optional>
+                <element name="SCIControls">
+                    <ref name="whitelistOnlyValues"/>
+                </element>
+            </optional>
+            
+            <optional>
+                <element name="SARIdentifier">
+                    <ref name="whitelistOnlyValues"/>
+                </element>
+            </optional>
+            
+            <!-- whitelist or blacklist-->
+            <optional>
+               <element name="ISMAttributes">
+                   <ref name="whitelistOrBlacklistValues"/>
+               </element>
+            </optional>
+                
+            <optional>
+                <element name="DisplayOnlyTo">
+                    <ref name="whitelistOrBlacklistValues"/>
+                </element>
+            </optional>
+            
+            <optional>
+                <element name="FGIsourceOpen">
+                    <ref name="whitelistOrBlacklistValues"/>
+                </element>
+            </optional>
+            
+            <optional>
+                <element name="FGIsourceProtected">
+                    <ref name="whitelistOrBlacklistValues"/>
+                </element>
+            </optional>
+            
+            <optional>
+                <element name="OwnerProducer">
+                    <ref name="whitelistOrBlacklistValues"/>
+                </element>
+            </optional>
+            
+            <!-- extend whitelist or blacklist with minimum allowable values -->
+            <optional>
+                <element name="ReleasableTo">
+                    <ref name="whitelistOrBlacklistValues"/>
+                    <optional>
+                        <element name="minimumValues">
+                            <text/>
+                        </element>
+                    </optional>
+                </element>
+            </optional>
+            
+                <!-- NTK -->
+                <optional>
+                    <element name="NtkAccessProfile">                       
+                        <ref name="typeChoice"/>                       
+                        <oneOrMore>
+                            <element name="value">
+                                <attribute name="accessPolicy"/>
+                                <attribute name="profileDes"/>
+                                <optional>
+                                    <attribute name="qualifier"/>
+                                </optional>
+                                <optional>
+                                    <attribute name="profileValue"/>
+                                </optional>                              
+                            </element>
+                     </oneOrMore>
+                    </element>
+                </optional>
+            </interleave>
+        </element>
+    </start>
+
+    <define name="whitelistOrBlacklistValues">
+        <element name="values">
+            <ref name="typeChoice"/>
+            <data type="token"/>
+        </element>      
+    </define>
+
+  <define name="whitelistOnlyValues">
+      <element name="values">
+          <data type="token"/>
+      </element>
+  </define>
+    
+  <define name="typeChoice">
+     <attribute name="type">
+        <choice>
+           <value>whitelist</value>
+           <value>blacklist</value>
+        </choice>   
+     </attribute>   
+  </define>
+
+</grammar>

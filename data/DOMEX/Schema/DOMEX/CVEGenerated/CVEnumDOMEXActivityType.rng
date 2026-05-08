@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXActivityType">
+   <define name="CVEnumDOMEXActivityType.cve">
+      <choice>
+         <value>Combat Operations</value>
+         <value>Communications</value>
+         <value>Criminal Activities</value>
+         <value>Finance</value>
+         <value>Hostage Operations</value>
+         <value>Individual</value>
+         <value>Personnel Management</value>
+         <value>Planning, General</value>
+         <value>Propaganda Production and Distribution</value>
+         <value>Recruitment Operations</value>
+         <value>Religious</value>
+         <value>Weapons of Mass Destruction</value>
+         <value>Weapons, Cyber</value>
+         <value>Weapons, Improvised</value>
+         <value>Weapons, Manufactured</value>
+      </choice>
+   </define>
+</grammar>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXAgencyNSA">
+   <define name="CVEnumDOMEXAgencyNSA.cve">
+      <choice>
+         <value>S1</value>
+         <value>S2</value>
+         <value>S3</value>
+         <value>SFC</value>
+         <value>SSF</value>
+      </choice>
+   </define>
+</grammar>

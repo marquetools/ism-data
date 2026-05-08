@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen SCHSchema="../../Schematron/ISM/ISM_XML.sch"?><?oxygen SCHSchema="../../Schematron/NTK/NTK_XML.sch"?><?oxygen SCHSchema="../../Schematron/ARH/ARH_XML.sch"?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       --><!-- All classification marks in this example are   --><!-- for illustrative purposes only, there are no   --><!-- actual classified data contained in this example -->
+<SecurityMarkings xmlns="urn:us:gov:ic:rr" xmlns:ntk="urn:us:gov:ic:ntk"
+    xmlns:ism="urn:us:gov:ic:ism" xmlns:arh="urn:us:gov:ic:arh" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:us:gov:ic:rr ../../Schema/RR-SM/IC-RR-SM-REST.xsd">
+    <arh:Security ntk:DESVersion="8" ism:DESVersion="10" arh:DESVersion="2" ism:resourceElement="true" ism:createDate="2011-09-19"
+        ism:classification="U" ism:ownerProducer="USA">
+    <ntk:Access ism:classification="U" ism:ownerProducer="USA">
+        <ntk:AccessIndividualList>
+            <ntk:AccessIndividual ism:classification="U" ism:ownerProducer="USA">
+                <ntk:AccessSystemName ism:classification="U" ism:ownerProducer="USA"
+                    >UnclassSourceForge</ntk:AccessSystemName>
+                <ntk:AccessIndividualValue ism:classification="U" ism:ownerProducer="USA">DN</ntk:AccessIndividualValue>
+                <ntk:AccessIndividualValue ism:classification="U" ism:ownerProducer="USA">wheedletonc</ntk:AccessIndividualValue>
+            </ntk:AccessIndividual>
+        </ntk:AccessIndividualList>
+    </ntk:Access>
+    <ism:NoticeList ism:classification="U" ism:ownerProducer="USA">
+        <ism:Notice ism:classification="U" ism:ownerProducer="USA"
+            ism:unregisteredNoticeType="Martian">
+            <ism:NoticeText ism:classification="U" ism:ownerProducer="USA">
+                WARNING: THIS REPORT IS THE SOLE PROPERTY OF THE MARTIAN GOVERNMENT.  IT HAS 
+                BEEN PROVIDED ON THE CONDITION THAT ITS FOR THE USE OF THE INTELLIGENCE
+                COMMUNITY OF THE RECIEVEING GOVERNMENT AND THAT IT NOT BE RECLASSIFIED,
+                DOWNGRADED, OR RELEASED WITHOUT THE EXPRESS APPROVAL OF THE MARTIAN GOVERNMENT</ism:NoticeText>
+        </ism:Notice>
+    </ism:NoticeList>
+    </arh:Security>
+    <!-- Only 1 portion is required, that can be HTTP Message -->
+    <Portion xmlns:xlink="http://www.w3.org/1999/xlink" ism:classification="U"
+        ism:ownerProducer="USA" xlink:type="simple" xlink:href="#xpointer(/)"/>
+</SecurityMarkings>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXActivityCriminalActivities"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXActivityCriminalActivities"
+            version="202111">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumDOMEXActivityCriminalActivities Version 2 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumDOMEXActivityCriminalActivities.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumDOMEXActivityCriminalActivities">
+      <xsd:annotation>
+         <xsd:documentation>(U) Valid range for sub-activities.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumDOMEXActivityCriminalActivities.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="Actions">
+            <xsd:annotation>
+               <xsd:documentation>Reporting related to all phases of criminal activities</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Drug trafficking">
+            <xsd:annotation>
+               <xsd:documentation>Items related to Drug trafficking</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Extortion">
+            <xsd:annotation>
+               <xsd:documentation>Items related to Extortion</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Homicide">
+            <xsd:annotation>
+               <xsd:documentation>Items that show activities related to homicide</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Human Trafficking">
+            <xsd:annotation>
+               <xsd:documentation>Items related to Human Trafficking</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Logistics">
+            <xsd:annotation>
+               <xsd:documentation>Items related to general support to criminal activities: transportation, supplies, etc.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Logo">
+            <xsd:annotation>
+               <xsd:documentation>Criminal Activities items that have a logo or flag embedded</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Other">
+            <xsd:annotation>
+               <xsd:documentation>Misc items related to primary activity</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Planning">
+            <xsd:annotation>
+               <xsd:documentation>Items related to planning criminal activities</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Reporting">
+            <xsd:annotation>
+               <xsd:documentation>Reporting on all facets of criminal activities</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Robbery">
+            <xsd:annotation>
+               <xsd:documentation>Items related to Robbery</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Training">
+            <xsd:annotation>
+               <xsd:documentation>Items used to train operatives in criminal enterprises</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+            xml:lang="en">
+   <xsd:annotation>
+      <xsd:documentation>
+                    W3C XML Schema fragment encoding types for Controlled vocabulary encodings CVEnumAuditTypeOfIdentityIdentifierType. This file is generated so edits should be made to the CVEnumAuditTypeOfIdentityIdentifierType the CVE it is based on instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+<!--Generated TYPE DEFINITIONS ..................................-->
+<!--*************************************************************-->
+<xsd:simpleType name="CVEnumAuditTypeOfIdentityIdentifierType">
+      <xsd:annotation>
+         <xsd:documentation>(U) All currently authorized type of identity identifier types.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumAuditTypeOfIdentityIdentifierType.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="AGENCY_USER_ID">
+            <xsd:annotation>
+               <xsd:documentation>The unique Identifier for a user within an agency, typically for information resource access.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="AGENCY_EMPLOYEE_ID">
+            <xsd:annotation>
+               <xsd:documentation>The unique Identifier for an employee within an agency, typically for human resources tracking purposes.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DEVICE_ID">
+            <xsd:annotation>
+               <xsd:documentation>The unique Identifier for a device used on the network.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DIGITAL_IDENTIFIER">
+            <xsd:annotation>
+               <xsd:documentation>The "Primary Key" for accessing identity attributes.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DOMAIN_NAME">
+            <xsd:annotation>
+               <xsd:documentation>An Identification label that defines a realm of administrative autonomy, authority, or control in the network.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="EMPLOYEE_ID">
+            <xsd:annotation>
+               <xsd:documentation>The unique Identifier for an employee within the IC, typically a numerical value.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FEDERAL_AGENCY_SMART_CREDENTIAL_NUMBER">
+            <xsd:annotation>
+               <xsd:documentation>One of the data items contained within the card-holder unique identifier (CHUID), and uniquely identifies a PIV card (A smart card that is designed, issued and managed according to the specifications in FIPS 201 and its related technical documents).</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FULLY_QUALIFIED_DOMAIN_NAME">
+            <xsd:annotation>
+               <xsd:documentation>A domain name that specifies its exact location in the tree hierarchy of the Domain Name System. It specifies all domain levels, including the top-level domain and the root domain. A fully qualified domain name is distinguished by its unambiguity; it can only be interpreted one way.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HOST_NAME">
+            <xsd:annotation>
+               <xsd:documentation>A label that is assigned to a device connected to a computer network and that is used to identify the device in various forms of electronic communication such as the www or email.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="IP_ADDRESS">
+            <xsd:annotation>
+               <xsd:documentation>A numerical label assigned to each device (e.g., computer, printer) participating in a computer network that uses the Internet Protocol for communication.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PROCESS_ID">
+            <xsd:annotation>
+               <xsd:documentation>A number used by some operating system kernels (such as that of UNIX, Mac OS X or Microsoft Windows) to (temporarily) uniquely identify a process.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="USER_ID">
+            <xsd:annotation>
+               <xsd:documentation>The unique Identifier for a user within the IC, typically for information resource access.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="WORKSTATION_ID">
+            <xsd:annotation>
+               <xsd:documentation>The unique Identifier for a workstation or other device that is connected to the network.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="http://docbook.org/ns/docbook" xmlns:ism="urn:us:gov:ic:ism" xmlns="http://relaxng.org/ns/structure/1.0" ism:resourceElement="true" ism:compliesWith="USGov" ism:createDate="2011-12-01"
+  ism:DESVersion="201609.201804" ism:classification="U" ism:ownerProducer="USA">
+  
+  <include href="../ISM/ISM.rng"/>
+  <include href="docbook.rng"/>
+  
+  <define name="db.para.attlist" combine="interleave">
+    <interleave>
+      <ref name="SecurityAttributesOptionGroup.att"/>
+    </interleave>
+  </define>
+  
+  <define name="db.book.attlist" combine="interleave">
+    <ref name="ResourceNodeAttributeOptionGroup.att"/>
+    <ref name="ISMRootNodeAttributeGroup.att"/>
+  </define>
+  
+  <define name="db.article.attlist" combine="interleave">
+    <ref name="ResourceNodeAttributeOptionGroup.att"/>
+    <ref name="ISMRootNodeAttributeGroup.att"/>
+  </define>
+  
+  <define name="db.set.attlist" combine="interleave">
+    <ref name="ResourceNodeAttributeOptionGroup.att"/>
+    <ref name="ISMRootNodeAttributeGroup.att"/>
+  </define>
+  
+  <define name="db.title.attlist" combine="interleave">
+    <ref name="SecurityAttributesOptionGroup.att"/>
+  </define>
+  
+  <define name="db.glossterm.attlist" combine="interleave">
+    <ref name="SecurityAttributesOptionGroup.att"/>
+  </define>
+  
+  <define name="db.biblioentry.attlist" combine="interleave">
+    <ref name="SecurityAttributesOptionGroup.att"/>
+  </define>
+  
+  <define name="db.legalnotice.attlist" combine="interleave">
+    <ref name="ISMNoticeAttributeGroup.att"/>
+  </define>
+</grammar>

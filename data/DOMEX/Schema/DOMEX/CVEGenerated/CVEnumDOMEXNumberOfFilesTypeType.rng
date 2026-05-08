@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXNumberOfFilesTypeType">
+   <define name="CVEnumDOMEXNumberOfFilesTypeType.cve">
+      <choice>
+         <value>Video</value>
+         <value>Audio</value>
+         <value>Picture</value>
+      </choice>
+   </define>
+</grammar>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXActivityPropagandaProductionandDistribution"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXActivityPropagandaProductionandDistribution"
+            version="202111">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumDOMEXActivityPropagandaProductionandDistribution Version 2 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumDOMEXActivityPropagandaProductionandDistribution.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumDOMEXActivityPropagandaProductionandDistribution">
+      <xsd:annotation>
+         <xsd:documentation>(U) Valid range for sub-activities.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumDOMEXActivityPropagandaProductionandDistribution.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="Actions">
+            <xsd:annotation>
+               <xsd:documentation>Items related to the production and distribution operations: photos of any set, distribution network, etc.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FIS">
+            <xsd:annotation>
+               <xsd:documentation>Items indicating FIS involvement in a target group's propaganda</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Logo">
+            <xsd:annotation>
+               <xsd:documentation>Propaganda items that have logos or flags embedded</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Martyrdom">
+            <xsd:annotation>
+               <xsd:documentation>Propaganda to justify and/or encourage martyrdom</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Other">
+            <xsd:annotation>
+               <xsd:documentation>Misc items related to primary activity</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Production">
+            <xsd:annotation>
+               <xsd:documentation>Items related to construction of propaganda: preproduction notes, raw video, tools, project files, etc.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Products">
+            <xsd:annotation>
+               <xsd:documentation>Items produced for distribution as propaganda</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Religious">
+            <xsd:annotation>
+               <xsd:documentation>Religious propaganda to justify actions</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Reporting">
+            <xsd:annotation>
+               <xsd:documentation>Reporting related to propaganda, likely status reports</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Training">
+            <xsd:annotation>
+               <xsd:documentation>Training in using propaganda to support an insurgency or terrorist movement</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="US Person">
+            <xsd:annotation>
+               <xsd:documentation>US Person found in any propaganda related items</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

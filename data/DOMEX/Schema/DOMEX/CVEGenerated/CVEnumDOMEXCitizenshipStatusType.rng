@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXCitizenshipStatusType">
+   <define name="CVEnumDOMEXCitizenshipStatusType.cve">
+      <choice>
+         <value>Native Born</value>
+         <value>Naturalized</value>
+         <value>Permanent Resident Alien Applied</value>
+         <value>Permanent Resident Alien Granted</value>
+         <value>Other</value>
+      </choice>
+   </define>
+</grammar>

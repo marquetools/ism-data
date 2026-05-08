@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXTranslationStatusType"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXTranslationStatusType"
+            version="202111">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumDOMEXTranslationStatusType Version 2 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumDOMEXTranslationStatusType.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumDOMEXTranslationStatusType">
+      <xsd:annotation>
+         <xsd:documentation>(U) Valid range for translation status type.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumDOMEXTranslationStatusType.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="AC">
+            <xsd:annotation>
+               <xsd:documentation>ACCEPTED</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="AP">
+            <xsd:annotation>
+               <xsd:documentation>ACCOMPLISHED</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="AR">
+            <xsd:annotation>
+               <xsd:documentation>AWAITING RESOURCES</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="AS">
+            <xsd:annotation>
+               <xsd:documentation>ASSIGNED</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="AU">
+            <xsd:annotation>
+               <xsd:documentation>AWAITING UPLOAD</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CR">
+            <xsd:annotation>
+               <xsd:documentation>CANCELLED BY REQUEST</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="EM">
+            <xsd:annotation>
+               <xsd:documentation>EXTERNALLY MANAGED</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FF">
+            <xsd:annotation>
+               <xsd:documentation>FULFILLED</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LD">
+            <xsd:annotation>
+               <xsd:documentation>LEGACY DATA</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NA">
+            <xsd:annotation>
+               <xsd:documentation>NOT ACCEPTED</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="RV">
+            <xsd:annotation>
+               <xsd:documentation>REVIEW</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="UP">
+            <xsd:annotation>
+               <xsd:documentation>UNPROCESSED</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

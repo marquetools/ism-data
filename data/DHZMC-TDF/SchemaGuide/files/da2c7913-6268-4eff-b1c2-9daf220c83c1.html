@@ -1,0 +1,752 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for component ProvenanceAssertionType</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        var usedByBoxes= new Array('usedBy_ProvenanceAssertionType');
+var sourceBoxes= new Array('source_ProvenanceAssertionType');
+var diagramBoxes= new Array('diagram_ProvenanceAssertionType');
+var annotationBoxes= new Array('annotations_ProvenanceAssertionType');
+var attributesBoxes= new Array('attributes_ProvenanceAssertionType');
+var modelBoxes= new Array('model_ProvenanceAssertionType');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //
+--></script>
+   </head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_content" rowspan="1" colspan="1">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, annotationBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Annotations</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, attributesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Attributes </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Diagrams</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Model </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Source</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Used by </span>
+                        </td>
+                     </tr>
+                  </table>
+                  <div align="right">
+                     <span>
+                        <input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close"></input>
+                     </span>
+                  </div>
+               </td>
+               <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+            </tr>
+         </table>
+      </div>
+      <a id="ProvenanceAssertionType" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Complex Type <span class="qname">ProvenanceAssertionType</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:digitalhazmat</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_ProvenanceAssertionType" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_ProvenanceAssertionType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_ProvenanceAssertionType" style="display:block">
+                              <div class="annotation">
+                                 
+                                 <p>
+                                    The root node of a provenance assertion for cross domain transfer.
+                                    </p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_ProvenanceAssertionType" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_ProvenanceAssertionType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_ProvenanceAssertionType" style="display:block">
+                              <img alt="Diagram" border="0" src="img/26878953-a7ee-4108-b475-1e3bb926d891.png" usemap="#DHZM_xsd_Complex_Type_ProvenanceAssertionType"></img>
+                              <map name="DHZM_xsd_Complex_Type_ProvenanceAssertionType" id="DHZM_xsd_Complex_Type_ProvenanceAssertionType">
+                                 <area alt="DHZM_xsd_Attribute_DESVersion.tmp#DESVersion" href="DHZM_xsd_Attribute_DESVersion.html#DESVersion" coords="264,38,415,62" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_ContentCollectionTimestamp.tmp#ContentCollectionTimestamp" href="92ede83c-8cd4-4d57-b527-0ee2b2c5a52d.html#ContentCollectionTimestamp" coords="321,109,549,133" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_ContentSize.tmp#ContentSize" href="DHZM_xsd_Element_ContentSize.html#ContentSize" coords="321,173,453,197" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_ContentEncodedSize.tmp#ContentEncodedSize" href="DHZM_xsd_Element_ContentEncodedSize.html#ContentEncodedSize" coords="321,237,501,261" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_ContentEncodingMethod.tmp#ContentEncodingMethod" href="9b2fe836-9dcc-4315-b0fb-a326d2e8ebf8.html#ContentEncodingMethod" coords="321,301,522,325" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_ContentCollectionHostList.tmp#ContentCollectionHostList" href="20ce2303-4c95-44b0-99aa-3d931865cee4.html#ContentCollectionHostList" coords="321,378,531,402" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_ContentCollectionMethodList.tmp#ContentCollectionMethodList" href="41ca1500-8b31-4e10-9f17-6563ade04dac.html#ContentCollectionMethodList" coords="321,442,546,466" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_ContentCollectionExternalId.tmp#ContentCollectionExternalId" href="30227cc9-7f1b-447a-9371-ad2cc9806b07.html#ContentCollectionExternalId" coords="321,506,541,530" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_OriginContentUid.tmp#OriginContentUid" href="DHZM_xsd_Element_OriginContentUid.html#OriginContentUid" coords="321,570,482,594" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_OriginContentOwner.tmp#OriginContentOwner" href="DHZM_xsd_Element_OriginContentOwner.html#OriginContentOwner" coords="321,634,501,658" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_OriginContentGroup.tmp#OriginContentGroup" href="DHZM_xsd_Element_OriginContentGroup.html#OriginContentGroup" coords="321,698,499,722" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_OriginContentInode.tmp#OriginContentInode" href="DHZM_xsd_Element_OriginContentInode.html#OriginContentInode" coords="321,762,495,786" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_OriginContentDevice.tmp#OriginContentDevice" href="6abe8523-39df-4213-99b8-b6727d598bf1.html#OriginContentDevice" coords="321,826,501,850" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_OriginContentPathList.tmp#OriginContentPathList" href="8ea648dc-8806-4286-8e5e-9071964b6a95.html#OriginContentPathList" coords="321,903,509,927" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_OriginContentFilename.tmp#OriginContentFilename" href="b5af481d-be50-4c2c-82f6-0e8067afdad7.html#OriginContentFilename" coords="321,967,515,991" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_OriginContentCreated.tmp#OriginContentCreated" href="b0133bcd-6097-46b6-b0b0-4845c70cae34.html#OriginContentCreated" coords="321,1031,509,1055" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_OriginContentLastModified.tmp#OriginContentLastModified" href="df150a17-9059-43dd-99fd-d00895345571.html#OriginContentLastModified" coords="321,1095,535,1119" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_OriginContentLastAccessed.tmp#OriginContentLastAccessed" href="8998780a-13a4-4bc1-ba4b-a3353e3b0cb4.html#OriginContentLastAccessed" coords="321,1159,542,1183" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_OriginContentOS.tmp#OriginContentOS" href="DHZM_xsd_Element_OriginContentOS.html#OriginContentOS" coords="321,1223,481,1247" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_OriginContentOSVersion.tmp#OriginContentOSVersion" href="44bc4295-1dba-4584-ba30-ccd9eeea8bbe.html#OriginContentOSVersion" coords="321,1287,524,1311" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_OriginContentArch.tmp#OriginContentArch" href="DHZM_xsd_Element_OriginContentArch.html#OriginContentArch" coords="321,1351,489,1375" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_OriginContentSourceMac.tmp#OriginContentSourceMac" href="18135e8d-6de6-4369-b6e3-e40164cfa8f9.html#OriginContentSourceMac" coords="321,1415,526,1439" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_OriginContentSourceIpv4.tmp#OriginContentSourceIpv4" href="0bfd4ecd-41bf-4129-b26f-a797e27dcf43.html#OriginContentSourceIpv4" coords="321,1479,527,1503" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_OriginContentSourceIpv6.tmp#OriginContentSourceIpv6" href="f44fcc45-c801-46af-bcb0-e2eb455bf3de.html#OriginContentSourceIpv6" coords="321,1543,527,1567" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_OriginContentSourceSystem.tmp#OriginContentSourceSystem" href="c848729c-77c3-44fe-889a-fa8d2789f81f.html#OriginContentSourceSystem" coords="321,1607,547,1631" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_SourceDomain.tmp#SourceDomain" href="DHZM_xsd_Element_SourceDomain.html#SourceDomain" coords="321,1671,469,1695" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_DestinationDomain.tmp#DestinationDomain" href="DHZM_xsd_Element_DestinationDomain.html#DestinationDomain" coords="321,1735,493,1759" shape="rect"></area>
+                                 <area alt="DHZM_xsd_Element_WorkFlowId.tmp#WorkFlowId" href="DHZM_xsd_Element_WorkFlowId.html#WorkFlowId" coords="321,1799,448,1823" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_ProvenanceAssertionType" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_ProvenanceAssertionType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_ProvenanceAssertionType" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Element </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="839e58a8-2c8f-431c-85ae-7bfa506b4970.html#ProvenanceAssertion" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ProvenanceAssertion')" shape="rect">ProvenanceAssertion</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_ProvenanceAssertionType" type="image" src="img/btM.gif" value="-" onclick="switchState('model_ProvenanceAssertionType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_ProvenanceAssertionType" style="display:block">ALL(<b>
+                                 <a href="92ede83c-8cd4-4d57-b527-0ee2b2c5a52d.html#ContentCollectionTimestamp" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentCollectionTimestamp')" shape="rect">ContentCollectionTimestamp</a>
+                              </b> 
+                              <b>
+                                 <a href="DHZM_xsd_Element_ContentSize.html#ContentSize" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentSize')" shape="rect">ContentSize</a>
+                              </b> 
+                              <b>
+                                 <a href="DHZM_xsd_Element_ContentEncodedSize.html#ContentEncodedSize" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentEncodedSize')" shape="rect">ContentEncodedSize</a>
+                              </b> 
+                              <b>
+                                 <a href="9b2fe836-9dcc-4315-b0fb-a326d2e8ebf8.html#ContentEncodingMethod" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentEncodingMethod')" shape="rect">ContentEncodingMethod</a>
+                              </b> 
+                              <b>
+                                 <a href="20ce2303-4c95-44b0-99aa-3d931865cee4.html#ContentCollectionHostList" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentCollectionHostList{0,1}')" shape="rect">ContentCollectionHostList{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="41ca1500-8b31-4e10-9f17-6563ade04dac.html#ContentCollectionMethodList" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentCollectionMethodList{0,1}')" shape="rect">ContentCollectionMethodList{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="30227cc9-7f1b-447a-9371-ad2cc9806b07.html#ContentCollectionExternalId" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentCollectionExternalId{0,1}')" shape="rect">ContentCollectionExternalId{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="DHZM_xsd_Element_OriginContentUid.html#OriginContentUid" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentUid{0,1}')" shape="rect">OriginContentUid{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="DHZM_xsd_Element_OriginContentOwner.html#OriginContentOwner" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentOwner{0,1}')" shape="rect">OriginContentOwner{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="DHZM_xsd_Element_OriginContentGroup.html#OriginContentGroup" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentGroup{0,1}')" shape="rect">OriginContentGroup{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="DHZM_xsd_Element_OriginContentInode.html#OriginContentInode" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentInode{0,1}')" shape="rect">OriginContentInode{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="6abe8523-39df-4213-99b8-b6727d598bf1.html#OriginContentDevice" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentDevice{0,1}')" shape="rect">OriginContentDevice{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="8ea648dc-8806-4286-8e5e-9071964b6a95.html#OriginContentPathList" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentPathList{0,1}')" shape="rect">OriginContentPathList{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="b5af481d-be50-4c2c-82f6-0e8067afdad7.html#OriginContentFilename" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentFilename{0,1}')" shape="rect">OriginContentFilename{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="b0133bcd-6097-46b6-b0b0-4845c70cae34.html#OriginContentCreated" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentCreated{0,1}')" shape="rect">OriginContentCreated{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="df150a17-9059-43dd-99fd-d00895345571.html#OriginContentLastModified" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentLastModified{0,1}')" shape="rect">OriginContentLastModified{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="8998780a-13a4-4bc1-ba4b-a3353e3b0cb4.html#OriginContentLastAccessed" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentLastAccessed{0,1}')" shape="rect">OriginContentLastAccessed{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="DHZM_xsd_Element_OriginContentOS.html#OriginContentOS" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentOS{0,1}')" shape="rect">OriginContentOS{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="44bc4295-1dba-4584-ba30-ccd9eeea8bbe.html#OriginContentOSVersion" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentOSVersion{0,1}')" shape="rect">OriginContentOSVersion{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="DHZM_xsd_Element_OriginContentArch.html#OriginContentArch" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentArch{0,1}')" shape="rect">OriginContentArch{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="18135e8d-6de6-4369-b6e3-e40164cfa8f9.html#OriginContentSourceMac" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentSourceMac{0,1}')" shape="rect">OriginContentSourceMac{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="0bfd4ecd-41bf-4129-b26f-a797e27dcf43.html#OriginContentSourceIpv4" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentSourceIpv4{0,1}')" shape="rect">OriginContentSourceIpv4{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="f44fcc45-c801-46af-bcb0-e2eb455bf3de.html#OriginContentSourceIpv6" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentSourceIpv6{0,1}')" shape="rect">OriginContentSourceIpv6{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="c848729c-77c3-44fe-889a-fa8d2789f81f.html#OriginContentSourceSystem" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentSourceSystem{0,1}')" shape="rect">OriginContentSourceSystem{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="DHZM_xsd_Element_SourceDomain.html#SourceDomain" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component SourceDomain{0,1}')" shape="rect">SourceDomain{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="DHZM_xsd_Element_DestinationDomain.html#DestinationDomain" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component DestinationDomain{0,1}')" shape="rect">DestinationDomain{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="DHZM_xsd_Element_WorkFlowId.html#WorkFlowId" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component WorkFlowId{0,1}')" shape="rect">WorkFlowId{0,1}</a>
+                              </b>)</div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="30227cc9-7f1b-447a-9371-ad2cc9806b07.html#ContentCollectionExternalId" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentCollectionExternalId')" shape="rect">ContentCollectionExternalId</a>
+                           </b>, <b>
+                              <a href="20ce2303-4c95-44b0-99aa-3d931865cee4.html#ContentCollectionHostList" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentCollectionHostList')" shape="rect">ContentCollectionHostList</a>
+                           </b>, <b>
+                              <a href="41ca1500-8b31-4e10-9f17-6563ade04dac.html#ContentCollectionMethodList" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentCollectionMethodList')" shape="rect">ContentCollectionMethodList</a>
+                           </b>, <b>
+                              <a href="92ede83c-8cd4-4d57-b527-0ee2b2c5a52d.html#ContentCollectionTimestamp" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentCollectionTimestamp')" shape="rect">ContentCollectionTimestamp</a>
+                           </b>, <b>
+                              <a href="DHZM_xsd_Element_ContentEncodedSize.html#ContentEncodedSize" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentEncodedSize')" shape="rect">ContentEncodedSize</a>
+                           </b>, <b>
+                              <a href="9b2fe836-9dcc-4315-b0fb-a326d2e8ebf8.html#ContentEncodingMethod" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentEncodingMethod')" shape="rect">ContentEncodingMethod</a>
+                           </b>, <b>
+                              <a href="DHZM_xsd_Element_ContentSize.html#ContentSize" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentSize')" shape="rect">ContentSize</a>
+                           </b>, <b>
+                              <a href="DHZM_xsd_Element_DestinationDomain.html#DestinationDomain" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component DestinationDomain')" shape="rect">DestinationDomain</a>
+                           </b>, <b>
+                              <a href="DHZM_xsd_Element_OriginContentArch.html#OriginContentArch" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentArch')" shape="rect">OriginContentArch</a>
+                           </b>, <b>
+                              <a href="b0133bcd-6097-46b6-b0b0-4845c70cae34.html#OriginContentCreated" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentCreated')" shape="rect">OriginContentCreated</a>
+                           </b>, <b>
+                              <a href="6abe8523-39df-4213-99b8-b6727d598bf1.html#OriginContentDevice" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentDevice')" shape="rect">OriginContentDevice</a>
+                           </b>, <b>
+                              <a href="b5af481d-be50-4c2c-82f6-0e8067afdad7.html#OriginContentFilename" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentFilename')" shape="rect">OriginContentFilename</a>
+                           </b>, <b>
+                              <a href="DHZM_xsd_Element_OriginContentGroup.html#OriginContentGroup" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentGroup')" shape="rect">OriginContentGroup</a>
+                           </b>, <b>
+                              <a href="DHZM_xsd_Element_OriginContentInode.html#OriginContentInode" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentInode')" shape="rect">OriginContentInode</a>
+                           </b>, <b>
+                              <a href="8998780a-13a4-4bc1-ba4b-a3353e3b0cb4.html#OriginContentLastAccessed" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentLastAccessed')" shape="rect">OriginContentLastAccessed</a>
+                           </b>, <b>
+                              <a href="df150a17-9059-43dd-99fd-d00895345571.html#OriginContentLastModified" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentLastModified')" shape="rect">OriginContentLastModified</a>
+                           </b>, <b>
+                              <a href="DHZM_xsd_Element_OriginContentOS.html#OriginContentOS" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentOS')" shape="rect">OriginContentOS</a>
+                           </b>, <b>
+                              <a href="44bc4295-1dba-4584-ba30-ccd9eeea8bbe.html#OriginContentOSVersion" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentOSVersion')" shape="rect">OriginContentOSVersion</a>
+                           </b>, <b>
+                              <a href="DHZM_xsd_Element_OriginContentOwner.html#OriginContentOwner" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentOwner')" shape="rect">OriginContentOwner</a>
+                           </b>, <b>
+                              <a href="8ea648dc-8806-4286-8e5e-9071964b6a95.html#OriginContentPathList" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentPathList')" shape="rect">OriginContentPathList</a>
+                           </b>, <b>
+                              <a href="0bfd4ecd-41bf-4129-b26f-a797e27dcf43.html#OriginContentSourceIpv4" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentSourceIpv4')" shape="rect">OriginContentSourceIpv4</a>
+                           </b>, <b>
+                              <a href="f44fcc45-c801-46af-bcb0-e2eb455bf3de.html#OriginContentSourceIpv6" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentSourceIpv6')" shape="rect">OriginContentSourceIpv6</a>
+                           </b>, <b>
+                              <a href="18135e8d-6de6-4369-b6e3-e40164cfa8f9.html#OriginContentSourceMac" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentSourceMac')" shape="rect">OriginContentSourceMac</a>
+                           </b>, <b>
+                              <a href="c848729c-77c3-44fe-889a-fa8d2789f81f.html#OriginContentSourceSystem" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentSourceSystem')" shape="rect">OriginContentSourceSystem</a>
+                           </b>, <b>
+                              <a href="DHZM_xsd_Element_OriginContentUid.html#OriginContentUid" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentUid')" shape="rect">OriginContentUid</a>
+                           </b>, <b>
+                              <a href="DHZM_xsd_Element_SourceDomain.html#SourceDomain" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component SourceDomain')" shape="rect">SourceDomain</a>
+                           </b>, <b>
+                              <a href="DHZM_xsd_Element_WorkFlowId.html#WorkFlowId" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component WorkFlowId')" shape="rect">WorkFlowId</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Attributes</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_attributes_ProvenanceAssertionType" type="image" src="img/btM.gif" value="-" onclick="switchState('attributes_ProvenanceAssertionType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="attributes_ProvenanceAssertionType" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th rowspan="1" colspan="1">QName</th>
+                                       <th width="10%" rowspan="1" colspan="1">Type</th>
+                                       <th width="5%" rowspan="1" colspan="1">Use</th>
+                                       <th width="100%" rowspan="1" colspan="1">Annotation</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="DHZM_xsd_Attribute_DESVersion.html#DESVersion" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component DESVersion')" shape="rect">DESVersion</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="DHZM_xsd_Simple_Type_DESVersionType.html#DESVersionType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component DESVersionType')" shape="rect">DESVersionType</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">required</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">
+                                          
+                                          <p>
+                                             The version number of the DES.
+                                             </p>
+                                          </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_ProvenanceAssertionType" type="image" src="img/btM.gif" value="-" onclick="switchState('source_ProvenanceAssertionType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_ProvenanceAssertionType" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:complexType</span><span class="tAN"> name=</span><span class="tAV">"ProvenanceAssertionType"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tAN"> xml:lang=</span><span class="tAV">"en"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The root node of a provenance assertion for cross domain transfer.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:all</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tC">&lt;!-- required --&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:ContentCollectionTimestamp"</span><span class="tAN"> minOccurs=</span><span class="tAV">"1"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:ContentSize"</span><span class="tAN"> minOccurs=</span><span class="tAV">"1"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:ContentEncodedSize"</span><span class="tAN"> minOccurs=</span><span class="tAV">"1"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:ContentEncodingMethod"</span><span class="tAN"> minOccurs=</span><span class="tAV">"1"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tC">&lt;!-- optional --&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:ContentCollectionHostList"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:ContentCollectionMethodList"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:ContentCollectionExternalId"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:OriginContentUid"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:OriginContentOwner"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:OriginContentGroup"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:OriginContentInode"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:OriginContentDevice"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:OriginContentPathList"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:OriginContentFilename"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:OriginContentCreated"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:OriginContentLastModified"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:OriginContentLastAccessed"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:OriginContentOS"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:OriginContentOSVersion"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:OriginContentArch"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:OriginContentSourceMac"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:OriginContentSourceIpv4"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:OriginContentSourceIpv6"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:OriginContentSourceSystem"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:SourceDomain"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:DestinationDomain"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:WorkFlowId"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:all&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:attribute</span><span class="tAN"> ref=</span><span class="tAV">"dhzm:DESVersion"</span><span class="tAN"> use=</span><span class="tAV">"required"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:complexType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DHZM/DHZM.xsd">DHZM.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //
+--></script>
+   </body>
+</html>

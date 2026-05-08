@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:arh="urn:us:gov:ic:arh"
+           xmlns:xhtml="http://www.w3.org/1999/xhtml-StopBrowserRendering"
+           xmlns:tax="urn:us:gov:ic:taxonomy:common"
+           xmlns:ism="urn:us:gov:ic:ism"
+           xmlns:ismcatrelto="urn:us:gov:ic:cvenum:ismcat:relto"
+           xmlns:region="urn:us:gov:ic:taxonomy:mnt:region"
+           xmlns:regcve="urn:us:gov:ic:cvenum:mn:region"
+           elementFormDefault="qualified"
+           targetNamespace="urn:us:gov:ic:taxonomy:mnt:region"
+           ism:compliesWith="USGov USIC"
+           ism:resourceElement="true"
+           ism:createDate="2019-09-18"
+           ism:DESVersion="202111"
+           ism:ISMCATCESVersion="202205"
+           ism:classification="U"
+           ism:ownerProducer="USA"
+           version="202211">
+
+  <xs:annotation>
+      <xs:documentation>
+         <xhtml:h1 ism:ownerProducer="USA" ism:classification="U">Intelligence Community Technical Specification  
+        Taxonomy Encoding Specification for Mission Need (MNT.XML)
+        Region Taxonomy schema</xhtml:h1>
+      </xs:documentation>
+
+      <xs:documentation>
+         <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Notices</xhtml:h2>
+         <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+        Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       				
+      </xhtml:p>
+      </xs:documentation>
+      <xs:documentation>
+         <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Description</xhtml:h2>
+         <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+        W3C XML Schema for mapping countries to regions in the XML Taxonomy Encoding Specification 
+        for Mission Need.
+      </xhtml:p>
+      </xs:documentation>
+      <xs:documentation>
+         <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Implementation Notes</xhtml:h2>
+         <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+        No implementation notes at this time.
+      </xhtml:p>
+      </xs:documentation>
+      <xs:documentation>
+         <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Creators</xhtml:h2>
+         <xhtml:p ism:ownerProducer="USA" ism:classification="U">Office of the Director of National Intelligence
+        Intelligence Community Chief Information Officer</xhtml:p>
+      </xs:documentation>
+  </xs:annotation>
+
+  <xs:import namespace="urn:us:gov:ic:arh" schemaLocation="../ISM/IC-ARH.xsd"/>
+  <xs:import namespace="urn:us:gov:ic:ism" schemaLocation="../ISM/IC-ISM.xsd"/>
+  <xs:import namespace="urn:us:gov:ic:taxonomy:common"
+              schemaLocation="../Taxonomy/Taxonomy.xsd"/>
+
+  <xs:import namespace="urn:us:gov:ic:cvenum:ismcat:relto"
+              schemaLocation="../ISMCAT/CVEGenerated/CVEnumISMCATRelTo.xsd"/>
+  <xs:import namespace="urn:us:gov:ic:cvenum:mn:region"
+              schemaLocation="../MN/CVEGenerated/CVEnumMNRegion.xsd"/>
+
+  <xs:element name="Regions">
+      <xs:annotation>
+         <xs:documentation>
+            <xhtml:p ism:classification="U" ism:ownerProducer="USA">This element holds the list of regions and their mappings.</xhtml:p>
+         </xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="arh:Security"/>
+            <xs:element ref="tax:IRM"/>
+            <xs:element ref="region:Region" maxOccurs="unbounded" minOccurs="1"/>
+         </xs:sequence>
+         <xs:attribute ref="region:TESVersion" use="required"/>
+      </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Region">
+      <xs:annotation>
+         <xs:documentation>
+            <xhtml:p ism:classification="U" ism:ownerProducer="USA">This element groups captures the countries that are associated with
+          the region specified.</xhtml:p>
+         </xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="region:RegionToken"/>
+            <xs:element name="Notes" type="ism:LongStringWithSecurityType" minOccurs="0"/>
+            <xs:element ref="region:Membership"/>
+         </xs:sequence>
+
+         <xs:attributeGroup ref="ism:SecurityAttributesGroup"/>
+      </xs:complexType>
+  </xs:element>
+
+  <xs:element name="RegionToken">
+      <xs:annotation>
+         <xs:documentation>
+            <xhtml:p ism:classification="U" ism:ownerProducer="USA">The Region token for which this grouping relates.</xhtml:p>
+         </xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:simpleContent>
+            <xs:extension base="regcve:CVEnumMNRegion">
+               <xs:attributeGroup ref="ism:SecurityAttributesGroup"/>
+            </xs:extension>
+         </xs:simpleContent>
+      </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Membership">
+      <xs:annotation>
+         <xs:documentation>
+            <xhtml:p ism:classification="U" ism:ownerProducer="USA">A country that has membership in or association with the region.</xhtml:p>
+         </xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:choice>
+            <xs:sequence>
+               <xs:element maxOccurs="unbounded" ref="region:Country" minOccurs="1"/>
+            </xs:sequence>
+            <xs:element name="MembershipSupressed" minOccurs="1" maxOccurs="1"/>
+         </xs:choice>
+
+         <xs:attribute name="dateLastVerified" use="required" type="xs:date"/>
+         <xs:attributeGroup ref="ism:SecurityAttributesGroup"/>
+      </xs:complexType>
+  </xs:element>
+  <xs:element name="Country" type="ismcatrelto:CVEnumISMCATRelTo"/>
+
+  <xs:attribute name="TESVersion">
+      <xs:annotation>
+         <xs:documentation>
+            <xhtml:p ism:classification="U" ism:ownerProducer="USA">The version of this specification.</xhtml:p>
+         </xs:documentation>
+      </xs:annotation>
+     <xs:simpleType>
+        <xs:restriction base="xs:string">
+           <xs:pattern value="[0-9]{6}(\.[0-9]{6})?(\-.{1,23})?"/>
+        </xs:restriction>
+     </xs:simpleType>
+  </xs:attribute>
+</xs:schema>

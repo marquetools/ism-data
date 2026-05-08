@@ -1,0 +1,24 @@
+# Provenance for odni-schemas — DO NOT EDIT BY HAND
+# Regenerate via tools/regen_provenance.py during re-vendoring.
+
+[snapshot]
+consolidation_tool = "https://github.com/knitli/odni-schemas"
+snapshot_date = "2023-06-09"
+manifest_sha256 = "3a9b9b413490f6141f2052d12a0e0c8cfa68da3ebca47a7d1a31d2fa58cc3aee"
+data_files = 14632
+notes = '''
+Initial vendor of ODNI 2023-06-09 snapshot. Upstream zip hashes were
+not recorded for this initial vendor (the zips were deleted after
+consolidation before hashing). The next re-vendor cycle MUST hash the
+zips before deletion and populate the [[upstream_zips]] section below.
+
+The manifest.sha256 above covers the data/ tree itself, so file-level
+tampering is still detectable. Upstream-zip hashes only matter for
+cross-checking against ODNI's published downloads.
+'''
+
+# [[upstream_zips]]
+# name = "ISMCAT-Public-Standalone.zip"
+# sha256 = "..."
+# size = 0
+# (one block per zip in the next vendor cycle)

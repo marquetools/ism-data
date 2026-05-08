@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema 
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+   xmlns:ism="urn:us:gov:ic:ism"
+   xmlns:iccve="urn:us:gov:ic:ism-cvenum" 
+   targetNamespace="urn:us:gov:ic:audit-cvenum"
+   elementFormDefault="qualified" 
+   xml:lang="en"
+   ism:DESVersion="7" 
+   ism:createDate="2011-09-19" 
+   ism:resourceelement="true"
+   ism:classification="U"
+   ism:ownerProducer="USA"
+   version="3">
+   <xsd:annotation>
+      <xsd:documentation>
+         <h1>Intelligence Community Technical Specification  
+            XML Data Encoding Specification for Enterprise Audit Exchange (AUDIT.XML)</h1>
+      </xsd:documentation>
+      <xsd:documentation>
+         <h2 xmlns="">Description</h2>
+         <p xmlns="">
+            W3C XML Schema for the XML Data Encoding Specification 
+            Intelligence Community Metadata Standard for Enterprise Audit Exchange (AUDIT.XML)
+            Controlled Vocabulary Enumerations   
+            elements and attributes that are shared by the AUDIT.XML document schemas.					
+         </p>
+      </xsd:documentation>
+      <xsd:documentation>
+         <h2>Introduction</h2>
+         <p>
+            This XML Schema file is one component of the XML Data Encoding 
+            Specification (DES). Please see the document titled 
+            <i><a href="../../DES/AUDIT/DesAuditXml.pdf">XML Data Encoding Specification for Enterprise Audit Exchange</a></i>
+            for a complete description of the encoding as well as list
+            of all components.  
+         </p>
+         <p>
+            It is envisioned that this schema or its components, as well as other
+            parts of the DES may be overridden for localized implementations. 
+            Therefore, permission to use, copy, modify and distribute this XML 
+            Schema and the other parts of the DES for any purpose is hereby 
+            granted in perpetuity.
+         </p>
+         <p>
+            Please reference the preceding two paragraphs in all copies or
+            variations. The developers make no representation about the
+            suitability of the schema or DES for any purpose. It is provided 
+            "as is" without expressed or implied warranty.
+         </p>
+         <p>
+            If you modify this XML Schema in any way label your schema
+            as a variant of AUDIT.XML. 
+         </p>
+         <p>
+            Please direct all questions, bug reports,or suggestions for changes
+            to the points of contact identified in the document referenced above.
+         </p>
+      </xsd:documentation>
+      <xsd:documentation>
+         <h2>Implementation Notes</h2>
+         <p>
+            The document element for an AUDIT document is <a href="IC-AUDIT_xsd_Element_AuditRecordList.html">audit:AuditRecordList</a>.
+         </p>
+      </xsd:documentation>
+      <xsd:documentation>
+         <h2 xmlns="">Creators</h2>
+         <p xmlns="">Office of the Director of National Intelligence
+            Intelligence Community Chief Information Officer</p>
+      </xsd:documentation>
+   </xsd:annotation>
+   
+   <xsd:include schemaLocation="./CVEGenerated/CVEnumAUDITActionType.xsd"/>
+   <xsd:include schemaLocation="./CVEGenerated/CVEnumAUDITActionResultType.xsd"/>
+   <xsd:include schemaLocation="./CVEGenerated/CVEnumAUDITRecordType.xsd"/>
+   <xsd:include schemaLocation="./CVEGenerated/CVEnumAUDITTypeOfIdentityIdentifierType.xsd"/>
+   
+   <xsd:annotation>
+      <xsd:documentation>
+         <h2>Formal Change List</h2>
+         <table id="ChangeHistory">
+            <caption>Change History</caption>
+            <thead>
+               <tr>
+                  <th>Version</th>
+                  <td>Date</td>
+                  <td>By</td>
+                  <td>Description</td>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td></td>
+                  <td>2011-02-25</td>
+                  <td>ODNI/OCIO/ICEA</td>
+                  <td>Creation</td>
+               </tr>
+            </tbody>
+         </table>
+      </xsd:documentation>
+   </xsd:annotation>
+</xsd:schema>

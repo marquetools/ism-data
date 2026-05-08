@@ -1,0 +1,1013 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="urn:us:gov:ic:digitalhazmat"
+           xmlns:ism="urn:us:gov:ic:ism"
+           xmlns:xhtml="http://www.w3.org/1999/xhtml-StopBrowserRendering"
+           xmlns:dhzm="urn:us:gov:ic:digitalhazmat"
+           xmlns:tdf="urn:us:gov:ic:tdf"
+           targetNamespace="urn:us:gov:ic:digitalhazmat"
+           elementFormDefault="qualified"
+           attributeFormDefault="qualified"
+           ism:DESVersion="202111"
+           ism:ISMCATCESVersion="202205"
+           ism:compliesWith="USGov USIC"
+           ism:createDate="2019-09-18"
+           ism:resourceElement="true"
+           ism:classification="U"
+           ism:ownerProducer="USA"
+           version="202111">
+           <xs:annotation>
+                      <xs:documentation>
+                                 <xhtml:h1 ism:ownerProducer="USA" ism:classification="U">Intelligence Community Technical Specification XML Data
+                                            Encoding Specification for DigitalHazMat Assertion
+                                            (DHZM.XML)</xhtml:h1>
+                      </xs:documentation>
+                      <xs:documentation>
+                                 <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Notices</xhtml:h2>
+                                 <xhtml:p ism:ownerProducer="USA" ism:classification="U">Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       </xhtml:p>
+                      </xs:documentation>
+                      <xs:documentation>
+                                 <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Description</xhtml:h2>
+                                 <xhtml:p ism:ownerProducer="USA" ism:classification="U">W3C XML
+                                            Schema for the XML Data Encoding Specification for DigitalHazMat Assertion
+                                            (DHZM.XML).</xhtml:p>
+                      </xs:documentation>
+                      <xs:documentation>
+                                 <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Introduction</xhtml:h2>
+                                 <xhtml:p ism:ownerProducer="USA" ism:classification="U">This XML
+                                            Schema file is one component of the XML Data Encoding
+                                            Specification (DES). Please see the document titled<xhtml:i>
+                                                  <xhtml:a href="../../Documents/DHZM/DesDhzmXml.pdf">XML 
+                                                             Data Encoding Specification for DigitalHazMat Assertion</xhtml:a>
+                                            </xhtml:i>for a complete description of the encoding as
+                                            well as list of all components.</xhtml:p>
+                                 <xhtml:p ism:ownerProducer="USA" ism:classification="U">It is
+                                            envisioned that this schema or its components, as well
+                                            as other parts of the DES may be overridden for
+                                            localized implementations. Therefore, permission to use,
+                                            copy, modify and distribute this XML Schema and the
+                                            other parts of the DES for any purpose is hereby granted
+                                            in perpetuity.</xhtml:p>
+                                 <xhtml:p ism:ownerProducer="USA" ism:classification="U">Please
+                                            reference the preceding two paragraphs in all copies or
+                                            variations. The developers make no representation about
+                                            the suitability of the schema or DES for any purpose. It
+                                            is provided "as is" without expressed or implied
+                                            warranty.</xhtml:p>
+                                 <xhtml:p ism:ownerProducer="USA" ism:classification="U">If you
+                                            modify this XML Schema in any way label your schema as a
+                                            variant of DHZM.XML.</xhtml:p>
+                                 <xhtml:p ism:ownerProducer="USA" ism:classification="U">Please
+                                            direct all questions, bug reports,or suggestions for
+                                            changes to the points of contact identified in the
+                                            document referenced above.</xhtml:p>
+                      </xs:documentation>
+                      <xs:documentation>
+                                 <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Implementation Notes</xhtml:h2>
+                                 <xhtml:p ism:ownerProducer="USA" ism:classification="U">A DHZM.XML instance is an
+                                            instance of a TDO with a particular payload and assertions. Its structure is similar
+                                            to:</xhtml:p>
+                                 <xhtml:ul>
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       <xhtml:a href="DHZM-TDF_xsd_Element_TrustedDataObject.html#TrustedDataObject">DHZM-TDF tdf:TrustedDataObject</xhtml:a> has the following assertions:
+                                            </xhtml:p>
+                                            <xhtml:ul>
+                                                       <xhtml:li ism:ownerProducer="USA" ism:classification="U">
+                                                                  <xhtml:a href="DHZM_xsd_Element_DigitalHazMatAssertion.html#DigitalHazMatAssertion">dhzm:DigitalHazMatAssertion</xhtml:a> 
+                                                       </xhtml:li>
+                                                       <xhtml:li ism:ownerProducer="USA" ism:classification="U">
+                                                                  <xhtml:a href="DHZM_xsd_Element_ProvenanceAssertion.html#ProvenanceAssertion">dhzm:ProvenanceAssertion</xhtml:a> 
+                                                       </xhtml:li>
+                                            </xhtml:ul>
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">A DHZM.XML instance can also be used with
+                                                       DHZMC-TDF which does not have tdf:HandlingAssertions.
+                                                       to:</xhtml:p>
+                                 </xhtml:ul>
+                      </xs:documentation>
+                      <xs:documentation>
+                                 <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Creators</xhtml:h2>
+                                 <xhtml:p ism:ownerProducer="USA" ism:classification="U">Office of
+                                            the Director of National Intelligence Intelligence
+                                            Community Chief Information Officer</xhtml:p>
+                      </xs:documentation>
+           </xs:annotation>
+
+           <!--***************************************************-->
+           <!-- Start Elements                                    -->
+           <!--***************************************************-->
+           
+           <!-- Root Element -->
+           <xs:element name="DigitalHazMatAssertion" type="dhzm:DigitalHazMatAssertionType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       The root node of a digital hazmat assertion for cross domain transfer.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+           
+           <!-- Root Element -->
+           <xs:element name="ProvenanceAssertion" type="dhzm:ProvenanceAssertionType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       The root node of a provenance assertion for cross domain transfer.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="DigitalHazMat" type="dhzm:DigitalHazMatType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       A notice on the assertion to inform the user not to decrypt the object, 
+                                                       even though they may have the key with the payload, 
+                                                       unless they are taking proper precautions.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="ContentCollectionTimestamp"
+               type="dhzm:ContentCollectionTimestampType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Date of collection of artifact.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="ContentSize" type="dhzm:ContentSizeType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Size of the entire payload in bytes.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="ContentEncodingMethod" type="dhzm:ContentEncodingMethodType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Encoding to provide obfuscation to original data to 
+                                                       prevent accidental execution or opening.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="ContentEncodedSize" type="dhzm:ContentEncodedSizeType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Size of the encoded content in bytes.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="ContentCollectionHost" type="dhzm:ContentCollectionHostType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Host collection for artifact.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="ContentCollectionMethod" type="dhzm:ContentCollectionMethodType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Method of collection for artifact.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="ContentCollectionHostList"
+               type="dhzm:ContentCollectionHostListType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       List of hosts collection for artifact.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="ContentCollectionMethodList"
+               type="dhzm:ContentCollectionMethodListType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       List of methods of collection for artifact.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="ContentCollectionExternalId"
+               type="dhzm:ContentCollectionExternalIdType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       External reference (mission) to collection.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="OriginContentUid" type="dhzm:OriginContentUidType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       User ID of the artifact.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="OriginContentOwner" type="dhzm:OriginContentOwnerType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Owner of the artifact.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="OriginContentGroup" type="dhzm:OriginContentGroupType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Group ownership of the artifact.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="OriginContentInode" type="dhzm:OriginContentInodeType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Inode of the artifact.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="OriginContentDevice" type="dhzm:OriginContentDeviceType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Any identifier for the device on which the payload artifact was found 
+                                                       or from which it was collected. e.g., a filesystem UUID for files collected
+                                                       from a single volume, a hard drive serial number for a disk image, or
+                                                       a MAC for the NIC on which a packet dump was captured.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+           
+           <xs:element name="OriginContentPathList" type="dhzm:OriginContentPathListType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       List of full paths from the root folder (break for each folder).
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+           
+           <xs:element name="OriginContentPath" type="dhzm:OriginContentPathType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Full path from the root folder (break for each folder).
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+           
+           <xs:element name="OriginContentFilename" type="dhzm:OriginContentFilenameType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Filename of the artifact.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="OriginContentCreated" type="dhzm:OriginContentCreatedType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Date artifact was created (from host filesystem).
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="OriginContentLastModified"
+               type="dhzm:OriginContentLastModifiedType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Date artifact was last modified (from host filesystem).
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="OriginContentLastAccessed"
+               type="dhzm:OriginContentLastAccessedType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Date artifact was last accessed (from host filesystem).
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="OriginContentOS" type="dhzm:OriginContentOSType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Operating Systems (OS) of where the artifact was collected.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="OriginContentOSVersion" type="dhzm:OriginContentOSVersionType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Operating Systems (OS) version of where the artifact was collected.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="OriginContentArch" type="dhzm:OriginContentArchType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       CPU Architecture of where the artifact was collected.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="OriginContentSourceMac" type="dhzm:OriginContentSourceMacType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       MAC address of where artifact is collected.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="OriginContentSourceIpv4" type="dhzm:OriginContentSourceIpv4Type">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       IPv4 adress of where the artifact is collected.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="OriginContentSourceIpv6" type="dhzm:OriginContentSourceIpv6Type">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       IPv6 adress of where the artifact is collected.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="OriginContentSourceSystem"
+               type="dhzm:OriginContentSourceSystemType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       A symbolic name for domain/network (FQDN) where the artifact is collected.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="SourceDomain" type="dhzm:SourceDomainType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       A symbolic name for domain/network where the artifact is sourced.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <xs:element name="DestinationDomain" type="dhzm:DestinationDomainType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       A symbolic name for domain/network where the artifact is destined.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+           
+           <xs:element name="WorkFlowId" type="dhzm:WorkFlowIdType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       An identifier to associate this document with a reference in an external system, such
+                                                       as a project management or ticket tracking tool. Specific meaning is user-defined. When
+                                                       suitable for the use case, an RFC 4122 compliant UUID is recommended.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:element>
+
+           <!--***************************************************-->
+           <!-- End Elements                                      -->
+           <!--***************************************************-->
+
+           <!--***************************************************-->
+           <!-- Start Attributes                                  -->
+           <!--***************************************************-->
+           
+           <xs:attribute name="DESVersion" type="dhzm:DESVersionType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       The version number of the DES.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+           </xs:attribute>
+
+           <!--***************************************************-->
+           <!--End Attributes                                     -->
+           <!--***************************************************-->
+
+           <!--***************************************************-->
+           <!--Start Type Definitions                             -->
+           <!--***************************************************-->
+           <xs:complexType name="DigitalHazMatAssertionType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       The root node of a digital hazmat assertion for cross domain transfer.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:all>
+                                 <!-- required -->
+                                 <xs:element ref="dhzm:DigitalHazMat" minOccurs="1" maxOccurs="1"/>
+                      </xs:all>
+                      <xs:attribute ref="dhzm:DESVersion" use="required"/>
+           </xs:complexType>
+           
+           <xs:complexType name="ProvenanceAssertionType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       The root node of a provenance assertion for cross domain transfer.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:all>
+                                 <!-- required -->
+                                 <xs:element ref="dhzm:ContentCollectionTimestamp" minOccurs="1" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:ContentSize" minOccurs="1" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:ContentEncodedSize" minOccurs="1" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:ContentEncodingMethod" minOccurs="1" maxOccurs="1"/>
+
+                                 <!-- optional -->
+                                 <xs:element ref="dhzm:ContentCollectionHostList" minOccurs="0" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:ContentCollectionMethodList" minOccurs="0" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:ContentCollectionExternalId" minOccurs="0" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:OriginContentUid" minOccurs="0" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:OriginContentOwner" minOccurs="0" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:OriginContentGroup" minOccurs="0" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:OriginContentInode" minOccurs="0" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:OriginContentDevice" minOccurs="0" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:OriginContentPathList" minOccurs="0" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:OriginContentFilename" minOccurs="0" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:OriginContentCreated" minOccurs="0" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:OriginContentLastModified" minOccurs="0" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:OriginContentLastAccessed" minOccurs="0" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:OriginContentOS" minOccurs="0" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:OriginContentOSVersion" minOccurs="0" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:OriginContentArch" minOccurs="0" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:OriginContentSourceMac" minOccurs="0" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:OriginContentSourceIpv4" minOccurs="0" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:OriginContentSourceIpv6" minOccurs="0" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:OriginContentSourceSystem" minOccurs="0" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:SourceDomain" minOccurs="0" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:DestinationDomain" minOccurs="0" maxOccurs="1"/>
+                                 <xs:element ref="dhzm:WorkFlowId" minOccurs="0" maxOccurs="1"/>
+                      </xs:all>
+                      <xs:attribute ref="dhzm:DESVersion" use="required"/>
+           </xs:complexType>
+
+           <xs:simpleType name="ContentCollectionTimestampType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Date of collection of artifact.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:dateTime"/>
+           </xs:simpleType>
+
+           <xs:simpleType name="ContentSizeType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Size of the entire payload in bytes.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:integer"/>
+           </xs:simpleType>
+
+           <xs:simpleType name="ContentEncodingMethodType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Encoding to provide obfuscation to original data to 
+                                                       prevent accidental execution or opening.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:string">
+                                 <xs:enumeration value="XOR"/>
+                                 <xs:enumeration value="ENCRYPTED"/>
+                      </xs:restriction>
+           </xs:simpleType>
+
+           <xs:simpleType name="ContentEncodedSizeType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Size of the encoded content in bytes.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:integer"/>
+           </xs:simpleType>
+
+           <xs:simpleType name="DESVersionType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       The version number of the DES.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:string">
+                                 <xs:pattern value="[0-9]{6}(\.[0-9]{6})?(\-.{1,23})?"/>
+                      </xs:restriction>
+           </xs:simpleType>
+
+           <xs:simpleType name="ContentCollectionHostType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Host collection for artifact.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:string">
+                                 <xs:minLength value="1"/>
+                                 <xs:maxLength value="255"/>
+                                 <xs:pattern value="([a-zA-Z0-9_\.-])*"/>
+                      </xs:restriction>
+           </xs:simpleType>
+
+           <xs:simpleType name="ContentCollectionMethodType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Method of collection for artifact.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:string">
+                                 <xs:enumeration value="LOG"/>
+                                 <xs:enumeration value="FILE"/>
+                                 <xs:enumeration value="MEMORY-DUMP"/>
+                                 <xs:enumeration value="PACKET-CAPTURE"/>
+                                 <xs:enumeration value="OTHER"/>
+                      </xs:restriction>
+           </xs:simpleType>
+
+           <xs:complexType name="ContentCollectionHostListType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       List of hosts collection for artifact.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:sequence>
+                                 <xs:element ref="dhzm:ContentCollectionHost" minOccurs="1" maxOccurs="5"/>
+                      </xs:sequence>
+           </xs:complexType>
+
+           <xs:complexType name="ContentCollectionMethodListType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       List of methods of collection for artifact.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:sequence>
+                                 <xs:element ref="dhzm:ContentCollectionMethod" minOccurs="1" maxOccurs="5"/>
+                      </xs:sequence>
+           </xs:complexType>
+           
+           <xs:complexType name="OriginContentPathListType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       List of full paths from the root folder (break for each folder).
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:sequence>
+                                 <xs:element ref="dhzm:OriginContentPath" minOccurs="1" maxOccurs="256"/>
+                      </xs:sequence>
+           </xs:complexType>
+
+           <xs:simpleType name="ContentCollectionExternalIdType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       External reference (mission) to collection.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:anyURI">
+                                 <xs:maxLength value="1024"/>
+                      </xs:restriction>
+           </xs:simpleType>
+
+           <xs:simpleType name="OriginContentUidType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       User ID of the artifact.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:integer">
+                                 <xs:minInclusive value="1"/>
+                                 <xs:maxInclusive value="65335"/>
+                      </xs:restriction>
+           </xs:simpleType>
+
+           <xs:simpleType name="OriginContentOwnerType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Owner of the artifact.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:string">
+                                 <xs:minLength value="1"/>
+                                 <xs:maxLength value="255"/>
+                                 <xs:pattern value="([a-zA-Z0-9\s_-])*"/>
+                      </xs:restriction>
+           </xs:simpleType>
+
+           <xs:simpleType name="OriginContentGroupType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Group ownership of the artifact.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:string">
+                                 <xs:minLength value="1"/>
+                                 <xs:maxLength value="255"/>
+                                 <xs:pattern value="([a-zA-Z0-9\s_-])*"/>
+                      </xs:restriction>
+           </xs:simpleType>
+
+           <xs:simpleType name="OriginContentInodeType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Inode of the artifact.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:integer"/>
+           </xs:simpleType>
+
+           <xs:simpleType name="OriginContentDeviceType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Any identifier for the device on which the payload artifact was found 
+                                                       or from which it was collected. e.g., a filesystem UUID for files collected
+                                                       from a single volume, a hard drive serial number for a disk image, or
+                                                       a MAC for the NIC on which a packet dump was captured.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:string">
+                                 <xs:maxLength value="255"/>
+                      </xs:restriction>
+           </xs:simpleType>
+
+           <xs:simpleType name="OriginContentCreatedType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Date artifact was created (from host filesystem).
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:dateTime"/>
+           </xs:simpleType>
+
+           <xs:simpleType name="OriginContentLastModifiedType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Date artifact was last modified (from host filesystem).
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:dateTime"/>
+           </xs:simpleType>
+
+           <xs:simpleType name="OriginContentLastAccessedType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Date artifact was last accessed (from host filesystem).
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:dateTime"/>
+           </xs:simpleType>
+
+           <xs:simpleType name="OriginContentOSType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Operating Systems (OS) of where the artifact was collected.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:string">
+                                 <xs:enumeration value="windows"/>
+                                 <xs:enumeration value="macOS"/>
+                                 <xs:enumeration value="linux"/>
+                                 <xs:enumeration value="android"/>
+                                 <xs:enumeration value="iOS"/>
+                      </xs:restriction>
+           </xs:simpleType>
+
+           <xs:simpleType name="OriginContentOSVersionType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Operating Systems (OS) version of where the artifact was collected.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:string">
+                                 <xs:minLength value="1"/>
+                                 <xs:maxLength value="255"/>
+                                 <xs:pattern value="([a-zA-Z0-9\.-])*"/>
+                      </xs:restriction>
+           </xs:simpleType>
+
+           <xs:simpleType name="OriginContentArchType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       CPU Architecture of where the artifact was collected.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:string">
+                                 <xs:enumeration value="i386"/>
+                                 <xs:enumeration value="i486"/>
+                                 <xs:enumeration value="i586"/>
+                                 <xs:enumeration value="i686"/>
+                                 <xs:enumeration value="x86_64"/>
+                                 <xs:enumeration value="amd64"/>
+                                 <xs:enumeration value="ia64"/>
+                                 <xs:enumeration value="armv6l"/>
+                                 <xs:enumeration value="armv7l"/>
+                                 <xs:enumeration value="sparc"/>
+                                 <xs:enumeration value="sparc64"/>
+                                 <xs:enumeration value="sparc64v"/>
+                                 <xs:enumeration value="ppc"/>
+                                 <xs:enumeration value="ppc64"/>
+                                 <xs:enumeration value="ppc64le"/>
+                                 <xs:enumeration value="s390"/>
+                                 <xs:enumeration value="s390x"/>
+                                 <xs:enumeration value="64-bit"/>
+                                 <xs:enumeration value="32-bit"/>
+                                 <xs:enumeration value="none"/>
+                                 <xs:enumeration value="noarch"/>
+                      </xs:restriction>
+           </xs:simpleType>
+
+           <xs:simpleType name="OriginContentSourceMacType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       MAC address of where artifact is collected.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:hexBinary">
+                                 <xs:minLength value="6"/>
+                                 <xs:maxLength value="7"/>
+                      </xs:restriction>
+           </xs:simpleType>
+
+           <xs:simpleType name="OriginContentSourceIpv4Type">
+                      <xs:annotation>
+                                 <xs:documentation>
+                                            <xhtml:p>A four-byte IPv4 address of the system where the payload was collected.</xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:hexBinary">
+                                 <xs:length value="4"/>
+                      </xs:restriction>
+           </xs:simpleType>
+
+           <xs:simpleType name="OriginContentSourceIpv6Type">
+                      <xs:annotation>
+                                 <xs:documentation>
+                                            <xhtml:p>A 16-byte IPv6 address of the system where the payload was collected.</xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:hexBinary">
+                                 <xs:length value="16"/>
+                      </xs:restriction>
+           </xs:simpleType>
+
+           <xs:simpleType name="OriginContentSourceSystemType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       A symbolic name for domain/network (FQDN) where the artifact is collected.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:string">
+                                 <xs:minLength value="1"/>
+                                 <xs:maxLength value="255"/>
+                                 <xs:pattern value="([a-zA-Z0-9\._-])*"/>
+                      </xs:restriction>
+           </xs:simpleType>
+
+           <xs:simpleType name="SourceDomainType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       A symbolic name for domain/network where the artifact is sourced.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:string">
+                                 <xs:minLength value="1"/>
+                                 <xs:maxLength value="255"/>
+                                 <xs:pattern value="([a-zA-Z0-9])*"/>
+                      </xs:restriction>
+           </xs:simpleType>
+
+           <xs:simpleType name="DestinationDomainType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       A symbolic name for domain/network where the artifact is destined.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:string">
+                                 <xs:minLength value="1"/>
+                                 <xs:maxLength value="255"/>
+                                 <xs:pattern value="([a-zA-Z0-9])*"/>
+                      </xs:restriction>
+           </xs:simpleType>   
+           
+           <xs:simpleType name="DigitalHazMatType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       A notice on the assertion to inform the user not to decrypt the object, 
+                                                       even though they may have the key with the payload, 
+                                                       unless they are taking proper precautions.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:string">
+                                 <xs:pattern value="\s*This\s+element\s+describes\s+an\s+obfuscated\s+payload\s+which\s+is\s+either\s+known\s+or\s+suspected\s+to\s+contain\s+software\s+or\s+similar\s+data\s+which\s+could\s+cause\s+harm\s+to\s+information\s+processing\s+systems\.\s+It\s+has\s+been\s+encapsulated\s+to\s+render\s+it\s+inert\.\s+Any\s+attempt\s+to\s+decode\s+this\s+payload\s+outside\s+a\s+safe\s+analysis\s+environment\s+may\s+pose\s+a\s+danger\s+to\s+your\s+system\.\s*"/>
+                      </xs:restriction>
+           </xs:simpleType>
+           
+           <xs:simpleType name="OriginContentPathType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Full path from the root folder (break for each folder).
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:anyURI">
+                                 <xs:maxLength value="1024"/>
+                      </xs:restriction>
+           </xs:simpleType>
+           
+           <xs:simpleType name="OriginContentFilenameType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       Filename of the artifact.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:string">
+                                 <xs:minLength value="1"/>
+                                 <xs:maxLength value="1024"/>
+                      </xs:restriction>
+           </xs:simpleType>
+           
+           <xs:simpleType name="WorkFlowIdType">
+                      <xs:annotation>
+                                 <xs:documentation xml:lang="en">
+                                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                                                       An identifier to associate this document with a reference in an external system, such
+                                                       as a project management or ticket tracking tool. Specific meaning is user-defined. When
+                                                       suitable for the use case, an RFC 4122 compliant UUID is recommended.
+                                            </xhtml:p>
+                                 </xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:string">
+                                 <xs:minLength value="1"/>
+                                 <xs:maxLength value="255"/>
+                                 <xs:pattern value="([a-zA-Z0-9\s:\._-])*"/>
+                      </xs:restriction>
+           </xs:simpleType>
+
+           <!--***************************************************-->
+           <!--End Type Definitions                               -->
+           <!--***************************************************-->
+           <xs:annotation>
+                      <xs:documentation>
+                                 <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Formal Change List</xhtml:h2>
+                                 <xhtml:table ism:ownerProducer="USA" ism:classification="U" id="ChangeHistory">
+                                            <xhtml:caption>Change History</xhtml:caption>
+                                            <xhtml:thead>
+                                                       <xhtml:tr>
+                                                                  <xhtml:th>Version</xhtml:th>
+                                                                  <xhtml:th>Date</xhtml:th>
+                                                                  <xhtml:th>By</xhtml:th>
+                                                                  <xhtml:th>Description</xhtml:th>
+                                                       </xhtml:tr>
+                                            </xhtml:thead>
+                                            <xhtml:tbody>
+                                                       <xhtml:tr>
+                                                                  <xhtml:td>2021-JAN</xhtml:td>
+                                                                  <xhtml:td>2020-12-01</xhtml:td>
+                                                                  <xhtml:td>ODNI/CIO/IAD</xhtml:td>
+                                                                  <xhtml:td>Initial creation, reference the change history in the DES.</xhtml:td>
+                                                       </xhtml:tr>
+                                            </xhtml:tbody>
+                                 </xhtml:table>
+                      </xs:documentation>
+           </xs:annotation>
+</xs:schema>

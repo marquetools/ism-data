@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXFinancialTransactionTypeType">
+   <define name="CVEnumDOMEXFinancialTransactionTypeType.cve">
+      <choice>
+         <value>PayPal</value>
+         <value>Cash</value>
+         <value>Western Union</value>
+         <value>Credit Card</value>
+         <value>Hawala Site</value>
+         <value>Bank Wire Transfer</value>
+         <value>Other</value>
+      </choice>
+   </define>
+</grammar>

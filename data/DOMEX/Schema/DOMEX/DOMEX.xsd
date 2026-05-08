@@ -1,0 +1,2679 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!--*****************************--><!--        UNCLASSIFIED         --><!--*****************************--><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="urn:us:mil:ces:metadata:domex"
+           xmlns:domex="urn:us:mil:ces:metadata:domex"
+           xmlns:ism="urn:us:gov:ic:ism"
+           xmlns:tspi-core="http://metadata.ces.mil/mdr/ns/GSIP/tspi/2.0/core"
+           xmlns:irm="urn:us:gov:ic:irm"
+           xmlns:Identity="urn:us:mil:ces:metadata:domex_identity"
+           xmlns:xhtml="http://www.w3.org/1999/xhtml-StopBrowserRendering"
+           xmlns:cr="urn:CellexReport"
+           xmlns:CVEnumDOMEXActivityType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXActivityType"
+           xmlns:CVEnumDOMEXCollectingUnitIDTypeType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXCollectingUnitIDTypeType"
+           xmlns:CVEnumDOMEXDispositionType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXDispositionType"
+           xmlns:CVEnumDOMEXDocumentType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXDocumentType"
+           xmlns:CVEnumDOMEXEntityMethodOfExtractionType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXEntityMethodOfExtractionType"
+           xmlns:CVEnumDOMEXEventTypeType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXEventTypeType"
+           xmlns:CVEnumDOMEXFinancialAccountTypeType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXFinancialAccountTypeType"
+           xmlns:CVEnumDOMEXFinancialTransactionTypeType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXFinancialTransactionTypeType"
+           xmlns:CVEnumDOMEXFileType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXFileType"
+           xmlns:CVEnumDOMEXFisaType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXFisaType"
+           xmlns:CVEnumDOMEXFlightTypeType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXFlightTypeType"
+           xmlns:CVEnumDOMEXHashDigestTypeType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXHashDigestTypeType"
+           xmlns:CVEnumDOMEXImageSizeTypeType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXImageSizeTypeType"
+           xmlns:CVEnumDOMEXLegalTitleType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXLegalTitleType"
+           xmlns:CVEnumDOMEXMediaType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXMediaType"
+           xmlns:CVEnumDOMEXMicroCollectionLocationDescriptorTypeType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXMicroCollectionLocationDescriptorTypeType"
+           xmlns:CVEnumDOMEXNumberOfFilesTypeType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXNumberOfFilesTypeType"
+           xmlns:CVEnumDOMEXOrganizationNameTypeType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXOrganizationNameTypeType"
+           xmlns:CVEnumDOMEXOrganizationTypeType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXOrganizationTypeType"
+           xmlns:CVEnumDOMEXRelationshipNatureType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXRelationshipNatureType"
+           xmlns:CVEnumDOMEXRelationshipTypeType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXRelationshipTypeType"
+           xmlns:CVEnumDOMEXTitleTypeType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXTitleTypeType"
+           xmlns:CVEnumDOMEXTranslationPriorityType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXTranslationPriorityType"
+           xmlns:CVEnumDOMEXTranslationStatusType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXTranslationStatusType"
+           xmlns:CVEnumDOMEXTranslationType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXTranslationType"
+           xmlns:CVEnumDOMEXTravelTypeType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXTravelTypeType"
+           xmlns:CVEnumUSAgencyAcronym="urn:us:gov:ic:cvenum:usagency:agencyacronym"
+           xmlns:CVEnumIRMISO639-3Trigraph="urn:us:gov:ic:cvenum:irm:iso639-3:trigraph"
+           xmlns:CVEnumMIMEType="urn:us:gov:ic:cvenum:mime:type"
+           targetNamespace="urn:us:mil:ces:metadata:domex"
+           elementFormDefault="qualified"
+           attributeFormDefault="qualified"
+           ism:compliesWith="USGov USIC"
+           ism:resourceElement="true"
+           ism:createDate="2019-09-18"
+           ism:DESVersion="202111"
+           ism:ISMCATCESVersion="202205"
+           ism:classification="U"
+           ism:ownerProducer="USA"
+           version="202111">
+	  <xs:annotation>
+		    <xs:documentation>
+			      <xhtml:h1 ism:ownerProducer="USA" ism:classification="U">Intelligence Community
+				Technical Specification XML Data Encoding Specification for DOcument and Media
+				EXploitation (DOMEX.XML) SchemaGuide</xhtml:h1>
+		    </xs:documentation>
+		    <xs:documentation>
+			      <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Notices</xhtml:h2>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       
+			</xhtml:p>
+		    </xs:documentation>
+		    <xs:documentation>
+			      <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Description</xhtml:h2>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U"> This W3C XML Schema is an
+				implementation of the DOMEX assertion.</xhtml:p>
+		    </xs:documentation>
+		    <xs:documentation>
+			      <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Introduction</xhtml:h2>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U"> This XML Schema file is only
+				used to produce the schemaGuide for the XML Data Encoding Specification (DES).
+				Please see the document titled <xhtml:i>
+					          <xhtml:a href="../../Documents/DOMEX/DesDomexXml.pdf">XML Data Encoding
+						Specification for DOcument and Media EXploitation</xhtml:a>
+				        </xhtml:i> for a complete description of the encoding as well as list of all
+				components. </xhtml:p>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U"> It is envisioned that this
+				schema or its components, as well as other parts of the DES may be overridden for
+				localized implementations. Therefore, permission to use, copy, modify and distribute
+				this XML Schema and the other parts of the DES for any purpose is hereby granted in
+				perpetuity. </xhtml:p>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Please reference the preceding
+				two paragraphs in all copies or variations. The developers make no representation
+				about the suitability of the schema or DES for any purpose. It is provided "as is"
+				without expressed or implied warranty. </xhtml:p>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U"> If you modify this XML Schema
+				in any way label your schema as a variant of DOMEX.XML. </xhtml:p>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Please direct all questions,
+				bug reports,or suggestions for changes to the points of contact identified in the
+				document referenced above. </xhtml:p>
+		    </xs:documentation>
+		    <xs:documentation>
+			      <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Implementation Notes</xhtml:h2>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U">The document element for a
+				DOMEX.XML document is <xhtml:a href="DOMEX_xsd_Element_acquisition.html#acquisition">domex:acquisition</xhtml:a>. A DOMEX.XML instance is an instance of a TDO with
+				particular payload and assertions. Its structure is similar to:</xhtml:p>
+			      <xhtml:ul>
+				        <xhtml:p ism:ownerProducer="USA" ism:classification="U">A <xhtml:a href="IC-TDF_xsd_Element_TrustedDataObject.html#TrustedDataObject">
+					tdf:TrustedDataObject</xhtml:a>
+				        </xhtml:p>
+				        <xhtml:ul>
+					          <xhtml:li ism:ownerProducer="USA" ism:classification="U">has an assertion
+						<xhtml:a href="DOMEX_xsd_Element_acquisition.html#acquisition">domex:acquisition</xhtml:a>
+					          </xhtml:li>
+					          <xhtml:li ism:ownerProducer="USA" ism:classification="U">has an assertion
+						<xhtml:a href="IC-IRM_xsd_Element_irm_ICResourceMetadataPackage.html#ICResourceMetadataPackage"> irm:ICResourceMetadataPackage</xhtml:a>
+					          </xhtml:li>
+				        </xhtml:ul>
+			      </xhtml:ul>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U">The document elements for DOMEX
+				are <xhtml:a href="DOMEX_xsd_Element_domex.html#domex">domex:domex</xhtml:a>,
+				<xhtml:a href="Identity_xsd_Element_identity.html#identity">Identity:identity</xhtml:a>, and 
+				<xhtml:a href="CellexReport_xsd_Element_cr_cellexReport.html#cellexReport">cr:cellexReport</xhtml:a>.
+			</xhtml:p>
+		    </xs:documentation>
+		    <xs:documentation>
+			      <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Creators</xhtml:h2>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U">Office of the Director of
+				National Intelligence Intelligence Community Chief Information Officer</xhtml:p>
+		    </xs:documentation>
+	  </xs:annotation>
+	  <!-- ************************************************************* -->
+	  <!-- IMPORT DEPENDENT SCHEMAS                                     -->
+	  <!-- ************************************************************* -->
+	  <xs:import namespace="urn:us:gov:ic:ism" schemaLocation="../ISM/IC-ISM.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:irm" schemaLocation="../IRM/IC-IRM.xsd"/>
+	  <xs:import namespace="http://metadata.ces.mil/mdr/ns/GSIP/tspi/2.0/core"
+              schemaLocation="../tspi/2.0.0/tspi-core.xsd"/>
+	  <xs:import namespace="urn:CellexReport" schemaLocation="./CellexReport.xsd"/>
+	  <xs:import namespace="urn:us:mil:ces:metadata:domex_identity"
+              schemaLocation="./Identity.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:usagency:agencyacronym"
+              schemaLocation="../USAgency/CVEGenerated/CVEnumUSAgencyAcronym.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:irm:iso639-3:trigraph"
+              schemaLocation="../IRM/CVEGenerated/CVEnumIRMISO639-3Trigraph.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:mime:type"
+              schemaLocation="../MIME/CVEGenerated/CVEnumMIMEType.xsd"/>
+	  <!-- **************************************************************** -->
+	  <!--  IMPORT DOMEX CVE-Generated schema types                         -->
+	  <!-- **************************************************************** -->
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXActivityType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXActivityType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXCollectingUnitIDTypeType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXCollectingUnitIDTypeType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXDispositionType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXDispositionType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXDocumentType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXDocumentType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXEntityMethodOfExtractionType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXEntityMethodOfExtractionType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXEventTypeType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXEventTypeType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXFinancialAccountTypeType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXFinancialAccountTypeType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXFinancialTransactionTypeType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXFinancialTransactionTypeType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXFileType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXFileType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXFisaType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXFisaType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXFlightTypeType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXFlightTypeType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXHashDigestTypeType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXHashDigestTypeType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXImageSizeTypeType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXImageSizeTypeType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXLegalTitleType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXLegalTitleType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXMediaType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXMediaType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXMicroCollectionLocationDescriptorTypeType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXMicroCollectionLocationDescriptorTypeType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXNumberOfFilesTypeType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXNumberOfFilesTypeType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXOrganizationNameTypeType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXOrganizationNameTypeType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXOrganizationTypeType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXOrganizationTypeType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXRelationshipNatureType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXRelationshipNatureType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXRelationshipTypeType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXRelationshipTypeType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXTitleTypeType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXTitleTypeType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXTranslationPriorityType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXTranslationPriorityType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXTranslationStatusType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXTranslationStatusType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXTranslationType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXTranslationType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXTravelTypeType"
+              schemaLocation="./CVEGenerated/CVEnumDOMEXTravelTypeType.xsd"/>
+	  <!-- ************************************************************* -->
+	  <!-- DOMEX Root for TDO assertion                                  -->
+	  <!-- ************************************************************* -->
+	  <xs:element name="domex">
+		    <xs:annotation>
+			      <xs:documentation> The domex element is provided as a root element for including a DOMEX
+				assertion in a TDO. For most circumstances, the domex element will contain one or
+				more "acquisition" elements that describe a complete domex metadata set or record.
+				DOMEX sub-elements can be exchanged separate from an acquisition using one of the
+				alternate roots. </xs:documentation>
+		    </xs:annotation>
+		    <xs:complexType>
+			      <xs:sequence>
+				        <xs:choice>
+					          <xs:element ref="acquisition" maxOccurs="unbounded"/>
+					          <xs:element ref="collectionDetails" maxOccurs="unbounded"/>
+					          <xs:element ref="subjectInformation" maxOccurs="unbounded"/>
+					          <xs:element ref="cr:cellexReport" maxOccurs="unbounded"/>
+					          <xs:element ref="Identity:identity" maxOccurs="unbounded"/>
+					          <xs:element ref="facility" maxOccurs="unbounded"/>
+					          <xs:element ref="organization" maxOccurs="unbounded"/>
+					          <xs:element ref="equipment" maxOccurs="unbounded"/>
+					          <xs:element ref="mediaDetails" maxOccurs="unbounded"/>
+					          <xs:element ref="file" maxOccurs="unbounded"/>
+				        </xs:choice>
+			      </xs:sequence>
+			      <xs:attribute ref="DESVersion" use="required"/>
+		    </xs:complexType>
+	  </xs:element>
+	  <!-- ************************************************************* -->
+	  <!-- Alternate Acquisition root                                    -->
+	  <!-- ************************************************************* -->
+	  <xs:element name="acquisition" ism:classification="U" ism:ownerProducer="USA">
+		    <xs:annotation>
+			      <xs:documentation> Acquisition Data. Data about a collection or single piece of media
+				within a collection that generally answers core issues related to the standards of
+				who, what, when, where, why, and how the material was collected. Examples of
+				acquisition data are date/time collected, location of collection, collecting
+				organization, legal authority for the collection, processing site, size and type of
+				media, classification, and more. This is the root element for a collection.
+			</xs:documentation>
+		    </xs:annotation>
+		    <xs:complexType>
+			      <xs:sequence>
+				        <xs:element ref="collectionDetails"/>
+				        <xs:element ref="subjectInformation" minOccurs="0" maxOccurs="unbounded"/>
+				        <xs:element ref="mediaDetails" maxOccurs="unbounded"/>
+				        <xs:element ref="cr:cellexReport" minOccurs="0" maxOccurs="unbounded"/>
+			      </xs:sequence>
+			      <xs:attribute name="uuid" type="UuidType" use="optional"/>
+			      <xs:attribute ref="DESVersion" use="optional"/>
+		    </xs:complexType>
+	  </xs:element>
+	  <!-- ************************************************************* -->
+	  <!-- Collection Details                                            -->
+	  <!-- ************************************************************* -->
+	  <xs:element name="collectionDetails">
+		    <xs:annotation>
+			      <xs:documentation> (Batch). Documents and/or electronic media acquired during the same
+				capture, seizure, or acquisition event at the same location or attributed to the
+				same individual (s) or group. </xs:documentation>
+		    </xs:annotation>
+		    <xs:complexType>
+			      <xs:sequence>
+				        <xs:element name="providingOrganization" type="string100">
+					          <xs:annotation>
+						            <xs:documentation> Name of the organization that acquired the media.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="owningOrganization" type="string100">
+					          <xs:annotation>
+						            <xs:documentation> Name of the organization that owns the media.
+							Organization or agency that acquires, obtains, collects, and/or provides
+							media to national repositories or is later determined to be authorized
+							to release and/or declassify media. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="collectionName" type="string200">
+					          <xs:annotation>
+						            <xs:documentation> The cover term(s) associated with the media seizure,
+							exploitation, and collaboration. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="batchName" type="string200" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Name of the Batch as defined by the collecting
+							organization. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <!-- irm:acquiredOn xs:element name="dateAcquired" type="irm:CombinedDateType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>
+							The Date-Time-Group (DTG) a collection started.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element-->
+				        <!-- irm:geospatialCoverage xs:element name="collectionLocationCoordinates" type="tspi-core:PointType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>
+							Coordinates of location of collection
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element-->
+				        <xs:element name="collectionCountry"
+                        type="irm:CompoundCountryCodeIdentifierType"
+                        minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> The country from which the collection was acquired.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <!-- irm:description xs:element name="collectionDescription" type="string4000" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>
+							A full description for the collection.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element-->
+				        <xs:element name="isDraft" type="xs:boolean" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> The collection is a partial submission.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="containsObjectionalMaterial" type="xs:boolean" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> The collection contains objectionable material.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="containsSuspectedCPData" type="xs:boolean" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> The collection contains suspected CP data.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="containsUsPersonsData" type="xs:boolean" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> The collections contains data related to US persons
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="isRestricted" type="xs:boolean" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> The collection is restricted to those organizations
+							identified by the data owner sharing restrictions. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="acquisitionDetails" type="string4000">
+					          <xs:annotation>
+						            <xs:documentation> Details of how the collection was acquired.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="numberOfComponents" type="xs:positiveInteger">
+					          <xs:annotation>
+						            <xs:documentation> Number of components in the collection. Components
+							include devices or pieces of media. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="legalTitle"
+                        type="CVEnumDOMEXLegalTitleType:CVEnumDOMEXLegalTitleType">
+					          <xs:annotation>
+						            <xs:documentation> Legal Title </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="collectingUnitID"
+                        type="CVEnumDOMEXCollectingUnitIDTypeType:CVEnumDOMEXCollectingUnitIDTypeType"
+                        minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Number that identifies collection from that organization
+							(SIGACT or Others). Support multiple IDs per collection.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="collectingOrganizationNationality"
+                        type="irm:CompoundCountryCodeIdentifierType"
+                        minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Nationality of organization that collected the media.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="reasonForCollecting" type="string4000" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Reason, justification, or circumstance for collecting the
+							media is submitted to NEXSYS </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <!-- Change Request #530  DOMEX: Additions to Collection Details -->
+				        <xs:element name="transportingUnit"
+                        type="CVEnumDOMEXCollectingUnitIDTypeType:CVEnumDOMEXCollectingUnitIDTypeType"
+                        minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Unit responsible for transporting collection from initial
+							collection location. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="transportingUnitPOC" type="xs:string" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Point of contact within unit responsible for transporting
+							collection from initial collection location. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="transmittalNumber" type="xs:string" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Transmittal number associated with this collection while
+							in transit. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="NumberOfBoxes" type="xs:positiveInteger" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Number of physical boxes transported in this collection.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <!-- End of Change Request #530 -->
+				        <xs:element name="homelandSecurity" type="string4000" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> DHS Objectives </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="internationalSharingAgreement"
+                        type="string4000"
+                        minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> No description provided </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="lawEnforcementWarrant" type="string4000" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> DOJ, FBI Objectives </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="dodOperation" type="string4000" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> USDI Objectives </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="microCollectionLocation"
+                        type="MicroCollectionLocationType"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Micro Collection Location: Optional details on where the
+							collection was acquired. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <!-- Change Request #889 - Add Activity / sub activity elements -->
+				        <xs:element name="activity"
+                        type="ActivityType"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Supports the ability to perform collection, media, and
+							document similarity classification. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <!-- End of Change Request #889 -->
+			      </xs:sequence>
+			      <xs:attributeGroup ref="irm:SecurityAttributesGroup"/>
+			      <!-- irm:identifier xs:attribute name="domexId" type="string36" use="required">
+				<xs:annotation>
+					<xs:documentation>
+						DOMEXIDs are unique, unclassified numbers that identify individual or batched documents and media and their resulting/associated records.		
+					</xs:documentation>
+				</xs:annotation>
+			</xs:attribute-->
+			      <!-- irm:identifier xs:attribute name="collectionId" type="string38" use="optional">
+				<xs:annotation>
+					<xs:documentation>
+						A collection ID is a number that uniquely identifies collection within NEXSYS
+					</xs:documentation>
+				</xs:annotation>
+			</xs:attribute-->
+			      <xs:attribute name="uuid" type="UuidType" use="optional">
+				        <xs:annotation>
+					          <xs:documentation> A UUID attribute is provided for systems that make use of
+						such an identifier. </xs:documentation>
+				        </xs:annotation>
+			      </xs:attribute>
+			      <xs:attribute ref="DESVersion" use="optional"/>
+		    </xs:complexType>
+	  </xs:element>
+	  <xs:complexType name="MicroCollectionLocationType">
+		    <xs:sequence>
+			      <xs:element name="narrative" type="string4000" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Examples: which computer, what desk drawer, which room in
+						house </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="descriptor"
+                     type="MicroCollectionLocationDescriptorType"
+                     minOccurs="0"
+                     maxOccurs="unbounded">
+				        <xs:annotation>
+					          <xs:documentation> @On Person Identify the person and the location on the person
+						(Detainee ID Number) @In Vehicle Collection location in vehicle and which
+						vehicle @At Building Collection location at building (e.g. Hotel, Business,
+						Warehouse) @On Battlefield Collection location on battlefield @Other Other
+						collection location (describe) </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="MicroCollectionLocationDescriptorType">
+		    <xs:simpleContent>
+			      <xs:extension base="string4000">
+				        <xs:attribute name="type"
+                          type="CVEnumDOMEXMicroCollectionLocationDescriptorTypeType:CVEnumDOMEXMicroCollectionLocationDescriptorTypeType"
+                          use="required"/>
+			      </xs:extension>
+		    </xs:simpleContent>
+	  </xs:complexType>
+	  <!-- ************************************************************* -->
+	  <!-- Subject Details                                               -->
+	  <!-- ************************************************************* -->
+	  <xs:element name="subjectInformation">
+		    <xs:annotation>
+			      <xs:documentation> Defines the subject information structure of the DOMEX assertions. A
+				"subject" could be a person, organization, facility or piece of equipment that is
+				associated with this acquisition. Multiple subjects of differing types are
+				permitted. Type of Subject Denoted by subject element </xs:documentation>
+		    </xs:annotation>
+		    <xs:complexType>
+			      <xs:sequence>
+				        <xs:choice>
+					          <xs:element ref="Identity:identity"/>
+					          <xs:element ref="facility"/>
+					          <xs:element ref="organization"/>
+					          <xs:element ref="equipment"/>
+				        </xs:choice>
+				        <xs:element name="fisaRelated"
+                        type="CVEnumDOMEXFisaType:CVEnumDOMEXFisaType"
+                        minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Information acquired by the FBI in accordance with
+							FISC-authorized physical searches, electronic surveillance, or other
+							means of acquisition targeting foreign powers and agents of foreign
+							powers. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="fisaCaseId" type="string100" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> The Case ID if this is a FISA case </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="otherIdType"
+                        type="CVEnumDOMEXCollectingUnitIDTypeType:CVEnumDOMEXCollectingUnitIDTypeType"
+                        minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Other ID types associated with subject
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+			      </xs:sequence>
+			      <xs:attribute name="uuid" type="UuidType" use="optional">
+				        <xs:annotation>
+					          <xs:documentation> A UUID attribute is provided for systems that make use of
+						such an identifier. </xs:documentation>
+				        </xs:annotation>
+			      </xs:attribute>
+			      <xs:attributeGroup ref="irm:SecurityAttributesGroup"/>
+			      <xs:attribute ref="DESVersion" use="optional"/>
+		    </xs:complexType>
+	  </xs:element>
+	  <!-- ************************************************************* -->
+	  <!-- Facility                                                      -->
+	  <!-- ************************************************************* -->
+	  <xs:element name="facility">
+		    <xs:annotation>
+			      <xs:documentation>Defines the metadata about a facility when a facility is the subject
+				of an acquisition. It is also used to specify content and analytic facility metadata
+				extracted from the file object or added through content management and
+				analysis.</xs:documentation>
+		    </xs:annotation>
+		    <xs:complexType>
+			      <xs:sequence>
+				        <xs:element name="name" type="xs:string">
+					          <xs:annotation>
+						            <xs:documentation> Name of the facility </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <!-- artf14830 - Unbound facility address element -->
+				        <xs:element name="address"
+                        type="irm:PlaceType"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> A group of entities used in the DoD Discovery Metadata
+							Specification postalAddress plus others. Optionally includes Street,
+							City, State, Province, Postal Code, and Country Code.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="affiliatedCountry"
+                        type="irm:CompoundCountryCodeIdentifierType"
+                        minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Country to which the facility is affiliated
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="relationship"
+                        type="RelationshipType"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> A relationship captures how entities are related to one
+							another. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+			      </xs:sequence>
+			      <xs:attribute name="uuid" type="UuidType" use="optional"/>
+			      <xs:attribute ref="DESVersion" use="optional"/>
+		    </xs:complexType>
+	  </xs:element>
+	  <!-- ************************************************************* -->
+	  <!-- Organization                                                  -->
+	  <!-- ************************************************************* -->
+	  <xs:element name="organization">
+		    <xs:annotation>
+			      <xs:documentation> Describes an Organization in the DOMEX Data Assertion
+			</xs:documentation>
+		    </xs:annotation>
+		    <xs:complexType>
+			      <xs:sequence>
+				        <xs:element name="name"
+                        type="OrganizationNameType"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Name of the organization if subject is an organization.
+							Includes Translated and Transliterated values if available.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="type"
+                        type="CVEnumDOMEXOrganizationTypeType:CVEnumDOMEXOrganizationTypeType"
+                        minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Indicates the type of organization being described
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="description" type="string256" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Descriptive details concerning organization
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="acronym"
+                        type="string40"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Acronym representing the organization name.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="phone"
+                        type="string100"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> A telephone number. This value includes country code and
+							area code when applicable. Includes the original number in the native
+							language script and also the ASCII representation. Can be the phone
+							number of a person or organization. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="e-mail"
+                        type="string256"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> An address for electronic mail. Can be for a person or
+							organization. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="location"
+                        type="irm:PlaceType"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> A group of entities used in the DoD Discovery Metadata
+							Specification postalAddress plus others. Optionally includes Street,
+							City, State, Province, Postal Code, and Country Code.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+			      </xs:sequence>
+			      <xs:attribute ref="DESVersion" use="optional"/>
+		    </xs:complexType>
+	  </xs:element>
+	  <xs:complexType name="OrganizationNameType">
+		    <xs:simpleContent>
+			      <xs:extension base="string500">
+				        <xs:attribute name="type"
+                          type="CVEnumDOMEXOrganizationNameTypeType:CVEnumDOMEXOrganizationNameTypeType"
+                          use="required"/>
+			      </xs:extension>
+		    </xs:simpleContent>
+	  </xs:complexType>
+	  <!-- ************************************************************* -->
+	  <!-- Equipment                                                     -->
+	  <!-- ************************************************************* -->
+	  <xs:element name="equipment">
+		    <xs:annotation>
+			      <xs:documentation> Defines the metadata about equipment when equipment is the subject of
+				an acquisition. It is also used to specify content and analytic equipment metadata
+				extracted from the file object or added through content management and analysis.
+			</xs:documentation>
+		    </xs:annotation>
+		    <xs:complexType>
+			      <xs:sequence>
+				        <xs:element name="designator" type="xs:string">
+					          <xs:annotation>
+						            <xs:documentation> Equipment designator. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="nomenclature" type="xs:string">
+					          <xs:annotation>
+						            <xs:documentation> The name or nomenclature of the equipment.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="countryOfManufacture"
+                        type="irm:CompoundCountryCodeIdentifierType"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Country in which the equipment was manufactured.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="serialNumber"
+                        type="xs:string"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> The serial number of a specific piece of equipment.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="relationship"
+                        type="RelationshipType"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> A relationship captures how entities are related to one
+							another. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="remark"
+                        type="RemarkType"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> User comments. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+			      </xs:sequence>
+			      <xs:attribute name="uuid" type="UuidType" use="optional"/>
+			      <xs:attribute ref="DESVersion" use="optional"/>
+		    </xs:complexType>
+	  </xs:element>
+	  <!-- ************************************************************* -->
+	  <!-- Media Details                                                 -->
+	  <!-- ************************************************************* -->
+	  <xs:element name="mediaDetails">
+		    <xs:annotation>
+			      <xs:documentation> Media or Device Metadata: Data about the media or device source to
+				include: connection to collection data, item identity within context of collection,
+				hardware serial number, model number, image hash value. A physical media that may
+				contain one or more files. </xs:documentation>
+		    </xs:annotation>
+		    <xs:complexType>
+			      <xs:sequence>
+				        <xs:element name="dataOwner" type="string100">
+					          <xs:annotation>
+						            <xs:documentation> Organization that acquires, obtains, collects and/or
+							provides media to national repositories </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="personName" type="string300" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Person Name/Name associated with organization media owner
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="phoneNumber" type="string100" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Phone Number/Telephone number associated with
+							organization media owner </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="itemSerialNumber" type="string100">
+					          <xs:annotation>
+						            <xs:documentation> Serial Number of media </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="collectingDeviceDistinctName" type="string100" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Name of device that collected information
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="typeOfComponent" type="string256">
+					          <xs:annotation>
+						            <xs:documentation> Derived data or original data (scan of paper versus image
+							of hard drive) </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="exploitationResultsClassification"
+                        type="ExploitationResultsClassificationType">
+					          <xs:annotation>
+						            <xs:documentation> The cumulative classification that is evaluated and
+							derived upon review by analysts. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <!-- artf14834 - Make deviceImage optional -->
+				        <xs:element name="deviceImage" type="DeviceImageType" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> An image or copy made of a media device
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="dispositionOfOriginalSource" type="string256" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Location of the original media </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="firmware" type="FirmwareType" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> The firmware embedded in the media device.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="mediaSize" type="string50" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Media size as stated on device label, etc.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="manufacturer" type="string256" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Device manufacturer </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="modelNumber" type="string100" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Device model number </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="sourceManufacturer" type="string256" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Media manufacturer </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="machineSid" type="string100" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> The Machine SID is used to identify a computer on a
+							network under Windows operating system. The machine SID is stored in the
+							SECURITY registry hive located at SECURITY\SAM\Domains\Account, this key
+							has two values F and V. The V value is a binary value that has the
+							computer SID embedded within it at the end of its data (last 96 bits).
+							The format of these IDs are as follows: SID:
+							S-1-5-21-108503121-1563985344-725345543 S - SID Label 1 - SID Version 5
+							- The identifier authority value 21-3623811015-3361044348-30300820 -
+							domain or local computer value. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="volumeId" type="string100" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Semi-unique number associated with a device when
+							formatted. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="processingSite" type="string256" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Location where media was first imaged or forensically
+							processed </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="contactInformation" type="string400" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Contact information of who processed media
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="toolsOrProcessesUsed" type="string256" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Tools/processes used in processing media
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="typeOfSystemForensicallyPureImageCreated"
+                        type="string256"
+                        minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Type of System where Forensically Pure Image was Created
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="softwareUsedToProcessType" type="string256" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Software used to process forensically pure image
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="versioningOfSoftware" type="string50" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Versioning of software used to process forensically pure
+							image </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="explanationOfProcess" type="string256" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Explanation of forensically pure image creation process
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="isDamaged" type="xs:boolean" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> A binary flag indicating that a device is damaged
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="repairsPerformedBy" type="string256" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Person Description of repairs performed on damaged device
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="relationshipOfMultipleImagesToSingleDocument"
+                        type="string4000"
+                        minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Relationship of multiple images to single document
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="numberOfFiles"
+                        type="NumberOfFilesType"
+                        minOccurs="0"
+                        maxOccurs="3">
+					          <xs:annotation>
+						            <xs:documentation> Number of videos/audio files/pictures on the device.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="cableReferenceMessageTrafficID"
+                        type="string100"
+                        minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Cable/Reference/Message Traffic ID </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <!-- Change Request #889 - Add Activity / sub activity elements -->
+				        <xs:element name="activity"
+                        type="ActivityType"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Supports the ability to perform collection, media, and
+							document similarity classification. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <!-- End of Change Request #889 -->
+				        <xs:element ref="subjectInformation" minOccurs="0" maxOccurs="unbounded"/>
+				        <xs:element ref="file" minOccurs="0" maxOccurs="unbounded"/>
+				        <!-- Change Request #529 - Add USB device info -->
+				        <xs:element name="usbDeviceReference"
+                        type="UsbDeviceReferenceType"
+                        minOccurs="0"
+                        maxOccurs="unbounded"/>
+			      </xs:sequence>
+			      <xs:attributeGroup ref="irm:SecurityAttributesGroup"/>
+			      <xs:attribute name="uuid" type="UuidType" use="optional"/>
+			      <xs:attribute ref="DESVersion" use="optional"/>
+		    </xs:complexType>
+	  </xs:element>
+	  <xs:complexType name="ExploitationResultsClassificationType">
+		    <xs:simpleContent>
+			      <xs:extension base="xs:string">
+				        <xs:attributeGroup ref="irm:SecurityAttributesGroup"/>
+			      </xs:extension>
+		    </xs:simpleContent>
+	  </xs:complexType>
+	  <xs:complexType name="FirmwareType">
+		    <xs:sequence>
+			      <xs:element name="manufacturer" type="string256" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Firmware Manufacture </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="partNumber" type="string100" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Firmware Part Number </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="versionOrRelease" type="string50" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Firmware Version or Release </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="biosDateAndTime" type="irm:CombinedDateType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> BIOS Date and Time </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="actualDateAndTime" type="irm:CombinedDateType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Actual date and time when BIOS date and time were collected
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="SoftwareUsedToProcessType">
+		    <xs:sequence>
+			      <xs:element name="name" type="xs:string">
+				        <xs:annotation>
+					          <xs:documentation> Software used to process forensically pure image
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="version" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Versioning of software used to process forensically pure
+						image </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="DeviceImageType">
+		    <xs:sequence>
+			      <xs:element name="nameOfDeviceImageFile" type="string256">
+				        <xs:annotation>
+					          <xs:documentation> Name of file given to device image </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="mediaType" type="CVEnumDOMEXMediaType:CVEnumDOMEXMediaType">
+				        <xs:annotation>
+					          <xs:documentation> Device type or media type. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="collectionIDNumber" type="string38">
+				        <xs:annotation>
+					          <xs:documentation> Number that identifies collection </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="dateImaged" type="irm:CombinedDateType">
+				        <xs:annotation>
+					          <xs:documentation> The Date-Time-Group (DTG) imaging was started for a single
+						piece of media. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="typeOfComponent" type="xs:string">
+				        <xs:annotation>
+					          <xs:documentation> Derived data or original data (scan of paper versus image of
+						hard drive) </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="deviceImageResultsClassification">
+				        <xs:annotation>
+					          <xs:documentation> The cumulative classification that is evaluated and derived
+						upon review by analysts. </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:simpleContent>
+						            <xs:extension base="xs:string">
+							              <xs:attributeGroup ref="irm:SecurityAttributesGroup"/>
+						            </xs:extension>
+					          </xs:simpleContent>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="priorityOfComponent" type="xs:string">
+				        <xs:annotation>
+					          <xs:documentation> For NEXSYS, higher priority media and their contents will be
+						processed first. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <!-- Change Request #663 - Allow multiple hash values -->
+			      <xs:element name="imageHashDigest" type="HashDigestType" maxOccurs="unbounded">
+				        <xs:annotation>
+					          <xs:documentation> Hash of raw image. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="sourceHashDigest" type="HashDigestType" maxOccurs="unbounded">
+				        <xs:annotation>
+					          <xs:documentation> Hash of stored content </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="imageSize" type="ImageSizeType">
+				        <xs:annotation>
+					          <xs:documentation> Original size of the image </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="imageType" type="string100">
+				        <xs:annotation>
+					          <xs:documentation> Image Type, such as E01, Raw, etc </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="isImageLocked" type="xs:boolean">
+				        <xs:annotation>
+					          <xs:documentation> Is the source locked? </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:sequence>
+		    <xs:attributeGroup ref="irm:SecurityAttributesGroup">
+			      <xs:annotation>
+				        <xs:documentation> The classification level for the image </xs:documentation>
+			      </xs:annotation>
+		    </xs:attributeGroup>
+	  </xs:complexType>
+	  <xs:complexType name="ImageSizeType">
+		    <xs:simpleContent>
+			      <xs:extension base="xs:positiveInteger">
+				        <xs:attribute name="type"
+                          type="CVEnumDOMEXImageSizeTypeType:CVEnumDOMEXImageSizeTypeType"
+                          use="required"/>
+			      </xs:extension>
+		    </xs:simpleContent>
+	  </xs:complexType>
+	  <xs:complexType name="NumberOfFilesType">
+		    <xs:simpleContent>
+			      <xs:extension base="xs:nonNegativeInteger">
+				        <xs:attribute name="type"
+                          type="CVEnumDOMEXNumberOfFilesTypeType:CVEnumDOMEXNumberOfFilesTypeType"
+                          use="required"/>
+			      </xs:extension>
+		    </xs:simpleContent>
+	  </xs:complexType>
+	  <!-- ************************************************************* -->
+	  <!-- File - Media contains one or more files                       -->
+	  <!-- ************************************************************* -->
+	  <xs:element name="file">
+		    <xs:annotation>
+			      <xs:documentation> File Metadata: File metadata includes original document, derived,
+				content and analytic metadata. Document metadata includes Original File metadata,
+				Translation metadata, and Related Files. Documents include: documents, videos,
+				images, audio files, scanned documents (including pocket litter), etc.
+			</xs:documentation>
+		    </xs:annotation>
+		    <xs:complexType>
+			      <xs:sequence>
+				<!-- irm:identifier xs:element name="harmonyNumber" type="string40">
+					<xs:annotation>
+						<xs:documentation>
+							Unique number assigned to the Harmony record. The Harmony Number must be unclassified.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element-->
+				        <xs:element name="title" type="TitleType" maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Descriptive Title - Title of the original document or a
+							descriptive title. Translated Title - Translation of the title of the
+							original document. Original Title - Title of the original document.
+							Transliterated for non-Latin characters. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="primaryLanguage"
+                        type="CVEnumIRMISO639-3Trigraph:CVEnumIRMISO639-3Trigraph">
+					          <xs:annotation>
+						            <xs:documentation> Primary Language of the Original Document.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="additionalLanguages"
+                        type="CVEnumIRMISO639-3Trigraph:CVEnumIRMISO639-3Trigraph"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Additional languages in the original document.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="documentDate" type="irm:ApproximableDateType" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Date the original document was published (as identified
+							in the document). </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <!-- irm:acquiredOn xs:element name="dateAcquired" type="irm:CombinedDateType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>
+							Date the original document was obtained, collected, acquired, or purchased. This date may be the same as the Acquisition Metadata - Date Acquired.		
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element -->
+				        <xs:element name="entryDate" type="irm:CombinedDateType" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> System generated date when the record entered the system.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="documentType"
+                        type="CVEnumDOMEXDocumentType:CVEnumDOMEXDocumentType"
+                        minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Type of information contained in the original document,
+							such as technical manual, study, letter, or article. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="format" type="string100" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Physical state of the captured original document, for
+							example, Electronic File, Compact Disc or Paper Copy.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <!-- artf14831 - Unbound project element -->
+				        <xs:element name="project"
+                        type="string150"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Code name(s) for the operation under which this document
+							was collected. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="owningAgency" type="AgencyType" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Agency that owns the original document and record
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="countryOfInformation"
+                        type="irm:CompoundCountryCodeIdentifierType"
+                        minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Country(s) referenced in the original document.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="countryOfPublication"
+                        type="irm:CompoundCountryCodeIdentifierType"
+                        minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Country where the original document was published or
+							written. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <!-- irm:keyword xs:element name="keyword" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>
+							Keywords about the document. Generic or specific terms representing the content of the	original document. Examples: WMD, Missile Technology, POW, IED.  
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element-->
+				        <xs:element name="relatedDocumentNumber"
+                        type="xs:string"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Document numbers associated with the Document record.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="remark" type="RemarkType" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Free text field where a remark or description may be
+							included. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="relatedISN"
+                        type="xs:string"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> List of Internment Serial Numbers (ISNs) related to this
+							document. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="birDetainee" type="BirDetaineeType" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Detainee name and biometric URL associated with the ISNs
+							in the Biometrics Intelligence Resource (BIR). </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="dateAccessed" type="irm:CombinedDateType" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Date of last file access as recorded by the operating
+							system of the original media. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="dateCreated" type="irm:CombinedDateType" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Date file was created as stored by the operating system
+							of the original source media. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="dateModified" type="irm:CombinedDateType" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Date file was last modified as stored by the operating
+							system of the original source media. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="disposition"
+                        type="CVEnumDOMEXDispositionType:CVEnumDOMEXDispositionType"
+                        minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> One of six categories (or dispositions) of files: overt,
+							deleted, derived, residual, generated and uploaded. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="transliteratedFileName" type="string256" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Transliterated filename. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="originalFileName" type="string256">
+					          <xs:annotation>
+						            <xs:documentation> Filename of the document, image or multi-media file as
+							stored by the operating system of the original source media.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <!-- Change Request #532 DOMEX: File Types - Accommodate Legacy Data Stores. -->
+				        <xs:element name="fileMimeType" type="CVEnumMIMEType:CVEnumMIMEType">
+					          <xs:annotation>
+						            <xs:documentation> File mime type of the original file. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="fileType"
+                        type="CVEnumDOMEXFileType:CVEnumDOMEXFileType"
+                        minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Legacy file type of the original file.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <!-- End of Change Request #532 -->
+				        <xs:element name="numberOfPages" type="xs:positiveInteger" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Number of pages in the document. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="numberOfWords" type="xs:positiveInteger" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Number of words in the document. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="duration" type="xs:positiveInteger" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Duration, in seconds, of the audio or video recording.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="media"
+                        type="CVEnumDOMEXMediaType:CVEnumDOMEXMediaType"
+                        minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Media Type. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="size" type="xs:positiveInteger" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Size of the file in Kbytes. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="sourcePath" type="xs:anyURI" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Complete source path of the file as stored on the
+							original media. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <!-- artf14840 - Leave hash value in file definition -->
+				        <!-- Change Request #663 - Allow multiple hash values -->
+				        <xs:element name="hashValue"
+                        type="HashDigestType"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Hash Code of the Original File. Hash types include: MD-5,
+							SHA-256, SHA-1 </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="numberOfDuplicatesInCDR"
+                        type="xs:nonNegativeInteger"
+                        minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> The number of times the file has been seen in NEXSYS
+							regardless of whether it has been found multiple times in a single
+							collection. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="numberOfSimilarFilesInCDR"
+                        type="xs:nonNegativeInteger"
+                        minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> The number of times a similar file has been seen in
+							NEXSYS regardless of whether it has been found multiple times in a
+							single collection. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="propertiesLastEditedBy" type="string40">
+					          <xs:annotation>
+						            <xs:documentation> NEXSYS User ID of the individual that last modified the
+							file metadata. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="dateAndTimeOfLastModification" type="irm:CombinedDateType">
+					          <xs:annotation>
+						            <xs:documentation> Date the file metadata was last modified.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="reasonForModification" type="string512">
+					          <xs:annotation>
+						            <xs:documentation> Free text field where the reason for modification is
+							entered. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="hasSubtitles" type="xs:boolean" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> A Yes or No field to indicate if a multimedia file has
+							subtitles. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="subtitleLanguage"
+                        type="CVEnumIRMISO639-3Trigraph:CVEnumIRMISO639-3Trigraph"
+                        minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Primary subtitle language. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="productionGroup" type="string512" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Multi-media producer. Need list of known values (eg:
+							Bollywood, Warner Brothers, etc.) </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="speakerIdentification" type="string1000" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Free text field where identified speakers in an audio or
+							video recording may be entered. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <!-- Change Request #889 - Add Activity / sub activity elements -->
+				        <xs:element name="activity"
+                        type="ActivityType"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Supports the ability to perform collection, media, and
+							document similarity classification. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <!-- End of Change Request #889 -->
+				        <!--  artf14832 - Media or derived file information optional -->
+				        <!--  Change Request #531 - DOMEX: Derived Files - Allow for translated media, derived files and derived files derived from other files. -->
+				        <xs:element name="mediaFile" type="MediaFileType" minOccurs="0"/>
+				        <xs:element name="translation" type="TranslationDetailsType" minOccurs="0"/>
+				        <xs:element name="derivedFile" minOccurs="0" maxOccurs="unbounded">
+					          <xs:complexType>
+						            <xs:sequence>
+							              <xs:element ref="file"/>
+						            </xs:sequence>
+					          </xs:complexType>
+				        </xs:element>
+				        <!-- End of Change Request #531 -->
+				        <xs:element name="analytics" type="AnalyticType" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> An entity is something with distinct, independent
+							existence in the real world, either concrete or abstract. The term
+							entity may be used for the thing in the real world, or alternatively it
+							may be used for a representation of the thing in some information system
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+			      </xs:sequence>
+			      <xs:attributeGroup ref="irm:SecurityAttributesGroup"/>
+			      <xs:attribute name="uuid" type="UuidType" use="optional"/>
+			      <xs:attribute ref="DESVersion" use="optional"/>
+		    </xs:complexType>
+	  </xs:element>
+	  <!-- ************************************************************* -->
+	  <!-- Reference to a USB device                                     -->
+	  <!-- ************************************************************* -->
+	  <!-- Change Request #529 - Add USB device info -->
+	  <xs:complexType name="UsbDeviceReferenceType">
+		    <xs:annotation>
+			      <xs:documentation>Data about a device connected to the media via USB
+				interface.</xs:documentation>
+		    </xs:annotation>
+		    <xs:sequence>
+			      <xs:element name="serialNumber" type="xs:string"/>
+			      <xs:element name="vendorId" type="xs:string"/>
+			      <xs:element name="vendorName" type="xs:string"/>
+			      <xs:element name="productId" type="xs:string"/>
+			      <xs:element name="productName" type="xs:string"/>
+			      <xs:element name="interfaceId" type="xs:string" minOccurs="0"/>
+			      <xs:element name="interfaceName" type="xs:string" minOccurs="0"/>
+			      <xs:element name="version" type="xs:string"/>
+			      <xs:element name="firstConnectTime" type="xs:dateTime"/>
+			      <xs:element name="rebootConnectTime" type="xs:dateTime"/>
+			      <xs:element name="lastConnectTime" type="xs:dateTime"/>
+			      <xs:element name="volumeGuid" type="domex:UuidType"/>
+			      <xs:element name="softwareVersion" type="xs:string"/>
+			      <xs:element name="driveLetter" type="xs:string"/>
+		    </xs:sequence>
+		    <xs:attribute name="foundIn" type="xs:string" use="optional"/>
+	  </xs:complexType>
+	  <!-- End of change Request #529 - Add USB device info -->
+	  <xs:complexType name="TitleType">
+		    <xs:simpleContent>
+			      <xs:extension base="string500">
+				        <xs:attribute name="type"
+                          type="CVEnumDOMEXTitleTypeType:CVEnumDOMEXTitleTypeType"
+                          use="required">
+					          <xs:annotation>
+						            <xs:documentation> Type of title - Original, translated, descriptive
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:attribute>
+				        <xs:attribute name="language"
+                          type="CVEnumIRMISO639-3Trigraph:CVEnumIRMISO639-3Trigraph"
+                          use="optional">
+					          <xs:annotation>
+						            <xs:documentation> Language of the document title. </xs:documentation>
+					          </xs:annotation>
+				        </xs:attribute>
+				        <xs:attributeGroup ref="irm:SecurityAttributesGroup"/>
+			      </xs:extension>
+		    </xs:simpleContent>
+	  </xs:complexType>
+	  <xs:complexType name="BirDetaineeType">
+		    <xs:sequence>
+			      <xs:element name="birDetaineeName" type="string300">
+				        <xs:annotation>
+					          <xs:documentation> Detainee name associated with the ISNs in the Biometrics
+						Intelligence Resource (BIR). </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="biometricUrl"
+                     type="xs:anyURI"
+                     minOccurs="0"
+                     maxOccurs="unbounded">
+				        <xs:annotation>
+					          <xs:documentation> List of URLs to this detainee's records in BIR.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:sequence>
+		    <xs:attributeGroup ref="irm:SecurityAttributesGroup"/>
+	  </xs:complexType>
+	  <xs:complexType name="MediaFileType">
+		    <xs:choice>
+			      <xs:element name="exifImage" type="ImageDetailsType"/>
+			      <xs:element name="audio" type="AudioDetailsType"/>
+			      <xs:element name="video" type="VideoDetailsType"/>
+		    </xs:choice>
+	  </xs:complexType>
+	  <xs:complexType name="ImageDetailsType">
+		    <xs:annotation>
+			      <xs:documentation> Exchangeable Image File Format (EXIF) information. EXIF is the
+				standard that specifies the formats to be used for images, sound and tags in digital
+				still cameras and in other systems handling the image and sound files recorded by
+				digital still cameras. </xs:documentation>
+		    </xs:annotation>
+		    <xs:sequence>
+			      <xs:element name="model" type="string100" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The image input equipment model name or number.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="make" type="string100" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The image input equipment manufacturer. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="cameraSerialNumber" type="string100" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The image input equipment serial number. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="dateTimeOriginal" type="irm:CombinedDateType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The date and time of image creation. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="imageWidth" type="xs:positiveInteger" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The number of columns of image data, equal to the number of
+						pixels per row. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="imageLength" type="xs:positiveInteger" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The number of rows of image data. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="gpsCoordinates" type="tspi-core:PointType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The reported GPS coordinates expressed as degrees, minutes
+						and seconds. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="AudioDetailsType">
+		    <xs:annotation>
+			      <xs:documentation> Details for an audio file </xs:documentation>
+		    </xs:annotation>
+		    <xs:sequence>
+			      <xs:element name="bitRate" type="xs:positiveInteger" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The number of bits that are conveyed or processed per unit of
+						time. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="sampleRate" type="xs:positiveInteger" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The number of samples per unit of time (usually seconds)
+						taken from a continuous signal to make a discrete signal.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="channels" type="xs:positiveInteger" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The reported number of audio channels in a multitrack
+						recording. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="compression" type="string50" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The compression format or standard used to store the audio
+						data. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="codec" type="string50" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The device or computer program capable of encoding or
+						decoding a digital data stream or signal. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="VideoDetailsType">
+		    <xs:annotation>
+			      <xs:documentation> Details for a video file </xs:documentation>
+		    </xs:annotation>
+		    <xs:sequence>
+			      <xs:element name="creatorTool" type="string150">
+				        <xs:annotation>
+					          <xs:documentation> The reported tool that created the media file.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="frameRate" type="string50" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The reported frame rate of the media file.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="dataRate" type="string50" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The reported bit rate of the video stream.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="length" type="string50" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The length of the recording expressed in
+						hours:minutes:seconds </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="codec" type="string50" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The device or computer program capable of encoding or
+						decoding a digital data stream or signal. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="resolution" type="string50" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The number of pixels expressed as width x height.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="malware" type="string150" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> The name of a specific piece of malware found by a scan.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="TranslationDetailsType">
+		    <xs:annotation>
+			      <xs:documentation> Details for a translation </xs:documentation>
+		    </xs:annotation>
+		    <xs:sequence>
+			      <xs:element name="translationStatus"
+                     type="CVEnumDOMEXTranslationStatusType:CVEnumDOMEXTranslationStatusType"
+                     minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Status of the translation activity. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="translationAgency" type="AgencyType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Agency/Organization assigned to perform the translation.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="translationType"
+                     type="CVEnumDOMEXTranslationType:CVEnumDOMEXTranslationType"
+                     minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Description of the type of translation. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="translationDate" type="irm:CombinedDateType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Date the translation was completed. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="languageFrom"
+                     type="CVEnumIRMISO639-3Trigraph:CVEnumIRMISO639-3Trigraph"
+                     minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Language(s) of the original document being translated.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="languageTo"
+                     type="CVEnumIRMISO639-3Trigraph:CVEnumIRMISO639-3Trigraph"
+                     minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Language being translated to; this is usually English.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="translationDocument" type="xs:anyURI" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Document resulting from this translation. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="priority"
+                     type="CVEnumDOMEXTranslationPriorityType:CVEnumDOMEXTranslationPriorityType"
+                     minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Priority of this translation. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="remark" type="RemarkType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Additional information about the translation.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="requester" type="string300" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Name of the individual requesting a translation.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="requesterAgency" type="AgencyType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Agency/Organization of the translation requester.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="requestDate" type="irm:CombinedDateType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Date the request was submitted. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="dateRequired" type="irm:CombinedDateType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Date by which the translation is required.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="machineTranslationTool" type="string256" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Name and version of the tool used to create the machine
+						translation. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="AnalyticType">
+		    <xs:annotation>
+			      <xs:documentation> Content and Analytic Metadata - An entity is something with distinct,
+				independent existence in the real world, either concrete or abstract. The term
+				entity may be used for the thing in the real world, or alternatively it may be used
+				for a representation of the thing in some information system.. Relationships that
+				exist between entities. </xs:documentation>
+		    </xs:annotation>
+		    <xs:choice maxOccurs="unbounded">
+			      <xs:element name="personEntity">
+				        <xs:annotation>
+					          <xs:documentation> A physical person is a biological entity that uniquely
+						represents a person. Any entity with the attributes that constitute
+						personhood. </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:group ref="entityCommonElements"/>
+						            <xs:group ref="namedEntityCommonElements"/>
+					          </xs:sequence>
+					          <xs:attribute name="uuid" type="UuidType"/>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="identityEntity">
+				        <xs:annotation>
+					          <xs:documentation> An identity is a set of biographic information and/or
+						biometric information (e.g., photographs) that a person uses and/or is
+						associated with at a point in time. Each physical person can have multiple
+						identities. Multiple identities can be grouped together into a single
+						person, associating the group to the biometric information for the person.
+						Optional Identity attributes include: Honorific Prefix, Given Name,
+						Additional Name, Family Name, Honorific Suffix, Date of Birth, Date of
+						Death, Place of Birth, Place of Death, Gender, Physical Description
+					</xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:group ref="entityCommonElements"/>
+						            <xs:group ref="namedEntityCommonElements"/>
+						            <xs:element ref="Identity:identity"/>
+					          </xs:sequence>
+					          <xs:attribute name="uuid" type="UuidType"/>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="personaEntity">
+				        <xs:annotation>
+					          <xs:documentation> A collection of attributes that may include the attributes
+						for identity but will also include attributes that is dependent on context
+						and/or circumstance. </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:group ref="entityCommonElements"/>
+						            <xs:group ref="namedEntityCommonElements"/>
+						            <xs:element name="userName" type="xs:string">
+							              <xs:annotation>
+								                <xs:documentation> User name. </xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+						            <xs:element name="role" type="xs:string">
+							              <xs:annotation>
+								                <xs:documentation> A specific application within a persona.
+								</xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+						            <xs:element name="accountType" type="xs:string">
+							              <xs:annotation>
+								                <xs:documentation> The type of account, includes email address,
+									instant messenger, VOIP, social networking site: Facebook,
+									Twitter, Google+, Other. </xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+						            <xs:element name="handle" type="xs:string">
+							              <xs:annotation>
+								                <xs:documentation> Alias. </xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+					          </xs:sequence>
+					          <xs:attribute name="uuid" type="UuidType"/>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="organizationEntity">
+				        <xs:annotation>
+					          <xs:documentation> Organization - a group of persons united for a cause,
+						activity, ideal, etc. </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:group ref="entityCommonElements"/>
+						            <xs:group ref="namedEntityCommonElements"/>
+						            <xs:element ref="organization"/>
+					          </xs:sequence>
+					          <xs:attribute name="uuid" type="UuidType"/>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="locationEntity">
+				        <xs:annotation>
+					          <xs:documentation> Geopoint or Postal Address. </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:group ref="entityCommonElements"/>
+						            <xs:group ref="namedEntityCommonElements"/>
+						            <xs:choice>
+							              <xs:element name="address" type="irm:PlaceType">
+								                <xs:annotation>
+									                  <xs:documentation> A group of entities used in the DoD Discovery
+										Metadata Specification postalAddress plus others. Optionally
+										includes Street, City, State, Province, Postal Code, and
+										Country Code. </xs:documentation>
+								                </xs:annotation>
+							              </xs:element>
+							              <xs:element name="geoPoint" type="tspi-core:PointType">
+								                <xs:annotation>
+									                  <xs:documentation> Associated location. Type: Geopoint
+										(optional) </xs:documentation>
+								                </xs:annotation>
+							              </xs:element>
+						            </xs:choice>
+					          </xs:sequence>
+					          <xs:attribute name="uuid" type="UuidType"/>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="equipmentEntity">
+				        <xs:annotation>
+					          <xs:documentation> The name or nomenclature of the equipment.
+					</xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:group ref="entityCommonElements"/>
+						            <xs:group ref="namedEntityCommonElements"/>
+						            <xs:element ref="equipment"/>
+					          </xs:sequence>
+					          <xs:attribute name="uuid" type="UuidType"/>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="facilityEntity">
+				        <xs:annotation>
+					          <xs:documentation> Facility name. </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:group ref="entityCommonElements"/>
+						            <xs:group ref="namedEntityCommonElements"/>
+						            <xs:element ref="facility"/>
+					          </xs:sequence>
+					          <xs:attribute name="uuid" type="UuidType"/>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="systemUriEntity">
+				        <xs:annotation>
+					          <xs:documentation> Uniform Resource Identifier (URI). </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:group ref="entityCommonElements"/>
+						            <xs:element name="uri" type="xs:anyURI"/>
+					          </xs:sequence>
+					          <xs:attribute name="uuid" type="UuidType"/>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="emailAddressEntity">
+				        <xs:annotation>
+					          <xs:documentation> EmailAddress </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:group ref="entityCommonElements"/>
+						            <xs:element name="emailAddress" type="string256">
+							              <xs:annotation>
+								                <xs:documentation> An address for electronic mail. Can be for a
+									person or organization. </xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+					          </xs:sequence>
+					          <xs:attribute name="uuid" type="UuidType"/>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="webAddressEntity">
+				        <xs:annotation>
+					          <xs:documentation> Web Address </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:group ref="entityCommonElements"/>
+						            <xs:element name="webAddress" type="string256"/>
+					          </xs:sequence>
+					          <xs:attribute name="uuid" type="UuidType"/>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="titleEntity">
+				        <xs:annotation>
+					          <xs:documentation> Title (personal) as extracted from a file by an entity
+						extraction tool. </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:group ref="entityCommonElements"/>
+					          </xs:sequence>
+					          <xs:attribute name="uuid" type="UuidType"/>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="creditCardNumberEntity">
+				        <xs:annotation>
+					          <xs:documentation> Credit card number as extracted from a file by an entity
+						extraction tool. </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:group ref="entityCommonElements"/>
+					          </xs:sequence>
+					          <xs:attribute name="uuid" type="UuidType"/>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="personalIdEntity">
+				        <xs:annotation>
+					          <xs:documentation> Personal Identification Number as extracted from a file by an
+						entity extraction tool. </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:group ref="entityCommonElements"/>
+					          </xs:sequence>
+					          <xs:attribute name="uuid" type="UuidType"/>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="moneyEntity">
+				        <xs:annotation>
+					          <xs:documentation> A unit of currency as extracted from a file by an entity
+						extraction tool. </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:group ref="entityCommonElements"/>
+					          </xs:sequence>
+					          <xs:attribute name="uuid" type="UuidType"/>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="nationalityEntity">
+				        <xs:annotation>
+					          <xs:documentation> Nationality as extracted from a file by an entity extraction
+						tool. </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:group ref="entityCommonElements"/>
+					          </xs:sequence>
+					          <xs:attribute name="uuid" type="UuidType"/>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="religionEntity">
+				        <xs:annotation>
+					          <xs:documentation> Religion as extracted from a file by an entity extraction
+						tool. </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:group ref="entityCommonElements"/>
+					          </xs:sequence>
+					          <xs:attribute name="uuid" type="UuidType"/>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="distanceEntity">
+				        <xs:annotation>
+					          <xs:documentation> Distance as extracted from a file by an entity extraction
+						tool. </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:group ref="entityCommonElements"/>
+					          </xs:sequence>
+					          <xs:attribute name="uuid" type="UuidType"/>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="timeEntity">
+				        <xs:annotation>
+					          <xs:documentation> Time as extracted from a file by an entity extraction tool.
+					</xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:group ref="entityCommonElements"/>
+					          </xs:sequence>
+					          <xs:attribute name="uuid" type="UuidType"/>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="productEntity">
+				        <xs:annotation>
+					          <xs:documentation> </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:group ref="entityCommonElements"/>
+						            <xs:group ref="namedEntityCommonElements"/>
+					          </xs:sequence>
+					          <xs:attribute name="uuid" type="UuidType"/>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="financialTransactionEntity">
+				        <xs:annotation>
+					          <xs:documentation> Financial Transaction </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:group ref="entityCommonElements"/>
+						            <xs:element name="date" type="irm:CombinedDateType" minOccurs="0">
+							              <xs:annotation>
+								                <xs:documentation> Date the financial transaction occurred.
+								</xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+						            <xs:element name="item" type="string100" minOccurs="0">
+							              <xs:annotation>
+								                <xs:documentation> Subject of the financial transaction. For
+									example, Payment, Purchase </xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+						            <xs:element name="amount" type="string100" minOccurs="0">
+							              <xs:annotation>
+								                <xs:documentation> Amount of the financial transaction.
+								</xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+						            <xs:element name="type"
+                              type="CVEnumDOMEXFinancialTransactionTypeType:CVEnumDOMEXFinancialTransactionTypeType"
+                              minOccurs="0">
+							              <xs:annotation>
+								                <xs:documentation> Type of financial transaction. Includes PayPal,
+									Cash, Western Union, Credit Card, On-line Hawala Site, Bank Wire
+									Transfer, Other. </xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+						            <xs:element name="accountNumber" type="string50" minOccurs="0">
+							              <xs:annotation>
+								                <xs:documentation> Account number used in the transaction.
+								</xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+						            <xs:element name="accountType"
+                              type="CVEnumDOMEXFinancialAccountTypeType:CVEnumDOMEXFinancialAccountTypeType"
+                              minOccurs="0">
+							              <xs:annotation>
+								                <xs:documentation> Type of financial account. Values include ATM
+									Card, Checking, Credit Card, Debit Card, Investment, Savings,
+									Other. </xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+						            <xs:element name="password" type="string50" minOccurs="0">
+							              <xs:annotation>
+								                <xs:documentation> Password used in the financial transaction.
+								</xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+						            <xs:element name="pin" type="string20" minOccurs="0">
+							              <xs:annotation>
+								                <xs:documentation> Personal Identification Number used in the
+									financial transaction. </xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+						            <xs:element name="remark"
+                              type="RemarkType"
+                              minOccurs="0"
+                              maxOccurs="unbounded">
+							              <xs:annotation>
+								                <xs:documentation> Use remarks. </xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+					          </xs:sequence>
+					          <xs:attribute name="uuid" type="UuidType"/>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="travelEntity">
+				        <xs:annotation>
+					          <xs:documentation> Entity for travel transactions. </xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:group ref="entityCommonElements"/>
+						            <xs:element name="type"
+                              type="CVEnumDOMEXTravelTypeType:CVEnumDOMEXTravelTypeType"
+                              minOccurs="0">
+							              <xs:annotation>
+								                <xs:documentation> The method of travel. Values include: Auto,
+									Bicycle, Bus, Commercial Air, Commercial Truck, Commercial
+									Vessel, Express Consignment, Fishing Vessel, Mail, Motorcycle,
+									Pedestrian, Private Aircraft, Private Vessel, Train, Truck, Van,
+									Other. </xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+						            <xs:element name="carrier" type="string100" minOccurs="0">
+							              <xs:annotation>
+								                <xs:documentation> Name of the airline, vessel, train.
+								</xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+						            <xs:element name="flightType"
+                              type="CVEnumDOMEXFlightTypeType:CVEnumDOMEXFlightTypeType"
+                              minOccurs="0">
+							              <xs:annotation>
+								                <xs:documentation> The type of airline flight. Values are: Domestic,
+									Extra-territorial, and International </xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+						            <xs:element name="travelIdentifier" type="string50" minOccurs="0">
+							              <xs:annotation>
+								                <xs:documentation> Flight number, train number, bus route, etc.
+								</xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+						            <xs:element name="departureLocation" type="irm:PlaceType" minOccurs="0">
+							              <xs:annotation>
+								                <xs:documentation> Postal address of the departure location.
+								</xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+						            <xs:element name="departureDateTime" type="irm:CombinedDateType" minOccurs="0">
+							              <xs:annotation>
+								                <xs:documentation> Date and time of the departure.
+								</xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+						            <xs:element name="arrivalLocation" type="irm:PlaceType" minOccurs="0">
+							              <xs:annotation>
+								                <xs:documentation> Postal address of the arrival location.
+								</xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+						            <xs:element name="arrivalDateTime" type="irm:CombinedDateType" minOccurs="0">
+							              <xs:annotation>
+								                <xs:documentation> Date and time of the arrival. </xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+					          </xs:sequence>
+					          <xs:attribute name="uuid" type="UuidType"/>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="eventEntity">
+				        <xs:annotation>
+					          <xs:documentation> Event - Something that takes place; an occurrence.
+					</xs:documentation>
+				        </xs:annotation>
+				        <xs:complexType>
+					          <xs:sequence>
+						            <xs:group ref="entityCommonElements"/>
+						            <xs:element name="type" type="CVEnumDOMEXEventTypeType:CVEnumDOMEXEventTypeType">
+							              <xs:annotation>
+								                <xs:documentation> The type of event. Includes Conflict, Objective,
+									Raid, Political. </xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+						            <xs:element name="startDate" type="irm:CombinedDateType" minOccurs="0">
+							              <xs:annotation>
+								                <xs:documentation> Date the event started. </xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+						            <xs:element name="endDate" type="irm:CombinedDateType" minOccurs="0">
+							              <xs:annotation>
+								                <xs:documentation> Date the event ended. </xs:documentation>
+							              </xs:annotation>
+						            </xs:element>
+					          </xs:sequence>
+					          <xs:attribute name="uuid" type="UuidType"/>
+				        </xs:complexType>
+			      </xs:element>
+		    </xs:choice>
+	  </xs:complexType>
+	  <xs:group name="entityCommonElements">
+		    <xs:annotation>
+			      <xs:documentation> Each entity will have these elements </xs:documentation>
+		    </xs:annotation>
+		    <xs:sequence>
+			      <xs:element name="methodOfExtraction"
+                     type="CVEnumDOMEXEntityMethodOfExtractionType:CVEnumDOMEXEntityMethodOfExtractionType">
+				        <xs:annotation>
+					          <xs:documentation> Types are Automatic or Manual </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="processingEngine" type="xs:string">
+				        <xs:annotation>
+					          <xs:documentation> Engine that extracted the entity (optional).
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="textStartingPosition" type="xs:nonNegativeInteger">
+				        <xs:annotation>
+					          <xs:documentation> Character offset from the start of the file.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="textEndingPosition" type="xs:nonNegativeInteger">
+				        <xs:annotation>
+					          <xs:documentation> Character offset from the start of the file.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="confidenceValue" type="xs:nonNegativeInteger">
+				        <xs:annotation>
+					          <xs:documentation> User or machine assigned confidence value.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="creationDate" type="irm:CombinedDateType">
+				        <xs:annotation>
+					          <xs:documentation> Date the Entity was created. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="isVerified" type="xs:boolean">
+				        <xs:annotation>
+					          <xs:documentation> Boolean value indicating if a human has verified the entity
+						is of the type indicated. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="lastModifiedDate" type="irm:CombinedDateType">
+				        <xs:annotation>
+					          <xs:documentation> Date the entity was last updated. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="verifiedBy" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Name of the person who verified the entity.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="relationship"
+                     type="RelationshipType"
+                     minOccurs="0"
+                     maxOccurs="unbounded">
+				        <xs:annotation>
+					          <xs:documentation> Relationship link between this entity and another entity.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:sequence>
+	  </xs:group>
+	  <xs:group name="namedEntityCommonElements">
+		    <xs:annotation>
+			      <xs:documentation> Each Named Entity will have these elements </xs:documentation>
+		    </xs:annotation>
+		    <xs:sequence>
+			      <xs:element name="properName" type="xs:string">
+				        <xs:annotation>
+					          <xs:documentation> Extracted from the original source text </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="language"
+                     type="CVEnumIRMISO639-3Trigraph:CVEnumIRMISO639-3Trigraph">
+				        <xs:annotation>
+					          <xs:documentation> Language code. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="translatedName" type="xs:string">
+				        <xs:annotation>
+					          <xs:documentation> Equivalent English name (optional) </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="transliteratedName" type="xs:string">
+				        <xs:annotation>
+					          <xs:documentation> Latinized representation (optional) </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="location" type="tspi-core:PointType">
+				        <xs:annotation>
+					          <xs:documentation> Associated location. Type: Geopoint (optional)
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:sequence>
+	  </xs:group>
+	  <!-- ************************************************************* -->
+	  <!-- Attribute - DESVersion                                        -->
+	  <!-- ************************************************************* -->
+	  <xs:attribute name="DESVersion">
+		    <xs:annotation>
+			      <xs:documentation xml:lang="en">
+				        <xhtml:p ism:ownerProducer="USA" ism:classification="U">The version number of the
+					specification. This attribute is intended for processing systems to determine
+					the appropriate versions of Schema, Schematron, and CVE values for validation
+					and interpretation of an instance document. </xhtml:p>
+				        <xhtml:p ism:ownerProducer="USA" ism:classification="U">If there are multiple of
+					this attribute specified in an instance document, the first one in document
+					order is the one that will apply to the entire document. Document order is
+					defined in <xhtml:a href="https://www.w3.org/TR/xpath-datamodel/#document-order">https://www.w3.org/TR/xpath-datamodel/#document-order</xhtml:a>
+				        </xhtml:p>
+			      </xs:documentation>
+		    </xs:annotation>
+		    <xs:simpleType>
+			      <xs:restriction base="xs:string">
+				        <xs:pattern value="[0-9]{6}(\.[0-9]{6})?(\-.{1,23})?"/>
+			      </xs:restriction>
+		    </xs:simpleType>
+	  </xs:attribute>
+	  <!-- **************************************************************** -->
+	  <!-- Some common elements used in various locations throughout schema -->
+	  <!-- **************************************************************** -->
+	  <xs:complexType name="RelationshipType">
+		    <xs:annotation>
+			      <xs:documentation> A relationship captures how entities are related to one another.
+				Relationship type has an attribute that captures the broad classification of the
+				relationship, such as: Familial, Employment, Student-Alum, Membership, Located,
+				Transactions, Communication, Associations The element relatedTo contains the name or
+				identification of the related entity and an attribute indicating the more specific
+				nature of the broad relationship category. For example, if the broad category is
+				"Employment", the nature of the employment could be: Employed by, Is Officer of,
+				Works In, Subordinate To, Senior To. </xs:documentation>
+		    </xs:annotation>
+		    <xs:sequence>
+			      <xs:element name="relatedTo">
+				        <xs:complexType>
+					          <xs:simpleContent>
+						            <xs:extension base="xs:string">
+							              <xs:attribute name="nature"
+                                   type="CVEnumDOMEXRelationshipNatureType:CVEnumDOMEXRelationshipNatureType"/>
+						            </xs:extension>
+					          </xs:simpleContent>
+				        </xs:complexType>
+			      </xs:element>
+			      <xs:element name="startDate" type="irm:CombinedDateType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Date the relationship began. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="endDate" type="irm:CombinedDateType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Date the relationship ended. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:sequence>
+		    <xs:attribute name="type"
+                    type="CVEnumDOMEXRelationshipTypeType:CVEnumDOMEXRelationshipTypeType"
+                    use="required"/>
+	  </xs:complexType>
+	  <xs:complexType name="AgencyType">
+		    <xs:sequence>
+			      <xs:element name="primaryAgency"
+                     type="CVEnumUSAgencyAcronym:CVEnumUSAgencyAcronym"
+                     minOccurs="1"
+                     maxOccurs="1">
+				        <xs:annotation>
+					          <xs:documentation>
+						            <xhtml:p ism:ownerProducer="USA" ism:classification="U"> The primary or
+							high-level agency name.</xhtml:p>
+					          </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="subAgency" type="xs:NMTOKEN" minOccurs="0" maxOccurs="1">
+				        <xs:annotation>
+					          <xs:documentation>
+						            <xhtml:p ism:ownerProducer="USA" ism:classification="U"> The subagency
+							within the agency specified.</xhtml:p>
+					          </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="RemarkType">
+		    <xs:annotation>
+			      <xs:documentation> Generalized remark element consisting of a remark string with
+				attached ISM classification attributes. </xs:documentation>
+		    </xs:annotation>
+		    <xs:simpleContent>
+			      <xs:extension base="string4000">
+				        <xs:attributeGroup ref="irm:SecurityAttributesGroup"/>
+			      </xs:extension>
+		    </xs:simpleContent>
+	  </xs:complexType>
+	  <xs:simpleType name="UuidType">
+		    <xs:annotation>
+			      <xs:documentation> Pattern for checking a UUID. UUID =
+				00000000-0000-0000-0000000000000000 </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{16}"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:complexType name="HashDigestType">
+		    <xs:annotation>
+			      <xs:documentation> Generalized hash element consisting of a string with attached hash
+				type attribute. </xs:documentation>
+		    </xs:annotation>
+		    <xs:simpleContent>
+			      <xs:extension base="string100">
+				        <xs:attribute name="type"
+                          type="CVEnumDOMEXHashDigestTypeType:CVEnumDOMEXHashDigestTypeType"
+                          use="required"/>
+			      </xs:extension>
+		    </xs:simpleContent>
+	  </xs:complexType>
+	  <xs:complexType name="ActivityType">
+		    <xs:sequence>
+			      <xs:element name="primaryActivity"
+                     type="CVEnumDOMEXActivityType:CVEnumDOMEXActivityType"/>
+			      <xs:element name="subActivity"
+                     type="xs:string"
+                     minOccurs="0"
+                     maxOccurs="unbounded"/>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <!-- ************************************************************* -->
+	  <!-- String length restrictions                                    -->
+	  <!-- ************************************************************* -->
+	  <xs:simpleType name="string20">
+		    <xs:annotation>
+			      <xs:documentation> Length restricted string </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:maxLength value="20"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="string36">
+		    <xs:annotation>
+			      <xs:documentation> Length restricted string </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:maxLength value="36"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="string38">
+		    <xs:annotation>
+			      <xs:documentation> Length restricted string </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:maxLength value="38"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="string40">
+		    <xs:annotation>
+			      <xs:documentation> Length restricted string </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:maxLength value="40"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="string50">
+		    <xs:annotation>
+			      <xs:documentation> Length restricted string </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:maxLength value="50"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="string100">
+		    <xs:annotation>
+			      <xs:documentation> Length restricted string </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:maxLength value="100"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="string150">
+		    <xs:annotation>
+			      <xs:documentation> Length restricted string </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:maxLength value="150"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="string200">
+		    <xs:annotation>
+			      <xs:documentation> Length restricted string </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:maxLength value="200"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="string256">
+		    <xs:annotation>
+			      <xs:documentation> Length restricted string </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:maxLength value="256"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="string300">
+		    <xs:annotation>
+			      <xs:documentation> Length restricted string </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:maxLength value="300"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="string400">
+		    <xs:annotation>
+			      <xs:documentation> Length restricted string </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:maxLength value="400"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="string500">
+		    <xs:annotation>
+			      <xs:documentation> Length restricted string </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:maxLength value="500"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="string512">
+		    <xs:annotation>
+			      <xs:documentation> Length restricted string </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:maxLength value="512"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="string1000">
+		    <xs:annotation>
+			      <xs:documentation> Length restricted string </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:maxLength value="1000"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="string4000">
+		    <xs:annotation>
+			      <xs:documentation> Length restricted string </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:maxLength value="4000"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+</xs:schema>
+<!-- ****************************************************************    					-->
+<!--      Formal Change List for DOMEX Module                            					-->
+<!-- ****************************************************************    					-->
+<!-- For all changes, provide:																-->
+<!--     version, date, modified by, and purpose information.            					-->
+<!-- ******************************************************************* 					-->
+<!-- 2013-04-01.  Initial Release of this module providing               					-->
+<!--              DOMEX assertion for the DDMS spec                      					-->
+<!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI    					-->
+<!--                                                                     					-->
+<!-- 2013-05-06   Changes requested by ODNI CIO Office                   					-->
+<!--              Replace all references to DOMEX extension to DOMEX assertion.				-->
+<!--              Change schema references to Coral Reef to Cellex Report.					-->
+<!--			  Remove FOUO designation from the acquisition definition.					-->
+<!--			  Modify schema to use 3 namespaces: domex, cellexReport, and Identity		-->
+<!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI    					-->
+<!--																	 					-->
+<!-- 2013-05-17   Changes requested by ODNI CIO Office                   					-->
+<!--              Removed elements from DOMEX assertion that are availabe in DDMS			-->
+<!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI    					-->
+<!--                                                                                        -->
+<!--  2013-05-29  Removed FOUO dissemination controls per NMEC                              -->
+<!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI                       -->
+<!--                                                                                        -->
+<!--  2013-07-24  Replaced DDMS:securityAttributesGroup with ISM:securityAttributesGroup    -->
+<!--              Per public review comments                                                -->
+<!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI                       -->
+<!--  Start V2                                                                              -->
+<!--  2013-11-19  artf14830 - Unbound facility address element                              -->
+<!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI                       -->
+<!--                                                                                        -->
+<!--  2013-11-19  artf14831 - Unbound project element                                       -->
+<!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI                       -->
+<!--                                                                                        -->
+<!--  2013-11-19  artf14832 - Media or derived file information optional                    -->
+<!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI                       -->
+<!--                                                                                        -->
+<!--  2013-11-20  artf14834 - Make deviceImage optional                                     -->
+<!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI                       -->
+<!--                                                                                        -->
+<!--  2013-11-20  artf14840 - Leave hash value in file definition                           -->
+<!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI                       -->
+<!--                                                                                        -->
+<!--  2013-11-21  artf14833 - Change country code validation from ISO 3166 to GENC          -->
+<!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI                       -->
+<!--                                                                                        -->
+<!--  2013-11-26  artf14837 - Change from USAgency to DOMEX Agency List                     -->
+<!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI                       -->
+<!--                                                                                        -->
+<!--  2014-12-09  Change Request #530  DOMEX: Additions to Collection Details 				-->
+<!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI                       -->
+<!--                                                                                        -->
+<!--  2014-12-10  Change Request #532 DOMEX: File Types - Accommodate Legacy Data Stores    -->
+<!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI                       -->
+<!--                                                                                        -->
+<!--  2014-12-11  Change Request #531 - DOMEX: Derived Files								-->
+<!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI                       -->
+<!--                                                                     					-->
+<!--  2015-01-06  Change Request #663 - Allow multiple hash values                          -->
+<!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI                       -->
+<!--                                                                                        -->
+<!--  2015-02-25  Change Request #529 - Add USB device info                                 -->
+<!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI                       -->
+<!--                                                                                        -->
+<!--  2015-03-02  Change Request #889 - Add Activity / sub activity elements                -->
+<!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI   -->
+<!--  2021-04-30  The schema change logs will no longer be maintained as of the 2021-NOV
+	              release. The existing change logs will only serve as legacy information. 
+                  For changes to schema as of and after 2021-NOV, reference the change 
+                  history in the DES.                                                        -->
+<!-- ****************************************************************    					-->
+<!--                                                                     					-->
+<!--*****************************-->
+<!--       UNCLASSIFIED          -->
+<!--*****************************-->

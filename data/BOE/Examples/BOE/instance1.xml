@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/BOE/BOE_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<BOE xmlns="urn:us:gov:ic:boe"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:boe="urn:us:gov:ic:boe"
+     xsi:schemaLocation="urn:us:gov:ic:boe ../../Schema/BOE/BOE.xsd"
+     boe:DESVersion="201804">
+  <arh:Security xmlns:arh="urn:us:gov:ic:arh"
+                xmlns:ism="urn:us:gov:ic:ism"
+                ism:DESVersion="202111.202211"
+                ism:ISMCATCESVersion="202211"
+                ism:resourceElement="true"
+                ism:compliesWith="USGov USIC"
+                ism:createDate="2017-09-28"
+                ism:classification="U"
+                ism:ownerProducer="USA" />
+  <SystemInformation>
+    <SystemName xmlns:ism="urn:us:gov:ic:ism"
+                ism:classification="U"
+                ism:ownerProducer="USA">SystemName0</SystemName>
+    <SystemIdentifier xmlns:ism="urn:us:gov:ic:ism"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">SystemIdentifier0</SystemIdentifier>
+    <SystemVersion xmlns:ism="urn:us:gov:ic:ism"
+                   ism:classification="U"
+                   ism:ownerProducer="USA">SystemVersion0</SystemVersion>
+    <OrganizationName xmlns:ism="urn:us:gov:ic:ism"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">OrganizationName0</OrganizationName>
+    <InformationTechnologyType xmlns:ism="urn:us:gov:ic:ism"
+                               ism:classification="U"
+                               ism:ownerProducer="USA"
+                               boe:typeOfService="ENCLAVE"
+                               boe:isStandalone="true" />
+    <SecurityCategorization xmlns:ism="urn:us:gov:ic:ism"
+                            ism:classification="U"
+                            ism:ownerProducer="USA">
+      <Confidentiality ism:classification="U"
+                       ism:ownerProducer="USA"
+                       boe:response="MODERATE" />
+      <Integrity ism:classification="U"
+                 ism:ownerProducer="USA"
+                 boe:response="MODERATE" />
+      <Availability ism:classification="U"
+                    ism:ownerProducer="USA"
+                    boe:response="LOW" />
+    </SecurityCategorization>
+    <SystemShortName xmlns:ism="urn:us:gov:ic:ism"
+                     ism:classification="U"
+                     ism:ownerProducer="USA">SYSTEM</SystemShortName>
+    <NationalSecuritySystem xmlns:ism="urn:us:gov:ic:ism"
+                            boe:response="true"
+                            ism:classification="U"
+                            ism:ownerProducer="USA" />
+    <OperationalEnvironment xmlns:ism="urn:us:gov:ic:ism"
+                            boe:response="TEST"
+                            ism:classification="U"
+                            ism:ownerProducer="USA" />
+    <DataAuthorizationLevel xmlns:ism="urn:us:gov:ic:ism"
+                            ism:classification="U"
+                            ism:ownerProducer="USA">
+      <Clearance xmlns="urn:us:gov:ic:uias">U</Clearance>
+      <HandlingControls xmlns="urn:us:gov:ic:uias">FOUO</HandlingControls>
+    </DataAuthorizationLevel>
+  </SystemInformation>
+  <SSP>
+    <AuthorizationBoundaryDiagram xmlns:ism="urn:us:gov:ic:ism"
+                                  ism:classification="U"
+                                  ism:ownerProducer="USA">
+      <URI>./images/authBoundries.jpg</URI>
+      <Description ism:classification="U"
+                   ism:ownerProducer="USA">Image alt-text.</Description>
+    </AuthorizationBoundaryDiagram>
+    <AuthorizationStatus xmlns:ism="urn:us:gov:ic:ism"
+                         ism:classification="U"
+                         ism:ownerProducer="USA">ATO</AuthorizationStatus>
+    <AuthorizationTerminationDate xmlns:ism="urn:us:gov:ic:ism"
+                                  ism:classification="U"
+                                  ism:ownerProducer="USA">2020-05-04T18:13:51Z</AuthorizationTerminationDate>
+    <CryptographicKey>
+      <FIPSValidatedUnclass xmlns:ism="urn:us:gov:ic:ism"
+                            boe:response="false"
+                            ism:classification="U"
+                            ism:ownerProducer="USA">This is a classified system, unclass validation not necessary.</FIPSValidatedUnclass>
+      <FIPSValidatedCompartment xmlns:ism="urn:us:gov:ic:ism"
+                                boe:response="true"
+                                ism:classification="U"
+                                ism:ownerProducer="USA" />
+      <NSAApprovedCrypto xmlns:ism="urn:us:gov:ic:ism"
+                         boe:response="true"
+                         ism:classification="U"
+                         ism:ownerProducer="USA" />
+    </CryptographicKey>
+    <EAuthenticationAssessment xmlns:ism="urn:us:gov:ic:ism"
+                               ism:classification="U"
+                               ism:ownerProducer="USA"
+                               boe:response="false" />
+    <ExternalSecurityServices xmlns:ism="urn:us:gov:ic:ism"
+                              ism:classification="U"
+                              ism:ownerProducer="USA">
+      <SecurityService boe:name="OAuth"
+                       boe:provider="Google"
+                       boe:meetsOrgSecurityRequirements="true">
+        <Description ism:classification="U"
+                     ism:ownerProducer="USA">blah blah blah</Description>
+      </SecurityService>
+    </ExternalSecurityServices>
+    <HardwareInventory xmlns:ism="urn:us:gov:ic:ism"
+                       ism:classification="U"
+                       ism:ownerProducer="USA">
+      <HardwareComponent ism:classification="U"
+                         ism:ownerProducer="USA">
+        <Name>Foo</Name>
+        <OwnerManufacturer>Bar</OwnerManufacturer>
+        <Version>1G876</Version>
+      </HardwareComponent>
+    </HardwareInventory>
+    <SoftwareInventory xmlns:ism="urn:us:gov:ic:ism"
+                       ism:classification="U"
+                       ism:ownerProducer="USA">
+      <SoftwareComponent boe:softwareCategory="OSS"
+                         ism:classification="U"
+                         ism:ownerProducer="USA">
+        <Name>Python</Name>
+        <OwnerManufacturer>Python Software Foundation</OwnerManufacturer>
+        <Version>3.1</Version>
+      </SoftwareComponent>
+    </SoftwareInventory>
+    <ExternalSystemInterfaceDiagram xmlns:ism="urn:us:gov:ic:ism"
+                                    ism:classification="U"
+                                    ism:ownerProducer="USA">
+      <URI>./images/externalInterfaces.jpg</URI>
+      <Description ism:classification="U"
+                   ism:ownerProducer="USA">External Interface Diagram</Description>
+    </ExternalSystemInterfaceDiagram>
+    <InternalSystemInterfaceDiagram xmlns:ism="urn:us:gov:ic:ism"
+                                    ism:classification="U"
+                                    ism:ownerProducer="USA">
+      <URI>./images/internalInterfaces.png</URI>
+      <Description ism:classification="U"
+                   ism:ownerProducer="USA">Internal Interface Diagram</Description>
+    </InternalSystemInterfaceDiagram>
+    <NetworkConnectionRules xmlns:ism="urn:us:gov:ic:ism"
+                            ism:classification="U"
+                            ism:ownerProducer="USA">NetworkConnectionRules0</NetworkConnectionRules>
+    <InformationType xmlns:ism="urn:us:gov:ic:ism"
+                     ism:classification="U"
+                     ism:ownerProducer="USA">Blah Blah Blah</InformationType>
+    <InformationFlowDiagram xmlns:ism="urn:us:gov:ic:ism"
+                            ism:classification="U"
+                            ism:ownerProducer="USA">
+      <URI>./images/flow.png</URI>
+      <Description ism:classification="U"
+                   ism:ownerProducer="USA">Information Flow Diagram</Description>
+    </InformationFlowDiagram>
+    <MissionCriticality xmlns:ism="urn:us:gov:ic:ism"
+                        ism:classification="U"
+                        ism:ownerProducer="USA"
+                        boe:response="false" />
+    <SystemOwnership xmlns:ism="urn:us:gov:ic:ism"
+                     ism:classification="U"
+                     ism:ownerProducer="USA">GOVERNMENTOWNEDGOVERNMENTOPERATED</SystemOwnership>
+    <PhysicalEnvironment xmlns:ism="urn:us:gov:ic:ism"
+                         ism:classification="U"
+                         ism:ownerProducer="USA">PhysicalEnvironmet0</PhysicalEnvironment>
+    <KeyRoles xmlns:ism="urn:us:gov:ic:ism"
+              ism:classification="U"
+              ism:ownerProducer="USA">
+      <DelegatedAuthorizingOfficial ism:classification="U"
+                                    ism:ownerProducer="USA">
+        <Name>Gabriel Lorca</Name>
+        <Title>Captain</Title>
+        <Organization>Starfleet</Organization>
+        <Phone>444-444-4444</Phone>
+      </DelegatedAuthorizingOfficial>
+      <Other ism:classification="U"
+             ism:ownerProducer="USA">
+        <Name>Michael Burnham</Name>
+        <Organization>Starfleet</Organization>
+        <Email>michael.burnham@disco.sf.mil</Email>
+        <Role>Observer</Role>
+      </Other>
+    </KeyRoles>
+    <SystemLifecyclePhase xmlns:ism="urn:us:gov:ic:ism"
+                          ism:classification="U"
+                          ism:ownerProducer="USA"
+                          boe:response="3-B-EMD" />
+    <SystemUserCategories xmlns:ism="urn:us:gov:ic:ism"
+                          ism:classification="U"
+                          ism:ownerProducer="USA">
+      <SystemUserCategory ism:classification="U"
+                          ism:ownerProducer="USA"
+                          boe:userCategory="FEDERALSTATELOCAL">
+        <AccessDescription ism:classification="U"
+                           ism:ownerProducer="USA">General user access except for system administrators</AccessDescription>
+        <UserConstraints>
+          <Constraint ism:classification="U"
+                      ism:ownerProducer="USA">User must have a TS clearance.</Constraint>
+          <Constraint ism:classification="U"
+                      ism:ownerProducer="USA">User must be read into SI</Constraint>
+          <Constraint ism:classification="U"
+                      ism:ownerProducer="USA">User must be read into TK</Constraint>
+        </UserConstraints>
+      </SystemUserCategory>
+      <SystemUserCategory ism:classification="U"
+                          ism:ownerProducer="USA"
+                          boe:userCategory="CONTRACTORS">
+        <AccessDescription ism:classification="U"
+                           ism:ownerProducer="USA">General user access except for system administrators</AccessDescription>
+        <UserConstraints>
+          <Constraint ism:classification="U"
+                      ism:ownerProducer="USA">User must have a TS clearance.</Constraint>
+          <Constraint ism:classification="U"
+                      ism:ownerProducer="USA">User must be read into SI</Constraint>
+          <Constraint ism:classification="U"
+                      ism:ownerProducer="USA">User must be read into TK</Constraint>
+        </UserConstraints>
+      </SystemUserCategory>
+      <SystemUserCategory ism:classification="U"
+                          ism:ownerProducer="USA"
+                          boe:userCategory="GENERALPUBLIC">
+        <AccessDescription ism:classification="U"
+                           ism:ownerProducer="USA">No Access</AccessDescription>
+      </SystemUserCategory>
+    </SystemUserCategories>
+    <SecurityReviewDate xmlns:ism="urn:us:gov:ic:ism"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">2017-12-07</SecurityReviewDate>
+    <SystemFunctionDescription xmlns:ism="urn:us:gov:ic:ism"
+                               ism:classification="U"
+                               ism:ownerProducer="USA">Blah blah blah</SystemFunctionDescription>
+    <SecurityControlList xmlns:ism="urn:us:gov:ic:ism"
+                         ism:classification="U"
+                         ism:ownerProducer="USA">
+      <SecurityControl boe:number="AC-1"
+                       boe:name="Access Control Policy and Procedures"
+                       boe:status="IMPLEMENTED">
+        <ImplementationDescription ism:classification="U"
+                                   ism:ownerProducer="USA">Access control policy and procedures are documented in lorum
+                                   ipsum.</ImplementationDescription>
+      </SecurityControl>
+      <SecurityControl boe:number="AC-2"
+                       boe:name="Account Management"
+                       boe:status="IMPLEMENTED">
+        <ImplementationDescription ism:classification="U"
+                                   ism:ownerProducer="USA">Active Directory</ImplementationDescription>
+      </SecurityControl>
+      <SecurityControl boe:number="AC-20"
+                       boe:name="Use of External Information Systems"
+                       boe:status="NOTAPPLICABLE">
+        <Rationale ism:classification="U"
+                   ism:ownerProducer="USA">The system will be a standalone system and not be connected to external information
+                   systems.</Rationale>
+      </SecurityControl>
+      <SecurityControl boe:number="AC-1"
+                       boe:name="Audit and Accountability Policy and Procedures"
+                       boe:status="PLANNED">
+        <ImplementationDescription ism:classification="U"
+                                   ism:ownerProducer="USA">Current policy in draft, but expected to be signed before system enters
+                                   production.</ImplementationDescription>
+      </SecurityControl>
+    </SecurityControlList>
+    <Overlays xmlns:ism="urn:us:gov:ic:ism"
+              ism:classification="U"
+              ism:ownerProducer="USA">
+      <Overlay>Intel</Overlay>
+    </Overlays>
+  </SSP>
+  <SAR>
+    <AssessmentDate xmlns:ism="urn:us:gov:ic:ism"
+                    ism:classification="U"
+                    ism:ownerProducer="USA">2017-10-26</AssessmentDate>
+    <ScaExecutiveSummary xmlns:ism="urn:us:gov:ic:ism"
+                         ism:classification="U"
+                         ism:ownerProducer="USA">Executive summary from the detailed findings that are generated during a security control
+                         assessment. An executive summary provides an AO with an abbreviated version of the assessment report focusing on
+                         the highlights of the assessment, synopsis of key findings, and/or recommendations for addressing weaknesses and
+                         deficiencies in the security controls.</ScaExecutiveSummary>
+    <AssessmentEnvironment xmlns:ism="urn:us:gov:ic:ism"
+                           ism:classification="U"
+                           ism:ownerProducer="USA">Description of the environment where the most recent testing took place, including
+                           information on the site location and security system. Identify any supporting equipment (i.e. emulators,
+                           sniffers, analyzers, traffic generators, satellite simulators) that were used to support the assessment event,
+                           and list any external interfaces active during the test even. Explain any constraints imposed by the environment
+                           on the assessment event which impacted on the quality or quantity of testing able to be performed. Identify all
+                           personnel present for the assessment, their organizations, and their role in the assessment event. Resource:
+                           test results report.</AssessmentEnvironment>
+    <AssessmentMethodology xmlns:ism="urn:us:gov:ic:ism"
+                           ism:classification="U"
+                           ism:ownerProducer="USA">Identifies methodology and procedures used to assess controls (e.g, NIST SP 800-53A, DoD
+                           Joint Security Implementation Guide). If other methodology or procedures were used, provide rationale for
+                           deviation from standards assessment resources.</AssessmentMethodology>
+    <AssessmentObjectiveType xmlns:ism="urn:us:gov:ic:ism"
+                             ism:classification="U"
+                             ism:ownerProducer="USA">Independent verification and validation.</AssessmentObjectiveType>
+    <SecurityAssessor xmlns:ism="urn:us:gov:ic:ism"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">
+      <Name>Ash Tyler</Name>
+      <Title>Lieutenant</Title>
+    </SecurityAssessor>
+    <ConstraintsAndIssues xmlns:ism="urn:us:gov:ic:ism"
+                          ism:classification="U"
+                          ism:ownerProducer="USA">
+      <AssumptionList ism:classification="U"
+                      ism:ownerProducer="USA">
+        <Assumption>Assumption1</Assumption>
+        <Assumption>Assumption2</Assumption>
+      </AssumptionList>
+      <ConstraintList>
+        <Constraint ism:classification="U"
+                    ism:ownerProducer="USA">Constraint1</Constraint>
+        <Constraint ism:classification="U"
+                    ism:ownerProducer="USA">Constraint2</Constraint>
+      </ConstraintList>
+      <IssueList ism:classification="U"
+                 ism:ownerProducer="USA">
+        <Issue>Issue1</Issue>
+        <Issue>Issue2</Issue>
+      </IssueList>
+    </ConstraintsAndIssues>
+    <ComponentsAssessed>
+      <ComponentIdentifier xmlns:ism="urn:us:gov:ic:ism"
+                           ism:classification="U"
+                           ism:ownerProducer="USA">Comp1</ComponentIdentifier>
+      <ComponentIdentifier xmlns:ism="urn:us:gov:ic:ism"
+                           ism:classification="U"
+                           ism:ownerProducer="USA">Comp2</ComponentIdentifier>
+    </ComponentsAssessed>
+    <SecurityControlTraceabilityList xmlns:ism="urn:us:gov:ic:ism"
+                                     ism:classification="U"
+                                     ism:ownerProducer="USA">
+      <SecurityControlTrace boe:controlNumber="AC-1"
+                            boe:requirementId="1.2.3.4" />
+      <SecurityControlTrace boe:controlNumber="AC-2"
+                            boe:requirementId="1.2.3.5" />
+    </SecurityControlTraceabilityList>
+    <TestResults xmlns:ism="urn:us:gov:ic:ism"
+                 ism:classification="U"
+                 ism:ownerProducer="USA">
+      <Test ism:classification="U"
+            ism:ownerProducer="USA"
+            boe:testId="1A"
+            boe:date="2017-10-20"
+            boe:resource="system0"
+            boe:controlNumber="AC-1">Passed</Test>
+      <Test ism:classification="U"
+            ism:ownerProducer="USA"
+            boe:testId="1B"
+            boe:date="2017-10-20"
+            boe:resource="system0"
+            boe:controlNumber="AC-2">Failed</Test>
+    </TestResults>
+  </SAR>
+  <RAR>
+    <AssessmentDate xmlns:ism="urn:us:gov:ic:ism"
+                    ism:classification="U"
+                    ism:ownerProducer="USA">2017-10-26</AssessmentDate>
+    <RiskAssessmentPOC xmlns:ism="urn:us:gov:ic:ism"
+                       ism:classification="U"
+                       ism:ownerProducer="USA">
+      <Name>Saru</Name>
+      <Email>saru2@disco.sf.mil</Email>
+    </RiskAssessmentPOC>
+    <PurposeForRiskAssessment xmlns:ism="urn:us:gov:ic:ism"
+                              ism:classification="U"
+                              ism:ownerProducer="USA">Describe the purpose of the risk assessment. The purpose may be to determine risk at
+                              various system life cycle phases, to include the security categorization, to tailor security controls, to
+                              assess the risk of non-compliant security controls, to assess the impact of actual or proposed changes to the
+                              system in operations, etc.</PurposeForRiskAssessment>
+    <RiskAssessmentScope xmlns:ism="urn:us:gov:ic:ism"
+                         ism:classification="U"
+                         ism:ownerProducer="USA">The scope of the risk assessment can be at any of the three tiers in the risk management
+                         hierarchy (i.e., organization, mission/business process, or system), or the scope can be limited to certain
+                         portions of the system. Identify scope of assessment including boundaries and intended mission(s) the system is
+                         designed to support</RiskAssessmentScope>
+    <RiskAssessmentSummary xmlns:ism="urn:us:gov:ic:ism"
+                           ism:classification="U"
+                           ism:ownerProducer="USA">Executive summary from the detailed findings generated during risk assessment. An
+                           executive summary provides an AO with an abbreviated version of the risk assessment report focusing on the
+                           highlights of the assessment, purpose, synopsis of key findings, and/or recommendations for addressing
+                           risk.</RiskAssessmentSummary>
+    <OrganizationalRiskTolerance xmlns:ism="urn:us:gov:ic:ism"
+                                 ism:classification="U"
+                                 ism:ownerProducer="USA">Risk Tolerance (including a list of the range of consequences to be considered)
+                                 –The level of risk an entity is willing to assume in order to achieve a potential desired result; Identify
+                                 any organization risk tolerance levels set at Tier 1, Tier 2, and Tier 3</OrganizationalRiskTolerance>
+    <OverallRiskPosture xmlns:ism="urn:us:gov:ic:ism"
+                        boe:response="MODERATE"
+                        ism:classification="U"
+                        ism:ownerProducer="USA" />
+    <OverallRiskRatings xmlns:ism="urn:us:gov:ic:ism"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">
+      <VeryLow>15</VeryLow>
+      <Low>5</Low>
+      <Moderate>3</Moderate>
+      <High>1</High>
+      <VeryHigh>2</VeryHigh>
+    </OverallRiskRatings>
+    <RiskAnalysisApproach xmlns:ism="urn:us:gov:ic:ism"
+                          boe:response="THREAT"
+                          ism:classification="U"
+                          ism:ownerProducer="USA" />
+    <RiskAssessmentApproach xmlns:ism="urn:us:gov:ic:ism"
+                            boe:response="SEMI-QUALITATIVE"
+                            ism:classification="U"
+                            ism:ownerProducer="USA" />
+    <ThreatEvents xmlns:ism="urn:us:gov:ic:ism"
+                  ism:classification="U"
+                  ism:ownerProducer="USA">
+      <ThreatEvent ism:classification="U"
+                   ism:ownerProducer="USA">
+        <Event ism:classification="U"
+               ism:ownerProducer="USA">The threat event by name.</Event>
+        <LevelOfImpact boe:response="HIGH"
+                       ism:classification="U"
+                       ism:ownerProducer="USA" />
+        <LikelihoodOfOccurance boe:response="LOW"
+                               ism:classification="U"
+                               ism:ownerProducer="USA" />
+        <LikelihoodOfSuccess boe:response="VERY_LOW"
+                             ism:classification="U"
+                             ism:ownerProducer="USA" />
+        <OverallLikelihood boe:response="LOW"
+                           ism:classification="U"
+                           ism:ownerProducer="USA" />
+        <ResidualRiskLevel boe:response="LOW"
+                           ism:classification="U"
+                           ism:ownerProducer="USA" />
+        <Vulnerabilities>
+          <Vulnerability ism:classification="U"
+                         ism:ownerProducer="USA">Vulnerability1</Vulnerability>
+          <Vulnerability ism:classification="U"
+                         ism:ownerProducer="USA">Vulnerability2</Vulnerability>
+        </Vulnerabilities>
+        <ThreatSources>
+          <ThreatSource ism:classification="U"
+                        ism:ownerProducer="USA">
+            <Source ism:classification="U"
+                    ism:ownerProducer="USA">Source1</Source>
+          </ThreatSource>
+        </ThreatSources>
+      </ThreatEvent>
+      <ThreatEvent ism:classification="U"
+                   ism:ownerProducer="USA">
+        <Event ism:classification="U"
+               ism:ownerProducer="USA">The threat event by description.</Event>
+        <LevelOfImpact boe:response="LOW"
+                       ism:classification="U"
+                       ism:ownerProducer="USA" />
+        <LikelihoodOfOccurance boe:response="LOW"
+                               ism:classification="U"
+                               ism:ownerProducer="USA" />
+        <LikelihoodOfSuccess boe:response="VERY_LOW"
+                             ism:classification="U"
+                             ism:ownerProducer="USA" />
+        <OverallLikelihood boe:response="LOW"
+                           ism:classification="U"
+                           ism:ownerProducer="USA" />
+        <ResidualRiskLevel boe:response="VERY_LOW"
+                           ism:classification="U"
+                           ism:ownerProducer="USA" />
+        <Vulnerabilities>
+          <Vulnerability ism:classification="U"
+                         ism:ownerProducer="USA">Vulnerability3</Vulnerability>
+        </Vulnerabilities>
+        <ThreatSources>
+          <ThreatSource ism:classification="U"
+                        ism:ownerProducer="USA">
+            <Source ism:classification="U"
+                    ism:ownerProducer="USA">Source2</Source>
+          </ThreatSource>
+        </ThreatSources>
+      </ThreatEvent>
+      <ThreatEvent ism:classification="U"
+                   ism:ownerProducer="USA">
+        <Event ism:classification="U"
+               ism:ownerProducer="USA">The threat event by reference.</Event>
+        <LevelOfImpact boe:response="VERY_LOW"
+                       ism:classification="U"
+                       ism:ownerProducer="USA" />
+        <LikelihoodOfOccurance boe:response="HIGH"
+                               ism:classification="U"
+                               ism:ownerProducer="USA" />
+        <LikelihoodOfSuccess boe:response="VERY_HIGH"
+                             ism:classification="U"
+                             ism:ownerProducer="USA" />
+        <OverallLikelihood boe:response="MODERATE"
+                           ism:classification="U"
+                           ism:ownerProducer="USA" />
+        <ResidualRiskLevel boe:response="LOW"
+                           ism:classification="U"
+                           ism:ownerProducer="USA" />
+        <Vulnerabilities>
+          <Vulnerability ism:classification="U"
+                         ism:ownerProducer="USA">Vulnerability4</Vulnerability>
+        </Vulnerabilities>
+        <ThreatSources>
+          <ThreatSource ism:classification="U"
+                        ism:ownerProducer="USA">
+            <Source ism:classification="U"
+                    ism:ownerProducer="USA">Source1</Source>
+          </ThreatSource>
+        </ThreatSources>
+      </ThreatEvent>
+    </ThreatEvents>
+  </RAR>
+  <POAM>
+    <AssessmentDate xmlns:ism="urn:us:gov:ic:ism"
+                    ism:classification="U"
+                    ism:ownerProducer="USA">2017-09-26</AssessmentDate>
+    <Deficiency xmlns:ism="urn:us:gov:ic:ism"
+                ism:classification="U"
+                ism:ownerProducer="USA">
+      <Name ism:classification="U"
+            ism:ownerProducer="USA">My Deficiency</Name>
+      <Description ism:classification="U"
+                   ism:ownerProducer="USA">Bad things.</Description>
+    </Deficiency>
+    <CompletionStatus xmlns:ism="urn:us:gov:ic:ism"
+                      boe:response="ONGOING"
+                      ism:classification="U"
+                      ism:ownerProducer="USA" />
+    <ScheduledCompletionDate xmlns:ism="urn:us:gov:ic:ism"
+                             ism:classification="U"
+                             ism:ownerProducer="USA">2017-10-25</ScheduledCompletionDate>
+    <CompletionDate xmlns:ism="urn:us:gov:ic:ism"
+                    ism:classification="U"
+                    ism:ownerProducer="USA">2017-10-27</CompletionDate>
+    <PointOfContact xmlns:ism="urn:us:gov:ic:ism"
+                    ism:classification="U"
+                    ism:ownerProducer="USA">
+      <Name>Paul Stamets</Name>
+      <Email>paul.stamets@disco.sf.mil</Email>
+    </PointOfContact>
+    <ApplicableSecurityControl xmlns:ism="urn:us:gov:ic:ism"
+                               ism:classification="U"
+                               ism:ownerProducer="USA">AC-1</ApplicableSecurityControl>
+    <IdentifyingEvent xmlns:ism="urn:us:gov:ic:ism"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">
+      <Event ism:classification="U"
+             ism:ownerProducer="USA">Power outage</Event>
+      <ReviewingOrganization ism:classification="U"
+                             ism:ownerProducer="USA">MIA/IAD</ReviewingOrganization>
+    </IdentifyingEvent>
+    <Comments xmlns:ism="urn:us:gov:ic:ism"
+              ism:classification="U"
+              ism:ownerProducer="USA">Additional detail, clarifications, or other commentary.</Comments>
+  </POAM>
+  <ADD>
+    <AuthorizationDecision xmlns:ism="urn:us:gov:ic:ism"
+                           boe:response="ATO"
+                           ism:classification="U"
+                           ism:ownerProducer="USA" />
+    <AuthorizingOfficial xmlns:ism="urn:us:gov:ic:ism"
+                         ism:classification="U"
+                         ism:ownerProducer="USA">
+      <Name>Gabriel Lorca</Name>
+      <Title>Captain</Title>
+    </AuthorizingOfficial>
+    <AuthorizationDecisionDate xmlns:ism="urn:us:gov:ic:ism"
+                               ism:classification="U"
+                               ism:ownerProducer="USA">2017-10-31</AuthorizationDecisionDate>
+    <AuthorizationDecisionTerminationDate xmlns:ism="urn:us:gov:ic:ism"
+                                          ism:classification="U"
+                                          ism:ownerProducer="USA">2020-10-31</AuthorizationDecisionTerminationDate>
+    <AuthorizationTermsAndConditions xmlns:ism="urn:us:gov:ic:ism"
+                                     ism:classification="U"
+                                     ism:ownerProducer="USA">Provides a description of any specific limitations or restrictions placed on
+                                     the operation of the system.</AuthorizationTermsAndConditions>
+    <RiskExecutiveInput xmlns:ism="urn:us:gov:ic:ism"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">The security related-considerations from the Risk Executive which the AO deems relevant and
+                        affects the final authorization decision. These considerations are viewed from organization-wide perspective with
+                        regard to the overall strategic goals and objectives in carrying out the mission and business functions. (e.g.,
+                        organizational risk tolerance, organization’s overall risk mitigation strategy, core mission and business
+                        requirements, dependencies among systems, ongoing risk monitoring requirements, and other types of risks not
+                        directly associated with the system or its environment of operation).</RiskExecutiveInput>
+    <OverallRiskRatings xmlns:ism="urn:us:gov:ic:ism"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">
+      <VeryLow>15</VeryLow>
+      <Low>5</Low>
+      <Moderate>3</Moderate>
+      <High>1</High>
+      <VeryHigh>2</VeryHigh>
+    </OverallRiskRatings>
+  </ADD>
+</BOE>

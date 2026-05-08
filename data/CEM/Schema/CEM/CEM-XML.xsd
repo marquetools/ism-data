@@ -1,0 +1,1285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns:cem="urn:us:gov:ic:cem"
+            xmlns:ism="urn:us:gov:ic:ism"
+            xmlns:virt="urn:us:gov:ic:virt"
+            xmlns:gml="http://www.opengis.net/gml/3.2"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns:cemcitcat="urn:us:gov:ic:cvenum:cemxml:citycategory"
+            xmlns:cemident="urn:us:gov:ic:cvenum:cemxml:identifiertype"
+            xmlns:cemcomdat="urn:us:gov:ic:cvenum:cemxml:commdatatype"
+            xmlns:xhtml="http://www.w3.org/1999/xhtml-StopBrowserRendering"
+            targetNamespace="urn:us:gov:ic:cem"
+            ism:compliesWith="USGov USIC"
+            ism:resourceElement="true"
+            ism:createDate="2019-09-18"
+            ism:DESVersion="202111"
+            ism:ISMCATCESVersion="202205"
+            ism:classification="U"
+            ism:ownerProducer="USA"
+            version="201804"
+            elementFormDefault="qualified"
+            attributeFormDefault="qualified">
+	  <xsd:annotation>
+		    <xsd:documentation>
+			      <xhtml:h1 ism:ownerProducer="USA" ism:classification="U">Intelligence Community Technical
+				Specification XML Data Encoding Specification for Contextual Entity Markup (CEM.XML)</xhtml:h1>
+		    </xsd:documentation>
+
+		    <xsd:documentation>
+			      <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Notices</xhtml:h2>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+        </xhtml:p>
+		    </xsd:documentation>
+		    <xsd:documentation>
+			      <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Description</xhtml:h2>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U"> W3C XML Schema for the XML Data
+			    Encoding Specification for Contextual Entity Markup (CEM.XML). </xhtml:p>
+		    </xsd:documentation>
+		    <xsd:documentation>
+			      <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Introduction</xhtml:h2>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U"> This XML Schema file is one component
+				of the XML Data Encoding Specification (DES). Please see the document titled <xhtml:i>
+					          <xhtml:a href="../../Documents/CEM/DesCemXml.pdf">XML Data Encoding Specification for
+						Contextual Entity Markup</xhtml:a>
+				        </xhtml:i> for a complete description of the encoding as well as list of all components. </xhtml:p>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U"> It is envisioned that this schema or
+				its components, as well as other parts of the DES may be overridden for localized
+				implementations. Therefore, permission to use, copy, modify and distribute this XML Schema
+				and the other parts of the DES for any purpose is hereby granted in perpetuity. </xhtml:p>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Please reference the preceding two
+				paragraphs in all copies or variations. The developers make no representation about the
+				suitability of the schema or DES for any purpose. It is provided "as is" without expressed
+				or implied warranty. </xhtml:p>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U"> If you modify this XML Schema in any
+				way label your schema as a variant of CEM.XML. </xhtml:p>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Please direct all questions, bug
+				reports,or suggestions for changes to the points of contact identified in the document
+				referenced above. </xhtml:p>
+		    </xsd:documentation>
+		    <xsd:documentation>
+			      <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Implementation Notes</xhtml:h2>
+		       <xhtml:p ism:ownerProducer="USA" ism:classification="U">No implementation notes at this time.</xhtml:p>
+		    </xsd:documentation>
+		    <xsd:documentation>
+			      <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Creators</xhtml:h2>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U">Office of the Director of National
+				Intelligence Intelligence Community Chief Information Officer</xhtml:p>
+		    </xsd:documentation>
+	  </xsd:annotation>
+
+	  <!--***************************************************-->
+	  <!--Start Import Statements-->
+	  <!--***************************************************-->
+    
+    <xsd:import namespace="http://www.opengis.net/gml/3.2"
+               schemaLocation="../ogc/gml/3.2.1/gml.xsd"/>
+    <xsd:import namespace="http://www.w3.org/1999/xlink"
+               schemaLocation="../w3/1999/xlink/xlink.xsd"/>
+	  <xsd:import namespace="http://www.w3.org/XML/1998/namespace"
+               schemaLocation="../w3/2001/xml.xsd"/>
+	  <xsd:import namespace="http://www.w3.org/1999/xhtml"
+               schemaLocation="../w3/1999/xhtml/xhtml1-strict.xsd"/>
+	  <xsd:import namespace="urn:us:gov:ic:cvenum:cemxml:citycategory"
+               schemaLocation="./CVEGenerated/CVEnumCemCityCategory.xsd"/>
+	  <xsd:import namespace="urn:us:gov:ic:cvenum:cemxml:identifiertype"
+               schemaLocation="./CVEGenerated/CVEnumCemIdentifierType.xsd"/>
+	  <xsd:import namespace="urn:us:gov:ic:cvenum:cemxml:commdatatype"
+               schemaLocation="./CVEGenerated/CVEnumCemCommDataType.xsd"/>
+	  <xsd:import namespace="urn:us:gov:ic:ism" schemaLocation="../ISM/IC-ISM.xsd"/>
+	  <xsd:import namespace="urn:us:gov:ic:virt" schemaLocation="../VIRT/VIRT.xsd"/>
+    
+	  <!--***************************************************-->
+	  <!--End Import Statements-->
+	  <!--***************************************************-->
+	    
+	    
+	  <!--***************************************************-->
+	  <!--Start All case-insensitive alphabetically-->
+	  <!--***************************************************-->
+    
+    <xsd:attribute name="DESVersion" type="cem:DESVersionType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">The version number of the specification. 
+                    This attribute is intended for processing systems to determine the appropriate versions of 
+                    Schema, Schematron, and CVE values for validation and interpretation of an instance document. 
+                </xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">If there are multiple of this attribute 
+                    specified in an instance document, the first one in document order is the one that will 
+                    apply to the entire document. Document order is 
+                    defined in <xhtml:a href="https://www.w3.org/TR/xpath-datamodel/#document-order">https://www.w3.org/TR/xpath-datamodel/#document-order</xhtml:a>
+                </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:attribute>
+    
+    <xsd:simpleType name="DESVersionType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9]{6}(\.[0-9]{6})?(\-.{1,23})?"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:group name="DescriptiveElementsGroup">
+        <xsd:choice>
+            <xsd:element ref="cem:Account" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:BEnumber" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:CommData" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:CityName" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:Commodity" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:Concept" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:CountryName" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:Date" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:DateTime" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:Drug" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:EntityUntyped" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:Equipment" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:Event" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:Facility" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:GeoFeature" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:GeoRef" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:Identifier" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:InfoBearer" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:LocationOfInterest" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:MilitaryUnit" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:Money" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:Nomenclature" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:Organization" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:Person" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:QuantityReference" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:SystemClass" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:Term" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:Time" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:TransportationNetwork" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:Vehicle" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="cem:Weapon" minOccurs="0" maxOccurs="1"/>
+        </xsd:choice>
+    </xsd:group>
+    
+    <xsd:complexType name="DescriptiveElementType" mixed="true">
+        <xsd:choice>
+            <xsd:group ref="cem:DescriptiveElementsGroup"/>
+        </xsd:choice>
+        <xsd:attributeGroup ref="cem:CommonAttributesGroup"/>
+        <xsd:attributeGroup ref="ism:SecurityAttributesOptionGroup"/>
+    </xsd:complexType>
+    
+    <xsd:attributeGroup name="CommonAttributesGroup">
+        <xsd:attribute name="id" type="xsd:ID" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                    <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A unique XML identifier used to
+                        assign an XML unique identifier to an element, such as a paragraph, note or table.
+                    </xhtml:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="IDReference" type="xsd:IDREFS" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                    <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A cross-reference to a unique
+                        identifier used to point from one element to one or more other elements. The value of
+                        the attribute must be one or more XML unique identifiers that are the value(s) of id
+                        attribute(s) elsewhere in the document. </xhtml:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="qualifier" type="xsd:string" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                    <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A user-defined property within an
+                        element for general purpose processing used with block objects to provide supplemental
+                        information over and above that conveyed by the element name. This attribute is
+                        analogous to HTML's "class" attribute. </xhtml:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="styleType" type="xsd:string" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                    <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A user-defined property within an
+                        element for representing the formatting/style to be applied. </xhtml:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:attributeGroup>
+    
+    <xsd:element name="Account">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Tags references (numbers, etc) to
+                    commercial accounts (bank, utilities, ISP, etc) held by individuals and organizations.
+                </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="BEnumber">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Basic Encyclopedia number that may
+                    be used to tag BE numbers that occur in running text. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="cem:BEnumberType">
+                    <xsd:attributeGroup ref="cem:CommonAttributesGroup"/>
+                    <xsd:attributeGroup ref="ism:SecurityAttributesOptionGroup"/>
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:simpleContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:simpleType name="BEnumberType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9]{4}[E\-][0-9]{4,5}"/>
+            <xsd:pattern value="[0-9]{4}[A-Z]{2}[0-9]{3,4}"/>
+            <xsd:pattern value="[0-9]{4}[A-Z]{3}[0-9]{3}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:element name="CommData">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A specific reference to an element
+                    of telecommunications 'metadata' when it occurs as a part of the reported intelligence.
+                    Examples would include, but are not limited to, a phone number, an e-mail address, a
+                    website address, a broadcast radio frequency, etc. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attribute name="commDataType"
+                              type="cemcomdat:CVEnumCemCommDataType"
+                              use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A type designator for
+                                    communications data. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="commDataNormalized" type="xsd:string" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A representation of the
+                                    essential content of the element in a known format to be used for search, entity
+                                    extraction an other automated processes. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="serviceProvider" type="xsd:string" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> The entity providing the
+                                    communications services about which data are being captured. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="CityName">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> The name of a population center
+                    when used as a geographic location. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                    <xsd:attribute name="category" type="cemcitcat:CVEnumCemCityCategory">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U">The category type of the city.</xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attributeGroup ref="cem:CoordinatesAttributeGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:attributeGroup name="CoordinatesAttributeGroup">
+        <xsd:attribute name="decimalDegreeCoordinates" type="cem:decimalDegreeCoordinatesType">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                    <xhtml:p ism:ownerProducer="USA" ism:classification="U">Expresses location using latitude and longitude geographic coordinates as decimal fractions.</xhtml:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:attributeGroup>
+    
+    <xsd:simpleType name="decimalDegreeCoordinatesType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A set of decimal degree coordinates
+                    of the format '(+-)##.####,(+-)###.####', where the leading '+' is optional, and the
+                    allowable decimal precision is one to four digits.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="(\+?|\-)[0-9]{1,2}\.[0-9]{1,4},(\+?|\-)[0-9]{1,3}\.[0-9]{1,4}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:element name="Commodity">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Tags references to relatively raw
+                    materials such as elements, chemicals, ores, crops (corn, wheat, etc), basic products
+                    (oil, sugar, etc). </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="Concept">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Tags references to intangible
+                    ideas, goals, etc (eg "regime change", "global warming", "nuclear fusion"). </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="CountryName">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Use this element to tag a name or
+                    reference to a country that occurs in running text. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attribute name="countryCode" type="xsd:NMTOKEN" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A 3-character abbreviation
+                                    of a country name, taken from GENC. PERMISSIBLE VALUES The permissible values for
+                                    this type are defined in the following Controlled Vocabulary Enumerations:
+                                    CVEnumPubsCountryISO3166Trigraph.xml </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="countryCodeVocabulary"
+                              type="cem:CountryCodeVocabularyType"
+                              use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Which value enumeration set
+                                    the attribute countryCode should be validated against. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                    <xsd:attributeGroup ref="cem:CoordinatesAttributeGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:simpleType name="CountryCodeVocabularyType">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="ISO-3"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:element name="Date">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> This element is a calendar date
+                    that is used to designate a specific date called out in running text. This element may be
+                    tied to a controlled vocabulary that constrains the applicable events to an
+                    agency-specific life cycle. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attribute name="normalizedDate" type="cem:ISO8601DateType" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A calendar date represented
+                                    in accordance with the W3C Profile of ISO 8601:2000. The datatype is a union of
+                                    W3C datatypes "date", "gYearMonth" and "gYear". </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:simpleType name="ISO8601DateType">
+        <xsd:union memberTypes="xsd:date xsd:gYearMonth xsd:gYear"/>
+    </xsd:simpleType>
+
+    <xsd:element name="DateTime">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A combination of a date reference
+                    and time reference when something happened or is expected to happen. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attribute name="normalizedDateTime"
+                              type="cem:ISO8601DateTimeType"
+                              use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A calendar date and time of
+                                    day represented in accordance with the W3C Profile of ISO 8601:2000. The datatype
+                                    is a union of W3C datatypes "date", "dateTime", "gYear", "gYearMonth", and an
+                                    PUBS.XML schema-defined simple type called "dateHourMinType" which restricts the
+                                    "string" datatype to a pattern allowing seconds to be optional. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:simpleType name="ISO8601DateTimeType">
+        <xsd:union memberTypes="xsd:dateTime cem:dateHourMinType xsd:date xsd:gYear xsd:gYearMonth"/>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="dateHourMinType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}(Z|[\-\+][0-9]{2}:[0-9]{2})?"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:element name="Drug">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A drug or chemical substance found
+                    in the http://pubchem.ncbi.nlm.nih.gov/ databases. Structure provides the ability to
+                    associate multiple pubChem SID or CID and multiple Pseudonyms with the item in question.
+                </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType mixed="true">
+            <xsd:sequence minOccurs="1" maxOccurs="1">
+                <xsd:element ref="cem:PC-SID" minOccurs="0" maxOccurs="unbounded"/>
+                <xsd:element ref="cem:PC-CID" minOccurs="0" maxOccurs="unbounded"/>
+                <xsd:element ref="cem:Pseudonym" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:sequence>
+            <xsd:attributeGroup ref="ism:SecurityAttributesOptionGroup"/>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="PC-SID">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Wraps a name, synonym, or keyword that references a unique chemical substance from the
+                    substance database of http://pubchem.ncbi.nlm.nih.gov/</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:attribute name="SID" type="xsd:integer" use="required">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U"> The Substance ID from the
+                            substance database of http://pubchem.ncbi.nlm.nih.gov/</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="PC-CID">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Wraps a name, synonym, or keyword that references a unique chemical structure from the
+                    compound database of http://pubchem.ncbi.nlm.nih.gov/</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:attribute name="CID" type="xsd:integer" use="required">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U"> The Compound ID from the
+                            compound database of http://pubchem.ncbi.nlm.nih.gov/ </xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="Pseudonym">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Wraps a substance or
+                    compound in order to provide a pseudonym value for the substance or compound
+                    in question.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:attribute name="value" use="required">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">A pseudonym for the substance or
+                            compound in question.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="256"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attributeGroup ref="ism:SecurityAttributesOptionGroup"/>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="EntityUntyped">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Identifies an entity of interest of
+                    uncertain category. Use this element in running text to tag a prospective entity of
+                    interest that cannot be readily typed as a person, organization, facility, location, or
+                    other specific entity. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="Equipment">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Tags references to " the implements
+                    used in an operation or activity", such as tools, comms gear, computers, etc. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="Event">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Event identifies a significant
+                    occurrence or happening. This element is used to identify an activity of interest or
+                    information pertaining to such an activity. Usually these will be nouns. Attributes
+                    "gml:axisLabels" and "gml:uomLabels" are only specified due to the fact that they are
+                    included in the "SRSReferenceGroup" attribute group in the GML schema. They should not be
+                    used in PUBS.XML compliant XML markup. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attribute name="location" type="xsd:string" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A geographical situation.
+                                </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="dateTime" type="cem:dateTimesType" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A series of calendar date
+                                    and time notations. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="dateTimeRange" type="cem:dateTimePairsType" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A series of an even number
+                                    of calendar date and time notations, specifying the start and end points of a
+                                    series of time spans. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attributeGroup ref="cem:GMLPosAttributesGroup"/>
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:simpleType name="dateTimesType">
+        <xsd:list itemType="cem:ISO8601DateTimeType"/>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="dateTimePairsType">
+        <xsd:restriction base="cem:dateTimesType">
+            <xsd:pattern value="(((\s)+)?[^\s]+(\s)+[^\s]+)+"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:attributeGroup name="GMLPosAttributesGroup">
+        <xsd:attribute name="posList" type="cem:DoubleListType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                    <xhtml:p ism:ownerProducer="USA" ism:classification="U"> The coordinates for a position
+                        within a coordinate reference system (CRS). </xhtml:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attributeGroup ref="gml:SRSReferenceGroup"/>
+    </xsd:attributeGroup>
+    
+    <xsd:simpleType name="DoubleListType">
+        <xsd:list itemType="xsd:double"/>
+    </xsd:simpleType>
+    
+    <xsd:element name="Facility">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A facility is a structure or a
+                    collection of structures with a unified function. A facility is defined as a real property
+                    performing a unique function that consists of one ore more of the following: a building, a
+                    structure, a utility system, pavement, and underlying land. The content of the element
+                    should be the facility name or description. The attributes may be used to tie the facility
+                    to a specific identification number or point location. The link attributes may be used to
+                    cause this element to be a hyperlink-to the corresponding facility record in the MIDB, for
+                    example. Attributes "gml:axisLabels" and "gml:uomLabels" are only specified due to the
+                    fact that they are included in the "SRSReferenceGroup" attribute group in the GML schema.
+                    They should not be used in PUBS.XML compliant XML markup. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attribute name="BEnumber" type="cem:BEnumberType" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Basic Encyclopedia number.
+                                </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="Osuffix" type="cem:OsuffixType" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A designator for a facility
+                                    or demographic area, consisting of a system-assigned originator code, followed by
+                                    a one-up number. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="categoryCode" type="xsd:string" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A code that categorizes a
+                                    facility. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="geographicReference" type="xsd:string" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A geographic location
+                                    specified in terms of latitude and longitude or of grid coordinates. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attributeGroup ref="cem:GMLPosAttributesGroup"/>
+                    <xsd:attributeGroup ref="virt:SimpleOrResourceLinkAttributesGroup"/>
+                    <xsd:attributeGroup ref="cem:CoordinatesAttributeGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:simpleType name="OsuffixType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[A-Z]{2}[0-9]{3}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:element name="GeoFeature">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A description of a physical
+                    representation on the earth. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                    <xsd:attribute name="geoFeatureType" type="cem:GeoFeatureType" use="required">
+                        <xsd:annotation>
+                            <xsd:documentation>
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Denotes the type of the
+                                    GeoFeature (Artificial, Natural, Abstract) - Natural: Naturally-occurring
+                                    features, including landforms, terrain types, ecosystems, etc. - Artificial:
+                                    Man-made features, including cities, bridges, highways, etc. - Abstract:
+                                    Constructs that have location that does not exist in the physical world, including
+                                    political borders, latitude/longitude lines, etc.</xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attributeGroup ref="cem:CoordinatesAttributeGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:simpleType name="GeoFeatureType">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Natural"/>
+            <xsd:enumeration value="Artificial"/>
+            <xsd:enumeration value="Abstract"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:element name="GeoRef">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> An artificially- or
+                    naturally-occurring topographical entity. Attributes "gml:axisLabels" and "gml:uomLabels"
+                    are only specified due to the fact that they are included in the "SRSReferenceGroup"
+                    attribute group in the GML schema. They should not be used in PUBS.XML compliant XML
+                    markup. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attribute name="referenceType"
+                              type="cem:GeographicReferenceSystemType"
+                              use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A type specification for a
+                                    geographic reference. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attributeGroup ref="cem:CoordinatesAttributeGroup"/>
+                    <xsd:attributeGroup ref="cem:GMLPosAttributesGroup"/>
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:simpleType name="GeographicReferenceSystemType">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="GeographicCoordinates"/>
+            <xsd:enumeration value="MilitaryGridReference"/>
+            <xsd:enumeration value="WorldGeographicReference"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:element name="Identifier">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Tags occurrences of conventional
+                    structured text used to identify an entity, such as a model number, phone number, SSN,
+                    MGR, etc. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attribute name="identifierType" type="cemident:CVEnumCemIdentifierType"/>
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="InfoBearer">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Tags references to an
+                    information-bearing object, such as a document (book, paper, passport, etc), recording,
+                    credit card, etc. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attribute name="identifierType" type="cemident:CVEnumCemIdentifierType"/>
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="LocationOfInterest">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> An entity that is non-topographical
+                    or has a non-permanent location. Use this generic element to tag places when specific
+                    elements like "BEnumber", "CountryName" or "Facility" do not apply. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                    <xsd:attributeGroup ref="cem:CoordinatesAttributeGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="MilitaryUnit">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Designator for a specific military
+                    unit. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="Money">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Tags references (both numeric and
+                    textual) to moneys and monetary amounts. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="Nomenclature">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> An equipment type- or
+                    family-designator. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attribute name="vocabulary" type="xsd:string" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A list of words, codes
+                                    and/or phrases: a lexicon. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="alias" type="xsd:string" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> An alternative name or
+                                    acronym for a piece of equipment. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="Organization">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A name of a group of persons or
+                    other entities organized for some end or work. This element is provided for the purpose of
+                    tagging references to organizations when the references occur in running text. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="Person">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> The proper name, nickname or alias
+                    of a person; or a reference to a person. This element is provided to support tagging of
+                    names or references to people that occur in running text. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attribute name="givenName" type="xsd:string" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A name given to a person at
+                                    birth or baptism. Note that, in this implementation, attribute "givenName" may
+                                    include initials as well as first name(s). The information provided, when
+                                    concatenated with the value of "surname", should form a proper name for
+                                    addressing. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="surname" type="xsd:string" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A name shared in common to
+                                    identify members of a family; also called "last name". </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="nickname" type="xsd:string" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A name by which a person is
+                                    called familiarly, other than his/her real name. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="phonetic" type="xsd:string" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A representation of the
+                                    pronunciation of a foreign proper name. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="rank" type="xsd:string" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Official position or grade
+                                    of a military or, when applicable, civilian person. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="position" type="xsd:string" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Official duty or job title
+                                    of an individual. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="honorific" type="xsd:string" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> An honorary title (such as
+                                    Nobel Laureate), an academic degree (such as Juris Doctor), or other distinctive
+                                    recognition. Multiple honorifics, if applicable, shall be included in this single
+                                    attribute value with appropriate separation characters inserted. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="KTC" type="xsd:string" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Korean Telephone Code for
+                                    distinguishing between various possible translations of a name. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="format" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> The cultural style of
+                                    expression of proper names. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:NMTOKEN">
+                                <xsd:enumeration value="Eastern"/>
+                                <xsd:enumeration value="Western"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:attribute>
+                    <xsd:attributeGroup ref="virt:SimpleOrResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="QuantityReference">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A reference to a specified number
+                    or amount of a thing. This element is provided for the purpose of tagging references to
+                    quantities when the references occur in running text. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attribute name="normalizedQuantity" type="xsd:double" use="required">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> The magnitude of a quantity
+                                    reference represented in a simple numerical. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="unitOfMeasure" type="xsd:string" use="required">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A determinate quantity or
+                                    magnitude of the kind designated, taken as a standard of comparison for others of
+                                    the same kind, in assigning to them numerical values, as 1 foot, 1 yard, 1 mile, 1
+                                    square foot, 1 square yard, 1 cubic foot, 1 peck, 1 bushel, 1 gallon, 1 cent, 1
+                                    ounce, 1 pound, 1 hour, and the like. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="unitOfMeasureVocabulary">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A specific list of possible
+                                    values for the attributes unitOfMeasure. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:enumeration value="UNECE20"/>
+                                <xsd:enumeration value="ISO4217-3"/>
+                                <xsd:enumeration value="ISO4217-NR"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:attribute>
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="SystemClass">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> The class of the system, which
+                    specifies a subgroup within the System Type. Use this element to tag system class
+                    designators that occur in running text. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="Term">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A word or phrase designating
+                    something of interest, especially in a particular field such as intelligence. This element
+                    may be used to tag descriptors in running text for categorization, glossaries, indexing,
+                    and/or retrieval. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attribute name="termType" type="xsd:string" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A classification of a word
+                                    or phrase in running text as being an acronym, an English word or phrase, or a
+                                    foreign word or phrase. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="termDefinition" type="xsd:string" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> An explanation of the
+                                    meaning of a term; for example, the full spelling of an abbreviation or acronym,
+                                    or a description of a scientific term. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="vocabulary" type="xsd:string" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A list of words, codes
+                                    and/or phrases: a lexicon. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="Time">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A number or term expressing an
+                    instant in the continuum of hours, minutes and seconds of a day. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attribute name="normalizedTime" type="cem:ISO8601TimeType" use="optional">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A time of day represented
+                                    in accordance with the W3C Profile of ISO 8601:2000. The datatype is a union of
+                                    the W3C datatype "time" and an PUBS.XML schema-defined simple type called
+                                    "hourMinType" which restricts the "string" datatype to a pattern allowing seconds
+                                    to be optional. </xhtml:p>
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:simpleType name="ISO8601TimeType">
+        <xsd:union memberTypes="xsd:time cem:hourMinType"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="hourMinType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9]{2}:[0-9]{2}(Z|[\-\+][0-9]{2}:[0-9]{2})?"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:element name="TransportationNetwork">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> A named network of highways,
+                    railways, or other modes of transportation, usually designed for the movement of people or
+                    commodities in a geographically unique area or region. (ex. Route 66, B and O Railroad,
+                    Erie Canal) </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="Vehicle">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Tags references to a constructed
+                    object used as a conveyance, such as bus, motorcycle, aircraft, APC, etc. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="Weapon">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Tags references to an instrument
+                    used for combat, such as pistol, AK-47, RPG, battleaxe, artillery shell, etc. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cem:DescriptiveElementType">
+                    <xsd:attributeGroup ref="virt:OptionalResourceLinkAttributesGroup"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+	  <!--***************************************************-->
+	  <!--End All case-insensitive alphabetically-->
+	  <!--***************************************************-->
+    
+	  <xsd:annotation>
+		    <xsd:documentation>
+			      <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Formal Change List
+				CEM.XML</xhtml:h2>
+			      <xhtml:table ism:ownerProducer="USA" ism:classification="U" id="ChangeHistory">
+				        <xhtml:caption>Change History</xhtml:caption>
+				        <xhtml:thead>
+					          <xhtml:tr>
+						            <th>Version</th>
+						            <th>Date</th>
+						            <th>By</th>
+						            <th>Description</th>
+					          </xhtml:tr>
+				        </xhtml:thead>
+				        <xhtml:tbody>
+					          <xhtml:tr>
+						            <xhtml:td>2018-APR</xhtml:td>
+						            <xhtml:td>2018-02-01</xhtml:td>
+						            <xhtml:td>ODNI/IC CIO/IAD</xhtml:td>
+						            <xhtml:td>
+							For schema change history, reference the change history in the DES.
+						</xhtml:td>
+					          </xhtml:tr>
+				        </xhtml:tbody>
+			      </xhtml:table>
+		    </xsd:documentation>
+	  </xsd:annotation>
+</xsd:schema>

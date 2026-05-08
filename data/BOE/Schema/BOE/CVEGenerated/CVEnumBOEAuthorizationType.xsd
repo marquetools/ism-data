@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:boe:CVEnumBOEAuthorizationType"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:boe:CVEnumBOEAuthorizationType"
+            version="201804">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumBOEAuthorizationType Version 2.1 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumBOEAuthorizationType.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumBOEAuthorizationType">
+      <xsd:annotation>
+         <xsd:documentation>(U) Authorization Status for System Security Plan (SSP)
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumBOEAuthorizationType.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="ATO">
+            <xsd:annotation>
+               <xsd:documentation>Authorization to Operate</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ATOWITHCONDITION">
+            <xsd:annotation>
+               <xsd:documentation>Authorization to Operate with condition</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ATP">
+            <xsd:annotation>
+               <xsd:documentation>Authorization to Proceed</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="IATT">
+            <xsd:annotation>
+               <xsd:documentation>Interim Authorization to Test</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DATO">
+            <xsd:annotation>
+               <xsd:documentation>Denial of Authorization to Operate</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NONE">
+            <xsd:annotation>
+               <xsd:documentation> No Authorization Determination at this time</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

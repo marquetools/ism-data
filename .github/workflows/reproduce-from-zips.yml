@@ -1,0 +1,70 @@
+name: reproduce-from-zips
+
+# Manually-triggered workflow that re-runs the consolidation against a
+# bundle of the upstream ODNI *.zip files and asserts that the resulting
+# manifest matches the committed one. This is the strongest available
+# proof that:
+#
+#   - the inputs ODNI shipped haven't been swapped for tampered ones, AND
+#   - the consolidation tool we use is deterministic on those inputs
+#
+# Trigger this from the Actions tab when:
+#   - bumping the crate to a new ODNI snapshot (verifies the new vendor)
+#   - investigating a suspected supply-chain issue
+#   - quarterly, as a routine integrity audit
+#
+# Inputs
+# ------
+# zips_url: URL to a tar.gz / zip containing the 58 ODNI *.zip files.
+#           Typically a presigned S3 URL or a GitHub release artifact.
+#           This is NOT committed to the repo — too large.
+#
+# Why a URL rather than committing the zips? They total ~295 MB, fine
+# for cold storage but heavy for the repo. The provenance.toml in the
+# crate carries SHA-256 hashes for each upstream zip, so the workflow
+# can verify that whatever URL it's given served the right files.
+
+on:
+  workflow_dispatch:
+    inputs:
+      zips_url:
+        description: 'URL of a bundle (tar.gz or zip) containing the 58 ODNI standalone zips'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Download zip bundle
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/upstream_bundle
+          cd /tmp/upstream_bundle
+          curl -fsSL -o bundle.archive "${{ inputs.zips_url }}"
+          file bundle.archive
+          # Auto-detect tar.gz vs zip
+          if file bundle.archive | grep -q 'gzip compressed'; then
+            tar xzf bundle.archive
+          elif file bundle.archive | grep -q 'Zip archive'; then
+            unzip -q bundle.archive
+          else
+            echo "::error::bundle.archive is neither tar.gz nor zip"
+            exit 1
+          fi
+          # Move zips up if they're inside a subdir
+          mkdir -p zips
+          find . -maxdepth 3 -name '*.zip' -exec mv {} zips/ \;
+          echo "Found $(ls zips/ | wc -l) zip files"
+
+      - name: Reproduce manifest from zips
+        run: python3 tools/reproduce_from_zips.py --zips /tmp/upstream_bundle/zips

@@ -1,0 +1,718 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for component cr:smsMessage</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        var propertiesBoxes= new Array('properties_SmsMessagesType_smsMessage');
+var usedByBoxes= new Array('usedBy_SmsMessagesType');
+var sourceBoxes= new Array('source_SmsMessagesType_smsMessage', 
+				'source_SmsMessagesType');
+var instanceBoxes= new Array('instance_SmsMessagesType_smsMessage');
+var diagramBoxes= new Array('diagram_SmsMessagesType_smsMessage', 
+				'diagram_SmsMessagesType');
+var modelBoxes= new Array('model_SmsMessagesType_smsMessage', 
+				'model_SmsMessagesType');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //
+--></script>
+   </head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_content" rowspan="1" colspan="1">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Diagrams</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, instanceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Instances</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Model </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Properties </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Source</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Used by </span>
+                        </td>
+                     </tr>
+                  </table>
+                  <div align="right">
+                     <span>
+                        <input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close"></input>
+                     </span>
+                  </div>
+               </td>
+               <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+            </tr>
+         </table>
+      </div>
+      <a id="SmsMessagesType_smsMessage" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="7e28587a-1427-4e99-94c3-6ed5e927d36f.html#SmsMessagesType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:SmsMessagesType')" shape="rect">cr:SmsMessagesType</a>
+            </b> / cr:smsMessage</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_SmsMessagesType_smsMessage" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_SmsMessagesType_smsMessage');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_SmsMessagesType_smsMessage" style="display:block">
+                              <img alt="Diagram" border="0" src="img/401de907-d56d-4093-a59e-a6b8c51365e9.png" usemap="#CellexReport_xsd_Element_cr_smsMessage"></img>
+                              <map name="CellexReport_xsd_Element_cr_smsMessage" id="CellexReport_xsd_Element_cr_smsMessage">
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_SmsMessageType.tmp#SmsMessageType_name" href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_name" coords="220,40,283,64" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_SmsMessageType.tmp#SmsMessageType_number" href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_number" coords="220,104,295,128" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_SmsMessageType.tmp#SmsMessageType_dateTime" href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_dateTime" coords="220,181,304,205" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_SmsMessageType.tmp#SmsMessageType_origMessText" href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_origMessText" coords="220,245,327,269" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_SmsMessageType.tmp#SmsMessageType_transMessText" href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_transMessText" coords="220,309,335,333" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_SmsMessageType.tmp#SmsMessageType_status" href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_status" coords="220,373,287,397" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_SmsMessageType.tmp#SmsMessageType_smsDirection" href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_smsDirection" coords="220,437,326,461" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_SmsMessageType.tmp#SmsMessageType_memoryLocation" href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_memoryLocation" coords="220,527,345,551" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_SmsMessageType.tmp#SmsMessageType" href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType" coords="138,3,308,25" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:SmsMessageType')" shape="rect">cr:SmsMessageType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_SmsMessagesType_smsMessage" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_SmsMessagesType_smsMessage');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_SmsMessagesType_smsMessage" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">maxOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>unbounded</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_SmsMessagesType_smsMessage" type="image" src="img/btM.gif" value="-" onclick="switchState('model_SmsMessagesType_smsMessage');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_SmsMessagesType_smsMessage" style="display:block">ALL(<b>
+                                 <a href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_name" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:name{0,1}')" shape="rect">cr:name{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_number" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:number{0,1}')" shape="rect">cr:number{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_dateTime" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:dateTime{0,1}')" shape="rect">cr:dateTime{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_origMessText" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:origMessText{0,1}')" shape="rect">cr:origMessText{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_transMessText" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:transMessText{0,1}')" shape="rect">cr:transMessText{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_status" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:status{0,1}')" shape="rect">cr:status{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_smsDirection" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:smsDirection{0,1}')" shape="rect">cr:smsDirection{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_memoryLocation" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:memoryLocation{0,1}')" shape="rect">cr:memoryLocation{0,1}</a>
+                              </b>)</div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_dateTime" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:dateTime')" shape="rect">cr:dateTime</a>
+                           </b>, <b>
+                              <a href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_memoryLocation" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:memoryLocation')" shape="rect">cr:memoryLocation</a>
+                           </b>, <b>
+                              <a href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_name" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:name')" shape="rect">cr:name</a>
+                           </b>, <b>
+                              <a href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_number" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:number')" shape="rect">cr:number</a>
+                           </b>, <b>
+                              <a href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_origMessText" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:origMessText')" shape="rect">cr:origMessText</a>
+                           </b>, <b>
+                              <a href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_smsDirection" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:smsDirection')" shape="rect">cr:smsDirection</a>
+                           </b>, <b>
+                              <a href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_status" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:status')" shape="rect">cr:status</a>
+                           </b>, <b>
+                              <a href="6a0041f8-5270-4681-be88-81741de50b23.html#SmsMessageType_transMessText" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:transMessText')" shape="rect">cr:transMessText</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Instance</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_instance_SmsMessagesType_smsMessage" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_SmsMessagesType_smsMessage');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="instance_SmsMessagesType_smsMessage" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;cr:smsMessage</span><span class="tT"> </span><span class="tAN">xmlns:cr=</span><span class="tAV">"urn:CellexReport"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cr:name</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cr:name&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cr:number</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cr:number&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cr:dateTime</span><span class="tT"> </span><span class="tAN">normalizedDate=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">normalizedDateTime=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">rawDateTime=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cr:dateTime&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cr:origMessText</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cr:origMessText&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cr:transMessText</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cr:transMessText&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cr:status</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cr:status&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cr:smsDirection</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cr:smsDirection&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cr:memoryLocation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cr:memoryLocation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/cr:smsMessage&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_SmsMessagesType_smsMessage" type="image" src="img/btM.gif" value="-" onclick="switchState('source_SmsMessagesType_smsMessage');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_SmsMessagesType_smsMessage" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"smsMessage"</span><span class="tAN"> type=</span><span class="tAV">"cr:SmsMessageType"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="SmsMessagesType" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Complex Type <span class="qname">cr:SmsMessagesType</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_SmsMessagesType" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_SmsMessagesType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_SmsMessagesType" style="display:block">
+                              <img alt="Diagram" border="0" src="img/4cf33834-47b6-4ad1-938a-462c9835ab7f.png" usemap="#CellexReport_xsd_Complex_Type_cr_SmsMessagesType"></img>
+                              <map name="CellexReport_xsd_Complex_Type_cr_SmsMessagesType" id="CellexReport_xsd_Complex_Type_cr_SmsMessagesType">
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_SmsMessagesType.tmp#SmsMessagesType_smsMessage" href="7e28587a-1427-4e99-94c3-6ed5e927d36f.html#SmsMessagesType_smsMessage" coords="287,4,394,28" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_SmsMessagesType" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_SmsMessagesType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_SmsMessagesType" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Element </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="cc8b79c3-4fde-4212-910b-db8f17d12f1f.html#CellexReportDataType_smsMessages" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:CellexReportDataType/cr:smsMessages')" shape="rect">cr:CellexReportDataType/cr:smsMessages</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_SmsMessagesType" type="image" src="img/btM.gif" value="-" onclick="switchState('model_SmsMessagesType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_SmsMessagesType" style="display:block">
+                              <b>
+                                 <a href="7e28587a-1427-4e99-94c3-6ed5e927d36f.html#SmsMessagesType_smsMessage" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:smsMessage+')" shape="rect">cr:smsMessage+</a>
+                              </b>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="7e28587a-1427-4e99-94c3-6ed5e927d36f.html#SmsMessagesType_smsMessage" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:smsMessage')" shape="rect">cr:smsMessage</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_SmsMessagesType" type="image" src="img/btM.gif" value="-" onclick="switchState('source_SmsMessagesType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_SmsMessagesType" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:complexType</span><span class="tAN"> name=</span><span class="tAV">"SmsMessagesType"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"smsMessage"</span><span class="tAN"> type=</span><span class="tAV">"cr:SmsMessageType"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:complexType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //
+--></script>
+   </body>
+</html>

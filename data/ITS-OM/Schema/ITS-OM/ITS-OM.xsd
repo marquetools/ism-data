@@ -1,0 +1,847 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- UNCLASSIFIED//FOR OFFICIAL USE ONLY -->
+<xsd:schema xmlns:icms="urn:us:gov:ic:icms"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ism="urn:us:gov:ic:ism"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml-StopBrowserRendering"
+    targetNamespace="urn:us:gov:ic:icms"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    xml:lang="en"
+    ism:createDate="2012-01-19"
+    ism:resourceElement="true"
+    ism:classification="U"
+    ism:ownerProducer="USA"
+    version="201508">
+    <xsd:import namespace="urn:us:gov:ic:ism" schemaLocation="../ISM/IC-ISM.xsd"/>
+    <xsd:import namespace="urn:us:gov:ic:icom" schemaLocation="../ITS-OM/ITS-OM-ICOM.xsd"/>
+    <xsd:annotation>
+        <xsd:documentation>
+            <xhtml:h1 ism:ownerProducer="USA" ism:classification="U"
+                >Intelligence Community Technical Specification XML Data Encoding Specification for
+                Information Transport Service Organizational Messaging (ITS-OM.XML)</xhtml:h1>
+        </xsd:documentation>
+        <xsd:documentation>
+            <xhtml:h2 ism:ownerProducer="USA" ism:classification="U"
+                >Notices</xhtml:h2>
+            <xhtml:p  ism:ownerProducer="USA" ism:classification="U">
+                Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+        </xhtml:p>
+        </xsd:documentation>
+        <xsd:documentation>
+            <xhtml:h2  ism:ownerProducer="USA" ism:classification="U"
+                >Description</xhtml:h2>
+            <xhtml:p  ism:ownerProducer="USA" ism:classification="U">
+                W3C XML Schema for the XML Data Encoding Specification Intelligence Community
+                Metadata Standard for Information Transport Service Organizational Messaging
+                (ITS-OM.XML). </xhtml:p>
+        </xsd:documentation>
+        <xsd:documentation>
+            <xhtml:h2  ism:ownerProducer="USA" ism:classification="U"
+                >Introduction</xhtml:h2>
+            <xhtml:p  ism:ownerProducer="USA" ism:classification="U">
+                This XML Schema file is one component of the XML Data Encoding Specification (DES).
+                Please see the document titled <xhtml:i>
+                    <xhtml:a href="../../Documents/ITS-OM/DesItsOmXml.pdf">XML Data Encoding Specification for Information
+                        Transport Service Organizational Messaging</xhtml:a>
+                </xhtml:i> for a complete description of the encoding as well as list of all components. </xhtml:p>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                It is envisioned that this schema or its components, as well as other parts of the
+                DES may be overridden for localized implementations. Therefore, permission to use,
+                copy, modify and distribute this XML Schema and the other parts of the DES for any
+                purpose is hereby granted in perpetuity. </xhtml:p>
+            <xhtml:p  ism:ownerProducer="USA" ism:classification="U">
+                Please reference the preceding two paragraphs in all copies or variations. The
+                developers make no representation about the suitability of the schema or DES for any
+                purpose. It is provided "as is" without expressed or implied warranty. </xhtml:p>
+            <xhtml:p  ism:ownerProducer="USA" ism:classification="U">
+                If you modify this XML Schema in any way label your schema as a variant of
+                ITS-OM.XML. </xhtml:p>
+            <xhtml:p  ism:ownerProducer="USA" ism:classification="U">
+                Please direct all questions, bug reports, or suggestions for changes to the points of
+                contact identified in the document referenced above. </xhtml:p>
+        </xsd:documentation>
+        <xsd:documentation>
+            <xhtml:h2  ism:ownerProducer="USA" ism:classification="U"
+                >Implementation Notes</xhtml:h2>
+            <xhtml:ul >
+                <xhtml:li ism:ownerProducer="USA" ism:classification="U">The ICMS schema defines the
+                    elements for routing message objects within ITS. In addition to the message
+                    contents and any attachments, it contains other metadata such as the originator,
+                    recipient(s), security markings and delivery precedence.</xhtml:li>
+                <xhtml:li ism:ownerProducer="USA" ism:classification="U">Refer to the <xhtml:i>
+                    <xhtml:a href="../../Documents/ITS-OM/DesItsOmXml.pdf">XML Data Encoding Specification for
+                            Information Transport Service Organizational Messaging</xhtml:a>
+                    </xhtml:i> (ITS-OM.XML DES) for additional information</xhtml:li>
+                <xhtml:li ism:ownerProducer="USA" ism:classification="U"
+                    >The IC Messaging Service (ICMS) XML provides the base XML elements used to
+                    define an information object allowed to be transported via ITS/OM.  This XML
+                    uses the IC standard for Information Security Marking (IC ISM) V5 XML attributes
+                    to provide security markings for the information.</xhtml:li>
+            </xhtml:ul>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U"> The root element for ITS-OM is: 
+                <xhtml:ul>
+                    <xhtml:li ism:ownerProducer="USA" ism:classification="U">
+                        <xhtml:a href="ITS-OM_xsd_Element_icms_Icms.html">icms:Icms</xhtml:a>
+                    </xhtml:li>
+                </xhtml:ul>
+            </xhtml:p>
+            
+        </xsd:documentation>
+        <xsd:documentation>
+            <xhtml:h2  ism:ownerProducer="USA" ism:classification="U"
+                >Creators</xhtml:h2>
+            <xhtml:p  ism:ownerProducer="USA" ism:classification="U"
+                >Office of the Director of National Intelligence Intelligence Community Chief
+                Information Officer</xhtml:p>
+        </xsd:documentation>
+    </xsd:annotation>
+    <!--
+		The ICMS schema defines the elements for routing message objects within ITS.  
+		In addition to the message contents and any attachments, it contains other metadata such as the originator, recipient(s), security markings and delivery precedence.	
+	-->
+    <!--
+		Global Elements
+	-->
+    <xsd:element name="Icms" type="icms:IcmsType">
+        <xsd:annotation>
+            <xsd:documentation>Intelligence Community Messaging Service</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="Forward" type="icms:ForwardType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"
+                    >The Forward element provides information for a received Icms/Message to be
+                    forwarded to additional recipients. </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="Message" type="icms:MessageType">
+        <xsd:annotation>
+            <xsd:documentation><xhtml:p ism:ownerProducer="USA" ism:classification="U">The Message element provides information about
+                    the message including: <xhtml:ul >
+                        <xhtml:li ism:ownerProducer="USA" ism:classification="U"
+                            >security labels and address space</xhtml:li>
+                        <xhtml:li ism:ownerProducer="USA" ism:classification="U"
+                            >identification number, subject, client
+                            and originator dates</xhtml:li>
+                        <xhtml:li ism:ownerProducer="USA" ism:classification="U"
+                            >originator and recipients</xhtml:li>
+                        <xhtml:li ism:ownerProducer="USA" ism:classification="U"
+                            >precedence(s)</xhtml:li>
+                        <xhtml:li ism:ownerProducer="USA" ism:classification="U"
+                            >special handling instructions</xhtml:li>
+                        <xhtml:li ism:ownerProducer="USA" ism:classification="U"
+                            >content including body and
+                            attachments</xhtml:li>
+                    </xhtml:ul>The Message element has the IC ISM security attribute group,
+                    ResourceNodeAttributeGroup, which identifies Message as the primary resource
+                    element of ICMS XML. The Message element’s security attributes are used to
+                    provide the organizational message’s security markings.  This security marking
+                    should represent the highest overall classification of the message taking into
+                    account any security attributes which exist on the elements for Subject, Body,
+                    and/or Attachment elements. </xhtml:p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="IcmsDateReleased" type="xsd:dateTime">
+        <xsd:annotation>
+            <xsd:documentation><p ism:ownerProducer="USA" ism:classification="U"
+                    >IcmsDateReleased is a mandatory element of type
+                    xsd:dateTime. This is the Greenwich Mean Time of the date and time the message
+                    was released by the ITS/OM Client.</p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="IcmsMessageId" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation><xhtml:p ism:ownerProducer="USA" ism:classification="U"
+                    >The IcmsMessageId element is the required
+                    Universal Unique Identifier (UUID) assigned when the message is released.  This
+                    is the message identifier used throughout the IC ITS to track the message. The
+                    UUID should be built as specified RFC 4122.  Most application development
+                    languages have libraries which support the creation of a UUID based on the
+                    specific server information and the current date and
+                time.</xhtml:p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="OrigMessageID" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation><xhtml:p ism:ownerProducer="USA" ism:classification="U"
+                    >The optional element, OrigMessageID, provides a
+                    field for an originating client to include a local identifier assigned to the
+                    message.  It is of type xsd:string and multiple elements may be
+                included.</xhtml:p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="OriginatorDateAssigned" type="xsd:dateTime">
+        <xsd:annotation>
+            <xsd:documentation><xhtml:p ism:ownerProducer="USA" ism:classification="U"
+                    >OriginatorDateAssigned is an optional element
+                    of type xsd:dateTime. This is the date and time assigned to the message by the
+                    originator.</xhtml:p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="Topic" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation><xhtml:p ism:ownerProducer="USA" ism:classification="U"
+                    >The optional element, Topic, provides a field
+                    for indicating the general topic of the message. It is of type xsd:string and
+                    multiple elements may be included.  This element is planned for future
+                use.</xhtml:p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="AddressSpace" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation><xhtml:p ism:ownerProducer="USA" ism:classification="U"
+                >The Address Space of the message (DSSCS, GENSER, SOCOMM,
+                etc.)</xhtml:p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="PrecedenceList" type="icms:PrecedenceListType">
+        <xsd:annotation>
+            <xsd:documentation><xhtml:p ism:ownerProducer="USA" ism:classification="U"
+                    >The PrecedenceList element provides the
+                    precedence values at which the message(s) or forwarded delivery(s) should be
+                    made.</xhtml:p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="Originator" type="icms:OriginatorType">
+        <xsd:annotation>
+            <xsd:documentation><xhtml:p ism:ownerProducer="USA" ism:classification="U"
+                    >The Originator element provides the necessary
+                    information about the originator of the message.</xhtml:p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="RecipientList" type="icms:RecipientListType">
+        <xsd:annotation>
+            <xsd:documentation><p ism:ownerProducer="USA" ism:classification="U"
+                    >The element, RecipientList, contains one or more Recipient elements.</p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="SpecialHandling" type="icms:SpecialHandlingType">
+        <xsd:annotation>
+            <xsd:documentation><xhtml:p ism:ownerProducer="USA" ism:classification="U"
+                    >Additional information specific to the delivery
+                    processing of this message, such as additional legacy format values for use if
+                    the message transits the LTG.</xhtml:p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="Subject" type="icms:SubjectType">
+        <xsd:annotation>
+            <xsd:documentation><xhtml:p ism:ownerProducer="USA" ism:classification="U"
+                    >The required element, Subject, contains the
+                    subject or description of the message content.  The Subject element has the IC
+                    ISM security attribute, SecurityAttributesOptionGroup.</xhtml:p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="BodyList" type="icms:BodyListType">
+        <xsd:annotation>
+            <xsd:documentation><xhtml:p ism:ownerProducer="USA" ism:classification="U"
+                >List of body elements</xhtml:p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="AttachmentList" type="icms:AttachmentListType">
+        <xsd:annotation>
+            <xsd:documentation><xhtml:p ism:ownerProducer="USA" ism:classification="U"
+                >List of attachments</xhtml:p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <!-- 
+		Message Global Elements  
+	-->
+    <xsd:element name="ToPrecedence" type="icms:PrecedenceType">
+        <xsd:annotation>
+            <xsd:documentation><xhtml:p ism:ownerProducer="USA" ism:classification="U"
+                >The TO recipients delivery precedence</xhtml:p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="CcPrecedence" type="icms:PrecedenceType">
+        <xsd:annotation>
+            <xsd:documentation><xhtml:p ism:ownerProducer="USA" ism:classification="U"
+                >The CC recipients delivery precedence</xhtml:p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="OfficeCodes" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation><xhtml:p ism:ownerProducer="USA" ism:classification="U"
+                    >This element can be used to identify the office
+                    within the associated organization which is to receive this message. The element
+                    is optional, but may also exist multiple times if multiple offices within the
+                    same organization should receive the message.</xhtml:p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="Recipient" type="icms:RecipientType">
+        <xsd:annotation>
+            <xsd:documentation>The recipient of the message. At least one recipient is
+                required.</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="OrgName" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation><p ism:ownerProducer="USA" ism:classification="U"
+                    >This element is required and contains the
+                    organizational address of the recipient or the address list name for a group of
+                    organizational addresses which should receive the
+                message.</p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="RecpType" type="icms:RecpTypeType">
+        <xsd:annotation>
+            <xsd:documentation><p ism:ownerProducer="USA" ism:classification="U"
+                    >This element is required and identifies the
+                    type of recipient.  It is one of TO, CC, EXCLUDE, TO_ZEN, or CC_ZEN.  The TO
+                    value indicates the recipient should receive a copy at the message’s associated
+                    action precedence (Message.PrecedenceList.ToPrecedence) while the CC value
+                    indicates the recipient should receive a copy at the message’s associated info
+                    precedence (Message.PrecedenceList.CcPrecedence).  The EXCLUDE value indicates
+                    the recipient is a member of a group which should not receive a copy of the
+                    message and should only be used when the OrgType is GroupMember.  The TO_ZEN and
+                    CC_ZEN values indicate the recipient should not receive a copy of the message
+                    because that copy was delivered to that recipient outside the organizational
+                    messaging systems.</p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="OrgType" type="icms:OrgTypeType">
+        <xsd:annotation>
+            <xsd:documentation><p ism:ownerProducer="USA" ism:classification="U"
+                    >This element is required and indicates the type
+                    of organization provided in the OrgName element.  It is one of PLA, Group, or
+                    GroupMember.  PLA indicates the value is an individual recipient identified by
+                    its plain language address.  Group indicates the value is a group name
+                    identifying multiple recipients by their membership in the group.  GroupMember
+                    indicates the value is the plain language address of an address group member.
+                     GroupMember should only be used when the recipient list also includes an
+                    OrgType of Group.</p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="OrgClient" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation><p ism:ownerProducer="USA" ism:classification="U"
+                    >This element is used to identify the ITS Client
+                    which provides the delivery path to the recipient.  If the RecpType is EXCLUDE,
+                    TO_ZEN, or CC_ZEN, this element is not necessary since no delivery will be made
+                    to this type of recipient.  If the OrgType is Group, this element is not
+                    necessary since deliveries are made to group members and not the group itself.
+                     If the RecpType is TO or CC and the OrgType is PLA or GroupMember, this element
+                    if it exists contains the ITS Client ID of the Client which provides the
+                    organization’s messaging support.  More than one OrgClient element may exist if
+                    more than one ITS Client receives messages for the associated
+                organization.</p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="ReceiptRequested" type="xsd:boolean" default="false">
+        <xsd:annotation>
+            <xsd:documentation><p ism:ownerProducer="USA" ism:classification="U"
+                    >This element is optional and can be used to
+                    indicate to a recipient that the originator requests acknowledge that the
+                    message has been read. It is a Boolean element and should be set to true or
+                    false.</p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="Attachment" type="icms:AttachmentType">
+        <xsd:annotation>
+            <xsd:documentation>The attachment and its metadata. An attachment may have security
+                markings.</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="AttachmentName" type="icms:AttachmentNameType">
+        <xsd:annotation>
+            <xsd:documentation><p ism:ownerProducer="USA" ism:classification="U"
+                    >This element contains the name of the
+                    attachment (please limit to 256 char) along with the mime-type attribute which
+                    identifies the content type using the MIME media type values found in RFC 2046.
+                     An ITS Client may originate any attachment type defined within the
+                    specification.  A minimum set of file types should be recognized by a consuming
+                    ITS Client. This minimum set is also the only file types allowed to cross a
+                    security domain.  Within a single security domain other files types are allowed
+                    as long as the originating Client and receiving Client are in agreement on the
+                    handling of the attachment.</p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="AttachmentDescription" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation><p ism:ownerProducer="USA" ism:classification="U"
+                    >This element is optional and may contain a
+                    textual description of the attachment contents.</p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="AttachmentSize" type="xsd:double">
+        <xsd:annotation>
+            <xsd:documentation><p ism:ownerProducer="USA" ism:classification="U"
+                    >This element contains the size in bytes. If the
+                    attachment content is included in the element, AttachmentData, this represents
+                    the size of the attachment after any conversion and compression actions are
+                    applied to its contents.</p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="AttachmentLocation" type="xsd:anyURI">
+        <xsd:annotation>
+            <xsd:documentation><p ism:ownerProducer="USA" ism:classification="U"
+                    >This element can be used to provide the URI of
+                    where the attachment can be found. AttachmentLocation should not be used when
+                    the AttachmentData element is used.</p></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="AttachmentData">
+        <xsd:annotation>
+            <xsd:documentation><p ism:ownerProducer="USA" ism:classification="U"
+                    >This element can contain the actual data either
+                    base64 encoded or zipped and then base64 encoded. The associated attribute,
+                    composition, identifies which method was used to encode the data. The
+                    composition attribute should contain “base64” or “zip:base64”. AttachmentData
+                    should not be used when the AttachmentLocation element is
+                used.</p></xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="xsd:base64Binary">
+                    <xsd:attribute ref="icms:composition" use="required"/>
+                </xsd:extension>
+            </xsd:simpleContent>
+        </xsd:complexType>
+    </xsd:element>
+    <!--
+		Type Definitions
+	-->
+    <xsd:complexType name="IcmsType">
+        <xsd:sequence>
+            <xsd:element ref="icms:Forward" minOccurs="0"/>
+            <xsd:element ref="icms:Message"/>
+        </xsd:sequence>
+        <xsd:attributeGroup ref="ism:ISMRootNodeAttributeGroup"/>
+    </xsd:complexType>
+    <xsd:complexType name="ForwardType">
+        <xsd:sequence>
+            <xsd:element name="DateTime" type="xsd:dateTime">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <p ism:ownerProducer="USA" ism:classification="U"
+                            >The DateTime element should be set to
+                            the date and time the ITS Client releases the forwarded message to
+                            ITS.</p></xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="icms:IcmsMessageId"/>
+            <xsd:element name="Reason" type="xsd:string" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation><p ism:ownerProducer="USA" ism:classification="U"
+                            >The Reason element is optional and can
+                            be set to a text string explaining the reason this message is being
+                            forwarded.</p></xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="icms:PrecedenceList">
+                <xsd:annotation>
+                    <xsd:documentation>The forwarding precedence</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="icms:Originator">
+                <xsd:annotation>
+                    <xsd:documentation>The forwarding originator</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="icms:RecipientList">
+                <xsd:annotation>
+                    <xsd:documentation>The recipients of the forwarded message</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="PreviousForward" type="icms:ForwardType" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation><p ism:ownerProducer="USA" ism:classification="U"
+                            >The PreviousForward element contains
+                            the current forward element when a new forward element is created to
+                            forward an Icms message which already has a Forward
+                        element.</p></xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="MessageType">
+        <xsd:sequence>
+            <xsd:element ref="icms:IcmsDateReleased"/>
+            <xsd:element ref="icms:IcmsMessageId"/>
+            <xsd:element ref="icms:OrigMessageID" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element ref="icms:OriginatorDateAssigned" minOccurs="0"/>
+            <xsd:element ref="icms:AddressSpace"/>
+            <xsd:element ref="icms:Topic" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element ref="icms:PrecedenceList"/>
+            <xsd:element ref="icms:Originator"/>
+            <xsd:element ref="icms:RecipientList"/>
+            <xsd:element ref="icms:SpecialHandling" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element ref="icms:Subject"/>
+            <xsd:element ref="icms:BodyList" minOccurs="0"/>
+            <xsd:element ref="icms:AttachmentList" minOccurs="0"/>
+        </xsd:sequence>
+        <xsd:attributeGroup ref="ism:ResourceNodeAttributeGroup"/>
+    </xsd:complexType>
+    <xsd:complexType name="PrecedenceListType">
+        <xsd:choice>
+            <xsd:sequence>
+                <xsd:element ref="icms:ToPrecedence"/>
+                <xsd:element ref="icms:CcPrecedence" minOccurs="0"/>
+            </xsd:sequence>
+            <xsd:sequence>
+                <xsd:element ref="icms:CcPrecedence"/>
+                <xsd:element ref="icms:ToPrecedence" minOccurs="0"/>
+            </xsd:sequence>
+        </xsd:choice>
+    </xsd:complexType>
+    <xsd:simpleType name="PrecedenceType">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="CRITIC"/>
+            <xsd:enumeration value="ECP"/>
+            <xsd:enumeration value="FLASH"/>
+            <xsd:enumeration value="IMMEDIATE"/>
+            <xsd:enumeration value="PRIORITY"/>
+            <xsd:enumeration value="ROUTINE"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="OriginatorType">
+        <xsd:sequence>
+            <xsd:element ref="icms:OrgName">
+                <xsd:annotation>
+                    <xsd:documentation>The organizational address of the
+                        originator</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="icms:OfficeCodes" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element name="ReleaserName" type="xsd:string" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation> The name of the release authority for this
+                        object</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="RecipientListType">
+        <xsd:sequence>
+            <xsd:element ref="icms:Recipient" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="RecipientType">
+        <xsd:sequence>
+            <xsd:element ref="icms:RecpType"/>
+            <xsd:element ref="icms:OrgName">
+                <xsd:annotation>
+                    <xsd:documentation>The organizational address of the
+                        recipient</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="icms:OfficeCodes" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element ref="icms:OrgType">
+                <xsd:annotation>
+                    <xsd:documentation>The organizational address type: PLA, Group, or
+                        GroupMember</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="icms:OrgClient" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>The ITS client ID supporting this Recipient. Depending on
+                        Recipient's delivery requirements, this element may not exist at all or
+                        contains the ITS Client providing delivery to the Recipient. More than one
+                        element is allowed when more than one ITS client provides delivery for this
+                        Recipient</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="icms:ReceiptRequested" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>If the recipient is requested to send back a read
+                        receipt</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="Dual-Rcv" type="xsd:boolean" use="optional" default="false">
+            <xsd:annotation>
+                <xsd:documentation>This attribute is used to indicate the Recipient element is a
+                    duplicate entry for use in the dual receive testing process.</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+    <xsd:simpleType name="RecpTypeType">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="TO"/>
+            <xsd:enumeration value="CC"/>
+            <xsd:enumeration value="EXCLUDE"/>
+            <xsd:enumeration value="TO_ZEN"/>
+            <xsd:enumeration value="CC_ZEN"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="OrgTypeType">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="PLA"/>
+            <xsd:enumeration value="Group"/>
+            <xsd:enumeration value="GroupMember"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="SpecialHandlingType">
+        <xsd:sequence>
+            <xsd:any processContents="lax" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>Import applicable special handling xsd</xsd:documentation>
+                </xsd:annotation>
+            </xsd:any>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="SubjectType">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attributeGroup ref="ism:SecurityAttributesOptionGroup"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:complexType name="BodyListType">
+        <xsd:sequence>
+            <xsd:element name="Body" type="icms:BodyType" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>The message body contents. Each BodyElement can have its own
+                        security markings.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="BodyType">
+        <xsd:sequence>
+            <xsd:any processContents="lax" minOccurs="0"/>
+        </xsd:sequence>
+        <xsd:attributeGroup ref="ism:SecurityAttributesOptionGroup"/>
+        <xsd:attribute ref="icms:title" use="optional"/>
+    </xsd:complexType>
+    <xsd:complexType name="AttachmentListType">
+        <xsd:sequence>
+            <xsd:element ref="icms:Attachment" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="AttachmentType">
+        <xsd:sequence>
+            <xsd:element ref="icms:AttachmentName"/>
+            <xsd:element ref="icms:AttachmentDescription" minOccurs="0"/>
+            <xsd:element ref="icms:AttachmentSize"/>
+            <xsd:choice>
+                <xsd:element ref="icms:AttachmentLocation"/>
+                <xsd:element ref="icms:AttachmentData"/>
+            </xsd:choice>
+        </xsd:sequence>
+        <xsd:attributeGroup ref="ism:SecurityAttributesOptionGroup"/>
+    </xsd:complexType>
+    <xsd:complexType name="AttachmentNameType">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute ref="icms:mime-type" use="required"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <!-- 
+		Attributes 
+	-->
+    <xsd:attribute name="DESVersion" type="ism:ShortStringType" fixed="2">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> The version number of the DES </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:attribute> 
+    <xsd:attribute name="composition">
+        <xsd:annotation>
+            <xsd:documentation>This is a set of colon delimited file extension to show how the file
+                was base 64 encoded. Enumerated values of zip:base64 or base64..</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+                <xsd:enumeration value="zip:base64"/>
+                <xsd:enumeration value="base64"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="mime-type" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation>The mine type of the attachment</xsd:documentation>
+        </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="title">
+        <xsd:annotation>
+            <xsd:documentation>A Title for the Body part </xsd:documentation>
+        </xsd:annotation>
+    </xsd:attribute>
+    <!-- 
+	********************
+	CHANGE LOG
+	********************
+	Version 2.0 (January 2013)
+		Version decoupling, allowing import of any version of ISM and other dependent specifications at or above ISMv9
+		
+	Version 1.9 (Apr 2011)
+		Modified to support ISM V5
+    		Removed version indication from import ISM file name
+    		Removed SecurityAttributesGroup from Message element since it is now included in the ResourceNodeAttributeGroup
+		Modified Subject element to use SecurityAttributesOptionGroup so that security markings are optional
+		Deleted contentdescription attribute since it is no longer used in ICMS XML
+		
+	Version 1.8 (Oct 2010)
+		Allow multiple OrgClient elements for a single Recipient
+		Add additional IC ISM attribute groups: 
+    		ISMRootNodeAttributeGroup to Icms element and 
+    		ResourceNodeAttributeGroup to Message element
+		Change Forward Date element to DateTime
+		Change Forward to include an optional PreviousForward element
+		Deleted contentdescription attribute from Subject
+		
+	Version 1.7 (July 2010)
+		Added IcmsMessageId to Forward element
+		Update to use ISM V3
+		
+	Draft Version 1.6 (March 2010)
+		Forward element precedence and recipient list structures set to same as Message element
+		Precedence list back to TO w/ optional CC or CC w/ optional TO
+		Optional releaser signature element added to Originator
+		Recipient types changed to TO, CC, EXCLUDE, TO_ZEN, CC_ZEN
+		Organization types changed to PLA, Group, GroupMember
+		Recipient client element may exist 0, 1, or 2 times
+    		0 if org type is Group or recipient type is EXCLUDE, TO-ZEN, or CC-ZEN
+    		1 if org type is PLA or GroupMember and recipient type is TO or CC
+		Recipient attribute Dual-Rcv added to indicate PLA or GroupMember is duplicated in the Recipient List for delivery to an additional OrgClient
+		
+	Draft Version 1.5 (February 2010)
+		Back to Body List element
+		Additional elements in Forwarding block (Date, Reason, Originator)
+		Precedence list set as required TO and optional CC
+		
+	Draft Version 1.4 (February 2010)
+		Added Forward element
+		Back to single RecipientList and multiple Body elements
+		OrgType and RecpType enumerations changed
+		Topic element set as unbounded
+		Originator Office codes set as unbounded
+		
+	Draft Version 1.3 (February 2010)
+		Removed Routing 
+		Split Recipient list into TORecipientList and CCRecipientList
+		Added BodyList 
+		
+	Draft Version 1.2.1 (October 2009)
+		Added optional element "OriginatorDateAssigned" to the "MessageType"
+		Added element "ItsOrgMsg" as a separate root element that can be placed in a "body" tag
+		composed of a mandatory "Text" element and an optional "Mime" element
+		made "composition" as a required attribute for element "Mime"
+		Made the element "Attachment" under the optional element "AttachmentList" mandatory
+		Made the attribute "composition" in element "AttachmentData" required
+		Added optional attribute "title" to BodyType 
+		
+	Draft Version 1.2 (April 2009)
+		Made RoutingList unbounded
+		Removed element RoutingToken
+		Changed element RoutingTopic to RoutingClient
+		Changed element AddressDomain to AddressSpace
+		Changed element DateReleased to IcmsDateReleased and changed annotation to reflect client released date
+		Made OrigMessageID unbounded
+		Added an attribute mime-type 
+		Created AttachmentNameType with attribute mime-type
+		Made AttachmentName to be of type AttachmentNameType
+		
+	Draft Version 1.1i (April 2009)
+		In support of handling address list that may have primary and secondary addresses the following was changed
+    		Made RoutingAddresses as  RoutingAddressesType
+    		Added RoutingAddress as a member of RoutingAddresses
+    		Added RoutingAddressPrecedence as a member of RoutingAddresses
+		Change the term portal to client to be more politically correct
+		Made Routing of type RoutingType
+		Change CreateTime to DateReleased
+		Remove element RoutingToken from type RoutingType
+		
+	Draft Version 1.1h (Feb 2009)
+		Added "contentdescription" attribute under the element "Subject"
+		Correct PrecedenceList to allow one or both precedence without being in order
+		Added RoutingList, a list of routings, and added two elements "RoutingTopic" and "RoutingToken"
+		
+	Draft Version 1.1g (Jan 2009)
+		Added element "ReceiptRequest" as part of "RecipientType"
+		Added element "Topic" a comma delimited list of topics
+		Added attribute "composition" to element "AttachmentData"
+		Replaced PrecedenceList with correct schema to allow for one or both precedences
+		Remove PrecedenceGroup and PrecedenceGroupType
+		
+	Draft Version 1.1f (Nov 2008)
+		Removed "EncMessage" choice element (this is done outside of the schema)
+		Added sequence element "Routing" of type "RoutingType"under "Icms"
+		Added element "RoutingAddresses" under "RoutingType"
+		Added element "RoutingPrecedence" under "RoutingType"
+		Added element "OrigMessageId"
+		Remove "AddTag" element and associated elements 
+		Added "SpecialHandling" element used to import applicable xsd
+		Changed "AttachmentSize" to type "xsd:float" in million bytes
+		Removed "TearLine" schema element to a new xsd
+		Changed "AddressDomain" to be of type "xsd:string" instead of being enumerated
+		Removed "TO-MLM & CC-MLM" from "OrgTypType".  This information is not longer need because of the addition of the Routing element.
+		
+	Draft Version 1.1e (Oct 2008)
+		Added namespace to schema
+		Changed "AttachmentName" to be mandatory.
+		Changed "AttachmentDescription" to be optional.
+		Changed "AttachmentSize" to be of type "unsignedLong".
+		Changed "AttachmentLocation" to be mandatory.
+		Changed "AttachmentData" to be mandatory.
+		Changed "AddTagName" to be mandatory.
+		Changed "AddTagXsType" to be mandatory.
+		Changed "AddTagValue" to be mandatory.
+		Changed "Html" to be of type "xsd:string"
+		
+	Draft Version 1.1d (Sep 2008)
+		Moved Change Log to bottom of the schema
+		Changed "Coi" to "AddressDomain"
+		Changed "CoiType to "AddressDomainType"
+		
+	Draft Version 1.1c (Sep 2008)
+		Revised based upon IMS (JDG) comments
+			Defined all elements as global and reference them local.
+			Defined element "Icms" to be of type "IcmsType".
+			Defined element "Coi" to be of type "CoiType".
+			Renamed element "Precedence" in "PrecedenceList" to "PrecedenceGroup".
+			Defined element "PrecedenceGroup" to be of type "PrecedenceGroupType".
+			Within "OriginatorType", defined "Name" and "OfficeCodes" to of type "xsd:string".
+			Changed "SendTypeType" to "OrgTypeType". 
+			Defined element "Subject" to be of type "SubjectType"
+			Defined element "Body" to be of type "BodyType".
+			Changed element "CcPrecedence" to be of type "PrecedenceType".
+			Changed element "AdditionalTagType" to "AddTagType".
+			Changed element "Value" to "AddTagValue" and define it to be of type "AddTagValueType".
+		Within RecipientType, renamed:
+    		"Name" to "OrgName".
+    		"OfficeCodes" to "OrgOfficeCodes".
+    		"SendType" to "OrgType".
+    		"Precedence" to "OrgPrecedence".
+		Within AddTagType, renamed:
+    		"Name" to "AddTagName".
+    		"Type" to "AddTagXsType".
+    		"Value" to "AddTagValue" defined it to be of type "AddTagValueType".
+		Within TearlineType, renamed:
+    		"Dtg" to "TearlineDtg".
+    		"Subject" to "TearlineSubject".
+    		"Content" to "TearlineBody" and define it to be of type "TearlineBodyType".
+    	Change element "Xhtml" to "Html" to be of type "xsd:base64Binary".
+		
+	Draft Version 1.1b (11 Sep 2008)
+		Changed Message and EncMessage as Globals
+		Added optional Precedence to Recipient Type
+		Added two optional elements under AttachmentType: description and size
+		
+	Draft Version 1.1a (05 Sep 2008)
+		Updated ISM from v2.0 to v2.1
+		Added PrecedenceListType to ensure at least one "to" or "cc" precedences
+		Naming convention changes (i.e create-time to CreateTime) 
+		Updated sendType enumerations to include to and cc for mail list members and zen addressees 
+		
+	Draft Version 1.1 (Aug 2008)
+		Added message-id element
+		Changed from-recipient to originator
+		Added offices codes to originator and recipient
+		Delete delivery-notification-request, read-receipt-request, reply-requested from recipient
+		Added enumeration to sendType to include TO, CC, ZEN, ML and PROFILED
+		Changed body element to be unbounded
+		Added simple XHTML element for use in the body with text, base64binary and tearline
+		Made security attributes in message and subject mandatory
+		Remove node names and tokens from enc-message and made it a simple type element.
+		
+	POC Version 1.0 (May 2008)
+		separates message from tracking information 
+	-->
+</xsd:schema>

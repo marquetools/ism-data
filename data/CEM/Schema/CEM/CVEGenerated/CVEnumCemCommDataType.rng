@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:cemxml:commdatatype">
+   <define name="CVEnumCemCommDataType.cve">
+      <choice>
+         <value>IPv4</value>
+         <value>IPv6</value>
+         <value>WebAddress</value>
+         <value>Protocol</value>
+         <value>Email</value>
+         <value>Port</value>
+         <value>MobilePhone</value>
+         <value>Telephone</value>
+         <value>Fax</value>
+         <value>Telex</value>
+         <value>MalFile</value>
+      </choice>
+   </define>
+</grammar>

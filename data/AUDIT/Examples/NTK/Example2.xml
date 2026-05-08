@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen SCHSchema="../../Schematron/ISM/ISM_XML.sch"?>
+<?oxygen SCHSchema="../../Schematron/NTK/NTK_XML.sch"?>
+<!-- All classification marks in this example are   -->
+<!-- for illustrative purposes only, there are no   -->
+<!-- actual classified data contained in this example -->
+<ntk:Access xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="urn:us:gov:ic:ntk ../../Schema/NTK/IC-NTK.xsd"
+ xmlns:ism="urn:us:gov:ic:ism"
+ xmlns:ntk="urn:us:gov:ic:ntk"
+ ism:classification="U"
+ ism:ownerProducer="USA">
+    <!-- Sample file restricting use to the people in SourceForge who 
+        Have the "SourceView" role in the "Data Standards Coordination Activity" project    -->
+    <!-- Example is an incomplete fragment since NTK would 
+    be embedded in another schema not standalone. -->
+    <ntk:AccessProfileList  
+        ism:classification="U" 
+        ism:ownerProducer="USA">
+        <ntk:AccessProfile  
+            ism:classification="U" 
+            ism:ownerProducer="USA">
+            <ntk:AccessSystemName  
+                ism:classification="U" 
+                ism:ownerProducer="USA">UnclassSourceForge</ntk:AccessSystemName>
+            <ntk:AccessProfileValue 
+                ntk:vocabulary="projectName"  
+                ism:classification="U" 
+                ism:ownerProducer="USA">Data Standards Coordination Activity</ntk:AccessProfileValue>
+            <ntk:AccessProfileValue 
+                ntk:vocabulary="role"  
+                ism:classification="U" 
+                ism:ownerProducer="USA">SourceView</ntk:AccessProfileValue>
+        </ntk:AccessProfile>
+    </ntk:AccessProfileList>
+</ntk:Access>

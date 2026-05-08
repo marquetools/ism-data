@@ -1,0 +1,2501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for component cr:handsetMake</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        var propertiesBoxes= new Array('properties_HandsetDeviceType_handsetMake', 
+				'properties_HandsetDeviceType_handsetModel', 
+				'properties_HandsetDeviceType_imei', 
+				'properties_HandsetDeviceType_hardwareVersion', 
+				'properties_HandsetDeviceType_softwareVersion', 
+				'properties_HandsetDeviceType_timeSetTo', 
+				'properties_HandsetDeviceType_actualTime', 
+				'properties_HandsetDeviceType_memoryCards', 
+				'properties_HandsetDeviceType_HandsetDeviceType_memoryCards_memoryCard', 
+				'properties_HandsetDeviceType_greetingMessage', 
+				'properties_HandsetDeviceType_keypadLockCode', 
+				'properties_HandsetDeviceType_bluetoothID');
+var usedByBoxes= new Array('usedBy_HandsetDeviceType');
+var sourceBoxes= new Array('source_HandsetDeviceType_handsetMake', 
+				'source_HandsetDeviceType_handsetModel', 
+				'source_HandsetDeviceType_imei', 
+				'source_HandsetDeviceType_hardwareVersion', 
+				'source_HandsetDeviceType_softwareVersion', 
+				'source_HandsetDeviceType_timeSetTo', 
+				'source_HandsetDeviceType_actualTime', 
+				'source_HandsetDeviceType_memoryCards', 
+				'source_HandsetDeviceType_HandsetDeviceType_memoryCards_memoryCard', 
+				'source_HandsetDeviceType_greetingMessage', 
+				'source_HandsetDeviceType_keypadLockCode', 
+				'source_HandsetDeviceType_bluetoothID', 
+				'source_HandsetDeviceType');
+var instanceBoxes= new Array('instance_HandsetDeviceType_memoryCards');
+var diagramBoxes= new Array('diagram_HandsetDeviceType_handsetMake', 
+				'diagram_HandsetDeviceType_handsetModel', 
+				'diagram_HandsetDeviceType_imei', 
+				'diagram_HandsetDeviceType_hardwareVersion', 
+				'diagram_HandsetDeviceType_softwareVersion', 
+				'diagram_HandsetDeviceType_timeSetTo', 
+				'diagram_HandsetDeviceType_actualTime', 
+				'diagram_HandsetDeviceType_memoryCards', 
+				'diagram_HandsetDeviceType_HandsetDeviceType_memoryCards_memoryCard', 
+				'diagram_HandsetDeviceType_greetingMessage', 
+				'diagram_HandsetDeviceType_keypadLockCode', 
+				'diagram_HandsetDeviceType_bluetoothID', 
+				'diagram_HandsetDeviceType');
+var annotationBoxes= new Array('annotations_HandsetDeviceType_handsetMake', 
+				'annotations_HandsetDeviceType_handsetModel', 
+				'annotations_HandsetDeviceType_imei', 
+				'annotations_HandsetDeviceType_hardwareVersion', 
+				'annotations_HandsetDeviceType_softwareVersion', 
+				'annotations_HandsetDeviceType_timeSetTo', 
+				'annotations_HandsetDeviceType_actualTime', 
+				'annotations_HandsetDeviceType_HandsetDeviceType_memoryCards_memoryCard', 
+				'annotations_HandsetDeviceType_greetingMessage', 
+				'annotations_HandsetDeviceType_keypadLockCode', 
+				'annotations_HandsetDeviceType_bluetoothID');
+var attributesBoxes= new Array('attributes_HandsetDeviceType_timeSetTo', 
+				'attributes_HandsetDeviceType_actualTime');
+var modelBoxes= new Array('model_HandsetDeviceType_memoryCards', 
+				'model_HandsetDeviceType');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //
+--></script>
+   </head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_content" rowspan="1" colspan="1">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, annotationBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Annotations</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, attributesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Attributes </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Diagrams</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, instanceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Instances</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Model </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Properties </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Source</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Used by </span>
+                        </td>
+                     </tr>
+                  </table>
+                  <div align="right">
+                     <span>
+                        <input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close"></input>
+                     </span>
+                  </div>
+               </td>
+               <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+            </tr>
+         </table>
+      </div>
+      <a id="HandsetDeviceType_handsetMake" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:HandsetDeviceType')" shape="rect">cr:HandsetDeviceType</a>
+            </b> / cr:handsetMake</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_HandsetDeviceType_handsetMake" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_HandsetDeviceType_handsetMake');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_HandsetDeviceType_handsetMake" style="display:block">
+                              <div class="annotation"> Company that manufactured handset. </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_HandsetDeviceType_handsetMake" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_HandsetDeviceType_handsetMake');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_HandsetDeviceType_handsetMake" style="display:block">
+                              <img alt="Diagram" border="0" src="img/e386c07d-2b54-4ebf-8274-45b37dd209ff.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_HandsetDeviceType_handsetMake" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_HandsetDeviceType_handsetMake');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_HandsetDeviceType_handsetMake" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_HandsetDeviceType_handsetMake" type="image" src="img/btM.gif" value="-" onclick="switchState('source_HandsetDeviceType_handsetMake');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_HandsetDeviceType_handsetMake" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"handsetMake"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Company that manufactured handset.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="HandsetDeviceType_handsetModel" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:HandsetDeviceType')" shape="rect">cr:HandsetDeviceType</a>
+            </b> / cr:handsetModel</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_HandsetDeviceType_handsetModel" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_HandsetDeviceType_handsetModel');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_HandsetDeviceType_handsetModel" style="display:block">
+                              <div class="annotation"> Model number of handset </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_HandsetDeviceType_handsetModel" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_HandsetDeviceType_handsetModel');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_HandsetDeviceType_handsetModel" style="display:block">
+                              <img alt="Diagram" border="0" src="img/c2a3560a-dcd4-40cf-8eeb-59e5e8dc6c1d.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_HandsetDeviceType_handsetModel" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_HandsetDeviceType_handsetModel');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_HandsetDeviceType_handsetModel" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_HandsetDeviceType_handsetModel" type="image" src="img/btM.gif" value="-" onclick="switchState('source_HandsetDeviceType_handsetModel');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_HandsetDeviceType_handsetModel" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"handsetModel"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Model number of handset</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="HandsetDeviceType_imei" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:HandsetDeviceType')" shape="rect">cr:HandsetDeviceType</a>
+            </b> / cr:imei</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_HandsetDeviceType_imei" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_HandsetDeviceType_imei');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_HandsetDeviceType_imei" style="display:block">
+                              <div class="annotation"> International Mobile Equipment Identity or IMEI is a number
+                                 						(decimal), usually unique to identify GSM, WCDMA, and iDEN mobile phones, as
+                                 						well as some satellite phones. It is usually found printed inside the
+                                 						battery compartment of the phone. It can also be displayed on the screen of
+                                 						the phone by entering *#06# into the keypad on most phones.
+                                 					</div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_HandsetDeviceType_imei" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_HandsetDeviceType_imei');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_HandsetDeviceType_imei" style="display:block">
+                              <img alt="Diagram" border="0" src="img/CellexReport_xsd_Element_cr_imei.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_HandsetDeviceType_imei" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_HandsetDeviceType_imei');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_HandsetDeviceType_imei" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_HandsetDeviceType_imei" type="image" src="img/btM.gif" value="-" onclick="switchState('source_HandsetDeviceType_imei');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_HandsetDeviceType_imei" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"imei"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">International Mobile Equipment Identity or IMEI is a number (decimal), usually unique to identify GSM, WCDMA, and iDEN mobile phones, as well as some satellite phones. It is usually found printed inside the battery compartment of the phone. It can also be displayed on the screen of the phone by entering *#06# into the keypad on most phones.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="HandsetDeviceType_hardwareVersion" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:HandsetDeviceType')" shape="rect">cr:HandsetDeviceType</a>
+            </b> / cr:hardwareVersion</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_HandsetDeviceType_hardwareVersion" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_HandsetDeviceType_hardwareVersion');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_HandsetDeviceType_hardwareVersion" style="display:block">
+                              <div class="annotation"> Refers to the version of the hardware of a handset or a
+                                 						CELLEX kit. </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_HandsetDeviceType_hardwareVersion" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_HandsetDeviceType_hardwareVersion');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_HandsetDeviceType_hardwareVersion" style="display:block">
+                              <img alt="Diagram" border="0" src="img/7446519e-579d-4dbd-8f8e-4d46352ba0cd.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_HandsetDeviceType_hardwareVersion" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_HandsetDeviceType_hardwareVersion');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_HandsetDeviceType_hardwareVersion" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_HandsetDeviceType_hardwareVersion" type="image" src="img/btM.gif" value="-" onclick="switchState('source_HandsetDeviceType_hardwareVersion');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_HandsetDeviceType_hardwareVersion" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"hardwareVersion"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Refers to the version of the hardware of a handset or a CELLEX kit.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="HandsetDeviceType_softwareVersion" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:HandsetDeviceType')" shape="rect">cr:HandsetDeviceType</a>
+            </b> / cr:softwareVersion</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_HandsetDeviceType_softwareVersion" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_HandsetDeviceType_softwareVersion');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_HandsetDeviceType_softwareVersion" style="display:block">
+                              <div class="annotation"> Refers to the software version of a handset.
+                                 					</div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_HandsetDeviceType_softwareVersion" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_HandsetDeviceType_softwareVersion');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_HandsetDeviceType_softwareVersion" style="display:block">
+                              <img alt="Diagram" border="0" src="img/cb4a73c2-3ea1-4399-9dff-9c4865473256.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_HandsetDeviceType_softwareVersion" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_HandsetDeviceType_softwareVersion');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_HandsetDeviceType_softwareVersion" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_HandsetDeviceType_softwareVersion" type="image" src="img/btM.gif" value="-" onclick="switchState('source_HandsetDeviceType_softwareVersion');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_HandsetDeviceType_softwareVersion" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"softwareVersion"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Refers to the software version of a handset.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="HandsetDeviceType_timeSetTo" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:HandsetDeviceType')" shape="rect">cr:HandsetDeviceType</a>
+            </b> / cr:timeSetTo</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_HandsetDeviceType_timeSetTo" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_HandsetDeviceType_timeSetTo');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_HandsetDeviceType_timeSetTo" style="display:block">
+                              <div class="annotation"> Refers to the time that the handset was set once the phone
+                                 						was exploited. Most of the time it will be the same as Actual Time, but
+                                 						there have been cases where phones were not in sync with the real time.
+                                 					</div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_HandsetDeviceType_timeSetTo" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_HandsetDeviceType_timeSetTo');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_HandsetDeviceType_timeSetTo" style="display:block">
+                              <img alt="Diagram" border="0" src="img/a903d970-44e2-4710-bb97-ade4d4a6926c.png" usemap="#CellexReport_xsd_Element_cr_timeSetTo"></img>
+                              <map name="CellexReport_xsd_Element_cr_timeSetTo" id="CellexReport_xsd_Element_cr_timeSetTo">
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_NormalizedDateTimeType.tmp#NormalizedDateTimeType_rawDateTime" href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_rawDateTime" coords="165,78,291,102" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_NormalizedDateTimeType.tmp#NormalizedDateTimeType_normalizedDateTime" href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_normalizedDateTime" coords="165,112,332,136" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_NormalizedDateTimeType.tmp#NormalizedDateTimeType_normalizedDate" href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_normalizedDate" coords="165,146,304,170" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_NormalizedDateTimeType.tmp#NormalizedDateTimeType" href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType" coords="140,3,350,25" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:NormalizedDateTimeType')" shape="rect">cr:NormalizedDateTimeType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_HandsetDeviceType_timeSetTo" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_HandsetDeviceType_timeSetTo');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_HandsetDeviceType_timeSetTo" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Attributes</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_attributes_HandsetDeviceType_timeSetTo" type="image" src="img/btM.gif" value="-" onclick="switchState('attributes_HandsetDeviceType_timeSetTo');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="attributes_HandsetDeviceType_timeSetTo" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th rowspan="1" colspan="1">QName</th>
+                                       <th width="10%" rowspan="1" colspan="1">Type</th>
+                                       <th width="5%" rowspan="1" colspan="1">Use</th>
+                                       <th width="100%" rowspan="1" colspan="1"></th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_normalizedDate" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component normalizedDate')" shape="rect">normalizedDate</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>xs:date</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_normalizedDateTime" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component normalizedDateTime')" shape="rect">normalizedDateTime</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>xs:dateTime</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_rawDateTime" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component rawDateTime')" shape="rect">rawDateTime</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>xs:string</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">required</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_HandsetDeviceType_timeSetTo" type="image" src="img/btM.gif" value="-" onclick="switchState('source_HandsetDeviceType_timeSetTo');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_HandsetDeviceType_timeSetTo" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"timeSetTo"</span><span class="tAN"> type=</span><span class="tAV">"cr:NormalizedDateTimeType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Refers to the time that the handset was set once the phone was exploited. Most of the time it will be the same as Actual Time, but there have been cases where phones were not in sync with the real time.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="HandsetDeviceType_actualTime" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:HandsetDeviceType')" shape="rect">cr:HandsetDeviceType</a>
+            </b> / cr:actualTime</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_HandsetDeviceType_actualTime" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_HandsetDeviceType_actualTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_HandsetDeviceType_actualTime" style="display:block">
+                              <div class="annotation"> The actual time when the handset is exploited by a CELLEX
+                                 						kit. </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_HandsetDeviceType_actualTime" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_HandsetDeviceType_actualTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_HandsetDeviceType_actualTime" style="display:block">
+                              <img alt="Diagram" border="0" src="img/d67197b9-7804-4eee-b5f1-953084fbd8c6.png" usemap="#CellexReport_xsd_Element_cr_actualTime"></img>
+                              <map name="CellexReport_xsd_Element_cr_actualTime" id="CellexReport_xsd_Element_cr_actualTime">
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_NormalizedDateTimeType.tmp#NormalizedDateTimeType_rawDateTime" href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_rawDateTime" coords="169,78,295,102" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_NormalizedDateTimeType.tmp#NormalizedDateTimeType_normalizedDateTime" href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_normalizedDateTime" coords="169,112,336,136" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_NormalizedDateTimeType.tmp#NormalizedDateTimeType_normalizedDate" href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_normalizedDate" coords="169,146,308,170" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_NormalizedDateTimeType.tmp#NormalizedDateTimeType" href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType" coords="144,3,354,25" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:NormalizedDateTimeType')" shape="rect">cr:NormalizedDateTimeType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_HandsetDeviceType_actualTime" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_HandsetDeviceType_actualTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_HandsetDeviceType_actualTime" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Attributes</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_attributes_HandsetDeviceType_actualTime" type="image" src="img/btM.gif" value="-" onclick="switchState('attributes_HandsetDeviceType_actualTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="attributes_HandsetDeviceType_actualTime" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th rowspan="1" colspan="1">QName</th>
+                                       <th width="10%" rowspan="1" colspan="1">Type</th>
+                                       <th width="5%" rowspan="1" colspan="1">Use</th>
+                                       <th width="100%" rowspan="1" colspan="1"></th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_normalizedDate" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component normalizedDate')" shape="rect">normalizedDate</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>xs:date</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_normalizedDateTime" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component normalizedDateTime')" shape="rect">normalizedDateTime</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>xs:dateTime</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="b2732d79-20b8-4693-b39d-3cde4fc94f5d.html#NormalizedDateTimeType_rawDateTime" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component rawDateTime')" shape="rect">rawDateTime</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>xs:string</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">required</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_HandsetDeviceType_actualTime" type="image" src="img/btM.gif" value="-" onclick="switchState('source_HandsetDeviceType_actualTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_HandsetDeviceType_actualTime" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"actualTime"</span><span class="tAN"> type=</span><span class="tAV">"cr:NormalizedDateTimeType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The actual time when the handset is exploited by a CELLEX kit.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="HandsetDeviceType_memoryCards" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:HandsetDeviceType')" shape="rect">cr:HandsetDeviceType</a>
+            </b> / cr:memoryCards</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_HandsetDeviceType_memoryCards" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_HandsetDeviceType_memoryCards');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_HandsetDeviceType_memoryCards" style="display:block">
+                              <img alt="Diagram" border="0" src="img/f15c7265-c792-4ec9-8422-d4425aa93741.png" usemap="#CellexReport_xsd_Element_cr_memoryCards"></img>
+                              <map name="CellexReport_xsd_Element_cr_memoryCards" id="CellexReport_xsd_Element_cr_memoryCards">
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_HandsetDeviceType.tmp#HandsetDeviceType_HandsetDeviceType_memoryCards_memoryCard" href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_HandsetDeviceType_memoryCards_memoryCard" coords="233,6,338,30" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_HandsetDeviceType_memoryCards" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_HandsetDeviceType_memoryCards');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_HandsetDeviceType_memoryCards" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_HandsetDeviceType_memoryCards" type="image" src="img/btM.gif" value="-" onclick="switchState('model_HandsetDeviceType_memoryCards');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_HandsetDeviceType_memoryCards" style="display:block">
+                              <b>
+                                 <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_HandsetDeviceType_memoryCards_memoryCard" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:memoryCard+')" shape="rect">cr:memoryCard+</a>
+                              </b>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_HandsetDeviceType_memoryCards_memoryCard" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:memoryCard')" shape="rect">cr:memoryCard</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Instance</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_instance_HandsetDeviceType_memoryCards" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_HandsetDeviceType_memoryCards');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="instance_HandsetDeviceType_memoryCards" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;cr:memoryCards</span><span class="tT"> </span><span class="tAN">xmlns:cr=</span><span class="tAV">"urn:CellexReport"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cr:memoryCard</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,unbounded}</span><span class="tEl">&lt;/cr:memoryCard&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/cr:memoryCards&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_HandsetDeviceType_memoryCards" type="image" src="img/btM.gif" value="-" onclick="switchState('source_HandsetDeviceType_memoryCards');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_HandsetDeviceType_memoryCards" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"memoryCards"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"memoryCard"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Refers to whether a phone has a memory card within it during capture. Typical memory cards are SD cards.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="HandsetDeviceType_HandsetDeviceType_memoryCards_memoryCard" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:HandsetDeviceType')" shape="rect">cr:HandsetDeviceType</a>
+            </b> / <b>
+               <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_memoryCards" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:memoryCards')" shape="rect">cr:memoryCards</a>
+            </b> / cr:memoryCard</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_HandsetDeviceType_HandsetDeviceType_memoryCards_memoryCard" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_HandsetDeviceType_HandsetDeviceType_memoryCards_memoryCard');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_HandsetDeviceType_HandsetDeviceType_memoryCards_memoryCard" style="display:block">
+                              <div class="annotation"> Refers to whether a phone has a memory card
+                                 									within it during capture. Typical memory cards are SD cards.
+                                 								</div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_HandsetDeviceType_HandsetDeviceType_memoryCards_memoryCard" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_HandsetDeviceType_HandsetDeviceType_memoryCards_memoryCard');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_HandsetDeviceType_HandsetDeviceType_memoryCards_memoryCard" style="display:block">
+                              <img alt="Diagram" border="0" src="img/331fc5e0-a2c5-4af5-b32b-404b51735e9d.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_HandsetDeviceType_HandsetDeviceType_memoryCards_memoryCard" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_HandsetDeviceType_HandsetDeviceType_memoryCards_memoryCard');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_HandsetDeviceType_HandsetDeviceType_memoryCards_memoryCard" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">maxOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>unbounded</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_HandsetDeviceType_HandsetDeviceType_memoryCards_memoryCard" type="image" src="img/btM.gif" value="-" onclick="switchState('source_HandsetDeviceType_HandsetDeviceType_memoryCards_memoryCard');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_HandsetDeviceType_HandsetDeviceType_memoryCards_memoryCard" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"memoryCard"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Refers to whether a phone has a memory card within it during capture. Typical memory cards are SD cards.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="HandsetDeviceType_greetingMessage" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:HandsetDeviceType')" shape="rect">cr:HandsetDeviceType</a>
+            </b> / cr:greetingMessage</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_HandsetDeviceType_greetingMessage" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_HandsetDeviceType_greetingMessage');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_HandsetDeviceType_greetingMessage" style="display:block">
+                              <div class="annotation"> Refers to a possible message on a handset, which is displayed
+                                 						once the handset is turned on. </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_HandsetDeviceType_greetingMessage" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_HandsetDeviceType_greetingMessage');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_HandsetDeviceType_greetingMessage" style="display:block">
+                              <img alt="Diagram" border="0" src="img/51d4bf15-c06b-4632-99a8-2dc868a31969.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_HandsetDeviceType_greetingMessage" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_HandsetDeviceType_greetingMessage');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_HandsetDeviceType_greetingMessage" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_HandsetDeviceType_greetingMessage" type="image" src="img/btM.gif" value="-" onclick="switchState('source_HandsetDeviceType_greetingMessage');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_HandsetDeviceType_greetingMessage" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"greetingMessage"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Refers to a possible message on a handset, which is displayed once the handset is turned on.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="HandsetDeviceType_keypadLockCode" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:HandsetDeviceType')" shape="rect">cr:HandsetDeviceType</a>
+            </b> / cr:keypadLockCode</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_HandsetDeviceType_keypadLockCode" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_HandsetDeviceType_keypadLockCode');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_HandsetDeviceType_keypadLockCode" style="display:block">
+                              <div class="annotation"> The code to unlock a locked phone. Typically a 4 digit
+                                 						number. </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_HandsetDeviceType_keypadLockCode" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_HandsetDeviceType_keypadLockCode');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_HandsetDeviceType_keypadLockCode" style="display:block">
+                              <img alt="Diagram" border="0" src="img/a9eefff7-5c5d-45ae-a352-952f18caaa1d.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_HandsetDeviceType_keypadLockCode" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_HandsetDeviceType_keypadLockCode');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_HandsetDeviceType_keypadLockCode" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_HandsetDeviceType_keypadLockCode" type="image" src="img/btM.gif" value="-" onclick="switchState('source_HandsetDeviceType_keypadLockCode');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_HandsetDeviceType_keypadLockCode" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"keypadLockCode"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The code to unlock a locked phone. Typically a 4 digit number.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="HandsetDeviceType_bluetoothID" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:HandsetDeviceType')" shape="rect">cr:HandsetDeviceType</a>
+            </b> / cr:bluetoothID</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_HandsetDeviceType_bluetoothID" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_HandsetDeviceType_bluetoothID');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_HandsetDeviceType_bluetoothID" style="display:block">
+                              <div class="annotation"> The unique 48-bit address of the Bluetooth device.
+                                 					</div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_HandsetDeviceType_bluetoothID" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_HandsetDeviceType_bluetoothID');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_HandsetDeviceType_bluetoothID" style="display:block">
+                              <img alt="Diagram" border="0" src="img/9cddf06c-86e1-4105-bf48-9800cae2578a.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_HandsetDeviceType_bluetoothID" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_HandsetDeviceType_bluetoothID');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_HandsetDeviceType_bluetoothID" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_HandsetDeviceType_bluetoothID" type="image" src="img/btM.gif" value="-" onclick="switchState('source_HandsetDeviceType_bluetoothID');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_HandsetDeviceType_bluetoothID" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"bluetoothID"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The unique 48-bit address of the Bluetooth device.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="HandsetDeviceType" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Complex Type <span class="qname">cr:HandsetDeviceType</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:CellexReport</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_HandsetDeviceType" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_HandsetDeviceType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_HandsetDeviceType" style="display:block">
+                              <img alt="Diagram" border="0" src="img/52306f5a-4559-4977-8e3c-02ce83065583.png" usemap="#CellexReport_xsd_Complex_Type_cr_HandsetDeviceType"></img>
+                              <map name="CellexReport_xsd_Complex_Type_cr_HandsetDeviceType" id="CellexReport_xsd_Complex_Type_cr_HandsetDeviceType">
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_HandsetDeviceType.tmp#HandsetDeviceType_handsetMake" href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_handsetMake" coords="265,0,371,24" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_HandsetDeviceType.tmp#HandsetDeviceType_handsetModel" href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_handsetModel" coords="265,64,375,88" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_HandsetDeviceType.tmp#HandsetDeviceType_imei" href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_imei" coords="265,128,320,152" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_HandsetDeviceType.tmp#HandsetDeviceType_hardwareVersion" href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_hardwareVersion" coords="265,218,393,242" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_HandsetDeviceType.tmp#HandsetDeviceType_softwareVersion" href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_softwareVersion" coords="265,295,389,319" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_HandsetDeviceType.tmp#HandsetDeviceType_timeSetTo" href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_timeSetTo" coords="265,359,354,383" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_HandsetDeviceType.tmp#HandsetDeviceType_actualTime" href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_actualTime" coords="265,449,358,473" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_HandsetDeviceType.tmp#HandsetDeviceType_memoryCards" href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_memoryCards" coords="265,526,377,550" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_HandsetDeviceType.tmp#HandsetDeviceType_greetingMessage" href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_greetingMessage" coords="265,560,394,584" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_HandsetDeviceType.tmp#HandsetDeviceType_keypadLockCode" href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_keypadLockCode" coords="265,637,390,661" shape="rect"></area>
+                                 <area alt="CellexReport_xsd_Complex_Type_cr_HandsetDeviceType.tmp#HandsetDeviceType_bluetoothID" href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_bluetoothID" coords="265,701,360,725" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_HandsetDeviceType" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_HandsetDeviceType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_HandsetDeviceType" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Element </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="cc8b79c3-4fde-4212-910b-db8f17d12f1f.html#CellexReportDataType_handsetInfo" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:CellexReportDataType/cr:handsetInfo')" shape="rect">cr:CellexReportDataType/cr:handsetInfo</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_HandsetDeviceType" type="image" src="img/btM.gif" value="-" onclick="switchState('model_HandsetDeviceType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_HandsetDeviceType" style="display:block">ALL(<b>
+                                 <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_handsetMake" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:handsetMake{0,1}')" shape="rect">cr:handsetMake{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_handsetModel" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:handsetModel{0,1}')" shape="rect">cr:handsetModel{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_imei" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:imei{0,1}')" shape="rect">cr:imei{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_hardwareVersion" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:hardwareVersion{0,1}')" shape="rect">cr:hardwareVersion{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_softwareVersion" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:softwareVersion{0,1}')" shape="rect">cr:softwareVersion{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_timeSetTo" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:timeSetTo{0,1}')" shape="rect">cr:timeSetTo{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_actualTime" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:actualTime{0,1}')" shape="rect">cr:actualTime{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_memoryCards" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:memoryCards{0,1}')" shape="rect">cr:memoryCards{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_greetingMessage" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:greetingMessage{0,1}')" shape="rect">cr:greetingMessage{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_keypadLockCode" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:keypadLockCode{0,1}')" shape="rect">cr:keypadLockCode{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_bluetoothID" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:bluetoothID{0,1}')" shape="rect">cr:bluetoothID{0,1}</a>
+                              </b>)</div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_actualTime" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:actualTime')" shape="rect">cr:actualTime</a>
+                           </b>, <b>
+                              <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_bluetoothID" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:bluetoothID')" shape="rect">cr:bluetoothID</a>
+                           </b>, <b>
+                              <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_greetingMessage" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:greetingMessage')" shape="rect">cr:greetingMessage</a>
+                           </b>, <b>
+                              <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_handsetMake" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:handsetMake')" shape="rect">cr:handsetMake</a>
+                           </b>, <b>
+                              <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_handsetModel" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:handsetModel')" shape="rect">cr:handsetModel</a>
+                           </b>, <b>
+                              <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_hardwareVersion" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:hardwareVersion')" shape="rect">cr:hardwareVersion</a>
+                           </b>, <b>
+                              <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_imei" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:imei')" shape="rect">cr:imei</a>
+                           </b>, <b>
+                              <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_keypadLockCode" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:keypadLockCode')" shape="rect">cr:keypadLockCode</a>
+                           </b>, <b>
+                              <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_memoryCards" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:memoryCards')" shape="rect">cr:memoryCards</a>
+                           </b>, <b>
+                              <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_softwareVersion" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:softwareVersion')" shape="rect">cr:softwareVersion</a>
+                           </b>, <b>
+                              <a href="0d8ac9bf-315a-4c6d-92f9-c0f0019aa37c.html#HandsetDeviceType_timeSetTo" target="mainFrame" title="urn:CellexReport" onclick="updatePageTitle('Schema documentation for component cr:timeSetTo')" shape="rect">cr:timeSetTo</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_HandsetDeviceType" type="image" src="img/btM.gif" value="-" onclick="switchState('source_HandsetDeviceType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_HandsetDeviceType" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:complexType</span><span class="tAN"> name=</span><span class="tAV">"HandsetDeviceType"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:all</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"handsetMake"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Company that manufactured handset.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"handsetModel"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Model number of handset</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"imei"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">International Mobile Equipment Identity or IMEI is a number (decimal), usually unique to identify GSM, WCDMA, and iDEN mobile phones, as well as some satellite phones. It is usually found printed inside the battery compartment of the phone. It can also be displayed on the screen of the phone by entering *#06# into the keypad on most phones.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"hardwareVersion"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Refers to the version of the hardware of a handset or a CELLEX kit.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"softwareVersion"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Refers to the software version of a handset.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"timeSetTo"</span><span class="tAN"> type=</span><span class="tAV">"cr:NormalizedDateTimeType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Refers to the time that the handset was set once the phone was exploited. Most of the time it will be the same as Actual Time, but there have been cases where phones were not in sync with the real time.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"actualTime"</span><span class="tAN"> type=</span><span class="tAV">"cr:NormalizedDateTimeType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The actual time when the handset is exploited by a CELLEX kit.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"memoryCards"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"memoryCard"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Refers to whether a phone has a memory card within it during capture. Typical memory cards are SD cards.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"greetingMessage"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Refers to a possible message on a handset, which is displayed once the handset is turned on.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"keypadLockCode"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The code to unlock a locked phone. Typically a 4 digit number.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"bluetoothID"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The unique 48-bit address of the Bluetooth device.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:all&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:complexType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/CellexReport.xsd">CellexReport.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //
+--></script>
+   </body>
+</html>

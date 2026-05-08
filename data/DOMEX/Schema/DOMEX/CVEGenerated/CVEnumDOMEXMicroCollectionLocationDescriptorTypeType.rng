@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXMicroCollectionLocationDescriptorTypeType">
+   <define name="CVEnumDOMEXMicroCollectionLocationDescriptorTypeType.cve">
+      <choice>
+         <value>onPerson</value>
+         <value>inVehicle</value>
+         <value>atBuilding</value>
+         <value>onBattlefield</value>
+         <value>other</value>
+      </choice>
+   </define>
+</grammar>

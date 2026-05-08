@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<CVE xmlns="urn:us:gov:ic:cve" xmlns:ism="urn:us:gov:ic:ism"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ism:compliesWith="USGov USIC"
+	ism:ownerProducer="USA" ism:classification="U" ism:DESVersion="202111"
+	ism:ISMCATCESVersion="202205" ism:resourceElement="true" CVEVersion="2.1"
+	specVersion="201804" ism:createDate="2011-09-01"
+	xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+	<IRM>
+		<URN>urn:us:gov:ic:cvenum:cemxml:commdatatype</URN>
+		<Title ism:ownerProducer="USA" ism:classification="U">CVEnumCemCommDataType</Title>
+		<Description ism:ownerProducer="USA" ism:classification="U">Communication Data Types</Description>
+		<cve:Created xmlns:cve="urn:us:gov:ic:cve">2011-09-01T11:19:00-04:00</cve:Created>
+
+		<Source ism:classification="U" ism:ownerProducer="USA">IC-CIO</Source>
+		<PointOfContact ism:classification="U" ism:ownerProducer="USA">
+			<Name>Office IC CIO</Name>
+			<Email>ic-standards-support@odni.gov</Email>
+		</PointOfContact>
+	</IRM>
+
+	<Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">IPv4</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Internet Protocol version 4 'address'</Description>
+		</Term>
+
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">IPv6</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Internet Protocol version 6 'address'</Description>
+		</Term>
+
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">WebAddress</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">
+   		        The 'address' of a resource on the Internet or an intranet.
+   		        Usually starts with the protocol (http://, https://, or other protocol),
+   		        a domain name (sometimes called server name), file path, and resource
+   		        name. (ex: http://www.qwert.com/local/daily/news.html).
+   		    </Description>
+		</Term>
+
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">Protocol</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Protocol used for communication</Description>
+		</Term>
+
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">Email</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">
+   	            E-Mail address.  Includes the group or individual address, the
+   	            '@' separator, and mail domain. (ex. noone@qwert.com)
+   	        </Description>
+		</Term>
+
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">Port</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Network port numbers</Description>
+		</Term>
+
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">MobilePhone</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA"> 
+   	            Specialized type of dialed communications CommData object
+   	            (specific type of 'Telephone').  Used for Cellular and other mobile 
+   	            devices (ex: satellite phones) that use dialing conventions, not
+   	            landline phones that have 'wireless' handsets).
+   	        </Description>
+		</Term>
+
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">Telephone</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">
+   	            For all references to telephone numbers when they appear
+   	            in the narrative of a report as intelligence (not for contact or POC
+   	            Information).  Includes all 'parts' of a phone number: country code,
+   	            area code, exchange, local number, extension, (etc).  Requires the use
+   	            of 'commDataNormalized' attribute to elaborate on a 'local' or
+   	            'national' structure and its international equivalent.  'Telephone' 
+   	            is used for all 'dialed' CommData objects unless they can be more 
+   	            specifically identified.
+   	        </Description>
+		</Term>
+
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">Fax</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">
+   	            Specialized type of dialed communications CommData object
+   	            (specific type of 'Telephone').  A device/CommData object used primarily for
+   	            facsimile, but can also have the capability of being used for voice communications.
+   	            (A person's or organization's 'phone' number that is answered by a fax
+   	            device, not by a person.)</Description>
+		</Term>
+
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">Telex</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Telex addresses</Description>
+		</Term>
+
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">MalFile</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">
+   	            Identification of various malicious files such as virus, 'bad'
+   	            cookies, trojans, etc.
+   	        </Description>
+		</Term>
+	</Enumeration>
+</CVE>

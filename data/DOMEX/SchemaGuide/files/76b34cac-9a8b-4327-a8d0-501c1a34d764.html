@@ -1,0 +1,1111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for component exifImage</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        var propertiesBoxes= new Array('properties_MediaFileType_exifImage', 
+				'properties_MediaFileType_audio', 
+				'properties_MediaFileType_video');
+var usedByBoxes= new Array('usedBy_MediaFileType');
+var sourceBoxes= new Array('source_MediaFileType_exifImage', 
+				'source_MediaFileType_audio', 
+				'source_MediaFileType_video', 
+				'source_MediaFileType');
+var instanceBoxes= new Array('instance_MediaFileType_exifImage', 
+				'instance_MediaFileType_audio', 
+				'instance_MediaFileType_video');
+var diagramBoxes= new Array('diagram_MediaFileType_exifImage', 
+				'diagram_MediaFileType_audio', 
+				'diagram_MediaFileType_video', 
+				'diagram_MediaFileType');
+var modelBoxes= new Array('model_MediaFileType_exifImage', 
+				'model_MediaFileType_audio', 
+				'model_MediaFileType_video', 
+				'model_MediaFileType');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //
+--></script>
+   </head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_content" rowspan="1" colspan="1">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Diagrams</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, instanceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Instances</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Model </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Properties </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Source</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Used by </span>
+                        </td>
+                     </tr>
+                  </table>
+                  <div align="right">
+                     <span>
+                        <input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close"></input>
+                     </span>
+                  </div>
+               </td>
+               <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+            </tr>
+         </table>
+      </div>
+      <a id="MediaFileType_exifImage" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="76b34cac-9a8b-4327-a8d0-501c1a34d764.html#MediaFileType" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component MediaFileType')" shape="rect">MediaFileType</a>
+            </b> / exifImage</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:mil:ces:metadata:domex</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_MediaFileType_exifImage" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_MediaFileType_exifImage');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_MediaFileType_exifImage" style="display:block">
+                              <img alt="Diagram" border="0" src="img/DOMEX_xsd_Element_exifImage.png" usemap="#DOMEX_xsd_Element_exifImage"></img>
+                              <map name="DOMEX_xsd_Element_exifImage" id="DOMEX_xsd_Element_exifImage">
+                                 <area alt="DOMEX_xsd_Complex_Type_ImageDetailsType.tmp#ImageDetailsType_model" href="6d9614f9-848f-43fe-b3b0-f0dd765bedbe.html#ImageDetailsType_model" coords="199,40,265,64" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_ImageDetailsType.tmp#ImageDetailsType_make" href="6d9614f9-848f-43fe-b3b0-f0dd765bedbe.html#ImageDetailsType_make" coords="199,117,261,141" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_ImageDetailsType.tmp#ImageDetailsType_cameraSerialNumber" href="6d9614f9-848f-43fe-b3b0-f0dd765bedbe.html#ImageDetailsType_cameraSerialNumber" coords="199,181,351,205" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_ImageDetailsType.tmp#ImageDetailsType_dateTimeOriginal" href="6d9614f9-848f-43fe-b3b0-f0dd765bedbe.html#ImageDetailsType_dateTimeOriginal" coords="199,245,316,269" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_ImageDetailsType.tmp#ImageDetailsType_imageWidth" href="6d9614f9-848f-43fe-b3b0-f0dd765bedbe.html#ImageDetailsType_imageWidth" coords="199,309,295,333" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_ImageDetailsType.tmp#ImageDetailsType_imageLength" href="6d9614f9-848f-43fe-b3b0-f0dd765bedbe.html#ImageDetailsType_imageLength" coords="199,386,303,410" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_ImageDetailsType.tmp#ImageDetailsType_gpsCoordinates" href="6d9614f9-848f-43fe-b3b0-f0dd765bedbe.html#ImageDetailsType_gpsCoordinates" coords="199,450,309,474" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_ImageDetailsType.tmp#ImageDetailsType" href="6d9614f9-848f-43fe-b3b0-f0dd765bedbe.html#ImageDetailsType" coords="117,3,269,25" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="6d9614f9-848f-43fe-b3b0-f0dd765bedbe.html#ImageDetailsType" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component ImageDetailsType')" shape="rect">ImageDetailsType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_MediaFileType_exifImage" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_MediaFileType_exifImage');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_MediaFileType_exifImage" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_MediaFileType_exifImage" type="image" src="img/btM.gif" value="-" onclick="switchState('model_MediaFileType_exifImage');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_MediaFileType_exifImage" style="display:block">
+                              <b>
+                                 <a href="6d9614f9-848f-43fe-b3b0-f0dd765bedbe.html#ImageDetailsType_model" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component model{0,1}')" shape="rect">model{0,1}</a>
+                              </b> , <b>
+                                 <a href="6d9614f9-848f-43fe-b3b0-f0dd765bedbe.html#ImageDetailsType_make" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component make{0,1}')" shape="rect">make{0,1}</a>
+                              </b> , <b>
+                                 <a href="6d9614f9-848f-43fe-b3b0-f0dd765bedbe.html#ImageDetailsType_cameraSerialNumber" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component cameraSerialNumber{0,1}')" shape="rect">cameraSerialNumber{0,1}</a>
+                              </b> , <b>
+                                 <a href="6d9614f9-848f-43fe-b3b0-f0dd765bedbe.html#ImageDetailsType_dateTimeOriginal" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component dateTimeOriginal{0,1}')" shape="rect">dateTimeOriginal{0,1}</a>
+                              </b> , <b>
+                                 <a href="6d9614f9-848f-43fe-b3b0-f0dd765bedbe.html#ImageDetailsType_imageWidth" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component imageWidth{0,1}')" shape="rect">imageWidth{0,1}</a>
+                              </b> , <b>
+                                 <a href="6d9614f9-848f-43fe-b3b0-f0dd765bedbe.html#ImageDetailsType_imageLength" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component imageLength{0,1}')" shape="rect">imageLength{0,1}</a>
+                              </b> , <b>
+                                 <a href="6d9614f9-848f-43fe-b3b0-f0dd765bedbe.html#ImageDetailsType_gpsCoordinates" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component gpsCoordinates{0,1}')" shape="rect">gpsCoordinates{0,1}</a>
+                              </b>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="6d9614f9-848f-43fe-b3b0-f0dd765bedbe.html#ImageDetailsType_cameraSerialNumber" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component cameraSerialNumber')" shape="rect">cameraSerialNumber</a>
+                           </b>, <b>
+                              <a href="6d9614f9-848f-43fe-b3b0-f0dd765bedbe.html#ImageDetailsType_dateTimeOriginal" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component dateTimeOriginal')" shape="rect">dateTimeOriginal</a>
+                           </b>, <b>
+                              <a href="6d9614f9-848f-43fe-b3b0-f0dd765bedbe.html#ImageDetailsType_gpsCoordinates" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component gpsCoordinates')" shape="rect">gpsCoordinates</a>
+                           </b>, <b>
+                              <a href="6d9614f9-848f-43fe-b3b0-f0dd765bedbe.html#ImageDetailsType_imageLength" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component imageLength')" shape="rect">imageLength</a>
+                           </b>, <b>
+                              <a href="6d9614f9-848f-43fe-b3b0-f0dd765bedbe.html#ImageDetailsType_imageWidth" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component imageWidth')" shape="rect">imageWidth</a>
+                           </b>, <b>
+                              <a href="6d9614f9-848f-43fe-b3b0-f0dd765bedbe.html#ImageDetailsType_make" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component make')" shape="rect">make</a>
+                           </b>, <b>
+                              <a href="6d9614f9-848f-43fe-b3b0-f0dd765bedbe.html#ImageDetailsType_model" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component model')" shape="rect">model</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Instance</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_instance_MediaFileType_exifImage" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_MediaFileType_exifImage');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="instance_MediaFileType_exifImage" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;exifImage</span><span class="tT"> </span><span class="tAN">xmlns=</span><span class="tAV">"urn:us:mil:ces:metadata:domex"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;model</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/model&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;make</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/make&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cameraSerialNumber</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cameraSerialNumber&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;dateTimeOriginal</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/dateTimeOriginal&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;imageWidth</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/imageWidth&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;imageLength</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/imageLength&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;gpsCoordinates</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/gpsCoordinates&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/exifImage&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_MediaFileType_exifImage" type="image" src="img/btM.gif" value="-" onclick="switchState('source_MediaFileType_exifImage');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_MediaFileType_exifImage" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"exifImage"</span><span class="tAN"> type=</span><span class="tAV">"ImageDetailsType"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/DOMEX.xsd">DOMEX.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="MediaFileType_audio" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="76b34cac-9a8b-4327-a8d0-501c1a34d764.html#MediaFileType" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component MediaFileType')" shape="rect">MediaFileType</a>
+            </b> / audio</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:mil:ces:metadata:domex</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_MediaFileType_audio" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_MediaFileType_audio');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_MediaFileType_audio" style="display:block">
+                              <img alt="Diagram" border="0" src="img/DOMEX_xsd_Element_audio.png" usemap="#DOMEX_xsd_Element_audio"></img>
+                              <map name="DOMEX_xsd_Element_audio" id="DOMEX_xsd_Element_audio">
+                                 <area alt="DOMEX_xsd_Complex_Type_AudioDetailsType.tmp#AudioDetailsType_bitRate" href="b48867f8-5553-4aa2-b679-df79c51aa85a.html#AudioDetailsType_bitRate" coords="175,40,245,64" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_AudioDetailsType.tmp#AudioDetailsType_sampleRate" href="b48867f8-5553-4aa2-b679-df79c51aa85a.html#AudioDetailsType_sampleRate" coords="175,117,273,141" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_AudioDetailsType.tmp#AudioDetailsType_channels" href="b48867f8-5553-4aa2-b679-df79c51aa85a.html#AudioDetailsType_channels" coords="175,207,257,231" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_AudioDetailsType.tmp#AudioDetailsType_compression" href="b48867f8-5553-4aa2-b679-df79c51aa85a.html#AudioDetailsType_compression" coords="175,284,280,308" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_AudioDetailsType.tmp#AudioDetailsType_codec" href="b48867f8-5553-4aa2-b679-df79c51aa85a.html#AudioDetailsType_codec" coords="175,361,239,385" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_AudioDetailsType.tmp#AudioDetailsType" href="b48867f8-5553-4aa2-b679-df79c51aa85a.html#AudioDetailsType" coords="93,3,241,25" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="b48867f8-5553-4aa2-b679-df79c51aa85a.html#AudioDetailsType" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component AudioDetailsType')" shape="rect">AudioDetailsType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_MediaFileType_audio" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_MediaFileType_audio');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_MediaFileType_audio" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_MediaFileType_audio" type="image" src="img/btM.gif" value="-" onclick="switchState('model_MediaFileType_audio');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_MediaFileType_audio" style="display:block">
+                              <b>
+                                 <a href="b48867f8-5553-4aa2-b679-df79c51aa85a.html#AudioDetailsType_bitRate" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component bitRate{0,1}')" shape="rect">bitRate{0,1}</a>
+                              </b> , <b>
+                                 <a href="b48867f8-5553-4aa2-b679-df79c51aa85a.html#AudioDetailsType_sampleRate" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component sampleRate{0,1}')" shape="rect">sampleRate{0,1}</a>
+                              </b> , <b>
+                                 <a href="b48867f8-5553-4aa2-b679-df79c51aa85a.html#AudioDetailsType_channels" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component channels{0,1}')" shape="rect">channels{0,1}</a>
+                              </b> , <b>
+                                 <a href="b48867f8-5553-4aa2-b679-df79c51aa85a.html#AudioDetailsType_compression" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component compression{0,1}')" shape="rect">compression{0,1}</a>
+                              </b> , <b>
+                                 <a href="b48867f8-5553-4aa2-b679-df79c51aa85a.html#AudioDetailsType_codec" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component codec{0,1}')" shape="rect">codec{0,1}</a>
+                              </b>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="b48867f8-5553-4aa2-b679-df79c51aa85a.html#AudioDetailsType_bitRate" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component bitRate')" shape="rect">bitRate</a>
+                           </b>, <b>
+                              <a href="b48867f8-5553-4aa2-b679-df79c51aa85a.html#AudioDetailsType_channels" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component channels')" shape="rect">channels</a>
+                           </b>, <b>
+                              <a href="b48867f8-5553-4aa2-b679-df79c51aa85a.html#AudioDetailsType_codec" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component codec')" shape="rect">codec</a>
+                           </b>, <b>
+                              <a href="b48867f8-5553-4aa2-b679-df79c51aa85a.html#AudioDetailsType_compression" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component compression')" shape="rect">compression</a>
+                           </b>, <b>
+                              <a href="b48867f8-5553-4aa2-b679-df79c51aa85a.html#AudioDetailsType_sampleRate" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component sampleRate')" shape="rect">sampleRate</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Instance</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_instance_MediaFileType_audio" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_MediaFileType_audio');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="instance_MediaFileType_audio" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;audio</span><span class="tT"> </span><span class="tAN">xmlns=</span><span class="tAV">"urn:us:mil:ces:metadata:domex"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;bitRate</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/bitRate&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;sampleRate</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/sampleRate&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;channels</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/channels&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;compression</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/compression&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;codec</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/codec&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/audio&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_MediaFileType_audio" type="image" src="img/btM.gif" value="-" onclick="switchState('source_MediaFileType_audio');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_MediaFileType_audio" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"audio"</span><span class="tAN"> type=</span><span class="tAV">"AudioDetailsType"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/DOMEX.xsd">DOMEX.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="MediaFileType_video" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="76b34cac-9a8b-4327-a8d0-501c1a34d764.html#MediaFileType" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component MediaFileType')" shape="rect">MediaFileType</a>
+            </b> / video</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:mil:ces:metadata:domex</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_MediaFileType_video" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_MediaFileType_video');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_MediaFileType_video" style="display:block">
+                              <img alt="Diagram" border="0" src="img/DOMEX_xsd_Element_video.png" usemap="#DOMEX_xsd_Element_video"></img>
+                              <map name="DOMEX_xsd_Element_video" id="DOMEX_xsd_Element_video">
+                                 <area alt="DOMEX_xsd_Complex_Type_VideoDetailsType.tmp#VideoDetailsType_creatorTool" href="b8636435-e670-4873-b4d3-69360b48bd2c.html#VideoDetailsType_creatorTool" coords="174,40,270,64" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_VideoDetailsType.tmp#VideoDetailsType_frameRate" href="b8636435-e670-4873-b4d3-69360b48bd2c.html#VideoDetailsType_frameRate" coords="174,104,264,128" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_VideoDetailsType.tmp#VideoDetailsType_dataRate" href="b8636435-e670-4873-b4d3-69360b48bd2c.html#VideoDetailsType_dataRate" coords="174,168,255,192" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_VideoDetailsType.tmp#VideoDetailsType_length" href="b8636435-e670-4873-b4d3-69360b48bd2c.html#VideoDetailsType_length" coords="174,232,240,256" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_VideoDetailsType.tmp#VideoDetailsType_codec" href="b8636435-e670-4873-b4d3-69360b48bd2c.html#VideoDetailsType_codec" coords="174,309,238,333" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_VideoDetailsType.tmp#VideoDetailsType_resolution" href="b8636435-e670-4873-b4d3-69360b48bd2c.html#VideoDetailsType_resolution" coords="174,399,262,423" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_VideoDetailsType.tmp#VideoDetailsType_malware" href="b8636435-e670-4873-b4d3-69360b48bd2c.html#VideoDetailsType_malware" coords="174,463,254,487" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_VideoDetailsType.tmp#VideoDetailsType" href="b8636435-e670-4873-b4d3-69360b48bd2c.html#VideoDetailsType" coords="92,3,240,25" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="b8636435-e670-4873-b4d3-69360b48bd2c.html#VideoDetailsType" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component VideoDetailsType')" shape="rect">VideoDetailsType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_MediaFileType_video" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_MediaFileType_video');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_MediaFileType_video" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_MediaFileType_video" type="image" src="img/btM.gif" value="-" onclick="switchState('model_MediaFileType_video');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_MediaFileType_video" style="display:block">
+                              <b>
+                                 <a href="b8636435-e670-4873-b4d3-69360b48bd2c.html#VideoDetailsType_creatorTool" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component creatorTool')" shape="rect">creatorTool</a>
+                              </b> , <b>
+                                 <a href="b8636435-e670-4873-b4d3-69360b48bd2c.html#VideoDetailsType_frameRate" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component frameRate{0,1}')" shape="rect">frameRate{0,1}</a>
+                              </b> , <b>
+                                 <a href="b8636435-e670-4873-b4d3-69360b48bd2c.html#VideoDetailsType_dataRate" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component dataRate{0,1}')" shape="rect">dataRate{0,1}</a>
+                              </b> , <b>
+                                 <a href="b8636435-e670-4873-b4d3-69360b48bd2c.html#VideoDetailsType_length" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component length{0,1}')" shape="rect">length{0,1}</a>
+                              </b> , <b>
+                                 <a href="b8636435-e670-4873-b4d3-69360b48bd2c.html#VideoDetailsType_codec" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component codec{0,1}')" shape="rect">codec{0,1}</a>
+                              </b> , <b>
+                                 <a href="b8636435-e670-4873-b4d3-69360b48bd2c.html#VideoDetailsType_resolution" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component resolution{0,1}')" shape="rect">resolution{0,1}</a>
+                              </b> , <b>
+                                 <a href="b8636435-e670-4873-b4d3-69360b48bd2c.html#VideoDetailsType_malware" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component malware{0,1}')" shape="rect">malware{0,1}</a>
+                              </b>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="b8636435-e670-4873-b4d3-69360b48bd2c.html#VideoDetailsType_codec" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component codec')" shape="rect">codec</a>
+                           </b>, <b>
+                              <a href="b8636435-e670-4873-b4d3-69360b48bd2c.html#VideoDetailsType_creatorTool" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component creatorTool')" shape="rect">creatorTool</a>
+                           </b>, <b>
+                              <a href="b8636435-e670-4873-b4d3-69360b48bd2c.html#VideoDetailsType_dataRate" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component dataRate')" shape="rect">dataRate</a>
+                           </b>, <b>
+                              <a href="b8636435-e670-4873-b4d3-69360b48bd2c.html#VideoDetailsType_frameRate" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component frameRate')" shape="rect">frameRate</a>
+                           </b>, <b>
+                              <a href="b8636435-e670-4873-b4d3-69360b48bd2c.html#VideoDetailsType_length" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component length')" shape="rect">length</a>
+                           </b>, <b>
+                              <a href="b8636435-e670-4873-b4d3-69360b48bd2c.html#VideoDetailsType_malware" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component malware')" shape="rect">malware</a>
+                           </b>, <b>
+                              <a href="b8636435-e670-4873-b4d3-69360b48bd2c.html#VideoDetailsType_resolution" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component resolution')" shape="rect">resolution</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Instance</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_instance_MediaFileType_video" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_MediaFileType_video');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="instance_MediaFileType_video" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;video</span><span class="tT"> </span><span class="tAN">xmlns=</span><span class="tAV">"urn:us:mil:ces:metadata:domex"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;creatorTool</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/creatorTool&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;frameRate</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/frameRate&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;dataRate</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/dataRate&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;length</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/length&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;codec</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/codec&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;resolution</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/resolution&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;malware</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/malware&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/video&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_MediaFileType_video" type="image" src="img/btM.gif" value="-" onclick="switchState('source_MediaFileType_video');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_MediaFileType_video" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"video"</span><span class="tAN"> type=</span><span class="tAV">"VideoDetailsType"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/DOMEX.xsd">DOMEX.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="MediaFileType" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Complex Type <span class="qname">MediaFileType</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:mil:ces:metadata:domex</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_MediaFileType" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_MediaFileType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_MediaFileType" style="display:block">
+                              <img alt="Diagram" border="0" src="img/DOMEX_xsd_Complex_Type_MediaFileType.png" usemap="#DOMEX_xsd_Complex_Type_MediaFileType"></img>
+                              <map name="DOMEX_xsd_Complex_Type_MediaFileType" id="DOMEX_xsd_Complex_Type_MediaFileType">
+                                 <area alt="DOMEX_xsd_Complex_Type_MediaFileType.tmp#MediaFileType_exifImage" href="76b34cac-9a8b-4327-a8d0-501c1a34d764.html#MediaFileType_exifImage" coords="233,0,319,24" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_MediaFileType.tmp#MediaFileType_audio" href="76b34cac-9a8b-4327-a8d0-501c1a34d764.html#MediaFileType_audio" coords="233,34,295,58" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_MediaFileType.tmp#MediaFileType_video" href="76b34cac-9a8b-4327-a8d0-501c1a34d764.html#MediaFileType_video" coords="233,68,294,92" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_MediaFileType" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_MediaFileType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_MediaFileType" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Element </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="DOMEX_xsd_Element_file.html#file_mediaFile" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component file/mediaFile')" shape="rect">file/mediaFile</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_MediaFileType" type="image" src="img/btM.gif" value="-" onclick="switchState('model_MediaFileType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_MediaFileType" style="display:block">
+                              <b>
+                                 <a href="76b34cac-9a8b-4327-a8d0-501c1a34d764.html#MediaFileType_exifImage" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component exifImage')" shape="rect">exifImage</a>
+                              </b> | <b>
+                                 <a href="76b34cac-9a8b-4327-a8d0-501c1a34d764.html#MediaFileType_audio" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component audio')" shape="rect">audio</a>
+                              </b> | <b>
+                                 <a href="76b34cac-9a8b-4327-a8d0-501c1a34d764.html#MediaFileType_video" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component video')" shape="rect">video</a>
+                              </b>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="76b34cac-9a8b-4327-a8d0-501c1a34d764.html#MediaFileType_audio" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component audio')" shape="rect">audio</a>
+                           </b>, <b>
+                              <a href="76b34cac-9a8b-4327-a8d0-501c1a34d764.html#MediaFileType_exifImage" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component exifImage')" shape="rect">exifImage</a>
+                           </b>, <b>
+                              <a href="76b34cac-9a8b-4327-a8d0-501c1a34d764.html#MediaFileType_video" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component video')" shape="rect">video</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_MediaFileType" type="image" src="img/btM.gif" value="-" onclick="switchState('source_MediaFileType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_MediaFileType" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:complexType</span><span class="tAN"> name=</span><span class="tAV">"MediaFileType"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:choice</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"exifImage"</span><span class="tAN"> type=</span><span class="tAV">"ImageDetailsType"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"audio"</span><span class="tAN"> type=</span><span class="tAV">"AudioDetailsType"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"video"</span><span class="tAN"> type=</span><span class="tAV">"VideoDetailsType"</span><span class="tEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:choice&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:complexType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/DOMEX.xsd">DOMEX.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //
+--></script>
+   </body>
+</html>

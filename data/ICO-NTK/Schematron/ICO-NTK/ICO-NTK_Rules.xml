@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<d:book xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlns:xi="http://www.w3.org/2001/XInclude"
+        xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+        xmlns:d="http://docbook.org/ns/docbook"
+        xmlns:xl="http://www.w3.org/1999/xlink"
+        version="5.0"
+        xml:lang="en">
+   <d:info>
+      <d:author>
+         <d:personname>
+            <d:surname>Joint Chiefs of Staff Pub 2.0: Appendix B - Intelligence Disciplines -  http://www.dtic.mil/doctrine/new_pubs/jp2_0.pdf IC-CIO</d:surname>
+         </d:personname>
+      </d:author>
+      <d:releaseinfo>
+         <block text-align="center" font-weight="bold" font-size="12pt">UNCLASSIFIED</block>
+      </d:releaseinfo>
+      <d:mediaobject xml:id="image_odni">
+         <d:imageobject>
+            <d:imagedata fileref="../common/images/odni.jpg" width="1.59in" align="center"/>
+         </d:imageobject>
+      </d:mediaobject>
+      <d:title>ICO-NTK Schematron Guide</d:title>
+      <d:subtitle>Guide to Schematron Rules and Patterns</d:subtitle>
+      <d:productname>ICO-NTK Schematron Guide 
+				   		 </d:productname>
+      <d:edition>Version 1</d:edition>
+      <d:author>
+         <d:orgname>Prepared by the Joint Chiefs of Staff Pub 2.0: Appendix B - Intelligence Disciplines -  http://www.dtic.mil/doctrine/new_pubs/jp2_0.pdf IC-CIO</d:orgname>
+      </d:author>
+      <d:date>6 September 2013</d:date>
+      <d:address>Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       </d:address>
+      <d:releaseinfo>
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See 'Distribution Notice' for details.
+       </d:releaseinfo>
+   </d:info>
+   <d:chapter>
+      <d:title>Introduction</d:title>
+      <d:sect1>
+         <d:title>Purpose</d:title>
+         <d:para>(U) The following documentation is informative. The actual Schematron files are the
+								normative record. This documentation is generated from the Schematron files via XSLT
+								it may be missing some file or pieces of a file but whatever is here other than titles
+								came from the original file.</d:para>
+         <d:para>(U) It is envisioned that this will be a useful resource to search and read but for
+								questions and debates the source files should be consulted.</d:para>
+         <d:para>(U) Rules identifiers are all of the format ICO-NTK-ID-XXXXX, with
+				        		rule files named ICO-NTK_ID_XXXXX.sch. Any other heading indicates a supporting file
+								that may strongly influence a rule but is not actually a numbered rule.</d:para>
+      </d:sect1>
+   </d:chapter>
+   <d:chapter>
+      <d:title>Rules</d:title>
+      <d:para>All of the numbered Rules for ICO-NTK are listed in this section. 
+					These rules may	depend strongly on patterns defined in the Abstract Patterns section or on 
+					variables defined in the Schematron Schema section.</d:para>
+      <?hard-pagebreak?><d:sect1>
+         <d:title>.//Rules/ICO-NTK_ID_00001.sch</d:title>
+         <d:para> Rule Description: 
+ICO-NTK-ID-00001
+    
+        [ICO-NTK-ID-00001][Error] The ICO-NTK Profile DES must be [guide://2020/ico-ntk.des.v1]. 
+    </d:para>
+         <d:para>Code Description: 
+        For every ntk:ProfileDes element of an ntk:AccessProfile that has an 
+        ntk:AccessPolicy of [guide://2020/ico-ntk.aces], the ntk:ProfileDes must be [guide://2020/ico-ntk.des.v1].
+    </d:para> 
+         <d:para>Schematron Code:<d:programlisting><![CDATA[<?ICEA pattern?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<sch:pattern id="ICO-NTK-ID-00001">
+         
+         
+                  <sch:rule context="ntk:AccessProfile[ntk:AccessPolicy='guide://2020/ico-ntk.aces']">
+                     <sch:assert test="ntk:ProfileDes='guide://2020/ico-ntk.des.v1'">
+            [ICO-NTK-ID-00001][Error] The ICO-NTK Profile DES must be [guide://2020/ico-ntk.des.v1]. 
+        </sch:assert>
+                  </sch:rule>
+               </sch:pattern>
+   ]]></d:programlisting>
+         </d:para>
+      </d:sect1>
+      <?hard-pagebreak?><d:sect1>
+         <d:title>.//Rules/ICO-NTK_ID_00002.sch</d:title>
+         <d:para> Rule Description: 
+ICO-NTK-ID-00002
+    
+        [ICO-NTK-ID-00002][Error] The ICO-NTK Profile should not contain any  
+        Access Profile Values. 
+    </d:para>
+         <d:para>Code Description: 
+        For every ntk:AccessProfile with an ntk:AccessPolicy of 'guide://2020/ico-ntk.des.v1',  
+        ensure that there are no ntk:AccessProfileValue elements.  
+    </d:para> 
+         <d:para>Schematron Code:<d:programlisting><![CDATA[<?ICEA pattern?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<sch:pattern id="ICO-NTK-ID-00002">
+         
+         
+                  <sch:rule context="ntk:AccessProfile[ntk:ProfileDes='guide://2020/ico-ntk.des.v1']">
+                     <sch:assert test="not(ntk:AccessProfileValue)">
+            [ICO-NTK-ID-00002][Error] The ICO-NTK Profile should not contain any  
+            Access Profile Values. 
+        </sch:assert>
+                  </sch:rule>
+               </sch:pattern>
+   ]]></d:programlisting>
+         </d:para>
+      </d:sect1>
+      <?hard-pagebreak?><d:sect1>
+         <d:title>.//Rules/ICO-NTK_ID_00003.sch</d:title>
+         <d:para> Rule Description: 
+ICO-NTK-ID-00003
+    
+        [ICO-NTK-ID-00003][Error] The ICO-NTK Access Policy must be [guide://2020/ico-ntk.aces].
+    </d:para>
+         <d:para>Code Description: 
+        For every ntk:AccessPolicy element of an ntk:AccessProfile that has an 
+        ntk:ProfileDes of [guide://2020/ico-ntk.des.v1], the ntk:AccessPolicy must be [guide://2020/ico-ntk.aces].
+    </d:para> 
+         <d:para>Schematron Code:<d:programlisting><![CDATA[<?ICEA pattern?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<sch:pattern id="ICO-NTK-ID-00003">
+         
+         
+                  <sch:rule context="ntk:AccessProfile[ntk:ProfileDes='guide://2020/ico-ntk.des.v1']">
+                     <sch:assert test="ntk:AccessPolicy='guide://2020/ico-ntk.aces'">
+            [ICO-NTK-ID-00003][Error] The ICO-NTK Access Policy must be [guide://2020/ico-ntk.aces]. 
+        </sch:assert>
+                  </sch:rule>
+               </sch:pattern>
+   ]]></d:programlisting>
+         </d:para>
+      </d:sect1>
+   </d:chapter>
+   <d:chapter>
+      <d:title>Abstract Patterns</d:title>
+      <d:para>There are no Abstract Patterns currently defined for ICO-NTK.</d:para>
+   </d:chapter>
+   <d:chapter>
+      <d:title>Schematron Schema</d:title>
+      <d:para>The top level Schematron file for ICO-NTK is in this section. 
+					This file imports all of the others and also defines many global variables they are all dependent on.</d:para>
+      <?hard-pagebreak?><d:sect1>
+         <d:title>.//ICO-NTK_XML.sch</d:title>
+         <d:para> Rule Description: 
+
+         
+         
+         
+         
+         
+
+         
+   
+   
+   
+
+         
+
+
+
+
+   
+         
+         
+      
+    </d:para>
+         <d:para>Code Description: </d:para> 
+         <d:para>Schematron Code:<d:programlisting><![CDATA[<?ICEA master?><!-- Notices - Distribution Notice:
+            This document is being made available by the Intelligence Community Chief Information Officer
+            to Federal, State, Local, Tribal, and Foreign Partners and associated contractors. Approval for
+            any further distribution must be coordinated via the Intelligence Community Chief Information 
+            Officer, Mission Engagement Division at standardssupport@dni.gov-->
+<sch:schema queryBinding="xslt2">
+                  <sch:ns uri="urn:us:gov:ic:cve" prefix="cve"/>
+                  <sch:ns uri="http://www.w3.org/1999/xlink" prefix="xlink"/>
+                  <sch:ns uri="urn:us:gov:ic:ism" prefix="ism"/>
+                  <sch:ns uri="urn:us:gov:ic:ntk" prefix="ntk"/>
+                  <sch:ns uri="http://www.w3.org/2001/XMLSchema" prefix="xs"/>
+
+                  <!-- ************************************** -->
+   <!-- * Abstract Rule and Pattern Includes * -->
+   <!-- ************************************** -->
+   <sch:include href="./../IC-ID/Lib/ICIdentifierRestrictions.sch"/>
+
+                  <!--****************************-->
+<!-- (U) ICO-NTK ID Rules -->
+<!--****************************-->
+
+<!--(U) -->
+   <sch:include href="./Rules/ICO-NTK_ID_00001.sch"/>
+                  <sch:include href="./Rules/ICO-NTK_ID_00002.sch"/>
+                  <sch:include href="./Rules/ICO-NTK_ID_00003.sch"/>
+               </sch:schema>
+   ]]></d:programlisting>
+         </d:para>
+      </d:sect1>
+   </d:chapter>
+   <d:chapter>
+      <d:title>Removed Rules</d:title>
+      <d:para>There are no rules that have been removed for ICO-NTK.</d:para>
+   </d:chapter>
+</d:book>

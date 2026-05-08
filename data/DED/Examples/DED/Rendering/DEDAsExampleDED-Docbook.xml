@@ -1,0 +1,2468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<d:book xmlns:d="http://docbook.org/ns/docbook"
+        version="5.0-ExtendForISM"
+        xml:lang="en">
+  <d:info>
+    <d:releaseinfo>UNCLASSIFIED</d:releaseinfo>
+    <d:title>(U) Data Element Dictionary for Data Element Dictionary XML</d:title>
+    <d:author>
+      <d:orgname>Prepared by DNI</d:orgname>
+    </d:author>
+  </d:info>
+  <d:chapter>
+    <d:title>Data Elements</d:title>
+    <d:section>
+      <d:title>(U) DataElement</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="DataElement">
+        <d:title>(U) DataElement</d:title>
+        <d:indexterm>
+          <d:primary>DataElement</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The DataElement table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) A wrapper element for showing the classification of an Element as a whole and for grouping the values relating
+                to an element.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:DataElement</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) DataElement</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) DedHeader</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="DedHeader">
+        <d:title>(U) DedHeader</d:title>
+        <d:indexterm>
+          <d:primary>DedHeader</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The DedHeader table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) A container holding a set of resource-level information relevant to the entire Data Element Dictionary. This
+                captures the following information concepts:</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:DedHeader</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) DedHeader</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) DedPoc</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="DedPoc">
+        <d:title>(U) DedPoc</d:title>
+        <d:indexterm>
+          <d:primary>DedPoc</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The DedPoc table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) The person or organization that Authored the DED.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:DedPoc</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) DedPoc</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) DedPurpose</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="DedPurpose">
+        <d:title>(U) DedPurpose</d:title>
+        <d:indexterm>
+          <d:primary>DedPurpose</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The DedPurpose table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) The prose that identifies and describes the reason and scope of the model (e.g., the output) about which this
+                Data Element Dictionary is providing guidance. &#160;If the source of the information contained in the DED is different
+                from the DedHeader/edh/ResponsibleEntity, then the author should identify said source.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:DedPurpose</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) DedPurpose</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementObjectType</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) Data_Structure</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) DedShortName</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="DedShortName">
+        <d:title>(U) DedShortName</d:title>
+        <d:indexterm>
+          <d:primary>DedShortName</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The DedShortName table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) The short abbreviation that captures the intent of the DedTitle of the Data Element Dictionary (This value MUST
+                be unclassified).</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:DedShortName</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) DedShortName</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementObjectType</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) Data_Structure</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) DedSubjectType</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="DedSubjectType">
+        <d:title>(U) DedSubjectType</d:title>
+        <d:indexterm>
+          <d:primary>DedSubjectType</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The DedSubjectType table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) A short descriptor that characterizes the format and/or structure of the output about which this Data Element
+                Dictionary is providing guidance. &#160;The initial possible values are: Logical, UML, Physical, Ontology, Database, XML,
+                JSON, CSV, CVE, and Other:SomeText. Multiple values may be used. Additional details about the DED Model should be added to
+                DedPurpose.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:DedSubjectType</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) DedSubjectType</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) DedTitle</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="DedTitle">
+        <d:title>(U) DedTitle</d:title>
+        <d:indexterm>
+          <d:primary>DedTitle</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The DedTitle table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) The descriptive phrase that indicates the content of the Data Element Dictionary.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:DedTitle</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) DedTitle</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementObjectType</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) Data_Structure</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) DedVersion</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="DedVersion">
+        <d:title>(U) DedVersion</d:title>
+        <d:indexterm>
+          <d:primary>DedVersion</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The DedVersion table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) The short string that represents the unique state of the Data Element Dictionary.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:DedVersion</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) DedVersion</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementObjectType</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) Data_Structure</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) ElementComment</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="ElementComment">
+        <d:title>(U) ElementComment</d:title>
+        <d:indexterm>
+          <d:primary>ElementComment</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The ElementComment table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) Additional clarifying notes, beyond what is contained within the Definition. Also, may contain implementation
+                guidance or processing instructions.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:ElementComment</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ElementComment</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) ElementComments</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="ElementComments">
+        <d:title>(U) ElementComments</d:title>
+        <d:indexterm>
+          <d:primary>ElementComments</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The ElementComments table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) A grouping of additional clarifying notes, beyond what is contained within the Definition. Also, may contain
+                implementation guidance or processing instructions.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:ElementComments</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ElementComments</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) ElementDataType</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="ElementDataType">
+        <d:title>(U) ElementDataType</d:title>
+        <d:indexterm>
+          <d:primary>ElementDataType</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The ElementDataType table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) The format of the allowed values for the Data Element. &#160;(e.g., string, integer, float, uuid, datetime,
+                boolean, alphanumeric, enumeration, regex).</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:ElementObjectType</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ElementDataType</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) ElementDefaultValue</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="ElementDefaultValue">
+        <d:title>(U) ElementDefaultValue</d:title>
+        <d:indexterm>
+          <d:primary>ElementDefaultValue</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The ElementDefaultValue table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) The value that should be provided for the Data Element, if the Data Element does not exist or have
+                content.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:ElementDefaultValue</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ElementDefaultValue</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) ElementDefinition</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="ElementDefinition">
+        <d:title>(U) ElementDefinition</d:title>
+        <d:indexterm>
+          <d:primary>ElementDefinition</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The ElementDefinition table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) A statement of the meaning of the Data Element, explaining what it is and/or its essential
+                characteristics.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:ElementDefinition</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ElementDefinition</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) ElementDefinitionSource</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="ElementDefinitionSource">
+        <d:title>(U) ElementDefinitionSource</d:title>
+        <d:indexterm>
+          <d:primary>ElementDefinitionSource</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The ElementDefinitionSource table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) The cited authority(ies) or reference(s) for which the knowledge to develop the ElementDefinition was obtained
+                or derived.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:ElementDefinitionSource</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ElementDefinitionSource</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) ElementDomain</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="ElementDomain">
+        <d:title>(U) ElementDomain</d:title>
+        <d:indexterm>
+          <d:primary>ElementDomain</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The ElementDomain table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) The context within which the Data Element belongs.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ElementDomain</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) ElementId</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="ElementId">
+        <d:title>(U) ElementId</d:title>
+        <d:indexterm>
+          <d:primary>ElementId</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The ElementId table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) The locally unique identifier of the Data Element.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:ElementId</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ElementId</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) ElementMultiplicity</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="ElementMultiplicity">
+        <d:title>(U) ElementMultiplicity</d:title>
+        <d:indexterm>
+          <d:primary>ElementMultiplicity</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The ElementMultiplicity table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) This element follows the UML section 7.8.8 (MultiplicityElement) definition "A multiplicity is a definition of
+                an inclusive interval of non-negative integers beginning with a lower bound and ending with a (possibly infinite) upper
+                bound. A MultiplicityElement embeds this information to specify the allowable cardinalities for an instantiation of the
+                Element." The exact tailoring of the UML is shown in the DES. Example notations [0..1], [0..*], [0..n] [1..1], [1..*],
+                [1..n], [n..m]. Note that n and m here are variables that represent finite numbers. Actual use in a DED would replace n and
+                m with the finite number(s) appropriate for the Element. For example, [0..6] means the Element is optional and can have up
+                to 6 instances. [1..5] means the Element is required and can have up to 5 instances.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:ElementMutliplicity</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ElementMultiplicity</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) ElementName</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="ElementName">
+        <d:title>(U) ElementName</d:title>
+        <d:indexterm>
+          <d:primary>ElementName</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The ElementName table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) The string identifier that represents the Data Element.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:ElementName</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ElementName</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) ElementObjectType</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="ElementObjectType">
+        <d:title>(U) ElementObjectType</d:title>
+        <d:indexterm>
+          <d:primary>ElementObjectType</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The ElementObjectType table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) The kind of Data Element that is being defined (e.g., class, attribute, element, keyword, table).</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:ElementObjectType</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ElementObjectType</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) ElementObligation</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="ElementObligation">
+        <d:title>(U) ElementObligation</d:title>
+        <d:indexterm>
+          <d:primary>ElementObligation</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The ElementObligation table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) An indicator of whether the Data Element MUST be populated in all cases (i.e., Mandatory); or if the Data
+                Element is NOT required (i.e., Optional); or whether specific conditions for populating it are specified in
+                ElementRestriction (i.e., Conditional). &#160;If conditional, then the condition should be defined in either
+                ElementRestrictions or the Relationship Metadata section.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:ElementObligation</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ElementObligation</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementObjectType</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:EnumerationLocation: XSD type ObligationEnumType</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) ElementParentName</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="ElementParentName">
+        <d:title>(U) ElementParentName</d:title>
+        <d:indexterm>
+          <d:primary>ElementParentName</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The ElementParentName table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) The ElementName(s) of another Data Element within the Data Element Dictionary, for which this Data Element is a
+                child element.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:UsedByLocal</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ElementParentName</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) ElementRestriction</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="ElementRestriction">
+        <d:title>(U) ElementRestriction</d:title>
+        <d:indexterm>
+          <d:primary>ElementRestriction</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The ElementRestriction table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) The additional constraints, if any, on the content entered for the Data Element (e.g., the maximum number of
+                characters, the regex, uniqueness, min and/or max values, precision, scale). Special Cases: 1) If the DataType is an
+                enumeration, then provide either (A) the enumerated list, or (B) a reference to a specific enumerated list; &#160; 2) If
+                the DataType is a regex, then provide the actual regular expression.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:ElementRestriction</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ElementRestriction</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) ElementRestrictions</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="ElementRestrictions">
+        <d:title>(U) ElementRestrictions</d:title>
+        <d:indexterm>
+          <d:primary>ElementRestrictions</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The ElementRestrictions table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) A grouping of the additional constraints, if any, on the content entered for the Data Element (e.g., the
+                maximum number of characters, the regex, uniqueness, min and/or max values, precision, scale). Special Cases: 1) If the
+                DataType is an enumeration, then provide either (A) the enumerated list, or (B) a reference to a specific enumerated list;
+                &#160; 2) If the DataType is a regex, then provide the actual regular expression.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:ElementRestrictions</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ElementRestrictions</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) ElementUnitOfMeasure</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="ElementUnitOfMeasure">
+        <d:title>(U) ElementUnitOfMeasure</d:title>
+        <d:indexterm>
+          <d:primary>ElementUnitOfMeasure</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The ElementUnitOfMeasure table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) The kind of determinate quantity or magnitude, taken as a standard of comparison for others of the same kind,
+                in assigning to them numerical values, such as inches, hours, miles.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:ElementUnitOfMeasure</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ElementUnitOfMeasure</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) Relationship</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="Relationship">
+        <d:title>(U) Relationship</d:title>
+        <d:indexterm>
+          <d:primary>Relationship</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The Relationship table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) A wrapper element for showing the classification of a Relationship as a whole and for grouping the values
+                relating to a relationship.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:Relationship</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) Relationship</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) RelationshipComment</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="RelationshipComment">
+        <d:title>(U) RelationshipComment</d:title>
+        <d:indexterm>
+          <d:primary>RelationshipComment</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The RelationshipComment table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) Additional clarifying notes, beyond what is contained within the RelationshipDefinition or the Relationship
+                Multiplicities. Also, may contain implementation guidance or processing instructions.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:RelationshipComment</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) RelationshipComment</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) RelationshipComments</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="RelationshipComments">
+        <d:title>(U) RelationshipComments</d:title>
+        <d:indexterm>
+          <d:primary>RelationshipComments</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The RelationshipComments table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) A grouping of additional clarifying notes, beyond what is contained within the RelationshipDefinition or the
+                Relationship Multiplicities. Also, may contain implementation guidance or processing instructions.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:RelationshipComments</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) RelationshipComments</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) RelationshipDefinition</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="RelationshipDefinition">
+        <d:title>(U) RelationshipDefinition</d:title>
+        <d:indexterm>
+          <d:primary>RelationshipDefinition</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The RelationshipDefinition table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) The additional information of how Link A and Link B interact with each other, beyond multiplicity
+                information.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:RelationshipDefinition</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) RelationshipDefinition</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) RelationshipDefinitionSource</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="RelationshipDefinitionSource">
+        <d:title>(U) RelationshipDefinitionSource</d:title>
+        <d:indexterm>
+          <d:primary>RelationshipDefinitionSource</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The RelationshipDefinitionSource table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) The cited authority(ies) or reference(s) for which the knowledge to develop the RelationshipDefinition was
+                obtained or derived.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:RelationshipDefinitionSource</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) RelationshipDefinitionSource</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) RelationshipId</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="RelationshipId">
+        <d:title>(U) RelationshipId</d:title>
+        <d:indexterm>
+          <d:primary>RelationshipId</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The RelationshipId table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) The locally unique identifier of the Relationship.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:RelationshipId</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) RelationshipId</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) RelationshipLinkADomain</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="RelationshipLinkADomain">
+        <d:title>(U) RelationshipLinkADomain</d:title>
+        <d:indexterm>
+          <d:primary>RelationshipLinkADomain</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The RelationshipLinkADomain table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) The context within which the Data Element A belongs.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:RelationshipLinkADomain</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) RelationshipLinkADomain</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) RelationshipLinkAMultiplicity</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="RelationshipLinkAMultiplicity">
+        <d:title>(U) RelationshipLinkAMultiplicity</d:title>
+        <d:indexterm>
+          <d:primary>RelationshipLinkAMultiplicity</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The RelationshipLinkAMultiplicity table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) This element follows the UML section 7.8.8 (MultiplicityElement) definition "A multiplicity is a definition of
+                an inclusive interval of non-negative integers beginning with a lower bound and ending with a (possibly infinite) upper
+                bound. A MultiplicityElement embeds this information to specify the allowable cardinalities for an instantiation of the
+                Element." The exact tailoring of the UML is shown in the DES. Example notations [0..1], [0..*], [0..n] [1..1], [1..*],
+                [1..n], [n..m]. Note that n and m here are variables that represent finite numbers. Actual use in a DED would replace n and
+                m with the finite number(s) appropriate for the Relationship. For example, [0..6] means the Relationship is optional and
+                can have up to 6 instances. [1..5] means the Relationship is required and can have up to 5 instances. This element
+                indicates the multiplicity of instances of A that must exist for a single instance of B and the greatest (or maximum)
+                number of instances of A that can exist for a single instance of B.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:RelationshipLinkAMultiplicity</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) RelationshipLinkAMultiplicity</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) RelationshipLinkAName</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="RelationshipLinkAName">
+        <d:title>(U) RelationshipLinkAName</d:title>
+        <d:indexterm>
+          <d:primary>RelationshipLinkAName</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The RelationshipLinkAName table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) The string identifier that represents the Data Element A.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:RelationshipLinkAName</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) RelationshipLinkAName</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) RelationshipLinkBDomain</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="RelationshipLinkBDomain">
+        <d:title>(U) RelationshipLinkBDomain</d:title>
+        <d:indexterm>
+          <d:primary>RelationshipLinkBDomain</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The RelationshipLinkBDomain table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) The context within which the Data Element B belongs.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:RelationshipLinkBDomain</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) RelationshipLinkBDomain</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) RelationshipLinkBMultiplicity</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="RelationshipLinkBMultiplicity">
+        <d:title>(U) RelationshipLinkBMultiplicity</d:title>
+        <d:indexterm>
+          <d:primary>RelationshipLinkBMultiplicity</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The RelationshipLinkBMultiplicity table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) This element follows the UML section 7.8.8 (MultiplicityElement) definition "A multiplicity is a definition of
+                an inclusive interval of non-negative integers beginning with a lower bound and ending with a (possibly infinite) upper
+                bound. A MultiplicityElement embeds this information to specify the allowable cardinalities for an instantiation of the
+                Element." The exact tailoring of the UML is shown in the DES. Example notations [0..1], [0..*], [0..n] [1..1], [1..*],
+                [1..n], [n..m]. Note that n and m here are variables that represent finite numbers. Actual use in a DED would replace n and
+                m with the finite number(s) appropriate for the Relationship. For example, [0..6] means the Relationship is optional and
+                can have up to 6 instances. [1..5] means the Relationship is required and can have up to 5 instances. This element
+                indicates the multiplicity of instances of B that must exist for a single instance of A and the greatest (or maximum)
+                number of instances of B that can exist for a single instance of A.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:RelationshipLinkBMultiplicity</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) RelationshipLinkBMultiplicity</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) RelationshipLinkBName</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="RelationshipLinkBName">
+        <d:title>(U) RelationshipLinkBName</d:title>
+        <d:indexterm>
+          <d:primary>RelationshipLinkBName</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The RelationshipLinkBName table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) The string identifier that represents the Data Element B.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:RelationshipLinkBName</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) RelationshipLinkBName</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+    <d:section>
+      <d:title>(U) RelationshipName</d:title>
+      <d:table frame="all"
+               rowsep="1"
+               colsep="1"
+               xml:id="RelationshipName">
+        <d:title>(U) RelationshipName</d:title>
+        <d:indexterm>
+          <d:primary>RelationshipName</d:primary>
+        </d:indexterm>
+        <d:tgroup cols="2"
+                  align="left">
+          <d:colspec colname="c1"
+                     colnum="1"
+                     colwidth="1*" />
+          <d:colspec colname="c2"
+                     colnum="2"
+                     colwidth="3*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>(U) The RelationshipName table is UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>DED Field Name</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry>
+                <d:para>ElementDefinition</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) The string identifier that represents the Relationship.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementId</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) ded:RelationshipName</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry>
+                <d:para>ElementName</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para>(U) RelationshipName</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:section>
+  </d:chapter>
+  <d:index />
+</d:book>

@@ -1,0 +1,1546 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for </title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                        //
+--></script>
+   </head>
+   <body>
+      <h2>
+         <a id="INDEX" shape="rect">Table of Contents</a>
+      </h2>
+      <p>
+         <a href="SchemaGuide.indexList.html" shape="rect">Components</a>
+         <span> | </span>
+         <a href="schHierarchy.html" shape="rect">Resource Hierarchy</a>
+      </p>
+      <hr></hr>
+      <div class="toc">
+         <form action="none" method="get" enctype="application/x-www-form-urlencoded">
+            <div>
+               <span> Group by: <select id="selectTOC" onchange="selectTOCGroupBy(this.options[this.selectedIndex].value, true, 'SchemaGuide.indexList.html', 'SchemaGuide.indexListns.html', 'SchemaGuide.indexListcomp.html');">
+                     <option value="toc_group_by_namespace">Namespace</option>
+                     <option value="toc_group_by_location">Location</option>
+                     <option value="toc_group_by_component_type" selected="selected">Component Type</option>
+                  </select>
+               </span>
+            </div>
+         </form>
+         <div class="level1" id="toc_group_by_component_type" style="display:block">
+            <div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Main_schema" type="image" value="-" src="img/btM.gif" onclick="switchState('Main_schema');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Main Schema</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Main_schema" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="5e2b3864-7f2b-4a08-b9e0-33bd8699a1b7.html#SchemaGuideSchema.xsd" target="mainFrame" title="urn:schema:guide:schema:rr" onclick="updatePageTitle('Schema documentation for component SchemaGuideSchema.xsd')" shape="rect">SchemaGuideSchema.xsd</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Imported_schema" type="image" value="-" src="img/btM.gif" onclick="switchState('Imported_schema');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Imported Schemas</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Imported_schema" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="bdfec164-a1fb-462c-8865-8e3b0f9b980c.html#CVEnumISM25X.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:25x" onclick="updatePageTitle('Schema documentation for component CVEnumISM25X.xsd')" shape="rect">CVEnumISM25X.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="a6e9950a-2532-4090-9b52-959d7ca953e0.html#CVEnumISMAtomicEnergyMarkings.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:atomicEnergyMarkings" onclick="updatePageTitle('Schema documentation for component CVEnumISMAtomicEnergyMarkings.xsd')" shape="rect">CVEnumISMAtomicEnergyMarkings.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="952b261f-26f9-4590-acc0-1ed9adc6fdf2.html#CVEnumISMCATFGIOpen.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:ismcat:fgiopen" onclick="updatePageTitle('Schema documentation for component CVEnumISMCATFGIOpen.xsd')" shape="rect">CVEnumISMCATFGIOpen.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="12ad4c77-c688-4d23-94cd-5126656d091b.html#CVEnumISMCATFGIProtected.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:ismcat:fgiprotected" onclick="updatePageTitle('Schema documentation for component CVEnumISMCATFGIProtected.xsd')" shape="rect">CVEnumISMCATFGIProtected.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="9a8dee03-52c7-4f5e-b96f-10cbde758df3.html#CVEnumISMCATOwnerProducer.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:ismcat:ownerproducer" onclick="updatePageTitle('Schema documentation for component CVEnumISMCATOwnerProducer.xsd')" shape="rect">CVEnumISMCATOwnerProducer.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="507d94e3-be7d-4f98-be4e-800b9a4bdd1d.html#CVEnumISMCATRelTo.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:ismcat:relto" onclick="updatePageTitle('Schema documentation for component CVEnumISMCATRelTo.xsd')" shape="rect">CVEnumISMCATRelTo.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="dff0fd03-9f2f-45c8-a7b1-f1661e7bc273.html#CVEnumISMCUIBasic.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:cuibasic" onclick="updatePageTitle('Schema documentation for component CVEnumISMCUIBasic.xsd')" shape="rect">CVEnumISMCUIBasic.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="a47b5fdb-9799-46b8-a19a-bde8584a5cb1.html#CVEnumISMCUISpecified.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:cuispecified" onclick="updatePageTitle('Schema documentation for component CVEnumISMCUISpecified.xsd')" shape="rect">CVEnumISMCUISpecified.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="23ae4708-03eb-4a7b-b007-897fbdb2af24.html#CVEnumISMClassificationAll.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:classification:all" onclick="updatePageTitle('Schema documentation for component CVEnumISMClassificationAll.xsd')" shape="rect">CVEnumISMClassificationAll.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="d1885b4e-0898-4d88-96c8-a2391a615211.html#CVEnumISMCompliesWith.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:complieswith" onclick="updatePageTitle('Schema documentation for component CVEnumISMCompliesWith.xsd')" shape="rect">CVEnumISMCompliesWith.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="870343ef-8f09-458c-8ac1-ee35d97a7f2e.html#CVEnumISMDissem.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:dissem" onclick="updatePageTitle('Schema documentation for component CVEnumISMDissem.xsd')" shape="rect">CVEnumISMDissem.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="005013a7-86dc-4c05-b4c5-3d6018eb01ce.html#CVEnumISMExemptFrom.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:exemptfrom" onclick="updatePageTitle('Schema documentation for component CVEnumISMExemptFrom.xsd')" shape="rect">CVEnumISMExemptFrom.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="5186272b-5e8b-4685-99ac-ddef255591e7.html#CVEnumISMHighWaterNATO.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:HighWaterNATO" onclick="updatePageTitle('Schema documentation for component CVEnumISMHighWaterNATO.xsd')" shape="rect">CVEnumISMHighWaterNATO.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="91472b03-8e42-427b-a704-662b8bd23deb.html#CVEnumISMNonIC.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:nonic" onclick="updatePageTitle('Schema documentation for component CVEnumISMNonIC.xsd')" shape="rect">CVEnumISMNonIC.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="9636a32a-92cd-4192-9642-6347cee4cd5d.html#CVEnumISMNonUSControls.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:nonuscontrols" onclick="updatePageTitle('Schema documentation for component CVEnumISMNonUSControls.xsd')" shape="rect">CVEnumISMNonUSControls.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="a9534285-cb1f-44cd-960a-2585dc13f524.html#CVEnumISMNotice.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:notice" onclick="updatePageTitle('Schema documentation for component CVEnumISMNotice.xsd')" shape="rect">CVEnumISMNotice.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="476774d0-8b94-4127-bb9f-ce719e2d350f.html#CVEnumISMNoticeProse.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:noticeprose" onclick="updatePageTitle('Schema documentation for component CVEnumISMNoticeProse.xsd')" shape="rect">CVEnumISMNoticeProse.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="6996c709-1d80-496a-aaef-892a4ba3d77a.html#CVEnumISMPocType.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:pocType" onclick="updatePageTitle('Schema documentation for component CVEnumISMPocType.xsd')" shape="rect">CVEnumISMPocType.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ab998643-b117-44c1-83d9-bd185b742b51.html#CVEnumISMSAR.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:sar" onclick="updatePageTitle('Schema documentation for component CVEnumISMSAR.xsd')" shape="rect">CVEnumISMSAR.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="3f28dee6-ed2b-4a3b-a191-0a58e75c21fc.html#CVEnumISMSCIControls.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:scicontrols" onclick="updatePageTitle('Schema documentation for component CVEnumISMSCIControls.xsd')" shape="rect">CVEnumISMSCIControls.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="1d675cbf-3ffe-430d-bd75-41e9bdbc34db.html#CVEnumISMSecondBannerLine.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:secondbannerline" onclick="updatePageTitle('Schema documentation for component CVEnumISMSecondBannerLine.xsd')" shape="rect">CVEnumISMSecondBannerLine.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="24d553ca-ce96-4405-8092-52c54241e27c.html#CVEnumRevRecallAction.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:revrecall:action" onclick="updatePageTitle('Schema documentation for component CVEnumRevRecallAction.xsd')" shape="rect">CVEnumRevRecallAction.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="2e673762-bb35-4a4a-a796-834da6e89cfc.html#CVEnumRevRecallType.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:revrecall:type" onclick="updatePageTitle('Schema documentation for component CVEnumRevRecallType.xsd')" shape="rect">CVEnumRevRecallType.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="3d705c9b-a9d3-45c2-a2ae-f4e656cd9fab.html#IC-ARH.xsd" target="mainFrame" title="urn:us:gov:ic:arh" onclick="updatePageTitle('Schema documentation for component IC-ARH.xsd')" shape="rect">IC-ARH.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="16dbffb8-474e-48ff-bc9f-f4a0962c4173.html#IC-ISM.xsd" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component IC-ISM.xsd')" shape="rect">IC-ISM.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="9c4fc76f-954c-473e-acdc-c9f3c993cdd3.html#IC-NTK.xsd" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component IC-NTK.xsd')" shape="rect">IC-NTK.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="5ef680c3-2b59-4909-8ffc-447f87a0e97a.html#RevRecall_XML.xsd" target="mainFrame" title="urn:us:gov:ic:revrecall" onclick="updatePageTitle('Schema documentation for component RevRecall_XML.xsd')" shape="rect">RevRecall_XML.xsd</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Element" type="image" value="-" src="img/btM.gif" onclick="switchState('Element');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Elements</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Element" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Element_Notice.html#Notice" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component Notice')" shape="rect">Notice</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Element_NoticeExternal.html#NoticeExternal" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component NoticeExternal')" shape="rect">NoticeExternal</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="f6320ad8-9ce5-4846-8b12-6944dad1cc2c.html#NoticeExternalList" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component NoticeExternalList')" shape="rect">NoticeExternalList</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Element_NoticeList.html#NoticeList" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component NoticeList')" shape="rect">NoticeList</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Element_NoticeText.html#NoticeText" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component NoticeText')" shape="rect">NoticeText</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="93a44d20-a6e1-461b-bfa0-7837477d6dff.html#ExternalSecurity" target="mainFrame" title="urn:us:gov:ic:arh" onclick="updatePageTitle('Schema documentation for component arh:ExternalSecurity')" shape="rect">arh:ExternalSecurity</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ARH_xsd_Element_arh_Security.html#Security" target="mainFrame" title="urn:us:gov:ic:arh" onclick="updatePageTitle('Schema documentation for component arh:Security')" shape="rect">arh:Security</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-NTK_xsd_Element_ntk_Access.html#Access" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:Access')" shape="rect">ntk:Access</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-NTK_xsd_Element_ntk_AccessPolicy.html#AccessPolicy" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:AccessPolicy')" shape="rect">ntk:AccessPolicy</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="63761bfc-eec9-4549-849e-54f133f8939b.html#AccessProfile" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:AccessProfile')" shape="rect">ntk:AccessProfile</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="edda1ab6-f682-40e1-84b8-542049d6d19e.html#AccessProfileList" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:AccessProfileList')" shape="rect">ntk:AccessProfileList</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="503d0455-09fc-4cd6-9663-eb608481f311.html#AccessProfileValue" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:AccessProfileValue')" shape="rect">ntk:AccessProfileValue</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="c6227090-92fb-496b-802d-73d6fa447b60.html#ExternalAccess" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:ExternalAccess')" shape="rect">ntk:ExternalAccess</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-NTK_xsd_Element_ntk_ProfileDes.html#ProfileDes" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:ProfileDes')" shape="rect">ntk:ProfileDes</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="657bc96f-68fb-4eae-b2ac-749e6a9586d7.html#RequiresAllOf" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:RequiresAllOf')" shape="rect">ntk:RequiresAllOf</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="6ac21f2f-73d6-45c7-a294-e6888ec2b150.html#RequiresAnyOf" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:RequiresAnyOf')" shape="rect">ntk:RequiresAnyOf</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="2a8cfc3d-e996-4d3b-bce7-bbf1bbbb29e7.html#VocabularyType" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:VocabularyType')" shape="rect">ntk:VocabularyType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="cc2ee386-df50-43c1-8b36-1aa2b356d578.html#RevisionRecall" target="mainFrame" title="urn:us:gov:ic:revrecall" onclick="updatePageTitle('Schema documentation for component rr:RevisionRecall')" shape="rect">rr:RevisionRecall</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ac518142-9ab7-45f8-b658-af3953e0f4d3.html#RevisionRecallType_ActionInstruction" target="mainFrame" title="urn:us:gov:ic:revrecall" onclick="updatePageTitle('Schema documentation for component rr:RevisionRecallType/rr:ActionInstruction')" shape="rect">rr:RevisionRecallType/rr:ActionInstruction</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ac518142-9ab7-45f8-b658-af3953e0f4d3.html#RevisionRecallType_Link" target="mainFrame" title="urn:us:gov:ic:revrecall" onclick="updatePageTitle('Schema documentation for component rr:RevisionRecallType/rr:Link')" shape="rect">rr:RevisionRecallType/rr:Link</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ac518142-9ab7-45f8-b658-af3953e0f4d3.html#RevisionRecallType_POC" target="mainFrame" title="urn:us:gov:ic:revrecall" onclick="updatePageTitle('Schema documentation for component rr:RevisionRecallType/rr:POC')" shape="rect">rr:RevisionRecallType/rr:POC</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ac518142-9ab7-45f8-b658-af3953e0f4d3.html#RevisionRecallType_ProductTitle" target="mainFrame" title="urn:us:gov:ic:revrecall" onclick="updatePageTitle('Schema documentation for component rr:RevisionRecallType/rr:ProductTitle')" shape="rect">rr:RevisionRecallType/rr:ProductTitle</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ac518142-9ab7-45f8-b658-af3953e0f4d3.html#RevisionRecallType_Reason" target="mainFrame" title="urn:us:gov:ic:revrecall" onclick="updatePageTitle('Schema documentation for component rr:RevisionRecallType/rr:Reason')" shape="rect">rr:RevisionRecallType/rr:Reason</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Complex_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('Complex_Type');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Complex Types</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Complex_Type" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="8d713384-e54b-4578-a4cf-65f2347bc3a4.html#LongStringWithSecurityType" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component LongStringWithSecurityType')" shape="rect">LongStringWithSecurityType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="4ce53085-d39a-4a09-aa98-942600ea9504.html#NoticeBaseType" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component NoticeBaseType')" shape="rect">NoticeBaseType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="43a93905-af75-4f3e-9e4a-fef895e5a8a6.html#NoticeExternalListType" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component NoticeExternalListType')" shape="rect">NoticeExternalListType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="85f1e7fa-d9d5-4661-9f7e-33b31c62f84f.html#NoticeExternalType" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component NoticeExternalType')" shape="rect">NoticeExternalType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="684292a8-a414-459b-b9b4-611965b444ba.html#NoticeListType" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component NoticeListType')" shape="rect">NoticeListType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Complex_Type_NoticeType.html#NoticeType" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component NoticeType')" shape="rect">NoticeType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="3a796553-a97a-4d44-a106-5537e67db878.html#ShortStringWithSecurityType" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component ShortStringWithSecurityType')" shape="rect">ShortStringWithSecurityType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="332270ea-b6ed-4299-94a4-363a9c704c79.html#ExternalSecurityType" target="mainFrame" title="urn:us:gov:ic:arh" onclick="updatePageTitle('Schema documentation for component arh:ExternalSecurityType')" shape="rect">arh:ExternalSecurityType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="b2a0a47d-2ae1-4aa5-b0a2-d714e67fc8b6.html#SecurityType" target="mainFrame" title="urn:us:gov:ic:arh" onclick="updatePageTitle('Schema documentation for component arh:SecurityType')" shape="rect">arh:SecurityType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ddae8a3b-9acd-43b6-8aac-dfad26493355.html#AccessProfileListType" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:AccessProfileListType')" shape="rect">ntk:AccessProfileListType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="69ee0e99-34f6-4887-80ca-59cd9611b74b.html#AccessProfileType" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:AccessProfileType')" shape="rect">ntk:AccessProfileType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="5b43a7fb-c8e1-45cf-8c42-251734d6ba42.html#AccessProfileValueType" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:AccessProfileValueType')" shape="rect">ntk:AccessProfileValueType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="7ffa159a-064d-483e-ba96-577e70ca4d54.html#AccessType" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:AccessType')" shape="rect">ntk:AccessType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="8b32f142-9c4a-45b5-8bf1-f1c4825d4ca1.html#ProfileDesType" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:ProfileDesType')" shape="rect">ntk:ProfileDesType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="13a67670-5b1a-4f1d-b53c-2652ea5f7ba2.html#RequiresAllType" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:RequiresAllType')" shape="rect">ntk:RequiresAllType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="80acee6d-3be0-4f28-9e36-63882726a660.html#RequiresType" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:RequiresType')" shape="rect">ntk:RequiresType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="43847708-4548-47cb-b6d0-962c1abcfeb2.html#StringWithSecurityType" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:StringWithSecurityType')" shape="rect">ntk:StringWithSecurityType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="9491303a-0bab-49e7-bfb9-0a56def04c6c.html#TokenWithSecurityType" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:TokenWithSecurityType')" shape="rect">ntk:TokenWithSecurityType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="4e6ae3d3-180b-4044-8401-f2fad5a9ad67.html#URICommonType" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:URICommonType')" shape="rect">ntk:URICommonType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="7fd18a3b-607e-4438-b900-f5b514c5922f.html#VocabularyTypeType" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:VocabularyTypeType')" shape="rect">ntk:VocabularyTypeType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ac518142-9ab7-45f8-b658-af3953e0f4d3.html#RevisionRecallType" target="mainFrame" title="urn:us:gov:ic:revrecall" onclick="updatePageTitle('Schema documentation for component rr:RevisionRecallType')" shape="rect">rr:RevisionRecallType</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Simple_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('Simple_Type');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Simple Types</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Simple_Type" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="b8802fe0-bb8e-4ac6-9833-3e87ad3105bb.html#CVEnumRevRecallAction" target="mainFrame" title="urn:us:gov:ic:cvenum:revrecall:action" onclick="updatePageTitle('Schema documentation for component CVEnumRevRecallAction')" shape="rect">CVEnumRevRecallAction</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="fb629f2f-876b-4e8c-a0c9-7770dffa7b3d.html#CVEnumRevRecallType" target="mainFrame" title="urn:us:gov:ic:cvenum:revrecall:type" onclick="updatePageTitle('Schema documentation for component CVEnumRevRecallType')" shape="rect">CVEnumRevRecallType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="db700e3b-58a0-4c45-a7b2-bd61e5975985.html#LongStringType" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component LongStringType')" shape="rect">LongStringType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="48392b4c-0a28-406f-8ba6-3c549b7b960f.html#ShortStringType" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component ShortStringType')" shape="rect">ShortStringType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="c7712578-4ac5-4b84-9903-3a05fc5d651b.html#CVEnumISM25X" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:25x" onclick="updatePageTitle('Schema documentation for component ism25x:CVEnumISM25X')" shape="rect">ism25x:CVEnumISM25X</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="0c73d80c-9796-403d-a235-5e86d6ff0e8f.html#CVEnumISM25XValues" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:25x" onclick="updatePageTitle('Schema documentation for component ism25x:CVEnumISM25XValues')" shape="rect">ism25x:CVEnumISM25XValues</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="acc282d8-1b6f-4651-a3ff-c39e38a20225.html#CVEnumISMatomicEnergyMarkings" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:atomicEnergyMarkings" onclick="updatePageTitle('Schema documentation for component ismatomic:CVEnumISMatomicEnergyMarkings')" shape="rect">ismatomic:CVEnumISMatomicEnergyMarkings</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="9c78910a-7c63-4245-99bb-c65e988e6fb9.html#CVEnumISMatomicEnergyMarkingsValues" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:atomicEnergyMarkings" onclick="updatePageTitle('Schema documentation for component ismatomic:CVEnumISMatomicEnergyMarkingsValues')" shape="rect">ismatomic:CVEnumISMatomicEnergyMarkingsValues</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="4524d11f-53f4-4a70-98ac-e5510e7c04b5.html#CVEnumISMCATFGIOpen" target="mainFrame" title="urn:us:gov:ic:cvenum:ismcat:fgiopen" onclick="updatePageTitle('Schema documentation for component ismcatfgio:CVEnumISMCATFGIOpen')" shape="rect">ismcatfgio:CVEnumISMCATFGIOpen</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="a4ca47f0-3fd7-4afa-adf4-5387addc3f09.html#CVEnumISMCATFGIOpenValues" target="mainFrame" title="urn:us:gov:ic:cvenum:ismcat:fgiopen" onclick="updatePageTitle('Schema documentation for component ismcatfgio:CVEnumISMCATFGIOpenValues')" shape="rect">ismcatfgio:CVEnumISMCATFGIOpenValues</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="2417d770-8838-4f45-8665-22539b15c818.html#CVEnumISMCATFGIProtected" target="mainFrame" title="urn:us:gov:ic:cvenum:ismcat:fgiprotected" onclick="updatePageTitle('Schema documentation for component ismcatfgip:CVEnumISMCATFGIProtected')" shape="rect">ismcatfgip:CVEnumISMCATFGIProtected</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="c20fdf14-11ea-4764-bb4c-4af3ef7c3ab8.html#CVEnumISMCATFGIProtectedValues" target="mainFrame" title="urn:us:gov:ic:cvenum:ismcat:fgiprotected" onclick="updatePageTitle('Schema documentation for component ismcatfgip:CVEnumISMCATFGIProtectedValues')" shape="rect">ismcatfgip:CVEnumISMCATFGIProtectedValues</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="a8d27f44-b4c4-417f-b9c6-1c115d228680.html#CVEnumISMCATOwnerProducer" target="mainFrame" title="urn:us:gov:ic:cvenum:ismcat:ownerproducer" onclick="updatePageTitle('Schema documentation for component ismcatownpro:CVEnumISMCATOwnerProducer')" shape="rect">ismcatownpro:CVEnumISMCATOwnerProducer</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="af132f9c-967c-4c0d-af05-7568c546782f.html#CVEnumISMCATOwnerProducerValues" target="mainFrame" title="urn:us:gov:ic:cvenum:ismcat:ownerproducer" onclick="updatePageTitle('Schema documentation for component ismcatownpro:CVEnumISMCATOwnerProducerValues')" shape="rect">ismcatownpro:CVEnumISMCATOwnerProducerValues</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="f2d9e3b6-9668-40bf-b5ad-a6a209fac3b7.html#CVEnumISMCATRelTo" target="mainFrame" title="urn:us:gov:ic:cvenum:ismcat:relto" onclick="updatePageTitle('Schema documentation for component ismcatrelto:CVEnumISMCATRelTo')" shape="rect">ismcatrelto:CVEnumISMCATRelTo</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="1a9606d0-9f4b-4e0a-a966-72e526c524da.html#CVEnumISMCATRelToValues" target="mainFrame" title="urn:us:gov:ic:cvenum:ismcat:relto" onclick="updatePageTitle('Schema documentation for component ismcatrelto:CVEnumISMCATRelToValues')" shape="rect">ismcatrelto:CVEnumISMCATRelToValues</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="de017339-060a-4115-85c2-1b506fd6a831.html#CVEnumISMClassificationAll" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:classification:all" onclick="updatePageTitle('Schema documentation for component ismclassall:CVEnumISMClassificationAll')" shape="rect">ismclassall:CVEnumISMClassificationAll</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="0dea83cd-5e1b-4565-97a0-be33e3a92c97.html#CVEnumISMCompliesWith" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:complieswith" onclick="updatePageTitle('Schema documentation for component ismcomplies:CVEnumISMCompliesWith')" shape="rect">ismcomplies:CVEnumISMCompliesWith</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="32bba04b-f3e7-472b-80c8-011bc068d1f2.html#CVEnumISMCompliesWithValues" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:complieswith" onclick="updatePageTitle('Schema documentation for component ismcomplies:CVEnumISMCompliesWithValues')" shape="rect">ismcomplies:CVEnumISMCompliesWithValues</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ecc704b2-0e55-4499-84d4-c25aae235272.html#CVEnumISMCUIBasic" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:cuibasic" onclick="updatePageTitle('Schema documentation for component ismcuibasic:CVEnumISMCUIBasic')" shape="rect">ismcuibasic:CVEnumISMCUIBasic</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ea663755-5113-4c25-9a20-b70f563955c9.html#CVEnumISMCUIBasicValues" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:cuibasic" onclick="updatePageTitle('Schema documentation for component ismcuibasic:CVEnumISMCUIBasicValues')" shape="rect">ismcuibasic:CVEnumISMCUIBasicValues</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="b8cc230e-a063-4cbe-bbd2-7aa43964abb6.html#CVEnumISMCUISpecified" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:cuispecified" onclick="updatePageTitle('Schema documentation for component ismcuispecified:CVEnumISMCUISpecified')" shape="rect">ismcuispecified:CVEnumISMCUISpecified</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="6c668518-fb27-4448-bb9b-3e3ae17dc35a.html#CVEnumISMCUISpecifiedValues" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:cuispecified" onclick="updatePageTitle('Schema documentation for component ismcuispecified:CVEnumISMCUISpecifiedValues')" shape="rect">ismcuispecified:CVEnumISMCUISpecifiedValues</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="fb0de294-6356-4dd6-a5cd-5b8a2a31f903.html#CVEnumISMDissem" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:dissem" onclick="updatePageTitle('Schema documentation for component ismdissem:CVEnumISMDissem')" shape="rect">ismdissem:CVEnumISMDissem</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="08ff5393-8b84-447f-905e-153e49d1c954.html#CVEnumISMDissemValues" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:dissem" onclick="updatePageTitle('Schema documentation for component ismdissem:CVEnumISMDissemValues')" shape="rect">ismdissem:CVEnumISMDissemValues</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="a2f54a53-49fb-4d1a-88b5-e269a942758f.html#CVEnumISMExemptFrom" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:exemptfrom" onclick="updatePageTitle('Schema documentation for component ismexempt:CVEnumISMExemptFrom')" shape="rect">ismexempt:CVEnumISMExemptFrom</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="a215764d-9576-410d-ad02-baa8a7e193a7.html#CVEnumISMExemptFromValues" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:exemptfrom" onclick="updatePageTitle('Schema documentation for component ismexempt:CVEnumISMExemptFromValues')" shape="rect">ismexempt:CVEnumISMExemptFromValues</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="867fcb5c-ddc5-4126-a460-c9d718e36ca3.html#CVEnumISMHighWaterNATO" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:HighWaterNATO" onclick="updatePageTitle('Schema documentation for component ismhighwaternato:CVEnumISMHighWaterNATO')" shape="rect">ismhighwaternato:CVEnumISMHighWaterNATO</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="3488d00f-cdad-4b71-ac61-63a596a6f70d.html#CVEnumISMNonIC" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:nonic" onclick="updatePageTitle('Schema documentation for component ismnonic:CVEnumISMNonIC')" shape="rect">ismnonic:CVEnumISMNonIC</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="df733a33-ab81-4aa3-8fe6-1ba947df6c69.html#CVEnumISMNonICValues" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:nonic" onclick="updatePageTitle('Schema documentation for component ismnonic:CVEnumISMNonICValues')" shape="rect">ismnonic:CVEnumISMNonICValues</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="747bf584-f204-46a5-9a52-a94ed1e30186.html#CVEnumISMNonUSControls" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:nonuscontrols" onclick="updatePageTitle('Schema documentation for component ismnonus:CVEnumISMNonUSControls')" shape="rect">ismnonus:CVEnumISMNonUSControls</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="2a0e8a67-6e2c-4bd3-8566-341e63bb7c67.html#CVEnumISMNonUSControlsValues" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:nonuscontrols" onclick="updatePageTitle('Schema documentation for component ismnonus:CVEnumISMNonUSControlsValues')" shape="rect">ismnonus:CVEnumISMNonUSControlsValues</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="5a7b3911-7f64-4c94-814e-0d95ec46c4eb.html#CVEnumISMNotice" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:notice" onclick="updatePageTitle('Schema documentation for component ismnotice:CVEnumISMNotice')" shape="rect">ismnotice:CVEnumISMNotice</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="12a9942c-0a40-4b1f-a717-897be3dafda6.html#CVEnumISMNoticeValues" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:notice" onclick="updatePageTitle('Schema documentation for component ismnotice:CVEnumISMNoticeValues')" shape="rect">ismnotice:CVEnumISMNoticeValues</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="b404e505-441c-4bfd-82de-68f824985f64.html#CVEnumISMNoticeProse" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:noticeprose" onclick="updatePageTitle('Schema documentation for component ismnoticeprose:CVEnumISMNoticeProse')" shape="rect">ismnoticeprose:CVEnumISMNoticeProse</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="83cd58e5-8ee9-4c0d-991f-4d6e675f2efe.html#CVEnumISMNoticeProseValues" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:noticeprose" onclick="updatePageTitle('Schema documentation for component ismnoticeprose:CVEnumISMNoticeProseValues')" shape="rect">ismnoticeprose:CVEnumISMNoticeProseValues</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="f16c866d-6d98-42c4-896b-195801c60446.html#CVEnumISMPocType" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:pocType" onclick="updatePageTitle('Schema documentation for component ismpoctype:CVEnumISMPocType')" shape="rect">ismpoctype:CVEnumISMPocType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="2140abc7-7ab6-455f-8f90-7a4ffeb9dc15.html#CVEnumISMPocTypeValues" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:pocType" onclick="updatePageTitle('Schema documentation for component ismpoctype:CVEnumISMPocTypeValues')" shape="rect">ismpoctype:CVEnumISMPocTypeValues</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="b2a28544-dd93-4186-b010-230d9454abf0.html#CVEnumISMSAR" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:sar" onclick="updatePageTitle('Schema documentation for component ismsar:CVEnumISMSAR')" shape="rect">ismsar:CVEnumISMSAR</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="8380dacf-cd4e-47a7-ae39-ec9b6b083c78.html#CVEnumISMSARValues" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:sar" onclick="updatePageTitle('Schema documentation for component ismsar:CVEnumISMSARValues')" shape="rect">ismsar:CVEnumISMSARValues</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="bbe6d7ba-3a4b-40ee-9c97-60647ef6b5eb.html#CVEnumISMSCIControls" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:scicontrols" onclick="updatePageTitle('Schema documentation for component ismscicon:CVEnumISMSCIControls')" shape="rect">ismscicon:CVEnumISMSCIControls</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="2f9df762-d22c-4fe4-bdf8-8e269f4c5424.html#CVEnumISMSCIControlsValues" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:scicontrols" onclick="updatePageTitle('Schema documentation for component ismscicon:CVEnumISMSCIControlsValues')" shape="rect">ismscicon:CVEnumISMSCIControlsValues</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="550213fc-a141-4123-94bf-3e9cb566dba8.html#CVEnumISMSecondBannerLine" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:secondbannerline" onclick="updatePageTitle('Schema documentation for component ismsecondbannerline:CVEnumISMSecondBannerLine')" shape="rect">ismsecondbannerline:CVEnumISMSecondBannerLine</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="5caf4c81-0b31-4e98-af68-70ac6cb9cfa5.html#CVEnumISMSecondBannerLineValues" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:secondbannerline" onclick="updatePageTitle('Schema documentation for component ismsecondbannerline:CVEnumISMSecondBannerLineValues')" shape="rect">ismsecondbannerline:CVEnumISMSecondBannerLineValues</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Attribute" type="image" value="-" src="img/btM.gif" onclick="switchState('Attribute');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Attributes</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Attribute" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_DESVersion.html#DESVersion" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @DESVersion')" shape="rect">@DESVersion</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_FGIsourceOpen.html#FGIsourceOpen" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @FGIsourceOpen')" shape="rect">@FGIsourceOpen</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="c2278ecc-f6d9-40c8-85b5-2a97ba71af1f.html#FGIsourceProtected" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @FGIsourceProtected')" shape="rect">@FGIsourceProtected</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="b9b067be-beca-42cd-b813-4389895897db.html#ISMCATCESVersion" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @ISMCATCESVersion')" shape="rect">@ISMCATCESVersion</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_SARIdentifier.html#SARIdentifier" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @SARIdentifier')" shape="rect">@SARIdentifier</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_SCIcontrols.html#SCIcontrols" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @SCIcontrols')" shape="rect">@SCIcontrols</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ARH_xsd_Attribute_arh_DESVersion.html#urn_us_gov_ic_arh_DESVersion" target="mainFrame" title="urn:us:gov:ic:arh" onclick="updatePageTitle('Schema documentation for component @arh:DESVersion')" shape="rect">@arh:DESVersion</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="fabcb22d-80ee-44ce-951d-64f40a7ef169.html#atomicEnergyMarkings" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @atomicEnergyMarkings')" shape="rect">@atomicEnergyMarkings</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_classification.html#classification" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @classification')" shape="rect">@classification</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="a8fd92f8-d3ee-4a55-bef9-e0f13c9d116c.html#classificationReason" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @classificationReason')" shape="rect">@classificationReason</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_classifiedBy.html#classifiedBy" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @classifiedBy')" shape="rect">@classifiedBy</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="566c5381-c9df-4a72-badd-2e079679c073.html#compilationReason" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @compilationReason')" shape="rect">@compilationReason</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_compliesWith.html#compliesWith" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @compliesWith')" shape="rect">@compliesWith</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_createDate.html#createDate" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @createDate')" shape="rect">@createDate</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_cuiBasic.html#cuiBasic" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @cuiBasic')" shape="rect">@cuiBasic</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="028d1152-9d0d-45a5-ab90-9dad4e7dfbdf.html#cuiControlledBy" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @cuiControlledBy')" shape="rect">@cuiControlledBy</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="8ef57333-3e5f-4cf6-8527-4c27e145fd30.html#cuiControlledByOffice" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @cuiControlledByOffice')" shape="rect">@cuiControlledByOffice</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="2a91685a-c0e3-483f-ae51-179769de3c53.html#cuiDecontrolDate" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @cuiDecontrolDate')" shape="rect">@cuiDecontrolDate</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="27ec5722-45f5-4246-8ca3-6b64539467b2.html#cuiDecontrolEvent" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @cuiDecontrolEvent')" shape="rect">@cuiDecontrolEvent</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_cuiPOC.html#cuiPOC" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @cuiPOC')" shape="rect">@cuiPOC</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_cuiSpecified.html#cuiSpecified" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @cuiSpecified')" shape="rect">@cuiSpecified</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_declassDate.html#declassDate" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @declassDate')" shape="rect">@declassDate</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_declassEvent.html#declassEvent" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @declassEvent')" shape="rect">@declassEvent</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="90a3dd9d-a2f3-46f2-84b4-6d40ff09da60.html#declassException" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @declassException')" shape="rect">@declassException</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="3dd9b4c3-e69c-4e60-b3e0-22678990a8cb.html#derivativelyClassifiedBy" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @derivativelyClassifiedBy')" shape="rect">@derivativelyClassifiedBy</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_derivedFrom.html#derivedFrom" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @derivedFrom')" shape="rect">@derivedFrom</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_displayOnlyTo.html#displayOnlyTo" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @displayOnlyTo')" shape="rect">@displayOnlyTo</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="bb8bf7e3-64d5-4b45-947f-9447a0524649.html#disseminationControls" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @disseminationControls')" shape="rect">@disseminationControls</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="e4ea029a-1375-49e2-9047-56aa5272019b.html#excludeFromRollup" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @excludeFromRollup')" shape="rect">@excludeFromRollup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_exemptFrom.html#exemptFrom" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @exemptFrom')" shape="rect">@exemptFrom</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_externalNotice.html#externalNotice" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @externalNotice')" shape="rect">@externalNotice</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="030a7924-f7ae-478a-a7c5-4e625c04bb43.html#handleViaChannels" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @handleViaChannels')" shape="rect">@handleViaChannels</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="47e30566-9ff0-439f-944e-8ad0cfd847b2.html#hasApproximateMarkings" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @hasApproximateMarkings')" shape="rect">@hasApproximateMarkings</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_highWaterNATO.html#highWaterNATO" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @highWaterNATO')" shape="rect">@highWaterNATO</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_joint.html#joint" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @joint')" shape="rect">@joint</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_noAggregation.html#noAggregation" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @noAggregation')" shape="rect">@noAggregation</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_nonICmarkings.html#nonICmarkings" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @nonICmarkings')" shape="rect">@nonICmarkings</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_nonUSControls.html#nonUSControls" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @nonUSControls')" shape="rect">@nonUSControls</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_noticeDate.html#noticeDate" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @noticeDate')" shape="rect">@noticeDate</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_noticeProseID.html#noticeProseID" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @noticeProseID')" shape="rect">@noticeProseID</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_noticeReason.html#noticeReason" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @noticeReason')" shape="rect">@noticeReason</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_noticeType.html#urn_us_gov_ic_ism_noticeType" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @noticeType')" shape="rect">@noticeType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-NTK_xsd_Attribute_ntk_DESVersion.html#urn_us_gov_ic_ntk_DESVersion" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component @ntk:DESVersion')" shape="rect">@ntk:DESVersion</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="27480347-4a1f-4fd7-993c-c6a88aaf5830.html#IDReference" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component @ntk:IDReference')" shape="rect">@ntk:IDReference</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-NTK_xsd_Attribute_ntk_id.html#id" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component @ntk:id')" shape="rect">@ntk:id</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-NTK_xsd_Attribute_ntk_qualifier.html#qualifier" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component @ntk:qualifier')" shape="rect">@ntk:qualifier</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_ownerProducer.html#ownerProducer" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @ownerProducer')" shape="rect">@ownerProducer</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_pocType.html#pocType" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @pocType')" shape="rect">@pocType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ISM_xsd_Attribute_releasableTo.html#releasableTo" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @releasableTo')" shape="rect">@releasableTo</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="654570cc-2a8e-436b-868b-6a77a334082e.html#resourceElement" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @resourceElement')" shape="rect">@resourceElement</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="7920d31b-cb1f-4632-bd45-20ae550104d0.html#urn_us_gov_ic_revrecall_DESVersion" target="mainFrame" title="urn:us:gov:ic:revrecall" onclick="updatePageTitle('Schema documentation for component @rr:DESVersion')" shape="rect">@rr:DESVersion</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="a418b965-7ad4-4562-8ba9-924a60260738.html#secondBannerLine" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @secondBannerLine')" shape="rect">@secondBannerLine</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="d1c4ca4f-48b5-4842-b991-63756456d895.html#unregisteredNoticeType" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component @unregisteredNoticeType')" shape="rect">@unregisteredNoticeType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="5b43a7fb-c8e1-45cf-8c42-251734d6ba42.html#AccessProfileValueType_vocabulary" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:AccessProfileValueType/@ntk:vocabulary')" shape="rect">ntk:AccessProfileValueType/@ntk:vocabulary</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="80acee6d-3be0-4f28-9e36-63882726a660.html#RequiresType_externalReference" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:RequiresType/@ntk:externalReference')" shape="rect">ntk:RequiresType/@ntk:externalReference</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="7fd18a3b-607e-4438-b900-f5b514c5922f.html#VocabularyTypeType_name" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:VocabularyTypeType/@ntk:name')" shape="rect">ntk:VocabularyTypeType/@ntk:name</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="7fd18a3b-607e-4438-b900-f5b514c5922f.html#VocabularyTypeType_source" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:VocabularyTypeType/@ntk:source')" shape="rect">ntk:VocabularyTypeType/@ntk:source</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="7fd18a3b-607e-4438-b900-f5b514c5922f.html#VocabularyTypeType_sourceVersion" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:VocabularyTypeType/@ntk:sourceVersion')" shape="rect">ntk:VocabularyTypeType/@ntk:sourceVersion</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ac518142-9ab7-45f8-b658-af3953e0f4d3.html#RevisionRecallType_action" target="mainFrame" title="urn:us:gov:ic:revrecall" onclick="updatePageTitle('Schema documentation for component rr:RevisionRecallType/@rr:action')" shape="rect">rr:RevisionRecallType/@rr:action</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ac518142-9ab7-45f8-b658-af3953e0f4d3.html#RevisionRecallType_dateTime" target="mainFrame" title="urn:us:gov:ic:revrecall" onclick="updatePageTitle('Schema documentation for component rr:RevisionRecallType/@rr:dateTime')" shape="rect">rr:RevisionRecallType/@rr:dateTime</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ac518142-9ab7-45f8-b658-af3953e0f4d3.html#RevisionRecallType_id" target="mainFrame" title="urn:us:gov:ic:revrecall" onclick="updatePageTitle('Schema documentation for component rr:RevisionRecallType/@rr:id')" shape="rect">rr:RevisionRecallType/@rr:id</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ac518142-9ab7-45f8-b658-af3953e0f4d3.html#RevisionRecallType_type" target="mainFrame" title="urn:us:gov:ic:revrecall" onclick="updatePageTitle('Schema documentation for component rr:RevisionRecallType/@rr:type')" shape="rect">rr:RevisionRecallType/@rr:type</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Attribute_Group" type="image" value="-" src="img/btM.gif" onclick="switchState('Attribute_Group');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Attribute Groups</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Attribute_Group" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="0f325ba6-fe01-4eee-95c3-6492f208ec68.html#CUIONLYattributesGroup" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component CUIONLYattributesGroup')" shape="rect">CUIONLYattributesGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="3b101c8e-3b3b-4392-92ba-2ca8d98bbe3d.html#ISMNoticeAttributeGroup" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component ISMNoticeAttributeGroup')" shape="rect">ISMNoticeAttributeGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="977cca89-2d02-42e8-b5c6-21877f2fecd5.html#ISMNoticeBaseAttributeGroup" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component ISMNoticeBaseAttributeGroup')" shape="rect">ISMNoticeBaseAttributeGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ee9783fe-bfd3-422f-9008-7a049a3590dc.html#ISMNoticeExternalAttributeGroup" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component ISMNoticeExternalAttributeGroup')" shape="rect">ISMNoticeExternalAttributeGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="2a6388d7-64f9-4d35-9862-1f210d25eff3.html#ISMResourceAttributeGroup" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component ISMResourceAttributeGroup')" shape="rect">ISMResourceAttributeGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="30981dd1-ced6-4709-a5a3-bdc36434e863.html#ISMResourceAttributeOptionGroup" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component ISMResourceAttributeOptionGroup')" shape="rect">ISMResourceAttributeOptionGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="a695f807-ef7e-4908-949f-1527504be821.html#ISMRootNodeAttributeGroup" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component ISMRootNodeAttributeGroup')" shape="rect">ISMRootNodeAttributeGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="096f5ea9-6c86-46da-a401-0a62346fa0c7.html#ISMRootNodeAttributeOptionGroup" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component ISMRootNodeAttributeOptionGroup')" shape="rect">ISMRootNodeAttributeOptionGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="94f9b466-ee6b-4d84-b86d-e7279366cccf.html#NoticeAttributesGroup" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component NoticeAttributesGroup')" shape="rect">NoticeAttributesGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="189091a7-84ac-4fde-b8be-a734bb5e81be.html#NoticeAttributesOptionGroup" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component NoticeAttributesOptionGroup')" shape="rect">NoticeAttributesOptionGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="625dc721-0ae1-490c-b809-497f285aec3d.html#NoticeExternalAttributesGroup" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component NoticeExternalAttributesGroup')" shape="rect">NoticeExternalAttributesGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ad5b65c6-7bd2-46a8-9899-3e2da0c7964a.html#NoticeExternalAttributesOptionGroup" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component NoticeExternalAttributesOptionGroup')" shape="rect">NoticeExternalAttributesOptionGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="48b60569-f612-4305-9b82-b778c2a5856f.html#POCAttributeGroup" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component POCAttributeGroup')" shape="rect">POCAttributeGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="3a5e9fba-785e-4060-be40-08f2fcec75da.html#urn_us_gov_ic_ism_ResourceNodeAttributeGroup" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component ResourceNodeAttributeGroup')" shape="rect">ResourceNodeAttributeGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="31ba4c82-23cd-4556-8d2c-20cc5fa8622a.html#ResourceNodeAttributeOptionGroup" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component ResourceNodeAttributeOptionGroup')" shape="rect">ResourceNodeAttributeOptionGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="f007dcc7-5238-4aaf-919f-1e5c89028c45.html#SecurityAttributesGroup" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component SecurityAttributesGroup')" shape="rect">SecurityAttributesGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="9c91795f-fbaf-42b6-9f52-16c82937cb84.html#SecurityAttributesOptionGroup" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component SecurityAttributesOptionGroup')" shape="rect">SecurityAttributesOptionGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="3aec93a2-1f92-4bb5-8759-49f5d6198045.html#ARHRootNodeAttributeOptionGroup" target="mainFrame" title="urn:us:gov:ic:arh" onclick="updatePageTitle('Schema documentation for component arh:ARHRootNodeAttributeOptionGroup')" shape="rect">arh:ARHRootNodeAttributeOptionGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="e32c0968-e446-45a9-bde8-7873dad6d484.html#ExternalResourceNodeAttributeGroup" target="mainFrame" title="urn:us:gov:ic:arh" onclick="updatePageTitle('Schema documentation for component arh:ExternalResourceNodeAttributeGroup')" shape="rect">arh:ExternalResourceNodeAttributeGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="45524a5d-9063-43ab-a476-dd817d96ed05.html#ResourceNodeAttributeGroup" target="mainFrame" title="urn:us:gov:ic:arh" onclick="updatePageTitle('Schema documentation for component arh:ResourceNodeAttributeGroup')" shape="rect">arh:ResourceNodeAttributeGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="d4d88935-35fb-43b4-bc6c-0e84e76da049.html#CommonAttributesGroup" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:CommonAttributesGroup')" shape="rect">ntk:CommonAttributesGroup</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div style="clear:left"></div>
+            </div>
+         </div>
+      </div>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+   </body>
+</html>

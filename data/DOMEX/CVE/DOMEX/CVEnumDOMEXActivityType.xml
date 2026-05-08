@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<cve:CVE xmlns:cve="urn:us:gov:ic:cve"
+         xmlns:ism="urn:us:gov:ic:ism"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         
+         ism:compliesWith="USGov USIC"
+         ism:ownerProducer="USA"
+         ism:classification="U"
+         ism:DESVersion="202111"
+         ism:ISMCATCESVersion="202205"
+         ism:resourceElement="true"
+         CVEVersion="2"
+         ism:createDate="2015-02-25"
+         xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+
+    <!-- Change Request #889 - Activity and Sub-Activity Elements  -->
+    <cve:IRM>
+        <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:domex:CVEnumDOMEXActivityType</URN>
+        <Title xmlns="urn:us:gov:ic:cve"
+             ism:ownerProducer="USA"
+             ism:classification="U">CVEnumDOMEXActivityType</Title>
+        <Description xmlns="urn:us:gov:ic:cve"
+                   ism:ownerProducer="USA"
+                   ism:classification="U">Valid range for activities.</Description>
+
+        <cve:Created>2013-12-10</cve:Created>
+
+        <Source ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">Authoritative source for activities</Source>
+        <PointOfContact ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">
+         <Name>DOMEX Metadata Working Group</Name>
+      </PointOfContact>
+    </cve:IRM>
+    
+    <cve:Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Combat Operations</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">Used to tag objects where the preponderance of the content is related to Combat operations of a target group</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Communications</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">Used to tag objects where the preponderance of the content is related to communications of a target group</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Criminal Activities</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">Used to tag objects where the preponderance of the content is related to Criminal Activities of a target group</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Finance</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">Used to tag objects where the preponderance of the content is related to financial matters of a target group</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Hostage Operations</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">Used to tag objects where the preponderance of the content is related to one or more hostages</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Individual</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">Used to tag objects where the preponderance of the content is related to an individual</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Personnel Management</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Used to tag objects where the preponderance of the content is related to the management of a target staff</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Planning, General</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Used to tag objects where the preponderance of the content is related to planning of a target group</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Propaganda Production and Distribution</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Used to tag objects where the preponderance of the content is related to the production, distribution or final products related to propaganda</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Recruitment Operations</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Used to tag objects where the preponderance of the content is related to recruitment, training, facilitation and travel to place of employment</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Religious</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Used to tag objects where the preponderance of the content is related to a Religion</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Weapons of Mass Destruction</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Used to tag objects where the preponderance of the content is related to Weapons of Mass Destruction</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Weapons, Cyber</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Used to tag objects where the preponderance of the content is related to cyber Weapons (hacking tools)</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Weapons, Improvised</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Used to tag objects where the preponderance of the content is related to improvised weapons.  This category doesn't include commercially manufactured </Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Weapons, Manufactured</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Used to tag objects where the preponderance of the content is related to commercially manufactured weapons.  This category doesn't include Improvised </Description>
+        </cve:Term>
+    </cve:Enumeration>
+</cve:CVE>

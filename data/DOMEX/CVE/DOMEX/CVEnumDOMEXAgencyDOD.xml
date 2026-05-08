@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       --><cve:CVE xmlns:cve="urn:us:gov:ic:cve" xmlns:ism="urn:us:gov:ic:ism" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  ism:compliesWith="USGov USIC" ism:ownerProducer="USA" ism:classification="U" ism:DESVersion="202111" ism:ISMCATCESVersion="202205" ism:resourceElement="true" CVEVersion="2" ism:createDate="2013-12-10" xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+
+    <!-- artf14837 - Create DOMEX Agency List  -->
+    <cve:IRM>
+        <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:domex:CVEnumDOMEXAgencyDOD</URN>
+        <Title xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">CVEnumDOMEXAgencyDOD</Title>
+        <Description xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">Valid range for DOD agencies.</Description>
+
+        <cve:Created>2013-12-10</cve:Created>
+
+        <Source ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">Authoritative source for DOD Agencies</Source>
+        <PointOfContact ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">
+         <Name>DOMEX Metadata Working Group</Name>
+      </PointOfContact>
+    </cve:IRM>
+
+    <cve:Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">AFRICOM</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">AFRICOM -- US African Command</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">CENTCOM</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">CENTCOM -- US Central Command</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">CENTCOM/USFOR-A</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">CENTCOM -- US Central Command</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">CIFA</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">CIFA -- Counterintelligence Field Activity</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">DC3</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">Defense Cyber Crime Center</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">DC3/DCCI</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">DoD Cyber Crime Institute</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">DC3/DCFL</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">DoD Computer Forensic Laboratory</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">DC3/DCFL/MCS</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">DoD Computer Forensic Laboratory/Major Crimes and Safety</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">DC3/DCFL/I</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">DoD Computer Forensic Laboratory/Intrusions</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">DC3/DCFL/CI-CT</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">DoD Computer Forensic Laboratory/Counterintelligence and Counterterrorism</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">DC3/DCFL/NMEC</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">DoD Computer Forensic Laboratory/NMEC Operating Location</Description>
+        </cve:Term> 
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">DC3/NCIJTF-AG</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">Defense Cyber Crime Center/National Cyber Investigative Joint Task Force - Analytic Group</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">DC3/DCISE</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">Defense Cyber Crime Center/DoD-DIB Collaborative Information Sharing Environment</Description>
+        </cve:Term>        
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">EUCOM</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">EUCOM -- US European Command</Description>
+        </cve:Term>
+
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">GTMO</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">GTMO -- Joint Task Force Guantanamo</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">JFCOM</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">JFCOM -- US Joint Forces Command</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">JFMC</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">JFMC -- Project Chuckwagon</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">JIATF</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">JIATF -- Joint Inter Agency Task Force</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">JIEDDO</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">JIEDDO -- Joint Improvised Explosive Device Defeat Organization</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">JPRC</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">JPRC -- Joint Personnel Recovery Center</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">KFOR</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">KFOR -- NATO Forces in Kosovo</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">MNCI</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">MNC-I -- Multi National Corp Iraq</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">MNF-I</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">MNF-I -- Multi National Force Iraq</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">NATO/EUFOR</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">NATO-EUFOR -- NATO European Union Force</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">NORTHCOM</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">NORTHCOM -- US Northern Command</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">PACOM</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">PACOM -- US Pacific Command</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">PACOM/USFK</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">PACOM -- US Pacific Command</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SFOR</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SFOR -- Stabilization Force</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/CNT</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/CMB</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command - Computer Modeling Branch</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/CMaB</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command - Counter Marcoterrorism Branch</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/CTB</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command - Counter Terror Branch</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/CTFB</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command - Counter Threat Finance Branch</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/DSB</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command - Direct Support Branch</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/ED</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command - Exploitation Division</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/EB</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command - External Branch</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/FD</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command - Fusion Division</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/IATF</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/ITB</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command - Illicit Trafficking Branch</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/IntB</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command - Integration Branch</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/IB</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command - Intel Branch</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/J1</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/J2</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/J3</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/J4</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/J5</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/J6</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/J7-J9</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/J8</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/JSOC</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/OB</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command - Ops Branch</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/OD</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command - Outreach Division</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/PB</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command - Production Branch</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/RAB</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command - Research and Analysis Branch</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/SOSTs</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/SPD</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command - Special Projects Division</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/SB</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command - Strategic Branch</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOCOM/SD</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOCOM -- US Special Operations Command - Synchronization Division</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOFFC</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOFFC -- Special Operations Forces Fusion Cell</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SOUTHCOM</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">SOUTHCOM -- US Southern Command</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">STRATCOM</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">STRATCOM -- US Strategic Command</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">STRATCOM/USCYBERCOM</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">STRATCOM -- US Strategic Command</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">TRANSCOM</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">None Provided</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">USFI</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">USFI -- United States Forces in Iraq</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">USFK</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">USFK -- United states Forces in Korea</Description>
+        </cve:Term>
+    </cve:Enumeration>
+</cve:CVE>

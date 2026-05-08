@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><!--************************************--><!--         UNCLASSIFIED               --><!--************************************--><xs:schema xmlns="urn:us:mil:ces:metadata:domex_identity" xmlns:Identity="urn:us:mil:ces:metadata:domex_identity" xmlns:irm="urn:us:gov:ic:irm" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ism="urn:us:gov:ic:ism" xmlns:xhtml="http://www.w3.org/1999/xhtml-StopBrowserRendering" xmlns:CVEnumDOMEXLicenseTypeType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXLicenseTypeType" xmlns:CVEnumDOMEXMembershipIdentificationTypeType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXMembershipIdentificationTypeType" xmlns:CVEnumDOMEXCitizenshipStatusType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXCitizenshipStatusType" xmlns:CVEnumDOMEXAffiliationTypeType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXAffiliationTypeType" xmlns:CVEnumDOMEXPhysicalAttributeTypeType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXPhysicalAttributeTypeType" xmlns:CVEnumDOMEXEducationLevelType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXEducationLevelType" xmlns:CVEnumDOMEXEducationDegreeType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXEducationDegreeType" targetNamespace="urn:us:mil:ces:metadata:domex_identity" elementFormDefault="qualified" attributeFormDefault="qualified" Identity:DESVersion="2" ism:compliesWith="USGov USIC" ism:resourceElement="true" ism:createDate="2019-09-18" ism:DESVersion="202111" ism:ISMCATCESVersion="202205" ism:classification="U" ism:ownerProducer="USA" version="202111">
+	  <xs:annotation>
+		    <xs:documentation> The "identity" element is the root element for creating
+			an identity assertion or an identity element within a collection. </xs:documentation>
+	  </xs:annotation>
+	  <!-- ************************************************************* -->
+	  <!-- IMPORT DEPENDEDNT SCHEMAS                                     -->
+	  <!-- ************************************************************* -->
+	  <xs:import namespace="urn:us:gov:ic:ism" schemaLocation="../ISM/IC-ISM.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:irm" schemaLocation="../IRM/IC-IRM.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXLicenseTypeType" schemaLocation="./CVEGenerated/CVEnumDOMEXLicenseTypeType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXMembershipIdentificationTypeType" schemaLocation="./CVEGenerated/CVEnumDOMEXMembershipIdentificationTypeType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXCitizenshipStatusType" schemaLocation="./CVEGenerated/CVEnumDOMEXCitizenshipStatusType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXAffiliationTypeType" schemaLocation="./CVEGenerated/CVEnumDOMEXAffiliationTypeType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXPhysicalAttributeTypeType" schemaLocation="./CVEGenerated/CVEnumDOMEXPhysicalAttributeTypeType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXEducationLevelType" schemaLocation="./CVEGenerated/CVEnumDOMEXEducationLevelType.xsd"/>
+	  <xs:import namespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXEducationDegreeType" schemaLocation="./CVEGenerated/CVEnumDOMEXEducationDegreeType.xsd"/>
+	  <!-- ************************************************************* -->
+	  <!-- Identity element                                              -->
+	  <!-- ************************************************************* -->
+	  <xs:element name="identity" ism:classification="U" ism:ownerProducer="USA">
+		    <xs:annotation>
+			      <xs:documentation> Describes an Identity in the DOMEX Data Assertion All the information
+				about a Person. All properties (including name) are allowed to occur 0 to unbounded
+				times. Note that some of the properties (affiliation, kinship, location) have more
+				specific sub-properties defined here (such as memberOf, spouse, residence
+				respectively) which may be used as well. </xs:documentation>
+		    </xs:annotation>
+		    <xs:complexType>
+			      <xs:sequence>
+				        <xs:element name="name" type="IdentityNameType">
+					          <xs:annotation>
+						            <xs:documentation> Proper Name including Translated Name, Transliterated
+							Name, Aliases. Includes Honorific Prefix, Given Name, Additional Name,
+							Family Name, Honorific Suffix. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <!-- artf14828 - Make alias element unbounded -->
+				        <xs:element name="alias" type="IdentityNameType" minOccurs="0" maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Alias (es) of Subject </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="translatedName" type="IdentityNameType" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> English language translation of the name.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="transliteratedName" type="IdentityNameType" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Name transliterated for non-Latin characters.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="dateOfBirth" type="string50" minOccurs="0" maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Date of Birth if Subject is a person. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="placeOfBirth" type="CityStateCountryType" minOccurs="0" maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Place of Birth if Subject is a person.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="dateOfDeath" type="string50" minOccurs="0" maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Date of Death if Subject is a person. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="placeOfDeath" type="CityStateCountryType" minOccurs="0" maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Place of Death if Subject is a person.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="gender" type="string20" minOccurs="0" maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Gender if Subject is a person. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="occupation" type="string100" minOccurs="0" maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Occupation if Subject is a person. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="physicalDescription" type="PhysicalDescriptionType" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Physical Description of the person if Subject is a
+							person. Includes: height, weight, mark, scar, tattoo, other, apparent
+							physical characteristic description, apparent physical disability, blood
+							type, build, clothing description, complexion, date of birth, ethnicity,
+							eye color, eye description, eyewear description, facial hair
+							description, fingerprint classification, gender, hair color, hair
+							description, height, height description, race, skin tone, weight.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="skill" type="string256" minOccurs="0" maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Skill if the Subject is a person. An ability, knowledge,
+							or capability to perform some activity. Includes an indication of
+							proficiency. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="phone" type="string100" minOccurs="0" maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> A telephone number. This value includes country code and
+							area code when applicable. Includes the original number in the native
+							language script and also the ASCII representation. Can be the phone
+							number of a person or organization. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="emailAddress" type="string256" minOccurs="0" maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> An address for electronic mail. Can be for a person or
+							organization. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="userId" type="string100" minOccurs="0" maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Unique Identifier applied by an agency to an author,
+							co-author, POC, tasking requester or addressee. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="affiliation" type="AffiliationType" minOccurs="0" maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> The identification of an organization or agency with
+							which an individual or service has an affiliation. Includes: is Member
+							of and is Employed by. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="referenceNumber-ControlId" type="string256" minOccurs="0" maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Reference control ID in other Biometric system
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="biometricUrl" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> List of URLs to this detainee’s records in BIR.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="citizenship" type="CitizenshipType" minOccurs="0" maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Information about a Person’s citizenship in a Country.
+							Includes Country and Status. Status values include Native Born,
+							Naturalized, Permanent Resident Alien Applied, and Permanent Resident
+							Alien Granted. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="remark" type="RemarkType" minOccurs="0" maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Any remarks concerning the identity </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="education" type="EducationType" minOccurs="0" maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> A relationship between a person and an institution.
+							Attributes include: level of education: Graduated, Undergraduate,
+							Primary, Secondary; Degree: AA, BA, BS, DD, DDiv, HS, LLD, MA, MD, MS,
+							PhD. Institutions: High School, Post Secondary School.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="identification" type="IdentificationType" minOccurs="0" maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Person has identification. A document which was issued by
+							some organization to “identify” the indicated person, indicate some sort
+							of affiliation with the organization, usually assign the person an
+							identification “number, and perhaps license the person in some capacity.
+							Identification types include: License and Membership ID. Attributes
+							include: authority, date of issue, date of expiration, issuing country,
+							issuing State or Province, issuing Locality, issuing Organization, and
+							the identified person. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="isnNumber" type="string50" minOccurs="0">
+					          <xs:annotation>
+						            <xs:documentation> Detainee Serial # (DoD) or other control number: TCN,
+							Case #, IOC Requirement #, LOO Series </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="kinship" type="string100" minOccurs="0" maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Any blood or marital relationship between two persons.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="location" type="irm:PlaceType" minOccurs="0" maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> A group of entities used in the DoD Discovery Metadata
+							Specification postalAddress plus others. Optionally includes Street,
+							City, State, Province, Postal Code, and Country Code.
+						</xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="medical" type="string256" minOccurs="0" maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> Details about medical conditions a person has or
+							experiences. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+				        <xs:element name="multimedia" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded">
+					          <xs:annotation>
+						            <xs:documentation> A person is represented in the linked Multimedia (image,
+							video, etc.) URI to linked image. </xs:documentation>
+					          </xs:annotation>
+				        </xs:element>
+			      </xs:sequence>
+			      <xs:attribute name="uuid" type="UuidType" use="optional"/>
+			      <!-- ************************************************************* -->
+			      <!-- Attribute - DESVersion                                        -->
+			      <!-- ************************************************************* -->
+			      <xs:attribute name="DESVersion" use="optional">
+				        <xs:annotation>
+					          <xs:documentation xml:lang="en">
+						            <xhtml:p ism:ownerProducer="USA" ism:classification="U">The version number
+							of the specification. This attribute is intended for processing systems
+							to determine the appropriate versions of Schema, Schematron, and CVE
+							values for validation and interpretation of an instance document. </xhtml:p>
+						            <xhtml:p ism:ownerProducer="USA" ism:classification="U">If there are
+							multiple of this attribute specified in an instance document, the first
+							one in document order is the one that will apply to the entire document.
+							Document order is defined in <xhtml:a href="https://www.w3.org/TR/xpath-datamodel/#document-order">https://www.w3.org/TR/xpath-datamodel/#document-order</xhtml:a>
+						            </xhtml:p>
+					          </xs:documentation>
+				        </xs:annotation>
+				        <xs:simpleType>
+					          <xs:restriction base="xs:string">
+						            <xs:pattern value="[0-9]{6}(\.[0-9]{6})?(\-.{1,23})?"/>
+					          </xs:restriction>
+				        </xs:simpleType>
+			      </xs:attribute>
+		    </xs:complexType>
+	  </xs:element>
+	  <xs:complexType name="IdentityNameType">
+		    <xs:sequence>
+			      <xs:element name="honorificPrefix" type="string50" minOccurs="0" maxOccurs="unbounded">
+				        <xs:annotation>
+					          <xs:documentation> Prefix to a name such as Dr. Mr. Mrs., etc.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="givenName" type="string50" minOccurs="0" maxOccurs="unbounded">
+				        <xs:annotation>
+					          <xs:documentation> Individual's given name, in English, the "first" name.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="additionalName" type="string50" minOccurs="0" maxOccurs="unbounded">
+				        <xs:annotation>
+					          <xs:documentation> Any additional names such as middle name. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="familyName" type="string50" minOccurs="0" maxOccurs="unbounded">
+				        <xs:annotation>
+					          <xs:documentation> The individual's family name, in English, the "last" name.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="honorificSuffix" type="string50" minOccurs="0" maxOccurs="unbounded">
+				        <xs:annotation>
+					          <xs:documentation> Any suffix to a name such as Jr., III, Esq., etc.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <!-- artf14829 - Change place of birth/death to a city/state/country location -->
+	  <xs:complexType name="CityStateCountryType">
+		    <xs:annotation>
+			      <xs:documentation> City, State, Country construct (not address) for place of birth or
+				death. </xs:documentation>
+		    </xs:annotation>
+		    <xs:sequence>
+			      <xs:element name="city" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> City of birth or death </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="state" type="xs:string" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> State, Province or other geopolitical equivalent of birth or
+						death </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="country" type="irm:CompoundCountryCodeIdentifierType" minOccurs="0">
+				        <xs:annotation>
+					          <xs:documentation> Country of birth or death </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="PhysicalDescriptionType">
+		    <xs:annotation>
+			      <xs:documentation> Physical Description of the person if Subject is a person. Includes:
+				height, weight, mark, scar, tattoo, other, apparent physical characteristic
+				description, apparent physical disability, blood type, build, clothing description,
+				complexion, date of birth, ethnicity, eye color, eye description, eyewear
+				description, facial hair description, fingerprint classification, gender, hair
+				color, hair description, height, height description, race, skin tone, weight.
+			</xs:documentation>
+		    </xs:annotation>
+		    <xs:sequence>
+			      <xs:element name="physicalAttribute" type="PhysicalAttributeType" maxOccurs="unbounded"/>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="PhysicalAttributeType">
+		    <xs:simpleContent>
+			      <xs:extension base="string256">
+				        <xs:attribute name="type" type="CVEnumDOMEXPhysicalAttributeTypeType:CVEnumDOMEXPhysicalAttributeTypeType" use="required"/>
+			      </xs:extension>
+		    </xs:simpleContent>
+	  </xs:complexType>
+	  <xs:complexType name="AffiliationType">
+		    <xs:annotation>
+			      <xs:documentation> The identification of an organization or agency with which an
+				individual or service has an affiliation. Includes: is Member of and is Employed by.
+			</xs:documentation>
+		    </xs:annotation>
+		    <xs:simpleContent>
+			      <xs:extension base="string512">
+				        <xs:attribute name="type" type="CVEnumDOMEXAffiliationTypeType:CVEnumDOMEXAffiliationTypeType" use="required"/>
+			      </xs:extension>
+		    </xs:simpleContent>
+	  </xs:complexType>
+	  <xs:complexType name="CitizenshipType">
+		    <xs:annotation>
+			      <xs:documentation> Information about a Person’s citizenship in a Country. Includes
+				Country and Status. Status values include Native Born, Naturalized, Permanent
+				Resident Alien Applied, and Permanent Resident Alien Granted. </xs:documentation>
+		    </xs:annotation>
+		    <xs:sequence>
+			      <xs:element name="country" type="irm:CompoundCountryCodeIdentifierType">
+				        <xs:annotation>
+					          <xs:documentation> Person’s citizenship in a Country. </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="status" type="CVEnumDOMEXCitizenshipStatusType:CVEnumDOMEXCitizenshipStatusType">
+				        <xs:annotation>
+					          <xs:documentation> Status values include Native Born, Naturalized, Permanent
+						Resident Alien Applied, and Permanent Resident Alien Granted.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="EducationType">
+		    <xs:annotation>
+			      <xs:documentation> A relationship between a person and an institution. Attributes
+				include: level of education: Graduated, Undergraduate, Primary, Secondary; Degree:
+				AA, BA, BS, DD, DDiv, HS, LLD, MA, MD, MS, PhD. Institutions: High School, Post
+				Secondary School. </xs:documentation>
+		    </xs:annotation>
+		    <xs:sequence>
+			      <xs:element name="level" type="CVEnumDOMEXEducationLevelType:CVEnumDOMEXEducationLevelType">
+				        <xs:annotation>
+					          <xs:documentation> Graduated, Undergraduate, Primary, Secondary
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="degree" type="CVEnumDOMEXEducationDegreeType:CVEnumDOMEXEducationDegreeType">
+				        <xs:annotation>
+					          <xs:documentation> Degree(s) attained - AA, BA, BS, DD, DDiv, HS, LLD, MA, MD,
+						MS, PhD </xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+			      <xs:element name="institution" type="string100">
+				        <xs:annotation>
+					          <xs:documentation> Status values include Native Born, Naturalized, Permanent
+						Resident Alien Applied, and Permanent Resident Alien Granted.
+					</xs:documentation>
+				        </xs:annotation>
+			      </xs:element>
+		    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="IdentificationType">
+		    <xs:annotation>
+			      <xs:documentation> Person has identification. A document which was issued by some
+				organization to “identify” the indicated person, indicate some sort of affiliation
+				with the organization, usually assign the person an identification “number, and
+				perhaps license the person in some capacity. Identification types include: License
+				and Membership ID. Attributes include: authority, date of issue, date of expiration,
+				issuing country, issuing State or Province, issuing Locality, issuing Organization,
+				and the identified person. </xs:documentation>
+		    </xs:annotation>
+		    <xs:choice>
+			      <xs:element name="license" type="LicenseType"/>
+			      <xs:element name="membershipID" type="MembershipIdType"/>
+		    </xs:choice>
+	  </xs:complexType>
+	  <xs:complexType name="LicenseType">
+		    <xs:sequence>
+			<!-- artf14838 - Add idNumber element -->
+			      <xs:element name="idNumber" type="xs:string" minOccurs="0"/>
+			      <xs:element name="authority" type="xs:string" minOccurs="0"/>
+			      <xs:element name="isLostOrStolen" type="xs:boolean" minOccurs="0"/>
+			      <xs:element name="isAuthentic" type="xs:boolean" minOccurs="0"/>
+			      <xs:element name="dateOfIssue" type="xs:date" minOccurs="0"/>
+			      <xs:element name="dateOfExpiration" type="xs:date" minOccurs="0"/>
+			      <xs:element name="issuingCountry" type="irm:CompoundCountryCodeIdentifierType" minOccurs="0"/>
+			      <xs:element name="issuingStateOrProvince" type="xs:string" minOccurs="0"/>
+			      <xs:element name="issuingLocality" type="xs:string" minOccurs="0"/>
+			      <xs:element name="issuingOrganization" type="xs:string" minOccurs="0"/>
+			      <xs:element name="identifiedPerson" type="xs:string" minOccurs="0"/>
+			      <!--  artf14839 - Add destination country element for visas and passports -->
+			      <xs:element name="destinationCountry" type="irm:CompoundCountryCodeIdentifierType" minOccurs="0"/>
+		    </xs:sequence>
+		    <xs:attribute name="type" type="CVEnumDOMEXLicenseTypeType:CVEnumDOMEXLicenseTypeType" use="required"/>
+	  </xs:complexType>
+	  <xs:complexType name="MembershipIdType">
+		    <xs:annotation>
+			      <xs:documentation> Captures a membership relationship between a Person and an
+				Organization. The list of membership relationship types are: Is a Member Of
+			</xs:documentation>
+		    </xs:annotation>
+		    <xs:sequence>
+			      <xs:element name="issueOrgainzation" type="xs:string"/>
+		    </xs:sequence>
+		    <xs:attribute name="type" type="CVEnumDOMEXMembershipIdentificationTypeType:CVEnumDOMEXMembershipIdentificationTypeType" use="required"/>
+	  </xs:complexType>
+	  <xs:simpleType name="string10">
+		    <xs:annotation>
+			      <xs:documentation> Length restricted string </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:maxLength value="10"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="string20">
+		    <xs:annotation>
+			      <xs:documentation> Length restricted string </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:maxLength value="20"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="string100">
+		    <xs:annotation>
+			      <xs:documentation> Length restricted string </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:maxLength value="100"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="string50">
+		    <xs:annotation>
+			      <xs:documentation> Length restricted string </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:maxLength value="50"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="string256">
+		    <xs:annotation>
+			      <xs:documentation> Length restricted string </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:maxLength value="256"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="string512">
+		    <xs:annotation>
+			      <xs:documentation> Length restricted string </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:maxLength value="512"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="string4000">
+		    <xs:annotation>
+			      <xs:documentation> Length restricted string </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:maxLength value="4000"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:complexType name="RemarkType">
+		    <xs:annotation>
+			      <xs:documentation> Generalized remark element consisting of a remark string with
+				attached ISM classification attributes. </xs:documentation>
+		    </xs:annotation>
+		    <xs:simpleContent>
+			      <xs:extension base="string4000">
+				        <xs:attributeGroup ref="ism:SecurityAttributesGroup"/>
+			      </xs:extension>
+		    </xs:simpleContent>
+	  </xs:complexType>
+	  <xs:simpleType name="UuidType">
+		    <xs:annotation>
+			      <xs:documentation> Pattern for checking a UUID. UUID =
+				00000000-0000-0000-0000000000000000 </xs:documentation>
+		    </xs:annotation>
+		    <xs:restriction base="xs:string">
+			      <xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{16}"/>
+		    </xs:restriction>
+	  </xs:simpleType>
+</xs:schema><!-- ****************************************************************    --><!--      Formal Change List for DOMEX Module                            --><!-- ****************************************************************    --><!-- For all changes, provide:											 --><!--    version, date, modified by, and purpose information.             --><!-- ******************************************************************* --><!-- 2013-05-06.  Initial Release of this module providing               --><!--              DOMEX IDENTITY assertion for the DDMS spec             --><!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI    --><!--                                                                     --><!--  2013-05-29  Removed FOUO dissemination controls per NMEC           --><!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI    --><!--  Start V2                                                           --><!--  2013-11-19  artf14828 - Make alias element unbounded               --><!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI    --><!--                                                                     --><!--  2013-11-19  artf14829 - Change place of birth/death to a           --><!--              city/state/country location                            --><!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI    --><!--                                                                     --><!--  2013-11-20  artf14838 - Add idNumber element                       --><!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI    --><!--                                                                     --><!--  2013-11-20  artf14839 - Add destination country element for visas  --><!--              and passports                                          --><!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI    --><!--                                                                     --><!--  2013-11-21  artf14833 - Change country code validation from        --><!--              ISO 3166 to GENC                                       --><!--              Paul K. Dean  Eiden Systems, Subcontractor for CACI    --><!--  2021-04-30  The schema change logs will no longer be maintained as of the 2021-NOV
+	              release. The existing change logs will only serve as legacy information. 
+                  For changes to schema as of and after 2021-NOV, reference the change 
+                  history in the DES.                                                        --><!-- ****************************************************************    --><!--                                                                     --><!--************************************--><!--           UNCLASSIFIED             --><!--************************************-->

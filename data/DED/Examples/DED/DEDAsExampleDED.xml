@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/IC-EDH/IC-EDH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens=http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/USAgency/USAgency_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/DED/DED_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-ID/IC-ID_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<ded:DataElementDictionary xmlns:ded="urn:us:gov:ic:ded"
+                           xmlns:ism="urn:us:gov:ic:ism"
+                           xmlns:arh="urn:us:gov:ic:arh"
+                           xmlns:edh="urn:us:gov:ic:edh"
+                           xmlns:icid="urn:us:gov:ic:id"
+                           xmlns:usagency="urn:us:gov:ic:usagency"
+                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           ded:DESVersion="201903"
+                           icid:DESVersion="202111"
+                           xsi:schemaLocation="urn:us:gov:ic:ded ../../Schema/DED/DED.xsd">
+  <ded:DedHeader>
+    <edh:Edh edh:DESVersion="201903"
+             usagency:CESVersion="202207">
+      <icid:Identifier>guide://2020/abceb58f-cf52-47d8-8cb9-bb45479e9ec3</icid:Identifier>
+      <edh:DataItemCreateDateTime>2019-03-01T00:00:00Z</edh:DataItemCreateDateTime>
+      <edh:ResponsibleEntity edh:role="Custodian">
+        <edh:Country>USA</edh:Country>
+        <edh:Organization>USA.DNI</edh:Organization>
+      </edh:ResponsibleEntity>
+      <arh:Security ism:DESVersion="202111.202211"
+                    ism:ISMCATCESVersion="202211"
+                    ism:resourceElement="true"
+                    ism:compliesWith="USGov USIC"
+                    ism:createDate="2019-03-01"
+                    ism:classification="U"
+                    ism:ownerProducer="USA">
+        <ism:NoticeList ism:ownerProducer="USA"
+                        ism:classification="U">
+          <ism:Notice ism:unregisteredNoticeType="distroStatement"
+                      ism:ownerProducer="USA"
+                      ism:classification="U">
+            <ism:NoticeText ism:ownerProducer="USA"
+                            ism:classification="U">Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       </ism:NoticeText>
+          </ism:Notice>
+        </ism:NoticeList>
+      </arh:Security>
+    </edh:Edh>
+    <ded:DedTitle ism:ownerProducer="USA"
+                  ism:classification="U">Data Element Dictionary XML</ded:DedTitle>
+    <ded:DedPurpose ism:ownerProducer="USA"
+                    ism:classification="U">The DED for DED's this is a Meta DED since it describes the Elements for Describing a
+                    DED</ded:DedPurpose>
+    <ded:DedShortName>DED.XML</ded:DedShortName>
+    <ded:DedVersion>2019-MAR</ded:DedVersion>
+    <ded:DedPoc ism:ownerProducer="USA"
+                ism:classification="U">ic-standards-support@iarpa.gov</ded:DedPoc>
+    <ded:DedSubjectType>XML</ded:DedSubjectType>
+  </ded:DedHeader>
+  <ded:DataElement ism:classification="U"
+                   ism:ownerProducer="USA">
+    <ded:ElementName ism:classification="U"
+                     ism:ownerProducer="USA">ElementName</ded:ElementName>
+    <ded:ElementDefinition ism:classification="U"
+                           ism:ownerProducer="USA">The string identifier that represents the Data Element.</ded:ElementDefinition>
+    <ded:ElementId>ded:ElementName</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:ownerProducer="USA"
+                   ism:classification="U">
+    <ded:ElementName ism:ownerProducer="USA"
+                     ism:classification="U">DedTitle</ded:ElementName>
+    <ded:ElementDefinition ism:ownerProducer="USA"
+                           ism:classification="U">The descriptive phrase that indicates the content of the Data Element
+                           Dictionary.</ded:ElementDefinition>
+    <ded:ElementId>ded:DedTitle</ded:ElementId>
+    <ded:ElementObjectType ism:ownerProducer="USA"
+                           ism:classification="U">Data_Structure</ded:ElementObjectType>
+  </ded:DataElement>
+  <ded:DataElement ism:ownerProducer="USA"
+                   ism:classification="U">
+    <ded:ElementName ism:ownerProducer="USA"
+                     ism:classification="U">DedShortName</ded:ElementName>
+    <ded:ElementDefinition ism:ownerProducer="USA"
+                           ism:classification="U">The short abbreviation that captures the intent of the DedTitle of the Data Element
+                           Dictionary (This value MUST be unclassified).</ded:ElementDefinition>
+    <ded:ElementId>ded:DedShortName</ded:ElementId>
+    <ded:ElementObjectType ism:ownerProducer="USA"
+                           ism:classification="U">Data_Structure</ded:ElementObjectType>
+  </ded:DataElement>
+  <ded:DataElement ism:ownerProducer="USA"
+                   ism:classification="U">
+    <ded:ElementName ism:ownerProducer="USA"
+                     ism:classification="U">DedVersion</ded:ElementName>
+    <ded:ElementDefinition ism:ownerProducer="USA"
+                           ism:classification="U">The short string that represents the unique state of the Data Element
+                           Dictionary.</ded:ElementDefinition>
+    <ded:ElementId>ded:DedVersion</ded:ElementId>
+    <ded:ElementObjectType ism:ownerProducer="USA"
+                           ism:classification="U">Data_Structure</ded:ElementObjectType>
+  </ded:DataElement>
+  <ded:DataElement ism:classification="U"
+                   ism:ownerProducer="USA">
+    <ded:ElementName ism:classification="U"
+                     ism:ownerProducer="USA">ElementDefinition</ded:ElementName>
+    <ded:ElementDefinition ism:classification="U"
+                           ism:ownerProducer="USA">A statement of the meaning of the Data Element, explaining what it is and/or its
+                           essential characteristics.</ded:ElementDefinition>
+    <ded:ElementId>ded:ElementDefinition</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:ownerProducer="USA"
+                   ism:classification="U">
+    <ded:ElementName ism:ownerProducer="USA"
+                     ism:classification="U">DedPurpose</ded:ElementName>
+    <ded:ElementDefinition ism:ownerProducer="USA"
+                           ism:classification="U">The prose that identifies and describes the reason and scope of the model (e.g., the
+                           output) about which this Data Element Dictionary is providing guidance. &#160;If the source of the information
+                           contained in the DED is different from the DedHeader/edh/ResponsibleEntity, then the author should identify said
+                           source.</ded:ElementDefinition>
+    <ded:ElementId>ded:DedPurpose</ded:ElementId>
+    <ded:ElementObjectType ism:ownerProducer="USA"
+                           ism:classification="U">Data_Structure</ded:ElementObjectType>
+  </ded:DataElement>
+  <ded:DataElement ism:ownerProducer="USA"
+                   ism:classification="U">
+    <ded:ElementName ism:ownerProducer="USA"
+                     ism:classification="U">DedSubjectType</ded:ElementName>
+    <ded:ElementDefinition ism:ownerProducer="USA"
+                           ism:classification="U">A short descriptor that characterizes the format and/or structure of the output about
+                           which this Data Element Dictionary is providing guidance. &#160;The initial possible values are: Logical, UML,
+                           Physical, Ontology, Database, XML, JSON, CSV, CVE, and Other:SomeText. Multiple values may be used. Additional
+                           details about the DED Model should be added to DedPurpose.</ded:ElementDefinition>
+    <ded:ElementId>ded:DedSubjectType</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:classification="U"
+                   ism:ownerProducer="USA">
+    <ded:ElementName ism:classification="U"
+                     ism:ownerProducer="USA">ElementDefaultValue</ded:ElementName>
+    <ded:ElementDefinition ism:classification="U"
+                           ism:ownerProducer="USA">The value that should be provided for the Data Element, if the Data Element does not
+                           exist or have content.</ded:ElementDefinition>
+    <ded:ElementId>ded:ElementDefaultValue</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:classification="U"
+                   ism:ownerProducer="USA">
+    <ded:ElementName ism:classification="U"
+                     ism:ownerProducer="USA">ElementDefinitionSource</ded:ElementName>
+    <ded:ElementDefinition ism:classification="U"
+                           ism:ownerProducer="USA">The cited authority(ies) or reference(s) for which the knowledge to develop the
+                           ElementDefinition was obtained or derived.</ded:ElementDefinition>
+    <ded:ElementId>ded:ElementDefinitionSource</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:classification="U"
+                   ism:ownerProducer="USA">
+    <ded:ElementName ism:classification="U"
+                     ism:ownerProducer="USA">ElementObligation</ded:ElementName>
+    <ded:ElementDefinition ism:classification="U"
+                           ism:ownerProducer="USA">An indicator of whether the Data Element MUST be populated in all cases (i.e.,
+                           Mandatory); or if the Data Element is NOT required (i.e., Optional); or whether specific conditions for
+                           populating it are specified in ElementRestriction (i.e., Conditional). &#160;If conditional, then the condition
+                           should be defined in either ElementRestrictions or the Relationship Metadata section.</ded:ElementDefinition>
+    <ded:ElementId>ded:ElementObligation</ded:ElementId>
+    <ded:ElementObjectType ism:classification="U"
+                           ism:ownerProducer="USA">ded:EnumerationLocation: XSD type ObligationEnumType</ded:ElementObjectType>
+  </ded:DataElement>
+  <ded:DataElement ism:classification="U"
+                   ism:ownerProducer="USA">
+    <ded:ElementName ism:classification="U"
+                     ism:ownerProducer="USA">ElementDomain</ded:ElementName>
+    <ded:ElementDefinition ism:classification="U"
+                           ism:ownerProducer="USA">The context within which the Data Element belongs.</ded:ElementDefinition>
+  </ded:DataElement>
+  <ded:DataElement ism:ownerProducer="USA"
+                   ism:classification="U">
+    <ded:ElementName ism:ownerProducer="USA"
+                     ism:classification="U">ElementId</ded:ElementName>
+    <ded:ElementDefinition ism:ownerProducer="USA"
+                           ism:classification="U">The locally unique identifier of the Data Element.</ded:ElementDefinition>
+    <ded:ElementId>ded:ElementId</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:classification="U"
+                   ism:ownerProducer="USA">
+    <ded:ElementName ism:classification="U"
+                     ism:ownerProducer="USA">ElementRestrictions</ded:ElementName>
+    <ded:ElementDefinition ism:classification="U"
+                           ism:ownerProducer="USA">A grouping of the additional constraints, if any, on the content entered for the Data
+                           Element (e.g., the maximum number of characters, the regex, uniqueness, min and/or max values, precision,
+                           scale). Special Cases: 1) If the DataType is an enumeration, then provide either (A) the enumerated list, or (B)
+                           a reference to a specific enumerated list; &#160; 2) If the DataType is a regex, then provide the actual regular
+                           expression.</ded:ElementDefinition>
+    <ded:ElementId>ded:ElementRestrictions</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:classification="U"
+                   ism:ownerProducer="USA">
+    <ded:ElementName ism:classification="U"
+                     ism:ownerProducer="USA">ElementRestriction</ded:ElementName>
+    <ded:ElementDefinition ism:classification="U"
+                           ism:ownerProducer="USA">The additional constraints, if any, on the content entered for the Data Element (e.g.,
+                           the maximum number of characters, the regex, uniqueness, min and/or max values, precision, scale). Special
+                           Cases: 1) If the DataType is an enumeration, then provide either (A) the enumerated list, or (B) a reference to
+                           a specific enumerated list; &#160; 2) If the DataType is a regex, then provide the actual regular
+                           expression.</ded:ElementDefinition>
+    <ded:ElementId>ded:ElementRestriction</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:classification="U"
+                   ism:ownerProducer="USA">
+    <ded:ElementName ism:classification="U"
+                     ism:ownerProducer="USA">ElementComments</ded:ElementName>
+    <ded:ElementDefinition ism:classification="U"
+                           ism:ownerProducer="USA">A grouping of additional clarifying notes, beyond what is contained within the
+                           Definition. Also, may contain implementation guidance or processing instructions.</ded:ElementDefinition>
+    <ded:ElementId>ded:ElementComments</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:classification="U"
+                   ism:ownerProducer="USA">
+    <ded:ElementName ism:classification="U"
+                     ism:ownerProducer="USA">ElementComment</ded:ElementName>
+    <ded:ElementDefinition ism:classification="U"
+                           ism:ownerProducer="USA">Additional clarifying notes, beyond what is contained within the Definition. Also, may
+                           contain implementation guidance or processing instructions.</ded:ElementDefinition>
+    <ded:ElementId>ded:ElementComment</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:classification="U"
+                   ism:ownerProducer="USA">
+    <ded:ElementName ism:classification="U"
+                     ism:ownerProducer="USA">ElementDataType</ded:ElementName>
+    <ded:ElementDefinition ism:classification="U"
+                           ism:ownerProducer="USA">The format of the allowed values for the Data Element. &#160;(e.g., string, integer,
+                           float, uuid, datetime, boolean, alphanumeric, enumeration, regex).</ded:ElementDefinition>
+    <ded:ElementId>ded:ElementObjectType</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:classification="U"
+                   ism:ownerProducer="USA">
+    <ded:ElementName ism:classification="U"
+                     ism:ownerProducer="USA">ElementMultiplicity</ded:ElementName>
+    <ded:ElementDefinition ism:classification="U"
+                           ism:ownerProducer="USA">This element follows the UML section 7.8.8 (MultiplicityElement) definition "A
+                           multiplicity is a definition of an inclusive interval of non-negative integers beginning with a lower bound and
+                           ending with a (possibly infinite) upper bound. A MultiplicityElement embeds this information to specify the
+                           allowable cardinalities for an instantiation of the Element." The exact tailoring of the UML is shown in the
+                           DES. Example notations [0..1], [0..*], [0..n] [1..1], [1..*], [1..n], [n..m]. Note that n and m here are
+                           variables that represent finite numbers. Actual use in a DED would replace n and m with the finite number(s)
+                           appropriate for the Element. For example, [0..6] means the Element is optional and can have up to 6 instances.
+                           [1..5] means the Element is required and can have up to 5 instances.</ded:ElementDefinition>
+    <ded:ElementId>ded:ElementMutliplicity</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:classification="U"
+                   ism:ownerProducer="USA">
+    <ded:ElementName ism:classification="U"
+                     ism:ownerProducer="USA">ElementObjectType</ded:ElementName>
+    <ded:ElementDefinition ism:classification="U"
+                           ism:ownerProducer="USA">The kind of Data Element that is being defined (e.g., class, attribute, element,
+                           keyword, table).</ded:ElementDefinition>
+    <ded:ElementId>ded:ElementObjectType</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:ownerProducer="USA"
+                   ism:classification="U">
+    <ded:ElementName ism:ownerProducer="USA"
+                     ism:classification="U">DedPoc</ded:ElementName>
+    <ded:ElementDefinition ism:ownerProducer="USA"
+                           ism:classification="U">The person or organization that Authored the DED.</ded:ElementDefinition>
+    <ded:ElementId>ded:DedPoc</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:classification="U"
+                   ism:ownerProducer="USA">
+    <ded:ElementName ism:classification="U"
+                     ism:ownerProducer="USA">ElementParentName</ded:ElementName>
+    <ded:ElementDefinition ism:classification="U"
+                           ism:ownerProducer="USA">The ElementName(s) of another Data Element within the Data Element Dictionary, for which
+                           this Data Element is a child element.</ded:ElementDefinition>
+    <ded:ElementId>ded:UsedByLocal</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:ownerProducer="USA"
+                   ism:classification="U">
+    <ded:ElementName ism:ownerProducer="USA"
+                     ism:classification="U">DataElement</ded:ElementName>
+    <ded:ElementDefinition ism:ownerProducer="USA"
+                           ism:classification="U">A wrapper element for showing the classification of an Element as a whole and for
+                           grouping the values relating to an element.</ded:ElementDefinition>
+    <ded:ElementId>ded:DataElement</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:ownerProducer="USA"
+                   ism:classification="U">
+    <ded:ElementName ism:ownerProducer="USA"
+                     ism:classification="U">Relationship</ded:ElementName>
+    <ded:ElementDefinition ism:ownerProducer="USA"
+                           ism:classification="U">A wrapper element for showing the classification of a Relationship as a whole and for
+                           grouping the values relating to a relationship.</ded:ElementDefinition>
+    <ded:ElementId>ded:Relationship</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:ownerProducer="USA"
+                   ism:classification="U">
+    <ded:ElementName ism:ownerProducer="USA"
+                     ism:classification="U">ElementUnitOfMeasure</ded:ElementName>
+    <ded:ElementDefinition ism:ownerProducer="USA"
+                           ism:classification="U">The kind of determinate quantity or magnitude, taken as a standard of comparison for
+                           others of the same kind, in assigning to them numerical values, such as inches, hours,
+                           miles.</ded:ElementDefinition>
+    <ded:ElementId>ded:ElementUnitOfMeasure</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:ownerProducer="USA"
+                   ism:classification="U">
+    <ded:ElementName ism:ownerProducer="USA"
+                     ism:classification="U">DedHeader</ded:ElementName>
+    <ded:ElementDefinition ism:ownerProducer="USA"
+                           ism:classification="U">A container holding a set of resource-level information relevant to the entire Data
+                           Element Dictionary. This captures the following information concepts:</ded:ElementDefinition>
+    <ded:ElementId>ded:DedHeader</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:ownerProducer="USA"
+                   ism:classification="U">
+    <ded:ElementName ism:ownerProducer="USA"
+                     ism:classification="U">RelationshipLinkADomain</ded:ElementName>
+    <ded:ElementDefinition ism:ownerProducer="USA"
+                           ism:classification="U">The context within which the Data Element A belongs.</ded:ElementDefinition>
+    <ded:ElementId>ded:RelationshipLinkADomain</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:ownerProducer="USA"
+                   ism:classification="U">
+    <ded:ElementName ism:ownerProducer="USA"
+                     ism:classification="U">RelationshipLinkAName</ded:ElementName>
+    <ded:ElementDefinition ism:ownerProducer="USA"
+                           ism:classification="U">The string identifier that represents the Data Element A.</ded:ElementDefinition>
+    <ded:ElementId>ded:RelationshipLinkAName</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:ownerProducer="USA"
+                   ism:classification="U">
+    <ded:ElementName ism:ownerProducer="USA"
+                     ism:classification="U">RelationshipLinkAMultiplicity</ded:ElementName>
+    <ded:ElementDefinition ism:ownerProducer="USA"
+                           ism:classification="U">This element follows the UML section 7.8.8 (MultiplicityElement) definition "A
+                           multiplicity is a definition of an inclusive interval of non-negative integers beginning with a lower bound and
+                           ending with a (possibly infinite) upper bound. A MultiplicityElement embeds this information to specify the
+                           allowable cardinalities for an instantiation of the Element." The exact tailoring of the UML is shown in the
+                           DES. Example notations [0..1], [0..*], [0..n] [1..1], [1..*], [1..n], [n..m]. Note that n and m here are
+                           variables that represent finite numbers. Actual use in a DED would replace n and m with the finite number(s)
+                           appropriate for the Relationship. For example, [0..6] means the Relationship is optional and can have up to 6
+                           instances. [1..5] means the Relationship is required and can have up to 5 instances. This element indicates the
+                           multiplicity of instances of A that must exist for a single instance of B and the greatest (or maximum) number
+                           of instances of A that can exist for a single instance of B.</ded:ElementDefinition>
+    <ded:ElementId>ded:RelationshipLinkAMultiplicity</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:ownerProducer="USA"
+                   ism:classification="U">
+    <ded:ElementName ism:ownerProducer="USA"
+                     ism:classification="U">RelationshipLinkBDomain</ded:ElementName>
+    <ded:ElementDefinition ism:ownerProducer="USA"
+                           ism:classification="U">The context within which the Data Element B belongs.</ded:ElementDefinition>
+    <ded:ElementId>ded:RelationshipLinkBDomain</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:ownerProducer="USA"
+                   ism:classification="U">
+    <ded:ElementName ism:ownerProducer="USA"
+                     ism:classification="U">RelationshipLinkBName</ded:ElementName>
+    <ded:ElementDefinition ism:ownerProducer="USA"
+                           ism:classification="U">The string identifier that represents the Data Element B.</ded:ElementDefinition>
+    <ded:ElementId>ded:RelationshipLinkBName</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:ownerProducer="USA"
+                   ism:classification="U">
+    <ded:ElementName ism:ownerProducer="USA"
+                     ism:classification="U">RelationshipLinkBMultiplicity</ded:ElementName>
+    <ded:ElementDefinition ism:ownerProducer="USA"
+                           ism:classification="U">This element follows the UML section 7.8.8 (MultiplicityElement) definition "A
+                           multiplicity is a definition of an inclusive interval of non-negative integers beginning with a lower bound and
+                           ending with a (possibly infinite) upper bound. A MultiplicityElement embeds this information to specify the
+                           allowable cardinalities for an instantiation of the Element." The exact tailoring of the UML is shown in the
+                           DES. Example notations [0..1], [0..*], [0..n] [1..1], [1..*], [1..n], [n..m]. Note that n and m here are
+                           variables that represent finite numbers. Actual use in a DED would replace n and m with the finite number(s)
+                           appropriate for the Relationship. For example, [0..6] means the Relationship is optional and can have up to 6
+                           instances. [1..5] means the Relationship is required and can have up to 5 instances. This element indicates the
+                           multiplicity of instances of B that must exist for a single instance of A and the greatest (or maximum) number
+                           of instances of B that can exist for a single instance of A.</ded:ElementDefinition>
+    <ded:ElementId>ded:RelationshipLinkBMultiplicity</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:ownerProducer="USA"
+                   ism:classification="U">
+    <ded:ElementName ism:ownerProducer="USA"
+                     ism:classification="U">RelationshipDefinition</ded:ElementName>
+    <ded:ElementDefinition ism:ownerProducer="USA"
+                           ism:classification="U">The additional information of how Link A and Link B interact with each other, beyond
+                           multiplicity information.</ded:ElementDefinition>
+    <ded:ElementId>ded:RelationshipDefinition</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:ownerProducer="USA"
+                   ism:classification="U">
+    <ded:ElementName ism:ownerProducer="USA"
+                     ism:classification="U">RelationshipDefinitionSource</ded:ElementName>
+    <ded:ElementDefinition ism:ownerProducer="USA"
+                           ism:classification="U">The cited authority(ies) or reference(s) for which the knowledge to develop the
+                           RelationshipDefinition was obtained or derived.</ded:ElementDefinition>
+    <ded:ElementId>ded:RelationshipDefinitionSource</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:ownerProducer="USA"
+                   ism:classification="U">
+    <ded:ElementName ism:ownerProducer="USA"
+                     ism:classification="U">RelationshipComments</ded:ElementName>
+    <ded:ElementDefinition ism:ownerProducer="USA"
+                           ism:classification="U">A grouping of additional clarifying notes, beyond what is contained within the
+                           RelationshipDefinition or the Relationship Multiplicities. Also, may contain implementation guidance or
+                           processing instructions.</ded:ElementDefinition>
+    <ded:ElementId>ded:RelationshipComments</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:ownerProducer="USA"
+                   ism:classification="U">
+    <ded:ElementName ism:ownerProducer="USA"
+                     ism:classification="U">RelationshipComment</ded:ElementName>
+    <ded:ElementDefinition ism:ownerProducer="USA"
+                           ism:classification="U">Additional clarifying notes, beyond what is contained within the RelationshipDefinition
+                           or the Relationship Multiplicities. Also, may contain implementation guidance or processing
+                           instructions.</ded:ElementDefinition>
+    <ded:ElementId>ded:RelationshipComment</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:ownerProducer="USA"
+                   ism:classification="U">
+    <ded:ElementName ism:ownerProducer="USA"
+                     ism:classification="U">RelationshipName</ded:ElementName>
+    <ded:ElementDefinition ism:ownerProducer="USA"
+                           ism:classification="U">The string identifier that represents the Relationship.</ded:ElementDefinition>
+    <ded:ElementId>ded:RelationshipName</ded:ElementId>
+  </ded:DataElement>
+  <ded:DataElement ism:ownerProducer="USA"
+                   ism:classification="U">
+    <ded:ElementName ism:ownerProducer="USA"
+                     ism:classification="U">RelationshipId</ded:ElementName>
+    <ded:ElementDefinition ism:ownerProducer="USA"
+                           ism:classification="U">The locally unique identifier of the Relationship.</ded:ElementDefinition>
+    <ded:ElementId>ded:RelationshipId</ded:ElementId>
+  </ded:DataElement>
+</ded:DataElementDictionary>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?oxygen SCHSchema="../../Schematron/ISM/ISM_XML.sch"?><?oxygen SCHSchema="../../Schematron/NTK/NTK_XML.sch"?><?oxygen SCHSchema="../../Schematron/ARH/ARH_XML.sch"?><!-- Distro Statement: Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       --><!-- All classification marks in this example are   
+ 	 for illustrative purposes only, there are no   
+      actual classified data contained in this example --><test:root xmlns:test="test:arh"
+           xmlns:arh="urn:us:gov:ic:arh"
+           xmlns:ntk="urn:us:gov:ic:ntk"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           arh:DESVersion="3"
+           ntk:DESVersion="10"
+           xsi:schemaLocation="test:arh ./test_arh.xsd urn:us:gov:ic:arh ../../Schema/ARH/IC-ARH.xsd">
+    <arh:ExternalSecurity xmlns:ism="urn:us:gov:ic:ism"
+                         ism:DESVersion="12"
+                         ism:ISMCATCESVersion="1"
+                         ism:resourceElement="true"
+                         ism:createDate="2006-05-04"
+                         ism:classification="U"
+                         ism:ownerProducer="USA"
+                         ism:excludeFromRollup="true">
+        <ntk:ExternalAccess ism:classification="U"
+                          ism:ownerProducer="USA"
+                          ntk:externalReference="true">
+         <ntk:RequiresAnyOf ism:classification="U" ism:ownerProducer="USA">
+            <ntk:AccessIndividualList>
+                <ntk:AccessIndividual ism:classification="U" ism:ownerProducer="USA">
+                    <ntk:AccessPolicy ism:classification="U" ism:ownerProducer="USA">UnclassSourceForge</ntk:AccessPolicy>
+                  <ntk:ProfileDes ism:classification="U" ism:ownerProducer="USA">guide://999990/exampleProfileDES</ntk:ProfileDes>
+                    <ntk:AccessIndividualValue ism:classification="U" ism:ownerProducer="USA">bobstuart</ntk:AccessIndividualValue>
+                    <ntk:AccessIndividualValue ism:classification="U" ism:ownerProducer="USA">ssun</ntk:AccessIndividualValue>
+                    <ntk:AccessIndividualValue ism:classification="U" ism:ownerProducer="USA">cjhodges</ntk:AccessIndividualValue>
+                    <ntk:AccessIndividualValue ism:classification="U" ism:ownerProducer="USA">cgilsenan</ntk:AccessIndividualValue>
+                </ntk:AccessIndividual>
+            </ntk:AccessIndividualList>
+        </ntk:RequiresAnyOf>
+      </ntk:ExternalAccess>
+        <ism:NoticeExternalList ism:classification="U" ism:ownerProducer="USA">
+            <ism:NoticeExternal ism:classification="U"
+                             ism:ownerProducer="USA"
+                             ism:unregisteredNoticeType="Holiday"
+                             ism:externalNotice="true">
+                <ism:NoticeText ism:classification="U" ism:ownerProducer="USA">Memorial day is on May 28th 2012</ism:NoticeText>
+            </ism:NoticeExternal>
+            <ism:NoticeExternal ism:classification="U"
+                             ism:ownerProducer="USA"
+                             ism:unregisteredNoticeType="Holiday"
+                             ism:externalNotice="true">
+                <ism:NoticeText ism:classification="U" ism:ownerProducer="USA">The next Holiday will be July 4th 2012</ism:NoticeText>
+            </ism:NoticeExternal>
+        </ism:NoticeExternalList>
+    </arh:ExternalSecurity>
+</test:root>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns:CVEnumDOMEXCollectingUnitIDTypeType="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXCollectingUnitIDTypeType"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXCollectingUnitIDTypeType"
+            version="202111">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumDOMEXCollectingUnitIDTypeType Version 2 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumDOMEXCollectingUnitIDTypeType.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumDOMEXCollectingUnitIDTypeType">
+      <xsd:annotation>
+         <xsd:documentation>(U) Valid range for collecting unit ID.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumDOMEXCollectingUnitIDTypeType.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="Case Number">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Detainee Number">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Harmony Series End">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Harmony Series Start">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="IOC Requirement Number">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ISN">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LOO/Series">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Technical Control Number">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CEXC #">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="JEFF #">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SIGACT #">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="WIT #">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

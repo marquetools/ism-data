@@ -1,0 +1,2452 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for component boe:DelegatedAuthorizingOfficial</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        var propertiesBoxes= new Array('properties_KeyRolesType_DelegatedAuthorizingOfficial', 
+				'properties_KeyRolesType_DelegatedAuthorizingOfficialRepresentative', 
+				'properties_KeyRolesType_SecurityControlAssessor', 
+				'properties_KeyRolesType_SystemOwner', 
+				'properties_KeyRolesType_SystemManagement', 
+				'properties_KeyRolesType_SystemSecurityOfficer', 
+				'properties_KeyRolesType_TechnicalLead', 
+				'properties_KeyRolesType_Other');
+var usedByBoxes= new Array('usedBy_KeyRolesType');
+var sourceBoxes= new Array('source_KeyRolesType_DelegatedAuthorizingOfficial', 
+				'source_KeyRolesType_DelegatedAuthorizingOfficialRepresentative', 
+				'source_KeyRolesType_SecurityControlAssessor', 
+				'source_KeyRolesType_SystemOwner', 
+				'source_KeyRolesType_SystemManagement', 
+				'source_KeyRolesType_SystemSecurityOfficer', 
+				'source_KeyRolesType_TechnicalLead', 
+				'source_KeyRolesType_Other', 
+				'source_KeyRolesType');
+var instanceBoxes= new Array('instance_KeyRolesType_DelegatedAuthorizingOfficial', 
+				'instance_KeyRolesType_DelegatedAuthorizingOfficialRepresentative', 
+				'instance_KeyRolesType_SecurityControlAssessor', 
+				'instance_KeyRolesType_SystemOwner', 
+				'instance_KeyRolesType_SystemManagement', 
+				'instance_KeyRolesType_SystemSecurityOfficer', 
+				'instance_KeyRolesType_TechnicalLead', 
+				'instance_KeyRolesType_Other');
+var diagramBoxes= new Array('diagram_KeyRolesType_DelegatedAuthorizingOfficial', 
+				'diagram_KeyRolesType_DelegatedAuthorizingOfficialRepresentative', 
+				'diagram_KeyRolesType_SecurityControlAssessor', 
+				'diagram_KeyRolesType_SystemOwner', 
+				'diagram_KeyRolesType_SystemManagement', 
+				'diagram_KeyRolesType_SystemSecurityOfficer', 
+				'diagram_KeyRolesType_TechnicalLead', 
+				'diagram_KeyRolesType_Other', 
+				'diagram_KeyRolesType');
+var annotationBoxes= new Array('annotations_KeyRolesType_DelegatedAuthorizingOfficial', 
+				'annotations_KeyRolesType_DelegatedAuthorizingOfficialRepresentative', 
+				'annotations_KeyRolesType_SecurityControlAssessor', 
+				'annotations_KeyRolesType_SystemOwner', 
+				'annotations_KeyRolesType_SystemManagement', 
+				'annotations_KeyRolesType_SystemSecurityOfficer', 
+				'annotations_KeyRolesType_TechnicalLead', 
+				'annotations_KeyRolesType_Other');
+var modelBoxes= new Array('model_KeyRolesType_DelegatedAuthorizingOfficial', 
+				'model_KeyRolesType_DelegatedAuthorizingOfficialRepresentative', 
+				'model_KeyRolesType_SecurityControlAssessor', 
+				'model_KeyRolesType_SystemOwner', 
+				'model_KeyRolesType_SystemManagement', 
+				'model_KeyRolesType_SystemSecurityOfficer', 
+				'model_KeyRolesType_TechnicalLead', 
+				'model_KeyRolesType_Other', 
+				'model_KeyRolesType');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //
+--></script>
+   </head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_content" rowspan="1" colspan="1">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, annotationBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Annotations</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Diagrams</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, instanceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Instances</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Model </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Properties </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Source</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Used by </span>
+                        </td>
+                     </tr>
+                  </table>
+                  <div align="right">
+                     <span>
+                        <input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close"></input>
+                     </span>
+                  </div>
+               </td>
+               <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+            </tr>
+         </table>
+      </div>
+      <a id="KeyRolesType_DelegatedAuthorizingOfficial" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:KeyRolesType')" shape="rect">boe:KeyRolesType</a>
+            </b> / boe:DelegatedAuthorizingOfficial</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:boe</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_KeyRolesType_DelegatedAuthorizingOfficial" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_KeyRolesType_DelegatedAuthorizingOfficial');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_KeyRolesType_DelegatedAuthorizingOfficial" style="display:block">
+                              <div class="annotation">
+                                 
+                                 <p>A senior (federal) official or executive with the authority to formally assume responsibility
+                                    for operating an information system at an acceptable level of risk to organizational
+                                    operations (including mission, functions, image, or reputation), organizational assets,
+                                    individuals, other organizations, and the Nation.</p>
+                                 
+                                 <p>Source: CNSSI-4009 (Authorizing Official)</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_KeyRolesType_DelegatedAuthorizingOfficial" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_KeyRolesType_DelegatedAuthorizingOfficial');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_KeyRolesType_DelegatedAuthorizingOfficial" style="display:block">
+                              <img alt="Diagram" border="0" src="img/081ece35-59ef-47a0-b6c1-fc766416e30b.png" usemap="#BOE_xsd_Element_boe_DelegatedAuthorizingOfficial"></img>
+                              <map name="BOE_xsd_Element_boe_DelegatedAuthorizingOfficial" id="BOE_xsd_Element_boe_DelegatedAuthorizingOfficial">
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Name" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Name" coords="322,129,494,171" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Title" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Title" coords="322,211,494,253" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Organization" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Organization" coords="322,293,494,335" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Email" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Email" coords="322,375,494,417" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Phone" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Phone" coords="322,457,494,499" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType" coords="240,3,383,25" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:PersonType')" shape="rect">boe:PersonType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_KeyRolesType_DelegatedAuthorizingOfficial" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_KeyRolesType_DelegatedAuthorizingOfficial');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_KeyRolesType_DelegatedAuthorizingOfficial" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_KeyRolesType_DelegatedAuthorizingOfficial" type="image" src="img/btM.gif" value="-" onclick="switchState('model_KeyRolesType_DelegatedAuthorizingOfficial');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_KeyRolesType_DelegatedAuthorizingOfficial" style="display:block">ALL(<b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Name" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Name')" shape="rect">boe:Name</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Title" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Title{0,1}')" shape="rect">boe:Title{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Organization" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Organization{0,1}')" shape="rect">boe:Organization{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Email" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Email{0,1}')" shape="rect">boe:Email{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Phone" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Phone{0,1}')" shape="rect">boe:Phone{0,1}</a>
+                              </b>)</div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Email" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Email')" shape="rect">boe:Email</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Name" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Name')" shape="rect">boe:Name</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Organization" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Organization')" shape="rect">boe:Organization</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Phone" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Phone')" shape="rect">boe:Phone</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Title" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Title')" shape="rect">boe:Title</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Instance</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_instance_KeyRolesType_DelegatedAuthorizingOfficial" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_KeyRolesType_DelegatedAuthorizingOfficial');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="instance_KeyRolesType_DelegatedAuthorizingOfficial" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;boe:DelegatedAuthorizingOfficial</span><span class="tT"> </span><span class="tAN">xmlns:boe=</span><span class="tAV">"urn:us:gov:ic:boe"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Name</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/boe:Name&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Title</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Title&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Organization</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Organization&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Email</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Email&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Phone</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Phone&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/boe:DelegatedAuthorizingOfficial&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_KeyRolesType_DelegatedAuthorizingOfficial" type="image" src="img/btM.gif" value="-" onclick="switchState('source_KeyRolesType_DelegatedAuthorizingOfficial');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_KeyRolesType_DelegatedAuthorizingOfficial" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"DelegatedAuthorizingOfficial"</span><span class="tAN"> type=</span><span class="tAV">"boe:PersonType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">A senior (federal) official or executive with the authority to formally assume responsibility for operating an information system at an acceptable level of risk to organizational operations (including mission, functions, image, or reputation), organizational assets, individuals, other organizations, and the Nation.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Source: CNSSI-4009 (Authorizing Official)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/BOE/BOE.xsd">BOE.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="KeyRolesType_DelegatedAuthorizingOfficialRepresentative" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:KeyRolesType')" shape="rect">boe:KeyRolesType</a>
+            </b> / boe:DelegatedAuthorizingOfficialRepresentative</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:boe</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_KeyRolesType_DelegatedAuthorizingOfficialRepresentative" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_KeyRolesType_DelegatedAuthorizingOfficialRepresentative');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_KeyRolesType_DelegatedAuthorizingOfficialRepresentative" style="display:block">
+                              <div class="annotation">
+                                 
+                                 <p>An organizational official acting on behalf of an authorizing official in carrying
+                                    out and coordinating the required activities associated with security authorization.</p>
+                                 
+                                 <p>Source: CNSSI-4009 (authorizing official designated representative)</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_KeyRolesType_DelegatedAuthorizingOfficialRepresentative" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_KeyRolesType_DelegatedAuthorizingOfficialRepresentative');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_KeyRolesType_DelegatedAuthorizingOfficialRepresentative" style="display:block">
+                              <img alt="Diagram" border="0" src="img/5e7a836d-56e3-488d-9832-e5ccf8046db2.png" usemap="#BOE_xsd_Element_boe_DelegatedAuthorizingOfficialRepresentative"></img>
+                              <map name="BOE_xsd_Element_boe_DelegatedAuthorizingOfficialRepresentative" id="BOE_xsd_Element_boe_DelegatedAuthorizingOfficialRepresentative">
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Name" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Name" coords="407,129,579,171" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Title" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Title" coords="407,211,579,253" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Organization" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Organization" coords="407,293,579,335" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Email" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Email" coords="407,375,579,417" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Phone" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Phone" coords="407,457,579,499" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType" coords="325,3,468,25" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:PersonType')" shape="rect">boe:PersonType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_KeyRolesType_DelegatedAuthorizingOfficialRepresentative" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_KeyRolesType_DelegatedAuthorizingOfficialRepresentative');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_KeyRolesType_DelegatedAuthorizingOfficialRepresentative" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_KeyRolesType_DelegatedAuthorizingOfficialRepresentative" type="image" src="img/btM.gif" value="-" onclick="switchState('model_KeyRolesType_DelegatedAuthorizingOfficialRepresentative');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_KeyRolesType_DelegatedAuthorizingOfficialRepresentative" style="display:block">ALL(<b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Name" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Name')" shape="rect">boe:Name</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Title" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Title{0,1}')" shape="rect">boe:Title{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Organization" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Organization{0,1}')" shape="rect">boe:Organization{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Email" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Email{0,1}')" shape="rect">boe:Email{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Phone" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Phone{0,1}')" shape="rect">boe:Phone{0,1}</a>
+                              </b>)</div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Email" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Email')" shape="rect">boe:Email</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Name" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Name')" shape="rect">boe:Name</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Organization" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Organization')" shape="rect">boe:Organization</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Phone" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Phone')" shape="rect">boe:Phone</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Title" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Title')" shape="rect">boe:Title</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Instance</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_instance_KeyRolesType_DelegatedAuthorizingOfficialRepresentative" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_KeyRolesType_DelegatedAuthorizingOfficialRepresentative');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="instance_KeyRolesType_DelegatedAuthorizingOfficialRepresentative" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;boe:DelegatedAuthorizingOfficialRepresentative</span><span class="tT"> </span><span class="tAN">xmlns:boe=</span><span class="tAV">"urn:us:gov:ic:boe"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Name</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/boe:Name&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Title</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Title&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Organization</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Organization&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Email</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Email&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Phone</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Phone&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/boe:DelegatedAuthorizingOfficialRepresentative&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_KeyRolesType_DelegatedAuthorizingOfficialRepresentative" type="image" src="img/btM.gif" value="-" onclick="switchState('source_KeyRolesType_DelegatedAuthorizingOfficialRepresentative');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_KeyRolesType_DelegatedAuthorizingOfficialRepresentative" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"DelegatedAuthorizingOfficialRepresentative"</span><span class="tAN"> type=</span><span class="tAV">"boe:PersonType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">An organizational official acting on behalf of an authorizing official in carrying out and coordinating the required activities associated with security authorization.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Source: CNSSI-4009 (authorizing official designated representative)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/BOE/BOE.xsd">BOE.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="KeyRolesType_SecurityControlAssessor" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:KeyRolesType')" shape="rect">boe:KeyRolesType</a>
+            </b> / boe:SecurityControlAssessor</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:boe</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_KeyRolesType_SecurityControlAssessor" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_KeyRolesType_SecurityControlAssessor');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_KeyRolesType_SecurityControlAssessor" style="display:block">
+                              <div class="annotation">
+                                 
+                                 <p>The individual, group, or organization responsible for conducting a security control
+                                    assessment.</p>
+                                 
+                                 <p>Source: CNSSI-4009 (security control assessor (SCA))</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_KeyRolesType_SecurityControlAssessor" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_KeyRolesType_SecurityControlAssessor');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_KeyRolesType_SecurityControlAssessor" style="display:block">
+                              <img alt="Diagram" border="0" src="img/eec06408-0ea4-4557-95fe-30bbb85bc497.png" usemap="#BOE_xsd_Element_boe_SecurityControlAssessor"></img>
+                              <map name="BOE_xsd_Element_boe_SecurityControlAssessor" id="BOE_xsd_Element_boe_SecurityControlAssessor">
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Name" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Name" coords="305,129,477,171" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Title" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Title" coords="305,211,477,253" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Organization" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Organization" coords="305,293,477,335" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Email" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Email" coords="305,375,477,417" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Phone" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Phone" coords="305,457,477,499" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType" coords="223,3,366,25" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:PersonType')" shape="rect">boe:PersonType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_KeyRolesType_SecurityControlAssessor" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_KeyRolesType_SecurityControlAssessor');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_KeyRolesType_SecurityControlAssessor" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_KeyRolesType_SecurityControlAssessor" type="image" src="img/btM.gif" value="-" onclick="switchState('model_KeyRolesType_SecurityControlAssessor');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_KeyRolesType_SecurityControlAssessor" style="display:block">ALL(<b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Name" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Name')" shape="rect">boe:Name</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Title" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Title{0,1}')" shape="rect">boe:Title{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Organization" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Organization{0,1}')" shape="rect">boe:Organization{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Email" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Email{0,1}')" shape="rect">boe:Email{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Phone" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Phone{0,1}')" shape="rect">boe:Phone{0,1}</a>
+                              </b>)</div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Email" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Email')" shape="rect">boe:Email</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Name" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Name')" shape="rect">boe:Name</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Organization" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Organization')" shape="rect">boe:Organization</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Phone" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Phone')" shape="rect">boe:Phone</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Title" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Title')" shape="rect">boe:Title</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Instance</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_instance_KeyRolesType_SecurityControlAssessor" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_KeyRolesType_SecurityControlAssessor');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="instance_KeyRolesType_SecurityControlAssessor" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;boe:SecurityControlAssessor</span><span class="tT"> </span><span class="tAN">xmlns:boe=</span><span class="tAV">"urn:us:gov:ic:boe"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Name</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/boe:Name&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Title</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Title&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Organization</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Organization&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Email</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Email&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Phone</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Phone&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/boe:SecurityControlAssessor&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_KeyRolesType_SecurityControlAssessor" type="image" src="img/btM.gif" value="-" onclick="switchState('source_KeyRolesType_SecurityControlAssessor');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_KeyRolesType_SecurityControlAssessor" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"SecurityControlAssessor"</span><span class="tAN"> type=</span><span class="tAV">"boe:PersonType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The individual, group, or organization responsible for conducting a security control assessment.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Source: CNSSI-4009 (security control assessor (SCA))</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/BOE/BOE.xsd">BOE.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="KeyRolesType_SystemOwner" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:KeyRolesType')" shape="rect">boe:KeyRolesType</a>
+            </b> / boe:SystemOwner</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:boe</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_KeyRolesType_SystemOwner" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_KeyRolesType_SystemOwner');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_KeyRolesType_SystemOwner" style="display:block">
+                              <div class="annotation">
+                                 
+                                 <p>Official responsible for the overall procurement, development, integration, modification,
+                                    or operation and maintenance of an information system.</p>
+                                 
+                                 <p>Source: CNSSI-4009 (information system owner
+                                    (or program manager))</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_KeyRolesType_SystemOwner" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_KeyRolesType_SystemOwner');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_KeyRolesType_SystemOwner" style="display:block">
+                              <img alt="Diagram" border="0" src="img/BOE_xsd_Element_boe_SystemOwner.png" usemap="#BOE_xsd_Element_boe_SystemOwner"></img>
+                              <map name="BOE_xsd_Element_boe_SystemOwner" id="BOE_xsd_Element_boe_SystemOwner">
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Name" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Name" coords="291,129,463,171" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Title" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Title" coords="291,211,463,253" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Organization" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Organization" coords="291,293,463,335" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Email" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Email" coords="291,375,463,417" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Phone" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Phone" coords="291,457,463,499" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType" coords="209,3,352,25" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:PersonType')" shape="rect">boe:PersonType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_KeyRolesType_SystemOwner" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_KeyRolesType_SystemOwner');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_KeyRolesType_SystemOwner" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_KeyRolesType_SystemOwner" type="image" src="img/btM.gif" value="-" onclick="switchState('model_KeyRolesType_SystemOwner');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_KeyRolesType_SystemOwner" style="display:block">ALL(<b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Name" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Name')" shape="rect">boe:Name</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Title" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Title{0,1}')" shape="rect">boe:Title{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Organization" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Organization{0,1}')" shape="rect">boe:Organization{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Email" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Email{0,1}')" shape="rect">boe:Email{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Phone" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Phone{0,1}')" shape="rect">boe:Phone{0,1}</a>
+                              </b>)</div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Email" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Email')" shape="rect">boe:Email</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Name" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Name')" shape="rect">boe:Name</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Organization" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Organization')" shape="rect">boe:Organization</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Phone" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Phone')" shape="rect">boe:Phone</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Title" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Title')" shape="rect">boe:Title</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Instance</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_instance_KeyRolesType_SystemOwner" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_KeyRolesType_SystemOwner');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="instance_KeyRolesType_SystemOwner" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;boe:SystemOwner</span><span class="tT"> </span><span class="tAN">xmlns:boe=</span><span class="tAV">"urn:us:gov:ic:boe"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Name</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/boe:Name&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Title</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Title&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Organization</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Organization&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Email</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Email&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Phone</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Phone&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/boe:SystemOwner&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_KeyRolesType_SystemOwner" type="image" src="img/btM.gif" value="-" onclick="switchState('source_KeyRolesType_SystemOwner');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_KeyRolesType_SystemOwner" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"SystemOwner"</span><span class="tAN"> type=</span><span class="tAV">"boe:PersonType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Official responsible for the overall procurement, development, integration, modification, or operation and maintenance of an information system.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Source: CNSSI-4009 (information system owner (or program manager))</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/BOE/BOE.xsd">BOE.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="KeyRolesType_SystemManagement" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:KeyRolesType')" shape="rect">boe:KeyRolesType</a>
+            </b> / boe:SystemManagement</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:boe</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_KeyRolesType_SystemManagement" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_KeyRolesType_SystemManagement');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_KeyRolesType_SystemManagement" style="display:block">
+                              <div class="annotation">
+                                 
+                                 <p>Official responsible for the system day-to-day management (program manager), if different
+                                    from the system owner.</p>
+                                 
+                                 <p>Source: CNSSI-4009 (information system owner
+                                    (or program manager))</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_KeyRolesType_SystemManagement" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_KeyRolesType_SystemManagement');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_KeyRolesType_SystemManagement" style="display:block">
+                              <img alt="Diagram" border="0" src="img/BOE_xsd_Element_boe_SystemManagement.png" usemap="#BOE_xsd_Element_boe_SystemManagement"></img>
+                              <map name="BOE_xsd_Element_boe_SystemManagement" id="BOE_xsd_Element_boe_SystemManagement">
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Name" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Name" coords="291,129,463,171" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Title" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Title" coords="291,211,463,253" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Organization" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Organization" coords="291,293,463,335" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Email" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Email" coords="291,375,463,417" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Phone" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Phone" coords="291,457,463,499" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType" coords="209,3,352,25" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:PersonType')" shape="rect">boe:PersonType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_KeyRolesType_SystemManagement" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_KeyRolesType_SystemManagement');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_KeyRolesType_SystemManagement" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_KeyRolesType_SystemManagement" type="image" src="img/btM.gif" value="-" onclick="switchState('model_KeyRolesType_SystemManagement');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_KeyRolesType_SystemManagement" style="display:block">ALL(<b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Name" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Name')" shape="rect">boe:Name</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Title" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Title{0,1}')" shape="rect">boe:Title{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Organization" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Organization{0,1}')" shape="rect">boe:Organization{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Email" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Email{0,1}')" shape="rect">boe:Email{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Phone" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Phone{0,1}')" shape="rect">boe:Phone{0,1}</a>
+                              </b>)</div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Email" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Email')" shape="rect">boe:Email</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Name" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Name')" shape="rect">boe:Name</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Organization" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Organization')" shape="rect">boe:Organization</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Phone" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Phone')" shape="rect">boe:Phone</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Title" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Title')" shape="rect">boe:Title</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Instance</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_instance_KeyRolesType_SystemManagement" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_KeyRolesType_SystemManagement');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="instance_KeyRolesType_SystemManagement" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;boe:SystemManagement</span><span class="tT"> </span><span class="tAN">xmlns:boe=</span><span class="tAV">"urn:us:gov:ic:boe"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Name</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/boe:Name&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Title</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Title&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Organization</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Organization&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Email</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Email&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Phone</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Phone&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/boe:SystemManagement&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_KeyRolesType_SystemManagement" type="image" src="img/btM.gif" value="-" onclick="switchState('source_KeyRolesType_SystemManagement');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_KeyRolesType_SystemManagement" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"SystemManagement"</span><span class="tAN"> type=</span><span class="tAV">"boe:PersonType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Official responsible for the system day-to-day management (program manager), if different from the system owner.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Source: CNSSI-4009 (information system owner (or program manager))</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/BOE/BOE.xsd">BOE.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="KeyRolesType_SystemSecurityOfficer" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:KeyRolesType')" shape="rect">boe:KeyRolesType</a>
+            </b> / boe:SystemSecurityOfficer</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:boe</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_KeyRolesType_SystemSecurityOfficer" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_KeyRolesType_SystemSecurityOfficer');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_KeyRolesType_SystemSecurityOfficer" style="display:block">
+                              <div class="annotation">
+                                 
+                                 <p>Individual assigned responsibility by the senior agency information security officer,
+                                    authorizing official, management official, or information system owner for maintaining
+                                    the appropriate operational security posture for an information system or program.</p>
+                                 
+                                 <p>Source: CNSSI-4009 (information system security officer (ISSO))</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_KeyRolesType_SystemSecurityOfficer" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_KeyRolesType_SystemSecurityOfficer');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_KeyRolesType_SystemSecurityOfficer" style="display:block">
+                              <img alt="Diagram" border="0" src="img/f7716602-4e51-47e3-b981-0ca48ab747e0.png" usemap="#BOE_xsd_Element_boe_SystemSecurityOfficer"></img>
+                              <map name="BOE_xsd_Element_boe_SystemSecurityOfficer" id="BOE_xsd_Element_boe_SystemSecurityOfficer">
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Name" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Name" coords="291,129,463,171" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Title" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Title" coords="291,211,463,253" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Organization" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Organization" coords="291,293,463,335" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Email" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Email" coords="291,375,463,417" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Phone" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Phone" coords="291,457,463,499" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType" coords="209,3,352,25" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:PersonType')" shape="rect">boe:PersonType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_KeyRolesType_SystemSecurityOfficer" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_KeyRolesType_SystemSecurityOfficer');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_KeyRolesType_SystemSecurityOfficer" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_KeyRolesType_SystemSecurityOfficer" type="image" src="img/btM.gif" value="-" onclick="switchState('model_KeyRolesType_SystemSecurityOfficer');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_KeyRolesType_SystemSecurityOfficer" style="display:block">ALL(<b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Name" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Name')" shape="rect">boe:Name</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Title" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Title{0,1}')" shape="rect">boe:Title{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Organization" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Organization{0,1}')" shape="rect">boe:Organization{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Email" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Email{0,1}')" shape="rect">boe:Email{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Phone" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Phone{0,1}')" shape="rect">boe:Phone{0,1}</a>
+                              </b>)</div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Email" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Email')" shape="rect">boe:Email</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Name" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Name')" shape="rect">boe:Name</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Organization" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Organization')" shape="rect">boe:Organization</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Phone" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Phone')" shape="rect">boe:Phone</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Title" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Title')" shape="rect">boe:Title</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Instance</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_instance_KeyRolesType_SystemSecurityOfficer" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_KeyRolesType_SystemSecurityOfficer');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="instance_KeyRolesType_SystemSecurityOfficer" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;boe:SystemSecurityOfficer</span><span class="tT"> </span><span class="tAN">xmlns:boe=</span><span class="tAV">"urn:us:gov:ic:boe"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Name</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/boe:Name&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Title</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Title&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Organization</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Organization&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Email</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Email&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Phone</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Phone&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/boe:SystemSecurityOfficer&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_KeyRolesType_SystemSecurityOfficer" type="image" src="img/btM.gif" value="-" onclick="switchState('source_KeyRolesType_SystemSecurityOfficer');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_KeyRolesType_SystemSecurityOfficer" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"SystemSecurityOfficer"</span><span class="tAN"> type=</span><span class="tAV">"boe:PersonType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Individual assigned responsibility by the senior agency information security officer, authorizing official, management official, or information system owner for maintaining the appropriate operational security posture for an information system or program.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Source: CNSSI-4009 (information system security officer (ISSO))</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/BOE/BOE.xsd">BOE.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="KeyRolesType_TechnicalLead" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:KeyRolesType')" shape="rect">boe:KeyRolesType</a>
+            </b> / boe:TechnicalLead</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:boe</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_KeyRolesType_TechnicalLead" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_KeyRolesType_TechnicalLead');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_KeyRolesType_TechnicalLead" style="display:block">
+                              <div class="annotation">
+                                 
+                                 <p>Individual responsible for overseeing the technical aspects of the system.</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_KeyRolesType_TechnicalLead" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_KeyRolesType_TechnicalLead');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_KeyRolesType_TechnicalLead" style="display:block">
+                              <img alt="Diagram" border="0" src="img/BOE_xsd_Element_boe_TechnicalLead.png" usemap="#BOE_xsd_Element_boe_TechnicalLead"></img>
+                              <map name="BOE_xsd_Element_boe_TechnicalLead" id="BOE_xsd_Element_boe_TechnicalLead">
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Name" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Name" coords="291,129,463,171" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Title" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Title" coords="291,211,463,253" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Organization" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Organization" coords="291,293,463,335" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Email" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Email" coords="291,375,463,417" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType_Phone" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Phone" coords="291,457,463,499" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonType.tmp#PersonType" href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType" coords="209,3,352,25" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:PersonType')" shape="rect">boe:PersonType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_KeyRolesType_TechnicalLead" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_KeyRolesType_TechnicalLead');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_KeyRolesType_TechnicalLead" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_KeyRolesType_TechnicalLead" type="image" src="img/btM.gif" value="-" onclick="switchState('model_KeyRolesType_TechnicalLead');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_KeyRolesType_TechnicalLead" style="display:block">ALL(<b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Name" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Name')" shape="rect">boe:Name</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Title" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Title{0,1}')" shape="rect">boe:Title{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Organization" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Organization{0,1}')" shape="rect">boe:Organization{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Email" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Email{0,1}')" shape="rect">boe:Email{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Phone" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Phone{0,1}')" shape="rect">boe:Phone{0,1}</a>
+                              </b>)</div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Email" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Email')" shape="rect">boe:Email</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Name" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Name')" shape="rect">boe:Name</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Organization" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Organization')" shape="rect">boe:Organization</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Phone" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Phone')" shape="rect">boe:Phone</a>
+                           </b>, <b>
+                              <a href="BOE_xsd_Complex_Type_boe_PersonType.html#PersonType_Title" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Title')" shape="rect">boe:Title</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Instance</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_instance_KeyRolesType_TechnicalLead" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_KeyRolesType_TechnicalLead');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="instance_KeyRolesType_TechnicalLead" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;boe:TechnicalLead</span><span class="tT"> </span><span class="tAN">xmlns:boe=</span><span class="tAV">"urn:us:gov:ic:boe"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Name</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/boe:Name&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Title</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Title&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Organization</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Organization&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Email</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Email&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Phone</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Phone&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/boe:TechnicalLead&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_KeyRolesType_TechnicalLead" type="image" src="img/btM.gif" value="-" onclick="switchState('source_KeyRolesType_TechnicalLead');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_KeyRolesType_TechnicalLead" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"TechnicalLead"</span><span class="tAN"> type=</span><span class="tAV">"boe:PersonType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Individual responsible for overseeing the technical aspects of the system.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/BOE/BOE.xsd">BOE.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="KeyRolesType_Other" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:KeyRolesType')" shape="rect">boe:KeyRolesType</a>
+            </b> / boe:Other</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:boe</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_KeyRolesType_Other" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_KeyRolesType_Other');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_KeyRolesType_Other" style="display:block">
+                              <div class="annotation">
+                                 
+                                 <p>A key person not fitting one of the predefined roles/titles for which a role/title
+                                    must be specified.</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_KeyRolesType_Other" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_KeyRolesType_Other');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_KeyRolesType_Other" style="display:block">
+                              <img alt="Diagram" border="0" src="img/BOE_xsd_Element_boe_Other.png" usemap="#BOE_xsd_Element_boe_Other"></img>
+                              <map name="BOE_xsd_Element_boe_Other" id="BOE_xsd_Element_boe_Other">
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonTypeWithRole.tmp#PersonTypeWithRole_Role" href="d30d17be-9e65-4ed5-b83c-ba91b445d174.html#PersonTypeWithRole_Role" coords="338,129,510,171" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonTypeWithRole.tmp#PersonTypeWithRole_Name" href="d30d17be-9e65-4ed5-b83c-ba91b445d174.html#PersonTypeWithRole_Name" coords="338,211,510,253" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonTypeWithRole.tmp#PersonTypeWithRole_Title" href="d30d17be-9e65-4ed5-b83c-ba91b445d174.html#PersonTypeWithRole_Title" coords="338,293,510,335" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonTypeWithRole.tmp#PersonTypeWithRole_Organization" href="d30d17be-9e65-4ed5-b83c-ba91b445d174.html#PersonTypeWithRole_Organization" coords="338,375,510,417" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonTypeWithRole.tmp#PersonTypeWithRole_Email" href="d30d17be-9e65-4ed5-b83c-ba91b445d174.html#PersonTypeWithRole_Email" coords="338,457,510,499" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonTypeWithRole.tmp#PersonTypeWithRole_Phone" href="d30d17be-9e65-4ed5-b83c-ba91b445d174.html#PersonTypeWithRole_Phone" coords="338,539,510,581" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_PersonTypeWithRole.tmp#PersonTypeWithRole" href="d30d17be-9e65-4ed5-b83c-ba91b445d174.html#PersonTypeWithRole" coords="256,3,446,25" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="d30d17be-9e65-4ed5-b83c-ba91b445d174.html#PersonTypeWithRole" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:PersonTypeWithRole')" shape="rect">boe:PersonTypeWithRole</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_KeyRolesType_Other" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_KeyRolesType_Other');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_KeyRolesType_Other" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">maxOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>unbounded</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_KeyRolesType_Other" type="image" src="img/btM.gif" value="-" onclick="switchState('model_KeyRolesType_Other');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_KeyRolesType_Other" style="display:block">ALL(<b>
+                                 <a href="d30d17be-9e65-4ed5-b83c-ba91b445d174.html#PersonTypeWithRole_Role" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Role')" shape="rect">boe:Role</a>
+                              </b> 
+                              <b>
+                                 <a href="d30d17be-9e65-4ed5-b83c-ba91b445d174.html#PersonTypeWithRole_Name" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Name')" shape="rect">boe:Name</a>
+                              </b> 
+                              <b>
+                                 <a href="d30d17be-9e65-4ed5-b83c-ba91b445d174.html#PersonTypeWithRole_Title" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Title{0,1}')" shape="rect">boe:Title{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="d30d17be-9e65-4ed5-b83c-ba91b445d174.html#PersonTypeWithRole_Organization" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Organization{0,1}')" shape="rect">boe:Organization{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="d30d17be-9e65-4ed5-b83c-ba91b445d174.html#PersonTypeWithRole_Email" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Email{0,1}')" shape="rect">boe:Email{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="d30d17be-9e65-4ed5-b83c-ba91b445d174.html#PersonTypeWithRole_Phone" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Phone{0,1}')" shape="rect">boe:Phone{0,1}</a>
+                              </b>)</div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="d30d17be-9e65-4ed5-b83c-ba91b445d174.html#PersonTypeWithRole_Email" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Email')" shape="rect">boe:Email</a>
+                           </b>, <b>
+                              <a href="d30d17be-9e65-4ed5-b83c-ba91b445d174.html#PersonTypeWithRole_Name" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Name')" shape="rect">boe:Name</a>
+                           </b>, <b>
+                              <a href="d30d17be-9e65-4ed5-b83c-ba91b445d174.html#PersonTypeWithRole_Organization" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Organization')" shape="rect">boe:Organization</a>
+                           </b>, <b>
+                              <a href="d30d17be-9e65-4ed5-b83c-ba91b445d174.html#PersonTypeWithRole_Phone" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Phone')" shape="rect">boe:Phone</a>
+                           </b>, <b>
+                              <a href="d30d17be-9e65-4ed5-b83c-ba91b445d174.html#PersonTypeWithRole_Role" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Role')" shape="rect">boe:Role</a>
+                           </b>, <b>
+                              <a href="d30d17be-9e65-4ed5-b83c-ba91b445d174.html#PersonTypeWithRole_Title" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Title')" shape="rect">boe:Title</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Instance</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_instance_KeyRolesType_Other" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_KeyRolesType_Other');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="instance_KeyRolesType_Other" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;boe:Other</span><span class="tT"> </span><span class="tAN">xmlns:boe=</span><span class="tAV">"urn:us:gov:ic:boe"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Role</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/boe:Role&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Name</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/boe:Name&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Title</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Title&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Organization</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Organization&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Email</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Email&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;boe:Phone</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/boe:Phone&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/boe:Other&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_KeyRolesType_Other" type="image" src="img/btM.gif" value="-" onclick="switchState('source_KeyRolesType_Other');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_KeyRolesType_Other" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"Other"</span><span class="tAN"> type=</span><span class="tAV">"boe:PersonTypeWithRole"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">A key person not fitting one of the predefined roles/titles for which a role/title must be specified.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/BOE/BOE.xsd">BOE.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="KeyRolesType" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Complex Type <span class="qname">boe:KeyRolesType</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:boe</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_KeyRolesType" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_KeyRolesType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_KeyRolesType" style="display:block">
+                              <img alt="Diagram" border="0" src="img/da07cfbc-ef60-4614-ba2d-509b42fbed80.png" usemap="#BOE_xsd_Complex_Type_boe_KeyRolesType"></img>
+                              <map name="BOE_xsd_Complex_Type_boe_KeyRolesType" id="BOE_xsd_Complex_Type_boe_KeyRolesType">
+                                 <area alt="BOE_xsd_Complex_Type_boe_KeyRolesType.tmp#KeyRolesType_DelegatedAuthorizingOfficial" href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_DelegatedAuthorizingOfficial" coords="254,89,443,131" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_KeyRolesType.tmp#KeyRolesType_DelegatedAuthorizingOfficialRepresentative" href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_DelegatedAuthorizingOfficialRepresentative" coords="254,184,528,226" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_KeyRolesType.tmp#KeyRolesType_SecurityControlAssessor" href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_SecurityControlAssessor" coords="254,279,426,321" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_KeyRolesType.tmp#KeyRolesType_SystemOwner" href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_SystemOwner" coords="254,400,412,442" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_KeyRolesType.tmp#KeyRolesType_SystemManagement" href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_SystemManagement" coords="254,495,412,537" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_KeyRolesType.tmp#KeyRolesType_SystemSecurityOfficer" href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_SystemSecurityOfficer" coords="254,590,412,632" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_KeyRolesType.tmp#KeyRolesType_TechnicalLead" href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_TechnicalLead" coords="254,685,412,727" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_KeyRolesType.tmp#KeyRolesType_Other" href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_Other" coords="254,780,459,822" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_KeyRolesType" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_KeyRolesType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_KeyRolesType" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Element </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="BOE_xsd_Element_boe_KeyRoles.html#KeyRoles" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:KeyRoles')" shape="rect">boe:KeyRoles</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_KeyRolesType" type="image" src="img/btM.gif" value="-" onclick="switchState('model_KeyRolesType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_KeyRolesType" style="display:block">
+                              <b>
+                                 <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_DelegatedAuthorizingOfficial" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:DelegatedAuthorizingOfficial{0,1}')" shape="rect">boe:DelegatedAuthorizingOfficial{0,1}</a>
+                              </b> , <b>
+                                 <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_DelegatedAuthorizingOfficialRepresentative" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:DelegatedAuthorizingOfficialRepresentative{0,1}')" shape="rect">boe:DelegatedAuthorizingOfficialRepresentative{0,1}</a>
+                              </b> , <b>
+                                 <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_SecurityControlAssessor" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:SecurityControlAssessor{0,1}')" shape="rect">boe:SecurityControlAssessor{0,1}</a>
+                              </b> , <b>
+                                 <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_SystemOwner" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:SystemOwner{0,1}')" shape="rect">boe:SystemOwner{0,1}</a>
+                              </b> , <b>
+                                 <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_SystemManagement" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:SystemManagement{0,1}')" shape="rect">boe:SystemManagement{0,1}</a>
+                              </b> , <b>
+                                 <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_SystemSecurityOfficer" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:SystemSecurityOfficer{0,1}')" shape="rect">boe:SystemSecurityOfficer{0,1}</a>
+                              </b> , <b>
+                                 <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_TechnicalLead" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:TechnicalLead{0,1}')" shape="rect">boe:TechnicalLead{0,1}</a>
+                              </b> , <b>
+                                 <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_Other" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Other*')" shape="rect">boe:Other*</a>
+                              </b>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_DelegatedAuthorizingOfficial" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:DelegatedAuthorizingOfficial')" shape="rect">boe:DelegatedAuthorizingOfficial</a>
+                           </b>, <b>
+                              <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_DelegatedAuthorizingOfficialRepresentative" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:DelegatedAuthorizingOfficialRepresentative')" shape="rect">boe:DelegatedAuthorizingOfficialRepresentative</a>
+                           </b>, <b>
+                              <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_Other" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:Other')" shape="rect">boe:Other</a>
+                           </b>, <b>
+                              <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_SecurityControlAssessor" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:SecurityControlAssessor')" shape="rect">boe:SecurityControlAssessor</a>
+                           </b>, <b>
+                              <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_SystemManagement" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:SystemManagement')" shape="rect">boe:SystemManagement</a>
+                           </b>, <b>
+                              <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_SystemOwner" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:SystemOwner')" shape="rect">boe:SystemOwner</a>
+                           </b>, <b>
+                              <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_SystemSecurityOfficer" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:SystemSecurityOfficer')" shape="rect">boe:SystemSecurityOfficer</a>
+                           </b>, <b>
+                              <a href="d3ac994f-1f0c-4eaa-ab5d-a25b1e1c97a0.html#KeyRolesType_TechnicalLead" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:TechnicalLead')" shape="rect">boe:TechnicalLead</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_KeyRolesType" type="image" src="img/btM.gif" value="-" onclick="switchState('source_KeyRolesType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_KeyRolesType" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:complexType</span><span class="tAN"> name=</span><span class="tAV">"KeyRolesType"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:sequence</span><span class="tAN"> minOccurs=</span><span class="tAV">"1"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"DelegatedAuthorizingOfficial"</span><span class="tAN"> type=</span><span class="tAV">"boe:PersonType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">A senior (federal) official or executive with the authority to formally assume responsibility for operating an information system at an acceptable level of risk to organizational operations (including mission, functions, image, or reputation), organizational assets, individuals, other organizations, and the Nation.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Source: CNSSI-4009 (Authorizing Official)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"DelegatedAuthorizingOfficialRepresentative"</span><span class="tAN"> type=</span><span class="tAV">"boe:PersonType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">An organizational official acting on behalf of an authorizing official in carrying out and coordinating the required activities associated with security authorization.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Source: CNSSI-4009 (authorizing official designated representative)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"SecurityControlAssessor"</span><span class="tAN"> type=</span><span class="tAV">"boe:PersonType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The individual, group, or organization responsible for conducting a security control assessment.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Source: CNSSI-4009 (security control assessor (SCA))</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"SystemOwner"</span><span class="tAN"> type=</span><span class="tAV">"boe:PersonType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Official responsible for the overall procurement, development, integration, modification, or operation and maintenance of an information system.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Source: CNSSI-4009 (information system owner (or program manager))</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"SystemManagement"</span><span class="tAN"> type=</span><span class="tAV">"boe:PersonType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Official responsible for the system day-to-day management (program manager), if different from the system owner.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Source: CNSSI-4009 (information system owner (or program manager))</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"SystemSecurityOfficer"</span><span class="tAN"> type=</span><span class="tAV">"boe:PersonType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Individual assigned responsibility by the senior agency information security officer, authorizing official, management official, or information system owner for maintaining the appropriate operational security posture for an information system or program.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Source: CNSSI-4009 (information system security officer (ISSO))</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"TechnicalLead"</span><span class="tAN"> type=</span><span class="tAV">"boe:PersonType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Individual responsible for overseeing the technical aspects of the system.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"Other"</span><span class="tAN"> type=</span><span class="tAV">"boe:PersonTypeWithRole"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">A key person not fitting one of the predefined roles/titles for which a role/title must be specified.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:sequence&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:attributeGroup</span><span class="tAN"> ref=</span><span class="tAV">"ism:SecurityAttributesGroup"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:complexType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/BOE/BOE.xsd">BOE.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //
+--></script>
+   </body>
+</html>

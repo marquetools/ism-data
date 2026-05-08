@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/Whitelist/Whitelist_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- 
+     Sample whitelist configuration files for testing minimum value whitelist functionality with the test case files in the /Examples sub-directories.
+     To use this sample file, copy the contents into the /Schematron/Whitelist/whitelist_config.xml file.  Then open the test case 
+     xml files in Oxygen and validate. 
+-->
+<Whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="../../Schema/Whitelist/Whitelist.xsd">
+  <ISMAttributes>
+    <values type="whitelist">atomicEnergyMarkings classification classificationReason classifiedBy compilationReason compliesWith
+    createDate declassDate declassEvent declassException derivativelyClassifiedBy derivedFrom DESVersion displayOnlyTo
+    disseminationControls excludeFromRollup exemptFrom externalNotice FGIsourceOpen FGIsourceProtected ISMCATCESVersion joint nonICmarkings
+    nonUSControls noticeDate noticeReason noticeType ownerProducer pocType releasableTo resourceElement SARIdentifier SCIcontrols
+    unregisteredNoticeType</values>
+  </ISMAttributes>
+  <!-- Plausible to have restrictions but unlikely on JWICS -->
+  <Classification>
+    <values>R U S TS</values>
+  </Classification>
+  <DisseminationControls>
+    <values>OC OC-USGOV IMC NF PR REL RELIDO DISPLAYONLY</values>
+  </DisseminationControls>
+  <ReleasableTo>
+    <values type="whitelist">USA AUS CAN NZL GBR FRA KFOR</values>
+    <minimumValues>USA ACGU</minimumValues>
+  </ReleasableTo>
+  <DisplayOnlyTo>
+    <values type="whitelist">USA TEYE</values>
+  </DisplayOnlyTo>
+  <FGIsourceOpen>
+    <values type="whitelist" />
+    <!-- Empty whitelist - reject all markings -->
+  </FGIsourceOpen>
+  <FGIsourceProtected>
+    <values type="whitelist" />
+    <!-- Empty whitelist - reject all markings -->
+  </FGIsourceProtected>
+  <AtomicEnergyMarkings>
+    <values />
+  </AtomicEnergyMarkings>
+  <NonICmarkings>
+    <values>SBU LES LES-NF</values>
+  </NonICmarkings>
+  <NonUSControls>
+    <values />
+  </NonUSControls>
+  <SCIControls>
+    <values>TK HCS HCS-P</values>
+  </SCIControls>
+  <SARIdentifier>
+    <values>SAR-AAA SAR-BBB</values>
+  </SARIdentifier>
+  <OwnerProducer>
+    <values type="whitelist">USA</values>
+  </OwnerProducer>
+  <NtkPolicy type="whitelist">
+    <value>*</value>
+    <!--<value>urn:us:gov:ic:aces:ntk:oc</value>
+    <value>urn:us:gov:ic:aces:ntk:mn</value>
+    <value>urn:us:gov:ic:aces:ntk:ico</value>-->
+  </NtkPolicy>
+  <NtkVocabulary type="whitelist">
+    <value>group:iaaems</value>
+    <value>datasphere:mn:issue</value>
+    <value>datasphere:mn:region</value>
+    <value>datasphere:license</value>
+    <value>organization:usa-agency</value>
+    <value>group:bob_ldap</value>
+    <value>group:chris_ldap</value>
+  </NtkVocabulary>
+  <NtkAccessProfile type="minvalues"
+                    accessPolicy="urn:us:gov:ic:aces:ntk:oc">
+    <profile vocabulary="organization:usa-agency"
+             profileValue="USA.CIA" />
+    <profile vocabulary="organization:usa-agency"
+             profileValue="USA.DNI" />
+    <profile vocabulary="organization:usa-agency"
+             profileValue="USA.NSA" />
+  </NtkAccessProfile>
+  <NtkAccessProfile type="minvalues"
+                    accessPolicy="urn:us:gov:ic:aces:ntk:mn">
+    <profile vocabulary="datasphere:mn:issue"
+             profileValue="DI" />
+    <profile vocabulary="datasphere:mn:issue"
+             profileValue="CST" />
+    <profile vocabulary="datasphere:mn:region"
+             profileValue="AFce" />
+    <profile vocabulary="datasphere:mn:region"
+             profileValue="AFea" />
+    <profile vocabulary="datasphere:mn:region"
+             profileValue="AFno" />
+  </NtkAccessProfile>
+  <NtkAccessProfile type="minvalues"
+                    accessPolicy="urn:us:gov:ic:aces:ntk:license">
+    <profile vocabulary="datasphere:license"
+             profileValue="osc1" />
+  </NtkAccessProfile>
+  <NtkAccessProfile type="minvalues"
+                    accessPolicy="urn:us:gov:ic:aces:ntk:xd">
+    <profile vocabulary="organization:usa-agency"
+             profileValue="USA.CIA" />
+  </NtkAccessProfile>
+</Whitelist>

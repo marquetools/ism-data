@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:boe:CVEnumBOEAuthorizationType">
+   <define name="CVEnumBOEAuthorizationType.cve">
+      <choice>
+         <value>ATO</value>
+         <value>ATOWITHCONDITION</value>
+         <value>ATP</value>
+         <value>IATT</value>
+         <value>DATO</value>
+         <value>NONE</value>
+      </choice>
+   </define>
+</grammar>

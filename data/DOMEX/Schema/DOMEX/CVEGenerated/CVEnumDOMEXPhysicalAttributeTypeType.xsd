@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXPhysicalAttributeTypeType"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXPhysicalAttributeTypeType"
+            version="202111">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumDOMEXPhysicalAttributeTypeType Version 2 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumDOMEXPhysicalAttributeTypeType.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumDOMEXPhysicalAttributeTypeType">
+      <xsd:annotation>
+         <xsd:documentation>(U) Valid range for physical attributes type.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumDOMEXPhysicalAttributeTypeType.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="Height">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Weight">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Mark">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Scar">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Tattoo">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Characteristic">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Disability">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Blood Type">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Build">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Clothing">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Complexion">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Ethnicity">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Eye Color">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Eye Description">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Eyewear">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Facial Hair">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Fingerprint Classification">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Hair Color">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Hair Description">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Height Description">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Race">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Skin Tone">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Other">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

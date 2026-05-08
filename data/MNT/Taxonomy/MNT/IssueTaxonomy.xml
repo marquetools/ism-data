@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/ISMCAT/ISMCAT_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!--This is a generated file. DO NOT EDIT!-->
+<!-- Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+        -->
+<Issues xmlns="urn:us:gov:ic:taxonomy:mnt:issue"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ism="urn:us:gov:ic:ism"
+        xmlns:arh="urn:us:gov:ic:arh"
+        xmlns:pm="urn:us:gov:ic:pm"
+        xmlns:issue="urn:us:gov:ic:taxonomy:mnt:issue"
+        xmlns:tax="urn:us:gov:ic:taxonomy:common"
+        xsi:schemaLocation="urn:us:gov:ic:taxonomy:mnt:issue ../../Schema/MNT/Issue.xsd"
+        issue:TESVersion="202211">
+	  <arh:Security ism:ownerProducer="USA"
+                 ism:classification="U"
+                 ism:DESVersion="202111.202211"
+                 ism:resourceElement="true"
+                 ism:compliesWith="USGov USIC"
+                 ism:ISMCATCESVersion="202211"
+                 ism:createDate="2015-06-08"/>
+	  <tax:IRM>
+		    <tax:URN>urn:us:gov:ic:taxonomy:mnt:issue</tax:URN>
+		    <tax:Description ism:classification="U" ism:ownerProducer="USA">Issue Taxonomy: Alpha-sort by Production Metrics Code</tax:Description>
+		    <tax:Created>2015-06-08</tax:Created>
+		    <tax:Source ism:classification="U" ism:ownerProducer="USA">Deputy Director of National Intelligence for Intelligence Integration (DDII)</tax:Source>
+		    <tax:PointOfContact ism:classification="U" ism:ownerProducer="USA">
+			      <tax:Name>Office IC CIO</tax:Name>
+			      <tax:Email>ic-standards-support@iarpa.gov</tax:Email>
+		    </tax:PointOfContact>
+	  </tax:IRM>
+	  <Issue ism:ownerProducer="USA" ism:classification="U">
+		    <IssueToken ism:ownerProducer="USA" ism:classification="U">CN</IssueToken>
+		    <Membership ism:ownerProducer="USA"
+                  ism:classification="U"
+                  dateLastVerified="2019-11-01">
+			      <pm:ProductionMetricsSubject>DRUG</pm:ProductionMetricsSubject>
+         <!-- Deprecated="2018-08-07" -->
+			      <pm:ProductionMetricsSubject>CRIM</pm:ProductionMetricsSubject>
+		    </Membership>
+	  </Issue>
+	  <Issue ism:ownerProducer="USA" ism:classification="U">
+		    <IssueToken ism:ownerProducer="USA" ism:classification="U">CST</IssueToken>
+		    <Membership ism:ownerProducer="USA"
+                  ism:classification="U"
+                  dateLastVerified="2019-11-01">
+			      <pm:ProductionMetricsSubject>TECH</pm:ProductionMetricsSubject>
+			      <pm:ProductionMetricsSubject>CYBR</pm:ProductionMetricsSubject>
+		    </Membership>
+	  </Issue>
+	  <Issue ism:ownerProducer="USA" ism:classification="U">
+		    <IssueToken ism:ownerProducer="USA" ism:classification="U">DI</IssueToken>
+		    <Membership ism:ownerProducer="USA"
+                  ism:classification="U"
+                  dateLastVerified="2019-11-01">
+			      <pm:ProductionMetricsSubject>POWS</pm:ProductionMetricsSubject>
+         <!-- Deprecated 2016. Replaced by HAPR. Added back 2022-11-08 since entry removed in 2016. -->
+			      <pm:ProductionMetricsSubject>FMCC</pm:ProductionMetricsSubject>
+			      <pm:ProductionMetricsSubject>SPCE</pm:ProductionMetricsSubject>
+			      <pm:ProductionMetricsSubject>INFR</pm:ProductionMetricsSubject>
+			      <pm:ProductionMetricsSubject>HAPR</pm:ProductionMetricsSubject>
+         <!-- deprecated="2022-11-08" -->
+		    </Membership>
+	  </Issue>
+	
+	  <Issue ism:ownerProducer="USA" ism:classification="U">
+		    <IssueToken ism:ownerProducer="USA" ism:classification="U">ET</IssueToken>
+		    <Membership ism:ownerProducer="USA"
+                  ism:classification="U"
+                  dateLastVerified="2019-11-01">
+			      <pm:ProductionMetricsSubject>ECON</pm:ProductionMetricsSubject>
+         <!-- New Again 2016 -->
+			      <pm:ProductionMetricsSubject>FOOD</pm:ProductionMetricsSubject>
+         <!-- Deprecated 2016. Map to ENRF -->
+			      <pm:ProductionMetricsSubject>ECFS</pm:ProductionMetricsSubject>
+         <!-- Deprecated 2016. Map to ECON and TFIN -->
+			      <pm:ProductionMetricsSubject>TRAD</pm:ProductionMetricsSubject>
+         <!-- Deprecated 2016. Map to ECON -->
+			      <pm:ProductionMetricsSubject>TFIN</pm:ProductionMetricsSubject>
+         <!-- New 2016 -->
+		    </Membership>
+	  </Issue>
+	  <Issue ism:ownerProducer="USA" ism:classification="U">
+		    <IssueToken ism:ownerProducer="USA" ism:classification="U">EI</IssueToken>
+		    <Membership ism:ownerProducer="USA"
+                  ism:classification="U"
+                  dateLastVerified="2019-11-01">
+			      <pm:ProductionMetricsSubject>CNRE</pm:ProductionMetricsSubject>
+         <!-- Add 2022-11-08 -->
+			      <pm:ProductionMetricsSubject>ESEC</pm:ProductionMetricsSubject>
+         <!-- deprecated="2022-11-08" -->
+			      <pm:ProductionMetricsSubject>ENVR</pm:ProductionMetricsSubject>
+         <!-- Deprecated 2016. Map to ENRF -->
+			      <pm:ProductionMetricsSubject>INFR</pm:ProductionMetricsSubject>
+			      <pm:ProductionMetricsSubject>ENRF</pm:ProductionMetricsSubject>
+         <!-- New 2016 -->
+         <!-- deprecated="2022-11-08" -->
+		    </Membership>
+	  </Issue>
+	
+	  <Issue ism:ownerProducer="USA" ism:classification="U">
+		    <IssueToken ism:ownerProducer="USA" ism:classification="U">HND</IssueToken>
+		    <Membership ism:ownerProducer="USA"
+                  ism:classification="U"
+                  dateLastVerified="2019-11-01">
+			      <pm:ProductionMetricsSubject>HREL</pm:ProductionMetricsSubject>
+         <!-- deprecated="2022-11-08" -->
+			      <pm:ProductionMetricsSubject>HLTH</pm:ProductionMetricsSubject>
+		    </Membership>
+	  </Issue>
+	  <Issue ism:ownerProducer="USA" ism:classification="U">
+		    <IssueToken ism:ownerProducer="USA" ism:classification="U">IC</IssueToken>
+		    <Membership ism:ownerProducer="USA"
+                  ism:classification="U"
+                  dateLastVerified="2019-11-01">
+			      <pm:ProductionMetricsSubject>CINT</pm:ProductionMetricsSubject>
+			      <pm:ProductionMetricsSubject>FDND</pm:ProductionMetricsSubject>
+         <!-- deprecated="2018-08-07" -->
+		    </Membership>
+	  </Issue>
+	  <Issue ism:ownerProducer="USA" ism:classification="U">
+		    <IssueToken ism:ownerProducer="USA" ism:classification="U">PSI</IssueToken>
+		    <Membership ism:ownerProducer="USA"
+                  ism:classification="U"
+                  dateLastVerified="2019-11-01">
+			      <pm:ProductionMetricsSubject>CHTC</pm:ProductionMetricsSubject>
+         <!-- Add 2022-11-08 -->
+			      <pm:ProductionMetricsSubject>STCM</pm:ProductionMetricsSubject>
+         <!-- Add 2022-11-08 -->
+			      <pm:ProductionMetricsSubject>WDPR</pm:ProductionMetricsSubject>
+         <!-- Add 2022-11-08 -->
+			      <pm:ProductionMetricsSubject>DEMG</pm:ProductionMetricsSubject>
+			      <pm:ProductionMetricsSubject>DEPS</pm:ProductionMetricsSubject>
+			      <pm:ProductionMetricsSubject>FINT</pm:ProductionMetricsSubject>
+         <!-- New 2019 -->
+			      <pm:ProductionMetricsSubject>FPLD</pm:ProductionMetricsSubject>
+         <!-- New 2016 -->
+			      <pm:ProductionMetricsSubject>FPOL</pm:ProductionMetricsSubject>
+         <!-- Deprecated 2016. Map to FPLD -->
+			      <pm:ProductionMetricsSubject>LEAD</pm:ProductionMetricsSubject>
+         <!-- Deprecated 2016. Map to FPLD -->
+			      <pm:ProductionMetricsSubject>SRCC</pm:ProductionMetricsSubject>
+         <!-- deprecated="2022-11-08" -->
+			      <pm:ProductionMetricsSubject>HRWC</pm:ProductionMetricsSubject>
+         <!-- deprecated="2022-11-08" -->
+			      <pm:ProductionMetricsSubject>BASE</pm:ProductionMetricsSubject>
+         <!-- Deprecated 2014 -->
+		    </Membership>
+	  </Issue>
+	  <Issue ism:ownerProducer="USA" ism:classification="U">
+		    <IssueToken ism:ownerProducer="USA" ism:classification="U">THS</IssueToken>
+		    <Membership ism:ownerProducer="USA"
+                  ism:classification="U"
+                  dateLastVerified="2019-11-01">
+			      <pm:ProductionMetricsSubject>TERR</pm:ProductionMetricsSubject>
+			      <pm:ProductionMetricsSubject>HSEC</pm:ProductionMetricsSubject>
+         <!-- Deprecated="2018-08-07" -->
+		    </Membership>
+	  </Issue>
+	  <Issue ism:ownerProducer="USA" ism:classification="U">
+		    <IssueToken ism:ownerProducer="USA" ism:classification="U">WPW</IssueToken>
+		    <Membership ism:ownerProducer="USA"
+                  ism:classification="U"
+                  dateLastVerified="2019-11-01">
+			      <pm:ProductionMetricsSubject>ACWP</pm:ProductionMetricsSubject>
+         <!-- Deprecated="2019-03-04" -->
+			      <pm:ProductionMetricsSubject>ACTM</pm:ProductionMetricsSubject>
+         <!-- deprecated="2022-11-08" -->
+			      <pm:ProductionMetricsSubject>CBWD</pm:ProductionMetricsSubject>
+         <!-- New 2019 -->
+			      <pm:ProductionMetricsSubject>WMDB</pm:ProductionMetricsSubject>
+         <!-- Deprecated="2019-03-04" -->
+			      <pm:ProductionMetricsSubject>WMDC</pm:ProductionMetricsSubject>
+         <!-- Deprecated="2019-03-04" -->
+			      <pm:ProductionMetricsSubject>WMDM</pm:ProductionMetricsSubject>
+         <!-- Deprecated="2019-03-04" -->
+			      <pm:ProductionMetricsSubject>WMDN</pm:ProductionMetricsSubject>
+			      <pm:ProductionMetricsSubject>WPNS</pm:ProductionMetricsSubject>
+         <!-- New 2019 -->
+		    </Membership>
+	  </Issue>
+</Issues>

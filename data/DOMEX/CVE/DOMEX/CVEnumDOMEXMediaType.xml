@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       --><cve:CVE xmlns:cve="urn:us:gov:ic:cve" xmlns:ism="urn:us:gov:ic:ism" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ism:compliesWith="USGov USIC" ism:ownerProducer="USA" ism:classification="U" ism:DESVersion="202111" ism:ISMCATCESVersion="202205" ism:resourceElement="true" CVEVersion="2" ism:createDate="2011-12-27" xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+    
+    <!-- artf14827 - Combine FileMediaType and ImageMediaType  -->
+    <cve:IRM>
+        <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:domex:CVEnumDOMEXMediaType</URN>
+        <Title xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">CVEnumDOMEXMediaType</Title>
+        <Description xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">Valid range for media type.</Description>
+        
+        <cve:Created>2013-11-20</cve:Created>
+        
+        <Source ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">Authoritative source for File Media types</Source>
+        <PointOfContact ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">
+         <Name>DOMEX Metadata Working Group</Name>
+      </PointOfContact>
+    </cve:IRM>
+    
+    <!--MediaType-->
+    <cve:Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">Unknown</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Unknown</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">Cannot tell</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Cannot tell</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">Analog audio tape</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Analog audio tape</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">Analog video tape</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Analog video tape</Description>
+        </Term>        
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">Beta</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Beta Tape</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">BD</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Blu-Ray Disc</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">CASS</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Cassette, Analog audio or video</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">CD</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Compact Disc</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">Cellphone</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Cellphone</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">CF</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Compact Flash Card</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">DMP</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Digital Media Player</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">DVD</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Digital Video Disc</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">DigCam</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Digital Camera</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">Docs</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Printed Document</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">FD</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Floppy Disc</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">FILM</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Film (Photographic)</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">GPS</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">GPS Device</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">HD</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Hard Drive</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">M2</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">M2 Memory Stick Micro</Description>
+        </Term>        
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">MMC</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">MMC Memory Card</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">MS</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Memory Stick</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">MicroSD</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">MicroSD Memory Card</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">Other</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Other media type not listed</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">RS-MMC</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Reduced size MMC</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">SD</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">SD Memory Card</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">SIM</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">SIM Card</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">Smrtphone</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Smart Phone</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">Solid state device</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Solid State Device</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">Source Sensitive</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Source device is sensitive</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">TD</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Thumb Drive</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">USB</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">USB Device</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">VHS</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">Video Camera</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Video Camera</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">VCR</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Video Cassette Recorder</Description>
+        </Term>
+    </cve:Enumeration>
+</cve:CVE>

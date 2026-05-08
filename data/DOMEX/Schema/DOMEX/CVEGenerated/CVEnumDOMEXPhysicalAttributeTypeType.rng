@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXPhysicalAttributeTypeType">
+   <define name="CVEnumDOMEXPhysicalAttributeTypeType.cve">
+      <choice>
+         <value>Height</value>
+         <value>Weight</value>
+         <value>Mark</value>
+         <value>Scar</value>
+         <value>Tattoo</value>
+         <value>Characteristic</value>
+         <value>Disability</value>
+         <value>Blood Type</value>
+         <value>Build</value>
+         <value>Clothing</value>
+         <value>Complexion</value>
+         <value>Ethnicity</value>
+         <value>Eye Color</value>
+         <value>Eye Description</value>
+         <value>Eyewear</value>
+         <value>Facial Hair</value>
+         <value>Fingerprint Classification</value>
+         <value>Hair Color</value>
+         <value>Hair Description</value>
+         <value>Height Description</value>
+         <value>Race</value>
+         <value>Skin Tone</value>
+         <value>Other</value>
+      </choice>
+   </define>
+</grammar>

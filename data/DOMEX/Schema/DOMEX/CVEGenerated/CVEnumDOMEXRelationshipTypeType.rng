@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXRelationshipTypeType">
+   <define name="CVEnumDOMEXRelationshipTypeType.cve">
+      <choice>
+         <value>Familial</value>
+         <value>Employment</value>
+         <value>Student-Alum</value>
+         <value>Membership</value>
+         <value>Located</value>
+         <value>Transactions</value>
+         <value>Communication</value>
+         <value>Associations</value>
+         <value>Other</value>
+      </choice>
+   </define>
+</grammar>

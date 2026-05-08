@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       --><CVE xmlns="urn:us:gov:ic:cve" xmlns:ism="urn:us:gov:ic:ism" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ism:compliesWith="USGov USIC" ism:ownerProducer="USA" ism:classification="U" ism:DESVersion="202111" ism:ISMCATCESVersion="202205" ism:resourceElement="true" CVEVersion="2" ism:createDate="2018-07-20" xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+    <IRM>
+        <URN>urn:us:gov:ic:cvenum:itsms:fabric</URN>
+        <Title ism:ownerProducer="USA" ism:classification="U">CVEnumITSMSFabric</Title>
+        <Description ism:ownerProducer="USA" ism:classification="U">All valid fabrics for ITS-MS</Description>
+        <cve:Created xmlns:cve="urn:us:gov:ic:cve">2018-07-20T10:14:00-04:00</cve:Created>
+        
+        <Source ism:classification="U" ism:ownerProducer="USA">IC-CIO</Source>
+        <PointOfContact ism:classification="U" ism:ownerProducer="USA">
+         <Name>Office IC CIO</Name>
+         <Email>ic-standards-support@odni.gov</Email>
+      </PointOfContact>
+    </IRM>
+    
+    <Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+        
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">EA-SCI</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">
+                Enterprise Audit on the SCI fabric.
+            </Description>
+        </Term>
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">ACINT</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">
+                Acoustic Intelligence data.
+            </Description>
+        </Term>
+        
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">EA-COL</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">
+                Enterprise Audit on the Collateral Fabric.
+            </Description>
+        </Term>
+    </Enumeration>
+</CVE>

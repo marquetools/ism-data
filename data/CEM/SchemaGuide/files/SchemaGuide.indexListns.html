@@ -1,0 +1,1360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for </title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                        //
+--></script>
+   </head>
+   <body>
+      <h2>
+         <a id="INDEX" shape="rect">Table of Contents</a>
+      </h2>
+      <p>
+         <a href="SchemaGuide.indexList.html" shape="rect">Components</a>
+         <span> | </span>
+         <a href="schHierarchy.html" shape="rect">Resource Hierarchy</a>
+      </p>
+      <hr></hr>
+      <div class="toc">
+         <form action="none" method="get" enctype="application/x-www-form-urlencoded">
+            <div>
+               <span> Group by: <select id="selectTOC" onchange="selectTOCGroupBy(this.options[this.selectedIndex].value, true, 'SchemaGuide.indexList.html', 'SchemaGuide.indexListns.html', 'SchemaGuide.indexListcomp.html');">
+                     <option value="toc_group_by_namespace" selected="selected">Namespace</option>
+                     <option value="toc_group_by_location">Location</option>
+                     <option value="toc_group_by_component_type">Component Type</option>
+                  </select>
+               </span>
+            </div>
+         </form>
+         <div class="level1" id="toc_group_by_namespace" style="display:block">
+            <div>
+               <div class="level2">
+                  <p>
+                     <input id="button_boxIdNamespace1" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace1');" class="control"></input>
+                     <span class="indexGroupTitle">urn:us:gov:ic:cem</span>
+                  </p>
+                  <div id="boxIdNamespace1" style="display:block">
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace1Main_schema" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace1Main_schema');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Main Schema</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace1Main_schema" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Main_schema_CEM-XML_xsd.html#CEM-XML.xsd" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component CEM-XML.xsd')" shape="rect">CEM-XML.xsd</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace1Element" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace1Element');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Elements</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace1Element" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Account.html#Account" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Account')" shape="rect">cem:Account</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_BEnumber.html#BEnumber" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:BEnumber')" shape="rect">cem:BEnumber</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_CityName.html#CityName" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CityName')" shape="rect">cem:CityName</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_CommData.html#CommData" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CommData')" shape="rect">cem:CommData</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Commodity.html#Commodity" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Commodity')" shape="rect">cem:Commodity</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Concept.html#Concept" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Concept')" shape="rect">cem:Concept</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_CountryName.html#CountryName" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CountryName')" shape="rect">cem:CountryName</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Date.html#Date" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Date')" shape="rect">cem:Date</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_DateTime.html#DateTime" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:DateTime')" shape="rect">cem:DateTime</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Drug.html#Drug" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Drug')" shape="rect">cem:Drug</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="d28d667e-1838-4cee-905f-51ed880e2c63.html#EntityUntyped" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:EntityUntyped')" shape="rect">cem:EntityUntyped</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Equipment.html#Equipment" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Equipment')" shape="rect">cem:Equipment</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Event.html#Event" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Event')" shape="rect">cem:Event</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Facility.html#Facility" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Facility')" shape="rect">cem:Facility</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_GeoFeature.html#GeoFeature" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:GeoFeature')" shape="rect">cem:GeoFeature</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_GeoRef.html#GeoRef" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:GeoRef')" shape="rect">cem:GeoRef</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Identifier.html#Identifier" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Identifier')" shape="rect">cem:Identifier</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_InfoBearer.html#InfoBearer" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:InfoBearer')" shape="rect">cem:InfoBearer</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="80270bd3-940f-4c57-8073-927dbc75eb5f.html#LocationOfInterest" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:LocationOfInterest')" shape="rect">cem:LocationOfInterest</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="78349a48-30d6-43f9-829a-501cce477a73.html#MilitaryUnit" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:MilitaryUnit')" shape="rect">cem:MilitaryUnit</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Money.html#Money" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Money')" shape="rect">cem:Money</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="2fe19478-359f-4c4e-9098-544758e59044.html#Nomenclature" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Nomenclature')" shape="rect">cem:Nomenclature</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="53f54928-541d-4ccf-9e34-b01fe115b88c.html#Organization" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Organization')" shape="rect">cem:Organization</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_PC-CID.html#PC-CID" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:PC-CID')" shape="rect">cem:PC-CID</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_PC-SID.html#PC-SID" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:PC-SID')" shape="rect">cem:PC-SID</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Person.html#Person" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Person')" shape="rect">cem:Person</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Pseudonym.html#Pseudonym" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Pseudonym')" shape="rect">cem:Pseudonym</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="69bb8ade-3843-4482-b484-5cc05f765559.html#QuantityReference" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:QuantityReference')" shape="rect">cem:QuantityReference</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_SystemClass.html#SystemClass" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:SystemClass')" shape="rect">cem:SystemClass</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Term.html#Term" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Term')" shape="rect">cem:Term</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Time.html#Time" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Time')" shape="rect">cem:Time</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="bee23984-e8a3-4b2b-a655-74a2042d4769.html#TransportationNetwork" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:TransportationNetwork')" shape="rect">cem:TransportationNetwork</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Vehicle.html#Vehicle" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Vehicle')" shape="rect">cem:Vehicle</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Weapon.html#Weapon" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Weapon')" shape="rect">cem:Weapon</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace1Simple_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace1Simple_Type');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Simple Types</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace1Simple_Type" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="0b9db7d7-0c79-4382-a5e9-6d424b26762b.html#BEnumberType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:BEnumberType')" shape="rect">cem:BEnumberType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="03e52773-1a85-431c-b522-338bc8031eba.html#CountryCodeVocabularyType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CountryCodeVocabularyType')" shape="rect">cem:CountryCodeVocabularyType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="f1e61326-9cea-4908-8443-002970dd94b7.html#DESVersionType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:DESVersionType')" shape="rect">cem:DESVersionType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="c78cf285-b033-4e0c-bb0b-e59ce3ddc062.html#DoubleListType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:DoubleListType')" shape="rect">cem:DoubleListType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="22f7c2ba-3f29-4b01-ae51-6b9e0f867bf3.html#GeoFeatureType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:GeoFeatureType')" shape="rect">cem:GeoFeatureType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="09ee7804-f769-430e-9ec6-8bae6129583f.html#GeographicReferenceSystemType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:GeographicReferenceSystemType')" shape="rect">cem:GeographicReferenceSystemType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="a615715a-c134-42c6-80b1-62502fa2edda.html#ISO8601DateTimeType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:ISO8601DateTimeType')" shape="rect">cem:ISO8601DateTimeType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="d2c53f3a-70e0-4703-9104-8672ff276a38.html#ISO8601DateType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:ISO8601DateType')" shape="rect">cem:ISO8601DateType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="f873bee9-de7a-4130-bf9e-f6f15160c4fb.html#ISO8601TimeType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:ISO8601TimeType')" shape="rect">cem:ISO8601TimeType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="5d445fe1-b305-4f9d-8fa8-5684abca5c70.html#OsuffixType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:OsuffixType')" shape="rect">cem:OsuffixType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="04e68b3e-b147-43b0-8065-d55da06fcaf2.html#dateHourMinType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:dateHourMinType')" shape="rect">cem:dateHourMinType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="ad51275d-405f-4ddc-bcb1-bb54e1242362.html#dateTimePairsType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:dateTimePairsType')" shape="rect">cem:dateTimePairsType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="946ffeaf-4316-4817-92ee-278607aa364c.html#dateTimesType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:dateTimesType')" shape="rect">cem:dateTimesType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="277356fa-8c6a-44e1-9bb8-f03a106f4268.html#decimalDegreeCoordinatesType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:decimalDegreeCoordinatesType')" shape="rect">cem:decimalDegreeCoordinatesType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="2340d815-c81d-4150-ad07-d3d8200c7372.html#hourMinType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:hourMinType')" shape="rect">cem:hourMinType</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace1Complex_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace1Complex_Type');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Complex Types</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace1Complex_Type" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="14ceb208-a4b0-49b6-ab04-c8587774a83f.html#DescriptiveElementType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:DescriptiveElementType')" shape="rect">cem:DescriptiveElementType</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace1Attribute" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace1Attribute');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Attributes</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace1Attribute" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="6bb4dde4-1d89-4639-add8-07ec1f1ccbff.html#DESVersion" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component @cem:DESVersion')" shape="rect">@cem:DESVersion</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_CityName.html#CityName_category" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CityName/@cem:category')" shape="rect">cem:CityName/@cem:category</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_CommData.html#CommData_commDataNormalized" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CommData/@cem:commDataNormalized')" shape="rect">cem:CommData/@cem:commDataNormalized</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_CommData.html#CommData_commDataType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CommData/@cem:commDataType')" shape="rect">cem:CommData/@cem:commDataType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_CommData.html#CommData_serviceProvider" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CommData/@cem:serviceProvider')" shape="rect">cem:CommData/@cem:serviceProvider</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="ed338cc2-fa85-4d76-9a2f-9361f16c4100.html#CommonAttributesGroup_IDReference" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CommonAttributesGroup/@cem:IDReference')" shape="rect">cem:CommonAttributesGroup/@cem:IDReference</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="ed338cc2-fa85-4d76-9a2f-9361f16c4100.html#CommonAttributesGroup_id" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CommonAttributesGroup/@cem:id')" shape="rect">cem:CommonAttributesGroup/@cem:id</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="ed338cc2-fa85-4d76-9a2f-9361f16c4100.html#CommonAttributesGroup_qualifier" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CommonAttributesGroup/@cem:qualifier')" shape="rect">cem:CommonAttributesGroup/@cem:qualifier</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="ed338cc2-fa85-4d76-9a2f-9361f16c4100.html#CommonAttributesGroup_styleType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CommonAttributesGroup/@cem:styleType')" shape="rect">cem:CommonAttributesGroup/@cem:styleType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="d39fe325-964b-4eec-9110-acf6295e5b61.html#CoordinatesAttributeGroup_decimalDegreeCoordinates" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CoordinatesAttributeGroup/@cem:decimalDegreeCoordinates')" shape="rect">cem:CoordinatesAttributeGroup/@cem:decimalDegreeCoordinates</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_CountryName.html#CountryName_countryCode" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CountryName/@cem:countryCode')" shape="rect">cem:CountryName/@cem:countryCode</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_CountryName.html#CountryName_countryCodeVocabulary" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CountryName/@cem:countryCodeVocabulary')" shape="rect">cem:CountryName/@cem:countryCodeVocabulary</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Date.html#Date_normalizedDate" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Date/@cem:normalizedDate')" shape="rect">cem:Date/@cem:normalizedDate</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_DateTime.html#DateTime_normalizedDateTime" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:DateTime/@cem:normalizedDateTime')" shape="rect">cem:DateTime/@cem:normalizedDateTime</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Event.html#Event_dateTime" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Event/@cem:dateTime')" shape="rect">cem:Event/@cem:dateTime</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Event.html#Event_dateTimeRange" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Event/@cem:dateTimeRange')" shape="rect">cem:Event/@cem:dateTimeRange</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Event.html#Event_location" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Event/@cem:location')" shape="rect">cem:Event/@cem:location</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Facility.html#Facility_BEnumber" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Facility/@cem:BEnumber')" shape="rect">cem:Facility/@cem:BEnumber</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Facility.html#Facility_Osuffix" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Facility/@cem:Osuffix')" shape="rect">cem:Facility/@cem:Osuffix</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Facility.html#Facility_categoryCode" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Facility/@cem:categoryCode')" shape="rect">cem:Facility/@cem:categoryCode</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Facility.html#Facility_geographicReference" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Facility/@cem:geographicReference')" shape="rect">cem:Facility/@cem:geographicReference</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="3d75f148-d622-4b02-852a-a9effa306c62.html#GMLPosAttributesGroup_posList" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:GMLPosAttributesGroup/@cem:posList')" shape="rect">cem:GMLPosAttributesGroup/@cem:posList</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_GeoFeature.html#GeoFeature_geoFeatureType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:GeoFeature/@cem:geoFeatureType')" shape="rect">cem:GeoFeature/@cem:geoFeatureType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_GeoRef.html#GeoRef_referenceType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:GeoRef/@cem:referenceType')" shape="rect">cem:GeoRef/@cem:referenceType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Identifier.html#Identifier_identifierType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Identifier/@cem:identifierType')" shape="rect">cem:Identifier/@cem:identifierType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_InfoBearer.html#InfoBearer_identifierType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:InfoBearer/@cem:identifierType')" shape="rect">cem:InfoBearer/@cem:identifierType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="2fe19478-359f-4c4e-9098-544758e59044.html#Nomenclature_alias" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Nomenclature/@cem:alias')" shape="rect">cem:Nomenclature/@cem:alias</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="2fe19478-359f-4c4e-9098-544758e59044.html#Nomenclature_vocabulary" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Nomenclature/@cem:vocabulary')" shape="rect">cem:Nomenclature/@cem:vocabulary</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_PC-CID.html#PC-CID_CID" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:PC-CID/@cem:CID')" shape="rect">cem:PC-CID/@cem:CID</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_PC-SID.html#PC-SID_SID" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:PC-SID/@cem:SID')" shape="rect">cem:PC-SID/@cem:SID</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Person.html#Person_KTC" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Person/@cem:KTC')" shape="rect">cem:Person/@cem:KTC</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Person.html#Person_format" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Person/@cem:format')" shape="rect">cem:Person/@cem:format</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Person.html#Person_givenName" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Person/@cem:givenName')" shape="rect">cem:Person/@cem:givenName</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Person.html#Person_honorific" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Person/@cem:honorific')" shape="rect">cem:Person/@cem:honorific</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Person.html#Person_nickname" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Person/@cem:nickname')" shape="rect">cem:Person/@cem:nickname</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Person.html#Person_phonetic" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Person/@cem:phonetic')" shape="rect">cem:Person/@cem:phonetic</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Person.html#Person_position" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Person/@cem:position')" shape="rect">cem:Person/@cem:position</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Person.html#Person_rank" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Person/@cem:rank')" shape="rect">cem:Person/@cem:rank</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Person.html#Person_surname" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Person/@cem:surname')" shape="rect">cem:Person/@cem:surname</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Pseudonym.html#Pseudonym_value" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Pseudonym/@cem:value')" shape="rect">cem:Pseudonym/@cem:value</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="69bb8ade-3843-4482-b484-5cc05f765559.html#QuantityReference_normalizedQuantity" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:QuantityReference/@cem:normalizedQuantity')" shape="rect">cem:QuantityReference/@cem:normalizedQuantity</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="69bb8ade-3843-4482-b484-5cc05f765559.html#QuantityReference_unitOfMeasure" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:QuantityReference/@cem:unitOfMeasure')" shape="rect">cem:QuantityReference/@cem:unitOfMeasure</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="69bb8ade-3843-4482-b484-5cc05f765559.html#QuantityReference_unitOfMeasureVocabulary" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:QuantityReference/@cem:unitOfMeasureVocabulary')" shape="rect">cem:QuantityReference/@cem:unitOfMeasureVocabulary</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Term.html#Term_termDefinition" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Term/@cem:termDefinition')" shape="rect">cem:Term/@cem:termDefinition</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Term.html#Term_termType" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Term/@cem:termType')" shape="rect">cem:Term/@cem:termType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Term.html#Term_vocabulary" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Term/@cem:vocabulary')" shape="rect">cem:Term/@cem:vocabulary</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="CEM-XML_xsd_Element_cem_Time.html#Time_normalizedTime" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:Time/@cem:normalizedTime')" shape="rect">cem:Time/@cem:normalizedTime</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace1Element_Group" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace1Element_Group');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Element Groups</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace1Element_Group" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="d7992193-8eed-4f32-b6cb-84ccd630e175.html#DescriptiveElementsGroup" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:DescriptiveElementsGroup')" shape="rect">cem:DescriptiveElementsGroup</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace1Attribute_Group" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace1Attribute_Group');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Attribute Groups</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace1Attribute_Group" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="ed338cc2-fa85-4d76-9a2f-9361f16c4100.html#CommonAttributesGroup" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CommonAttributesGroup')" shape="rect">cem:CommonAttributesGroup</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="d39fe325-964b-4eec-9110-acf6295e5b61.html#CoordinatesAttributeGroup" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:CoordinatesAttributeGroup')" shape="rect">cem:CoordinatesAttributeGroup</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="3d75f148-d622-4b02-852a-a9effa306c62.html#GMLPosAttributesGroup" target="mainFrame" title="urn:us:gov:ic:cem" onclick="updatePageTitle('Schema documentation for component cem:GMLPosAttributesGroup')" shape="rect">cem:GMLPosAttributesGroup</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div style="clear:left"></div>
+                  </div>
+               </div>
+               <div class="level2">
+                  <p>
+                     <input id="button_boxIdNamespace2" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace2');" class="control"></input>
+                     <span class="indexGroupTitle">urn:us:gov:ic:cvenum:cemxml:citycategory</span>
+                  </p>
+                  <div id="boxIdNamespace2" style="display:block">
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace2Imported_schema" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace2Imported_schema');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Imported Schemas</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace2Imported_schema" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="07446688-11af-425c-9ec9-6933acc440d3.html#CVEnumCemCityCategory.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:cemxml:citycategory" onclick="updatePageTitle('Schema documentation for component CVEnumCemCityCategory.xsd')" shape="rect">CVEnumCemCityCategory.xsd</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace2Simple_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace2Simple_Type');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Simple Types</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace2Simple_Type" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="860fbf5d-53a5-4c6f-9550-eb79341ab9ba.html#CVEnumCemCityCategory" target="mainFrame" title="urn:us:gov:ic:cvenum:cemxml:citycategory" onclick="updatePageTitle('Schema documentation for component CVEnumCemCityCategory')" shape="rect">CVEnumCemCityCategory</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div style="clear:left"></div>
+                  </div>
+               </div>
+               <div class="level2">
+                  <p>
+                     <input id="button_boxIdNamespace3" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace3');" class="control"></input>
+                     <span class="indexGroupTitle">urn:us:gov:ic:cvenum:cemxml:identifiertype</span>
+                  </p>
+                  <div id="boxIdNamespace3" style="display:block">
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace3Imported_schema" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace3Imported_schema');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Imported Schemas</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace3Imported_schema" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="9de906fa-fb20-4f5c-b1fd-e6aacc3c5539.html#CVEnumCemIdentifierType.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:cemxml:identifiertype" onclick="updatePageTitle('Schema documentation for component CVEnumCemIdentifierType.xsd')" shape="rect">CVEnumCemIdentifierType.xsd</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace3Simple_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace3Simple_Type');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Simple Types</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace3Simple_Type" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="9018395c-7731-437f-b1b8-b04b57c4e7a8.html#CVEnumCemIdentifierType" target="mainFrame" title="urn:us:gov:ic:cvenum:cemxml:identifiertype" onclick="updatePageTitle('Schema documentation for component CVEnumCemIdentifierType')" shape="rect">CVEnumCemIdentifierType</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div style="clear:left"></div>
+                  </div>
+               </div>
+               <div class="level2">
+                  <p>
+                     <input id="button_boxIdNamespace4" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace4');" class="control"></input>
+                     <span class="indexGroupTitle">urn:us:gov:ic:cvenum:cemxml:commdatatype</span>
+                  </p>
+                  <div id="boxIdNamespace4" style="display:block">
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace4Imported_schema" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace4Imported_schema');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Imported Schemas</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace4Imported_schema" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="b2d1da73-321c-44e7-93bc-2d344cc8f721.html#CVEnumCemCommDataType.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:cemxml:commdatatype" onclick="updatePageTitle('Schema documentation for component CVEnumCemCommDataType.xsd')" shape="rect">CVEnumCemCommDataType.xsd</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace4Simple_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace4Simple_Type');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Simple Types</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace4Simple_Type" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="4ffee432-aea5-48df-baf8-e0a95e808cce.html#CVEnumCemCommDataType" target="mainFrame" title="urn:us:gov:ic:cvenum:cemxml:commdatatype" onclick="updatePageTitle('Schema documentation for component CVEnumCemCommDataType')" shape="rect">CVEnumCemCommDataType</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div style="clear:left"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+   </body>
+</html>

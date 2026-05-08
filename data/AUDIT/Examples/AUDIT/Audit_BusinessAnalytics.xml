@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen SCHSchema="../../Schematron/ISM/ISM_XML.sch"?>
+<?oxygen SCHSchema="../../Schematron/NTK/NTK_XML.sch"?>
+<audit:AuditRecordList xmlns:ism="urn:us:gov:ic:ism"
+ xmlns:iccve="urn:us:gov:ic:ism-cvenum"
+ xmlns:ntk="urn:us:gov:ic:ntk"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:cve="urn:us:gov:ic:audit-cvenum"
+ xmlns="urn:us:gov:ic:audit"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="urn:us:gov:ic:audit ../../Schema/AUDIT/IC-AUDIT.xsd" 
+ xmlns:audit="urn:us:gov:ic:audit" 
+ audit:DESVersion="4"
+ ism:DESVersion="7" 
+ ntk:DESVersion="5"
+ism:resourceElement="true" 
+ism:createDate="2011-03-01"
+ ism:classification="U"
+     ism:ownerProducer="USA">
+    <audit:AuditRecord auditRecordType="BUSINESS_ANALYTICS" ism:classification="U" ism:ownerProducer="USA">
+        <audit:Id>
+            <audit:TypeOfGenericIdentifier>Guide</audit:TypeOfGenericIdentifier>
+            <audit:GenericIdentifierValue>999456/888987</audit:GenericIdentifierValue>
+        </audit:Id>
+        <audit:Creator>
+            <audit:TypeOfIdentityIdentifier>DEVICE_ID</audit:TypeOfIdentityIdentifier>
+            <audit:IdentityIdentifierValue>LogServer-789</audit:IdentityIdentifierValue>
+        </audit:Creator>
+        <audit:DateTime>2011-03-01T10:08:42Z</audit:DateTime>
+        <audit:SessionId>jsessionid=v4ak3v4narho</audit:SessionId>
+        <audit:WorkflowId>936DA01F-9ABD-4d9d-80C7-02AF85C822A8</audit:WorkflowId>
+        <audit:Message>resource suppressed due to classification level</audit:Message>
+        <audit:Action>RETRIEVE</audit:Action>
+        <audit:ActionResult>FAILURE</audit:ActionResult>
+        <audit:ActionInitiator>
+            <audit:TypeOfIdentityIdentifier>AGENCY_USER_ID</audit:TypeOfIdentityIdentifier>
+            <audit:IdentityIdentifierValue>NSA-UsersLastNameFirstInitial</audit:IdentityIdentifierValue>
+        </audit:ActionInitiator>
+        <audit:ActionTarget>
+            <audit:TypeOfIdentityIdentifier>HOST_NAME</audit:TypeOfIdentityIdentifier>
+            <audit:IdentityIdentifierValue>NSA-PubsWebSrvr_08</audit:IdentityIdentifierValue>
+        </audit:ActionTarget>
+        <audit:Resource>
+            <audit:TypeOfResource>
+                <audit:ValueOfResourceType>Annotation.xml</audit:ValueOfResourceType>
+                <audit:NamespaceOfResourceType>urn:us:gov:ic:nebula.annotation</audit:NamespaceOfResourceType>
+                <audit:SourceOfResourceType>https://shareit.mae.ic.gov/LandingPage</audit:SourceOfResourceType>
+            </audit:TypeOfResource>
+            <audit:Id>
+                <audit:TypeOfGenericIdentifier>GUIDE</audit:TypeOfGenericIdentifier>
+                <audit:GenericIdentifierValue>999456/345987</audit:GenericIdentifierValue>
+            </audit:Id>
+            <audit:Creator>
+                <audit:TypeOfIdentityIdentifier>FULLY_QUALIFIED_DOMAIN_NAME</audit:TypeOfIdentityIdentifier>
+                <audit:IdentityIdentifierValue>https://www.nsa.gov/pubs/annotation.xml</audit:IdentityIdentifierValue>
+            </audit:Creator>
+        </audit:Resource>
+    </audit:AuditRecord>
+</audit:AuditRecordList>

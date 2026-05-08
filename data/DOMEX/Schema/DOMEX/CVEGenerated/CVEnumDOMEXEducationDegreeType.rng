@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXEducationDegreeType">
+   <define name="CVEnumDOMEXEducationDegreeType.cve">
+      <choice>
+         <value>AA</value>
+         <value>BA</value>
+         <value>BS</value>
+         <value>DD</value>
+         <value>DDiv</value>
+         <value>HS</value>
+         <value>LLD</value>
+         <value>MA</value>
+         <value>MD</value>
+         <value>MS</value>
+         <value>PhD</value>
+         <value>Other</value>
+      </choice>
+   </define>
+</grammar>

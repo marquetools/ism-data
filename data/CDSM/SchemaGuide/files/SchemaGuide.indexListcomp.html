@@ -1,0 +1,712 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for </title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                        //
+--></script>
+   </head>
+   <body>
+      <h2>
+         <a id="INDEX" shape="rect">Table of Contents</a>
+      </h2>
+      <p>
+         <a href="SchemaGuide.indexList.html" shape="rect">Components</a>
+         <span> | </span>
+         <a href="schHierarchy.html" shape="rect">Resource Hierarchy</a>
+      </p>
+      <hr></hr>
+      <div class="toc">
+         <form action="none" method="get" enctype="application/x-www-form-urlencoded">
+            <div>
+               <span> Group by: <select id="selectTOC" onchange="selectTOCGroupBy(this.options[this.selectedIndex].value, true, 'SchemaGuide.indexList.html', 'SchemaGuide.indexListns.html', 'SchemaGuide.indexListcomp.html');">
+                     <option value="toc_group_by_namespace">Namespace</option>
+                     <option value="toc_group_by_location">Location</option>
+                     <option value="toc_group_by_component_type" selected="selected">Component Type</option>
+                  </select>
+               </span>
+            </div>
+         </form>
+         <div class="level1" id="toc_group_by_component_type" style="display:block">
+            <div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Main_schema" type="image" value="-" src="img/btM.gif" onclick="switchState('Main_schema');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Main Schema</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Main_schema" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="c66fb3f5-5a4f-47ea-a7b5-e7c28a0c71db.html#SchemaGuideSchema.xsd" target="mainFrame" title="urn:schema:guide:schema:cdsmanifest" onclick="updatePageTitle('Schema documentation for component SchemaGuideSchema.xsd')" shape="rect">SchemaGuideSchema.xsd</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Imported_schema" type="image" value="-" src="img/btM.gif" onclick="switchState('Imported_schema');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Imported Schemas</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Imported_schema" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Imported_schema_CDSM_xsd.html#CDSM.xsd" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component CDSM.xsd')" shape="rect">CDSM.xsd</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Element" type="image" value="-" src="img/btM.gif" onclick="switchState('Element');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Elements</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Element" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Element_Arch.html#Arch" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component Arch')" shape="rect">Arch</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Element_CPE.html#CPE" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component CPE')" shape="rect">CPE</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="f1e07946-a72a-47e5-b188-7074ab3efe95.html#CdsManifestAssertion" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component CdsManifestAssertion')" shape="rect">CdsManifestAssertion</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Element_MD5.html#MD5" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component MD5')" shape="rect">MD5</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Element_Originator.html#Originator" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component Originator')" shape="rect">Originator</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Element_PayloadVersion.html#PayloadVersion" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component PayloadVersion')" shape="rect">PayloadVersion</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Element_Product.html#Product" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component Product')" shape="rect">Product</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Element_Routing.html#Routing" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component Routing')" shape="rect">Routing</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Element_SHA256.html#SHA256" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component SHA256')" shape="rect">SHA256</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Element_SHA512.html#SHA512" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component SHA512')" shape="rect">SHA512</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Element_ScanResult.html#ScanResult" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component ScanResult')" shape="rect">ScanResult</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Element_ScanVendor.html#ScanVendor" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component ScanVendor')" shape="rect">ScanVendor</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Element_ScanVersion.html#ScanVersion" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component ScanVersion')" shape="rect">ScanVersion</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Element_SignatureDate.html#SignatureDate" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component SignatureDate')" shape="rect">SignatureDate</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Element_Userkey.html#Userkey" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component Userkey')" shape="rect">Userkey</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Element_VendorChecksum.html#VendorChecksum" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component VendorChecksum')" shape="rect">VendorChecksum</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Element_VirusScan.html#VirusScan" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component VirusScan')" shape="rect">VirusScan</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Element_VirusScanList.html#VirusScanList" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component VirusScanList')" shape="rect">VirusScanList</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Element_WorkFlowid.html#WorkFlowid" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component WorkFlowid')" shape="rect">WorkFlowid</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Complex_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('Complex_Type');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Complex Types</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Complex_Type" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="8a35d743-3350-433e-87f8-4abc58932313.html#CdsAssertionType" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component CdsAssertionType')" shape="rect">CdsAssertionType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="b748d81c-c20f-4fb2-bcd7-7458cd8bd819.html#VendorChecksumType" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component VendorChecksumType')" shape="rect">VendorChecksumType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="4532da46-ad63-45d7-9840-cbb11daf0720.html#VirusScanListType" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component VirusScanListType')" shape="rect">VirusScanListType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Complex_Type_VirusScanType.html#VirusScanType" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component VirusScanType')" shape="rect">VirusScanType</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Simple_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('Simple_Type');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Simple Types</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Simple_Type" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Simple_Type_ArchType.html#ArchType" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component ArchType')" shape="rect">ArchType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Simple_Type_CPEType.html#CPEType" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component CPEType')" shape="rect">CPEType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Simple_Type_DESVersionType.html#DESVersionType" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component DESVersionType')" shape="rect">DESVersionType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Simple_Type_MD5Type.html#MD5Type" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component MD5Type')" shape="rect">MD5Type</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="b91af0c2-9516-411d-9f3b-5a1bd88c6573.html#MediumStringType" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component MediumStringType')" shape="rect">MediumStringType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Simple_Type_OriginatorType.html#OriginatorType" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component OriginatorType')" shape="rect">OriginatorType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="b0e87f92-a87a-4a75-8d2f-92dca0cd120b.html#PayloadVersionType" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component PayloadVersionType')" shape="rect">PayloadVersionType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Simple_Type_ProductType.html#ProductType" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component ProductType')" shape="rect">ProductType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Simple_Type_SHA256Type.html#SHA256Type" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component SHA256Type')" shape="rect">SHA256Type</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Simple_Type_SHA512Type.html#SHA512Type" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component SHA512Type')" shape="rect">SHA512Type</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Simple_Type_ScanResultType.html#ScanResultType" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component ScanResultType')" shape="rect">ScanResultType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Simple_Type_ScanVendorType.html#ScanVendorType" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component ScanVendorType')" shape="rect">ScanVendorType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ccbbdc21-9d82-4666-abaf-1e3e85672cd2.html#ScanVersionType" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component ScanVersionType')" shape="rect">ScanVersionType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="e97eefd9-1836-4f34-9af0-5858a6936105.html#SignatureDateType" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component SignatureDateType')" shape="rect">SignatureDateType</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Attribute" type="image" value="-" src="img/btM.gif" onclick="switchState('Attribute');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Attributes</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Attribute" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="CDSM_xsd_Attribute_DESVersion.html#DESVersion" target="mainFrame" title="urn:us:gov:ic:cdsmanifest" onclick="updatePageTitle('Schema documentation for component @DESVersion')" shape="rect">@DESVersion</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div style="clear:left"></div>
+            </div>
+         </div>
+      </div>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+   </body>
+</html>

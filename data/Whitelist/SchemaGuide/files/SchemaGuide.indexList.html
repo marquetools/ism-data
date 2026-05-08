@@ -1,0 +1,720 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for component </title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //
+--></script>
+   </head>
+   <body>
+      <h2>
+         <a id="INDEX" shape="rect">Table of Contents</a>
+      </h2>
+      <div class="toc">
+         <form action="none" method="get" enctype="application/x-www-form-urlencoded">
+            <div>
+               <span> Group by: <select id="selectTOC" onchange="selectTOCGroupBy(this.options[this.selectedIndex].value, true, 'SchemaGuide.indexList.html', 'SchemaGuide.indexListns.html', 'SchemaGuide.indexListcomp.html');">
+                     <option value="toc_group_by_namespace">Namespace</option>
+                     <option value="toc_group_by_location" selected="selected">Location</option>
+                     <option value="toc_group_by_component_type">Component Type</option>
+                  </select>
+               </span>
+            </div>
+         </form>
+         <div class="level1" id="toc_group_by_location" style="display:block">
+            <div>
+               <div class="level2">
+                  <p>
+                     <input id="button_gr_Whitelist.xsd" type="image" value="-" src="img/btM.gif" onclick="switchState('gr_Whitelist.xsd');" class="control"></input>
+                     <span class="indexGroupTitle">Whitelist.xsd</span>
+                  </p>
+                  <div id="gr_Whitelist.xsd" style="display:block">
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_gr_Whitelist.xsdMain_schema" type="image" value="-" src="img/btM.gif" onclick="switchState('gr_Whitelist.xsdMain_schema');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Main Schema</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="gr_Whitelist.xsdMain_schema" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="0acaa239-6e2d-4300-8364-8d192bb43311.html#Whitelist.xsd" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component Whitelist.xsd')" shape="rect">Whitelist.xsd</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_gr_Whitelist.xsdElement" type="image" value="-" src="img/btM.gif" onclick="switchState('gr_Whitelist.xsdElement');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Elements</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="gr_Whitelist.xsdElement" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="754879c3-8923-4b52-8fd1-0f5330e23718.html#AtomicEnergyMarkings" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component AtomicEnergyMarkings')" shape="rect">AtomicEnergyMarkings</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="d84b44fd-a3c6-48a1-b22f-9be85f5c1851.html#Classification" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component Classification')" shape="rect">Classification</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="Whitelist_xsd_Element_DisplayOnlyTo.html#DisplayOnlyTo" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component DisplayOnlyTo')" shape="rect">DisplayOnlyTo</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="c02d667d-5926-4db4-8e36-3ee50266462c.html#DisseminationControls" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component DisseminationControls')" shape="rect">DisseminationControls</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="Whitelist_xsd_Element_FGIsourceOpen.html#FGIsourceOpen" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component FGIsourceOpen')" shape="rect">FGIsourceOpen</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="6f89dff6-4aab-4e65-8bf0-a9b0bf1a4fce.html#FGIsourceProtected" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component FGIsourceProtected')" shape="rect">FGIsourceProtected</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="Whitelist_xsd_Element_ISMAttributes.html#ISMAttributes" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component ISMAttributes')" shape="rect">ISMAttributes</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="Whitelist_xsd_Element_NonICmarkings.html#NonICmarkings" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component NonICmarkings')" shape="rect">NonICmarkings</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="Whitelist_xsd_Element_NonUSControls.html#NonUSControls" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component NonUSControls')" shape="rect">NonUSControls</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="160932b0-6917-4d5d-8540-40e9880c6491.html#NtkAccessProfile" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component NtkAccessProfile')" shape="rect">NtkAccessProfile</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="Whitelist_xsd_Element_NtkPolicy.html#NtkPolicy" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component NtkPolicy')" shape="rect">NtkPolicy</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="Whitelist_xsd_Element_NtkVocabulary.html#NtkVocabulary" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component NtkVocabulary')" shape="rect">NtkVocabulary</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="Whitelist_xsd_Element_OwnerProducer.html#OwnerProducer" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component OwnerProducer')" shape="rect">OwnerProducer</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="Whitelist_xsd_Element_ReleasableTo.html#ReleasableTo" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component ReleasableTo')" shape="rect">ReleasableTo</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="Whitelist_xsd_Element_SARIdentifier.html#SARIdentifier" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component SARIdentifier')" shape="rect">SARIdentifier</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="Whitelist_xsd_Element_SCIControls.html#SCIControls" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component SCIControls')" shape="rect">SCIControls</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="Whitelist_xsd_Element_Whitelist.html#Whitelist" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component Whitelist')" shape="rect">Whitelist</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="Whitelist_xsd_Element_minimumValues.html#minimumValues" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component minimumValues')" shape="rect">minimumValues</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="Whitelist_xsd_Element_profile.html#profile" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component profile')" shape="rect">profile</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="Whitelist_xsd_Element_value.html#value" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component value')" shape="rect">value</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="623e77fd-4077-4c63-9570-46a4aa78063d.html#whitelistOnlyValues_values" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component whitelistOnlyValues/values')" shape="rect">whitelistOnlyValues/values</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="d183bddd-5571-4c0f-a3b8-f8dfad11639e.html#whitelistOrBlacklistValues_values" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component whitelistOrBlacklistValues/values')" shape="rect">whitelistOrBlacklistValues/values</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_gr_Whitelist.xsdComplex_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('gr_Whitelist.xsdComplex_Type');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Complex Types</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="gr_Whitelist.xsdComplex_Type" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="1a5a4472-eb9e-4094-a85e-5142465bc308.html#whitelistInfo" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component whitelistInfo')" shape="rect">whitelistInfo</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="623e77fd-4077-4c63-9570-46a4aa78063d.html#whitelistOnlyValues" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component whitelistOnlyValues')" shape="rect">whitelistOnlyValues</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="d183bddd-5571-4c0f-a3b8-f8dfad11639e.html#whitelistOrBlacklistValues" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component whitelistOrBlacklistValues')" shape="rect">whitelistOrBlacklistValues</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_gr_Whitelist.xsdAttribute" type="image" value="-" src="img/btM.gif" onclick="switchState('gr_Whitelist.xsdAttribute');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Attributes</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="gr_Whitelist.xsdAttribute" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="160932b0-6917-4d5d-8540-40e9880c6491.html#NtkAccessProfile_accessPolicy" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component NtkAccessProfile/@accessPolicy')" shape="rect">NtkAccessProfile/@accessPolicy</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="Whitelist_xsd_Element_profile.html#profile_profileValue" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component profile/@profileValue')" shape="rect">profile/@profileValue</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="Whitelist_xsd_Element_profile.html#profile_vocabulary" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component profile/@vocabulary')" shape="rect">profile/@vocabulary</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="87754e46-b712-4399-a2c3-b7a87c37c8f1.html#typeAnyListChoice_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component typeAnyListChoice/@type')" shape="rect">typeAnyListChoice/@type</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="f49d1bfb-017b-4ae6-8d1e-18d509efac8b.html#typeChoice_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component typeChoice/@type')" shape="rect">typeChoice/@type</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_gr_Whitelist.xsdElement_Group" type="image" value="-" src="img/btM.gif" onclick="switchState('gr_Whitelist.xsdElement_Group');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Element Groups</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="gr_Whitelist.xsdElement_Group" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="277cbebc-5163-47b7-a1f9-3a831ee30687.html#ismGroup" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component ismGroup')" shape="rect">ismGroup</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="1d0d0f2a-6af6-437e-958b-d5a4360b45f1.html#ntkGroup" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component ntkGroup')" shape="rect">ntkGroup</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_gr_Whitelist.xsdAttribute_Group" type="image" value="-" src="img/btM.gif" onclick="switchState('gr_Whitelist.xsdAttribute_Group');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Attribute Groups</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="gr_Whitelist.xsdAttribute_Group" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="87754e46-b712-4399-a2c3-b7a87c37c8f1.html#typeAnyListChoice" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component typeAnyListChoice')" shape="rect">typeAnyListChoice</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="f49d1bfb-017b-4ae6-8d1e-18d509efac8b.html#typeChoice" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component typeChoice')" shape="rect">typeChoice</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div style="clear:left"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //
+--></script>
+   </body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXActivityPersonnelManagement">
+   <define name="CVEnumDOMEXActivityPersonnelManagement.cve">
+      <choice>
+         <value>Biographic data</value>
+         <value>Biometric data</value>
+         <value>Facilitation</value>
+         <value>FIS</value>
+         <value>Logo</value>
+         <value>MAMS</value>
+         <value>Organization</value>
+         <value>Other</value>
+         <value>Records</value>
+         <value>US Person</value>
+      </choice>
+   </define>
+</grammar>

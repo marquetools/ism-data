@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXAgencyDHS"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXAgencyDHS"
+            version="202111">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumDOMEXAgencyDHS Version 2 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumDOMEXAgencyDHS.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumDOMEXAgencyDHS">
+      <xsd:annotation>
+         <xsd:documentation>(U) Valid range for DHS agencies.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumDOMEXAgencyDHS.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="USCG">
+            <xsd:annotation>
+               <xsd:documentation>DHS -- Department of Homeland Security/U.S. Coast Guard</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="USCBP">
+            <xsd:annotation>
+               <xsd:documentation>DHS -- Department of Homeland Security/U.S. Customs and Border Protection</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="USICE">
+            <xsd:annotation>
+               <xsd:documentation>DHS -- Department of Homeland Security/U.S. Immigration and Customs Enforcement</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="OASIA">
+            <xsd:annotation>
+               <xsd:documentation>DHS -- Department of Homeland Security/Office of the Assistant Secretary for Intelligence and Analysis</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="USSS">
+            <xsd:annotation>
+               <xsd:documentation>DHS -- Department of Homeland Security/U.S. Secret Service</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:boe:CVEnumBOEInformationTechnologyType">
+   <define name="CVEnumBOEInformationTechnologyType.cve">
+      <choice>
+         <value>ENCLAVE</value>
+         <value>MAJORAPPLICATION</value>
+         <value>PLATFORMITSYSTEM</value>
+         <value>GENERALSUPPORTSYSTEM</value>
+         <value>VIRTUALITSYSTEM</value>
+         <value>CONTAINERITSYSTEM</value>
+         <value>MIXEDITSYSTEM</value>
+         <value>CROSSDOMAIN</value>
+      </choice>
+   </define>
+</grammar>

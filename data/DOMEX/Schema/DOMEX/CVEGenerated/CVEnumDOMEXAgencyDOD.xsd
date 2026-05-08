@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXAgencyDOD"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXAgencyDOD"
+            version="202111">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumDOMEXAgencyDOD Version 2 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumDOMEXAgencyDOD.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumDOMEXAgencyDOD">
+      <xsd:annotation>
+         <xsd:documentation>(U) Valid range for DOD agencies.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumDOMEXAgencyDOD.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="AFRICOM">
+            <xsd:annotation>
+               <xsd:documentation>AFRICOM -- US African Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CENTCOM">
+            <xsd:annotation>
+               <xsd:documentation>CENTCOM -- US Central Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CENTCOM/USFOR-A">
+            <xsd:annotation>
+               <xsd:documentation>CENTCOM -- US Central Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CIFA">
+            <xsd:annotation>
+               <xsd:documentation>CIFA -- Counterintelligence Field Activity</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DC3">
+            <xsd:annotation>
+               <xsd:documentation>Defense Cyber Crime Center</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DC3/DCCI">
+            <xsd:annotation>
+               <xsd:documentation>DoD Cyber Crime Institute</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DC3/DCFL">
+            <xsd:annotation>
+               <xsd:documentation>DoD Computer Forensic Laboratory</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DC3/DCFL/MCS">
+            <xsd:annotation>
+               <xsd:documentation>DoD Computer Forensic Laboratory/Major Crimes and Safety</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DC3/DCFL/I">
+            <xsd:annotation>
+               <xsd:documentation>DoD Computer Forensic Laboratory/Intrusions</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DC3/DCFL/CI-CT">
+            <xsd:annotation>
+               <xsd:documentation>DoD Computer Forensic Laboratory/Counterintelligence and Counterterrorism</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DC3/DCFL/NMEC">
+            <xsd:annotation>
+               <xsd:documentation>DoD Computer Forensic Laboratory/NMEC Operating Location</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DC3/NCIJTF-AG">
+            <xsd:annotation>
+               <xsd:documentation>Defense Cyber Crime Center/National Cyber Investigative Joint Task Force - Analytic Group</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DC3/DCISE">
+            <xsd:annotation>
+               <xsd:documentation>Defense Cyber Crime Center/DoD-DIB Collaborative Information Sharing Environment</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="EUCOM">
+            <xsd:annotation>
+               <xsd:documentation>EUCOM -- US European Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GTMO">
+            <xsd:annotation>
+               <xsd:documentation>GTMO -- Joint Task Force Guantanamo</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="JFCOM">
+            <xsd:annotation>
+               <xsd:documentation>JFCOM -- US Joint Forces Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="JFMC">
+            <xsd:annotation>
+               <xsd:documentation>JFMC -- Project Chuckwagon</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="JIATF">
+            <xsd:annotation>
+               <xsd:documentation>JIATF -- Joint Inter Agency Task Force</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="JIEDDO">
+            <xsd:annotation>
+               <xsd:documentation>JIEDDO -- Joint Improvised Explosive Device Defeat Organization</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="JPRC">
+            <xsd:annotation>
+               <xsd:documentation>JPRC -- Joint Personnel Recovery Center</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="KFOR">
+            <xsd:annotation>
+               <xsd:documentation>KFOR -- NATO Forces in Kosovo</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MNCI">
+            <xsd:annotation>
+               <xsd:documentation>MNC-I -- Multi National Corp Iraq</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MNF-I">
+            <xsd:annotation>
+               <xsd:documentation>MNF-I -- Multi National Force Iraq</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NATO/EUFOR">
+            <xsd:annotation>
+               <xsd:documentation>NATO-EUFOR -- NATO European Union Force</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NORTHCOM">
+            <xsd:annotation>
+               <xsd:documentation>NORTHCOM -- US Northern Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PACOM">
+            <xsd:annotation>
+               <xsd:documentation>PACOM -- US Pacific Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PACOM/USFK">
+            <xsd:annotation>
+               <xsd:documentation>PACOM -- US Pacific Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SFOR">
+            <xsd:annotation>
+               <xsd:documentation>SFOR -- Stabilization Force</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/CNT">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/CMB">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command - Computer Modeling Branch</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/CMaB">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command - Counter Marcoterrorism Branch</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/CTB">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command - Counter Terror Branch</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/CTFB">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command - Counter Threat Finance Branch</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/DSB">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command - Direct Support Branch</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/ED">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command - Exploitation Division</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/EB">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command - External Branch</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/FD">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command - Fusion Division</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/IATF">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/ITB">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command - Illicit Trafficking Branch</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/IntB">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command - Integration Branch</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/IB">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command - Intel Branch</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/J1">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/J2">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/J3">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/J4">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/J5">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/J6">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/J7-J9">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/J8">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/JSOC">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/OB">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command - Ops Branch</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/OD">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command - Outreach Division</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/PB">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command - Production Branch</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/RAB">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command - Research and Analysis Branch</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/SOSTs">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/SPD">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command - Special Projects Division</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/SB">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command - Strategic Branch</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOCOM/SD">
+            <xsd:annotation>
+               <xsd:documentation>SOCOM -- US Special Operations Command - Synchronization Division</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOFFC">
+            <xsd:annotation>
+               <xsd:documentation>SOFFC -- Special Operations Forces Fusion Cell</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOUTHCOM">
+            <xsd:annotation>
+               <xsd:documentation>SOUTHCOM -- US Southern Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="STRATCOM">
+            <xsd:annotation>
+               <xsd:documentation>STRATCOM -- US Strategic Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="STRATCOM/USCYBERCOM">
+            <xsd:annotation>
+               <xsd:documentation>STRATCOM -- US Strategic Command</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TRANSCOM">
+            <xsd:annotation>
+               <xsd:documentation>None Provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="USFI">
+            <xsd:annotation>
+               <xsd:documentation>USFI -- United States Forces in Iraq</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="USFK">
+            <xsd:annotation>
+               <xsd:documentation>USFK -- United states Forces in Korea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

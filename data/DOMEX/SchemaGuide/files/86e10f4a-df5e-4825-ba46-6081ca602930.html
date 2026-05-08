@@ -1,0 +1,2398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for component serialNumber</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        var propertiesBoxes= new Array('properties_UsbDeviceReferenceType_serialNumber', 
+				'properties_UsbDeviceReferenceType_vendorId', 
+				'properties_UsbDeviceReferenceType_vendorName', 
+				'properties_UsbDeviceReferenceType_productId', 
+				'properties_UsbDeviceReferenceType_productName', 
+				'properties_UsbDeviceReferenceType_interfaceId', 
+				'properties_UsbDeviceReferenceType_interfaceName', 
+				'properties_UsbDeviceReferenceType_version', 
+				'properties_UsbDeviceReferenceType_firstConnectTime', 
+				'properties_UsbDeviceReferenceType_rebootConnectTime', 
+				'properties_UsbDeviceReferenceType_lastConnectTime', 
+				'properties_UsbDeviceReferenceType_volumeGuid', 
+				'properties_UsbDeviceReferenceType_softwareVersion', 
+				'properties_UsbDeviceReferenceType_driveLetter', 
+				'properties_UsbDeviceReferenceType_foundIn');
+var facetsBoxes= new Array('facets_UsbDeviceReferenceType_volumeGuid');
+var usedByBoxes= new Array('usedBy_UsbDeviceReferenceType', 
+				'usedBy_UsbDeviceReferenceType_foundIn');
+var sourceBoxes= new Array('source_UsbDeviceReferenceType_serialNumber', 
+				'source_UsbDeviceReferenceType_vendorId', 
+				'source_UsbDeviceReferenceType_vendorName', 
+				'source_UsbDeviceReferenceType_productId', 
+				'source_UsbDeviceReferenceType_productName', 
+				'source_UsbDeviceReferenceType_interfaceId', 
+				'source_UsbDeviceReferenceType_interfaceName', 
+				'source_UsbDeviceReferenceType_version', 
+				'source_UsbDeviceReferenceType_firstConnectTime', 
+				'source_UsbDeviceReferenceType_rebootConnectTime', 
+				'source_UsbDeviceReferenceType_lastConnectTime', 
+				'source_UsbDeviceReferenceType_volumeGuid', 
+				'source_UsbDeviceReferenceType_softwareVersion', 
+				'source_UsbDeviceReferenceType_driveLetter', 
+				'source_UsbDeviceReferenceType', 
+				'source_UsbDeviceReferenceType_foundIn');
+var diagramBoxes= new Array('diagram_UsbDeviceReferenceType_serialNumber', 
+				'diagram_UsbDeviceReferenceType_vendorId', 
+				'diagram_UsbDeviceReferenceType_vendorName', 
+				'diagram_UsbDeviceReferenceType_productId', 
+				'diagram_UsbDeviceReferenceType_productName', 
+				'diagram_UsbDeviceReferenceType_interfaceId', 
+				'diagram_UsbDeviceReferenceType_interfaceName', 
+				'diagram_UsbDeviceReferenceType_version', 
+				'diagram_UsbDeviceReferenceType_firstConnectTime', 
+				'diagram_UsbDeviceReferenceType_rebootConnectTime', 
+				'diagram_UsbDeviceReferenceType_lastConnectTime', 
+				'diagram_UsbDeviceReferenceType_volumeGuid', 
+				'diagram_UsbDeviceReferenceType_softwareVersion', 
+				'diagram_UsbDeviceReferenceType_driveLetter', 
+				'diagram_UsbDeviceReferenceType');
+var annotationBoxes= new Array('annotations_UsbDeviceReferenceType');
+var attributesBoxes= new Array('attributes_UsbDeviceReferenceType');
+var modelBoxes= new Array('model_UsbDeviceReferenceType');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //
+--></script>
+   </head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_content" rowspan="1" colspan="1">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, annotationBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Annotations</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, attributesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Attributes </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Diagrams</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, facetsBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Facets </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Model </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Properties </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Source</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Used by </span>
+                        </td>
+                     </tr>
+                  </table>
+                  <div align="right">
+                     <span>
+                        <input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close"></input>
+                     </span>
+                  </div>
+               </td>
+               <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+            </tr>
+         </table>
+      </div>
+      <a id="UsbDeviceReferenceType_serialNumber" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component UsbDeviceReferenceType')" shape="rect">UsbDeviceReferenceType</a>
+            </b> / serialNumber</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:mil:ces:metadata:domex</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_UsbDeviceReferenceType_serialNumber" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_UsbDeviceReferenceType_serialNumber');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_UsbDeviceReferenceType_serialNumber" style="display:block">
+                              <img alt="Diagram" border="0" src="img/DOMEX_xsd_Element_serialNumber_1.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_UsbDeviceReferenceType_serialNumber" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_UsbDeviceReferenceType_serialNumber');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_UsbDeviceReferenceType_serialNumber" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_UsbDeviceReferenceType_serialNumber" type="image" src="img/btM.gif" value="-" onclick="switchState('source_UsbDeviceReferenceType_serialNumber');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_UsbDeviceReferenceType_serialNumber" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"serialNumber"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/DOMEX.xsd">DOMEX.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="UsbDeviceReferenceType_vendorId" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component UsbDeviceReferenceType')" shape="rect">UsbDeviceReferenceType</a>
+            </b> / vendorId</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:mil:ces:metadata:domex</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_UsbDeviceReferenceType_vendorId" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_UsbDeviceReferenceType_vendorId');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_UsbDeviceReferenceType_vendorId" style="display:block">
+                              <img alt="Diagram" border="0" src="img/DOMEX_xsd_Element_vendorId.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_UsbDeviceReferenceType_vendorId" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_UsbDeviceReferenceType_vendorId');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_UsbDeviceReferenceType_vendorId" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_UsbDeviceReferenceType_vendorId" type="image" src="img/btM.gif" value="-" onclick="switchState('source_UsbDeviceReferenceType_vendorId');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_UsbDeviceReferenceType_vendorId" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"vendorId"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/DOMEX.xsd">DOMEX.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="UsbDeviceReferenceType_vendorName" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component UsbDeviceReferenceType')" shape="rect">UsbDeviceReferenceType</a>
+            </b> / vendorName</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:mil:ces:metadata:domex</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_UsbDeviceReferenceType_vendorName" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_UsbDeviceReferenceType_vendorName');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_UsbDeviceReferenceType_vendorName" style="display:block">
+                              <img alt="Diagram" border="0" src="img/DOMEX_xsd_Element_vendorName.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_UsbDeviceReferenceType_vendorName" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_UsbDeviceReferenceType_vendorName');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_UsbDeviceReferenceType_vendorName" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_UsbDeviceReferenceType_vendorName" type="image" src="img/btM.gif" value="-" onclick="switchState('source_UsbDeviceReferenceType_vendorName');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_UsbDeviceReferenceType_vendorName" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"vendorName"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/DOMEX.xsd">DOMEX.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="UsbDeviceReferenceType_productId" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component UsbDeviceReferenceType')" shape="rect">UsbDeviceReferenceType</a>
+            </b> / productId</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:mil:ces:metadata:domex</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_UsbDeviceReferenceType_productId" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_UsbDeviceReferenceType_productId');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_UsbDeviceReferenceType_productId" style="display:block">
+                              <img alt="Diagram" border="0" src="img/DOMEX_xsd_Element_productId.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_UsbDeviceReferenceType_productId" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_UsbDeviceReferenceType_productId');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_UsbDeviceReferenceType_productId" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_UsbDeviceReferenceType_productId" type="image" src="img/btM.gif" value="-" onclick="switchState('source_UsbDeviceReferenceType_productId');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_UsbDeviceReferenceType_productId" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"productId"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/DOMEX.xsd">DOMEX.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="UsbDeviceReferenceType_productName" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component UsbDeviceReferenceType')" shape="rect">UsbDeviceReferenceType</a>
+            </b> / productName</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:mil:ces:metadata:domex</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_UsbDeviceReferenceType_productName" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_UsbDeviceReferenceType_productName');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_UsbDeviceReferenceType_productName" style="display:block">
+                              <img alt="Diagram" border="0" src="img/DOMEX_xsd_Element_productName.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_UsbDeviceReferenceType_productName" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_UsbDeviceReferenceType_productName');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_UsbDeviceReferenceType_productName" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_UsbDeviceReferenceType_productName" type="image" src="img/btM.gif" value="-" onclick="switchState('source_UsbDeviceReferenceType_productName');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_UsbDeviceReferenceType_productName" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"productName"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/DOMEX.xsd">DOMEX.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="UsbDeviceReferenceType_interfaceId" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component UsbDeviceReferenceType')" shape="rect">UsbDeviceReferenceType</a>
+            </b> / interfaceId</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:mil:ces:metadata:domex</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_UsbDeviceReferenceType_interfaceId" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_UsbDeviceReferenceType_interfaceId');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_UsbDeviceReferenceType_interfaceId" style="display:block">
+                              <img alt="Diagram" border="0" src="img/DOMEX_xsd_Element_interfaceId.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_UsbDeviceReferenceType_interfaceId" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_UsbDeviceReferenceType_interfaceId');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_UsbDeviceReferenceType_interfaceId" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_UsbDeviceReferenceType_interfaceId" type="image" src="img/btM.gif" value="-" onclick="switchState('source_UsbDeviceReferenceType_interfaceId');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_UsbDeviceReferenceType_interfaceId" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"interfaceId"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/DOMEX.xsd">DOMEX.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="UsbDeviceReferenceType_interfaceName" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component UsbDeviceReferenceType')" shape="rect">UsbDeviceReferenceType</a>
+            </b> / interfaceName</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:mil:ces:metadata:domex</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_UsbDeviceReferenceType_interfaceName" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_UsbDeviceReferenceType_interfaceName');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_UsbDeviceReferenceType_interfaceName" style="display:block">
+                              <img alt="Diagram" border="0" src="img/DOMEX_xsd_Element_interfaceName.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_UsbDeviceReferenceType_interfaceName" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_UsbDeviceReferenceType_interfaceName');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_UsbDeviceReferenceType_interfaceName" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_UsbDeviceReferenceType_interfaceName" type="image" src="img/btM.gif" value="-" onclick="switchState('source_UsbDeviceReferenceType_interfaceName');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_UsbDeviceReferenceType_interfaceName" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"interfaceName"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/DOMEX.xsd">DOMEX.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="UsbDeviceReferenceType_version" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component UsbDeviceReferenceType')" shape="rect">UsbDeviceReferenceType</a>
+            </b> / version</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:mil:ces:metadata:domex</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_UsbDeviceReferenceType_version" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_UsbDeviceReferenceType_version');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_UsbDeviceReferenceType_version" style="display:block">
+                              <img alt="Diagram" border="0" src="img/DOMEX_xsd_Element_version.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_UsbDeviceReferenceType_version" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_UsbDeviceReferenceType_version');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_UsbDeviceReferenceType_version" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_UsbDeviceReferenceType_version" type="image" src="img/btM.gif" value="-" onclick="switchState('source_UsbDeviceReferenceType_version');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_UsbDeviceReferenceType_version" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"version"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/DOMEX.xsd">DOMEX.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="UsbDeviceReferenceType_firstConnectTime" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component UsbDeviceReferenceType')" shape="rect">UsbDeviceReferenceType</a>
+            </b> / firstConnectTime</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:mil:ces:metadata:domex</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_UsbDeviceReferenceType_firstConnectTime" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_UsbDeviceReferenceType_firstConnectTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_UsbDeviceReferenceType_firstConnectTime" style="display:block">
+                              <img alt="Diagram" border="0" src="img/DOMEX_xsd_Element_firstConnectTime.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:dateTime</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_UsbDeviceReferenceType_firstConnectTime" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_UsbDeviceReferenceType_firstConnectTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_UsbDeviceReferenceType_firstConnectTime" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_UsbDeviceReferenceType_firstConnectTime" type="image" src="img/btM.gif" value="-" onclick="switchState('source_UsbDeviceReferenceType_firstConnectTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_UsbDeviceReferenceType_firstConnectTime" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"firstConnectTime"</span><span class="tAN"> type=</span><span class="tAV">"xs:dateTime"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/DOMEX.xsd">DOMEX.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="UsbDeviceReferenceType_rebootConnectTime" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component UsbDeviceReferenceType')" shape="rect">UsbDeviceReferenceType</a>
+            </b> / rebootConnectTime</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:mil:ces:metadata:domex</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_UsbDeviceReferenceType_rebootConnectTime" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_UsbDeviceReferenceType_rebootConnectTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_UsbDeviceReferenceType_rebootConnectTime" style="display:block">
+                              <img alt="Diagram" border="0" src="img/DOMEX_xsd_Element_rebootConnectTime.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:dateTime</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_UsbDeviceReferenceType_rebootConnectTime" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_UsbDeviceReferenceType_rebootConnectTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_UsbDeviceReferenceType_rebootConnectTime" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_UsbDeviceReferenceType_rebootConnectTime" type="image" src="img/btM.gif" value="-" onclick="switchState('source_UsbDeviceReferenceType_rebootConnectTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_UsbDeviceReferenceType_rebootConnectTime" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"rebootConnectTime"</span><span class="tAN"> type=</span><span class="tAV">"xs:dateTime"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/DOMEX.xsd">DOMEX.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="UsbDeviceReferenceType_lastConnectTime" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component UsbDeviceReferenceType')" shape="rect">UsbDeviceReferenceType</a>
+            </b> / lastConnectTime</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:mil:ces:metadata:domex</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_UsbDeviceReferenceType_lastConnectTime" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_UsbDeviceReferenceType_lastConnectTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_UsbDeviceReferenceType_lastConnectTime" style="display:block">
+                              <img alt="Diagram" border="0" src="img/DOMEX_xsd_Element_lastConnectTime.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:dateTime</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_UsbDeviceReferenceType_lastConnectTime" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_UsbDeviceReferenceType_lastConnectTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_UsbDeviceReferenceType_lastConnectTime" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_UsbDeviceReferenceType_lastConnectTime" type="image" src="img/btM.gif" value="-" onclick="switchState('source_UsbDeviceReferenceType_lastConnectTime');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_UsbDeviceReferenceType_lastConnectTime" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"lastConnectTime"</span><span class="tAN"> type=</span><span class="tAV">"xs:dateTime"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/DOMEX.xsd">DOMEX.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="UsbDeviceReferenceType_volumeGuid" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component UsbDeviceReferenceType')" shape="rect">UsbDeviceReferenceType</a>
+            </b> / volumeGuid</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:mil:ces:metadata:domex</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_UsbDeviceReferenceType_volumeGuid" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_UsbDeviceReferenceType_volumeGuid');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_UsbDeviceReferenceType_volumeGuid" style="display:block">
+                              <img alt="Diagram" border="0" src="img/DOMEX_xsd_Element_volumeGuid.png" usemap="#DOMEX_xsd_Element_volumeGuid"></img>
+                              <map name="DOMEX_xsd_Element_volumeGuid" id="DOMEX_xsd_Element_volumeGuid">
+                                 <area alt="DOMEX_xsd_Simple_Type_UuidType.tmp#UuidType" href="DOMEX_xsd_Simple_Type_UuidType.html#UuidType" coords="126,0,275,26" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="DOMEX_xsd_Simple_Type_UuidType.html#UuidType" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component UuidType')" shape="rect">UuidType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_UsbDeviceReferenceType_volumeGuid" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_UsbDeviceReferenceType_volumeGuid');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_UsbDeviceReferenceType_volumeGuid" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Facets</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_facets_UsbDeviceReferenceType_volumeGuid" type="image" src="img/btM.gif" value="-" onclick="switchState('facets_UsbDeviceReferenceType_volumeGuid');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="facets_UsbDeviceReferenceType_volumeGuid" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">pattern</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{16}</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_UsbDeviceReferenceType_volumeGuid" type="image" src="img/btM.gif" value="-" onclick="switchState('source_UsbDeviceReferenceType_volumeGuid');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_UsbDeviceReferenceType_volumeGuid" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"volumeGuid"</span><span class="tAN"> type=</span><span class="tAV">"domex:UuidType"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/DOMEX.xsd">DOMEX.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="UsbDeviceReferenceType_softwareVersion" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component UsbDeviceReferenceType')" shape="rect">UsbDeviceReferenceType</a>
+            </b> / softwareVersion</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:mil:ces:metadata:domex</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_UsbDeviceReferenceType_softwareVersion" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_UsbDeviceReferenceType_softwareVersion');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_UsbDeviceReferenceType_softwareVersion" style="display:block">
+                              <img alt="Diagram" border="0" src="img/DOMEX_xsd_Element_softwareVersion.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_UsbDeviceReferenceType_softwareVersion" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_UsbDeviceReferenceType_softwareVersion');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_UsbDeviceReferenceType_softwareVersion" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_UsbDeviceReferenceType_softwareVersion" type="image" src="img/btM.gif" value="-" onclick="switchState('source_UsbDeviceReferenceType_softwareVersion');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_UsbDeviceReferenceType_softwareVersion" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"softwareVersion"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/DOMEX.xsd">DOMEX.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="UsbDeviceReferenceType_driveLetter" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component UsbDeviceReferenceType')" shape="rect">UsbDeviceReferenceType</a>
+            </b> / driveLetter</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:mil:ces:metadata:domex</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_UsbDeviceReferenceType_driveLetter" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_UsbDeviceReferenceType_driveLetter');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_UsbDeviceReferenceType_driveLetter" style="display:block">
+                              <img alt="Diagram" border="0" src="img/DOMEX_xsd_Element_driveLetter.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_UsbDeviceReferenceType_driveLetter" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_UsbDeviceReferenceType_driveLetter');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_UsbDeviceReferenceType_driveLetter" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_UsbDeviceReferenceType_driveLetter" type="image" src="img/btM.gif" value="-" onclick="switchState('source_UsbDeviceReferenceType_driveLetter');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_UsbDeviceReferenceType_driveLetter" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"driveLetter"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/DOMEX.xsd">DOMEX.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="UsbDeviceReferenceType" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Complex Type <span class="qname">UsbDeviceReferenceType</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:mil:ces:metadata:domex</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_UsbDeviceReferenceType" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_UsbDeviceReferenceType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_UsbDeviceReferenceType" style="display:block">
+                              <div class="annotation">Data about a device connected to the media via USB
+                                 				interface.</div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_UsbDeviceReferenceType" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_UsbDeviceReferenceType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_UsbDeviceReferenceType" style="display:block">
+                              <img alt="Diagram" border="0" src="img/72048fb3-8008-4686-8945-bd0fcb038878.png" usemap="#DOMEX_xsd_Complex_Type_UsbDeviceReferenceType"></img>
+                              <map name="DOMEX_xsd_Complex_Type_UsbDeviceReferenceType" id="DOMEX_xsd_Complex_Type_UsbDeviceReferenceType">
+                                 <area alt="DOMEX_xsd_Complex_Type_UsbDeviceReferenceType.tmp#UsbDeviceReferenceType_foundIn" href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_foundIn" coords="260,38,353,62" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_UsbDeviceReferenceType.tmp#UsbDeviceReferenceType_serialNumber" href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_serialNumber" coords="317,79,425,103" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_UsbDeviceReferenceType.tmp#UsbDeviceReferenceType_vendorId" href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_vendorId" coords="317,113,397,137" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_UsbDeviceReferenceType.tmp#UsbDeviceReferenceType_vendorName" href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_vendorName" coords="317,147,420,171" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_UsbDeviceReferenceType.tmp#UsbDeviceReferenceType_productId" href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_productId" coords="317,181,401,205" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_UsbDeviceReferenceType.tmp#UsbDeviceReferenceType_productName" href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_productName" coords="317,215,424,239" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_UsbDeviceReferenceType.tmp#UsbDeviceReferenceType_interfaceId" href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_interfaceId" coords="317,249,408,273" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_UsbDeviceReferenceType.tmp#UsbDeviceReferenceType_interfaceName" href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_interfaceName" coords="317,283,431,307" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_UsbDeviceReferenceType.tmp#UsbDeviceReferenceType_version" href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_version" coords="317,317,390,341" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_UsbDeviceReferenceType.tmp#UsbDeviceReferenceType_firstConnectTime" href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_firstConnectTime" coords="317,351,445,375" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_UsbDeviceReferenceType.tmp#UsbDeviceReferenceType_rebootConnectTime" href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_rebootConnectTime" coords="317,385,459,409" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_UsbDeviceReferenceType.tmp#UsbDeviceReferenceType_lastConnectTime" href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_lastConnectTime" coords="317,419,443,443" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_UsbDeviceReferenceType.tmp#UsbDeviceReferenceType_volumeGuid" href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_volumeGuid" coords="317,453,415,477" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_UsbDeviceReferenceType.tmp#UsbDeviceReferenceType_softwareVersion" href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_softwareVersion" coords="317,487,441,511" shape="rect"></area>
+                                 <area alt="DOMEX_xsd_Complex_Type_UsbDeviceReferenceType.tmp#UsbDeviceReferenceType_driveLetter" href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_driveLetter" coords="317,521,409,545" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_UsbDeviceReferenceType" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_UsbDeviceReferenceType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_UsbDeviceReferenceType" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Element </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="DOMEX_xsd_Element_mediaDetails.html#mediaDetails_usbDeviceReference" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component mediaDetails/usbDeviceReference')" shape="rect">mediaDetails/usbDeviceReference</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_UsbDeviceReferenceType" type="image" src="img/btM.gif" value="-" onclick="switchState('model_UsbDeviceReferenceType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_UsbDeviceReferenceType" style="display:block">
+                              <b>
+                                 <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_serialNumber" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component serialNumber')" shape="rect">serialNumber</a>
+                              </b> , <b>
+                                 <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_vendorId" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component vendorId')" shape="rect">vendorId</a>
+                              </b> , <b>
+                                 <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_vendorName" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component vendorName')" shape="rect">vendorName</a>
+                              </b> , <b>
+                                 <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_productId" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component productId')" shape="rect">productId</a>
+                              </b> , <b>
+                                 <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_productName" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component productName')" shape="rect">productName</a>
+                              </b> , <b>
+                                 <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_interfaceId" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component interfaceId{0,1}')" shape="rect">interfaceId{0,1}</a>
+                              </b> , <b>
+                                 <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_interfaceName" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component interfaceName{0,1}')" shape="rect">interfaceName{0,1}</a>
+                              </b> , <b>
+                                 <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_version" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component version')" shape="rect">version</a>
+                              </b> , <b>
+                                 <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_firstConnectTime" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component firstConnectTime')" shape="rect">firstConnectTime</a>
+                              </b> , <b>
+                                 <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_rebootConnectTime" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component rebootConnectTime')" shape="rect">rebootConnectTime</a>
+                              </b> , <b>
+                                 <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_lastConnectTime" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component lastConnectTime')" shape="rect">lastConnectTime</a>
+                              </b> , <b>
+                                 <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_volumeGuid" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component volumeGuid')" shape="rect">volumeGuid</a>
+                              </b> , <b>
+                                 <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_softwareVersion" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component softwareVersion')" shape="rect">softwareVersion</a>
+                              </b> , <b>
+                                 <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_driveLetter" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component driveLetter')" shape="rect">driveLetter</a>
+                              </b>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_driveLetter" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component driveLetter')" shape="rect">driveLetter</a>
+                           </b>, <b>
+                              <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_firstConnectTime" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component firstConnectTime')" shape="rect">firstConnectTime</a>
+                           </b>, <b>
+                              <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_interfaceId" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component interfaceId')" shape="rect">interfaceId</a>
+                           </b>, <b>
+                              <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_interfaceName" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component interfaceName')" shape="rect">interfaceName</a>
+                           </b>, <b>
+                              <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_lastConnectTime" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component lastConnectTime')" shape="rect">lastConnectTime</a>
+                           </b>, <b>
+                              <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_productId" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component productId')" shape="rect">productId</a>
+                           </b>, <b>
+                              <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_productName" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component productName')" shape="rect">productName</a>
+                           </b>, <b>
+                              <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_rebootConnectTime" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component rebootConnectTime')" shape="rect">rebootConnectTime</a>
+                           </b>, <b>
+                              <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_serialNumber" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component serialNumber')" shape="rect">serialNumber</a>
+                           </b>, <b>
+                              <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_softwareVersion" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component softwareVersion')" shape="rect">softwareVersion</a>
+                           </b>, <b>
+                              <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_vendorId" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component vendorId')" shape="rect">vendorId</a>
+                           </b>, <b>
+                              <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_vendorName" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component vendorName')" shape="rect">vendorName</a>
+                           </b>, <b>
+                              <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_version" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component version')" shape="rect">version</a>
+                           </b>, <b>
+                              <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_volumeGuid" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component volumeGuid')" shape="rect">volumeGuid</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Attributes</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_attributes_UsbDeviceReferenceType" type="image" src="img/btM.gif" value="-" onclick="switchState('attributes_UsbDeviceReferenceType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="attributes_UsbDeviceReferenceType" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th rowspan="1" colspan="1">QName</th>
+                                       <th width="10%" rowspan="1" colspan="1">Type</th>
+                                       <th width="5%" rowspan="1" colspan="1">Use</th>
+                                       <th width="100%" rowspan="1" colspan="1"></th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType_foundIn" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component foundIn')" shape="rect">foundIn</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>xs:string</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_UsbDeviceReferenceType" type="image" src="img/btM.gif" value="-" onclick="switchState('source_UsbDeviceReferenceType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_UsbDeviceReferenceType" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:complexType</span><span class="tAN"> name=</span><span class="tAV">"UsbDeviceReferenceType"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Data about a device connected to the media via USB interface.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"serialNumber"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"vendorId"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"vendorName"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"productId"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"productName"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"interfaceId"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"interfaceName"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"version"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"firstConnectTime"</span><span class="tAN"> type=</span><span class="tAV">"xs:dateTime"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"rebootConnectTime"</span><span class="tAN"> type=</span><span class="tAV">"xs:dateTime"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"lastConnectTime"</span><span class="tAN"> type=</span><span class="tAV">"xs:dateTime"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"volumeGuid"</span><span class="tAN"> type=</span><span class="tAV">"domex:UuidType"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"softwareVersion"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"driveLetter"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"foundIn"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> use=</span><span class="tAV">"optional"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:complexType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/DOMEX.xsd">DOMEX.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="UsbDeviceReferenceType_foundIn" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Attribute <span class="qname">
+            <b>
+               <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component UsbDeviceReferenceType')" shape="rect">UsbDeviceReferenceType</a>
+            </b> / @foundIn</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:mil:ces:metadata:domex</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>xs:string</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_UsbDeviceReferenceType_foundIn" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_UsbDeviceReferenceType_foundIn');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_UsbDeviceReferenceType_foundIn" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">use</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>optional</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_UsbDeviceReferenceType_foundIn" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_UsbDeviceReferenceType_foundIn');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_UsbDeviceReferenceType_foundIn" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Complex Type </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="86e10f4a-df5e-4825-ba46-6081ca602930.html#UsbDeviceReferenceType" target="mainFrame" title="urn:us:mil:ces:metadata:domex" onclick="updatePageTitle('Schema documentation for component UsbDeviceReferenceType')" shape="rect">UsbDeviceReferenceType</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_UsbDeviceReferenceType_foundIn" type="image" src="img/btM.gif" value="-" onclick="switchState('source_UsbDeviceReferenceType_foundIn');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_UsbDeviceReferenceType_foundIn" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"foundIn"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> use=</span><span class="tAV">"optional"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/DOMEX/DOMEX.xsd">DOMEX.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //
+--></script>
+   </body>
+</html>

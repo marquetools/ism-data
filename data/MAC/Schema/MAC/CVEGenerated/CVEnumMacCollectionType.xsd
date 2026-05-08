@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:maccoltype="urn:us:gov:ic:cvenum:mac:collectionType"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:mac:collectionType">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumMacCollectionType Version 2.1 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumMacCollectionType.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+<!--Generated TYPE DEFINITIONS ..................................-->
+<!--*************************************************************-->
+<xsd:simpleType name="CVEnumMacCollectionTypeValues">
+      <xsd:annotation>
+         <xsd:documentation>(U) All currently authorized collection types used by MAC.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumMacCollectionType.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:union>
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:token">
+               <xsd:pattern value="other:[A-Z][a-zA-Z_]*">
+                  <xsd:annotation>
+                     <xsd:documentation>This is to denote that the collection is of some other type that is not defined 
+			      in this CVE.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:pattern>
+            </xsd:restriction>
+         </xsd:simpleType>
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:token">
+               <xsd:enumeration value="Tearline">
+                  <xsd:annotation>
+                     <xsd:documentation>A Tearline collection denotes that the members of the collection express 
+			      	the same information sanitized to different classification levels.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="Format">
+                  <xsd:annotation>
+                     <xsd:documentation>A Format collection denotes that the members of the collection are the 
+			       same asset in different formats. (i.e. Word, PDF)</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="Role">
+                  <xsd:annotation>
+                     <xsd:documentation>A Role collection denotes that the members of the collection are the 
+		  			same asset in the same format with differences in content based on the role of the viewer. (i.e. Developer, System Administrator, 
+		  			Manager)</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:union>
+   </xsd:simpleType>
+   <xsd:simpleType name="CVEnumMacCollectionType">
+      <xsd:restriction>
+         <xsd:simpleType>
+            <xsd:list itemType="maccoltype:CVEnumMacCollectionTypeValues"/>
+         </xsd:simpleType>
+         <xsd:maxLength value="1000"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXTranslationType">
+   <define name="CVEnumDOMEXTranslationType.cve">
+      <choice>
+         <value>F</value>
+         <value>J</value>
+         <value>M</value>
+         <value>MAT</value>
+         <value>MLW</value>
+         <value>O</value>
+         <value>P</value>
+         <value>S</value>
+         <value>U</value>
+      </choice>
+   </define>
+</grammar>

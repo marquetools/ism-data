@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXCollectingUnitIDTypeType">
+   <define name="CVEnumDOMEXCollectingUnitIDTypeType.cve">
+      <choice>
+         <value>Case Number</value>
+         <value>Detainee Number</value>
+         <value>Harmony Series End</value>
+         <value>Harmony Series Start</value>
+         <value>IOC Requirement Number</value>
+         <value>ISN</value>
+         <value>LOO/Series</value>
+         <value>Technical Control Number</value>
+         <value>CEXC #</value>
+         <value>JEFF #</value>
+         <value>SIGACT #</value>
+         <value>WIT #</value>
+      </choice>
+   </define>
+</grammar>

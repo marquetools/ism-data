@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       --><cve:CVE xmlns:cve="urn:us:gov:ic:cve" xmlns:ism="urn:us:gov:ic:ism" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ism:compliesWith="USGov USIC" ism:ownerProducer="USA" ism:classification="U" ism:DESVersion="202111" ism:ISMCATCESVersion="202205" ism:resourceElement="true" CVEVersion="2" ism:createDate="2011-12-27" xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+         
+	  <cve:IRM>
+		    <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:domex:CVEnumDOMEXTranslationType</URN>
+		    <Title xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">CVEnumDOMEXTranslationType</Title>
+		    <Description xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">Valid range for translation type.</Description>
+
+		    <cve:Created>2013-04-01</cve:Created>
+
+		    <Source ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">Authoritative source for Translation Types</Source>
+		    <PointOfContact ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">
+         <Name>DOMEX Metadata Working Group</Name>
+      </PointOfContact>
+	  </cve:IRM>
+	  
+	  	<!--TranslationType-->
+	  <cve:Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">F</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">FULL</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">J</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">JUBILANT</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">M</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">MACHINE</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">MAT</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">MACHINE - APPTEK</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">MLW</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">MACHINE - LANG WEAVER</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">O</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">ORIGINAL</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">P</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">PARTIAL</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">S</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">SUMMARY</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">U</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">UNKNOWN</Description>
+		    </Term>
+	  </cve:Enumeration>
+
+	  </cve:CVE>

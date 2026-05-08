@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXDocumentType"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXDocumentType"
+            version="202111">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumDOMEXDocumentType Version 2 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumDOMEXDocumentType.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumDOMEXDocumentType">
+      <xsd:annotation>
+         <xsd:documentation>(U) Valid range for document type.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumDOMEXDocumentType.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="AC">
+            <xsd:annotation>
+               <xsd:documentation>ARMY POSTCARD</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="AD">
+            <xsd:annotation>
+               <xsd:documentation>ADDRESS/PHONE BOOK</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="AI">
+            <xsd:annotation>
+               <xsd:documentation>ALBUM OF ILLUSTRATIONS</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="AP">
+            <xsd:annotation>
+               <xsd:documentation>ADMINISTRATIVE PUBLICATION</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="AR">
+            <xsd:annotation>
+               <xsd:documentation>ARTICLE</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BC">
+            <xsd:annotation>
+               <xsd:documentation>BROADCAST</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BK">
+            <xsd:annotation>
+               <xsd:documentation>BOOK</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BP">
+            <xsd:annotation>
+               <xsd:documentation>BLUEPRINT</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BR">
+            <xsd:annotation>
+               <xsd:documentation>BROCHURE</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BU">
+            <xsd:annotation>
+               <xsd:documentation>BUSINESS CARD</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BY">
+            <xsd:annotation>
+               <xsd:documentation>BIOGRAPHY</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CA">
+            <xsd:annotation>
+               <xsd:documentation>CATALOG</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CC">
+            <xsd:annotation>
+               <xsd:documentation>CREDIT/BANK CARD</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CD">
+            <xsd:annotation>
+               <xsd:documentation>CONTRACT DOCUMENTATION</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CF">
+            <xsd:annotation>
+               <xsd:documentation>COMMERCIAL FORM</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CI">
+            <xsd:annotation>
+               <xsd:documentation>COMBAT INSTRUCTIONS</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CL">
+            <xsd:annotation>
+               <xsd:documentation>CODES LISTING</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CO">
+            <xsd:annotation>
+               <xsd:documentation>COLLECTION</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CP">
+            <xsd:annotation>
+               <xsd:documentation>CONFERENCES/SYMPOSIA/PROCEEDING</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CR">
+            <xsd:annotation>
+               <xsd:documentation>CARGO DOCUMENT</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CW">
+            <xsd:annotation>
+               <xsd:documentation>CREW LIST</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CX">
+            <xsd:annotation>
+               <xsd:documentation>CELLEX REPORT</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DI">
+            <xsd:annotation>
+               <xsd:documentation>DICTIONARY</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DL">
+            <xsd:annotation>
+               <xsd:documentation>DOCUMENTS LIST</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DP">
+            <xsd:annotation>
+               <xsd:documentation>DIARY/DAILY PLANNER</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DT">
+            <xsd:annotation>
+               <xsd:documentation>DISSERTATION/THESIS</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="EC">
+            <xsd:annotation>
+               <xsd:documentation>ELECTRONIC COMM (EMAIL,CHAT ROOM,ETC)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="EG">
+            <xsd:annotation>
+               <xsd:documentation>EQUIPMENT GUIDE</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="EP">
+            <xsd:annotation>
+               <xsd:documentation>EQUIPMENT PASSPORT/CERTIFICATE</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="EV">
+            <xsd:annotation>
+               <xsd:documentation>EVIDENCE</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FC">
+            <xsd:annotation>
+               <xsd:documentation>FINGERPRINT CARD</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FI">
+            <xsd:annotation>
+               <xsd:documentation>FOREIGN INTELLIGENCE REPORT</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FR">
+            <xsd:annotation>
+               <xsd:documentation>FINANCIAL RECORDS</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FX">
+            <xsd:annotation>
+               <xsd:documentation>FACSIMILE</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GF">
+            <xsd:annotation>
+               <xsd:documentation>GOVERNMENT FORM</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HB">
+            <xsd:annotation>
+               <xsd:documentation>HANDBOOK</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HN">
+            <xsd:annotation>
+               <xsd:documentation>HANDWRITTEN NOTES/NOTEBOOK</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HS">
+            <xsd:annotation>
+               <xsd:documentation>HANDWRITING SAMPLE</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HY">
+            <xsd:annotation>
+               <xsd:documentation>HARMONY NUMBER</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="IC">
+            <xsd:annotation>
+               <xsd:documentation>INCOMING POSTCARD</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="II">
+            <xsd:annotation>
+               <xsd:documentation>ICRC INCOMING FORM</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="IL">
+            <xsd:annotation>
+               <xsd:documentation>INCOMING LETTER</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="IM">
+            <xsd:annotation>
+               <xsd:documentation>IMAGERY</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="IN">
+            <xsd:annotation>
+               <xsd:documentation>INTERVIEW</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="IO">
+            <xsd:annotation>
+               <xsd:documentation>ICRC OUTGOING FORM</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="IP">
+            <xsd:annotation>
+               <xsd:documentation>IMMIGRATION/CUSTOMS PAPERS</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="IS">
+            <xsd:annotation>
+               <xsd:documentation>ISSUE</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LB">
+            <xsd:annotation>
+               <xsd:documentation>LOGBOOK</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LE">
+            <xsd:annotation>
+               <xsd:documentation>LETTER</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LP">
+            <xsd:annotation>
+               <xsd:documentation>MISCELLANEOUS LOOSE PAPER</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LT">
+            <xsd:annotation>
+               <xsd:documentation>LECTURE/BRIEFING</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MD">
+            <xsd:annotation>
+               <xsd:documentation>MEETING DOCUMENTATION</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ME">
+            <xsd:annotation>
+               <xsd:documentation>MESSAGE</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MI">
+            <xsd:annotation>
+               <xsd:documentation>MILITARY ID</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MN">
+            <xsd:annotation>
+               <xsd:documentation>MISCELLANEOUS NON-TECHNICAL DOCUMENT</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MO">
+            <xsd:annotation>
+               <xsd:documentation>MILITARY ORDERS</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MP">
+            <xsd:annotation>
+               <xsd:documentation>MAP</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MR">
+            <xsd:annotation>
+               <xsd:documentation>MEDICAL RECORDS</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MS">
+            <xsd:annotation>
+               <xsd:documentation>MISCELLANEOUS SERIAL</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MT">
+            <xsd:annotation>
+               <xsd:documentation>MISCELLANEOUS TECHNICAL DOCUMENTATION</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MV">
+            <xsd:annotation>
+               <xsd:documentation>MILITARY INVENTORY</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MX">
+            <xsd:annotation>
+               <xsd:documentation>MEDEX REPORT</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NE">
+            <xsd:annotation>
+               <xsd:documentation>NAMED ENTITY SOURCE TEXT</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NV">
+            <xsd:annotation>
+               <xsd:documentation>NAVIGATION DOCUMENT</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="OC">
+            <xsd:annotation>
+               <xsd:documentation>ORGANIZATIONAL CHART CHARTER</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="OI">
+            <xsd:annotation>
+               <xsd:documentation>OPERATING INSTRUCTIONS</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="OL">
+            <xsd:annotation>
+               <xsd:documentation>OUTGOING LETTER</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="OP">
+            <xsd:annotation>
+               <xsd:documentation>OUTGOING POSTCARD</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PA">
+            <xsd:annotation>
+               <xsd:documentation>PATENTS</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PC">
+            <xsd:annotation>
+               <xsd:documentation>PHONE CARD</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PD">
+            <xsd:annotation>
+               <xsd:documentation>PRODUCTION DRAWING</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PE">
+            <xsd:annotation>
+               <xsd:documentation>PERIODICAL</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PF">
+            <xsd:annotation>
+               <xsd:documentation>PERSONNEL FILE</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PH">
+            <xsd:annotation>
+               <xsd:documentation>PHOTOGRAPH</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PI">
+            <xsd:annotation>
+               <xsd:documentation>PERSONAL IDENTIFICATION</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PK">
+            <xsd:annotation>
+               <xsd:documentation>POCKET LITTER</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PL">
+            <xsd:annotation>
+               <xsd:documentation>PARTS LIST</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PO">
+            <xsd:annotation>
+               <xsd:documentation>POETRY</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PP">
+            <xsd:annotation>
+               <xsd:documentation>PASSPORT/CERTIFICATE</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PR">
+            <xsd:annotation>
+               <xsd:documentation>POLICE REPORT</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PS">
+            <xsd:annotation>
+               <xsd:documentation>PRIMARY SOURCE</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PX">
+            <xsd:annotation>
+               <xsd:documentation>PERSONNEL ROSTER</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PZ">
+            <xsd:annotation>
+               <xsd:documentation>PRESS RELEASE</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="RA">
+            <xsd:annotation>
+               <xsd:documentation>RADIOGRAM</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="RD">
+            <xsd:annotation>
+               <xsd:documentation>REPAIR DRAWING</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="RE">
+            <xsd:annotation>
+               <xsd:documentation>RELIGIOUS TEXT</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="RF">
+            <xsd:annotation>
+               <xsd:documentation>RADIOFREQUENCY LIST</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="RG">
+            <xsd:annotation>
+               <xsd:documentation>SHIP REGISTRATION</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="RM">
+            <xsd:annotation>
+               <xsd:documentation>REPAIR AND MAINTENANCE MANUAL</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="RT">
+            <xsd:annotation>
+               <xsd:documentation>RANGE/FIRING TABLE</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SC">
+            <xsd:annotation>
+               <xsd:documentation>SCIENTIFIC AND TECHNICAL</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SD">
+            <xsd:annotation>
+               <xsd:documentation>SCHEMATIC DIAGRAM</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SL">
+            <xsd:annotation>
+               <xsd:documentation>SCHOOL RECORDS</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SP">
+            <xsd:annotation>
+               <xsd:documentation>SPARE PARTS, TOOLS AND ACCESSORIES LIST</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ST">
+            <xsd:annotation>
+               <xsd:documentation>STUDY</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TA">
+            <xsd:annotation>
+               <xsd:documentation>TACTICAL HANDBOOK</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TB">
+            <xsd:annotation>
+               <xsd:documentation>TRIBAL INFORMATION</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TD">
+            <xsd:annotation>
+               <xsd:documentation>TECHNICAL DESCRIPTION/BULLETIN</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TE">
+            <xsd:annotation>
+               <xsd:documentation>TERRORIST RELATED DOCUMENT</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TG">
+            <xsd:annotation>
+               <xsd:documentation>TAGS/LABELS</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TI">
+            <xsd:annotation>
+               <xsd:documentation>TRANSPORTATION INSTRUCTIONS</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TM">
+            <xsd:annotation>
+               <xsd:documentation>TRAINING DOCUMENT/MANUAL</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TN">
+            <xsd:annotation>
+               <xsd:documentation>TRANSLATION</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TP">
+            <xsd:annotation>
+               <xsd:documentation>TELEPHONE RECORDS</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TR">
+            <xsd:annotation>
+               <xsd:documentation>TEST REPORT</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TS">
+            <xsd:annotation>
+               <xsd:documentation>TECHNICAL SPECIFICATIONS</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TV">
+            <xsd:annotation>
+               <xsd:documentation>TRAVEL DOCUMENT</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="WB">
+            <xsd:annotation>
+               <xsd:documentation>WEBSITE</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="UnrecognizedLOV">
+            <xsd:annotation>
+               <xsd:documentation>Hold space for new LOV's received from the field</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

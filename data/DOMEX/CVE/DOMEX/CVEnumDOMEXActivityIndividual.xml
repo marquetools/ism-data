@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<cve:CVE xmlns:cve="urn:us:gov:ic:cve"
+         xmlns:ism="urn:us:gov:ic:ism"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         
+         ism:compliesWith="USGov USIC"
+         ism:ownerProducer="USA"
+         ism:classification="U"
+         ism:DESVersion="202111"
+         ism:ISMCATCESVersion="202205"
+         ism:resourceElement="true"
+         CVEVersion="2"
+         ism:createDate="2015-02-25"
+         xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+
+    <!-- Change Request #889 - Activity and Sub-Activity Elements  -->
+    <cve:IRM>
+        <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:domex:CVEnumDOMEXActivityIndividual</URN>
+        <Title xmlns="urn:us:gov:ic:cve"
+             ism:ownerProducer="USA"
+             ism:classification="U">CVEnumDOMEXActivityIndividual</Title>
+        <Description xmlns="urn:us:gov:ic:cve"
+                   ism:ownerProducer="USA"
+                   ism:classification="U">Valid range for sub-activities.</Description>
+
+        <cve:Created>2015-02-25</cve:Created>
+
+        <Source ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">Authoritative source for sub-activities</Source>
+        <PointOfContact ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">
+         <Name>DOMEX Metadata Working Group</Name>
+      </PointOfContact>
+    </cve:IRM>
+    
+    <cve:Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Actions</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">Items showing an individual's activities of interest but unrelated to a target group</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Biographic data</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">Biographical data tied directly to an individual</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Biological Weapons</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">Items showing an individual's direct connection to biological weapons</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Biometric data</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">Biometric data tied directly to an individual</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Chemical Weapons</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">Items showing an individual's direct connection to Chemical Weapons</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Drug trafficking</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">Items showing an individual's direct connection to Drug trafficking</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Explosives</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Items showing an individual's direct connection to explosives acquisition or production</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Extortion</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Items showing an individual's direct connection to Extortion</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Facilitation</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Items showing an individual's direct connection to facilitation support for a target group</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FIS</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Items identifying an individual's connection to a FIS</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Human Trafficking</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Items showing an individual's direct connection to Human Trafficking</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">MAMS</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Items showing an individual is a military aged male</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Martyrdom</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Items showing an individual's direct connection to suicide operations</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Non-US Citizen</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Items showing individual is not a US Citizen</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Nuclear Weapons</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Items showing an individual's direct connection to nuclear or radiological weapons</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Operations</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Items showing an individual's activities related to a target group</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Organization</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Items showing an individual's direct connection to a target organization</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Personal Communications</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Items used for personal communication</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Proof of Life</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Items that provide Proof of Life for an individual</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Records</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Items related to an individual's persona</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Reporting</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Reporting about an individual by others</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Robbery</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Items showing an individual's direct connection to Robbery</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">Training</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Items from an individual describing training</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">US Person</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                ism:ownerProducer="USA">Items showing individual is a US Citizen</Description>
+        </cve:Term>
+    </cve:Enumeration>
+</cve:CVE>

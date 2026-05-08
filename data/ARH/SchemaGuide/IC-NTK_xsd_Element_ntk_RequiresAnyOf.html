@@ -1,0 +1,1142 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Schema documentation for component ntk:RequiresAnyOf</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript" xml:space="preserve">
+         
+         <!--
+        var propertiesBoxes= new Array('properties_RequiresAnyOf');
+var usedByBoxes= new Array('usedBy_RequiresAnyOf');
+var sourceBoxes= new Array('source_RequiresAnyOf');
+var instanceBoxes= new Array('instance_RequiresAnyOf');
+var diagramBoxes= new Array('diagram_RequiresAnyOf');
+var annotationBoxes= new Array('annotations_RequiresAnyOf');
+var attributesBoxes= new Array('attributes_RequiresAnyOf');
+var modelBoxes= new Array('model_RequiresAnyOf');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    --></script></head>
+   <body>
+      
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_content" rowspan="1" colspan="1">
+                  
+                  <h3>Showing:</h3>
+                  
+                  <table>
+                     <tr>
+                        <td rowspan="1" colspan="1"><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, annotationBoxes);" class="control" /></span><span class="globalControlName">Annotations</span></td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1"><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, attributesBoxes);" class="control" /></span><span class="globalControlName">Attributes </span></td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1"><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control" /></span><span class="globalControlName">Diagrams</span></td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1"><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, instanceBoxes);" class="control" /></span><span class="globalControlName">Instances</span></td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1"><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control" /></span><span class="globalControlName">Model </span></td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1"><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control" /></span><span class="globalControlName">Properties </span></td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1"><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control" /></span><span class="globalControlName">Source</span></td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1"><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control" /></span><span class="globalControlName">Used by </span></td>
+                     </tr>
+                  </table>
+                  
+                  <div align="right"><span><input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close" /></span></div>
+                  
+               </td>
+               <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+            </tr>
+         </table>
+         
+      </div><a id="RequiresAnyOf" shape="rect"></a><div class="componentTitle">Element <span class="qname">ntk:RequiresAnyOf</span></div>
+      
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1"><b>Namespace</b></td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:ntk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           
+                           <div class="floatRight"><input id="button_annotations_RequiresAnyOf" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_RequiresAnyOf');" class="control" /></div>
+                           
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           
+                           <div id="annotations_RequiresAnyOf" style="display:block">
+                              
+                              <div class="annotation">
+                                 
+                                 
+                                 <p>A logical grouping indicating 
+                                    that one of the included access policies is required.
+                                    
+                                 </p>
+                                 
+                                 
+                              </div>
+                              
+                           </div>
+                           
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           
+                           <div class="floatRight"><input id="button_diagram_RequiresAnyOf" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_RequiresAnyOf');" class="control" /></div>
+                           
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           
+                           <div id="diagram_RequiresAnyOf" style="display:block"><img alt="Diagram" border="0" src="img/IC-NTK_xsd_Element_ntk_RequiresAnyOf.png" usemap="#IC-NTK_xsd_Element_ntk_RequiresAnyOf" /><map name="IC-NTK_xsd_Element_ntk_RequiresAnyOf" id="IC-NTK_xsd_Element_ntk_RequiresAnyOf">
+                                 <area alt="IC-ISM_xsd_Attribute_Group_SecurityAttributesGroup.tmp#SecurityAttributesGroup" href="IC-ISM_xsd_Attribute_Group_SecurityAttributesGroup.html#SecurityAttributesGroup" coords="191,81,399,107" shape="rect" />
+                                 <area alt="IC-NTK_xsd_Element_ntk_AccessIndividualList.tmp#AccessIndividualList" href="IC-NTK_xsd_Element_ntk_AccessIndividualList.html#AccessIndividualList" coords="245,185,405,209" shape="rect" />
+                                 <area alt="IC-NTK_xsd_Element_ntk_AccessGroupList.tmp#AccessGroupList" href="IC-NTK_xsd_Element_ntk_AccessGroupList.html#AccessGroupList" coords="245,219,387,243" shape="rect" />
+                                 <area alt="IC-NTK_xsd_Element_ntk_AccessProfileList.tmp#AccessProfileList" href="IC-NTK_xsd_Element_ntk_AccessProfileList.html#AccessProfileList" coords="245,253,387,277" shape="rect" />
+                                 <area alt="IC-NTK_xsd_Complex_Type_ntk_AccessType.tmp#AccessType" href="IC-NTK_xsd_Complex_Type_ntk_AccessType.html#AccessType" coords="163,3,298,25" shape="rect" /></map></div>
+                           
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1"><b>Type</b></td>
+                        <td rowspan="1" colspan="1"><b><a href="IC-NTK_xsd_Complex_Type_ntk_AccessType.html#AccessType" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:AccessType')" shape="rect">ntk:AccessType</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           
+                           <div class="floatLeft"><b>Properties</b></div>
+                           
+                           <div class="floatRight"><input id="button_properties_RequiresAnyOf" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_RequiresAnyOf');" class="control" /></div>
+                           
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           
+                           <div id="properties_RequiresAnyOf" style="display:block">
+                              
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1"><b>complex</b></td>
+                                 </tr>
+                              </table>
+                              
+                           </div>
+                           
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           
+                           <div class="floatLeft"><b>Used by</b></div>
+                           
+                           <div class="floatRight"><input id="button_usedBy_RequiresAnyOf" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_RequiresAnyOf');" class="control" /></div>
+                           
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           
+                           <div id="usedBy_RequiresAnyOf" style="display:block">
+                              
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Complex Types </td>
+                                    <td rowspan="1" colspan="1"><b><a href="IC-NTK_xsd_Complex_Type_ntk_RequiresAllType.html#RequiresAllType" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:RequiresAllType')" shape="rect">ntk:RequiresAllType</a></b>, <b><a href="IC-NTK_xsd_Complex_Type_ntk_RequiresType.html#RequiresType" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:RequiresType')" shape="rect">ntk:RequiresType</a></b></td>
+                                 </tr>
+                              </table>
+                              
+                           </div>
+                           
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1"><b>Model</b><div class="floatRight"><input id="button_model_RequiresAnyOf" type="image" src="img/btM.gif" value="-" onclick="switchState('model_RequiresAnyOf');" class="control" /></div>
+                           
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           
+                           <div id="model_RequiresAnyOf" style="display:block">ALL(<b><a href="IC-NTK_xsd_Element_ntk_AccessIndividualList.html#AccessIndividualList" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:AccessIndividualList{0,1}')" shape="rect">ntk:AccessIndividualList{0,1}</a></b> <b><a href="IC-NTK_xsd_Element_ntk_AccessGroupList.html#AccessGroupList" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:AccessGroupList{0,1}')" shape="rect">ntk:AccessGroupList{0,1}</a></b> <b><a href="IC-NTK_xsd_Element_ntk_AccessProfileList.html#AccessProfileList" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:AccessProfileList{0,1}')" shape="rect">ntk:AccessProfileList{0,1}</a></b>)
+                              
+                           </div>
+                           
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1"><b>Children</b></td>
+                        <td rowspan="1" colspan="1"><b><a href="IC-NTK_xsd_Element_ntk_AccessGroupList.html#AccessGroupList" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:AccessGroupList')" shape="rect">ntk:AccessGroupList</a></b>, <b><a href="IC-NTK_xsd_Element_ntk_AccessIndividualList.html#AccessIndividualList" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:AccessIndividualList')" shape="rect">ntk:AccessIndividualList</a></b>, <b><a href="IC-NTK_xsd_Element_ntk_AccessProfileList.html#AccessProfileList" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:AccessProfileList')" shape="rect">ntk:AccessProfileList</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           
+                           <div class="floatLeft"><b>Instance</b></div>
+                           
+                           <div class="floatRight"><input id="button_instance_RequiresAnyOf" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_RequiresAnyOf');" class="control" /></div>
+                           
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           
+                           <div id="instance_RequiresAnyOf" style="display:block">
+                              
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1"><pre xml:space="preserve"><span class="tEl">&lt;ntk:RequiresAnyOf</span><span class="tT"> </span><span class="tAN">atomicEnergyMarkings=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">classification=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">classificationReason=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">classifiedBy=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">compilationReason=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">declassDate=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">declassEvent=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">declassException=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">derivativelyClassifiedBy=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">derivedFrom=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">displayOnlyTo=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">disseminationControls=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">FGIsourceOpen=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">FGIsourceProtected=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">joint=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">nonICmarkings=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">nonUSControls=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">ownerProducer=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">releasableTo=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">SARIdentifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">SCIcontrols=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">xmlns:ntk=</span><span class="tAV">"urn:us:gov:ic:ntk"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;ntk:AccessIndividualList</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/ntk:AccessIndividualList&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;ntk:AccessGroupList</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/ntk:AccessGroupList&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;ntk:AccessProfileList</span><span class="tT"> </span><span class="tAN">atomicEnergyMarkings=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">classification=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">classificationReason=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">classifiedBy=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">compilationReason=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">declassDate=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">declassEvent=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">declassException=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">derivativelyClassifiedBy=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">derivedFrom=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">displayOnlyTo=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">disseminationControls=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">FGIsourceOpen=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">FGIsourceProtected=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">joint=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">nonICmarkings=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">nonUSControls=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">ownerProducer=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">releasableTo=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">SARIdentifier=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">SCIcontrols=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/ntk:AccessProfileList&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/ntk:RequiresAnyOf&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                              
+                           </div>
+                           
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           
+                           <div class="floatLeft"><b>Attributes</b></div>
+                           
+                           <div class="floatRight"><input id="button_attributes_RequiresAnyOf" type="image" src="img/btM.gif" value="-" onclick="switchState('attributes_RequiresAnyOf');" class="control" /></div>
+                           
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           
+                           <div id="attributes_RequiresAnyOf" style="display:block">
+                              
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th rowspan="1" colspan="1">QName</th>
+                                       <th width="10%" rowspan="1" colspan="1">Type</th>
+                                       <th width="5%" rowspan="1" colspan="1">Use</th>
+                                       <th width="100%" rowspan="1" colspan="1">Annotation</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1"><b><a href="IC-ISM_xsd_Attribute_FGIsourceOpen.html#FGIsourceOpen" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component FGIsourceOpen')" shape="rect">FGIsourceOpen</a></b></td>
+                                    <td rowspan="1" colspan="1"><b>CVEnumISMCATFGIOpen</b></td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       
+                                       <div class="annotation">
+                                          				
+                                          
+                                          <p> This attribute is used at
+                                             					both the resource and the portion levels. One or more indicators identifying
+                                             					information which qualifies as foreign government information for which the
+                                             					source(s) of the information is not concealed. The attribute can indicate that
+                                             					the source of information of foreign origin is unknown. It is manifested in
+                                             					portion marks and security banners. PERMISSIBLE VALUES 1) The value "UNKNOWN"
+                                             is
+                                             					permitted under the circumstances described above. 2) The full set of values
+                                             are
+                                             					defined in the Controlled Value Enumeration: CVEnumISMFGIOpen.xml 
+                                             
+                                          </p>
+                                          			
+                                          
+                                       </div>
+                                       
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1"><b><a href="IC-ISM_xsd_Attribute_FGIsourceProtected.html#FGIsourceProtected" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component FGIsourceProtected')" shape="rect">FGIsourceProtected</a></b></td>
+                                    <td rowspan="1" colspan="1"><b>CVEnumISMCATFGIProtected</b></td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       
+                                       <div class="annotation">
+                                          				
+                                          
+                                          <p> This attribute is used at
+                                             					both the resource and the portion levels. This attribute has unique specific
+                                             					rules concerning its usage. A single indicator that information qualifies as
+                                             					foreign government information for which the source(s) of the information must
+                                             					be concealed. Within protected internal organizational spaces this element may
+                                             					be used to maintain a record of the one or more indicators identifying
+                                             					information which qualifies as foreign government information for which the
+                                             					source(s) of the information must be concealed. Measures must be taken prior
+                                             to
+                                             					dissemination of the information to conceal the source(s) of the foreign
+                                             					government information. An indication that information qualifies as foreign
+                                             					government information according to CAPCO guidelines for which the source(s)
+                                             of
+                                             					the information must be concealed when the information is disseminated in shared
+                                             					spaces This data element has a dual purpose. Within shared spaces, the data
+                                             					element serves only to indicate the presence of information which is categorized
+                                             					as foreign government information according to CAPCO guidelines for which the
+                                             					source(s) of the information is concealed, in which case, this data element's
+                                             					value will always be "FGI". The data element may also be employed in this manner
+                                             					within protected internal organizational spaces. However, within protected
+                                             					internal organizational spaces this data element may alternatively be used to
+                                             					maintain a formal record of the foreign country or countries and/or registered
+                                             					international organization(s) that are the non-disclosable owner(s) and/or
+                                             					producer(s) of information which is categorized as foreign government
+                                             					information according to CAPCO guidelines for which the source(s) of the
+                                             					information must be concealed when the resource is disseminated to shared
+                                             					spaces. If the data element is employed in this manner, then additional measures
+                                             					must be taken prior to dissemination of the resource to shared spaces so that
+                                             					any indications of the non-disclosable owner(s) and/or producer(s) of
+                                             					information within the resource are eliminated. In all cases, the corresponding
+                                             					portion marking or banner marking should be compliant with CAPCO guidelines for
+                                             					FGI when the source must be concealed. In other words, even if the data element
+                                             					is being employed within protected internal organizational spaces to maintain
+                                             a
+                                             					formal record of the non-disclosable owner(s) and/or producer(s) within an XML
+                                             					resource, if the resource is rendered for display within the protected internal
+                                             					organizational spaces in any format by a stylesheet or as a result of any other
+                                             					transformation process, then the non-disclosable owner(s) and/or producer(s)
+                                             					should not be included in the corresponding portion marking or banner marking.
+                                             					PERMISSIBLE VALUES 1) The value "FGI" is permitted under the circumstances
+                                             					described above. 2) The full set of values are defined in the Controlled Value
+                                             					Enumeration: CVEnumISMFGIProtected.xml 
+                                             
+                                          </p>
+                                          			
+                                          
+                                       </div>
+                                       
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1"><b><a href="IC-ISM_xsd_Attribute_SARIdentifier.html#SARIdentifier" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component SARIdentifier')" shape="rect">SARIdentifier</a></b></td>
+                                    <td rowspan="1" colspan="1"><b><a href="CVEnumISMSAR_xsd_Simple_Type_ismsar_CVEnumISMSAR.html#CVEnumISMSAR" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:sar" onclick="updatePageTitle('Schema documentation for component ismsar:CVEnumISMSAR')" shape="rect">ismsar:CVEnumISMSAR</a></b></td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       
+                                       <div class="annotation">
+                                          				
+                                          
+                                          <p> This attribute is used at
+                                             					both the resource and the portion levels. One or more indicators identifying
+                                             the
+                                             					defense or intelligence programs for which special access is required. It is
+                                             					manifested in portion marks and security banners. PERMISSIBLE VALUES The
+                                             					permissible values for this attribute are defined in the Controlled Value
+                                             					Enumeration: CVEnumISMSAR.xml 
+                                             
+                                          </p>
+                                          			
+                                          
+                                       </div>
+                                       
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1"><b><a href="IC-ISM_xsd_Attribute_SCIcontrols.html#SCIcontrols" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component SCIcontrols')" shape="rect">SCIcontrols</a></b></td>
+                                    <td rowspan="1" colspan="1"><b><a href="CVEnumISMSCIControls_xsd_Simple_Type_ismscicon_CVEnumISMSCIControls.html#CVEnumISMSCIControls" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:scicontrols" onclick="updatePageTitle('Schema documentation for component ismscicon:CVEnumISMSCIControls')" shape="rect">ismscicon:CVEnumISMSCIControls</a></b></td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       
+                                       <div class="annotation">
+                                          				
+                                          
+                                          <p> This attribute is used at
+                                             					both the resource and the portion levels. One or more indicators identifying
+                                             					sensitive compartmented information control system(s). It is manifested in
+                                             					portion marks and security banners. PERMISSIBLE VALUES The permissible values
+                                             					for this attribute are defined in the Controlled Value Enumeration:
+                                             					CVEnumISMSCIControls.xml 
+                                             
+                                          </p>
+                                          			
+                                          
+                                       </div>
+                                       
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1"><b><a href="IC-ISM_xsd_Attribute_atomicEnergyMarkings.html#atomicEnergyMarkings" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component atomicEnergyMarkings')" shape="rect">atomicEnergyMarkings</a></b></td>
+                                    <td rowspan="1" colspan="1"><b><a href="CVEnumISMAtomicEnergyMarkings_xsd_Simple_Type_ismatomic_CVEnumISMatomicEnergyMarkings.html#CVEnumISMatomicEnergyMarkings" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:atomicEnergyMarkings" onclick="updatePageTitle('Schema documentation for component ismatomic:CVEnumISMatomicEnergyMarkings')" shape="rect">ismatomic:CVEnumISMatomicEnergyMarkings</a></b></td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       
+                                       <div class="annotation">
+                                          				
+                                          
+                                          <p> This attribute is used at
+                                             					both the resource and the portion levels. One or more indicators identifying
+                                             DoE
+                                             					markings. It is manifested in portion marks and security banners. The
+                                             					permissible values for this simple type are defined in the Controlled Value
+                                             					Enumeration: CVEnumISMAtomicEnergyMarkings.xml 
+                                             
+                                          </p>
+                                          			
+                                          
+                                       </div>
+                                       
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1"><b><a href="IC-ISM_xsd_Attribute_classification.html#classification" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component classification')" shape="rect">classification</a></b></td>
+                                    <td rowspan="1" colspan="1"><b><a href="CVEnumISMClassificationAll_xsd_Simple_Type_ismclassall_CVEnumISMClassificationAll.html#CVEnumISMClassificationAll" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:classification:all" onclick="updatePageTitle('Schema documentation for component ismclassall:CVEnumISMClassificationAll')" shape="rect">ismclassall:CVEnumISMClassificationAll</a></b></td>
+                                    <td rowspan="1" colspan="1">required</td>
+                                    <td rowspan="1" colspan="1">
+                                       
+                                       <div class="annotation">
+                                          				
+                                          
+                                          <p> This attribute is used at
+                                             					both the resource and the portion levels. A single indicator of the highest
+                                             					level of classification applicable to an information resource or portion within
+                                             					the domain of classified national security information. The Classification
+                                             					element is always used in conjunction with the Owner Producer element. Taken
+                                             					together, the two elements specify the classification category and the type of
+                                             					classification (US, non-US, or Joint). It is manifested in portion marks and
+                                             					security banners. PERMISSIBLE VALUES The permissible values for this simple type
+                                             					are defined in the Controlled Value Enumeration: CVEnumISMClassificationAll.xml
+                                             				
+                                             
+                                          </p>
+                                          			
+                                          
+                                       </div>
+                                       
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1"><b><a href="IC-ISM_xsd_Attribute_classificationReason.html#classificationReason" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component classificationReason')" shape="rect">classificationReason</a></b></td>
+                                    <td rowspan="1" colspan="1">restriction of <b>xsd:string</b></td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       
+                                       <div class="annotation">
+                                          				
+                                          
+                                          <p> This attribute is used
+                                             					primarily at the resource level. One or more reason indicators or explanatory
+                                             					text describing the basis for an original classification decision. It is
+                                             					manifested only in the 'Reason' line of a resource's classification authority
+                                             					block. 
+                                             
+                                          </p>
+                                          			
+                                          
+                                       </div>
+                                       
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1"><b><a href="IC-ISM_xsd_Attribute_classifiedBy.html#classifiedBy" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component classifiedBy')" shape="rect">classifiedBy</a></b></td>
+                                    <td rowspan="1" colspan="1">restriction of <b>xsd:string</b></td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       
+                                       <div class="annotation">
+                                          				
+                                          
+                                          <p> This attribute is used
+                                             					primarily at the resource level. The identity, by name or personal identifier,
+                                             					and position title of the original classification authority for a resource. It
+                                             					is manifested only in the 'Classified By' line of a resource's classification
+                                             					authority block. 
+                                             
+                                          </p>
+                                          			
+                                          
+                                       </div>
+                                       
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1"><b><a href="IC-ISM_xsd_Attribute_compilationReason.html#compilationReason" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component compilationReason')" shape="rect">compilationReason</a></b></td>
+                                    <td rowspan="1" colspan="1">restriction of <b>xsd:string</b></td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       
+                                       <div class="annotation">
+                                          				
+                                          
+                                          <p> A description of the
+                                             					reasons that the classification of this element is more restrictive than a
+                                             					simple roll-up of the sub elements would result in. This acts as an indicator
+                                             to
+                                             					rule engines that there is not accidental over classification going on and to
+                                             					users that special care beyond what the portion marks reveal must be taken when
+                                             					using this data. Use of this mark does not replace the need for the compilation
+                                             					reason being defined in the prose in accordance with ISOO Directive 1. For
+                                             					example this would document why 3 Unclassified bullet items form a Secret List.
+                                             					Without this reason being noted the above described document would be considered
+                                             					to be miss-marked and overclassified. 
+                                             
+                                          </p>
+                                          			
+                                          
+                                       </div>
+                                       
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1"><b><a href="IC-ISM_xsd_Attribute_declassDate.html#declassDate" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component declassDate')" shape="rect">declassDate</a></b></td>
+                                    <td rowspan="1" colspan="1"><b>xsd:date</b></td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       
+                                       <div class="annotation">
+                                          				
+                                          
+                                          <p> This attribute is used
+                                             					primarily at the resource level. A specific year, month, and day upon which the
+                                             					information shall be automatically declassified if not properly exempted from
+                                             					automatic declassification. It is manifested in the 'Declassify On' line of a
+                                             					resource's classification authority block. 
+                                             
+                                          </p>
+                                          			
+                                          
+                                       </div>
+                                       
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1"><b><a href="IC-ISM_xsd_Attribute_declassEvent.html#declassEvent" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component declassEvent')" shape="rect">declassEvent</a></b></td>
+                                    <td rowspan="1" colspan="1">restriction of <b>xsd:string</b></td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       
+                                       <div class="annotation">
+                                          				
+                                          
+                                          <p> This attribute is used
+                                             					primarily at the resource level. A description of an event upon which the
+                                             					information shall be automatically declassified if not properly exempted from
+                                             					automatic declassification. It is manifested only in the 'Declassify On' line
+                                             of
+                                             					a resource's classification authority block. 
+                                             
+                                          </p>
+                                          			
+                                          
+                                       </div>
+                                       
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1"><b><a href="IC-ISM_xsd_Attribute_declassException.html#declassException" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component declassException')" shape="rect">declassException</a></b></td>
+                                    <td rowspan="1" colspan="1"><b><a href="CVEnumISM25X_xsd_Simple_Type_ism25x_CVEnumISM25X.html#CVEnumISM25X" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:25x" onclick="updatePageTitle('Schema documentation for component ism25x:CVEnumISM25X')" shape="rect">ism25x:CVEnumISM25X</a></b></td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       
+                                       <div class="annotation">
+                                          				
+                                          
+                                          <p> This attribute is used
+                                             					primarily at the resource level. A single indicator describing an exemption to
+                                             					the nominal 25-year point for automatic declassification. This element is used
+                                             					in conjunction with the Declassification Date or Declassification Event. It is
+                                             					manifested in the 'Declassify On' line of a resource's classification authority
+                                             					block. ISOO has stated it should be a SINGLE value giving the longest
+                                             					protection. 
+                                             
+                                          </p>
+                                          			
+                                          				
+                                          
+                                          <p> PERMISSIBLE VALUE: The
+                                             					permissible value for this attribute is defined in the Controlled Value
+                                             					Enumeration: CVEnumISMN25X.xml 
+                                             
+                                          </p>
+                                          			
+                                          
+                                       </div>
+                                       
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1"><b><a href="IC-ISM_xsd_Attribute_derivativelyClassifiedBy.html#derivativelyClassifiedBy" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component derivativelyClassifiedBy')" shape="rect">derivativelyClassifiedBy</a></b></td>
+                                    <td rowspan="1" colspan="1">restriction of <b>xsd:string</b></td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       
+                                       <div class="annotation">
+                                          				
+                                          
+                                          <p> This attribute is used
+                                             					primarily at the resource level. The identity, by name or personal identifier,
+                                             					of the derivative classification authority. It is manifested only in the
+                                             					'Classified By' line of a resource's classification authority block. 
+                                             
+                                          </p>
+                                          			
+                                          
+                                       </div>
+                                       
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1"><b><a href="IC-ISM_xsd_Attribute_derivedFrom.html#derivedFrom" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component derivedFrom')" shape="rect">derivedFrom</a></b></td>
+                                    <td rowspan="1" colspan="1">restriction of <b>xsd:string</b></td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       
+                                       <div class="annotation">
+                                          				
+                                          
+                                          <p> This attribute is used
+                                             					primarily at the resource level. A citation of the authoritative source or
+                                             					reference to multiple sources of the classification markings used in a
+                                             					classified resource. It is manifested only in the 'Derived From' line of a
+                                             					document's classification authority block. ISOO's guidance is: Source of
+                                             					derivative classification. (1) The derivative classifier shall concisely
+                                             					identify the source document or the classification guide on the ‘‘Derived From’’
+                                             					line, including the agency and, where available, the office of origin, and the
+                                             					date of the source or guide. An example might appear as: Derived From: Memo,
+                                             					‘‘Funding Problems,’’ October 20, 2008, Office of Administration, Department
+                                             of
+                                             					Good Works or Derived From: CG No. 1, Department of Good Works, dated October
+                                             					20, 2008 (i) When a document is classified derivatively on the basis of more
+                                             					than one source document or classification guide, the ‘‘Derived From’’ line
+                                             					shall appear as: Derived From: Multiple Sources (ii) The derivative classifier
+                                             					shall include a listing of the source materials on, or attached to, each
+                                             					derivatively classified document. 
+                                             
+                                          </p>
+                                          			
+                                          
+                                       </div>
+                                       
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1"><b><a href="IC-ISM_xsd_Attribute_displayOnlyTo.html#displayOnlyTo" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component displayOnlyTo')" shape="rect">displayOnlyTo</a></b></td>
+                                    <td rowspan="1" colspan="1"><b>CVEnumISMCATRelTo</b></td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       
+                                       <div class="annotation">
+                                          				
+                                          
+                                          <p> This attribute is used at
+                                             					both the resource and the portion levels. One or more indicators identifying
+                                             the
+                                             					country or countries and/or international organization(s) to which classified
+                                             					information may be displayed but NOT released based on the determination of an
+                                             					originator in accordance with established foreign disclosure procedures. This
+                                             					element is used in conjunction with the DisplayOnly Dissemination Controls
+                                             					value. It is manifested in portion marks and security banners. PERMISSIBLE
+                                             					VALUES The permissible values for this attribute are defined in the Controlled
+                                             					Value Enumeration: CVEnumISMRelTo.xml 
+                                             
+                                          </p>
+                                          			
+                                          
+                                       </div>
+                                       
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1"><b><a href="IC-ISM_xsd_Attribute_disseminationControls.html#disseminationControls" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component disseminationControls')" shape="rect">disseminationControls</a></b></td>
+                                    <td rowspan="1" colspan="1"><b><a href="CVEnumISMDissem_xsd_Simple_Type_ismdissem_CVEnumISMDissem.html#CVEnumISMDissem" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:dissem" onclick="updatePageTitle('Schema documentation for component ismdissem:CVEnumISMDissem')" shape="rect">ismdissem:CVEnumISMDissem</a></b></td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       
+                                       <div class="annotation">
+                                          				
+                                          
+                                          <p> This attribute is used at
+                                             					both the resource and the portion levels. One or more indicators identifying
+                                             the
+                                             					expansion or limitation on the distribution of information. It is manifested
+                                             in
+                                             					portion marks and security banners. PERMISSIBLE VALUES The permissible values
+                                             					for this attribute are defined in the Controlled Value Enumeration:
+                                             					CVEnumISMDissem.xml 
+                                             
+                                          </p>
+                                          			
+                                          
+                                       </div>
+                                       
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1"><b><a href="IC-ISM_xsd_Attribute_joint.html#joint" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component joint')" shape="rect">joint</a></b></td>
+                                    <td rowspan="1" colspan="1"><b>xsd:boolean</b></td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       
+                                       <div class="annotation">
+                                          				
+                                          
+                                          <p>
+                                             					This attribute, when true, is used to signify that 
+                                             					multiple values in the ownerProducer attribute are 
+                                             					JOINT owners of the data.
+                                             				
+                                             
+                                          </p>
+                                          			
+                                          
+                                       </div>
+                                       
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1"><b><a href="IC-ISM_xsd_Attribute_nonICmarkings.html#nonICmarkings" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component nonICmarkings')" shape="rect">nonICmarkings</a></b></td>
+                                    <td rowspan="1" colspan="1"><b><a href="CVEnumISMNonIC_xsd_Simple_Type_ismnonic_CVEnumISMNonIC.html#CVEnumISMNonIC" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:nonic" onclick="updatePageTitle('Schema documentation for component ismnonic:CVEnumISMNonIC')" shape="rect">ismnonic:CVEnumISMNonIC</a></b></td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       
+                                       <div class="annotation">
+                                          				
+                                          
+                                          <p> This attribute is used at
+                                             					both the resource and the portion levels. One or more indicators of the
+                                             					expansion or limitation on the distribution of an information resource or
+                                             					portion within the domain of information originating from non-intelligence
+                                             					components. It is manifested in portion marks and security banners. PERMISSIBLE
+                                             					VALUES The permissible values for this attribute are defined in the Controlled
+                                             					Value Enumeration: CVEnumISMNonIC.xml 
+                                             
+                                          </p>
+                                          			
+                                          
+                                       </div>
+                                       
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1"><b><a href="IC-ISM_xsd_Attribute_nonUSControls.html#nonUSControls" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component nonUSControls')" shape="rect">nonUSControls</a></b></td>
+                                    <td rowspan="1" colspan="1"><b><a href="CVEnumISMNonUSControls_xsd_Simple_Type_ismnonus_CVEnumISMNonUSControls.html#CVEnumISMNonUSControls" target="mainFrame" title="urn:us:gov:ic:cvenum:ism:nonuscontrols" onclick="updatePageTitle('Schema documentation for component ismnonus:CVEnumISMNonUSControls')" shape="rect">ismnonus:CVEnumISMNonUSControls</a></b></td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       
+                                       <div class="annotation">
+                                          				
+                                          
+                                          <p> This attribute is used at
+                                             					both the resource and the portion levels. One or more indicators of the
+                                             					expansion or limitation on the distribution of an information resource or
+                                             					portion within the domain of information originating from non-US components.
+                                             It
+                                             					is manifested in portion marks and security banners. PERMISSIBLE VALUES The
+                                             					permissible values for this attribute are defined in the Controlled Value
+                                             					Enumeration: CVEnumISMNonUSControls.xml 
+                                             
+                                          </p>
+                                          			
+                                          
+                                       </div>
+                                       
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1"><b><a href="IC-ISM_xsd_Attribute_ownerProducer.html#ownerProducer" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component ownerProducer')" shape="rect">ownerProducer</a></b></td>
+                                    <td rowspan="1" colspan="1"><b>CVEnumISMCATOwnerProducer</b></td>
+                                    <td rowspan="1" colspan="1">required</td>
+                                    <td rowspan="1" colspan="1">
+                                       
+                                       <div class="annotation">
+                                          				
+                                          
+                                          <p> This attribute is used at
+                                             					both the resource and the portion levels. One or more indicators identifying
+                                             the
+                                             					national government or international organization that have purview over the
+                                             					classification marking of an information resource or portion therein. This
+                                             					element is always used in conjunction with the Classification element. Taken
+                                             					together, the two elements specify the classification category and the type of
+                                             					classification (US, non-US, or Joint). Within protected internal organizational
+                                             					spaces this element may include one or more indicators identifying information
+                                             					which qualifies as foreign government information for which the source(s) of
+                                             the
+                                             					information must be concealed. Measures must be taken prior to dissemination
+                                             of
+                                             					the information to conceal the source(s) of the foreign government information.
+                                             					Specifically, under these specific circumstances, when data are moved to the
+                                             					shared spaces, the non-disclosable owner(s) and/or producer(s) listed in this
+                                             					data element's value should be removed and replaced with "FGI". The attribute
+                                             					value may be manifested in portion marks or security banners. PERMISSIBLE VALUES
+                                             					1) The value "FGI" is permitted under the circumstances described above. 2) The
+                                             					full set of values are defined in the Controlled Value Enumeration:
+                                             					CVEnumISMOwnerProducer.xml 
+                                             
+                                          </p>
+                                          			
+                                          
+                                       </div>
+                                       
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1"><b><a href="IC-ISM_xsd_Attribute_releasableTo.html#releasableTo" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component releasableTo')" shape="rect">releasableTo</a></b></td>
+                                    <td rowspan="1" colspan="1"><b>CVEnumISMCATRelTo</b></td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       
+                                       <div class="annotation">
+                                          				
+                                          
+                                          <p> This attribute is used at
+                                             					both the resource and the portion levels. One or more indicators identifying
+                                             the
+                                             					country or countries and/or international organization(s) to which classified
+                                             					information may be released based on the determination of an originator in
+                                             					accordance with established foreign disclosure procedures. This element is used
+                                             					in conjunction with the Dissemination Controls element. It is manifested in
+                                             					portion marks and security banners. PERMISSIBLE VALUES The permissible values
+                                             					for this attribute are defined in the Controlled Value Enumeration:
+                                             					CVEnumISMRelTo.xml 
+                                             
+                                          </p>
+                                          			
+                                          
+                                       </div>
+                                       
+                                    </td>
+                                 </tr>
+                              </table>
+                              
+                           </div>
+                           
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           
+                           <div class="floatLeft"><b>Source</b></div>
+                           
+                           <div class="floatRight"><input id="button_source_RequiresAnyOf" type="image" src="img/btM.gif" value="-" onclick="switchState('source_RequiresAnyOf');" class="control" /></div>
+                           
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           
+                           <div id="source_RequiresAnyOf" style="display:block">
+                              
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1"><pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"RequiresAnyOf"</span><span class="tAN"> type=</span><span class="tAV">"ntk:AccessType"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tAN"> xml:lang=</span><span class="tAV">"en"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">A logical grouping indicating that one of the included access policies is required.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                              
+                           </div>
+                           
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1"><b>Schema location</b></td>
+                        <td rowspan="1" colspan="1"><a xmlns:html="http://www.w3.org/1999/xhtml" href="../Schema/NTK/IC-NTK.xsd">IC-NTK.xsd</a></td>
+                     </tr>
+                  </tbody>
+               </table>
+               
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      
+      <h2 xmlns:html="http://www.w3.org/1999/xhtml" style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+         This document has been approved for Public Release by the Office of the Director of National Intelligence. See 'Distribution
+         Notice' for details.
+         <a href="index.html" target="_top">
+            Click Here
+            </a></h2>
+      <div class="footer"></div><script type="text/javascript" xml:space="preserve">
+         
+         <!--                     
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                --></script></body>
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="test:cem"
+    xmlns:test="test:cem" xmlns:cem="urn:us:gov:ic:cem">
+    <xs:import namespace="urn:us:gov:ic:cem"
+        schemaLocation="../../Schema/CEM/CEM-XML.xsd"/>
+    
+    <xs:element name="TestRoot" type="test:TestRootType"/>
+  
+    <xs:complexType name="TestRootType" mixed="true">
+        <xs:group ref="cem:DescriptiveElementsGroup" minOccurs="1" maxOccurs="10"/>
+        <xs:attribute ref="cem:DESVersion"/>
+    </xs:complexType>
+    
+</xs:schema>

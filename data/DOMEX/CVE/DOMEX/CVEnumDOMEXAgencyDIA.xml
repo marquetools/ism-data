@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       --><cve:CVE xmlns:cve="urn:us:gov:ic:cve" xmlns:ism="urn:us:gov:ic:ism" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  ism:compliesWith="USGov USIC" ism:ownerProducer="USA" ism:classification="U" ism:DESVersion="202111" ism:ISMCATCESVersion="202205" ism:resourceElement="true" CVEVersion="2" ism:createDate="2013-12-10" xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+
+    <!-- artf14837 - Create DOMEX Agency List  -->
+    <cve:IRM>
+        <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:domex:CVEnumDOMEXAgencyDIA</URN>
+        <Title xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">CVEnumDOMEXAgencyDIA</Title>
+        <Description xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">Valid range for DIA agencies.</Description>
+
+        <cve:Created>2013-12-10</cve:Created>
+
+        <Source ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">Authoritative source for DIA Agencies</Source>
+        <PointOfContact ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">
+         <Name>DOMEX Metadata Working Group</Name>
+      </PointOfContact>
+    </cve:IRM>
+
+    <cve:Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">      
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">DCHC</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">Defense Counterintelligence and HUMINT Center</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">CEA</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">DIA -- China and East Asia Program</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">DHM-2A</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">DIA -- DOCEX SUPPORT SERVICES</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">DHX</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">DIA -- DOCEX</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FOB/K</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">DIA -- FOB-Korea</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LAN</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">DIA -- LAN</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">NMEC-5</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">Office of DIA DOCEX Operations</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">NMECO1</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">DIA/NMECO1</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">JITF/CT</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">JITF-CT -- Joint Intelligence Task Force-CT</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">MSIC</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">MSIC -- Missile and Space Intelligence Center</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">NMEC</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">NMEC -- National Media Exploitation Center</Description>
+        </cve:Term>
+    </cve:Enumeration>
+</cve:CVE>

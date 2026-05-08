@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schema/IC-Docbook/DocbookIC.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<d:article xmlns:d="http://docbook.org/ns/docbook"
+           xmlns:ism="urn:us:gov:ic:ism"
+           ism:DESVersion="202111.202211"
+           ism:ISMCATCESVersion="202211"
+           ism:resourceElement="true"
+           ism:createDate="2017-10-18"
+           ism:compliesWith="USGov USIC"
+           ism:classification="U"
+           ism:ownerProducer="USA"
+           version="5.0-variant urn:us:gov:ic:docbook-201804">
+  <info xmlns="http://docbook.org/ns/docbook">
+    <title ism:classification="U"
+           ism:ownerProducer="USA">Rogers' Rangers</title>
+    <date>2017-07-03</date>
+    <author>
+      <orgname>My Intel Agency</orgname>
+    </author>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/MIA_Logo.png"
+                   align="center"
+                   width="3in" />
+      </imageobject>
+    </mediaobject>
+    <releaseinfo role="usa.nsi.banner">UNCLASSIFIED</releaseinfo>
+    <legalnotice ism:unregisteredNoticeType="DISTRO">
+      <title ism:classification="U"
+             ism:ownerProducer="USA">Distribution Notice</title>
+      <para ism:classification="U"
+            ism:ownerProducer="USA">This information is for example purposes. The text contained within this report is derived from 
+      <link xmlns:xlink="http://www.w3.org/1999/xlink"
+            xlink:href="http://rogersrangers.org" />and is subject to the distribution restrictions, if any, imposed by the authors of the
+            website.</para>
+    </legalnotice>
+    <abstract>
+      <title ism:classification="U"
+             ism:ownerProducer="USA">Executive Summary</title>
+      <para ism:classification="U"
+            ism:ownerProducer="USA">From 1754 to 1763 Europe and the Americas were caught up in a conflict between England, under King
+            George II, and France, under King Louis XV. In Europe this period was known as the Seven Years' War; in North America it came
+            to be called the French and Indian War. It was a conflict over trade and land.</para>
+    </abstract>
+  </info>
+  <para xmlns="http://docbook.org/ns/docbook"
+        ism:classification="U"
+        ism:ownerProducer="USA">The English sent Crown forces from England to fortify the colonies and fight the French and Indian
+        invaders, but it was also necessary to recruit soldiers from the colonial population. The English army found that fighting an enemy
+        in the near-wilderness of North America was too much for their massed regiments. The dense forests and mountainous terrain required
+        fighting men who knew the habits of the enemy and could serve effectively as scouts and skirmishers.</para>
+  <blockquote xmlns="http://docbook.org/ns/docbook">
+    <para ism:classification="U"
+          ism:ownerProducer="USA">"…I do therefore Hereby Constitute and Appoint you the said Robert Rogers to be Captain of an Independent
+          Company of Rangers to be forthwith raised and Employ'd…" 
+    <citation>Major Rogers' Diary</citation></para>
+  </blockquote>
+  <figure xmlns="http://docbook.org/ns/docbook">
+    <title ism:classification="U"
+           ism:ownerProducer="USA">Major Robert Rogers</title>
+    <mediaobject>
+      <alt>Major Rogers</alt>
+      <imageobject>
+        <imagedata fileref="images/rogers.gif"
+                   align="center" />
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <para xmlns="http://docbook.org/ns/docbook"
+        ism:classification="U"
+        ism:ownerProducer="USA">Men from local communities and nearby states were recruited to join ranger companies in the Hudson Valley
+        campaign. The New Hampshireman Robert Rogers formed the most notable of these ranger companies.</para>
+  <blockquote xmlns="http://docbook.org/ns/docbook">
+    <para ism:classification="U"
+          ism:ownerProducer="USA">"On the 23d, I waited on the General, and met with a very friendly reception; he soon intimated his
+          design of giving me the command of an independent company of rangers, and the very next morning I received the commission, with a
+          set of instructions."</para>
+  </blockquote>
+  <para xmlns="http://docbook.org/ns/docbook"
+        ism:classification="U"
+        ism:ownerProducer="USA">Rogers grew up in southern New Hampshire, in an area which had known years of murderous Indian raids. He
+        had the knowledge and the spirit to make a good ranger commander, and both he and his brother James joined the war in the King's
+        service as rangers. Soon his own company, Rogers' Rangers, was in service in the upper Hudson River area where they became known
+        for their successful but unorthodox tactics.</para>
+  <table xmlns="http://docbook.org/ns/docbook">
+    <title ism:classification="U"
+           ism:ownerProducer="USA">Personnel Authorization</title>
+    <tgroup cols="4">
+      <colspec colnum="1"
+               colname="004"
+               colwidth="1*" />
+      <colspec colnum="2"
+               colname="005"
+               colwidth="1*" />
+      <colspec colnum="3"
+               colname="002"
+               colwidth="1*" />
+      <colspec colnum="4"
+               colname="003"
+               colwidth="1*" />
+      <thead>
+        <row>
+          <entry>Captains</entry>
+          <entry>Ensigns</entry>
+          <entry>Sergeants</entry>
+          <entry>Privates</entry>
+        </row>
+      </thead>
+      <tbody>
+        <row>
+          <entry>1</entry>
+          <entry>1</entry>
+          <entry>3</entry>
+          <entry>60</entry>
+        </row>
+        <row>
+          <entry>10 Shillings per day</entry>
+          <entry>5 Shillings per day</entry>
+          <entry>4 Shillings per day</entry>
+          <entry>3 Shillings per day</entry>
+        </row>
+      </tbody>
+    </tgroup>
+  </table>
+  <para xmlns="http://docbook.org/ns/docbook"
+        ism:classification="U"
+        ism:ownerProducer="USA">The Rangers wore distinctive green outfits and practiced tactics called "Rogers' Rules of Ranging," which
+        the British considered unconventional. Rogers hired men solely on merit and shocked regular commanders with his use of Indians and
+        freed slaves.</para>
+  <para xmlns="http://docbook.org/ns/docbook"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+    <emphasis role="bold">Rogers’ Rules of Ranging:</emphasis>
+    <orderedlist>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">All Rangers are to be subject to the rules and articles of war; to appear at roll- call every
+              evening, on their own parade, equipped, each with a Firelock, sixty rounds of powder and ball, and a hatchet, at which time
+              an officer from each company is to inspect the same, to see they are in order, so as to be ready on any emergency to march at
+              a minute's warning; and before they are dismissed, the necessary guards are to be draughted, and scouts for the next day
+              appointed.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">Whenever you are ordered out to the enemies forts or frontiers for discoveries, if your number be
+              small, march in a single file, keeping at such a distance from each other as to prevent one shot from killing two men,
+              sending one man, or more, forward, and the like on each side, at the distance of twenty yards from the main body, if the
+              ground you march over will admit of it, to give the signal to the officer of the approach of an enemy, and of their number,
+              &amp;c.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">If you march over marshes or soft ground, change your position, and march abreast of each other to
+              prevent the enemy from tracking you (as they would do if you marched in a single file) till you get over such ground, and
+              then resume your former order, and march till it is quite dark before you encamp, which do, if possible, on a piece of ground
+              which that may afford your centries the advantage of seeing or hearing the enemy some considerable distance, keeping one half
+              of your whole party awake alternately through the night.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">Some time before you come to the place you would reconnoitre, make a stand, and send one or two men
+              in whom you can confide, to look out the best ground for making your observations.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">If you have the good fortune to take any prisoners, keep them separate, till they are examined, and
+              in your return take a different route from that in which you went out, that you may the better discover any party in your
+              rear, and have an opportunity, if their strength be superior to yours, to alter your course, or disperse, as circumstances
+              may require.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">If you march in a large body of three or four hundred, with a design to attack the enemy, divide your
+              party into three columns, each headed by a proper officer, and let those columns march in single files, the columns to the
+              right and left keeping at twenty yards distance or more from that of the center, if the ground will admit, and let proper
+              guards be kept in the front and rear, and suitable flanking parties at a due distance as before directed, with orders to halt
+              on all eminences, to take a view of the surrounding ground, to prevent your being ambuscaded, and to notify the approach or
+              retreat of the enemy, that proper dispositions may be made for attacking, defending, &amp;c. And if the enemy approach in
+              your front on level ground, form a front of your three columns or main body with the advanced guard, keeping out your
+              flanking parties, as if you were marching under the command of trusty officers, to prevent the enemy from pressing hard on
+              either of your wings, or surrounding you, which is the usual method of the savages, if their number will admit of it, and be
+              careful likewise to support and strengthen your rear-guard.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">If you are obliged to receive the enemy's fire, fall, or squat down, till it is over; then rise and
+              discharge at them. If their main body is equal to yours, extend yourselves occasionally; but if superior, be careful to
+              support and strengthen your flanking parties, to make them equal to theirs, that if possible you may repulse them to their
+              main body, in which case push upon them with the greatest resolution with equal force in each flank and in the center,
+              observing to keep at a due distance from each other, and advance from tree to tree, with one half of the party before the
+              other ten or twelve yards. If the enemy push upon you, let your front fire and fall down, and then let your rear advance
+              thro' them and do the like, by which time those who before were in front will be ready to discharge again, and repeat the
+              same alternately, as occasion shall require; by this means you will keep up such a constant fire, that the enemy will not be
+              able easily to break your order, or gain your ground.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">If you oblige the enemy to retreat, be careful, in your pursuit of them, to keep out your flanking
+              parties, and prevent them from gaining eminences, or rising grounds, in which case they would perhaps be able to rally and
+              repulse you in their turn.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">If you are obliged to retreat, let the front of your whole party fire and fall back, till the rear
+              hath done the same, making for the best ground you can; by this means you will oblige the enemy to pursue you, if they do it
+              at all, in the face of a constant fire.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">If the enemy is so superior that you are in danger of being surrounded by them, let the whole body
+              disperse, and every one take a different road to the place of rendezvous appointed for that evening, which must every morning
+              be altered and fixed for the evening ensuing, in order to bring the whole party, or as many of them as possible, together,
+              after any separation that may happen in the day; but if you should happen to be actually surrounded, form yourselves into a
+              square, or if in the woods, a circle is best, and, if possible, make a stand till the darkness of the night favours your
+              escape.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">If your rear is attacked, the main body and flankers must face about to the right or left, as
+              occasion shall require, and form themselves to oppose the enemy, as before directed; and the same method must be observed, if
+              attacked in either of your flanks, by which means you will always make a rear of one of your flank-guards.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">If you determine to rally after a retreat, in order to make a fresh stand against the enemy, by all
+              means endeavour to do it on the most rising ground you come at, which will give you greatly the advantage in point of
+              situation, and enable you to repulse superior numbers.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">In general, when pushed upon by the enemy, reserve your fire till they approach very near, which will
+              then put them into the greatest surprize and consternation, and give you an opportunity of rushing upon them with your
+              hatchets and cutlasses to the better advantage.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">When you encamp at night, fix your centries in such a manner as not to be relieved from the main body
+              till morning, profound secrecy and silence being often of the last importance in these cases. Each centry therefore should
+              consist of six men, two of whom must be constantly alert, and when relieved by their fellows, it should be done without
+              noise; and in case those on duty see or hear any thing, which alarms them, they are not to speak, but one of them is silently
+              to retreat, and acquaint the commanding officer thereof, that proper dispositions may be made; and all occasional centries
+              should be fixed in like manner.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">At the first dawn of day, awake your whole detachment; that being the time when the savages the
+              savages chuse to fall upon their enemies, you should by all means be in readiness to receive them.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">If the enemy should be discovered by your detachments in the morning, and their numbers are superior
+              to yours, and a victory doubtful, you should not attack them till the evening, as then they will not know your numbers, and
+              if you are repulsed, your retreat will be favoured by the darkness of the night.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">Before you leave your encampment, send out small parties to scout round it, to see if there be any
+              appearance or track of an enemy that might have been near you during the night.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">When you stop for refreshment, chuse some spring or rivulet if you can, and dispose your party so as
+              not to be surprised, posting proper guards and centries at a due distance, and let a small party waylay the path you came in,
+              lest the enemy should be pursuing.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">If, in your return, you have to cross rivers, avoid the usual fords as much as possible, lest the
+              enemy should have discovered, and be there expecting you.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">If you have to pass by lakes, keep at some distance from the edge of the water, lest, in case of an
+              ambuscade or an attack from the enemy, when in that situation, your retreat should be cut off.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">If the enemy pursue your rear, take a circle till you come to your own tracks, and there form an
+              ambush to receive them, and give them the first fire.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">When you return from a scout, and come near our forts, avoid the usual roads, and avenues thereto,
+              lest the enemy should have headed you, and lay in ambush to receive you, when almost exhausted with fatigues.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">When you pursue any party that has been near our forts or encampments, follow not directly in their
+              tracks, lest they should be discovered by their rear guards, who, at such a time, would be most alert; but endeavour, by a
+              different route, to head and meet them in some narrow pass, or lay in ambush to receive them when and where they least expect
+              it.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">If you are to embark in canoes, battoes, or otherwise, by water, chuse the evening for the time of
+              your embarkation, as you will then have the whole night before you, to pass undiscovered by any parties of the enemy, on
+              hills, or other places, which command a prospect of the lake or river you are upon.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">In padling or rowing, give orders that the boat or canoe next the sternmost, wait for her, and the
+              third for the second, and the fourth for the third, and so on, to prevent separation, and that you may be ready to assist
+              each other on any emergency.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">Appoint one man in each boat to look out for fires, on the adjacent shores, from the numbers and size
+              of which you may form some judgment of the number that kindled them, and whether you are able to attack them or not.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">If you find the enemy encamped near the banks of a river or lake, which you imagine they will attempt
+              to cross for their security upon being attacked, leave a detachment of your party on the opposite shore to receive them,
+              while, with the remainder, you surprize them, having them between you and the lake or river.</para>
+      </listitem>
+      <listitem>
+        <para ism:classification="U"
+              ism:ownerProducer="USA">If you cannot satisfy yourself as to the enemy's number and strength, from their fire, &amp;c.
+              conceal your boats at some distance, and ascertain their number by a reconnoitering party, when they embark, or march, in the
+              morning, marking the course they steer, &amp;c. when you may pursue, ambush, and attack them, or let them pass, as prudence
+              shall direct you. In general, however, that you may not be discovered by the enemy upon the lakes and rivers at a great
+              distance, it is safest to lay by, with your boats and party concealed all day, without noise or shew; and to pursue your
+              intended route by night; and whether you go by land or water, give out parole and countersigns, in order to know one another
+              in the dark, and likewise appoint a station every man to repair to, in case of any accident that may separate you."</para>
+      </listitem>
+    </orderedlist>
+  </para>
+  <note xmlns="http://docbook.org/ns/docbook">
+    <title ism:classification="U"
+           ism:ownerProducer="USA">Attachments</title>
+    <para ism:classification="U"
+          ism:ownerProducer="USA">A sample uniform of one of the Rangers is being shipped by the courier AntiqueMovers in a special van to
+          preserve the uniform. The shipment id is AM-45897. The shippers contact number is (123) 345-7890.</para>
+  </note>
+  <simplesect xmlns="http://docbook.org/ns/docbook">
+    <title ism:classification="U"
+           ism:ownerProducer="USA">Bibliography</title>
+    <bibliolist>
+      <biblioentry>
+        <abbrev>Major Rogers' Diary</abbrev>
+        <title ism:classification="U"
+               ism:ownerProducer="USA">Major Rogers' Diary</title>
+        <author>
+          <personname>Major Robert Rogers</personname>
+        </author>
+      </biblioentry>
+    </bibliolist>
+  </simplesect>
+</d:article>

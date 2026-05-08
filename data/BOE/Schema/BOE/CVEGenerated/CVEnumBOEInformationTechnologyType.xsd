@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:boe:CVEnumBOEInformationTechnologyType"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:boe:CVEnumBOEInformationTechnologyType"
+            version="201804">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumBOEInformationTechnologyType Version 2.1 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumBOEInformationTechnologyType.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumBOEInformationTechnologyType">
+      <xsd:annotation>
+         <xsd:documentation>(U) Information (IT) Technology Type for System Security Plan (SSP)
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumBOEInformationTechnologyType.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="ENCLAVE">
+            <xsd:annotation>
+               <xsd:documentation>A set of system resources that operate in the same security domain and that share the protection of a single, common, continuous security perimeter. (Source: CNSSI 4009)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MAJORAPPLICATION">
+            <xsd:annotation>
+               <xsd:documentation>An application that requires special attention to security due to the risk and magnitude of harm resulting from the loss, misuse, or unauthorized access to or modification of the information in the application. (Source: CNSSI 4009)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PLATFORMITSYSTEM">
+            <xsd:annotation>
+               <xsd:documentation>A collection of Information technology (IT), both hardware and software, that is physically part of, dedicated to, or essential in real time to the mission performance of special purpose systems within an identified boundary under the control of a single authority and security policy. The systems may be structured by physical proximity or by function, independent of location. (Source CNSSI 4009)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GENERALSUPPORTSYSTEM">
+            <xsd:annotation>
+               <xsd:documentation>An interconnected set of information resources under the same direct management control that shares common functionality. It normally includes hardware, software, information, data, applications, communications, and people. (Source: CNSSI 4009)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="VIRTUALITSYSTEM">
+            <xsd:annotation>
+               <xsd:documentation>An IT system entirely comprised of virtual machines</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CONTAINERITSYSTEM">
+            <xsd:annotation>
+               <xsd:documentation>An IT system entirely comprised of containers</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MIXEDITSYSTEM">
+            <xsd:annotation>
+               <xsd:documentation>An IT system comprosed of bare metal and virtual and/or container elements</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CROSSDOMAIN">
+            <xsd:annotation>
+               <xsd:documentation>An IT system that manually and/or automatically provides access and/or transfers information between different security domains.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

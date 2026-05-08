@@ -1,0 +1,881 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<d:book xmlns:d="http://docbook.org/ns/docbook"
+        version="5.0-variant urn:us:gov:ic:docbook-201804"
+        xml:lang="en">
+  <d:info>
+    <d:releaseinfo role="usa.nsi.banner">UNCLASSIFIED</d:releaseinfo>
+    <d:title>Body of Evidence for SystemName0</d:title>
+  </d:info>
+  <d:chapter>
+    <d:title>(U) System Information</d:title>
+    <d:para>
+    <d:emphasis role="bold">(U) System Name:</d:emphasis>SystemName0</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) System Identifier:</d:emphasis>SystemIdentifier0</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) System Version:</d:emphasis>SystemVersion0</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Organization Name:</d:emphasis>OrganizationName0</d:para>
+    <d:para>
+      <d:emphasis role="bold">(U) Information Technology Type:</d:emphasis>
+      <d:itemizedlist>
+        <d:listitem>
+          <d:para>Type of Service: ENCLAVE</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>Is a Standalone System: True</d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:para>
+    <d:para>
+      <d:emphasis role="bold">(U) Security Categorization:</d:emphasis>
+      <d:itemizedlist>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">(U) Confidentiality:</d:emphasis>MODERATE</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">(U) Integrity:</d:emphasis>MODERATE</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">(U) Availability:</d:emphasis>LOW</d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) System Short Name:</d:emphasis>SYSTEM</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) National Security System:</d:emphasis>True</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Operational Environment:</d:emphasis>TEST</d:para>
+    <d:para>
+      <d:emphasis role="bold">(U) Data Authorization Level:</d:emphasis>
+      <d:itemizedlist>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">Highest Classification Level:</d:emphasis>UNCLASSIFIED</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">Authorized Handling Controls:</d:emphasis>FOUO</d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:para>
+  </d:chapter>
+  <d:chapter>
+    <d:title>(U) System Security Plan</d:title>
+    <d:para>
+    <d:emphasis role="bold">(U) Authorization Boundary Diagram:</d:emphasis>The following diagram is the Authorization Boundary Diagram and
+    is UNCLASSIFIED.</d:para>
+    <d:mediaobject xml:id="image_AuthorizationBoundaryDiagram">
+      <d:imageobject>
+        <d:imagedata fileref="./images/authBoundries.jpg"
+                     align="center" />
+      </d:imageobject>
+      <d:caption>
+        <d:para>(U) Image alt-text.</d:para>
+      </d:caption>
+    </d:mediaobject>
+    <d:para>
+    <d:emphasis role="bold">(U) Authorization Status:</d:emphasis>ATO</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Authorization Termination Date:</d:emphasis>2020-05-04T18:13:51Z</d:para>
+    <d:para>
+      <d:emphasis role="bold">(U) Cryptographic Key:</d:emphasis>
+      <d:itemizedlist>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">(U) FIPS Validated for Unclassified Information:</d:emphasis>False -- This is a classified system,
+          unclass validation not necessary.</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">(U) FIPS Validated for Compartmented Information:</d:emphasis>True</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">(U) Uses NSA Approved Cryptography:</d:emphasis>True</d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) E Authentication Assessment:</d:emphasis>False</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) External Security Services:</d:emphasis>The following table is UNCLASSIFIED.</d:para>
+    <d:table frame="all">
+      <d:title>(U) External Security Services</d:title>
+      <d:tgroup cols="4">
+        <d:colspec colname="c1"
+                   colnum="1"
+                   colwidth="1.0*" />
+        <d:colspec colname="c2"
+                   colnum="2"
+                   colwidth="1.0*" />
+        <d:colspec colname="c3"
+                   colnum="3"
+                   colwidth="1.0*" />
+        <d:colspec colname="c4"
+                   colnum="4"
+                   colwidth="3.0*" />
+        <d:thead>
+          <d:row>
+            <d:entry>Service Name</d:entry>
+            <d:entry>Service Provider</d:entry>
+            <d:entry>Meets Organization Security Requirements?</d:entry>
+            <d:entry>Description</d:entry>
+          </d:row>
+        </d:thead>
+        <d:tbody>
+          <d:row>
+            <d:entry>OAuth</d:entry>
+            <d:entry>Google</d:entry>
+            <d:entry>True</d:entry>
+            <d:entry>(U) blah blah blah</d:entry>
+          </d:row>
+        </d:tbody>
+      </d:tgroup>
+    </d:table>
+    <d:para>
+      <d:emphasis role="bold">(U) Hardware Inventory:</d:emphasis>
+      <d:itemizedlist>
+        <d:listitem>
+          <d:para>
+            <d:emphasis role="bold">(U) Foo</d:emphasis>
+            <d:itemizedlist>
+              <d:listitem>
+                <d:para>
+                <d:emphasis role="bold">Manufacturer:</d:emphasis>Bar</d:para>
+              </d:listitem>
+              <d:listitem>
+                <d:para>
+                <d:emphasis role="bold">Model Number:</d:emphasis>1G876</d:para>
+              </d:listitem>
+            </d:itemizedlist>
+          </d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:para>
+    <d:para>
+      <d:emphasis role="bold">(U) Software Inventory:</d:emphasis>
+      <d:itemizedlist>
+        <d:listitem>
+          <d:para>
+            <d:emphasis role="bold">(U) Python</d:emphasis>
+            <d:itemizedlist>
+              <d:listitem>
+                <d:para>
+                <d:emphasis role="bold">Owner:</d:emphasis>Python Software Foundation</d:para>
+              </d:listitem>
+              <d:listitem>
+                <d:para>
+                <d:emphasis role="bold">Version:</d:emphasis>3.1</d:para>
+              </d:listitem>
+            </d:itemizedlist>
+          </d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) External System Interface Diagram:</d:emphasis>The following diagram is the External System Interface
+    Diagram and is UNCLASSIFIED.</d:para>
+    <d:mediaobject xml:id="image_ExternalSystemInterfaceDiagram">
+      <d:imageobject>
+        <d:imagedata fileref="./images/externalInterfaces.jpg"
+                     align="center" />
+      </d:imageobject>
+      <d:caption>
+        <d:para>(U) External Interface Diagram</d:para>
+      </d:caption>
+    </d:mediaobject>
+    <d:para>
+    <d:emphasis role="bold">(U) Internal System Interface Diagram:</d:emphasis>The following diagram is the Internal System Interface
+    Diagram and is UNCLASSIFIED.</d:para>
+    <d:mediaobject xml:id="image_InternalSystemInterfaceDiagram">
+      <d:imageobject>
+        <d:imagedata fileref="./images/internalInterfaces.png"
+                     align="center" />
+      </d:imageobject>
+      <d:caption>
+        <d:para>(U) Internal Interface Diagram</d:para>
+      </d:caption>
+    </d:mediaobject>
+    <d:para>
+    <d:emphasis role="bold">(U) Network Connection Rules:</d:emphasis>NetworkConnectionRules0</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Information Type:</d:emphasis>Blah Blah Blah</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Information Flow Diagram:</d:emphasis>The following diagram is the Information Flow Diagram and is
+    UNCLASSIFIED.</d:para>
+    <d:mediaobject xml:id="image_InformationFlowDiagram">
+      <d:imageobject>
+        <d:imagedata fileref="./images/flow.png"
+                     align="center" />
+      </d:imageobject>
+      <d:caption>
+        <d:para>(U) Information Flow Diagram</d:para>
+      </d:caption>
+    </d:mediaobject>
+    <d:para>
+    <d:emphasis role="bold">(U) Mission Criticality:</d:emphasis>False</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) System Ownership:</d:emphasis>GOVERNMENTOWNEDGOVERNMENTOPERATED</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Physical Environment:</d:emphasis>PhysicalEnvironmet0</d:para>
+    <d:para>
+      <d:emphasis role="bold">(U) Key Roles:</d:emphasis>
+      <d:itemizedlist>
+        <d:listitem>
+          <d:para>
+            <d:emphasis role="bold">(U) Delegated Authorizing Official</d:emphasis>
+            <d:itemizedlist>
+              <d:listitem>
+                <d:para>
+                <d:emphasis role="bold">Name:</d:emphasis>Gabriel Lorca</d:para>
+              </d:listitem>
+              <d:listitem>
+                <d:para>
+                <d:emphasis role="bold">Title:</d:emphasis>Captain</d:para>
+              </d:listitem>
+              <d:listitem>
+                <d:para>
+                <d:emphasis role="bold">Organization:</d:emphasis>Starfleet</d:para>
+              </d:listitem>
+              <d:listitem>
+                <d:para>
+                <d:emphasis role="bold">Phone:</d:emphasis>444-444-4444</d:para>
+              </d:listitem>
+            </d:itemizedlist>
+          </d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+            <d:emphasis role="bold">(U) Observer</d:emphasis>
+            <d:itemizedlist>
+              <d:listitem>
+                <d:para>
+                <d:emphasis role="bold">Name:</d:emphasis>Michael Burnham</d:para>
+              </d:listitem>
+              <d:listitem>
+                <d:para>
+                <d:emphasis role="bold">Organization:</d:emphasis>Starfleet</d:para>
+              </d:listitem>
+              <d:listitem>
+                <d:para>
+                <d:emphasis role="bold">Email:</d:emphasis>michael.burnham@disco.sf.mil</d:para>
+              </d:listitem>
+            </d:itemizedlist>
+          </d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) System Lifecycle Phase:</d:emphasis>3-B-EMD</d:para>
+    <d:para>
+      <d:emphasis role="bold">(U) System User Categories:</d:emphasis>
+      <d:itemizedlist>
+        <d:listitem>
+          <d:para>
+            <d:emphasis role="bold">(U) FEDERALSTATELOCAL:</d:emphasis>
+            <d:itemizedlist>
+              <d:listitem>
+                <d:para>
+                <d:emphasis role="bold">(U) Access Description:</d:emphasis>General user access except for system administrators</d:para>
+              </d:listitem>
+              <d:listitem>
+                <d:para>
+                  <d:emphasis role="bold">User Constraints:</d:emphasis>
+                  <d:itemizedlist>
+                    <d:listitem>
+                      <d:para>(U) User must have a TS clearance.</d:para>
+                    </d:listitem>
+                    <d:listitem>
+                      <d:para>(U) User must be read into SI</d:para>
+                    </d:listitem>
+                    <d:listitem>
+                      <d:para>(U) User must be read into TK</d:para>
+                    </d:listitem>
+                  </d:itemizedlist>
+                </d:para>
+              </d:listitem>
+            </d:itemizedlist>
+          </d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+            <d:emphasis role="bold">(U) CONTRACTORS:</d:emphasis>
+            <d:itemizedlist>
+              <d:listitem>
+                <d:para>
+                <d:emphasis role="bold">(U) Access Description:</d:emphasis>General user access except for system administrators</d:para>
+              </d:listitem>
+              <d:listitem>
+                <d:para>
+                  <d:emphasis role="bold">User Constraints:</d:emphasis>
+                  <d:itemizedlist>
+                    <d:listitem>
+                      <d:para>(U) User must have a TS clearance.</d:para>
+                    </d:listitem>
+                    <d:listitem>
+                      <d:para>(U) User must be read into SI</d:para>
+                    </d:listitem>
+                    <d:listitem>
+                      <d:para>(U) User must be read into TK</d:para>
+                    </d:listitem>
+                  </d:itemizedlist>
+                </d:para>
+              </d:listitem>
+            </d:itemizedlist>
+          </d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+            <d:emphasis role="bold">(U) GENERALPUBLIC:</d:emphasis>
+            <d:itemizedlist>
+              <d:listitem>
+                <d:para>
+                <d:emphasis role="bold">(U) Access Description:</d:emphasis>No Access</d:para>
+              </d:listitem>
+            </d:itemizedlist>
+          </d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Security Review Date:</d:emphasis>2017-12-07</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) System Function Description:</d:emphasis>Blah blah blah</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Security Control List:</d:emphasis>The following table is UNCLASSIFIED.</d:para>
+    <d:table frame="all">
+      <d:title>(U) Security Control List</d:title>
+      <d:tgroup cols="4">
+        <d:colspec colname="c1"
+                   colnum="1"
+                   colwidth="1.0*" />
+        <d:colspec colname="c2"
+                   colnum="2"
+                   colwidth="1.0*" />
+        <d:colspec colname="c3"
+                   colnum="3"
+                   colwidth="1.0*" />
+        <d:colspec colname="c4"
+                   colnum="4"
+                   colwidth="3.0*" />
+        <d:thead>
+          <d:row>
+            <d:entry>Control Number</d:entry>
+            <d:entry>Control Name</d:entry>
+            <d:entry>Control Status</d:entry>
+            <d:entry>Implementation Description</d:entry>
+          </d:row>
+        </d:thead>
+        <d:tbody>
+          <d:row>
+            <d:entry>AC-1</d:entry>
+            <d:entry>Access Control Policy and Procedures</d:entry>
+            <d:entry>IMPLEMENTED</d:entry>
+            <d:entry>
+              <d:para>(U) Access control policy and procedures are documented in lorum ipsum.</d:para>
+            </d:entry>
+          </d:row>
+          <d:row>
+            <d:entry>AC-2</d:entry>
+            <d:entry>Account Management</d:entry>
+            <d:entry>IMPLEMENTED</d:entry>
+            <d:entry>
+              <d:para>(U) Active Directory</d:para>
+            </d:entry>
+          </d:row>
+          <d:row>
+            <d:entry>AC-20</d:entry>
+            <d:entry>Use of External Information Systems</d:entry>
+            <d:entry>NOTAPPLICABLE</d:entry>
+            <d:entry>
+              <d:para>(U) Rationale: The system will be a standalone system and not be connected to external information systems.</d:para>
+            </d:entry>
+          </d:row>
+          <d:row>
+            <d:entry>AC-1</d:entry>
+            <d:entry>Audit and Accountability Policy and Procedures</d:entry>
+            <d:entry>PLANNED</d:entry>
+            <d:entry>
+              <d:para>(U) Current policy in draft, but expected to be signed before system enters production.</d:para>
+            </d:entry>
+          </d:row>
+        </d:tbody>
+      </d:tgroup>
+    </d:table>
+    <d:para>
+      <d:emphasis role="bold">(U) Applicable Overlays:</d:emphasis>
+      <d:itemizedlist>
+        <d:listitem>
+          <d:para>Intel</d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:para>
+  </d:chapter>
+  <d:chapter>
+    <d:title>(U) Security Assessment Report</d:title>
+    <d:para>
+    <d:emphasis role="bold">(U) Assessment Date:</d:emphasis>2017-10-26</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Sca Executive Summary:</d:emphasis>Executive summary from the detailed findings that are generated during a
+    security control assessment. An executive summary provides an AO with an abbreviated version of the assessment report focusing on the
+    highlights of the assessment, synopsis of key findings, and/or recommendations for addressing weaknesses and deficiencies in the
+    security controls.</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Assessment Environment:</d:emphasis>Description of the environment where the most recent testing took
+    place, including information on the site location and security system. Identify any supporting equipment (i.e. emulators, sniffers,
+    analyzers, traffic generators, satellite simulators) that were used to support the assessment event, and list any external interfaces
+    active during the test even. Explain any constraints imposed by the environment on the assessment event which impacted on the quality
+    or quantity of testing able to be performed. Identify all personnel present for the assessment, their organizations, and their role in
+    the assessment event. Resource: test results report.</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Assessment Methodology:</d:emphasis>Identifies methodology and procedures used to assess controls (e.g,
+    NIST SP 800-53A, DoD Joint Security Implementation Guide). If other methodology or procedures were used, provide rationale for
+    deviation from standards assessment resources.</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Assessment Objective Type:</d:emphasis>Independent verification and validation.</d:para>
+    <d:para>
+      <d:emphasis role="bold">(U) Security Assessor:</d:emphasis>
+      <d:itemizedlist>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">Name:</d:emphasis>Ash Tyler</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">Title:</d:emphasis>Lieutenant</d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:para>
+    <d:para>
+      <d:emphasis role="bold">(U) Constraints And Issues:</d:emphasis>
+      <d:itemizedlist>
+        <d:listitem>
+          <d:para>
+            <d:emphasis role="bold">(U) Assumption List:</d:emphasis>
+            <d:itemizedlist>
+              <d:listitem>
+                <d:para>
+                <d:emphasis role="bold">Assumption:</d:emphasis>Assumption1</d:para>
+              </d:listitem>
+              <d:listitem>
+                <d:para>
+                <d:emphasis role="bold">Assumption:</d:emphasis>Assumption2</d:para>
+              </d:listitem>
+            </d:itemizedlist>
+          </d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+            <d:emphasis role="bold">(U) (U) Constraint List:</d:emphasis>
+            <d:itemizedlist>
+              <d:listitem>
+                <d:para>
+                <d:emphasis role="bold">(U) Constraint:</d:emphasis>Constraint1</d:para>
+              </d:listitem>
+              <d:listitem>
+                <d:para>
+                <d:emphasis role="bold">(U) Constraint:</d:emphasis>Constraint2</d:para>
+              </d:listitem>
+            </d:itemizedlist>
+          </d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+            <d:emphasis role="bold">(U) Issue List:</d:emphasis>
+            <d:itemizedlist>
+              <d:listitem>
+                <d:para>
+                <d:emphasis role="bold">Issue:</d:emphasis>Issue1</d:para>
+              </d:listitem>
+              <d:listitem>
+                <d:para>
+                <d:emphasis role="bold">Issue:</d:emphasis>Issue2</d:para>
+              </d:listitem>
+            </d:itemizedlist>
+          </d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:para>
+    <d:para>
+      <d:emphasis role="bold">(U) (U) Components Assessed:</d:emphasis>
+      <d:itemizedlist>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">(U) Component Identifier:</d:emphasis>Comp1</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">(U) Component Identifier:</d:emphasis>Comp2</d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Security Control Traceability List:</d:emphasis>The following table is UNCLASSIFIED.</d:para>
+    <d:table frame="all">
+      <d:title>(U) Security Control Traceability List</d:title>
+      <d:tgroup cols="2">
+        <d:colspec colname="c1"
+                   colnum="1"
+                   colwidth="1.0*" />
+        <d:colspec colname="c2"
+                   colnum="2"
+                   colwidth="1.0*" />
+        <d:thead>
+          <d:row>
+            <d:entry>Control Number</d:entry>
+            <d:entry>Requirement ID</d:entry>
+          </d:row>
+        </d:thead>
+        <d:tbody>
+          <d:row>
+            <d:entry>AC-1</d:entry>
+            <d:entry>1.2.3.4</d:entry>
+          </d:row>
+          <d:row>
+            <d:entry>AC-2</d:entry>
+            <d:entry>1.2.3.5</d:entry>
+          </d:row>
+        </d:tbody>
+      </d:tgroup>
+    </d:table>
+    <d:para>
+    <d:emphasis role="bold">(U) Test Results:</d:emphasis>The following table is UNCLASSIFIED.</d:para>
+    <d:table frame="all">
+      <d:title>(U) Test Results</d:title>
+      <d:tgroup cols="5">
+        <d:colspec colname="c1"
+                   colnum="1"
+                   colwidth="1.0*" />
+        <d:colspec colname="c2"
+                   colnum="2"
+                   colwidth="1.0*" />
+        <d:colspec colname="c3"
+                   colnum="3"
+                   colwidth="1.0*" />
+        <d:colspec colname="c4"
+                   colnum="4"
+                   colwidth="1.0*" />
+        <d:colspec colname="c5"
+                   colnum="5"
+                   colwidth="1.0*" />
+        <d:thead>
+          <d:row>
+            <d:entry>Test ID</d:entry>
+            <d:entry>Test Date</d:entry>
+            <d:entry>Resource Tested</d:entry>
+            <d:entry>Control Number Tested</d:entry>
+            <d:entry>Test Result</d:entry>
+          </d:row>
+        </d:thead>
+        <d:tbody>
+          <d:row>
+            <d:entry>1A</d:entry>
+            <d:entry>2017-10-20</d:entry>
+            <d:entry>system0</d:entry>
+            <d:entry>AC-1</d:entry>
+            <d:entry>Passed</d:entry>
+          </d:row>
+          <d:row>
+            <d:entry>1B</d:entry>
+            <d:entry>2017-10-20</d:entry>
+            <d:entry>system0</d:entry>
+            <d:entry>AC-2</d:entry>
+            <d:entry>Failed</d:entry>
+          </d:row>
+        </d:tbody>
+      </d:tgroup>
+    </d:table>
+  </d:chapter>
+  <d:chapter>
+    <d:title>(U) Risk Assessment Report</d:title>
+    <d:para>
+    <d:emphasis role="bold">(U) Assessment Date:</d:emphasis>2017-10-26</d:para>
+    <d:para>
+      <d:emphasis role="bold">(U) Risk Assessment POC:</d:emphasis>
+      <d:itemizedlist>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">Name:</d:emphasis>Saru</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">Email:</d:emphasis>saru2@disco.sf.mil</d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Purpose For Risk Assessment:</d:emphasis>Describe the purpose of the risk assessment. The purpose may be to
+    determine risk at various system life cycle phases, to include the security categorization, to tailor security controls, to assess the
+    risk of non-compliant security controls, to assess the impact of actual or proposed changes to the system in operations, etc.</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Risk Assessment Scope:</d:emphasis>The scope of the risk assessment can be at any of the three tiers in the
+    risk management hierarchy (i.e., organization, mission/business process, or system), or the scope can be limited to certain portions of
+    the system. Identify scope of assessment including boundaries and intended mission(s) the system is designed to support</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Risk Assessment Summary:</d:emphasis>Executive summary from the detailed findings generated during risk
+    assessment. An executive summary provides an AO with an abbreviated version of the risk assessment report focusing on the highlights of
+    the assessment, purpose, synopsis of key findings, and/or recommendations for addressing risk.</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Organizational Risk Tolerance:</d:emphasis>Risk Tolerance (including a list of the range of consequences to
+    be considered) –The level of risk an entity is willing to assume in order to achieve a potential desired result; Identify any
+    organization risk tolerance levels set at Tier 1, Tier 2, and Tier 3</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Overall Risk Posture:</d:emphasis>MODERATE</d:para>
+    <d:para>
+      <d:emphasis role="bold">(U) Overall Risk Ratings:</d:emphasis>
+      <d:itemizedlist>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">Very Low:</d:emphasis>15</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">Low:</d:emphasis>5</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">Moderate:</d:emphasis>3</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">High:</d:emphasis>1</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">Very High:</d:emphasis>2</d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Risk Analysis Approach:</d:emphasis>THREAT</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Risk Assessment Approach:</d:emphasis>SEMI-QUALITATIVE</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Threat Events:</d:emphasis>The following table is UNCLASSIFIED.</d:para>
+    <d:table frame="all">
+      <d:title>(U) Threat Events</d:title>
+      <d:tgroup cols="7">
+        <d:colspec colname="c1"
+                   colnum="1"
+                   colwidth="2.0*" />
+        <d:colspec colname="c2"
+                   colnum="2"
+                   colwidth="2.0*" />
+        <d:colspec colname="c3"
+                   colnum="3"
+                   colwidth="2.0*" />
+        <d:colspec colname="c4"
+                   colnum="4"
+                   colwidth="1.0*" />
+        <d:colspec colname="c5"
+                   colnum="5"
+                   colwidth="1.0*" />
+        <d:colspec colname="c6"
+                   colnum="6"
+                   colwidth="1.0*" />
+        <d:colspec colname="c7"
+                   colnum="7"
+                   colwidth="1.0*" />
+        <d:thead>
+          <d:row>
+            <d:entry>Event</d:entry>
+            <d:entry>Vulnerabilities</d:entry>
+            <d:entry>Sources</d:entry>
+            <d:entry>Likelihood of Occurrence</d:entry>
+            <d:entry>Likelihood of Success</d:entry>
+            <d:entry>Overall Likelihood</d:entry>
+            <d:entry>Residual Risk Level</d:entry>
+          </d:row>
+        </d:thead>
+        <d:tbody>
+          <d:row>
+            <d:entry>
+              <d:para>The threat event by name.</d:para>
+            </d:entry>
+            <d:entry>
+              <d:para>Vulnerability1</d:para>
+              <d:para>Vulnerability2</d:para>
+            </d:entry>
+            <d:entry>
+              <d:para>Source1</d:para>
+            </d:entry>
+            <d:entry>
+              <d:para>LOW</d:para>
+            </d:entry>
+            <d:entry>
+              <d:para>VERY_LOW</d:para>
+            </d:entry>
+            <d:entry>
+              <d:para>LOW</d:para>
+            </d:entry>
+            <d:entry>
+              <d:para>LOW</d:para>
+            </d:entry>
+          </d:row>
+          <d:row>
+            <d:entry>
+              <d:para>The threat event by description.</d:para>
+            </d:entry>
+            <d:entry>
+              <d:para>Vulnerability3</d:para>
+            </d:entry>
+            <d:entry>
+              <d:para>Source2</d:para>
+            </d:entry>
+            <d:entry>
+              <d:para>LOW</d:para>
+            </d:entry>
+            <d:entry>
+              <d:para>VERY_LOW</d:para>
+            </d:entry>
+            <d:entry>
+              <d:para>LOW</d:para>
+            </d:entry>
+            <d:entry>
+              <d:para>VERY_LOW</d:para>
+            </d:entry>
+          </d:row>
+          <d:row>
+            <d:entry>
+              <d:para>The threat event by reference.</d:para>
+            </d:entry>
+            <d:entry>
+              <d:para>Vulnerability4</d:para>
+            </d:entry>
+            <d:entry>
+              <d:para>Source1</d:para>
+            </d:entry>
+            <d:entry>
+              <d:para>HIGH</d:para>
+            </d:entry>
+            <d:entry>
+              <d:para>VERY_HIGH</d:para>
+            </d:entry>
+            <d:entry>
+              <d:para>MODERATE</d:para>
+            </d:entry>
+            <d:entry>
+              <d:para>LOW</d:para>
+            </d:entry>
+          </d:row>
+        </d:tbody>
+      </d:tgroup>
+    </d:table>
+  </d:chapter>
+  <d:chapter>
+    <d:title>(U) Plan of Action and Milestones</d:title>
+    <d:para>
+    <d:emphasis role="bold">(U) Assessment Date:</d:emphasis>2017-09-26</d:para>
+    <d:para>
+      <d:emphasis role="bold">(U) Deficiency:</d:emphasis>
+      <d:itemizedlist>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">(U) Name:</d:emphasis>My Deficiency</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">(U) Description:</d:emphasis>Bad things.</d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Completion Status:</d:emphasis>ONGOING</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Scheduled Completion Date:</d:emphasis>2017-10-25</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Completion Date:</d:emphasis>2017-10-27</d:para>
+    <d:para>
+      <d:emphasis role="bold">(U) Point Of Contact:</d:emphasis>
+      <d:itemizedlist>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">Name:</d:emphasis>Paul Stamets</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">Email:</d:emphasis>paul.stamets@disco.sf.mil</d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Applicable Security Control:</d:emphasis>AC-1</d:para>
+    <d:para>
+      <d:emphasis role="bold">(U) Identifying Event:</d:emphasis>
+      <d:itemizedlist>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">(U) Event:</d:emphasis>Power outage</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">(U) Reviewing Organization:</d:emphasis>MIA/IAD</d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Comments:</d:emphasis>Additional detail, clarifications, or other commentary.</d:para>
+  </d:chapter>
+  <d:chapter>
+    <d:title>(U) Authorization Decision Document</d:title>
+    <d:para>
+    <d:emphasis role="bold">(U) Authorization Decision:</d:emphasis>ATO</d:para>
+    <d:para>
+      <d:emphasis role="bold">(U) Authorizing Official:</d:emphasis>
+      <d:itemizedlist>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">Name:</d:emphasis>Gabriel Lorca</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">Title:</d:emphasis>Captain</d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Authorization Decision Date:</d:emphasis>2017-10-31</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Authorization Decision Termination Date:</d:emphasis>2020-10-31</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Authorization Terms And Conditions:</d:emphasis>Provides a description of any specific limitations or
+    restrictions placed on the operation of the system.</d:para>
+    <d:para>
+    <d:emphasis role="bold">(U) Risk Executive Input:</d:emphasis>The security related-considerations from the Risk Executive which the AO
+    deems relevant and affects the final authorization decision. These considerations are viewed from organization-wide perspective with
+    regard to the overall strategic goals and objectives in carrying out the mission and business functions. (e.g., organizational risk
+    tolerance, organization’s overall risk mitigation strategy, core mission and business requirements, dependencies among systems, ongoing
+    risk monitoring requirements, and other types of risks not directly associated with the system or its environment of
+    operation).</d:para>
+    <d:para>
+      <d:emphasis role="bold">(U) Overall Risk Ratings:</d:emphasis>
+      <d:itemizedlist>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">Very Low:</d:emphasis>15</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">Low:</d:emphasis>5</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">Moderate:</d:emphasis>3</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">High:</d:emphasis>1</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para>
+          <d:emphasis role="bold">Very High:</d:emphasis>2</d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:para>
+  </d:chapter>
+</d:book>

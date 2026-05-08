@@ -1,0 +1,879 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for </title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                        //
+--></script>
+   </head>
+   <body>
+      <h2>
+         <a id="INDEX" shape="rect">Table of Contents</a>
+      </h2>
+      <p>
+         <a href="SchemaGuide.indexList.html" shape="rect">Components</a>
+         <span> | </span>
+         <a href="schHierarchy.html" shape="rect">Resource Hierarchy</a>
+      </p>
+      <hr></hr>
+      <div class="toc">
+         <form action="none" method="get" enctype="application/x-www-form-urlencoded">
+            <div>
+               <span> Group by: <select id="selectTOC" onchange="selectTOCGroupBy(this.options[this.selectedIndex].value, true, 'SchemaGuide.indexList.html', 'SchemaGuide.indexListns.html', 'SchemaGuide.indexListcomp.html');">
+                     <option value="toc_group_by_namespace" selected="selected">Namespace</option>
+                     <option value="toc_group_by_location">Location</option>
+                     <option value="toc_group_by_component_type">Component Type</option>
+                  </select>
+               </span>
+            </div>
+         </form>
+         <div class="level1" id="toc_group_by_namespace" style="display:block">
+            <div>
+               <div class="level2">
+                  <p>
+                     <input id="button_boxIdNamespace1" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace1');" class="control"></input>
+                     <span class="indexGroupTitle">urn:schema:guide:schema:digitalhazmat</span>
+                  </p>
+                  <div id="boxIdNamespace1" style="display:block">
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace1Main_schema" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace1Main_schema');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Main Schema</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace1Main_schema" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="2268218b-27f6-4b23-a0f7-2d73fdfbd444.html#SchemaGuideSchema.xsd" target="mainFrame" title="urn:schema:guide:schema:digitalhazmat" onclick="updatePageTitle('Schema documentation for component SchemaGuideSchema.xsd')" shape="rect">SchemaGuideSchema.xsd</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div style="clear:left"></div>
+                  </div>
+               </div>
+               <div class="level2">
+                  <p>
+                     <input id="button_boxIdNamespace2" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace2');" class="control"></input>
+                     <span class="indexGroupTitle">urn:us:gov:ic:digitalhazmat</span>
+                  </p>
+                  <div id="boxIdNamespace2" style="display:block">
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace2Imported_schema" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace2Imported_schema');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Imported Schemas</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace2Imported_schema" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="DHZM_xsd_Imported_schema_DHZM_xsd.html#DHZM.xsd" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component DHZM.xsd')" shape="rect">DHZM.xsd</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace2Element" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace2Element');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Elements</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace2Element" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="2e5da601-da01-434c-992e-bd709c247572.html#ContentCollectionExternalId" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentCollectionExternalId')" shape="rect">ContentCollectionExternalId</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="1ea84ca0-dbba-4a33-9a33-dceadaf91f4f.html#ContentCollectionHost" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentCollectionHost')" shape="rect">ContentCollectionHost</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="103aff9b-e91a-4acd-9322-7e6a5af96207.html#ContentCollectionHostList" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentCollectionHostList')" shape="rect">ContentCollectionHostList</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="467349ff-7636-46e7-ba25-5bab9ba44cd4.html#ContentCollectionMethod" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentCollectionMethod')" shape="rect">ContentCollectionMethod</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="3bb1a9cc-d404-43dd-8fed-c1c245afa16c.html#ContentCollectionMethodList" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentCollectionMethodList')" shape="rect">ContentCollectionMethodList</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="324a52e3-b4ac-4703-96fd-dd659f056208.html#ContentCollectionTimestamp" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentCollectionTimestamp')" shape="rect">ContentCollectionTimestamp</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="DHZM_xsd_Element_ContentEncodedSize.html#ContentEncodedSize" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentEncodedSize')" shape="rect">ContentEncodedSize</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="ca5cca0f-5b6b-496d-bb9f-cda2c103fbef.html#ContentEncodingMethod" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentEncodingMethod')" shape="rect">ContentEncodingMethod</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="DHZM_xsd_Element_ContentSize.html#ContentSize" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentSize')" shape="rect">ContentSize</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="DHZM_xsd_Element_DestinationDomain.html#DestinationDomain" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component DestinationDomain')" shape="rect">DestinationDomain</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="DHZM_xsd_Element_DigitalHazMat.html#DigitalHazMat" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component DigitalHazMat')" shape="rect">DigitalHazMat</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="da99d1d7-55e5-4127-b71d-e13ee34466e0.html#DigitalHazMatAssertion" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component DigitalHazMatAssertion')" shape="rect">DigitalHazMatAssertion</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="DHZM_xsd_Element_OriginContentArch.html#OriginContentArch" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentArch')" shape="rect">OriginContentArch</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="b1063ed6-db00-46ac-a03f-b7bf6e32c038.html#OriginContentCreated" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentCreated')" shape="rect">OriginContentCreated</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="315cc2c6-e887-43a2-b19d-bf82abb15259.html#OriginContentDevice" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentDevice')" shape="rect">OriginContentDevice</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="9254d4a9-87af-4d8a-85b9-c037ec5a0275.html#OriginContentFilename" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentFilename')" shape="rect">OriginContentFilename</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="DHZM_xsd_Element_OriginContentGroup.html#OriginContentGroup" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentGroup')" shape="rect">OriginContentGroup</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="DHZM_xsd_Element_OriginContentInode.html#OriginContentInode" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentInode')" shape="rect">OriginContentInode</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="70afa81e-ab91-4734-9aff-7edf9a01e34e.html#OriginContentLastAccessed" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentLastAccessed')" shape="rect">OriginContentLastAccessed</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="401f9d9d-1ab8-434b-a54d-78ef6db554d6.html#OriginContentLastModified" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentLastModified')" shape="rect">OriginContentLastModified</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="DHZM_xsd_Element_OriginContentOS.html#OriginContentOS" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentOS')" shape="rect">OriginContentOS</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="89c68d32-1563-4deb-bf8a-4134d20d9894.html#OriginContentOSVersion" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentOSVersion')" shape="rect">OriginContentOSVersion</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="DHZM_xsd_Element_OriginContentOwner.html#OriginContentOwner" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentOwner')" shape="rect">OriginContentOwner</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="DHZM_xsd_Element_OriginContentPath.html#OriginContentPath" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentPath')" shape="rect">OriginContentPath</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="93e71ab5-e1e8-4718-9360-b90f0b808736.html#OriginContentPathList" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentPathList')" shape="rect">OriginContentPathList</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="452ac08d-ab39-4409-b86f-7a14e84ccc23.html#OriginContentSourceIpv4" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentSourceIpv4')" shape="rect">OriginContentSourceIpv4</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="716c5c41-8e3e-4618-80ef-ccd72d55b577.html#OriginContentSourceIpv6" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentSourceIpv6')" shape="rect">OriginContentSourceIpv6</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="37cabaea-9722-42f4-8ef3-42812b2edf63.html#OriginContentSourceMac" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentSourceMac')" shape="rect">OriginContentSourceMac</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="d0e74c7c-9647-4786-ad91-78b7dbd506e3.html#OriginContentSourceSystem" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentSourceSystem')" shape="rect">OriginContentSourceSystem</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="DHZM_xsd_Element_OriginContentUid.html#OriginContentUid" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentUid')" shape="rect">OriginContentUid</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="4f876312-d683-48f4-b761-80a8c6b38c9b.html#ProvenanceAssertion" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ProvenanceAssertion')" shape="rect">ProvenanceAssertion</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="DHZM_xsd_Element_SourceDomain.html#SourceDomain" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component SourceDomain')" shape="rect">SourceDomain</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="DHZM_xsd_Element_WorkFlowId.html#WorkFlowId" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component WorkFlowId')" shape="rect">WorkFlowId</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace2Complex_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace2Complex_Type');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Complex Types</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace2Complex_Type" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="c44c31f2-5211-43d8-803f-c1679f53eda6.html#ContentCollectionHostListType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentCollectionHostListType')" shape="rect">ContentCollectionHostListType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="e6f38f11-3632-42a3-8f71-73769d8084e3.html#ContentCollectionMethodListType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentCollectionMethodListType')" shape="rect">ContentCollectionMethodListType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="1a498cf1-0c6f-4336-92ba-2dd598652012.html#DigitalHazMatAssertionType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component DigitalHazMatAssertionType')" shape="rect">DigitalHazMatAssertionType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="ae1fa952-f606-4b05-8511-8755bb66e220.html#OriginContentPathListType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentPathListType')" shape="rect">OriginContentPathListType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="13ed795e-cd7d-4e67-97a6-50d6b03fc95e.html#ProvenanceAssertionType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ProvenanceAssertionType')" shape="rect">ProvenanceAssertionType</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace2Simple_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace2Simple_Type');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Simple Types</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace2Simple_Type" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="18c4bdc6-ca52-47c9-8174-5a3433fffc75.html#ContentCollectionExternalIdType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentCollectionExternalIdType')" shape="rect">ContentCollectionExternalIdType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="c591ba8a-60bc-43ac-959f-c3052aac25bc.html#ContentCollectionHostType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentCollectionHostType')" shape="rect">ContentCollectionHostType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="29f852d8-16bc-44be-8dd9-8a33ff3fefc7.html#ContentCollectionMethodType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentCollectionMethodType')" shape="rect">ContentCollectionMethodType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="7539b655-f92c-45da-a928-ae9e3ec3f83c.html#ContentCollectionTimestampType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentCollectionTimestampType')" shape="rect">ContentCollectionTimestampType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="8af74b90-374f-41b3-adea-78ca896a470a.html#ContentEncodedSizeType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentEncodedSizeType')" shape="rect">ContentEncodedSizeType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="d446a4d1-3177-464d-ac25-26bb26aae2ad.html#ContentEncodingMethodType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentEncodingMethodType')" shape="rect">ContentEncodingMethodType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="5d026394-e116-4327-8c3d-896077929d24.html#ContentSizeType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component ContentSizeType')" shape="rect">ContentSizeType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="DHZM_xsd_Simple_Type_DESVersionType.html#DESVersionType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component DESVersionType')" shape="rect">DESVersionType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="cc2c1fc8-8f86-46f0-808f-ec523ced7ba4.html#DestinationDomainType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component DestinationDomainType')" shape="rect">DestinationDomainType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="fa6d4f72-7991-4eaf-95ef-02aebe9f49bc.html#DigitalHazMatType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component DigitalHazMatType')" shape="rect">DigitalHazMatType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="d5cc65ec-b1f0-4188-ad12-d223db2e3bea.html#OriginContentArchType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentArchType')" shape="rect">OriginContentArchType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="d6947987-4695-4341-bf5a-2d8977819d3d.html#OriginContentCreatedType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentCreatedType')" shape="rect">OriginContentCreatedType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="d2b29254-864c-4097-8fe0-98537300d5d2.html#OriginContentDeviceType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentDeviceType')" shape="rect">OriginContentDeviceType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="7cd58012-eff1-4378-90a0-40cd82f350c6.html#OriginContentFilenameType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentFilenameType')" shape="rect">OriginContentFilenameType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="fa04625a-8f47-4003-8baf-e997458b8491.html#OriginContentGroupType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentGroupType')" shape="rect">OriginContentGroupType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="e2074c06-34a7-4097-bcda-611a62becf8c.html#OriginContentInodeType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentInodeType')" shape="rect">OriginContentInodeType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="1450fc55-c0bc-4c7f-a6d9-5b5a4c18c7d6.html#OriginContentLastAccessedType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentLastAccessedType')" shape="rect">OriginContentLastAccessedType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="53d4e51f-755b-446b-8395-548437ee2ed5.html#OriginContentLastModifiedType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentLastModifiedType')" shape="rect">OriginContentLastModifiedType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="e63eb0a4-5ad8-4841-b75c-841422b4afc4.html#OriginContentOSType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentOSType')" shape="rect">OriginContentOSType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="e4069c04-aaa3-4617-b638-ecb823d6da43.html#OriginContentOSVersionType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentOSVersionType')" shape="rect">OriginContentOSVersionType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="d8cebb2a-4a65-4aca-bebf-555abfeb18fe.html#OriginContentOwnerType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentOwnerType')" shape="rect">OriginContentOwnerType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="4334a6b0-9ccd-438d-b18f-75df7687611b.html#OriginContentPathType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentPathType')" shape="rect">OriginContentPathType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="f7e0e872-42ea-4a21-b667-cd1a40cdc5d2.html#OriginContentSourceIpv4Type" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentSourceIpv4Type')" shape="rect">OriginContentSourceIpv4Type</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="865f569d-4183-4923-b0b6-81e9b4c994ff.html#OriginContentSourceIpv6Type" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentSourceIpv6Type')" shape="rect">OriginContentSourceIpv6Type</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="6c82b1d1-00fe-4b15-ba30-b6d8fa68be1e.html#OriginContentSourceMacType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentSourceMacType')" shape="rect">OriginContentSourceMacType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="ac579e99-661e-474d-96e4-72e1ac9b8152.html#OriginContentSourceSystemType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentSourceSystemType')" shape="rect">OriginContentSourceSystemType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="a0ab39c7-ecee-4f81-baae-6d1224bdd871.html#OriginContentUidType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component OriginContentUidType')" shape="rect">OriginContentUidType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="4361518f-4e25-4bc5-ad80-731d3c46f597.html#SourceDomainType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component SourceDomainType')" shape="rect">SourceDomainType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="DHZM_xsd_Simple_Type_WorkFlowIdType.html#WorkFlowIdType" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component WorkFlowIdType')" shape="rect">WorkFlowIdType</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace2Attribute" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace2Attribute');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Attributes</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace2Attribute" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="DHZM_xsd_Attribute_DESVersion.html#DESVersion" target="mainFrame" title="urn:us:gov:ic:digitalhazmat" onclick="updatePageTitle('Schema documentation for component @DESVersion')" shape="rect">@DESVersion</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div style="clear:left"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+   </body>
+</html>

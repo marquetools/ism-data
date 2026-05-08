@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXRelationshipNatureType"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXRelationshipNatureType"
+            version="202111">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumDOMEXRelationshipNatureType Version 2 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumDOMEXRelationshipNatureType.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumDOMEXRelationshipNatureType">
+      <xsd:annotation>
+         <xsd:documentation>(U) Valid range for relationship nature.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumDOMEXRelationshipNatureType.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="Is Brother-In-Law Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Child Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Married To">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Parent Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Sibling Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Aunt Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Brother Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Cousin Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Daughter-In-Law Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Daughter Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Ex-Husband Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Ex-Wife Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Father Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Father-In-Law Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Granddaughter Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Grandfather Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Grandmother Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Grandson Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Husband Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Mother Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Mother-In-Law Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Nephew Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Niece of ">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Relative Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Sister Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Sister-In-Law of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Son-In-Law Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Son Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Uncle Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Wife Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Step-Mother Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Step-Father Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Step-Parent Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Step-Daughter Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Step-Son of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Step-Child Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Step-Sister Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Step-Brother Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Step-Sibling Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Spouse Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Grandparent Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Grandchild Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Ex-Spouse Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Employed by">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Officer of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Works In">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Subordinate To">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Senior To">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Has Education">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Conferred By">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is a Member Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Located At">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Location Seen At">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Detained">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Resides At">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="At Large">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Escaped From">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Receives Funds From">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Supplies Funds To">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Traveled To">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Phone Contact Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Communicates With">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Contacts">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Aware Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Equate">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Other Relationship">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Related Equipment">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Has Identity">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Same As">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Different From">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Candidate Same As">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Associated with Facility">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Associated with Organization">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Associated with Person">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Acquaintance">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Sponsored By">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Sponsored">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Petitioned By">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Petitioned For">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Visited">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Attended">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Applied To">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Personal Friend Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Facebook Friend Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Myspace Friend Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Chat Friend Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Is Other Friend Of">
+            <xsd:annotation>
+               <xsd:documentation>None provided</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

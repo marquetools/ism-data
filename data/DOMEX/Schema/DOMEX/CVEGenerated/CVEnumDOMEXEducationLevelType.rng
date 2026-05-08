@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXEducationLevelType">
+   <define name="CVEnumDOMEXEducationLevelType.cve">
+      <choice>
+         <value>Graduated</value>
+         <value>Undergraduate</value>
+         <value>Primary</value>
+         <value>Secondary</value>
+         <value>Other</value>
+      </choice>
+   </define>
+</grammar>

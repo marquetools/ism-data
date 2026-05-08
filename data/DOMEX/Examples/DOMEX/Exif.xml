@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/IC-EDH/IC-EDH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-ID/IC-ID_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IRM/IRM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-TDF/IC-TDF_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/DOMEX/DOMEX_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/USAgency/USAgency_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/MIME/MIME_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- All classification marks in this example are   
+         for illustrative purposes only, there are no   
+      actual classified data contained in this example -->
+<TrustedDataObject xmlns="urn:us:gov:ic:tdf"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:tdf="urn:us:gov:ic:tdf"
+                   xsi:schemaLocation="urn:us:gov:ic:tdf ../../Schema/IC-TDF/IC-TDF.xsd"
+                   tdf:version="202111-IC-TDF.202111"
+                   tdf:id="ID000">
+  <tdf:HandlingAssertion tdf:scope="TDO"
+                         tdf:id="ID001">
+    <tdf:HandlingStatement>
+      <edh:Edh xmlns:edh="urn:us:gov:ic:edh"
+               xmlns:ism="urn:us:gov:ic:ism"
+               xmlns:usagency="urn:us:gov:ic:usagency"
+               ism:ISMCATCESVersion="202211"
+               usagency:CESVersion="202207"
+               edh:DESVersion="201903"
+               ism:DESVersion="202111.202211">
+        <Identifier xmlns="urn:us:gov:ic:id">guide://999001/DOMEX-Sample-Exif</Identifier>
+        <edh:DataItemCreateDateTime>2006-05-04T18:13:51.0Z</edh:DataItemCreateDateTime>
+        <edh:AuthorizationReference>AuthorizationReference0</edh:AuthorizationReference>
+        <edh:ResponsibleEntity ism:classification="U"
+                               ism:ownerProducer="USA"
+                               edh:role="Custodian">
+          <edh:Country>USA</edh:Country>
+          <edh:Organization>USA.DIA</edh:Organization>
+          <edh:SubOrganization>SubOrganization0</edh:SubOrganization>
+        </edh:ResponsibleEntity>
+        <arh:Security xmlns:arh="urn:us:gov:ic:arh"
+                      ism:compliesWith="USGov USIC"
+                      ism:DESVersion="202111.202211"
+                      ism:ISMCATCESVersion="202211"
+                      ism:resourceElement="true"
+                      ism:createDate="2006-07-29"
+                      ism:classification="U"
+                      ism:ownerProducer="USA" />
+      </edh:Edh>
+    </tdf:HandlingStatement>
+  </tdf:HandlingAssertion>
+  <tdf:HandlingAssertion tdf:scope="PAYL">
+    <tdf:HandlingStatement>
+      <edh:Edh xmlns:edh="urn:us:gov:ic:edh"
+               xmlns:ism="urn:us:gov:ic:ism"
+               xmlns:usagency="urn:us:gov:ic:usagency"
+               ism:ISMCATCESVersion="202211"
+               usagency:CESVersion="202207"
+               edh:DESVersion="201903"
+               ism:DESVersion="202111.202211">
+        <Identifier xmlns="urn:us:gov:ic:id">guide://999001/DOMEX-Sample-data</Identifier>
+        <edh:DataItemCreateDateTime>2006-05-04T18:13:51.0Z</edh:DataItemCreateDateTime>
+        <edh:AuthorizationReference>AuthorizationReference0</edh:AuthorizationReference>
+        <edh:ResponsibleEntity ism:classification="U"
+                               ism:ownerProducer="USA"
+                               edh:role="Custodian">
+          <edh:Country>USA</edh:Country>
+          <edh:Organization>USA.DIA</edh:Organization>
+          <edh:SubOrganization>SubOrganization0</edh:SubOrganization>
+        </edh:ResponsibleEntity>
+        <arh:Security xmlns:arh="urn:us:gov:ic:arh"
+                      ism:compliesWith="USGov USIC"
+                      ism:DESVersion="202111.202211"
+                      ism:ISMCATCESVersion="202211"
+                      ism:resourceElement="true"
+                      ism:createDate="2006-07-29"
+                      ism:classification="U"
+                      ism:ownerProducer="USA" />
+      </edh:Edh>
+    </tdf:HandlingStatement>
+  </tdf:HandlingAssertion>
+  <tdf:Assertion tdf:scope="PAYL">
+    <tdf:StatementMetadata>
+      <arh:Security xmlns:arh="urn:us:gov:ic:arh"
+                    xmlns:ism="urn:us:gov:ic:ism"
+                    ism:classification="U"
+                    ism:ownerProducer="USA"
+                    ism:resourceElement="true"
+                    ism:compliesWith="USGov USIC"
+                    ism:createDate="2019-12-19" />
+    </tdf:StatementMetadata>
+    <tdf:StructuredStatement>
+      <ICResourceMetadataPackage xmlns="urn:us:gov:ic:irm"
+                                 xmlns:usagency="urn:us:gov:ic:usagency"
+                                 xmlns:icid="urn:us:gov:ic:id"
+                                 xmlns:mime="urn:us:gov:ic:mime"
+                                 xmlns:irm="urn:us:gov:ic:irm"
+                                 usagency:CESVersion="202207"
+                                 icid:DESVersion="202111"
+                                 mime:CESVersion="202010"
+                                 irm:DESVersion="202111"
+                                 irm:compliesWith="USA_IC">
+        <metacardInfo xmlns:ism="urn:us:gov:ic:ism"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">
+          <identifier irm:qualifier="http://www.oxygenxml.com/"
+                      irm:value="value1" />
+          <dates irm:created="2006-05-04T18:13:51.0Z"
+                 irm:posted="2006-05-04T18:13:51.0Z"
+                 irm:validTil="2006-05-04T18:13:51.0Z"
+                 irm:infoCutOff="2006-05-04T18:13:51.0Z"
+                 irm:approvedOn="2006-05-04T18:13:51.0Z"
+                 irm:receivedOn="2006-05-04T18:13:51.0Z">
+            <acquiredOn>
+              <description>description0</description>
+              <approximableDate irm:approximation="1st qtr">2006-05-04T18:13:51.0</approximableDate>
+              <searchableDate>
+                <start>2006-05-04T18:13:51.0Z</start>
+                <end>2006-05-04T18:13:52.0Z</end>
+              </searchableDate>
+            </acquiredOn>
+          </dates>
+          <creator ism:pocType="ICD-710"
+                   ism:classification="U"
+                   ism:ownerProducer="USA">
+            <organization irm:acronym="USA.USA">
+              <name>name0</name>
+              <phone>phone0</phone>
+              <email>email0</email>
+            </organization>
+          </creator>
+          <description ism:classification="U"
+                       ism:ownerProducer="USA">description1</description>
+          <processingInfo irm:dateProcessed="2006-05-04T18:13:51.0Z"
+                          ism:classification="U"
+                          ism:ownerProducer="USA">processingInfo0</processingInfo>
+        </metacardInfo>
+        <identifier irm:qualifier="DOMEX Sample"
+                    irm:value="value3" />
+        <title xmlns:ism="urn:us:gov:ic:ism"
+               ism:classification="U"
+               ism:ownerProducer="USA">title0</title>
+        <description xmlns:ism="urn:us:gov:ic:ism"
+                     ism:classification="U"
+                     ism:ownerProducer="USA">description2</description>
+        <language irm:qualifier="urn:us:gov:ic:cvenum:irm:iso639-3:trigraph"
+                  irm:value="usa" />
+        <dates irm:created="2006-05-04T18:13:51.0Z"
+               irm:posted="2006-05-04T18:13:51.0Z"
+               irm:validTil="2006-05-04T18:13:51.0Z"
+               irm:infoCutOff="2006-05-04T18:13:51.0Z"
+               irm:approvedOn="2006-05-04T18:13:51.0Z"
+               irm:receivedOn="2006-05-04T18:13:51.0Z">
+          <acquiredOn>
+            <description>description3</description>
+            <approximableDate irm:approximation="1st qtr">2006-05-04T18:13:51.0</approximableDate>
+            <searchableDate>
+              <start>2006-05-04T18:13:51.0Z</start>
+              <end>2006-05-04T18:13:52.0Z</end>
+            </searchableDate>
+          </acquiredOn>
+        </dates>
+        <rights irm:intellectualProperty="false"
+                irm:copyright="false" />
+        <source xmlns:ism="urn:us:gov:ic:ism"
+                irm:qualifier="qualifier3"
+                irm:value="value7"
+                irm:schemaQualifier="schemaQualifier1"
+                irm:schemaHref="http://www.oxygenxml.com/"
+                ism:classification="U"
+                ism:ownerProducer="USA" />
+        <type xmlns:ism="urn:us:gov:ic:ism"
+              irm:qualifier="qualifier5"
+              irm:value="value9"
+              ism:classification="U"
+              ism:ownerProducer="USA">type0</type>
+        <creator xmlns:ism="urn:us:gov:ic:ism"
+                 ism:pocType="ICD-710"
+                 ism:classification="U"
+                 ism:ownerProducer="USA">
+          <organization irm:acronym="USA.USA">
+            <name>name0</name>
+            <phone>phone0</phone>
+            <email>email0</email>
+          </organization>
+        </creator>
+        <publisher xmlns:ism="urn:us:gov:ic:ism"
+                   ism:pocType="ICD-710"
+                   ism:classification="U"
+                   ism:ownerProducer="USA">
+          <person>
+            <name>name10</name>
+            <surname>surname2</surname>
+            <phone>phone10</phone>
+            <email>email10</email>
+            <userID>userID2</userID>
+            <affiliation>affiliation6</affiliation>
+          </person>
+        </publisher>
+        <format>
+          <mimeType>video/example</mimeType>
+          <extent irm:qualifier="http://www.oxygenxml.com/"
+                  irm:value="value11" />
+          <medium>medium0</medium>
+        </format>
+        <subjectCoverage xmlns:ism="urn:us:gov:ic:ism"
+                         ism:classification="U"
+                         ism:ownerProducer="USA">
+          <keyword irm:value="value13"
+                   ism:classification="U"
+                   ism:ownerProducer="USA" />
+        </subjectCoverage>
+        <relatedResource xmlns:ism="urn:us:gov:ic:ism"
+                         irm:relationship="http://www.oxygenxml.com/"
+                         irm:direction="outbound"
+                         ism:classification="U"
+                         ism:ownerProducer="USA"
+                         irm:qualifier="http://www.oxygenxml.com/"
+                         irm:value="value15">
+          <link xmlns:xlink="http://www.w3.org/1999/xlink"
+                xlink:type="locator"
+                xlink:href="http://www.oxygenxml.com/"
+                xlink:role="http://www.oxygenxml.com/"
+                xlink:title="title11"
+                xlink:label="label5" />
+        </relatedResource>
+      </ICResourceMetadataPackage>
+    </tdf:StructuredStatement>
+  </tdf:Assertion>
+  <tdf:Assertion tdf:scope="TDO"
+                 tdf:id="ID003">
+    <tdf:StructuredStatement>
+      <domex:file xmlns:domex="urn:us:mil:ces:metadata:domex"
+                  xmlns:ism="urn:us:gov:ic:ism"
+                  domex:DESVersion="202111"
+                  xsi:schemaLocation="urn:us:mil:ces:metadata:domex ../../Schema/DOMEX/DOMEX.xsd"
+                  ism:classification="U"
+                  ism:ownerProducer="USA"
+                  domex:uuid="00000000-0000-0000-0000000000000000">
+        <domex:title domex:type="Descriptive"
+                     domex:language="aaa"
+                     ism:classification="U"
+                     ism:ownerProducer="USA">title0</domex:title>
+        <domex:primaryLanguage>aaa</domex:primaryLanguage>
+        <domex:documentDate>
+          <description xmlns="urn:us:gov:ic:irm">description0</description>
+          <approximableDate xmlns="urn:us:gov:ic:irm">2006-05-04T18:13:51.0</approximableDate>
+          <searchableDate xmlns="urn:us:gov:ic:irm">
+            <start>2006-05-04T18:13:51.0</start>
+            <end>2006-05-04T18:13:51.0</end>
+          </searchableDate>
+        </domex:documentDate>
+        <domex:entryDate>2006-05-04T18:13:51.0</domex:entryDate>
+        <domex:documentType>AC</domex:documentType>
+        <domex:format>format0</domex:format>
+        <domex:project>project0</domex:project>
+        <domex:owningAgency>
+          <domex:primaryAgency>USA.USA</domex:primaryAgency>
+          <domex:subAgency>202MI</domex:subAgency>
+        </domex:owningAgency>
+        <domex:countryOfInformation xmlns:irm="urn:us:gov:ic:irm"
+                                    irm:codespace="ge:GENC:3:3-1"
+                                    irm:code="AFG" />
+        <domex:countryOfPublication xmlns:irm="urn:us:gov:ic:irm"
+                                    irm:codespace="ge:GENC:3:3-1"
+                                    irm:code="AFG" />
+        <domex:dateAccessed>2006-05-04T18:13:51.0</domex:dateAccessed>
+        <domex:dateCreated>2006-05-04T18:13:51.0</domex:dateCreated>
+        <domex:dateModified>2006-05-04T18:13:51.0</domex:dateModified>
+        <domex:disposition>Overt</domex:disposition>
+        <domex:transliteratedFileName>transliteratedFileName0</domex:transliteratedFileName>
+        <domex:originalFileName>originalFileName0</domex:originalFileName>
+        <!-- Change Request #532 DOMEX: File Types - Accommodate Legacy Data Stores. Rename existing "fileType" element to "fileMimeType". -->
+        <domex:fileMimeType>application/1d-interleaved-parityfec</domex:fileMimeType>
+        <domex:duration>50</domex:duration>
+        <domex:media>Unknown</domex:media>
+        <domex:size>50</domex:size>
+        <domex:sourcePath>http://www.oxygenxml.com/</domex:sourcePath>
+        <domex:hashValue domex:type="SHA256">hashValue0</domex:hashValue>
+        <domex:propertiesLastEditedBy>propertiesLastEditedBy0</domex:propertiesLastEditedBy>
+        <domex:dateAndTimeOfLastModification>2006-05-04T18:13:51.0</domex:dateAndTimeOfLastModification>
+        <domex:reasonForModification>reasonForModification0</domex:reasonForModification>
+        <domex:hasSubtitles>false</domex:hasSubtitles>
+        <domex:subtitleLanguage>aaa</domex:subtitleLanguage>
+        <domex:productionGroup>productionGroup0</domex:productionGroup>
+        <domex:speakerIdentification>speakerIdentification0</domex:speakerIdentification>
+        <domex:mediaFile>
+          <domex:exifImage>
+            <domex:model>model0</domex:model>
+            <domex:make>make0</domex:make>
+            <domex:cameraSerialNumber>cameraSerialNumber0</domex:cameraSerialNumber>
+            <domex:dateTimeOriginal>2006-05-04T18:13:51.0</domex:dateTimeOriginal>
+            <domex:imageWidth>50</domex:imageWidth>
+            <domex:imageLength>50</domex:imageLength>
+            <domex:gpsCoordinates xmlns:gml="http://www.opengis.net/gml/3.2"
+                                  srsName="http://www.oxygenxml.com/"
+                                  srsDimension="50"
+                                  axisLabels="axisLabels0"
+                                  uomLabels="uomLabels0"
+                                  gml:id="Location_2741">
+              <gml:pos srsName="http://www.oxygenxml.com/"
+                       srsDimension="50"
+                       axisLabels="axisLabels1"
+                       uomLabels="uomLabels1">0</gml:pos>
+            </domex:gpsCoordinates>
+          </domex:exifImage>
+        </domex:mediaFile>
+      </domex:file>
+    </tdf:StructuredStatement>
+  </tdf:Assertion>
+  <tdf:StringPayload>String Payload</tdf:StringPayload>
+</TrustedDataObject>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXImageSizeTypeType">
+   <define name="CVEnumDOMEXImageSizeTypeType.cve">
+      <choice>
+         <value>Bytes</value>
+         <value>Kilobytes</value>
+         <value>KB</value>
+         <value>Megabytes</value>
+         <value>MB</value>
+         <value>Other</value>
+      </choice>
+   </define>
+</grammar>

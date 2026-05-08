@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen SCHSchema="../../Schematron/ISM/ISM_XML.sch"?><?oxygen SCHSchema="../../Schematron/NTK/NTK_XML.sch"?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       --><!-- All classification marks in this example are   --><!-- for illustrative purposes only, there are no   --><!-- actual classified data contained in this example --><test:root xmlns:test="test:ntk" xmlns:ism="urn:us:gov:ic:ism" xmlns:ntk="urn:us:gov:ic:ntk"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           ism:resourceElement="true"
+           ntk:DESVersion="8"
+           ism:createDate="9999-11-11"
+           ism:DESVersion="10"
+           ism:classification="U"
+           ism:ownerProducer="USA"
+           xsi:schemaLocation="test:ntk ./test_ntk.xsd">
+    <ntk:ExternalAccess ism:classification="U" ism:ownerProducer="USA" ntk:externalReference="true">
+        <!-- Sample file restricting use to the people in external SourceForge resource who 
+             are members of the Wheel or SuperUser groups in the Bob LDAP    -->
+        <ntk:AccessGroupList>
+            <ntk:AccessGroup ism:classification="U" ism:ownerProducer="USA">
+                <ntk:AccessSystemName ism:classification="U" ism:ownerProducer="USA">Bob_LDAP</ntk:AccessSystemName>
+                <ntk:AccessGroupValue ism:classification="U" ism:ownerProducer="USA">Wheel</ntk:AccessGroupValue>
+                <ntk:AccessGroupValue ism:classification="U" ism:ownerProducer="USA">SuperUser</ntk:AccessGroupValue>
+            </ntk:AccessGroup>
+        </ntk:AccessGroupList>
+    </ntk:ExternalAccess>
+</test:root>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="./Whitelist_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<!-- 
+     Sample whitelist configuration file.  Update this file to implement your whitelist rules.
+     These settings are notional values used to test functionality of initial release.
+-->
+
+<Whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="../../Schema/Whitelist/Whitelist.xsd">
+  <ISMAttributes>
+    <values type="whitelist">atomicEnergyMarkings classification classificationReason classifiedBy compilationReason compliesWith
+      createDate declassDate declassEvent declassException derivativelyClassifiedBy derivedFrom DESVersion displayOnlyTo
+      disseminationControls excludeFromRollup exemptFrom externalNotice FGIsourceOpen FGIsourceProtected ISMCATCESVersion joint nonICmarkings
+      nonUSControls noticeDate noticeReason noticeType ownerProducer pocType releasableTo resourceElement SARIdentifier SCIcontrols
+      unregisteredNoticeType</values>
+  </ISMAttributes>
+  <Classification>
+    <values>R U S TS</values>
+  </Classification>
+  <DisseminationControls>
+    <values>RS OC OC-USGOV IMC NF PR REL RELIDO EYES DSEN FISA DISPLAYONLY</values>
+  </DisseminationControls>
+  <ReleasableTo>
+    <values type="whitelist">USA AUS CAN NZL GBR FRA KFOR</values>
+    <minimumValues>USA ACGU</minimumValues>
+  </ReleasableTo>
+  <DisplayOnlyTo>
+    <values type="whitelist">USA TEYE</values>
+  </DisplayOnlyTo>
+  <FGIsourceOpen>
+    <values type="whitelist">ALB LTU MAR POL ZAF GBR NATO:PfP</values>
+  </FGIsourceOpen>
+  <FGIsourceProtected>
+    <values type="whitelist">FGI NATO ABW</values>
+  </FGIsourceProtected>
+  <AtomicEnergyMarkings>
+    <values>RD-SG-14 RD-SG-15 RD-SG-18 RD-SG-20 RD FRD RD-CNWDI DCNI UCNI</values>
+  </AtomicEnergyMarkings>
+  <NonICmarkings>
+    <values>DS XD ND SBU LES LES-NF SSI ACCM-FOCAL_POINT NNPI</values>
+  </NonICmarkings>
+  <NonUSControls>
+    <values>ATOMAL BOHEMIA</values>
+  </NonUSControls>
+  <SCIControls>
+    <values>TK HCS HCS-P</values>
+  </SCIControls>
+  <SARIdentifier>
+    <values>SAR-AAA SAR-BBB</values>
+  </SARIdentifier>
+  <OwnerProducer>
+    <values type="whitelist">USA FGI NATO</values>
+  </OwnerProducer>
+  <NtkPolicy type="whitelist">
+    <value>*</value>
+  </NtkPolicy>
+  <NtkVocabulary type="whitelist">
+    <value>group:iaaems</value>
+    <value>datasphere:mn:issue</value>
+    <value>datasphere:mn:region</value>
+    <value>datasphere:license</value>
+    <value>organization:usa-agency</value>
+    <value>group:bob_ldap</value>
+    <value>group:chris_ldap</value>
+  </NtkVocabulary>
+  <NtkAccessProfile accessPolicy="urn:us:gov:ic:aces:ntk:mn">
+    <profile vocabulary="datasphere:mn:issue"
+      profileValue="DI" />
+    <profile vocabulary="datasphere:mn:issue"
+      profileValue="CST" />
+    <profile vocabulary="datasphere:mn:region"
+      profileValue="AFce" />
+    <profile vocabulary="datasphere:mn:region"
+      profileValue="AFea" />
+    <profile vocabulary="datasphere:mn:region"
+      profileValue="AFno" />
+    <minimumValues>
+      <profile vocabulary="datasphere:mn:issue"
+        profileValue="DI" />
+      <profile vocabulary="datasphere:mn:region"
+        profileValue="AFce" />
+    </minimumValues>
+  </NtkAccessProfile>
+  <NtkAccessProfile accessPolicy="urn:us:gov:ic:aces:ntk:oc">
+    <profile vocabulary="organization:usa-agency"
+      profileValue="USA.CIA" />
+    <profile vocabulary="organization:usa-agency"
+      profileValue="USA.NSA" />
+    <profile vocabulary="organization:usa-agency"
+      profileValue="USA.DNI" />
+    <profile vocabulary="organization:usa-agency"
+      profileValue="USA.NGA" />
+    <minimumValues>
+      <profile vocabulary="organization:usa-agency"
+        profileValue="USA.CIA" />
+    </minimumValues>
+  </NtkAccessProfile>
+  <NtkAccessProfile accessPolicy="urn:us:gov:ic:aces:ntk:xd">
+    <profile vocabulary="organization:usa-agency"
+      profileValue="USA.CIA" />
+    <profile vocabulary="organization:usa-agency"
+      profileValue="USA.NSA" />
+    <profile vocabulary="organization:usa-agency"
+      profileValue="USA.DNI" />
+    <minimumValues>
+      <profile vocabulary="organization:usa-agency"
+        profileValue="USA.CIA" />
+    </minimumValues>
+  </NtkAccessProfile>
+  <NtkAccessProfile type="whitelist"
+    accessPolicy="urn:us:gov:ic:aces:ntk:license">
+    <profile vocabulary="datasphere:license"
+      profileValue="osc2" />
+  </NtkAccessProfile>
+  <NtkAccessProfile type="whitelist"
+    accessPolicy="urn:us:gov:ic:aces:ntk:permissive">
+    <profile vocabulary=""
+      profileValue="johndoe" />
+    <profile vocabulary=""
+      profileValue="Rabbits" />
+    <profile vocabulary="group:bob_ldap"
+      profileValue="Wheel"/>
+    <profile vocabulary="group:bob_ldap"
+      profileValue="Superuser"/>
+  </NtkAccessProfile>
+  <NtkAccessProfile type="whitelist"
+    accessPolicy="urn:us:gov:ic:aces:ntk:restrictive">
+    <profile vocabulary="group:iaaems"
+      profileValue="GROUP1" />
+    <profile vocabulary="group:iaaems"
+      profileValue="GROUP2" />
+    <profile vocabulary="group:iaaems"
+      profileValue="GROUP3" />
+  </NtkAccessProfile>
+  <NtkAccessProfile type="whitelist"
+    accessPolicy="urn:us:gov:ic:aces:ntk:xd">
+    <profile vocabulary="organization:usa-agency"
+      profileValue="USA.CIA" />
+    <profile vocabulary="organization:usa-agency"
+      profileValue="USA.DNI" />
+    <profile vocabulary="organization:usa-agency"
+      profileValue="USA.NSA" />
+  </NtkAccessProfile>
+</Whitelist>

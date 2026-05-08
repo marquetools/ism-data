@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXActivityCriminalActivities">
+   <define name="CVEnumDOMEXActivityCriminalActivities.cve">
+      <choice>
+         <value>Actions</value>
+         <value>Drug trafficking</value>
+         <value>Extortion</value>
+         <value>Homicide</value>
+         <value>Human Trafficking</value>
+         <value>Logistics</value>
+         <value>Logo</value>
+         <value>Other</value>
+         <value>Planning</value>
+         <value>Reporting</value>
+         <value>Robbery</value>
+         <value>Training</value>
+      </choice>
+   </define>
+</grammar>

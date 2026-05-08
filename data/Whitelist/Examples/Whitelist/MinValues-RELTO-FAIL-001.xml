@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/Whitelist/Whitelist_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<!-- All classification marks in this example are   -->
+<!-- for illustrative purposes only, there are no   -->
+<!-- actual classified data contained in this example -->
+<!-- 
+     Goal:  Passing test of minimum value configuration for NTK EXDIS Access Profile
+     Test Config File:       ../example_minvalues_config.xml
+     Test Config Setting:    <ReleasableTo>
+                                <values type="whitelist">USA AUS CAN NZL GBR FRA KFOR</values>
+                                <minimumValues>USA ACGU</minimumValues>
+                             </ReleasableTo>
+     Expected Test Result:   FAIL
+     Expected Error Message: WL_ReleaseableTo-ID-00002
+          
+     To run this test:
+          1. copy contents of Test Config File to ../../Schematron/Whitelist/whitelist_config.xml 
+     
+-->
+<test:root xmlns:test="test:ism"
+           xmlns:ism="urn:us:gov:ic:ism"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           ism:compliesWith="USGov USIC"
+           ism:DESVersion="202111.202211"
+           ism:ISMCATCESVersion="202211"
+           ism:resourceElement="true"
+           ism:createDate="2009-06-01"
+           ism:classification="S"
+           ism:ownerProducer="USA"
+           ism:classifiedBy="John doe"
+           ism:classificationReason="reason"
+           ism:declassDate="2020-02-02"
+           ism:disseminationControls="REL"
+           ism:releasableTo="USA CAN"
+           ism:compilationReason="Bogus Test Case."
+           xsi:schemaLocation="test:ntk ../ISM/test_ism.xsd">
+  <arh:Security xmlns:arh="urn:us:gov:ic:arh"
+                ism:classification="S"
+                ism:ownerProducer="USA"
+                ism:compilationReason="Bogus Test Case."
+                ism:disseminationControls="REL"
+                ism:releasableTo="USA ACGU KFOR"
+                ism:resourceElement="true"
+                ism:compliesWith="USGov USIC"
+                ism:createDate="2019-12-19"
+                ism:derivativelyClassifiedBy="someone"
+                ism:derivedFrom="something"
+                ism:declassDate="2020-12-31" />
+  <!--<singleElement xmlns="test:ism"
+                ism:classification="C"
+                ism:ownerProducer="USA"
+                ism:disseminationControls="REL"
+                ism:releasableTo="USA AUS CAN GBR" />-->
+  <!--<singleElement xmlns="test:ism"
+                ism:classification="S"
+                ism:ownerProducer="USA"
+                ism:disseminationControls="REL"
+                ism:releasableTo="USA AUS CAN GBR" />-->
+</test:root>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:boe:CVEnumBOESoftwareCategory">
+   <define name="CVEnumBOESoftwareCategory.cve">
+      <choice>
+         <value>COTS</value>
+         <value>GOTS</value>
+         <value>OSS</value>
+      </choice>
+   </define>
+</grammar>

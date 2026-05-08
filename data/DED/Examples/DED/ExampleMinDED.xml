@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/IC-EDH/IC-EDH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/USAgency/USAgency_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/DED/DED_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-ID/IC-ID_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<ded:DataElementDictionary xmlns:ded="urn:us:gov:ic:ded"
+                           xmlns:icid="urn:us:gov:ic:id"
+                           xmlns:edh="urn:us:gov:ic:edh"
+                           xmlns:arh="urn:us:gov:ic:arh"
+                           xmlns:ism="urn:us:gov:ic:ism"
+                           xmlns:usagency="urn:us:gov:ic:usagency"
+                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           xsi:schemaLocation="urn:us:gov:ic:ded ../../Schema/DED/DED.xsd"
+                           ded:DESVersion="201903"
+                           icid:DESVersion="202111">
+  <ded:DedHeader>
+    <edh:Edh edh:DESVersion="201903"
+             usagency:CESVersion="202207">
+      <icid:Identifier>guide://2020/b9c63143-7d14-4c86-87a2-be54941d77fa</icid:Identifier>
+      <edh:DataItemCreateDateTime>2018-10-12T18:06:00Z</edh:DataItemCreateDateTime>
+      <edh:ResponsibleEntity edh:role="Custodian">
+        <edh:Country>USA</edh:Country>
+        <edh:Organization>USA.DNI</edh:Organization>
+      </edh:ResponsibleEntity>
+      <arh:Security ism:DESVersion="202111.202211"
+                    ism:ISMCATCESVersion="202211"
+                    ism:resourceElement="true"
+                    ism:compliesWith="USGov USIC"
+                    ism:createDate="2018-10-12"
+                    ism:classification="U"
+                    ism:ownerProducer="USA" />
+    </edh:Edh>
+    <ded:DedTitle ism:classification="U"
+                  ism:ownerProducer="USA">Simple DED</ded:DedTitle>
+    <ded:DedPurpose ism:classification="U"
+                    ism:ownerProducer="USA">This is a minimal simple DED. It's a fake address book with only first and last name and a
+                    phone number.</ded:DedPurpose>
+    <ded:DedSubjectType>XML</ded:DedSubjectType>
+    <ded:DedVersion>2019-MAR</ded:DedVersion>
+    <ded:DedPoc ism:classification="U"
+                ism:ownerProducer="USA">ic-standards-support@iarpa.gov</ded:DedPoc>
+  </ded:DedHeader>
+  <ded:DataElement ism:classification="U"
+                   ism:ownerProducer="USA">
+    <ded:ElementName ism:classification="U"
+                     ism:ownerProducer="USA">FirstName</ded:ElementName>
+    <ded:ElementDefinition ism:classification="U"
+                           ism:ownerProducer="USA">a name given to a person at birth, as opposed to a surname. Also called: Christian name,
+                           forename or given name</ded:ElementDefinition>
+    <ded:ElementDefinitionSource ism:classification="U"
+                                 ism:ownerProducer="USA">Reference Authority is optional but since I was grabbing definitions I wanted to
+                                 cite them. first name. (n.d.) Random House Kernerman Webster’s College Dictionary. (2010). Retrieved
+                                 September 10 2017 from http://www.thefreedictionary.com/first+name</ded:ElementDefinitionSource>
+  </ded:DataElement>
+  <ded:DataElement ism:classification="U"
+                   ism:ownerProducer="USA">
+    <ded:ElementName ism:classification="U"
+                     ism:ownerProducer="USA">LastName</ded:ElementName>
+    <ded:ElementDefinition ism:classification="U"
+                           ism:ownerProducer="USA">The name that a person has in common with other family members, as distinguished from a
+                           given name; family name.</ded:ElementDefinition>
+    <ded:ElementDefinitionSource ism:classification="U"
+                                 ism:ownerProducer="USA">Reference Authority is optional but since I was grabbing definitions I wanted to
+                                 cite them. Last name. (n.d.) Random House Kernerman Webster’s College Dictionary. (2010). Retrieved
+                                 September 10 2017 from http://www.thefreedictionary.com/last+name</ded:ElementDefinitionSource>
+  </ded:DataElement>
+  <ded:DataElement ism:classification="U"
+                   ism:ownerProducer="USA">
+    <ded:ElementName ism:classification="U"
+                     ism:ownerProducer="USA">PhoneNumber</ded:ElementName>
+    <ded:ElementDefinition ism:classification="U"
+                           ism:ownerProducer="USA">the number is used in calling a particular telephone</ded:ElementDefinition>
+    <ded:ElementDefinitionSource ism:classification="U"
+                                 ism:ownerProducer="USA">Reference Authority is optional but since I was grabbing definitions I wanted to
+                                 cite them. Phone Number. (n.d.) WordNet 3.0, Farlex clipart collection. (2003-2008). Retrieved September
+                                 10 2017 from http://www.thefreedictionary.com/phone+number</ded:ElementDefinitionSource>
+  </ded:DataElement>
+</ded:DataElementDictionary>

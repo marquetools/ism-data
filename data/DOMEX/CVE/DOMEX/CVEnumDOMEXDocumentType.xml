@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       --><cve:CVE xmlns:cve="urn:us:gov:ic:cve" xmlns:ism="urn:us:gov:ic:ism" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ism:compliesWith="USGov USIC" ism:ownerProducer="USA" ism:classification="U" ism:DESVersion="202111" ism:ISMCATCESVersion="202205" ism:resourceElement="true" CVEVersion="2" ism:createDate="2011-12-27" xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+         
+	  <cve:IRM>
+		    <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:domex:CVEnumDOMEXDocumentType</URN>
+		    <Title xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">CVEnumDOMEXDocumentType</Title>
+		    <Description xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">Valid range for document type.</Description>
+
+		    <cve:Created>2013-04-01</cve:Created>
+
+		    <Source ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">Authoritative source for document types</Source>
+		    <PointOfContact ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">
+         <Name>DOMEX Metadata Working Group</Name>
+      </PointOfContact>
+	  </cve:IRM>
+	  
+	  	<!--DocumentType-->
+	  <cve:Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">AC</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">ARMY POSTCARD</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">AD</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">ADDRESS/PHONE BOOK</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">AI</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">ALBUM OF ILLUSTRATIONS</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">AP</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">ADMINISTRATIVE PUBLICATION</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">AR</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">ARTICLE</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">BC</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">BROADCAST</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">BK</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">BOOK</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">BP</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">BLUEPRINT</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">BR</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">BROCHURE</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">BU</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">BUSINESS CARD</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">BY</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">BIOGRAPHY</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">CA</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">CATALOG</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">CC</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">CREDIT/BANK CARD</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">CD</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">CONTRACT DOCUMENTATION</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">CF</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">COMMERCIAL FORM</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">CI</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">COMBAT INSTRUCTIONS</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">CL</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">CODES LISTING</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">CO</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">COLLECTION</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">CP</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">CONFERENCES/SYMPOSIA/PROCEEDING</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">CR</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">CARGO DOCUMENT</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">CW</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">CREW LIST</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">CX</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">CELLEX REPORT</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">DI</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">DICTIONARY</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">DL</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">DOCUMENTS LIST</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">DP</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">DIARY/DAILY PLANNER</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">DT</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">DISSERTATION/THESIS</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">EC</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">ELECTRONIC COMM (EMAIL,CHAT ROOM,ETC)</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">EG</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">EQUIPMENT GUIDE</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">EP</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">EQUIPMENT PASSPORT/CERTIFICATE</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">EV</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">EVIDENCE</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">FC</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">FINGERPRINT CARD</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">FI</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">FOREIGN INTELLIGENCE REPORT</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">FR</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">FINANCIAL RECORDS</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">FX</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">FACSIMILE</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">GF</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">GOVERNMENT FORM</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">HB</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">HANDBOOK</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">HN</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">HANDWRITTEN NOTES/NOTEBOOK</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">HS</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">HANDWRITING SAMPLE</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">HY</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">HARMONY NUMBER</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">IC</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">INCOMING POSTCARD</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">II</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">ICRC INCOMING FORM</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">IL</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">INCOMING LETTER</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">IM</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">IMAGERY</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">IN</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">INTERVIEW</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">IO</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">ICRC OUTGOING FORM</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">IP</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">IMMIGRATION/CUSTOMS PAPERS</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">IS</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">ISSUE</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">LB</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">LOGBOOK</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">LE</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">LETTER</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">LP</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">MISCELLANEOUS LOOSE PAPER</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">LT</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">LECTURE/BRIEFING</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">MD</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">MEETING DOCUMENTATION</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">ME</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">MESSAGE</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">MI</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">MILITARY ID</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">MN</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">MISCELLANEOUS NON-TECHNICAL DOCUMENT</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">MO</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">MILITARY ORDERS</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">MP</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">MAP</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">MR</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">MEDICAL RECORDS</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">MS</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">MISCELLANEOUS SERIAL</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">MT</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">MISCELLANEOUS TECHNICAL DOCUMENTATION</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">MV</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">MILITARY INVENTORY</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">MX</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">MEDEX REPORT</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">NE</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">NAMED ENTITY SOURCE TEXT</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">NV</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">NAVIGATION DOCUMENT</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">OC</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">ORGANIZATIONAL CHART CHARTER</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">OI</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">OPERATING INSTRUCTIONS</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">OL</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">OUTGOING LETTER</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">OP</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">OUTGOING POSTCARD</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">PA</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">PATENTS</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">PC</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">PHONE CARD</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">PD</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">PRODUCTION DRAWING</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">PE</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">PERIODICAL</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">PF</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">PERSONNEL FILE</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">PH</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">PHOTOGRAPH</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">PI</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">PERSONAL IDENTIFICATION</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">PK</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">POCKET LITTER</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">PL</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">PARTS LIST</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">PO</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">POETRY</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">PP</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">PASSPORT/CERTIFICATE</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">PR</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">POLICE REPORT</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">PS</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">PRIMARY SOURCE</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">PX</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">PERSONNEL ROSTER</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">PZ</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">PRESS RELEASE</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">RA</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">RADIOGRAM</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">RD</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">REPAIR DRAWING</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">RE</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">RELIGIOUS TEXT</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">RF</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">RADIOFREQUENCY LIST</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">RG</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">SHIP REGISTRATION</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">RM</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">REPAIR AND MAINTENANCE MANUAL</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">RT</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">RANGE/FIRING TABLE</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">SC</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">SCIENTIFIC AND TECHNICAL</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">SD</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">SCHEMATIC DIAGRAM</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">SL</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">SCHOOL RECORDS</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">SP</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">SPARE PARTS, TOOLS AND ACCESSORIES LIST</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">ST</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">STUDY</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">TA</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">TACTICAL HANDBOOK</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">TB</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">TRIBAL INFORMATION</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">TD</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">TECHNICAL DESCRIPTION/BULLETIN</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">TE</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">TERRORIST RELATED DOCUMENT</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">TG</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">TAGS/LABELS</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">TI</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">TRANSPORTATION INSTRUCTIONS</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">TM</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">TRAINING DOCUMENT/MANUAL</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">TN</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">TRANSLATION</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">TP</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">TELEPHONE RECORDS</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">TR</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">TEST REPORT</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">TS</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">TECHNICAL SPECIFICATIONS</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">TV</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">TRAVEL DOCUMENT</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">WB</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">WEBSITE</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">UnrecognizedLOV</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">Hold space for new LOV's received from the field</Description>
+		    </Term>
+	  </cve:Enumeration>
+
+	  </cve:CVE>

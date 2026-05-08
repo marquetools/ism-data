@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+                <!DOCTYPE html [
+                <!ENTITY cp_businessObjectClass "XML Taxonomy Encoding Specification for Mission Need">
+                <!ENTITY cp_object "MNT">
+                <!ENTITY cp_objectCaseSensitive "Mnt">]><html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <title>&cp_object; v2022-NOV Package Description </title>
+   </head>
+    <body>
+        <h1 style="text-align:center">UNCLASSIFIED</h1>
+        <h1>&cp_object; v2022-NOV Package Description </h1>
+        <p>&cp_businessObjectClass; (&cp_object;)
+            consists of many files all packaged here for you. This is a simple guide to the layout
+            of this package. Before attempting to follow the links in this guide, please ensure that
+            you have extracted the files from the zip file; otherwise, the links will not work.
+        </p>
+        <p id="STANDALONE_INTRO">As this is the standalone package, none of 
+            the dependent specifications will be included and you will have to assemble 
+            the full package with an acceptable version of the dependent specifications 
+            that you wish to use.</p>       
+        <ul>
+            <li id="PACKAGE_CONTENTS">
+                <p>CONTENTS</p>
+                <p>The following components may be included in the package:</p>
+                <ul>
+                    <!--li><p>XYZ*_DED.pdf</p>
+                        <p>A single human friendly document representation of the data element
+                            dictionary for the XYZ Specification</p></li-->
+                    <li>
+                  <p>XYZ*_Rules.pdf</p>
+                        <p>A single human friendly document representation of all the 
+                            Schematron rules for the XYZ Specification</p>
+               </li>
+                    <li>
+                  <p>XYZ*_Schema.pdf</p>
+                        <p>A single human friendly document representation of the schema for the XYZ
+                            Specification</p>
+               </li>
+                    <li>
+                  <p>XYZ*_XSL.pdf</p>
+                        <p>A single human friendly document representation of all the 
+                            XSLs for the XYZ Specification</p>
+               </li>
+                    <li>
+                  <p>XYZ*_XSPEC.pdf</p>
+                        <p>A single human friendly document representation of all the 
+                            XSPECs for the XYZ Specification</p>
+               </li>
+                    <li>
+                  <p>XYZ*CVEnums.pdf</p>
+                        <p>A single human friendly document representation of all the 
+                            Common Value Enumeration Tokens and their Descriptions for the XYZ 
+                            Specification</p>
+               </li>
+                    <li>
+                  <p>XYZ*Examples.pdf</p>
+                        <p>A single human friendly document representation of all the 
+                            included examples for the XYZ Specification</p>
+               </li>
+                    <li>
+                  <p>Des*Xml.pdf</p>
+                        <p>The primary description and implementation guide for the XYZ Data 
+                            Encoding Specification</p>
+               </li>
+                    <li>
+                  <p>Ces*Xml.pdf </p>
+                        <p>The primary description and implementation guide for the XYZ
+                             CVE Encoding Specification</p>
+               </li>
+                    <li>
+                  <p>Annex / FOUO Annex</p>
+                        <p>Additional information and guidance for the XYZ 
+                            Specification that is either UNCLASSIFIED, but not publicly releasable or 
+                            at the U//FOUO level</p>
+               </li>
+                    <li>
+                  <p>SECRET Annex</p>
+                        <p>Additional information and guidance for the XYZ Specification, 
+                            at the SECRET level (either NOFORN or RELTO)</p>
+               </li>
+                    <li>
+                  <p>TetragraphTaxonomy.pdf</p>
+                        <p>A single human friendly document representation of 
+                            the Tetragraph Taxonomy XML file</p>
+               </li>
+                </ul>
+            </li>
+            
+            <!--li id="DED">
+                <p>Dictionary</p>
+                <p id="DED_STANDALONE">The data element dictionary file to implement this specification excluding dependencies.</p>
+                <p id="DED_CONVENIENCE">Complete set of data element dictionary files to implement this specification including 
+                    all required dependencies and their respective PDF copy (if they exist since PDFs only exist 
+                    for IC-maintained specifications).</p>
+            </li>
+            <li id="DED_NO_DED">
+                <p>Dictionary</p>
+                <p>This specification does not include a data element dictionary file. If dependent specifications have dictionary files, 
+                    they will not be included in this package.  The dependent specification dictionary files may be 
+                    obtained from the respective specification package.               
+                </p>                
+            </li-->
+            <li>
+            <p>Documentation</p>
+                
+                <p id="STANDALONE_DES">This 
+                    includes the document for this specification and the applicable 
+                    signature memo associated with it.</p>
+                <ul>
+               <li>MNT version
+                        2022-NOV<ul>
+                     <li>
+                        <a href="./Documents/MNT/SignatureMemo.pdf">SignatureMemo.pdf</a>
+                     </li>
+                     <li>
+                        <a href="./Documents/MNT/TesMNTXml.pdf">TesMNTXml.pdf</a>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+            </li>
+            
+            
+            <li id="SCHEMA">
+                <p>Schema</p>
+                <p id="SCHEMA_STANDALONE">The XSD file to implement this specification excluding dependencies.</p>
+                
+            <ul>
+               <li>
+                  <p>MNT</p>
+                  <ul>
+                     <li>
+                        <a href="./Schema/MNT">MNT Schema Files</a>
+                     </li>
+                     <li>
+                        <a href="./Documents/MNT/MNT_Schema.pdf">MNT_Schema.pdf</a>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+         </li>
+            
+            <li id="SCHEMA_GUIDE">
+                <p>SchemaGuide</p>
+                <p>XML Schema documentation generated from the XSD files that includes
+                    element definitions and diagrams of schema components.</p>
+            <ul>
+               <li>
+                  <a href="./SchemaGuide/index.html">SchemaGuide</a>
+               </li>
+            </ul>
+         </li>
+            
+            
+            <li id="TAXONOMY">
+                <p>Taxonomy</p>
+                <p>The collection of Taxonomies that this specification includes.
+                    Each Taxonomy directory has the actual Taxonomy files as XML 
+                    and also has a PDF rendering of them in the Documentation folder.</p>
+            <ul>
+               <li>
+                  <p>MNT</p>
+                  <ul>
+                     <li>
+                        <p>Issue</p>
+                        <ul>
+                           <li>
+                              <a href="./Taxonomy/MNT/IssueTaxonomy.xml">IssueTaxonomy.xml</a>
+                           </li>
+                           <li>
+                              <a href="./Documents/MNT/IssueTaxonomy.pdf">IssueTaxonomy.pdf</a>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p>Region</p>
+                        <ul>
+                           <li>
+                              <a href="./Taxonomy/MNT/RegionTaxonomy.xml">RegionTaxonomy.xml</a>
+                           </li>
+                           <li>
+                              <a href="./Documents/MNT/RegionTaxonomy.pdf">RegionTaxonomy.pdf</a>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+         </li>
+            
+            
+            
+            
+            <li>
+            <p>
+               <a href="./manifest.md5">manifest.md5</a>
+            </p>
+                <p>This file contains an MD5 checksum of every file in the package. It can be used to 
+                    determine if any of the files were corrupted in unzipping or if you have modified 
+                    a file.</p>
+            </li>
+            <li>
+            <p><a href="./MNTpackage.properties">MNTpackage.properties</a></p>
+                <p>This file contains information concerning the version, classification, and build
+                    time for the package.</p>
+            </li>
+            
+            
+        </ul>
+        <h1 style="text-align:center">UNCLASSIFIED</h1>
+    </body>
+</html>

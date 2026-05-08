@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen SCHSchema="../../Schematron/ISM/ISM_XML.sch"?>
+<?oxygen SCHSchema="../../Schematron/NTK/NTK_XML.sch"?>
+<AuditRecordList
+    xmlns="urn:us:gov:ic:audit"
+    xmlns:audit="urn:us:gov:ic:audit"
+    xmlns:ism="urn:us:gov:ic:ism"
+    xmlns:ntk="urn:us:gov:ic:ntk"
+    xmlns:iccve="urn:us:gov:ic:ism-cvenum"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:cve="urn:us:gov:ic:audit-cvenum"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:us:gov:ic:audit ../../Schema/AUDIT/IC-AUDIT.xsd" 
+    audit:DESVersion="4" 
+    ism:DESVersion="7" 
+    ntk:DESVersion="5"
+    ism:resourceElement="true" 
+    ism:createDate="2011-03-01"
+    ism:classification="U"
+    ism:ownerProducer="USA">
+    <AuditRecord auditRecordType="LAW_ENFORCEMENT" ism:classification="U" ism:ownerProducer="USA">
+        <Id>
+            <TypeOfGenericIdentifier>GUIDE</TypeOfGenericIdentifier>
+            <GenericIdentifierValue>111999/899678</GenericIdentifierValue>
+        </Id>
+        <Creator>
+            <TypeOfIdentityIdentifier>WORKSTATION_ID</TypeOfIdentityIdentifier>
+            <IdentityIdentifierValue>TLA-DNSLogServer_04</IdentityIdentifierValue>
+        </Creator>
+        <DateTime>2011-03-01T10:08:42Z</DateTime>
+        <Action>SHUTDOWN</Action>
+        <ActionResult>SUCCESS</ActionResult>
+        <ActionInitiator>
+            <TypeOfIdentityIdentifier>AGENCY_USER_ID</TypeOfIdentityIdentifier>
+            <IdentityIdentifierValue>TLA-UserID123</IdentityIdentifierValue>
+        </ActionInitiator>
+        <ActionTarget>
+            <TypeOfIdentityIdentifier>WORKSTATION_ID</TypeOfIdentityIdentifier>
+            <IdentityIdentifierValue>WKS-1298</IdentityIdentifierValue>
+        </ActionTarget>
+    </AuditRecord>
+    <AuditRecord auditRecordType="LAW_ENFORCEMENT" ism:classification="U"
+                ism:ownerProducer="USA">
+            <Id>
+                <TypeOfGenericIdentifier>GUIDE</TypeOfGenericIdentifier>
+                <GenericIdentifierValue>111999/899678</GenericIdentifierValue>
+            </Id>
+            <Creator>
+                <TypeOfIdentityIdentifier>WORKSTATION_ID</TypeOfIdentityIdentifier>
+                <IdentityIdentifierValue>TLA-DNSLogServer_04</IdentityIdentifierValue>
+            </Creator>
+        <DateTime>2011-03-01T10:10:14Z</DateTime>
+        <Action>STARTUP</Action>
+        <ActionResult>SUCCESS</ActionResult>
+        <ActionInitiator>
+            <TypeOfIdentityIdentifier>AGENCY_USER_ID</TypeOfIdentityIdentifier>
+            <IdentityIdentifierValue>TLA-UserID123</IdentityIdentifierValue>
+        </ActionInitiator>
+        <ActionTarget>
+            <TypeOfIdentityIdentifier>WORKSTATION_ID</TypeOfIdentityIdentifier>
+            <IdentityIdentifierValue>WKS-1298</IdentityIdentifierValue>
+        </ActionTarget>
+    </AuditRecord>
+</AuditRecordList>

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<d:book xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlns:xi="http://www.w3.org/2001/XInclude"
+        xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+        xmlns:d="http://docbook.org/ns/docbook"
+        xmlns:xl="http://www.w3.org/1999/xlink"
+        version="5.0"
+        xml:lang="en">
+   <d:info>
+      <d:author>
+         <d:personname>
+            <d:surname>Joint Chiefs of Staff Pub 2.0: Appendix B - Intelligence Disciplines -  http://www.dtic.mil/doctrine/new_pubs/jp2_0.pdf IC-CIO</d:surname>
+         </d:personname>
+      </d:author>
+      <d:releaseinfo>
+         <block text-align="center" font-weight="bold" font-size="12pt">UNCLASSIFIED</block>
+      </d:releaseinfo>
+      <d:mediaobject xml:id="image_odni">
+         <d:imageobject>
+            <d:imagedata fileref="../common/images/odni.jpg" width="1.59in" align="center"/>
+         </d:imageobject>
+      </d:mediaobject>
+      <d:title>ARH Schematron Guide</d:title>
+      <d:subtitle>Guide to Schematron Rules and Patterns</d:subtitle>
+      <d:productname>ARH Schematron Guide 
+				   		 </d:productname>
+      <d:edition>Version 2</d:edition>
+      <d:author>
+         <d:orgname>Prepared by the Joint Chiefs of Staff Pub 2.0: Appendix B - Intelligence Disciplines -  http://www.dtic.mil/doctrine/new_pubs/jp2_0.pdf IC-CIO</d:orgname>
+      </d:author>
+      <d:pubdate>27 January 2013</d:pubdate>
+      <d:date>14 January 2013</d:date>
+      <d:address>Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       </d:address>
+      <d:releaseinfo>
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See 'Distribution Notice' for details.
+       </d:releaseinfo>
+   </d:info>
+   <d:chapter>
+      <d:title>Introduction</d:title>
+      <d:sect1>
+         <d:title>Purpose</d:title>
+         <d:para>(U) The following documentation is informative. The actual Schematron files are the
+								normative record. This documentation is generated from the Schematron files via XSLT
+								it may be missing some file or pieces of a file but whatever is here other than titles
+								came from the original file.</d:para>
+         <d:para>(U) It is envisioned that this will be a useful resource to search and read but for
+								questions and debates the source files should be consulted.</d:para>
+         <d:para>(U) Rules identifiers are all of the format ARH-ID-XXXXX, with
+				        		rule files named ARH_ID_XXXXX.sch. Any other heading indicates a supporting file
+								that may strongly influence a rule but is not actually a numbered rule.</d:para>
+      </d:sect1>
+   </d:chapter>
+   <d:chapter>
+      <d:title>Rules</d:title>
+      <d:para>All of the numbered Rules for ARH are listed in this section. 
+					These rules may	depend strongly on patterns defined in the Abstract Patterns section or on 
+					variables defined in the Schematron Schema section.</d:para>
+      <?hard-pagebreak?><d:sect1>
+         <d:title>.//Rules/generalConstraints/ARH_ID_00001.sch</d:title>
+         <d:para> Rule Description: 
+ARH-ID-00001
+    
+        [ARH-ID-00001][Error] The ARH elements cannot be used as root elements.
+        
+        Human Readable: ARH is not designed to stand-alone and therefore should never
+        be used as a root element.
+    </d:para>
+         <d:para>Code Description: 
+        We make sure that ARH:Security or ARH:ExternalSecurity are not used as the root element.
+    </d:para> 
+         <d:para>Schematron Code:<d:programlisting><![CDATA[<?ICEA pattern?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<sch:pattern id="ARH-ID-00001">
+         
+         
+                  <sch:rule context="/arh:*">
+                     <sch:assert test="false()" flag="error">
+            [ARH-ID-00001][Error] The ARH elemnts cannot be used as root elements.
+            
+            Human Readable: ARH is not designed to stand-alone and therefore should never
+            be used as a root element.
+        </sch:assert>
+                  </sch:rule>
+               </sch:pattern>
+   ]]></d:programlisting>
+         </d:para>
+      </d:sect1>
+      <?hard-pagebreak?><d:sect1>
+         <d:title>.//Rules/generalConstraints/ARH_ID_00002.sch</d:title>
+         <d:para> Rule Description: 
+ARH-ID-00002
+    
+        [ARH-ID-00002][Error] The attribute 
+        DESVersion in the namespace urn:us:gov:ic:arh must be specified.
+        
+        Human Readable: The data encoding specification version number must
+        be specified.
+    </d:para>
+         <d:para>Code Description: 
+        Make sure that the attribute arh:DESVersion 
+        is specified.
+    </d:para> 
+         <d:para>Schematron Code:<d:programlisting><![CDATA[<?ICEA pattern?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<sch:pattern id="ARH-ID-00002">
+         
+         
+                  <sch:rule context="/">
+                     <sch:assert test="some $element in descendant-or-self::node() satisfies $element/@arh:DESVersion"
+                                 flag="error">
+            [ARH-ID-00002][Error] The attribute 
+            DESVersion in the namespace urn:us:gov:ic:arh must be specified.
+            
+            Human Readable: The data encoding specification version must 
+            be specified.
+        </sch:assert>
+                  </sch:rule>
+               </sch:pattern>
+   ]]></d:programlisting>
+         </d:para>
+      </d:sect1>
+      <?hard-pagebreak?><d:sect1>
+         <d:title>.//Rules/generalConstraints/ARH_ID_00003.sch</d:title>
+         <d:para> Rule Description: 
+ARH-ID-00003
+    
+        [ARH-ID-00003][Error] Every ARH attribute in the document must be
+        specified with a non-whitespace value.
+        
+        Human Readable: 
+    </d:para>
+         <d:para>Code Description: 
+        For each element which specifies an attribute in the ARH namespace, we
+        make sure that all attributes in the ARH namespace contain a non-whitespace
+        value.
+    </d:para> 
+         <d:para>Schematron Code:<d:programlisting><![CDATA[<?ICEA pattern?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<sch:pattern id="ARH-ID-00003">
+         
+    
+         
+    
+                  <sch:rule context="*[@arh:*]">
+                     <sch:assert test="every $attribute in @arh:*  satisfies             string-length(normalize-space(string($attribute))) &gt; 0"
+                                 flag="error">
+            [ARH-ID-00003][Error] Every ARH attribute in the document must be specified with a non-whitespace value.
+            
+            Human Readable: 
+        </sch:assert>
+                  </sch:rule>
+               </sch:pattern>
+   ]]></d:programlisting>
+         </d:para>
+      </d:sect1>
+      <?hard-pagebreak?><d:sect1>
+         <d:title>.//Rules/generalConstraints/ARH_ID_00004.sch</d:title>
+         <d:para> Rule Description: 
+ARH-ID-00004
+    
+        [ARH-ID-00004][Error] The @ntk:DESVersion is less than the minimum version 
+        allowed: 7. 
+        
+        Human Readable: The NTK version imported by ARH must be greater than 7. 
+    </d:para>
+         <d:para>Code Description: 
+        For all elements that contain @ntk:DESVersion, we verify that the version
+        is greater than the minimum allowed version: 7.  
+    </d:para> 
+         <d:para>Schematron Code:<d:programlisting><![CDATA[<?ICEA pattern?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<sch:pattern id="ARH-ID-00004">
+         
+         
+                  <sch:rule context="*[@ntk:DESVersion]">
+                     <sch:assert test="number(@ntk:DESVersion) &gt;= 7" flag="error">
+            [ARH-ID-00004][Error] The @ntk:DESVersion is less than the minimum version 
+            allowed: 7. 
+            
+            Human Readable: The NTK version imported by ARH must be greater than 7.
+        </sch:assert>
+                  </sch:rule>
+               </sch:pattern>
+   ]]></d:programlisting>
+         </d:para>
+      </d:sect1>
+      <?hard-pagebreak?><d:sect1>
+         <d:title>.//Rules/generalConstraints/ARH_ID_00005.sch</d:title>
+         <d:para> Rule Description: 
+ARH-ID-00005
+    
+        [ARH-ID-00005][Error] The @ism:DESVersion is less than the minimum version 
+        allowed: 9. 
+        
+        Human Readable: The ism version imported by ARH must be greater than or equal to 9. 
+    </d:para>
+         <d:para>Code Description: 
+        For all elements that contain @ism:DESVersion, we verify that the version
+        is greater than or equal to the minimum allowed version: 9.  
+    </d:para> 
+         <d:para>Schematron Code:<d:programlisting><![CDATA[<?ICEA pattern?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<sch:pattern id="ARH-ID-00005">
+         
+         
+                  <sch:rule context="*[@ism:DESVersion]">
+                     <sch:assert test="number(@ism:DESVersion) &gt;= 9" flag="error">
+            [ARH-ID-00005][Error] The @ism:DESVersion is less than the minimum version 
+            allowed: 9. 
+            
+            Human Readable: The ism version imported by ARH must be greater than or equal to 9.
+        </sch:assert>
+                  </sch:rule>
+               </sch:pattern>
+   ]]></d:programlisting>
+         </d:para>
+      </d:sect1>
+   </d:chapter>
+   <d:chapter>
+      <d:title>Abstract Patterns</d:title>
+      <d:para>All of the Abstract Patterns for ARH are listed in this section. 
+					These patterns may	depend strongly on 
+					variables defined in the Schematron Schema section.</d:para>
+   </d:chapter>
+   <d:chapter>
+      <d:title>Schematron Schema</d:title>
+      <d:para>The top level Schematron file for ARH is in this section. 
+					This file imports all of the others and also defines many global variables they are all dependent on.</d:para>
+      <?hard-pagebreak?><d:sect1>
+         <d:title>.//ARH_XML.sch</d:title>
+         <d:para> Rule Description: 
+
+         
+         
+         
+         
+         
+         
+         
+
+         
+
+
+
+
+   
+         
+         
+         
+         
+      
+    </d:para>
+         <d:para>Code Description: </d:para> 
+         <d:para>Schematron Code:<d:programlisting><![CDATA[<?ICEA master?><!-- Notices - Distribution Notice:
+            This document is being made available by the Intelligence Community Chief Information Officer
+            to Federal, State, Local, Tribal, and Foreign Partners and associated contractors. Approval for
+            any further distribution must be coordinated via the Intelligence Community Chief Information 
+            Officer, Mission Engagement Division at standardssupport@dni.gov-->
+<sch:schema queryBinding="xslt2">
+                  <sch:ns uri="urn:us:gov:ic:pubs" prefix="pubs"/>
+                  <sch:ns uri="urn:us:gov:ic:cve" prefix="cve"/>
+                  <sch:ns uri="http://www.w3.org/1999/xlink" prefix="xlink"/>
+                  <sch:ns uri="urn:us:gov:ic:ism" prefix="ism"/>
+                  <sch:ns uri="urn:us:gov:ic:ntk" prefix="ntk"/>
+                  <sch:ns uri="urn:us:gov:ic:arh" prefix="arh"/>
+                  <sch:ns uri="http://www.w3.org/2001/XMLSchema" prefix="xs"/>
+
+                  <!--****************************-->
+<!-- (U) ARH ID Rules -->
+<!--****************************-->
+
+<!--(U) generalConstraints-->
+   <sch:include href="./Rules/generalConstraints/ARH_ID_00001.sch"/>
+                  <sch:include href="./Rules/generalConstraints/ARH_ID_00002.sch"/>
+                  <sch:include href="./Rules/generalConstraints/ARH_ID_00003.sch"/>
+                  <sch:include href="./Rules/generalConstraints/ARH_ID_00004.sch"/>
+                  <sch:include href="./Rules/generalConstraints/ARH_ID_00005.sch"/>
+               </sch:schema>
+   ]]></d:programlisting>
+         </d:para>
+      </d:sect1>
+   </d:chapter>
+   <d:chapter>
+      <d:title>Removed Rules</d:title>
+      <d:para>All of the numbered Rules for ARH that have been removed are listed in this section. 
+					This section is just a reference for what rule numbers have been dropped. In many but not all cases there will be a reason
+				listed. In all cases the version that the rule was dropped in is listed.</d:para>
+   </d:chapter>
+</d:book>

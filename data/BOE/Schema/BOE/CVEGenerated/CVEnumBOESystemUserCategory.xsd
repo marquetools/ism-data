@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:boe:CVEnumBOESystemUserCategory"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:boe:CVEnumBOESystemUserCategory"
+            version="201804">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumBOESystemUserCategory Version 2.1 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumBOESystemUserCategory.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumBOESystemUserCategory">
+      <xsd:annotation>
+         <xsd:documentation>(U) Description of users for System Security Plan (SSP)
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumBOESystemUserCategory.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="ORGANIZATIONPERSONNEL">
+            <xsd:annotation>
+               <xsd:documentation>Organization Personnel</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CONTRACTORS">
+            <xsd:annotation>
+               <xsd:documentation>Contractors</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FEDERALSTATELOCAL">
+            <xsd:annotation>
+               <xsd:documentation>Federal State Local</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ORGANIZATION">
+            <xsd:annotation>
+               <xsd:documentation>Organization</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FOREIGNNATIONALS">
+            <xsd:annotation>
+               <xsd:documentation>Foreign Nationals</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="COALITIONPARTNERS">
+            <xsd:annotation>
+               <xsd:documentation>Coalition Partners</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GENERALPUBLIC">
+            <xsd:annotation>
+               <xsd:documentation>General Public</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

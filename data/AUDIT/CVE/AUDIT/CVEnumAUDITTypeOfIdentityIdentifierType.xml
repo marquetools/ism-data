@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cve:CVE xmlns:cve="urn:us:gov:ic:cve:v1" xmlns:ddms="http://metadata.dod.mil/mdr/ns/DDMS/3.0/"
+	xmlns="urn:us:gov:ic:cve:v1" xmlns:ism="urn:us:gov:ic:ism"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:us:gov:ic:cve:v1 ../Schema/CVEXml.xsd" ism:ownerProducer="USA"
+	ism:classification="U" ism:DESVersion="7" ism:resourceElement="true" ism:createDate="2011-09-01">
+
+	<cve:IRM>
+		<ddms:identifier ddms:qualifier="name" ddms:value="urn:us:gov:ic:cvenum:audit:typeofidentityreferencetype:v1"/>
+		<ddms:title ism:ownerProducer="USA" ism:classification="U">CVEnumAuditTypeOfIdentityIdentifierType</ddms:title>
+		<ddms:description ism:ownerProducer="USA" ism:classification="U">All currently authorized type of identity identifier types.</ddms:description>
+
+		<cve:Created>2011-09-01T11:19:00-04:00</cve:Created>
+
+		<ddms:source ddms:value="Authoritative source for Type Of Identity Reference Types"/>
+		<ddms:pointOfContact>
+			<ddms:Organization>
+				<ddms:name>Office IC CIO</ddms:name>
+				<ddms:email>datastandardssupport@ugov.gov</ddms:email>
+			</ddms:Organization>
+		</ddms:pointOfContact>
+	</cve:IRM>
+
+	<cve:Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">AGENCY_USER_ID</Value>
+			<ddms:description ism:classification="U" ism:ownerProducer="USA">The unique Identifier for a user within an agency, typically for information resource access.</ddms:description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">AGENCY_EMPLOYEE_ID</Value>
+			<ddms:description ism:classification="U" ism:ownerProducer="USA">The unique Identifier for an employee within an agency, typically for human resources tracking purposes.</ddms:description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">DEVICE_ID</Value>
+			<ddms:description ism:classification="U" ism:ownerProducer="USA">The unique Identifier for a device used on the network.</ddms:description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">DIGITAL_IDENTIFIER</Value>
+			<ddms:description ism:classification="U" ism:ownerProducer="USA">The "Primary Key" for accessing identity attributes.</ddms:description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">DOMAIN_NAME</Value>
+			<ddms:description ism:classification="U" ism:ownerProducer="USA">An Identification label that defines a realm of administrative autonomy, authority, or control in the network.</ddms:description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">EMPLOYEE_ID</Value>
+			<ddms:description ism:classification="U" ism:ownerProducer="USA">The unique Identifier for an employee within the IC, typically a numerical value.</ddms:description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">FEDERAL_AGENCY_SMART_CREDENTIAL_NUMBER</Value>
+			<ddms:description ism:classification="U" ism:ownerProducer="USA">One of the data items contained within the card-holder unique identifier (CHUID), and uniquely identifies a PIV card (A smart card that is designed, issued and managed according to the specifications in FIPS 201 and its related technical documents).</ddms:description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">FULLY_QUALIFIED_DOMAIN_NAME</Value>
+			<ddms:description ism:classification="U" ism:ownerProducer="USA">A domain name that specifies its exact location in the tree hierarchy of the Domain Name System. It specifies all domain levels, including the top-level domain and the root domain. A fully qualified domain name is distinguished by its unambiguity; it can only be interpreted one way.</ddms:description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">HOST_NAME</Value>
+			<ddms:description ism:classification="U" ism:ownerProducer="USA">A label that is assigned to a device connected to a computer network and that is used to identify the device in various forms of electronic communication such as the www or email.</ddms:description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">IP_ADDRESS</Value>
+			<ddms:description ism:classification="U" ism:ownerProducer="USA">A numerical label assigned to each device (e.g., computer, printer) participating in a computer network that uses the Internet Protocol for communication.</ddms:description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">PROCESS_ID</Value>
+			<ddms:description ism:classification="U" ism:ownerProducer="USA">A number used by some operating system kernels (such as that of UNIX, Mac OS X or Microsoft Windows) to (temporarily) uniquely identify a process.</ddms:description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">USER_ID</Value>
+			<ddms:description ism:classification="U" ism:ownerProducer="USA">The unique Identifier for a user within the IC, typically for information resource access.</ddms:description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">WORKSTATION_ID</Value>
+			<ddms:description ism:classification="U" ism:ownerProducer="USA">The unique Identifier for a workstation or other device that is connected to the network.</ddms:description>
+		</Term>
+
+	</cve:Enumeration>
+</cve:CVE>

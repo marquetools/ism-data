@@ -1,0 +1,1771 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for </title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                        //
+--></script>
+   </head>
+   <body>
+      <h2>
+         <a id="INDEX" shape="rect">Table of Contents</a>
+      </h2>
+      <p>
+         <a href="SchemaGuide.indexList.html" shape="rect">Components</a>
+         <span> | </span>
+         <a href="schHierarchy.html" shape="rect">Resource Hierarchy</a>
+      </p>
+      <hr></hr>
+      <div class="toc">
+         <form action="none" method="get" enctype="application/x-www-form-urlencoded">
+            <div>
+               <span> Group by: <select id="selectTOC" onchange="selectTOCGroupBy(this.options[this.selectedIndex].value, true, 'SchemaGuide.indexList.html', 'SchemaGuide.indexListns.html', 'SchemaGuide.indexListcomp.html');">
+                     <option value="toc_group_by_namespace" selected="selected">Namespace</option>
+                     <option value="toc_group_by_location">Location</option>
+                     <option value="toc_group_by_component_type">Component Type</option>
+                  </select>
+               </span>
+            </div>
+         </form>
+         <div class="level1" id="toc_group_by_namespace" style="display:block">
+            <div>
+               <div class="level2">
+                  <p>
+                     <input id="button_boxIdNamespace1" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace1');" class="control"></input>
+                     <span class="indexGroupTitle">urn:us:gov:ic:tdf</span>
+                  </p>
+                  <div id="boxIdNamespace1" style="display:block">
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace1Main_schema" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace1Main_schema');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Main Schema</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace1Main_schema" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="d532595d-a86e-4b42-b245-3368d734a791.html#BASE-TDF.xsd" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component BASE-TDF.xsd')" shape="rect">BASE-TDF.xsd</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace1Element" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace1Element');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Elements</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace1Element" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="4b24e632-1f95-4e9d-a460-7cac2e14fa8b.html#AssertionGroup_Assertion" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component AssertionGroup/Assertion')" shape="rect">AssertionGroup/Assertion</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="4b24e632-1f95-4e9d-a460-7cac2e14fa8b.html#AssertionGroup_HandlingAssertion" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component AssertionGroup/HandlingAssertion')" shape="rect">AssertionGroup/HandlingAssertion</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="b9c126d4-bfd6-4ce0-b4c8-213d71d3fa4c.html#AssertionType_StatementMetadata" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component AssertionType/StatementMetadata')" shape="rect">AssertionType/StatementMetadata</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="d1ad54ef-b1ca-4a0b-98af-37eeb56c2626.html#AttachedKeyType_KeyValue" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component AttachedKeyType/KeyValue')" shape="rect">AttachedKeyType/KeyValue</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="73810f7b-49db-440e-adb8-c3e8a9d7e98c.html#BindingGroup_Binding" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component BindingGroup/Binding')" shape="rect">BindingGroup/Binding</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="73810f7b-49db-440e-adb8-c3e8a9d7e98c.html#BindingGroup_ReferenceList" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component BindingGroup/ReferenceList')" shape="rect">BindingGroup/ReferenceList</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="1b140e58-b528-414e-8892-1e087d53ea0f.html#BindingType_BoundValueList" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component BindingType/BoundValueList')" shape="rect">BindingType/BoundValueList</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="1b140e58-b528-414e-8892-1e087d53ea0f.html#BindingType_SignatureValue" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component BindingType/SignatureValue')" shape="rect">BindingType/SignatureValue</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="1b140e58-b528-414e-8892-1e087d53ea0f.html#BindingType_Signer" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component BindingType/Signer')" shape="rect">BindingType/Signer</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="24267171-30b0-4328-a8c4-0396c12dbcff.html#BoundValueListType_BoundValue" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component BoundValueListType/BoundValue')" shape="rect">BoundValueListType/BoundValue</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="185a6969-28c7-4d0a-b509-f34941b98dc6.html#EncryptionInformationGroup_EncryptionInformation" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component EncryptionInformationGroup/EncryptionInformation')" shape="rect">EncryptionInformationGroup/EncryptionInformation</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="185a6969-28c7-4d0a-b509-f34941b98dc6.html#EncryptionInformationGroup_EncryptionInformationGroup_EncryptionInformation_EncryptionMethod" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component EncryptionInformationGroup/EncryptionInformation/EncryptionMethod')" shape="rect">EncryptionInformationGroup/EncryptionInformation/EncryptionMethod</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="185a6969-28c7-4d0a-b509-f34941b98dc6.html#EncryptionInformationGroup_EncryptionInformationGroup_EncryptionInformation_KeyAccess" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component EncryptionInformationGroup/EncryptionInformation/KeyAccess')" shape="rect">EncryptionInformationGroup/EncryptionInformation/KeyAccess</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="96023941-7a90-4064-8a07-a381f22c2b8b.html#EncryptionMethodType_AdditionalAuthenticatedData" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component EncryptionMethodType/AdditionalAuthenticatedData')" shape="rect">EncryptionMethodType/AdditionalAuthenticatedData</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="96023941-7a90-4064-8a07-a381f22c2b8b.html#EncryptionMethodType_AuthenticationTag" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component EncryptionMethodType/AuthenticationTag')" shape="rect">EncryptionMethodType/AuthenticationTag</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="96023941-7a90-4064-8a07-a381f22c2b8b.html#EncryptionMethodType_HashAlgorithm" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component EncryptionMethodType/HashAlgorithm')" shape="rect">EncryptionMethodType/HashAlgorithm</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="96023941-7a90-4064-8a07-a381f22c2b8b.html#EncryptionMethodType_IVParams" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component EncryptionMethodType/IVParams')" shape="rect">EncryptionMethodType/IVParams</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="96023941-7a90-4064-8a07-a381f22c2b8b.html#EncryptionMethodType_KeyEncodingFormat" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component EncryptionMethodType/KeyEncodingFormat')" shape="rect">EncryptionMethodType/KeyEncodingFormat</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="96023941-7a90-4064-8a07-a381f22c2b8b.html#EncryptionMethodType_KeySize" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component EncryptionMethodType/KeySize')" shape="rect">EncryptionMethodType/KeySize</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="96023941-7a90-4064-8a07-a381f22c2b8b.html#EncryptionMethodType_MGFAlgorithm" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component EncryptionMethodType/MGFAlgorithm')" shape="rect">EncryptionMethodType/MGFAlgorithm</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="96023941-7a90-4064-8a07-a381f22c2b8b.html#EncryptionMethodType_Nonce" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component EncryptionMethodType/Nonce')" shape="rect">EncryptionMethodType/Nonce</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="96023941-7a90-4064-8a07-a381f22c2b8b.html#EncryptionMethodType_OaepParams" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component EncryptionMethodType/OaepParams')" shape="rect">EncryptionMethodType/OaepParams</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="96023941-7a90-4064-8a07-a381f22c2b8b.html#EncryptionMethodType_Tweak" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component EncryptionMethodType/Tweak')" shape="rect">EncryptionMethodType/Tweak</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="b96de7fe-f20e-4d41-bf00-626abee49ee0.html#HandlingAssertionType_HandlingStatement" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component HandlingAssertionType/HandlingStatement')" shape="rect">HandlingAssertionType/HandlingStatement</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="cd2a0ff6-32a2-4af4-a3cb-af95589433e9.html#KeyAccessType_AttachedKey" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component KeyAccessType/AttachedKey')" shape="rect">KeyAccessType/AttachedKey</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="cd2a0ff6-32a2-4af4-a3cb-af95589433e9.html#KeyAccessType_PasswordKey" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component KeyAccessType/PasswordKey')" shape="rect">KeyAccessType/PasswordKey</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="cd2a0ff6-32a2-4af4-a3cb-af95589433e9.html#KeyAccessType_PreSharedKey" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component KeyAccessType/PreSharedKey')" shape="rect">KeyAccessType/PreSharedKey</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="cd2a0ff6-32a2-4af4-a3cb-af95589433e9.html#KeyAccessType_RemoteStoredKey" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component KeyAccessType/RemoteStoredKey')" shape="rect">KeyAccessType/RemoteStoredKey</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="cd2a0ff6-32a2-4af4-a3cb-af95589433e9.html#KeyAccessType_WrappedKey" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component KeyAccessType/WrappedKey')" shape="rect">KeyAccessType/WrappedKey</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="cd2a0ff6-32a2-4af4-a3cb-af95589433e9.html#KeyAccessType_WrappedPDPKey" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component KeyAccessType/WrappedPDPKey')" shape="rect">KeyAccessType/WrappedPDPKey</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="66a5e9ce-1a61-43e3-ac69-c614537a1c04.html#PayloadGroup_Base64BinaryPayload" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component PayloadGroup/Base64BinaryPayload')" shape="rect">PayloadGroup/Base64BinaryPayload</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="66a5e9ce-1a61-43e3-ac69-c614537a1c04.html#PayloadGroup_ReferenceValuePayload" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component PayloadGroup/ReferenceValuePayload')" shape="rect">PayloadGroup/ReferenceValuePayload</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="66a5e9ce-1a61-43e3-ac69-c614537a1c04.html#PayloadGroup_StringPayload" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component PayloadGroup/StringPayload')" shape="rect">PayloadGroup/StringPayload</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="66a5e9ce-1a61-43e3-ac69-c614537a1c04.html#PayloadGroup_StructuredPayload" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component PayloadGroup/StructuredPayload')" shape="rect">PayloadGroup/StructuredPayload</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="2ad33279-3e23-447b-88db-0b70177196ea.html#ReferenceListType_Reference" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component ReferenceListType/Reference')" shape="rect">ReferenceListType/Reference</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="03da95be-9ba7-46d2-8413-982eb8cceb87.html#ReferenceValueType_ReferenceValueBlock" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component ReferenceValueType/ReferenceValueBlock')" shape="rect">ReferenceValueType/ReferenceValueBlock</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="c6e9f466-490e-446d-a075-39bdf313fffd.html#StatementGroup_Base64BinaryStatement" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component StatementGroup/Base64BinaryStatement')" shape="rect">StatementGroup/Base64BinaryStatement</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="c6e9f466-490e-446d-a075-39bdf313fffd.html#StatementGroup_ReferenceStatement" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component StatementGroup/ReferenceStatement')" shape="rect">StatementGroup/ReferenceStatement</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="c6e9f466-490e-446d-a075-39bdf313fffd.html#StatementGroup_StringStatement" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component StatementGroup/StringStatement')" shape="rect">StatementGroup/StringStatement</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="c6e9f466-490e-446d-a075-39bdf313fffd.html#StatementGroup_StructuredStatement" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component StatementGroup/StructuredStatement')" shape="rect">StatementGroup/StructuredStatement</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="a46a91e4-d542-4cf5-8a0f-4476681add7b.html#TrustedDataCollection" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component TrustedDataCollection')" shape="rect">TrustedDataCollection</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="7bd96e86-3157-4ef6-bdbe-250005f8ade1.html#TrustedDataObject" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component TrustedDataObject')" shape="rect">TrustedDataObject</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="71962e6d-61df-429b-b279-44b3f3eaf2c7.html#WrappedKeyType_KeyValue" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component WrappedKeyType/KeyValue')" shape="rect">WrappedKeyType/KeyValue</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="2cced6d5-2049-4746-ba85-7cda17ee44de.html#WrappedPDPKeyType_EncryptedPolicyObject" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component WrappedPDPKeyType/EncryptedPolicyObject')" shape="rect">WrappedPDPKeyType/EncryptedPolicyObject</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace1Complex_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace1Complex_Type');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Complex Types</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace1Complex_Type" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="b9c126d4-bfd6-4ce0-b4c8-213d71d3fa4c.html#AssertionType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component AssertionType')" shape="rect">AssertionType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="d1ad54ef-b1ca-4a0b-98af-37eeb56c2626.html#AttachedKeyType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component AttachedKeyType')" shape="rect">AttachedKeyType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="c056a74c-07ab-492a-b3ea-4121c779261d.html#Base64BinaryValueType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component Base64BinaryValueType')" shape="rect">Base64BinaryValueType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="1b140e58-b528-414e-8892-1e087d53ea0f.html#BindingType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component BindingType')" shape="rect">BindingType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="24267171-30b0-4328-a8c4-0396c12dbcff.html#BoundValueListType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component BoundValueListType')" shape="rect">BoundValueListType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="4509e72d-9715-432a-bbba-76e951be1767.html#BoundValueType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component BoundValueType')" shape="rect">BoundValueType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="96023941-7a90-4064-8a07-a381f22c2b8b.html#EncryptionMethodType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component EncryptionMethodType')" shape="rect">EncryptionMethodType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="b96de7fe-f20e-4d41-bf00-626abee49ee0.html#HandlingAssertionType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component HandlingAssertionType')" shape="rect">HandlingAssertionType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="57b6d4a2-1f19-48f3-8f6f-d7bd961a558e.html#HandlingStatementType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component HandlingStatementType')" shape="rect">HandlingStatementType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="cd2a0ff6-32a2-4af4-a3cb-af95589433e9.html#KeyAccessType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component KeyAccessType')" shape="rect">KeyAccessType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="9a1816d3-d2f1-4a43-b767-bb0245b02f77.html#PasswordKeyType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component PasswordKeyType')" shape="rect">PasswordKeyType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="6687e33d-c7f0-4b98-ba15-ca6c78c10132.html#PreSharedKeyType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component PreSharedKeyType')" shape="rect">PreSharedKeyType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="2ad33279-3e23-447b-88db-0b70177196ea.html#ReferenceListType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component ReferenceListType')" shape="rect">ReferenceListType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="59c404a0-bf34-4f7c-a3d8-865057086efc.html#ReferenceType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component ReferenceType')" shape="rect">ReferenceType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="aac9604e-403f-4adb-ba8a-3eb69d6303e6.html#ReferenceValueBlockType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component ReferenceValueBlockType')" shape="rect">ReferenceValueBlockType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="03da95be-9ba7-46d2-8413-982eb8cceb87.html#ReferenceValueType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component ReferenceValueType')" shape="rect">ReferenceValueType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="cfe4d2ca-3093-4f3b-8180-df82ef457cec.html#RemoteStoredKeyType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component RemoteStoredKeyType')" shape="rect">RemoteStoredKeyType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="d070c6b1-6f12-4ca8-880d-9eaed39a341c.html#SignatureValueType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component SignatureValueType')" shape="rect">SignatureValueType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="89c0617a-cc16-4513-b121-e689e2716477.html#StatementMetadataType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component StatementMetadataType')" shape="rect">StatementMetadataType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="14ab959d-fd8e-4ab7-8f66-bdf47caa8340.html#StringValueType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component StringValueType')" shape="rect">StringValueType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="83f5f58e-2d48-4d4f-afb7-8dac22ba55e7.html#StructuredValueType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component StructuredValueType')" shape="rect">StructuredValueType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="05c73b7d-fecc-4664-9cf1-59da26845342.html#TrustedDataCollectionType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component TrustedDataCollectionType')" shape="rect">TrustedDataCollectionType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="b9292cdd-4728-4f06-b53a-2b84b2ba1872.html#TrustedDataObjectType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component TrustedDataObjectType')" shape="rect">TrustedDataObjectType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="71962e6d-61df-429b-b279-44b3f3eaf2c7.html#WrappedKeyType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component WrappedKeyType')" shape="rect">WrappedKeyType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="2cced6d5-2049-4746-ba85-7cda17ee44de.html#WrappedPDPKeyType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component WrappedPDPKeyType')" shape="rect">WrappedPDPKeyType</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace1Simple_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace1Simple_Type');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Simple Types</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace1Simple_Type" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="5ae27d54-665c-4bd6-b974-8c75758b3a8f.html#MediaTypeType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component MediaTypeType')" shape="rect">MediaTypeType</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace1Attribute" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace1Attribute');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Attributes</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace1Attribute" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="BASE-TDF_xsd_Attribute_filename.html#filename" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component @filename')" shape="rect">@filename</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="BASE-TDF_xsd_Attribute_id.html#id" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component @id')" shape="rect">@id</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="BASE-TDF_xsd_Attribute_idRef.html#idRef" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component @idRef')" shape="rect">@idRef</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="8b9c35eb-e7a3-4898-a8d3-9396da427dbf.html#includesStatementMetadata" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component @includesStatementMetadata')" shape="rect">@includesStatementMetadata</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="BASE-TDF_xsd_Attribute_isEncrypted.html#isEncrypted" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component @isEncrypted')" shape="rect">@isEncrypted</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="BASE-TDF_xsd_Attribute_mediaType.html#mediaType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component @mediaType')" shape="rect">@mediaType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="be759e72-ced4-4111-b126-74ee9c1ba625.html#normalizationMethod" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component @normalizationMethod')" shape="rect">@normalizationMethod</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="BASE-TDF_xsd_Attribute_scope.html#scope" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component @scope')" shape="rect">@scope</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="BASE-TDF_xsd_Attribute_uri.html#uri" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component @uri')" shape="rect">@uri</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="BASE-TDF_xsd_Attribute_version.html#version" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component @version')" shape="rect">@version</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="b9c126d4-bfd6-4ce0-b4c8-213d71d3fa4c.html#AssertionType_type" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component AssertionType/@type')" shape="rect">AssertionType/@type</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="1b140e58-b528-414e-8892-1e087d53ea0f.html#BindingType_BindingType_Signer_issuer" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component BindingType/Signer/@issuer')" shape="rect">BindingType/Signer/@issuer</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="1b140e58-b528-414e-8892-1e087d53ea0f.html#BindingType_BindingType_Signer_serial" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component BindingType/Signer/@serial')" shape="rect">BindingType/Signer/@serial</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="1b140e58-b528-414e-8892-1e087d53ea0f.html#BindingType_BindingType_Signer_subject" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component BindingType/Signer/@subject')" shape="rect">BindingType/Signer/@subject</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="4509e72d-9715-432a-bbba-76e951be1767.html#BoundValueType_hashAlgorithm" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component BoundValueType/@hashAlgorithm')" shape="rect">BoundValueType/@hashAlgorithm</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="185a6969-28c7-4d0a-b509-f34941b98dc6.html#EncryptionInformationGroup_EncryptionInformationGroup_EncryptionInformation_sequenceNum" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component EncryptionInformationGroup/EncryptionInformation/@sequenceNum')" shape="rect">EncryptionInformationGroup/EncryptionInformation/@sequenceNum</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="96023941-7a90-4064-8a07-a381f22c2b8b.html#EncryptionMethodType_algorithm" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component EncryptionMethodType/@algorithm')" shape="rect">EncryptionMethodType/@algorithm</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="b96de7fe-f20e-4d41-bf00-626abee49ee0.html#HandlingAssertionType_appliesToState" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component HandlingAssertionType/@appliesToState')" shape="rect">HandlingAssertionType/@appliesToState</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="9a1816d3-d2f1-4a43-b767-bb0245b02f77.html#PasswordKeyType_algorithm" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component PasswordKeyType/@algorithm')" shape="rect">PasswordKeyType/@algorithm</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="6687e33d-c7f0-4b98-ba15-ca6c78c10132.html#PreSharedKeyType_alias" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component PreSharedKeyType/@alias')" shape="rect">PreSharedKeyType/@alias</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="6687e33d-c7f0-4b98-ba15-ca6c78c10132.html#PreSharedKeyType_store" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component PreSharedKeyType/@store')" shape="rect">PreSharedKeyType/@store</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="cfe4d2ca-3093-4f3b-8180-df82ef457cec.html#RemoteStoredKeyType_protocol" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component RemoteStoredKeyType/@protocol')" shape="rect">RemoteStoredKeyType/@protocol</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="d070c6b1-6f12-4ca8-880d-9eaed39a341c.html#SignatureValueType_signatureAlgorithm" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component SignatureValueType/@signatureAlgorithm')" shape="rect">SignatureValueType/@signatureAlgorithm</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="89c0617a-cc16-4513-b121-e689e2716477.html#StatementMetadataType_appliesToState" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component StatementMetadataType/@appliesToState')" shape="rect">StatementMetadataType/@appliesToState</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="71962e6d-61df-429b-b279-44b3f3eaf2c7.html#WrappedKeyType_keyIdentifier" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component WrappedKeyType/@keyIdentifier')" shape="rect">WrappedKeyType/@keyIdentifier</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="2cced6d5-2049-4746-ba85-7cda17ee44de.html#WrappedPDPKeyType_keyIdentifier" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component WrappedPDPKeyType/@keyIdentifier')" shape="rect">WrappedPDPKeyType/@keyIdentifier</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace1Element_Group" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace1Element_Group');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Element Groups</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace1Element_Group" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="4b24e632-1f95-4e9d-a460-7cac2e14fa8b.html#AssertionGroup" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component AssertionGroup')" shape="rect">AssertionGroup</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="73810f7b-49db-440e-adb8-c3e8a9d7e98c.html#BindingGroup" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component BindingGroup')" shape="rect">BindingGroup</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="185a6969-28c7-4d0a-b509-f34941b98dc6.html#EncryptionInformationGroup" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component EncryptionInformationGroup')" shape="rect">EncryptionInformationGroup</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="66a5e9ce-1a61-43e3-ac69-c614537a1c04.html#PayloadGroup" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component PayloadGroup')" shape="rect">PayloadGroup</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="c6e9f466-490e-446d-a075-39bdf313fffd.html#StatementGroup" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component StatementGroup')" shape="rect">StatementGroup</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div style="clear:left"></div>
+                  </div>
+               </div>
+               <div class="level2">
+                  <p>
+                     <input id="button_boxIdNamespace2" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace2');" class="control"></input>
+                     <span class="indexGroupTitle">urn:us:gov:ic:cvenum:tdf:signaturealgorithm</span>
+                  </p>
+                  <div id="boxIdNamespace2" style="display:block">
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace2Imported_schema" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace2Imported_schema');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Imported Schemas</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace2Imported_schema" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="efa97c81-cc61-468e-84ad-037e4844cc31.html#CVEnumTDFSignatureAlgorithm.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:tdf:signaturealgorithm" onclick="updatePageTitle('Schema documentation for component CVEnumTDFSignatureAlgorithm.xsd')" shape="rect">CVEnumTDFSignatureAlgorithm.xsd</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace2Simple_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace2Simple_Type');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Simple Types</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace2Simple_Type" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="6ca0040b-052d-47b9-a5db-9a14234c517c.html#CVEnumTDFSignatureAlgorithm" target="mainFrame" title="urn:us:gov:ic:cvenum:tdf:signaturealgorithm" onclick="updatePageTitle('Schema documentation for component CVEnumTDFSignatureAlgorithm')" shape="rect">CVEnumTDFSignatureAlgorithm</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div style="clear:left"></div>
+                  </div>
+               </div>
+               <div class="level2">
+                  <p>
+                     <input id="button_boxIdNamespace3" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace3');" class="control"></input>
+                     <span class="indexGroupTitle">urn:us:gov:ic:cvenum:tdf:hashalgorithm</span>
+                  </p>
+                  <div id="boxIdNamespace3" style="display:block">
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace3Imported_schema" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace3Imported_schema');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Imported Schemas</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace3Imported_schema" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="8be6a94a-ac53-42f1-be37-c2f7782d027f.html#CVEnumTDFHashAlgorithm.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:tdf:hashalgorithm" onclick="updatePageTitle('Schema documentation for component CVEnumTDFHashAlgorithm.xsd')" shape="rect">CVEnumTDFHashAlgorithm.xsd</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace3Simple_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace3Simple_Type');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Simple Types</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace3Simple_Type" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="3f36f020-956a-40b4-bde2-98638ef93a8d.html#CVEnumTDFHashAlgorithm" target="mainFrame" title="urn:us:gov:ic:cvenum:tdf:hashalgorithm" onclick="updatePageTitle('Schema documentation for component CVEnumTDFHashAlgorithm')" shape="rect">CVEnumTDFHashAlgorithm</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div style="clear:left"></div>
+                  </div>
+               </div>
+               <div class="level2">
+                  <p>
+                     <input id="button_boxIdNamespace4" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace4');" class="control"></input>
+                     <span class="indexGroupTitle">urn:us:gov:ic:cvenum:tdf:state</span>
+                  </p>
+                  <div id="boxIdNamespace4" style="display:block">
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace4Imported_schema" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace4Imported_schema');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Imported Schemas</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace4Imported_schema" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="33cb0f02-367c-4625-b53d-8d615ad6d880.html#CVEnumTDFAppliesToState.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:tdf:state" onclick="updatePageTitle('Schema documentation for component CVEnumTDFAppliesToState.xsd')" shape="rect">CVEnumTDFAppliesToState.xsd</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace4Simple_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace4Simple_Type');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Simple Types</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace4Simple_Type" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="35c4b03e-f365-426d-a965-00f5e9efca26.html#CVEnumTDFAppliesToState" target="mainFrame" title="urn:us:gov:ic:cvenum:tdf:state" onclick="updatePageTitle('Schema documentation for component CVEnumTDFAppliesToState')" shape="rect">CVEnumTDFAppliesToState</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div style="clear:left"></div>
+                  </div>
+               </div>
+               <div class="level2">
+                  <p>
+                     <input id="button_boxIdNamespace5" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace5');" class="control"></input>
+                     <span class="indexGroupTitle">urn:us:gov:ic:sf:hashverification</span>
+                  </p>
+                  <div id="boxIdNamespace5" style="display:block">
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace5Imported_schema" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace5Imported_schema');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Imported Schemas</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace5Imported_schema" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="571db775-55c2-416c-8dc5-13a699ee015b.html#HashVerification.xsd" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component HashVerification.xsd')" shape="rect">HashVerification.xsd</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace5Element" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace5Element');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Elements</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace5Element" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="00fc2b20-1695-4072-a50e-55e4ddc13826.html#BlockHash" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component BlockHash')" shape="rect">BlockHash</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="c6b204fb-4265-4d30-a1f3-d45ee49daab8.html#ContentDecodedHashVerification" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component ContentDecodedHashVerification')" shape="rect">ContentDecodedHashVerification</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="84523a2a-a71c-4863-8021-344ebd9af7fb.html#ContentEncodedHashVerification" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component ContentEncodedHashVerification')" shape="rect">ContentEncodedHashVerification</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="28abe23e-c0f3-4e9a-af16-11f91928fe96.html#HashVerification" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component HashVerification')" shape="rect">HashVerification</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="1849faec-7eaa-4627-a7d7-295f6c08f493.html#PayloadHash" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component PayloadHash')" shape="rect">PayloadHash</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="97babafa-47e4-4586-8a1b-b00f5393d5ed.html#TotalHash" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component TotalHash')" shape="rect">TotalHash</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="cf9a4935-eb66-4a41-b242-1c97f383b000.html#UnblockedHashVerification" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component UnblockedHashVerification')" shape="rect">UnblockedHashVerification</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace5Simple_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace5Simple_Type');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Simple Types</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace5Simple_Type" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="985b78ce-0f2a-43f2-8571-59cafcc5968e.html#BlockSizeType" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component BlockSizeType')" shape="rect">BlockSizeType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="701e7fdb-e2dc-4656-b03b-672855c09441.html#BlockType" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component BlockType')" shape="rect">BlockType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="0e3a012a-2dca-4cbc-a462-b3f7cc808a2a.html#HashTypeType" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component HashTypeType')" shape="rect">HashTypeType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="7d38ffee-b7ec-469f-ba04-1ce2afc4fa82.html#HashValueType" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component HashValueType')" shape="rect">HashValueType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="c810f3e0-1bdc-44b5-a0e7-86d9198031e8.html#TotalBlocksType" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component TotalBlocksType')" shape="rect">TotalBlocksType</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace5Complex_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace5Complex_Type');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Complex Types</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace5Complex_Type" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="fb1cc00c-b8a1-47cf-8e1b-0d1098647024.html#BlockHashType" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component BlockHashType')" shape="rect">BlockHashType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="b3c2536d-d493-4148-8b4d-baad06c6bc54.html#HashVerificationType" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component HashVerificationType')" shape="rect">HashVerificationType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="660fdc3e-a659-43e5-9012-84700703e8bc.html#TotalHashType" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component TotalHashType')" shape="rect">TotalHashType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="f08be577-3c51-42ae-a4ce-70daf127763c.html#UnblockedHashVerificationType" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component UnblockedHashVerificationType')" shape="rect">UnblockedHashVerificationType</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace5Attribute" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace5Attribute');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Attributes</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace5Attribute" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="2c5b087d-8c72-4c28-91a5-839960ae2136.html#block" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component @block')" shape="rect">@block</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="e2328d97-f2b3-4e0c-89a3-e7d071ce0be6.html#blockSize" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component @blockSize')" shape="rect">@blockSize</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="8068afe4-b8d5-44cf-85d3-22febaf08e81.html#hashType" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component @hashType')" shape="rect">@hashType</a>
+                                                   </b>
+                                                </div>
+                                                <div>
+                                                   <b>
+                                                      <a href="f878809a-1a42-4fba-8d5f-43225637b369.html#totalBlocks" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component @totalBlocks')" shape="rect">@totalBlocks</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace5Element_Group" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace5Element_Group');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Element Groups</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace5Element_Group" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="e240ff42-20b4-4b04-bc70-f735de4b40b5.html#BlockedHashGroup" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component BlockedHashGroup')" shape="rect">BlockedHashGroup</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div style="clear:left"></div>
+                  </div>
+               </div>
+               <div class="level2">
+                  <p>
+                     <input id="button_boxIdNamespace6" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace6');" class="control"></input>
+                     <span class="indexGroupTitle">urn:us:gov:ic:sf</span>
+                  </p>
+                  <div id="boxIdNamespace6" style="display:block">
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace6Imported_schema" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace6Imported_schema');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Imported Schemas</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace6Imported_schema" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="IC-SF_xsd_Imported_schema_IC-SF_xsd.html#IC-SF.xsd" target="mainFrame" title="urn:us:gov:ic:sf" onclick="updatePageTitle('Schema documentation for component IC-SF.xsd')" shape="rect">IC-SF.xsd</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_content" rowspan="1" colspan="1">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <input id="button_boxIdNamespace6Attribute" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace6Attribute');" class="control"></input>
+                                          </td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div class="componentGroupTitle">Attributes</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                          <td class="componentGroup" rowspan="1" colspan="1">
+                                             <div id="boxIdNamespace6Attribute" class="componentGroup" style="display:block">
+                                                <div>
+                                                   <b>
+                                                      <a href="IC-SF_xsd_Attribute_DESVersion.html#DESVersion" target="mainFrame" title="urn:us:gov:ic:sf" onclick="updatePageTitle('Schema documentation for component @DESVersion')" shape="rect">@DESVersion</a>
+                                                   </b>
+                                                </div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                              <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                              <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div style="clear:left"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+   </body>
+</html>

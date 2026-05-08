@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<CVE xmlns="urn:us:gov:ic:cve" xmlns:ism="urn:us:gov:ic:ism"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ism:compliesWith="USGov USIC"
+    ism:ownerProducer="USA" ism:classification="U" ism:DESVersion="202111"
+    ism:ISMCATCESVersion="202205" ism:resourceElement="true" CVEVersion="2.1"
+    specVersion="201804" ism:createDate="2011-09-01"
+    xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+    <IRM>
+        <URN>urn:us:gov:ic:cvenum:boe:CVEnumBOEInformationTechnologyType</URN>
+        <Title ism:ownerProducer="USA" ism:classification="U">CVEnumBOEInformationTechnologyType</Title>
+        <Description ism:ownerProducer="USA" ism:classification="U">Information (IT) Technology Type for System Security Plan (SSP)</Description>
+        <cve:Created xmlns:cve="urn:us:gov:ic:cve">2011-09-01T11:19:00-04:00</cve:Created>
+
+        <Source ism:classification="U" ism:ownerProducer="USA">IC-CIO</Source>
+        <PointOfContact ism:classification="U" ism:ownerProducer="USA">
+            <Name>Office IC CIO</Name>
+            <Email>ic-standards-support@odni.gov</Email>
+        </PointOfContact>
+    </IRM>
+
+    <Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">ENCLAVE</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">A set of system resources that operate in the same security domain and that share the protection of a single, common, continuous security perimeter. (Source: CNSSI 4009)</Description>
+        </Term>
+
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">MAJORAPPLICATION</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">An application that requires special attention to security due to the risk and magnitude of harm resulting from the loss, misuse, or unauthorized access to or modification of the information in the application. (Source: CNSSI 4009)</Description>
+        </Term>
+
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">PLATFORMITSYSTEM</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">A collection of Information technology (IT), both hardware and software, that is physically part of, dedicated to, or essential in real time to the mission performance of special purpose systems within an identified boundary under the control of a single authority and security policy. The systems may be structured by physical proximity or by function, independent of location. (Source CNSSI 4009)</Description>
+        </Term>
+
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">GENERALSUPPORTSYSTEM</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">An interconnected set of information resources under the same direct management control that shares common functionality. It normally includes hardware, software, information, data, applications, communications, and people. (Source: CNSSI 4009)</Description>
+        </Term>
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">VIRTUALITSYSTEM</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">An IT system entirely comprised of virtual machines</Description>
+        </Term>
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">CONTAINERITSYSTEM</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">An IT system entirely comprised of containers</Description>
+        </Term>
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">MIXEDITSYSTEM</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">An IT system comprosed of bare metal and virtual and/or container elements</Description>
+        </Term>
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">CROSSDOMAIN</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">An IT system that manually and/or automatically provides access and/or transfers information between different security domains.</Description>
+        </Term>
+    </Enumeration>
+</CVE>

@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       --><cve:CVE xmlns:cve="urn:us:gov:ic:cve" xmlns:ism="urn:us:gov:ic:ism" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ism:compliesWith="USGov USIC" ism:ownerProducer="USA" ism:classification="U" ism:DESVersion="202111" ism:ISMCATCESVersion="202205" ism:resourceElement="true" CVEVersion="2" ism:createDate="2011-12-27" xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+         
+	  <cve:IRM>
+		    <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:domex:CVEnumDOMEXRelationshipNatureType</URN>
+		    <Title xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">CVEnumDOMEXRelationshipNatureType</Title>
+		    <Description xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">Valid range for relationship nature.</Description>
+
+		    <cve:Created>2013-04-01</cve:Created>
+
+		    <Source ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">Authoritative source for Relationship Nature</Source>
+		    <PointOfContact ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">
+         <Name>DOMEX Metadata Working Group</Name>
+      </PointOfContact>
+	  </cve:IRM>
+	  
+	  	<!--RelationshipNatureType-->
+	  <cve:Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Brother-In-Law Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Child Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Married To</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Parent Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Sibling Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Aunt Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Brother Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Cousin Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Daughter-In-Law Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Daughter Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Ex-Husband Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Ex-Wife Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Father Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Father-In-Law Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Granddaughter Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Grandfather Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Grandmother Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Grandson Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Husband Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Mother Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Mother-In-Law Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Nephew Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Niece of </Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Relative Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Sister Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Sister-In-Law of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Son-In-Law Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Son Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Uncle Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Wife Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Step-Mother Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Step-Father Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Step-Parent Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Step-Daughter Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Step-Son of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Step-Child Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Step-Sister Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Step-Brother Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Step-Sibling Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Spouse Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Grandparent Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Grandchild Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Ex-Spouse Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Employed by</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Officer of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Works In</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Subordinate To</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Senior To</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Has Education</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Conferred By</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is a Member Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Located At</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Location Seen At</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Detained</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Resides At</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">At Large</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Escaped From</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Receives Funds From</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Supplies Funds To</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Traveled To</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Phone Contact Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Communicates With</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Contacts</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Aware Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Equate</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Other Relationship</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Related Equipment</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Has Identity</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Same As</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Different From</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Candidate Same As</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Associated with Facility</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Associated with Organization</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Associated with Person</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Acquaintance</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Sponsored By</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Sponsored</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Petitioned By</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Petitioned For</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Visited</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Attended</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Applied To</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Personal Friend Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Facebook Friend Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Myspace Friend Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Chat Friend Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">Is Other Friend Of</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">None provided</Description>
+		    </Term>
+	  </cve:Enumeration>
+
+	  </cve:CVE>

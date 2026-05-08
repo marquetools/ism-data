@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXFileType">
+   <define name="CVEnumDOMEXFileType.cve">
+      <choice>
+         <value>OCR</value>
+         <value>XT</value>
+         <value>SCN</value>
+         <value>ELC</value>
+         <value>IDX</value>
+         <value>OTR</value>
+         <value>MT</value>
+         <value>HT</value>
+         <value>D2CXT</value>
+         <value>MAP</value>
+         <value>PIC</value>
+         <value>EE</value>
+         <value>VKF</value>
+         <value>DASXML</value>
+         <value>PEDREPORT</value>
+         <value>TSETREPORT</value>
+         <value>RPT</value>
+         <value>PHIND</value>
+         <value>STRCP</value>
+      </choice>
+   </define>
+</grammar>

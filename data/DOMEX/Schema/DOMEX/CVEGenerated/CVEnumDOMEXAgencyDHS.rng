@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXAgencyDHS">
+   <define name="CVEnumDOMEXAgencyDHS.cve">
+      <choice>
+         <value>USCG</value>
+         <value>USCBP</value>
+         <value>USICE</value>
+         <value>OASIA</value>
+         <value>USSS</value>
+      </choice>
+   </define>
+</grammar>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+            xml:lang="en">
+   <xsd:annotation>
+      <xsd:documentation>
+                    W3C XML Schema fragment encoding types for Controlled vocabulary encodings CVEnumAuditRecordType. This file is generated so edits should be made to the CVEnumAuditRecordType the CVE it is based on instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+<!--Generated TYPE DEFINITIONS ..................................-->
+<!--*************************************************************-->
+<xsd:simpleType name="CVEnumAuditRecordType">
+      <xsd:annotation>
+         <xsd:documentation>(U) All currently authorized record types.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumAuditRecordType.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="GENERIC">
+            <xsd:annotation>
+               <xsd:documentation>An audit record of generic type.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BUSINESS_ANALYTICS">
+            <xsd:annotation>
+               <xsd:documentation>An audit record of business analytics type.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="COUNTER_INTELLIGENCE">
+            <xsd:annotation>
+               <xsd:documentation>An audit record of counter intelligence type.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="INFORMATION_ASSURANCE">
+            <xsd:annotation>
+               <xsd:documentation>An audit record of information assurance type.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LAW_ENFORCEMENT">
+            <xsd:annotation>
+               <xsd:documentation>An audit record of law enforcement type.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PERSONNEL_SECURITY">
+            <xsd:annotation>
+               <xsd:documentation>An audit record of personnel security type.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

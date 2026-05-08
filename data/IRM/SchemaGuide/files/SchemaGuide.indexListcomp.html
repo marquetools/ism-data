@@ -1,0 +1,1515 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for </title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                        //
+--></script>
+   </head>
+   <body>
+      <h2>
+         <a id="INDEX" shape="rect">Table of Contents</a>
+      </h2>
+      <p>
+         <a href="SchemaGuide.indexList.html" shape="rect">Components</a>
+         <span> | </span>
+         <a href="schHierarchy.html" shape="rect">Resource Hierarchy</a>
+      </p>
+      <hr></hr>
+      <div class="toc">
+         <form action="none" method="get" enctype="application/x-www-form-urlencoded">
+            <div>
+               <span> Group by: <select id="selectTOC" onchange="selectTOCGroupBy(this.options[this.selectedIndex].value, true, 'SchemaGuide.indexList.html', 'SchemaGuide.indexListns.html', 'SchemaGuide.indexListcomp.html');">
+                     <option value="toc_group_by_namespace">Namespace</option>
+                     <option value="toc_group_by_location">Location</option>
+                     <option value="toc_group_by_component_type" selected="selected">Component Type</option>
+                  </select>
+               </span>
+            </div>
+         </form>
+         <div class="level1" id="toc_group_by_component_type" style="display:block">
+            <div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Main_schema" type="image" value="-" src="img/btM.gif" onclick="switchState('Main_schema');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Main Schema</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Main_schema" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="e395bd31-4157-4b92-8ca6-c56b555df65e.html#SchemaGuideSchema.xsd" target="mainFrame" title="urn:schema:guide:schema:irm" onclick="updatePageTitle('Schema documentation for component SchemaGuideSchema.xsd')" shape="rect">SchemaGuideSchema.xsd</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Imported_schema" type="image" value="-" src="img/btM.gif" onclick="switchState('Imported_schema');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Imported Schemas</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Imported_schema" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="52ab4e13-61e1-49de-bbc2-d8094a0d43c8.html#CVEnumGENCCountryCode.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:genc:country" onclick="updatePageTitle('Schema documentation for component CVEnumGENCCountryCode.xsd')" shape="rect">CVEnumGENCCountryCode.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="4b559de0-4e11-44da-8357-7d345be24a6d.html#CVEnumGENCSubDivisionCode.xsd" target="mainFrame" title="urn:us:gov:ic:cvenum:genc:subdivision" onclick="updatePageTitle('Schema documentation for component CVEnumGENCSubDivisionCode.xsd')" shape="rect">CVEnumGENCSubDivisionCode.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="38238389-b3f4-4334-8044-2e757dfb7ca2.html#IC-GENC.xsd" target="mainFrame" title="urn:us:gov:ic:icgenc" onclick="updatePageTitle('Schema documentation for component IC-GENC.xsd')" shape="rect">IC-GENC.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ID_xsd_Imported_schema_IC-ID_xsd.html#IC-ID.xsd" target="mainFrame" title="urn:us:gov:ic:id" onclick="updatePageTitle('Schema documentation for component IC-ID.xsd')" shape="rect">IC-ID.xsd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="46263d5d-7588-4842-8f6c-9270e154a723.html#IC-IRM.xsd" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component IC-IRM.xsd')" shape="rect">IC-IRM.xsd</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Element" type="image" value="-" src="img/btM.gif" onclick="switchState('Element');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Elements</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Element" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="IC-GENC_xsd_Element_Country.html#Country" target="mainFrame" title="urn:us:gov:ic:icgenc" onclick="updatePageTitle('Schema documentation for component Country')" shape="rect">Country</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-GENC_xsd_Element_SubDivision.html#SubDivision" target="mainFrame" title="urn:us:gov:ic:icgenc" onclick="updatePageTitle('Schema documentation for component SubDivision')" shape="rect">SubDivision</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ID_xsd_Element_icid_Identifier.html#urn_us_gov_ic_id_Identifier" target="mainFrame" title="urn:us:gov:ic:id" onclick="updatePageTitle('Schema documentation for component icid:Identifier')" shape="rect">icid:Identifier</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="85a320e0-d8aa-49b7-a631-cb4ccea9cc60.html#AffiliatedProducerType_email" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:AffiliatedProducerType/irm:email')" shape="rect">irm:AffiliatedProducerType/irm:email</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="85a320e0-d8aa-49b7-a631-cb4ccea9cc60.html#AffiliatedProducerType_name" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:AffiliatedProducerType/irm:name')" shape="rect">irm:AffiliatedProducerType/irm:name</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="85a320e0-d8aa-49b7-a631-cb4ccea9cc60.html#AffiliatedProducerType_phone" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:AffiliatedProducerType/irm:phone')" shape="rect">irm:AffiliatedProducerType/irm:phone</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="978702a3-1c5a-4800-8770-faf9e6c48452.html#ApproximableDateType_approximableDate" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ApproximableDateType/irm:approximableDate')" shape="rect">irm:ApproximableDateType/irm:approximableDate</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="978702a3-1c5a-4800-8770-faf9e6c48452.html#ApproximableDateType_description" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ApproximableDateType/irm:description')" shape="rect">irm:ApproximableDateType/irm:description</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="978702a3-1c5a-4800-8770-faf9e6c48452.html#ApproximableDateType_searchableDate" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ApproximableDateType/irm:searchableDate')" shape="rect">irm:ApproximableDateType/irm:searchableDate</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="978702a3-1c5a-4800-8770-faf9e6c48452.html#ApproximableDateType_ApproximableDateType_searchableDate_end" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ApproximableDateType/irm:searchableDate/irm:end')" shape="rect">irm:ApproximableDateType/irm:searchableDate/irm:end</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="978702a3-1c5a-4800-8770-faf9e6c48452.html#ApproximableDateType_ApproximableDateType_searchableDate_start" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ApproximableDateType/irm:searchableDate/irm:start')" shape="rect">irm:ApproximableDateType/irm:searchableDate/irm:start</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="98d1d425-7b8b-4443-a89b-da7a2317c35d.html#BoundingGeometryType_WKTGeometry" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:BoundingGeometryType/irm:WKTGeometry')" shape="rect">irm:BoundingGeometryType/irm:WKTGeometry</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="dcb7cfa2-f1e0-4434-bea8-a565816572a9.html#DatesType_acquiredOn" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DatesType/irm:acquiredOn')" shape="rect">irm:DatesType/irm:acquiredOn</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="917cdf07-da69-4ea7-95d2-b000a3e97475.html#ICResourceMetadataPackage" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ICResourceMetadataPackage')" shape="rect">irm:ICResourceMetadataPackage</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="13a0aad1-6bed-4e40-915b-3beaf497ddad.html#OrganizationType_email" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:OrganizationType/irm:email')" shape="rect">irm:OrganizationType/irm:email</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="13a0aad1-6bed-4e40-915b-3beaf497ddad.html#OrganizationType_name" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:OrganizationType/irm:name')" shape="rect">irm:OrganizationType/irm:name</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="13a0aad1-6bed-4e40-915b-3beaf497ddad.html#OrganizationType_phone" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:OrganizationType/irm:phone')" shape="rect">irm:OrganizationType/irm:phone</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="13a0aad1-6bed-4e40-915b-3beaf497ddad.html#OrganizationType_subOrganization" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:OrganizationType/irm:subOrganization')" shape="rect">irm:OrganizationType/irm:subOrganization</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="599bd7ba-34d7-475d-8300-8f4158ec3b32.html#PersonType_email" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:PersonType/irm:email')" shape="rect">irm:PersonType/irm:email</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="599bd7ba-34d7-475d-8300-8f4158ec3b32.html#PersonType_name" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:PersonType/irm:name')" shape="rect">irm:PersonType/irm:name</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="599bd7ba-34d7-475d-8300-8f4158ec3b32.html#PersonType_phone" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:PersonType/irm:phone')" shape="rect">irm:PersonType/irm:phone</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="599bd7ba-34d7-475d-8300-8f4158ec3b32.html#PersonType_surname" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:PersonType/irm:surname')" shape="rect">irm:PersonType/irm:surname</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="599bd7ba-34d7-475d-8300-8f4158ec3b32.html#PersonType_userID" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:PersonType/irm:userID')" shape="rect">irm:PersonType/irm:userID</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="971aa512-5f00-4d47-86e7-3779d31e0806.html#RelatedResourcesType_link" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:RelatedResourcesType/irm:link')" shape="rect">irm:RelatedResourcesType/irm:link</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="2cce38c2-4c3d-427a-ad16-32f5a023a3c6.html#ResourceManagementType_taskingInfo" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ResourceManagementType/irm:taskingInfo')" shape="rect">irm:ResourceManagementType/irm:taskingInfo</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="f6d58139-acdc-4370-b5ec-29d172b8f0ed.html#TaskingInfoType_addressee" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:TaskingInfoType/irm:addressee')" shape="rect">irm:TaskingInfoType/irm:addressee</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="f6d58139-acdc-4370-b5ec-29d172b8f0ed.html#TaskingInfoType_requesterInfo" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:TaskingInfoType/irm:requesterInfo')" shape="rect">irm:TaskingInfoType/irm:requesterInfo</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="f6d58139-acdc-4370-b5ec-29d172b8f0ed.html#TaskingInfoType_taskID" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:TaskingInfoType/irm:taskID')" shape="rect">irm:TaskingInfoType/irm:taskID</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ecd7f436-8351-4551-8f33-e9f6cf293ad3.html#TimePeriodType_approximableEnd" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:TimePeriodType/irm:approximableEnd')" shape="rect">irm:TimePeriodType/irm:approximableEnd</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ecd7f436-8351-4551-8f33-e9f6cf293ad3.html#TimePeriodType_approximableStart" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:TimePeriodType/irm:approximableStart')" shape="rect">irm:TimePeriodType/irm:approximableStart</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ecd7f436-8351-4551-8f33-e9f6cf293ad3.html#TimePeriodType_end" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:TimePeriodType/irm:end')" shape="rect">irm:TimePeriodType/irm:end</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ecd7f436-8351-4551-8f33-e9f6cf293ad3.html#TimePeriodType_name" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:TimePeriodType/irm:name')" shape="rect">irm:TimePeriodType/irm:name</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ecd7f436-8351-4551-8f33-e9f6cf293ad3.html#TimePeriodType_start" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:TimePeriodType/irm:start')" shape="rect">irm:TimePeriodType/irm:start</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_affiliation.html#affiliation" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:affiliation')" shape="rect">irm:affiliation</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="34b9651d-8bb7-4955-8714-1a0dab006ec5.html#boundingGeometry" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:boundingGeometry')" shape="rect">irm:boundingGeometry</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_category.html#category" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:category')" shape="rect">irm:category</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_contributor.html#contributor" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:contributor')" shape="rect">irm:contributor</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_countryCode.html#countryCode" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:countryCode')" shape="rect">irm:countryCode</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_creator.html#creator" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:creator')" shape="rect">irm:creator</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_dates.html#dates" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:dates')" shape="rect">irm:dates</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_description.html#description" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:description')" shape="rect">irm:description</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_extent.html#extent" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:extent')" shape="rect">irm:extent</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="23f74905-0339-48ea-867c-ce4e9d5deb44.html#facilityIdentifier" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:facilityIdentifier')" shape="rect">irm:facilityIdentifier</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_format.html#format" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:format')" shape="rect">irm:format</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ae575c9c-c839-40f7-be37-5f11bd1d6b18.html#geographicIdentifier" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:geographicIdentifier')" shape="rect">irm:geographicIdentifier</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ae575c9c-c839-40f7-be37-5f11bd1d6b18.html#geographicIdentifier_name" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:geographicIdentifier/irm:name')" shape="rect">irm:geographicIdentifier/irm:name</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ae575c9c-c839-40f7-be37-5f11bd1d6b18.html#geographicIdentifier_region" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:geographicIdentifier/irm:region')" shape="rect">irm:geographicIdentifier/irm:region</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="4beb03d2-fd33-445e-b0cf-37dabc3353e9.html#geospatialCoverage" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:geospatialCoverage')" shape="rect">irm:geospatialCoverage</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_identifier.html#identifier" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:identifier')" shape="rect">irm:identifier</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_keyword.html#keyword" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:keyword')" shape="rect">irm:keyword</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_language.html#language" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:language')" shape="rect">irm:language</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_medium.html#medium" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:medium')" shape="rect">irm:medium</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_metacardInfo.html#metacardInfo" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:metacardInfo')" shape="rect">irm:metacardInfo</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_mimeType.html#mimeType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:mimeType')" shape="rect">irm:mimeType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="f67b859b-662e-4162-aa8e-90fbe3c8ecfc.html#nonStateActor" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:nonStateActor')" shape="rect">irm:nonStateActor</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_organization.html#organization" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:organization')" shape="rect">irm:organization</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_person.html#person" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:person')" shape="rect">irm:person</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="d5c6fd40-5dc5-421a-85f2-6641632de9df.html#pointOfContact" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:pointOfContact')" shape="rect">irm:pointOfContact</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="733cb9cc-69eb-4394-a2b7-ea83ed0a9e26.html#postalAddress" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:postalAddress')" shape="rect">irm:postalAddress</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="3c429d18-0fd4-43aa-bfcf-5c2458585488.html#processingInfo" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:processingInfo')" shape="rect">irm:processingInfo</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_publisher.html#publisher" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:publisher')" shape="rect">irm:publisher</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="4e81e4ff-ad88-4cd6-afe9-f33d5089f305.html#relatedResource" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:relatedResource')" shape="rect">irm:relatedResource</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="e26f2fb7-900e-4efd-86f6-dde612bc0a3a.html#resourceManagement" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:resourceManagement')" shape="rect">irm:resourceManagement</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_rights.html#rights" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:rights')" shape="rect">irm:rights</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_service.html#service" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:service')" shape="rect">irm:service</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_source.html#source" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:source')" shape="rect">irm:source</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="adbfea55-0254-4952-9ce0-f12ac4b39354.html#subDivisionCode" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:subDivisionCode')" shape="rect">irm:subDivisionCode</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="89b01e1a-f273-464f-b50e-bc977b959f09.html#subjectCoverage" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:subjectCoverage')" shape="rect">irm:subjectCoverage</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_subtitle.html#subtitle" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:subtitle')" shape="rect">irm:subtitle</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ec2fb286-d1f0-4fa3-a28e-ab8e2b0313e0.html#temporalCoverage" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:temporalCoverage')" shape="rect">irm:temporalCoverage</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_title.html#title" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:title')" shape="rect">irm:title</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_type.html#type" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:type')" shape="rect">irm:type</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_unknown.html#unknown" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:unknown')" shape="rect">irm:unknown</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="1de06f40-291d-4aa9-991e-00fded8b5331.html#virtualCoverage" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:virtualCoverage')" shape="rect">irm:virtualCoverage</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Element_irm_waterBody.html#waterBody" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:waterBody')" shape="rect">irm:waterBody</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Complex_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('Complex_Type');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Complex Types</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Complex_Type" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="85a320e0-d8aa-49b7-a631-cb4ccea9cc60.html#AffiliatedProducerType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:AffiliatedProducerType')" shape="rect">irm:AffiliatedProducerType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="978702a3-1c5a-4800-8770-faf9e6c48452.html#ApproximableDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ApproximableDateType')" shape="rect">irm:ApproximableDateType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="98d1d425-7b8b-4443-a89b-da7a2317c35d.html#BoundingGeometryType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:BoundingGeometryType')" shape="rect">irm:BoundingGeometryType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="bdfd158e-aa74-4416-99a7-ccb8f17e8778.html#CompoundCategoryIdentifierType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundCategoryIdentifierType')" shape="rect">irm:CompoundCategoryIdentifierType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="9bda2763-f8dc-437a-8ad5-84bc05f33611.html#CompoundCountryCodeIdentifierType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundCountryCodeIdentifierType')" shape="rect">irm:CompoundCountryCodeIdentifierType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="57d16ffe-31a5-43bf-beb8-876a675306b0.html#CompoundKeywordIdentifierType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundKeywordIdentifierType')" shape="rect">irm:CompoundKeywordIdentifierType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="fabd0f2c-8e60-407a-a2e1-4c1452d50991.html#CompoundLanguageIdentifierType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundLanguageIdentifierType')" shape="rect">irm:CompoundLanguageIdentifierType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="1f6072cf-a7ce-4f34-8477-ec8825eed564.html#CompoundResourceIdentifierType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundResourceIdentifierType')" shape="rect">irm:CompoundResourceIdentifierType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="fe87b243-8b0b-4381-aebd-1e8c78d33e19.html#CompoundSourceIdentifierType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundSourceIdentifierType')" shape="rect">irm:CompoundSourceIdentifierType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="9c967927-f47d-4468-a5dd-546bceebe930.html#CompoundTypeIdentifierType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundTypeIdentifierType')" shape="rect">irm:CompoundTypeIdentifierType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="5743cf80-d6a0-464b-9989-625668f714c3.html#CompoundWaterBodyIdentifierType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundWaterBodyIdentifierType')" shape="rect">irm:CompoundWaterBodyIdentifierType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="35808060-2de5-466e-bd02-e246bbd8df9f.html#ContactInfoType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ContactInfoType')" shape="rect">irm:ContactInfoType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="dcb7cfa2-f1e0-4434-bea8-a565816572a9.html#DatesType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DatesType')" shape="rect">irm:DatesType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="64c074d0-ac11-426f-853c-490a34e98d01.html#DescriptionType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DescriptionType')" shape="rect">irm:DescriptionType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="557d9960-d192-489f-a1ad-5f688a600103.html#FacilityIdentifierType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:FacilityIdentifierType')" shape="rect">irm:FacilityIdentifierType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="da152790-f713-49e8-8d9e-714bf16a579b.html#FormatType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:FormatType')" shape="rect">irm:FormatType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="c21f95d1-2445-4231-baf9-d597ccb61e4d.html#ICResourceMetadataType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ICResourceMetadataType')" shape="rect">irm:ICResourceMetadataType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="f4ad1be0-316d-446b-80a0-ed6b861bb884.html#MetacardInfoType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:MetacardInfoType')" shape="rect">irm:MetacardInfoType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="846b8fa8-9f50-4ad8-9a60-66a88c0f4a2e.html#NonStateActorCoverageType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:NonStateActorCoverageType')" shape="rect">irm:NonStateActorCoverageType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="13a0aad1-6bed-4e40-915b-3beaf497ddad.html#OrganizationType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:OrganizationType')" shape="rect">irm:OrganizationType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="599bd7ba-34d7-475d-8300-8f4158ec3b32.html#PersonType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:PersonType')" shape="rect">irm:PersonType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ac0c2da6-fb73-430d-bf73-479f27869df5.html#PlaceType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:PlaceType')" shape="rect">irm:PlaceType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="3ff399cd-3deb-459e-afdf-84567bfbf7ac.html#ProcessingInfoType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ProcessingInfoType')" shape="rect">irm:ProcessingInfoType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="1fc7b9c3-5438-448a-8e46-046c9bae5a73.html#ProducerBaseType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ProducerBaseType')" shape="rect">irm:ProducerBaseType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="24e19aef-2b83-47e4-9a07-889ff6d684cc.html#QualifiedExtentValueType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:QualifiedExtentValueType')" shape="rect">irm:QualifiedExtentValueType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="971aa512-5f00-4d47-86e7-3779d31e0806.html#RelatedResourcesType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:RelatedResourcesType')" shape="rect">irm:RelatedResourcesType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="2cce38c2-4c3d-427a-ad16-32f5a023a3c6.html#ResourceManagementType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ResourceManagementType')" shape="rect">irm:ResourceManagementType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ffe86502-d669-4e94-b224-e06d8e3f0fee.html#RightsType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:RightsType')" shape="rect">irm:RightsType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="2e90d52b-dc10-42dd-ab55-2a1ddea9134a.html#ServiceType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ServiceType')" shape="rect">irm:ServiceType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="8edf15f3-da94-4a82-92c6-d6f89ff4e4e3.html#SubjectType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:SubjectType')" shape="rect">irm:SubjectType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="43d8bca2-32bc-4349-aff0-1f7766f954da.html#SubtitleType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:SubtitleType')" shape="rect">irm:SubtitleType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="f6d58139-acdc-4370-b5ec-29d172b8f0ed.html#TaskingInfoType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:TaskingInfoType')" shape="rect">irm:TaskingInfoType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ecd7f436-8351-4551-8f33-e9f6cf293ad3.html#TimePeriodType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:TimePeriodType')" shape="rect">irm:TimePeriodType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="e4f26a63-a68c-41ae-a8bc-a1ff6d603f37.html#TitleType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:TitleType')" shape="rect">irm:TitleType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="22f7d5dc-1ca2-4ca3-be61-a6891b903081.html#UnknownType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:UnknownType')" shape="rect">irm:UnknownType</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Simple_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('Simple_Type');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Simple Types</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Simple_Type" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="db40e79b-0885-4d7e-bc9e-fd4699d65a67.html#CVEnumGENCCountryCode" target="mainFrame" title="urn:us:gov:ic:cvenum:genc:country" onclick="updatePageTitle('Schema documentation for component genccountry:CVEnumGENCCountryCode')" shape="rect">genccountry:CVEnumGENCCountryCode</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="7f62fb67-17f7-47b3-9754-0d38ff4c79fd.html#CVEnumGENCCountryCodeValues" target="mainFrame" title="urn:us:gov:ic:cvenum:genc:country" onclick="updatePageTitle('Schema documentation for component genccountry:CVEnumGENCCountryCodeValues')" shape="rect">genccountry:CVEnumGENCCountryCodeValues</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="343e3422-336e-4523-9f6d-b44364ce0135.html#CVEnumGENCSubDivisionCode" target="mainFrame" title="urn:us:gov:ic:cvenum:genc:subdivision" onclick="updatePageTitle('Schema documentation for component gencsub:CVEnumGENCSubDivisionCode')" shape="rect">gencsub:CVEnumGENCSubDivisionCode</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="04cb7fe8-c719-4442-8119-46168cffffa1.html#CVEnumGENCSubDivisionCodeValues" target="mainFrame" title="urn:us:gov:ic:cvenum:genc:subdivision" onclick="updatePageTitle('Schema documentation for component gencsub:CVEnumGENCSubDivisionCodeValues')" shape="rect">gencsub:CVEnumGENCSubDivisionCodeValues</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ID_xsd_Simple_Type_icid_IcIdType.html#IcIdType" target="mainFrame" title="urn:us:gov:ic:id" onclick="updatePageTitle('Schema documentation for component icid:IcIdType')" shape="rect">icid:IcIdType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="30610a58-6707-42a5-a9c9-3d7166b8699d.html#CombinedDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CombinedDateType')" shape="rect">irm:CombinedDateType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="e6880f47-beab-401a-9bc8-68d29eb2f794.html#DateApproximationEnumerationType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DateApproximationEnumerationType')" shape="rect">irm:DateApproximationEnumerationType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="9f6359a7-e537-4879-8066-5615fe14ea68.html#DateHourMinType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DateHourMinType')" shape="rect">irm:DateHourMinType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="2b2e4fa5-a381-4952-a0a5-511ce579a44a.html#DateValueExtensionType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DateValueExtensionType')" shape="rect">irm:DateValueExtensionType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="d0edad6d-2023-4b68-b877-c96e1b91088b.html#ExtendedCombinedDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ExtendedCombinedDateType')" shape="rect">irm:ExtendedCombinedDateType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="2c2db9c5-27a8-4013-9ea8-5e115e9d8005.html#ListOfRegexTokensType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ListOfRegexTokensType')" shape="rect">irm:ListOfRegexTokensType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="badf7671-b4f0-4eb5-86ae-cdbc7225e043.html#MediumType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:MediumType')" shape="rect">irm:MediumType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="3f9dc162-6313-44d9-bf8b-91908ce8dc26.html#MimeTypeType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:MimeTypeType')" shape="rect">irm:MimeTypeType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="23d686be-84ba-4185-a402-d05ca889e62d.html#RegexTokenType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:RegexTokenType')" shape="rect">irm:RegexTokenType</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="04d5a854-0ab0-4125-8600-4fd16b394ca1.html#simpleTokenType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:simpleTokenType')" shape="rect">irm:simpleTokenType</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Attribute" type="image" value="-" src="img/btM.gif" onclick="switchState('Attribute');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Attributes</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Attribute" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="IC-GENC_xsd_Attribute_CESVersion.html#CESVersion" target="mainFrame" title="urn:us:gov:ic:icgenc" onclick="updatePageTitle('Schema documentation for component @CESVersion')" shape="rect">@CESVersion</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-GENC_xsd_Attribute_country.html#urn_us_gov_ic_icgenc_country" target="mainFrame" title="urn:us:gov:ic:icgenc" onclick="updatePageTitle('Schema documentation for component @country')" shape="rect">@country</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ID_xsd_Attribute_icid_DESVersion.html#urn_us_gov_ic_id_DESVersion" target="mainFrame" title="urn:us:gov:ic:id" onclick="updatePageTitle('Schema documentation for component @icid:DESVersion')" shape="rect">@icid:DESVersion</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-ID_xsd_Attribute_icid_identifier.html#Attribute_FROM_urn_us_gov_ic_id_PQN_icid_identifier" target="mainFrame" title="urn:us:gov:ic:id" onclick="updatePageTitle('Schema documentation for component @icid:identifier')" shape="rect">@icid:identifier</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Attribute_irm_DESVersion.html#DESVersion" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component @irm:DESVersion')" shape="rect">@irm:DESVersion</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-IRM_xsd_Attribute_irm_acronym.html#acronym" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component @irm:acronym')" shape="rect">@irm:acronym</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="02e3998c-29b3-4d9d-8998-2a945e503837.html#compliesWith" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component @irm:compliesWith')" shape="rect">@irm:compliesWith</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="IC-GENC_xsd_Attribute_issue.html#issue" target="mainFrame" title="urn:us:gov:ic:icgenc" onclick="updatePageTitle('Schema documentation for component @issue')" shape="rect">@issue</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="978702a3-1c5a-4800-8770-faf9e6c48452.html#ApproximableDateType_ApproximableDateType_approximableDate_approximation" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ApproximableDateType/irm:approximableDate/@irm:approximation')" shape="rect">irm:ApproximableDateType/irm:approximableDate/@irm:approximation</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="bdfd158e-aa74-4416-99a7-ccb8f17e8778.html#CompoundCategoryIdentifierType_code" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundCategoryIdentifierType/@irm:code')" shape="rect">irm:CompoundCategoryIdentifierType/@irm:code</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="bdfd158e-aa74-4416-99a7-ccb8f17e8778.html#CompoundCategoryIdentifierType_label" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundCategoryIdentifierType/@irm:label')" shape="rect">irm:CompoundCategoryIdentifierType/@irm:label</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="bdfd158e-aa74-4416-99a7-ccb8f17e8778.html#CompoundCategoryIdentifierType_qualifier" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundCategoryIdentifierType/@irm:qualifier')" shape="rect">irm:CompoundCategoryIdentifierType/@irm:qualifier</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="9bda2763-f8dc-437a-8ad5-84bc05f33611.html#CompoundCountryCodeIdentifierType_code" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundCountryCodeIdentifierType/@irm:code')" shape="rect">irm:CompoundCountryCodeIdentifierType/@irm:code</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="9bda2763-f8dc-437a-8ad5-84bc05f33611.html#CompoundCountryCodeIdentifierType_codespace" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundCountryCodeIdentifierType/@irm:codespace')" shape="rect">irm:CompoundCountryCodeIdentifierType/@irm:codespace</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="57d16ffe-31a5-43bf-beb8-876a675306b0.html#CompoundKeywordIdentifierType_value" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundKeywordIdentifierType/@irm:value')" shape="rect">irm:CompoundKeywordIdentifierType/@irm:value</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="fabd0f2c-8e60-407a-a2e1-4c1452d50991.html#CompoundLanguageIdentifierType_qualifier" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundLanguageIdentifierType/@irm:qualifier')" shape="rect">irm:CompoundLanguageIdentifierType/@irm:qualifier</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="fabd0f2c-8e60-407a-a2e1-4c1452d50991.html#CompoundLanguageIdentifierType_value" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundLanguageIdentifierType/@irm:value')" shape="rect">irm:CompoundLanguageIdentifierType/@irm:value</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="1f6072cf-a7ce-4f34-8477-ec8825eed564.html#CompoundResourceIdentifierType_qualifier" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundResourceIdentifierType/@irm:qualifier')" shape="rect">irm:CompoundResourceIdentifierType/@irm:qualifier</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="1f6072cf-a7ce-4f34-8477-ec8825eed564.html#CompoundResourceIdentifierType_value" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundResourceIdentifierType/@irm:value')" shape="rect">irm:CompoundResourceIdentifierType/@irm:value</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="fe87b243-8b0b-4381-aebd-1e8c78d33e19.html#CompoundSourceIdentifierType_qualifier" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundSourceIdentifierType/@irm:qualifier')" shape="rect">irm:CompoundSourceIdentifierType/@irm:qualifier</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="fe87b243-8b0b-4381-aebd-1e8c78d33e19.html#CompoundSourceIdentifierType_schemaHref" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundSourceIdentifierType/@irm:schemaHref')" shape="rect">irm:CompoundSourceIdentifierType/@irm:schemaHref</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="fe87b243-8b0b-4381-aebd-1e8c78d33e19.html#CompoundSourceIdentifierType_schemaQualifier" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundSourceIdentifierType/@irm:schemaQualifier')" shape="rect">irm:CompoundSourceIdentifierType/@irm:schemaQualifier</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="fe87b243-8b0b-4381-aebd-1e8c78d33e19.html#CompoundSourceIdentifierType_value" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundSourceIdentifierType/@irm:value')" shape="rect">irm:CompoundSourceIdentifierType/@irm:value</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="9c967927-f47d-4468-a5dd-546bceebe930.html#CompoundTypeIdentifierType_qualifier" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundTypeIdentifierType/@irm:qualifier')" shape="rect">irm:CompoundTypeIdentifierType/@irm:qualifier</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="9c967927-f47d-4468-a5dd-546bceebe930.html#CompoundTypeIdentifierType_value" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundTypeIdentifierType/@irm:value')" shape="rect">irm:CompoundTypeIdentifierType/@irm:value</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="5743cf80-d6a0-464b-9989-625668f714c3.html#CompoundWaterBodyIdentifierType_code" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundWaterBodyIdentifierType/@irm:code')" shape="rect">irm:CompoundWaterBodyIdentifierType/@irm:code</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="5743cf80-d6a0-464b-9989-625668f714c3.html#CompoundWaterBodyIdentifierType_codespace" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundWaterBodyIdentifierType/@irm:codespace')" shape="rect">irm:CompoundWaterBodyIdentifierType/@irm:codespace</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="dcb7cfa2-f1e0-4434-bea8-a565816572a9.html#DatesType_approvedOn" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DatesType/@irm:approvedOn')" shape="rect">irm:DatesType/@irm:approvedOn</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="dcb7cfa2-f1e0-4434-bea8-a565816572a9.html#DatesType_created" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DatesType/@irm:created')" shape="rect">irm:DatesType/@irm:created</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="dcb7cfa2-f1e0-4434-bea8-a565816572a9.html#DatesType_infoCutOff" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DatesType/@irm:infoCutOff')" shape="rect">irm:DatesType/@irm:infoCutOff</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="dcb7cfa2-f1e0-4434-bea8-a565816572a9.html#DatesType_posted" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DatesType/@irm:posted')" shape="rect">irm:DatesType/@irm:posted</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="dcb7cfa2-f1e0-4434-bea8-a565816572a9.html#DatesType_receivedOn" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DatesType/@irm:receivedOn')" shape="rect">irm:DatesType/@irm:receivedOn</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="dcb7cfa2-f1e0-4434-bea8-a565816572a9.html#DatesType_validTil" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DatesType/@irm:validTil')" shape="rect">irm:DatesType/@irm:validTil</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="557d9960-d192-489f-a1ad-5f688a600103.html#FacilityIdentifierType_beNumber" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:FacilityIdentifierType/@irm:beNumber')" shape="rect">irm:FacilityIdentifierType/@irm:beNumber</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="557d9960-d192-489f-a1ad-5f688a600103.html#FacilityIdentifierType_osuffix" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:FacilityIdentifierType/@irm:osuffix')" shape="rect">irm:FacilityIdentifierType/@irm:osuffix</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="846b8fa8-9f50-4ad8-9a60-66a88c0f4a2e.html#NonStateActorCoverageType_order" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:NonStateActorCoverageType/@irm:order')" shape="rect">irm:NonStateActorCoverageType/@irm:order</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="846b8fa8-9f50-4ad8-9a60-66a88c0f4a2e.html#NonStateActorCoverageType_qualifier" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:NonStateActorCoverageType/@irm:qualifier')" shape="rect">irm:NonStateActorCoverageType/@irm:qualifier</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ac0c2da6-fb73-430d-bf73-479f27869df5.html#PlaceType_order" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:PlaceType/@irm:order')" shape="rect">irm:PlaceType/@irm:order</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ac0c2da6-fb73-430d-bf73-479f27869df5.html#PlaceType_precedence" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:PlaceType/@irm:precedence')" shape="rect">irm:PlaceType/@irm:precedence</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="3ff399cd-3deb-459e-afdf-84567bfbf7ac.html#ProcessingInfoType_dateProcessed" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ProcessingInfoType/@irm:dateProcessed')" shape="rect">irm:ProcessingInfoType/@irm:dateProcessed</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="24e19aef-2b83-47e4-9a07-889ff6d684cc.html#QualifiedExtentValueType_qualifier" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:QualifiedExtentValueType/@irm:qualifier')" shape="rect">irm:QualifiedExtentValueType/@irm:qualifier</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="24e19aef-2b83-47e4-9a07-889ff6d684cc.html#QualifiedExtentValueType_value" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:QualifiedExtentValueType/@irm:value')" shape="rect">irm:QualifiedExtentValueType/@irm:value</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="971aa512-5f00-4d47-86e7-3779d31e0806.html#RelatedResourcesType_direction" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:RelatedResourcesType/@irm:direction')" shape="rect">irm:RelatedResourcesType/@irm:direction</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="971aa512-5f00-4d47-86e7-3779d31e0806.html#RelatedResourcesType_relationship" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:RelatedResourcesType/@irm:relationship')" shape="rect">irm:RelatedResourcesType/@irm:relationship</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ffe86502-d669-4e94-b224-e06d8e3f0fee.html#RightsType_copyright" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:RightsType/@irm:copyright')" shape="rect">irm:RightsType/@irm:copyright</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="ffe86502-d669-4e94-b224-e06d8e3f0fee.html#RightsType_intellectualProperty" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:RightsType/@irm:intellectualProperty')" shape="rect">irm:RightsType/@irm:intellectualProperty</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="f6d58139-acdc-4370-b5ec-29d172b8f0ed.html#TaskingInfoType_TaskingInfoType_taskID_taskingSystem" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:TaskingInfoType/irm:taskID/@irm:taskingSystem')" shape="rect">irm:TaskingInfoType/irm:taskID/@irm:taskingSystem</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Element_Group" type="image" value="-" src="img/btM.gif" onclick="switchState('Element_Group');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Element Groups</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Element_Group" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="78d0587e-7812-44f5-b7f4-dd88c91d8f9c.html#postalAddressGroup" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:postalAddressGroup')" shape="rect">irm:postalAddressGroup</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_content" rowspan="1" colspan="1">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <input id="button_Attribute_Group" type="image" value="-" src="img/btM.gif" onclick="switchState('Attribute_Group');" class="control"></input>
+                                    </td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div class="componentGroupTitle">Attribute Groups</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup" rowspan="1" colspan="1"></td>
+                                    <td class="componentGroup" rowspan="1" colspan="1">
+                                       <div id="Attribute_Group" class="componentGroup" style="display:block">
+                                          <div>
+                                             <b>
+                                                <a href="3b7a25a3-cb78-4304-99d2-7d2d0de8bb52.html#IRMRootNodeAttributeGroup" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:IRMRootNodeAttributeGroup')" shape="rect">irm:IRMRootNodeAttributeGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="cef7220d-71c9-4b57-936b-6bbc8b7e826d.html#OptionalResourceLinkAttributesGroup" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:OptionalResourceLinkAttributesGroup')" shape="rect">irm:OptionalResourceLinkAttributesGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="6600ce9a-12b0-4208-b02f-ccb94c6461b4.html#POCAttributesGroup" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:POCAttributesGroup')" shape="rect">irm:POCAttributesGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="79801852-1005-4c29-8433-3c9bda977d21.html#SecurityAttributesGroup" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:SecurityAttributesGroup')" shape="rect">irm:SecurityAttributesGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="8d789f24-bb77-4978-b33a-5681cc2060ef.html#SecurityAttributesOptionGroup" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:SecurityAttributesOptionGroup')" shape="rect">irm:SecurityAttributesOptionGroup</a>
+                                             </b>
+                                          </div>
+                                          <div>
+                                             <b>
+                                                <a href="4bda50cd-b6f4-4417-b696-9b0420c2823f.html#SimpleLinkAttributesGroup" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:SimpleLinkAttributesGroup')" shape="rect">irm:SimpleLinkAttributesGroup</a>
+                                             </b>
+                                          </div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+                        <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+                        <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div style="clear:left"></div>
+            </div>
+         </div>
+      </div>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+   </body>
+</html>

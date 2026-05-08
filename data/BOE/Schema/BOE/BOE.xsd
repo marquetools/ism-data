@@ -1,0 +1,3026 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns:boe="urn:us:gov:ic:boe"
+            xmlns:ism="urn:us:gov:ic:ism"
+            xmlns:arh="urn:us:gov:ic:arh"
+            xmlns:gml="http://www.opengis.net/gml/3.2"
+            xmlns:uias="urn:us:gov:ic:uias"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns:CVEnumBOEAuthorizationType="urn:us:gov:ic:cvenum:boe:CVEnumBOEAuthorizationType"
+            xmlns:CVEnumBOEInformationTechnologyType="urn:us:gov:ic:cvenum:boe:CVEnumBOEInformationTechnologyType"
+            xmlns:CVEnumBOESoftwareCategory="urn:us:gov:ic:cvenum:boe:CVEnumBOESoftwareCategory"
+            xmlns:CVEnumBOESystemOwnershipType="urn:us:gov:ic:cvenum:boe:CVEnumBOESystemOwnershipType"
+            xmlns:CVEnumBOESystemUserCategory="urn:us:gov:ic:cvenum:boe:CVEnumBOESystemUserCategory"
+            xmlns:xhtml="http://www.w3.org/1999/xhtml-StopBrowserRendering"
+            targetNamespace="urn:us:gov:ic:boe"
+            ism:compliesWith="USGov USIC"
+            ism:resourceElement="true"
+            ism:createDate="2019-09-18"
+            ism:DESVersion="202111"
+            ism:ISMCATCESVersion="202205"
+            ism:classification="U"
+            ism:ownerProducer="USA"
+            version="201804"
+            elementFormDefault="qualified"
+            attributeFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation>
+			      <xhtml:h1 ism:ownerProducer="USA" ism:classification="U">Intelligence Community Technical
+				Specification XML Data Encoding Specification for Body of Evidence (BOE.XML)</xhtml:h1>
+		    </xsd:documentation>
+
+        <xsd:documentation>
+			      <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Notices</xhtml:h2>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+        </xhtml:p>
+		    </xsd:documentation>
+        <xsd:documentation>
+			      <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Description</xhtml:h2>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U"> W3C XML Schema for the XML Data
+			    Encoding Specification for Body of Evidence (BOE.XML). </xhtml:p>
+		    </xsd:documentation>
+        <xsd:documentation>
+			      <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Introduction</xhtml:h2>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U"> This XML Schema file is one component
+				of the XML Data Encoding Specification (DES). Please see the document titled <xhtml:i>
+				           <xhtml:a href="../../Documents/BOE/DesBoeXml.pdf">XML Data Encoding Specification for
+					    Body of Evidence.</xhtml:a>
+				        </xhtml:i> for a complete description of the encoding as well as list of all components. </xhtml:p>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U"> It is envisioned that this schema or
+				its components, as well as other parts of the DES may be overridden for localized
+				implementations. Therefore, permission to use, copy, modify and distribute this XML Schema
+				and the other parts of the DES for any purpose is hereby granted in perpetuity. </xhtml:p>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Please reference the preceding two
+				paragraphs in all copies or variations. The developers make no representation about the
+				suitability of the schema or DES for any purpose. It is provided "as is" without expressed
+				or implied warranty. </xhtml:p>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U"> If you modify this XML Schema in any
+				way label your schema as a variant of BOE.XML. </xhtml:p>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Please direct all questions, bug
+				reports,or suggestions for changes to the points of contact identified in the document
+				referenced above. </xhtml:p>
+		    </xsd:documentation>
+        <xsd:documentation>
+			      <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Implementation Notes</xhtml:h2>
+		       <xhtml:p ism:ownerProducer="USA" ism:classification="U">No implementation notes at this time.</xhtml:p>
+		    </xsd:documentation>
+        <xsd:documentation>
+			      <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Creators</xhtml:h2>
+			      <xhtml:p ism:ownerProducer="USA" ism:classification="U">Office of the Director of National
+				Intelligence Intelligence Community Chief Information Officer</xhtml:p>
+		    </xsd:documentation>
+    </xsd:annotation>
+
+    <!--***************************************************-->
+    <!--Start Import Statements-->
+    <!--***************************************************-->
+
+    <!-- Import this spec's CVE schema fragments -->
+    <xsd:import namespace="urn:us:gov:ic:cvenum:boe:CVEnumBOEAuthorizationType"
+               schemaLocation="./CVEGenerated/CVEnumBOEAuthorizationType.xsd"/>
+    <xsd:import namespace="urn:us:gov:ic:cvenum:boe:CVEnumBOEInformationTechnologyType"
+               schemaLocation="./CVEGenerated/CVEnumBOEInformationTechnologyType.xsd"/>
+    <xsd:import namespace="urn:us:gov:ic:cvenum:boe:CVEnumBOESoftwareCategory"
+               schemaLocation="./CVEGenerated/CVEnumBOESoftwareCategory.xsd"/>
+    <xsd:import namespace="urn:us:gov:ic:cvenum:boe:CVEnumBOESystemOwnershipType"
+               schemaLocation="./CVEGenerated/CVEnumBOESystemOwnershipType.xsd"/>
+    <xsd:import namespace="urn:us:gov:ic:cvenum:boe:CVEnumBOESystemUserCategory"
+               schemaLocation="./CVEGenerated/CVEnumBOESystemUserCategory.xsd"/>
+
+    <!-- Import dependent specifications -->
+    <xsd:import namespace="urn:us:gov:ic:ism" schemaLocation="../ISM/IC-ISM.xsd"/>
+    <xsd:import namespace="urn:us:gov:ic:arh" schemaLocation="../ISM/IC-ARH.xsd"/>
+    <xsd:import namespace="urn:us:gov:ic:uias" schemaLocation="../UIAS/UIAS.xsd"/>
+
+    <!--***************************************************-->
+    <!--End Import Statements-->
+    <!--***************************************************-->
+
+    <!--***************************************************-->
+    <!--     Root Element(s) Definition                       -->
+    <!--***************************************************-->
+    <xsd:element name="BOE" type="boe:BoeType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">The root element of a
+                Body of Evidence information set.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="SSP" type="boe:SSPType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">The root element of a
+                    System Security Plan.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="SAR" type="boe:SARType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">The root element of a
+                    Security Assessment Report.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="RAR" type="boe:RARType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">The root element of a
+                    Risk Assessment Report.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="POAM" type="boe:POAMType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">The root element of a
+                    Plan of Action and Milestones.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="ADD" type="boe:AuthDDType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">The root element of a
+                    Authorization Decision Document.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="SystemInformation" type="boe:CoreInformationType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">The root element of the
+                    the core system information.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <!--***************************************************-->
+    <!--     Element Definitions     -->
+    <!--***************************************************-->
+
+    <xsd:element name="AssessmentDate" type="boe:DateWithoutTimezoneWithSecurity">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Dates of all current security control assessments for the system.
+                </xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SAR, RAR, and POA&amp;M Data Elements #1, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="AssessmentEnvironment" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Description of the environment where the 
+                    most recent testing took place, including information on the site location and security system. 
+                    Identify any supporting equipment (i.e. emulators, sniffers, analyzers, traffic generators, 
+                    satellite simulators) that were used to support the assessment event, and list any external 
+                    interfaces active during the test even. Explain any constraints imposed by the environment on 
+                    the assessment event which impacted on the quality or quantity of testing able to be performed. 
+                    Identify all personnel present for the assessment, their organizations, and their role in the 
+                    assessment event. Resource: test results report.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SAR Data Elements #1, NIST SP 800-53A</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="AuthorizationBoundaryDiagram" type="boe:ImageReferenceType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                Diagram depicting all components of a system to be authorized for operation by an AO and excludes separately authorized systems, to which the system is connected.
+            </xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP Data elements #1, NIST SP 800-53</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="AuthorizationStatus" type="boe:AuthorizationStatusType">
+        <xsd:annotation>
+            <xsd:documentation>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                System authorization status.
+            </xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP Data elements #2, NIST SP 800-53</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="AuthorizationTerminationDate"
+                type="boe:DateTimeWithTimezoneWithSecurity">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">If applicable, identifies the date the current authorization (ATO, IATT, and ATO with conditions) will expire.
+                </xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP Data elements #3, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="CryptographicKeyType">
+        <xsd:annotation>
+            <xsd:documentation>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                Data required to track, disseminate, and use a security key needed to secure information. All systems containing classified information must use NSA-approved encryption techniques.
+            </xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP Data elements #4, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:all>
+            <xsd:element name="FIPSValidatedCompartment"
+                      type="boe:BooleanResponseWithExplanation"
+                      minOccurs="1"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                  <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                        Is the system FIPS validated for protection of information that requires compartment access?
+                        </xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="FIPSValidatedUnclass"
+                      type="boe:BooleanResponseWithExplanation"
+                      minOccurs="1"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Is the system FIPS 
+                            validated for unclassified access?</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: NIST SP800-37</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="NSAApprovedCrypto"
+                      type="boe:BooleanResponseWithExplanation"
+                      minOccurs="1"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                        Is the system's cryptographic solution an NSA Approved Cryptographic Solution?</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: NIST SP800-37</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="CryptoKeyManagementProcess"
+                      type="ism:LongStringWithSecurityType"
+                      minOccurs="0"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">If not an NSA-approved 
+                            crytographic soluiton and the system contains classified, provide 
+                            cryptographic key management technology and processes</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: NIST SP800-37</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:all>
+    </xsd:complexType>
+
+    <xsd:element name="CryptographicKey" type="boe:CryptographicKeyType">
+        <xsd:annotation>
+            <xsd:documentation>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                Data required to track, disseminate, and use a security key needed to secure information. All systems containing classified information must use NSA-approved encryption techniques.
+            </xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP Data elements #4, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="OrganizationName" type="ism:ShortStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Parent or governing 
+                    department/agency/organization that manages, owns, and/or controls the 
+                    system. When this is a US Agency it should be formated in the format of 
+                    &lt;GENC Trigraph Code&gt;.&lt;US Agency code&gt;.&lt;Optional Org Code&gt; (e.g. 
+                    USA.DNI, USA.DNI.IAD)</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: NIST SP800-37</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C All RMF Core Documents 24, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="EAuthenticationAssessment"
+                type="boe:BooleanResponseWithExplanation">
+        <xsd:annotation>
+            <xsd:documentation>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                Indicate whether an E-Authentication risk assessment has been performed for the system.
+            </xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP Data elements #5, NIST SP 800-63 / OMB M-04-04</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="ExternalSecurityServices" type="boe:SecurityServiceListType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">List the external security service provider, services provided, and identify if services are in accordance with security requirements of the organization.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP Data elements #6, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="HardwareInventory" type="boe:HardwareComponentListType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Hardware inventory. Individually list each component - system component inventory, assignment value.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP Data elements #7, NIST SP 800-37, CNSSP 11</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+
+    </xsd:element>
+
+    <xsd:element name="NationalSecuritySystem" type="boe:BooleanResponseWithExplanation">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Has the program owner designated this system as a National Security System in accordance with 44 U.S.C. SEC 3542 (b)(2)?</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="SecurityControlList" type="boe:SecurityControlListType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">A list of security controls for the system.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP Data elements #16, NIST SP 800-37, NIST SP 800-53, CNSSI 1253</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="SoftwareInventory" type="boe:SoftwareComponentListType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Software inventory. Individually list each component</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP Data elements #7, NIST SP 800-37, CNSSP 11</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="InformationFlowDiagram" type="boe:ImageReferenceType">
+        <xsd:annotation>
+            <xsd:documentation>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                Identifies the information flows and paths to/from the system (including inputs and outputs).
+            </xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP Data elements #11, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="InformationTechnologyType"
+                type="boe:InformationTechnologyTypeType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">IT Type (e.g., information system: enclave, 
+                    major application, platform IT system, general support systems). Indicate whether the system 
+                    stand-alone or networked.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C Data Elements in All RMF Core Documents #3, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="InformationType" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Lists the types of information 
+                    processed, stored, and transmitted by the system.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP Data elements #10, NIST SP 800-60</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="InternalSystemInterfaceDiagram" type="boe:ImageReferenceType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Communications interfaces 
+                    internal to this system.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP Data elements #8, NIST SP 800-47</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="ExternalSystemInterfaceDiagram" type="boe:ImageReferenceType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Diagram of communication interfaces 
+                    to external systems.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP Data elements #8, NIST SP 800-47</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="MissionCriticality" type="boe:BooleanResponseWithExplanation">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Identify if there are mission 
+                    critical functions present within the system</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP Data elements #12, NIST SP 800-53, FIPS Pub 199</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="NetworkConnectionRules" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Network connection rules for 
+                    communicating with internal and external systems.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP Data elements #9, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="OperationalEnvironment"
+                type="boe:OperationalEnvironmentWithExplanation">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">The operational state/environment in which the system resides (e.g. production, test, tactical, etc.).</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP and SAR Data elements #1, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="ScaExecutiveSummary" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Executive summary from the detailed findings that are generated during a security control assessment. An executive summary provides an AO with an abbreviated version of the assessment report focusing on the highlights of the assessment, synopsis of key findings, and/or recommendations for addressing weaknesses and deficiencies in the security controls</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SAR Data elements #3, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="SecurityCategorization" type="boe:SecurityCategorizationType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Categorization impact values (low, moderate, high) for security objectives (confidentiality, integrity, availability)</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C Data elements in All RMF Core Document #4, NIST SP 800-37, CNSSI-1253</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="SystemLifecyclePhase" type="boe:LifecycleResponseWithExplanation">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">System Lifecycle Phase (numbered) or Acquisition Milestone (lettered)</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP Data elements #20, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="SystemOwnership" type="boe:SystemOwnershipType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Indicates who the system is owned by.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP Data elements #13, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="Overlays" type="boe:OverlayListType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">List of overlays applicable to the system.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C Data elements in All RMF Core Document #16, NIST SP 800-37, NIST SP 800-53, CNSSI 1253</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="PhysicalEnvironment" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Describe the building composition to 
+                    include the exterior wall, interior wall and ceiling compositions, the physical security 
+                    provided for the building (e.g., guards, cameras, access pads), TEMPEST Accreditation or 
+                    SCIF assessments may be used as validation of Physical Environment protections</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP Data elements #14, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="KeyRoles" type="boe:KeyRolesType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Member names, official titles, parent organization and contact information (e.g., phone number, email).
+                </xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP Data elements #15, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="SecurityReviewDate" type="boe:DateWithoutTimezoneWithSecurity">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Indicates the date of the last annual security review 
+                    for systems with an ATO.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP Data elements #17, NIST SP 800-53</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="SystemFunctionDescription" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Provide a narrative description of the system, its function, and uses. Indicate if the system is stand-alone and if it is directly or indirectly connected to the organization's enterprise network (e.g., for the DoD, the Department of Defense Information Network (DoDIN)).</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP Data elements #19, NIST SP 800-53</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="SystemName" type="ism:ShortStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Full name of the system.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C Data elements in All RMF Core Document #6, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="SystemIdentifier" type="ism:ShortStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                Unique system identifier (typically a number or code, such as an IT Portfolio Management registration number).
+                </xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C Data elements in All RMF Core Document #7, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="SystemShortName" type="ism:ShortStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                Provide a shortened or commonly used name or abbreviation (e.g., acronym) for the system name
+                </xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C Data elements in All RMF Core Document #5, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="SystemUserCategories" type="boe:SystemUserCategoryListType">
+        <xsd:annotation>
+            <xsd:documentation>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                Description of users and their access rights and privileges for the system.
+            </xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SPP Data elements #21, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="SystemVersion" type="ism:ShortStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                Version number and release date of system.
+            </xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C Data elements in All RMF Core Document #8, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="ConstraintsAndIssues" type="boe:ConstraintsAndIssuesType">
+        <xsd:annotation>
+            <xsd:documentation>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                Any assumptions or limitations/constraints the SCA applied to the assessment of the system and any issues
+                associated with those assumptions and limitations/constraints.
+            </xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SAR Data elements #2, NIST SP 800-53A</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="SecurityAssessor" type="boe:PersonType">
+        <xsd:annotation>
+            <xsd:documentation>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                Name of the SCA's organization and the SCA's contact information (name, role/title, email, phone number)
+            </xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SAR Data elements #4, NIST SP 800-53A</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="AssessmentObjectiveType" type="ism:ShortStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                Identifies developmental testing and evaluation, independent verification and validation, assessments
+                supporting security authorizations or reauthorizations, audits, ongoing montioring, assessments 
+                subsequent to remediation actions, etc.
+            </xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SAR Data elements #5, NIST SP 800-53A</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="AssessmentMethodology" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                Identifies methodology and procedures used to assess controls (e.g, NIST SP 800-53A, DoD Joint Security Implementation Guide).
+                If other methodology or procedures were used, provide rationale for deviation from standards assessment resources.
+            </xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SAR Data elements #6, NIST SP 800-53A</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+
+    <!--***************************************************-->
+    <!--     Attribute Definitions     -->
+    <!--***************************************************-->
+    <xsd:attribute name="DESVersion">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">The version number of the specification. 
+                    This attribute is intended for processing systems to determine the appropriate versions of 
+                    Schema, Schematron, and CVE values for validation and interpretation of an instance document. 
+                </xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">If there are multiple of this attribute 
+                    specified in an instance document, the first one in document order is the one that will 
+                    apply to the entire document. Document order is 
+                    defined in <xhtml:a href="https://www.w3.org/TR/xpath-datamodel/#document-order">https://www.w3.org/TR/xpath-datamodel/#document-order</xhtml:a>
+                </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+                <xsd:pattern value="[0-9]{6}(\.[0-9]{6})?(\-.{1,23})?"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:attribute>
+
+    <xsd:attributeGroup name="rootNodeAttributeGroup">
+        <xsd:attribute ref="boe:DESVersion" use="required"/>
+        <xsd:attribute ref="ism:DESVersion"/>
+        <xsd:attribute ref="ism:ISMCATCESVersion"/>
+        <xsd:attribute ref="arh:DESVersion"/>
+        <xsd:attribute ref="uias:DESVersion"/>
+    </xsd:attributeGroup>
+
+    <!--***************************************************-->
+    <!--     Complex Type Definitions     -->
+    <!--***************************************************-->
+    <xsd:complexType name="AuthorizationStatusType">
+        <xsd:simpleContent>
+            <xsd:extension base="CVEnumBOEAuthorizationType:CVEnumBOEAuthorizationType">
+                <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="ResponseWithExplanation" abstract="true">
+        <xsd:simpleContent>
+            <xsd:extension base="ism:LongStringWithSecurityType">
+                <xsd:attribute name="response" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            <xhtml:p ism:classification="U" ism:ownerProducer="USA">Abstract attribute for holding a response.</xhtml:p>
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="BooleanResponseWithExplanation">
+        <xsd:simpleContent>
+            <xsd:restriction base="boe:ResponseWithExplanation">
+                <xsd:attribute name="response" type="xsd:boolean" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            <xhtml:p ism:classification="U" ism:ownerProducer="USA">A boolean true/false response.</xhtml:p>
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="LifecycleResponseWithExplanation">
+        <xsd:simpleContent>
+            <xsd:restriction base="boe:ResponseWithExplanation">
+                <xsd:attribute name="response" type="boe:LifecyclePhaseEnum" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            <xhtml:p ism:classification="U" ism:ownerProducer="USA">Specifies the life-cycle phase.</xhtml:p>
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="OperationalEnvironmentWithExplanation">
+        <xsd:simpleContent>
+            <xsd:restriction base="boe:ResponseWithExplanation">
+                <xsd:attribute name="response"
+                           type="boe:OperationalEnvironmentEnum"
+                           use="required">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            <xhtml:p ism:classification="U" ism:ownerProducer="USA">Indicates the type of operational environment.</xhtml:p>
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="SecurityCategorizationResponseWithExplanation">
+        <xsd:simpleContent>
+            <xsd:restriction base="boe:ResponseWithExplanation">
+                <xsd:attribute name="response" type="boe:ImpactLevelEnum" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            <xhtml:p ism:classification="U" ism:ownerProducer="USA">Indicates the level of impact.</xhtml:p>
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="BoeType">
+        <xsd:sequence>
+            <xsd:element ref="arh:Security"/>
+            <xsd:element ref="boe:SystemInformation"/>
+            <xsd:element ref="boe:SSP"/>
+            <xsd:element ref="boe:SAR" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element ref="boe:RAR" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element ref="boe:POAM" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element ref="boe:ADD" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+        <xsd:attributeGroup ref="boe:rootNodeAttributeGroup"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="CoreInformationType">
+        <xsd:all>
+            <xsd:element ref="boe:SystemName"/>
+            <xsd:element ref="boe:SystemShortName"/>
+            <xsd:element ref="boe:SystemIdentifier"/>
+            <xsd:element ref="boe:SystemVersion"/>
+            <xsd:element ref="boe:OrganizationName"/>
+            <xsd:element ref="boe:InformationTechnologyType"/>
+            <xsd:element ref="boe:OperationalEnvironment"/>
+            <xsd:element ref="boe:SecurityCategorization"/>
+            <xsd:element ref="boe:NationalSecuritySystem"/>
+            <xsd:element ref="boe:DataAuthorizationLevel"/>
+        </xsd:all>
+    </xsd:complexType>
+
+    <xsd:complexType name="SSPType">
+        <xsd:all>
+            <xsd:element ref="boe:AuthorizationBoundaryDiagram" minOccurs="0"/>
+            <xsd:element ref="boe:AuthorizationStatus"/>
+            <xsd:element ref="boe:AuthorizationTerminationDate" minOccurs="0"/>
+            <xsd:element ref="boe:CryptographicKey" minOccurs="0"/>
+            <xsd:element ref="boe:EAuthenticationAssessment" minOccurs="0"/>
+            <xsd:element ref="boe:ExternalSecurityServices" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="boe:HardwareInventory" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="boe:SoftwareInventory" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="boe:ExternalSystemInterfaceDiagram" minOccurs="0"/>
+            <xsd:element ref="boe:InternalSystemInterfaceDiagram" minOccurs="0"/>
+            <xsd:element ref="boe:NetworkConnectionRules" minOccurs="0"/>
+            <xsd:element ref="boe:InformationType" minOccurs="0"/>
+            <xsd:element ref="boe:InformationFlowDiagram" minOccurs="0"/>
+            <xsd:element ref="boe:MissionCriticality" minOccurs="0"/>
+            <xsd:element ref="boe:Overlays" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="boe:PhysicalEnvironment" minOccurs="0"/>
+            <xsd:element ref="boe:KeyRoles" minOccurs="0"/>
+            <xsd:element ref="boe:SecurityControlList" minOccurs="0"/>
+            <xsd:element ref="boe:SecurityReviewDate" minOccurs="0"/>
+            <xsd:element ref="boe:SystemFunctionDescription" minOccurs="0"/>
+            <xsd:element ref="boe:SystemLifecyclePhase" minOccurs="0"/>
+            <xsd:element ref="boe:SystemOwnership" minOccurs="0"/>
+            <xsd:element ref="boe:SystemUserCategories" minOccurs="0"/>
+        </xsd:all>
+    </xsd:complexType>
+
+    <xsd:complexType name="SARType">
+        <xsd:all>
+            <xsd:element ref="boe:AssessmentDate"/>
+            <xsd:element ref="boe:AssessmentEnvironment" minOccurs="0"/>
+            <xsd:element ref="boe:ConstraintsAndIssues" minOccurs="0"/>
+            <xsd:element ref="boe:ScaExecutiveSummary" minOccurs="0"/>
+            <xsd:element ref="boe:SecurityAssessor"/>
+            <xsd:element ref="boe:AssessmentObjectiveType" minOccurs="0"/>
+            <xsd:element ref="boe:AssessmentMethodology" minOccurs="0"/>
+            <xsd:element ref="boe:SecurityControlCompliance" minOccurs="0"/>
+            <xsd:element ref="boe:SecurityControlTraceabilityList" minOccurs="0"/>
+            <xsd:element ref="boe:ComponentsAssessed" minOccurs="0"/>
+            <xsd:element ref="boe:TestResults" minOccurs="0"/>
+        </xsd:all>
+    </xsd:complexType>
+
+    <xsd:complexType name="RARType">
+        <xsd:all>
+            <xsd:element ref="boe:AssessmentDate"/>
+            <xsd:element ref="boe:PurposeForRiskAssessment" minOccurs="0"/>
+            <xsd:element ref="boe:RiskAssessmentSummary" minOccurs="0"/>
+            <xsd:element ref="boe:RiskAssessmentPOC"/>
+            <xsd:element ref="boe:RiskAssessmentScope" minOccurs="0"/>
+            <xsd:element ref="boe:RiskAssessmentApproach" minOccurs="0"/>
+            <xsd:element ref="boe:RiskAnalysisApproach" minOccurs="0"/>
+            <xsd:element ref="boe:OrganizationalRiskTolerance" minOccurs="0"/>
+            <xsd:element ref="boe:ThreatEvents" minOccurs="0"/>
+            <xsd:element ref="boe:OverallRiskPosture" minOccurs="0"/>
+            <xsd:element ref="boe:OverallRiskRatings" minOccurs="0"/>
+        </xsd:all>
+    </xsd:complexType>
+
+    <xsd:complexType name="POAMType">
+        <xsd:all>
+            <xsd:element ref="boe:AssessmentDate"/>
+            <xsd:element ref="boe:Deficiency"/>
+            <xsd:element ref="boe:IdentifyingEvent" minOccurs="0"/>
+            <xsd:element ref="boe:ApplicableSecurityControl" minOccurs="0"/>
+            <xsd:element ref="boe:Milestones" minOccurs="0"/>
+            <xsd:element ref="boe:Comments" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">In a POA&amp;M, this is used for additional detail or clarifications;
+                            must be used if there is a delay. The comments should identify obstacles and challenges to resolving the weakness
+                            not related to funding (e.g., lack of personnel or expertise or developing new system to replace legacy system)</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C POA&amp;M Data elements #5, NIST SP 800-37</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="boe:ScheduledCompletionDate" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">A realistic estimate of the date when the corrective
+                            action will be implemented/tested. This date should not be changed. Actual completion date should be placed 
+                            in the Status field</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C POA&amp;M Data elements #6, NIST SP 800-37</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="boe:CompletionStatus">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Indicates the stage or state of the POA&amp;M 
+                            in the corrective process cycle (Completed, Ongoing, Delayed, or Planned). The Completed 
+                            status should be used only when the POA&amp;M has been fully resolved and the corrective 
+                            action has been tested. When listing items as “Completed,” also include the date of completion in this
+                            column</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C POA&amp;M Data elements #9, NIST SP 800-37</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="boe:CompletionDate" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The date the POA&amp;M 
+                            was actually completed. Only fill in if ComplitionStatus is "COMPLETE"</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C POA&amp;M Data elements #9, NIST SP 800-37</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="boe:PointOfContact">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Organization or title of the position within the 
+                            organization who is responsible for the mitigation of the weakness.</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C POA&amp;M Data elements #10, NIST SP 800-37</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:all>
+    </xsd:complexType>
+
+    <xsd:complexType name="AuthDDType">
+        <xsd:all>
+            <xsd:element ref="boe:AuthorizationDecision"/>
+            <xsd:element ref="boe:AuthorizingOfficial"/>
+            <xsd:element ref="boe:AuthorizationDecisionDate"/>
+            <xsd:element ref="boe:AuthorizationDecisionTerminationDate" minOccurs="0"/>
+            <xsd:element ref="boe:RiskExecutiveInput" minOccurs="0"/>
+            <xsd:element ref="boe:OverallRiskRatings" minOccurs="0"/>
+            <xsd:element ref="boe:AuthorizationTermsAndConditions" minOccurs="0"/>
+        </xsd:all>
+    </xsd:complexType>
+
+    <xsd:complexType name="ConstraintsAndIssuesType">
+        <xsd:sequence>
+            <xsd:element name="AssumptionList" type="boe:AssumptionListType" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">A list of assumptions.</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SAR Data elements #2</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ConstraintList" type="boe:ConstraintListType" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">A list of contraints.</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SAR Data elements #2</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="IssueList" type="boe:IssueListType" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">A list of issues.</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SAR Data elements #2</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="ImageReferenceType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Type for referencing an image file or URL, and providing an optional description/alt text.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:all>
+            <xsd:element name="URI" type="xsd:anyURI">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The path/URL to the image.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="boe:Description" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The description/alt-text of the image.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:all>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="InformationTechnologyTypeType">
+        <xsd:attribute name="typeOfService"
+                     type="CVEnumBOEInformationTechnologyType:CVEnumBOEInformationTechnologyType"
+                     use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <xhtml:p ism:classification="U" ism:ownerProducer="USA">The service type of the system</xhtml:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="isStandalone" type="xsd:boolean" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <xhtml:p ism:classification="U" ism:ownerProducer="USA">Indicates if the system is standalone or networked.</xhtml:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="KeyRolesType">
+        <xsd:sequence minOccurs="1" maxOccurs="1">
+            <xsd:element name="DelegatedAuthorizingOfficial"
+                      type="boe:PersonType"
+                      minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">A senior (federal) official or executive with the authority to formally assume responsibility for operating an information system at an acceptable level of risk to organizational operations (including mission, functions, image, or reputation), organizational assets, individuals, other organizations, and the Nation.</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-4009 (Authorizing Official)</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="DelegatedAuthorizingOfficialRepresentative"
+                      type="boe:PersonType"
+                      minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">An organizational official acting on behalf of an authorizing official in carrying out and coordinating the required activities associated with security authorization.</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-4009 (authorizing official designated representative)</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="SecurityControlAssessor" type="boe:PersonType" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The individual, group, or organization responsible for conducting a security control assessment.</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-4009 (security control assessor (SCA))</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="SystemOwner" type="boe:PersonType" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Official responsible for the overall procurement, development, integration, modification, or operation and maintenance of an information system.</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-4009 (information system owner
+                            (or program manager))</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="SystemManagement" type="boe:PersonType" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Official responsible for the system day-to-day management (program manager), if different from the system owner.</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-4009 (information system owner
+                            (or program manager))</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="SystemSecurityOfficer" type="boe:PersonType" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Individual assigned responsibility by the senior agency information security officer, authorizing official, management official, or information system owner for maintaining the appropriate operational security posture for an information system or program.</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-4009 (information system security officer (ISSO))</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="TechnicalLead" type="boe:PersonType" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Individual responsible for overseeing the technical aspects of the system.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Other"
+                      type="boe:PersonTypeWithRole"
+                      minOccurs="0"
+                      maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">A key person not fitting one of the predefined roles/titles for which a role/title must be specified.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="OverlayListType">
+        <xsd:sequence>
+            <xsd:element name="Overlay" type="ism:ShortStringType" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">A specification of security controls, control enhancements, supplemental guidance, and other supporting information employed during the tailoring process, that is intended to complement (and further refine) security control baselines. The overlay specification may be more stringent or less stringent than the original security control baseline specification and can be applied to multiple information systems.</xhtml:p>
+                        <xhtml:p ism:classificaiton="U" ism:ownerProducer="USA">Source: CNSSI-4009 (Overlay)</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="AssumptionListType">
+        <xsd:sequence>
+            <xsd:element name="Assumption" type="ism:LongStringType" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Assumptions made about the operational environment or other conditions of the system.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="IssueListType">
+        <xsd:sequence>
+            <xsd:element name="Issue" type="ism:LongStringType" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Issues identified in the operational environment or other conditions of the system.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="PersonTypeWithRole">
+        <xsd:all>
+            <xsd:element name="Role"
+                      type="ism:ShortStringType"
+                      minOccurs="1"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The functional role/designation of the person.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Name"
+                      type="ism:ShortStringType"
+                      minOccurs="1"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The proper word or set of words by which the person is known.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Title"
+                      type="ism:ShortStringType"
+                      minOccurs="0"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The person's official title.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Organization"
+                      type="ism:ShortStringType"
+                      minOccurs="0"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The organization whom the person supports.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Email"
+                      type="ism:ShortStringType"
+                      minOccurs="0"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The primary email or email best used for contacting the person.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Phone"
+                      type="ism:ShortStringType"
+                      minOccurs="0"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The primary phone number or phone number best used for contacting the person.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:all>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="PersonType">
+        <xsd:all>
+            <xsd:element name="Name"
+                      type="ism:ShortStringType"
+                      minOccurs="1"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The proper word or set of words by which the person is known.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Title"
+                      type="ism:ShortStringType"
+                      minOccurs="0"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The person's official title.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Organization"
+                      type="ism:ShortStringType"
+                      minOccurs="0"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The organization whom the person supports.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Email"
+                      type="ism:ShortStringType"
+                      minOccurs="0"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The primary email or email best used for contacting the person.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Phone"
+                      type="ism:ShortStringType"
+                      minOccurs="0"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The primary phone number or phone number best used for contacting the person.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:all>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="SecurityCategorizationType">
+        <xsd:all>
+            <xsd:element name="Confidentiality"
+                      type="boe:SecurityCategorizationResponseWithExplanation"
+                      maxOccurs="1"
+                      minOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The weight given to preserving authorized restrictions on information access and disclosure, including means for protecting personal privacy and proprietary information.</xhtml:p>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Source: CNSSI-4009 (confidentiality)</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Integrity"
+                      type="boe:SecurityCategorizationResponseWithExplanation"
+                      maxOccurs="1"
+                      minOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The weight given to guarding against improper information modification or destruction, and includes ensuring information non-repudiation and authenticity.</xhtml:p>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Source: CNSSI-4009 (integrity)</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Availability"
+                      type="boe:SecurityCategorizationResponseWithExplanation"
+                      maxOccurs="1"
+                      minOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The weight given to timely and reliable access to and use of information for authorized users.</xhtml:p>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Source: CNSSI-4009 (availability)</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:all>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="SecurityControlListType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">List of controls after categorization, application of overlays, and any system-specific tailoring.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SSP Data elements #16</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="SecurityControl"
+                      type="boe:SecurityControlType"
+                      minOccurs="1"
+                      maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The management, operational, and technical control (i.e., safeguard or countermeasure) prescribed for an information system to protect the confidentiality, integrity, and availability of the system and its information.</xhtml:p>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Source: CNSSI-4009 (security controls)</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="SecurityControlType">
+        <xsd:all>
+            <xsd:element name="Rationale"
+                      type="ism:LongStringWithSecurityType"
+                      minOccurs="0"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">For controls identified as not applicable, 
+                            provide justification. Provide a risk-based rationale for adding or removing a control 
+                            (tailoring). For those controls tailored by an overlay, referencing the name of the overlay 
+                            is sufficient rationale. If two overlays provide conflicting guidance, then select which overlay 
+                            takes precedence and document the rationale for the decision.</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SSP Data elements #16</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ImplementationDescription"
+                      type="ism:LongStringWithSecurityType"
+                      minOccurs="0"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Provide a short 
+                            description of how the control, enhancement, and/or requirement is 
+                            implemented. Document how, and at what frequency, Common Control 
+                            Providers will make compliance status of inherited controls available. 
+                            Reference to the information security Continuous monitoring (ISCM) 
+                            strategy should be included.</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SSP Data elements #16</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:all>
+        <xsd:attribute name="number" type="ism:ShortStringType" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <xhtml:p ism:classification="U" ism:ownerProducer="USA">The number of the control, enhancement, and/or requirement.</xhtml:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="name" type="ism:ShortStringType" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <xhtml:p ism:classification="U" ism:ownerProducer="USA">The name of the control, enhancement, and/or requirement.</xhtml:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="status" type="boe:ControlStatusEnum" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                 <xhtml:p ism:classification="U" ism:ownerProducer="USA">The implementation status of the control, enhancement, and/or requirement.</xhtml:p>
+             </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="SecurityServiceType">
+        <xsd:all>
+            <xsd:element ref="boe:Description" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Describes how the external services are protected in accordance with the security
+                            requirements of the organization, and documents that the necessary assurances have been obtained and the risk to organizational operations and assets, individuals, other organizations, and the Nation arising from the use of the external services is acceptable</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SSP Data elements #16, NIST SP800-37</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:all>
+        <xsd:attribute name="name" type="ism:ShortStringType" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <xhtml:p ism:classification="U" ism:ownerProducer="USA">The name/designator of a service</xhtml:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="provider" type="ism:ShortStringType" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <xhtml:p ism:classification="U" ism:ownerProducer="USA">The name/designator of the service provider</xhtml:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="meetsOrgSecurityRequirements"
+                     type="xsd:boolean"
+                     use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <xhtml:p ism:classification="U" ism:ownerProducer="USA">Indicates if the service is in accordance with security requirements of the organization</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SSP Data elements #16</xhtml:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="SecurityServiceListType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">List of security services</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="SecurityService"
+                      type="boe:SecurityServiceType"
+                      minOccurs="1"
+                      maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">A capability that supports one, or many, of the security goals. Examples of security services are key management, access control, and authentication.</xhtml:p>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Source: CNSSI-4009 (security service)</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="SystemComponentType">
+        <xsd:all>
+            <xsd:element name="Name"
+                      type="ism:ShortStringType"
+                      minOccurs="1"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The common name of the component. This may be the device or machine name for a networked component.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Type"
+                      type="ism:ShortStringType"
+                      minOccurs="0"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The type of component</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="OwnerManufacturer"
+                      type="ism:ShortStringType"
+                      minOccurs="1"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The manufacturer, author, or owner of the component</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Version"
+                      type="ism:ShortStringType"
+                      minOccurs="1"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The version or model number of the component.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="SerialNumber"
+                      type="ism:ShortStringType"
+                      minOccurs="0"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The serial number or unique identifier of the component, if applicable.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:all>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="HardwareComponentListType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">List of hardware components</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="HardwareComponent"
+                      type="boe:SystemComponentType"
+                      minOccurs="1"
+                      maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">A material physical component of the system.</xhtml:p>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Source: CNSSI-4009 (hardware)</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="SoftwareComponentListType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">List of software components</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="SoftwareComponent" minOccurs="1" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">A computer program (stored in and executed by computer hardware) and associated data (which also is stored in the hardware) that may be dynamically written or modified during execution.</xhtml:p>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Source: CNSSI-4009 (software)</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:complexType>
+                    <xsd:complexContent>
+                        <xsd:extension base="boe:SystemComponentType">
+                            <xsd:attribute name="softwareCategory"
+                                    use="required"
+                                    type="CVEnumBOESoftwareCategory:CVEnumBOESoftwareCategory">
+                                <xsd:annotation>
+                                    <xsd:documentation>
+                                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The general type of software (i.e. COTS, GOTS, open source).</xhtml:p>
+                                    </xsd:documentation>
+                                </xsd:annotation>
+                            </xsd:attribute>
+                        </xsd:extension>
+                    </xsd:complexContent>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="InformationFlowType">
+        <xsd:attribute name="input" type="ism:ShortStringType">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <xhtml:p ism:classification="U" ism:ownerProducer="USA">The interface serving as input</xhtml:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="output" type="ism:ShortStringType">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <xhtml:p ism:classification="U" ism:ownerProducer="USA">The interface serving as output</xhtml:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="InformationFlowsType">
+        <xsd:choice>
+            <xsd:element name="InformationFlowDiagram" type="boe:ImageReferenceType">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">A diagram that depicts how information flows into, through, and/or out of the system.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:sequence>
+                <xsd:element name="InformationFlow"
+                         type="boe:InformationFlowType"
+                         minOccurs="1"
+                         maxOccurs="unbounded">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            <xhtml:p ism:classification="U" ism:ownerProducer="USA">Describes a single flow of information with designated input and output.</xhtml:p>
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="SystemOwnershipType">
+        <xsd:simpleContent>
+            <xsd:extension base="CVEnumBOESystemOwnershipType:CVEnumBOESystemOwnershipType">
+                <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="SystemUserCategoryListType">
+        <xsd:sequence>
+            <xsd:element name="SystemUserCategory"
+                      type="boe:SystemUserCategoryType"
+                      minOccurs="1"
+                      maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The general type or class of user that interacts or has access to the system.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="SystemUserCategoryType">
+        <xsd:sequence>
+            <xsd:element name="AccessDescription"
+                      type="ism:LongStringWithSecurityType"
+                      minOccurs="1"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">A description of the type of access rights and privileges this user category has in the system.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="UserConstraints"
+                      type="boe:ConstraintListType"
+                      minOccurs="0"
+                      maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">A list of requirements, restrictions, or constraints that must be met for a user to have access to the system.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+        <xsd:attribute name="userCategory"
+                     type="CVEnumBOESystemUserCategory:CVEnumBOESystemUserCategory"
+                     use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <xhtml:p ism:classification="U" ism:ownerProducer="USA">The category of users whose access is being described.</xhtml:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="ConstraintListType">
+        <xsd:sequence>
+            <xsd:element name="Constraint"
+                      type="ism:LongStringWithSecurityType"
+                      minOccurs="1"
+                      maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">A restriction or condition placed upon the system.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="DateTimeWithTimezoneWithSecurity">
+        <xsd:simpleContent>
+            <xsd:extension base="boe:DateTimeWithTimezone">
+                <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="DateWithoutTimezoneWithSecurity">
+        <xsd:simpleContent>
+            <xsd:extension base="boe:DateWithoutTimezone">
+                <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <!--***************************************************-->
+    <!--     Simple Type Definitions     -->
+    <!--***************************************************-->
+    <xsd:simpleType name="ControlStatusEnum">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">The implementation status of a control.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="IMPLEMENTED">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The control has been implemented</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="PLANNED">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The control has not yet been implemented but is planned</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration ism:classification="U"
+                          ism:ownerProducer="USA"
+                          value="NOTAPPLICABLE">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The control is not applicable to the system</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="CompletionStatusEnum">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">The completion status of a task, activity, process, etc.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C POA&amp;M Data elements #9</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="COMPLETE"/>
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="ONGOING"/>
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="DELAYED"/>
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="PLANNED"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="DateTimeWithTimezone">
+        <xsd:restriction base="xsd:dateTime">
+            <xsd:pattern value="\-?[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\.[0-9]+)?(Z|[\-\+][0-9]{2}:[0-9]{2})"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="DateWithoutTimezone">
+        <xsd:restriction base="xsd:date">
+            <xsd:pattern value="\-?[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="LifecyclePhaseEnum">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">The phases/milestones of the system development lifecycle</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: NIST SP800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="1-MSA">
+                <xsd:annotation ism:classification="U" ism:ownerProducer="USA">
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">(1) Material Solution Analysis</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="2-A-TMRR">
+                <xsd:annotation ism:classification="U" ism:ownerProducer="USA">
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">(2) Milestone-A Technology Maturation and Risk Reduction</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="3-B-EMD">
+                <xsd:annotation ism:classification="U" ism:ownerProducer="USA">
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">(3) Milestone-B Engineering and Manufacturing Development</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="4-C-PD">
+                <xsd:annotation ism:classification="U" ism:ownerProducer="USA">
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">(4) Milestone-C Production and Deployment</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="5-OPERATIONS">
+                <xsd:annotation ism:classification="U" ism:ownerProducer="USA">
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">(5) Operations and Support</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="6-DISPOSAL">
+                <xsd:annotation ism:classification="U" ism:ownerProducer="USA">
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">(6) Disposal</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="ImpactLevelEnum">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">The security categorization impact levels.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="LOW">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The potential impact is low 
+                            if the loss could be expected to have a limited adverse effect on organizational 
+                            operations, organizational assets, or individuals.</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: NIST SP800-37</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="MODERATE">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The potential impact is moderate 
+                            if the loss could be expected to have a serious adverse effect on organizational 
+                            operations, organizational assets, or individuals.</xhtml:p>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Source: NIST SP800-37</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="HIGH">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The potential impact is high 
+                            if the loss could be expected to have a severe or catastrophic adverse effect on 
+                            organizational operations, organizational assets, or individuals.</xhtml:p>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Source: NIST SP800-37</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="RatingScaleEnum">
+        <xsd:restriction base="xsd:token">
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="VERY_LOW"/>
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="LOW"/>
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="MODERATE"/>
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="HIGH"/>
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="VERY_HIGH"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="OperationalEnvironmentEnum">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">A list of types of system operational environments.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="PROD">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The system is in production</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="TEST">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The system is in testing</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="RD">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The system is in research and development</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="TACTICAL">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The system is in a tactical environment</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="DEPLOYED">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The system is deployed</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="OTHER">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The system does not fall into 
+                            a standard operational environment category. Further explanation needs to be provided.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="ComplianceEnum">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">The evaluated compliance status.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="SATISFIED">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The item being evaluated has been
+                        determined to have satisfactory compliance.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration ism:classification="U"
+                          ism:ownerProducer="USA"
+                          value="OTHER_THAN_SATISFIED">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The item being evaluated has been
+                        determined to be in a state other than satisfied.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="UNEVALUATED">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The item has not been evaluated
+                        for compliance.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:element name="DataAuthorizationLevel" type="boe:DataAuthorizationLevelType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Data classification level and handling markings that the system is authorized to process.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C Data elements in All RMF Core Document #1, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="DataAuthorizationLevelType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">The systems entity attributes that indicate clearance, fine access controls, and handling controls.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C Data elements in All RMF Core Document #1, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:all>
+            <xsd:element ref="uias:Clearance">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The highest classification level of data that the system 
+                        is authorized for. The system's "clearance."</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="uias:FineAccessControls" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The fine access control(s) on data that the system 
+                            is authorized for (e.g. SI, TK).</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="uias:HandlingControls" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The handling control(s) on data that the system 
+                            is authorized for or the handling control procedures/methodologies that the system has been determined 
+                            to be able to perform.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:all>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="ComplianceType">
+        <xsd:simpleContent>
+            <xsd:restriction base="boe:ResponseWithExplanation">
+                <xsd:attribute name="response" use="required" type="boe:ComplianceEnum">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            <xhtml:p ism:classification="U" ism:ownerProducer="USA">Specifies the compliance status.</xhtml:p>
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="SecurityControlComplianceType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                    Pairs a control number with its compliance status.
+                </xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SAR Data elements #7, NIST SP 800-53A</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="boe:ComplianceType">
+                <xsd:attribute ref="boe:controlNumber" use="required"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:element name="SecurityControlCompliance">
+        <xsd:annotation>
+            <xsd:documentation>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+                Once assessed, identify controls as satisfied, other than satisfied, not evaluated. 
+                If using agency-specific terminology, provide mapping to the above NIST compliance 
+                status terms
+            </xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SAR Data elements #7, NIST SP 800-53A</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:attribute name="controlNumber" type="ism:ShortStringType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">The number of the security control.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:complexType name="SecurityControlTraceType">
+        <xsd:attribute ref="boe:controlNumber" use="required"/>
+        <xsd:attribute name="requirementId" type="ism:ShortStringType" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <xhtml:p ism:classification="U" ism:ownerProducer="USA">The ID of the requirement mapped to the security control.</xhtml:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:element name="SecurityControlTrace" type="boe:SecurityControlTraceType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Provides the traceability from a security control listed in the SSP to a system security requirement derived from the control.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SAR Data elements #8, NIST SP 800-53A</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="SecurityControlTraceListType">
+        <xsd:sequence>
+            <xsd:element ref="boe:SecurityControlTrace" maxOccurs="unbounded"/>
+        </xsd:sequence>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:element name="SecurityControlTraceabilityList"
+                type="boe:SecurityControlTraceListType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">A list of traces mapping security controls listed in the SSP to a system security requirements derived from those controls.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SAR Data elements #8, NIST SP 800-53A</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="ComponentIdentifier" type="ism:ShortStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">An identifier of a system (if enclave) and/or component assessed within authorization boundary.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SAR Data elements #9, NIST SP 800-53A</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="ComponentListType">
+        <xsd:sequence>
+            <xsd:element ref="boe:ComponentIdentifier" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="ComponentsAssessed" type="boe:ComponentListType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">List systems (if enclave) and/or components assessed within authorization boundary.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SAR Data elements #9, NIST SP 800-53A</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="TestType">
+        <xsd:simpleContent>
+            <xsd:extension base="ism:LongStringWithSecurityType">
+                <xsd:attribute name="date" type="boe:DateWithoutTimezone">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">Date of the recent test.</xhtml:p>
+                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SAR Data elements #10, NIST SP 800-53A</xhtml:p>
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="resource" type="ism:ShortStringType">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">The testing resource.</xhtml:p>
+                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SAR Data elements #10, NIST SP 800-53A</xhtml:p>
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="testId" type="ism:ShortStringType">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">The identifier of the test.</xhtml:p>
+                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SAR Data elements #10, NIST SP 800-53A</xhtml:p>
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute ref="boe:controlNumber">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">The control for the current instance/version of the system.</xhtml:p>
+                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SAR Data elements #10, NIST SP 800-53A</xhtml:p>
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:element name="Test" type="boe:TestType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Test result from external evaluation sources or recent test result used to verify implementation of a control (e.g., date of the recent test, testing resource, testing criteria and requirements used, changing conditions associated with security controls over time, degree of independence of previous assessments).</xhtml:p>
+               <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SAR Data elements #10, NIST SP 800-53A</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="TestListType">
+        <xsd:sequence>
+            <xsd:element ref="boe:Test" maxOccurs="unbounded"/>
+        </xsd:sequence>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:element name="TestResults" type="boe:TestListType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Test results from external evaluation sources or recent test 
+                    results used to verify implementation of a control for that current instance/version of the system (e.g., date of 
+                    the recent test, testing resource, testing criteria and requirements used, changing conditions associated with 
+                    security controls over time, degree of independence of previous assessments).</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SAR Data elements #10, NIST SP 800-53A</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="PurposeForRiskAssessment" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Describe the purpose of the risk assessment. The purpose may 
+                    be to determine risk at various system life cycle phases, to include the security categorization, to tailor 
+                    security controls, to assess the risk of non-compliant security controls, to assess the impact of actual or 
+                    proposed changes to the system in operations, etc.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #1, NIST SP 800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="RiskAssessmentPOC" type="boe:PersonType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Risk Assessment POC contact information (e.g., name, phone number, email)</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #2, NIST SP 800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="RiskAssessmentScope" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">The scope of the risk assessment can be at any of the three tiers 
+                    in the risk management hierarchy (i.e., organization, mission/business process, or system), or the scope can be 
+                    limited to certain portions of the system. Identify scope of assessment including boundaries and intended mission(s) 
+                    the system is designed to support</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #3, NIST SP 800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:simpleType name="ApproachEnum">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">The type of approach.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="QUALITATIVE">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The approach taken was fully qualitative.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration ism:classification="U"
+                          ism:ownerProducer="USA"
+                          value="SEMI-QUALITATIVE">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The approach taken was partially qualitative.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="QUANTITATIVE">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The approach taken was fully quantitative.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="RiskAnalysisEnum">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">The type of analysis.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="THREAT">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Analysis based on a threat.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration ism:classification="U"
+                          ism:ownerProducer="USA"
+                          value="VULNERABILITY">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Analysis based on a vulnerability.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration ism:classification="U" ism:ownerProducer="USA" value="ASSET_IMPACT">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Analysis based on asset impact.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="ApproachType">
+        <xsd:simpleContent>
+            <xsd:restriction base="boe:ResponseWithExplanation">
+                <xsd:attribute name="response" use="required" type="boe:ApproachEnum">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            <xhtml:p ism:classification="U" ism:ownerProducer="USA">Identifies the type of risk assessment methodology used (qualitative, semi-quantitative, or quantitative)</xhtml:p>
+                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #4, NIST SP 800-30</xhtml:p>
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="RiskAnalysisType">
+        <xsd:simpleContent>
+            <xsd:restriction base="boe:ResponseWithExplanation">
+                <xsd:attribute name="response" use="required" type="boe:RiskAnalysisEnum">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            <xhtml:p ism:classification="U" ism:ownerProducer="USA">Identifies the type of risk analysis methodology used</xhtml:p>
+                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #5, NIST SP 800-30</xhtml:p>
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:element name="RiskAssessmentApproach" type="boe:ApproachType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Identifies the type of risk assessment methodology used (qualitative, semi-quantitative, or quantitative) with optional explanation.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #4, NIST SP 800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="RiskAnalysisApproach" type="boe:RiskAnalysisType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Identifies the type of risk analysis methodology used with optional explanation.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #5, NIST SP 800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="OrganizationalRiskTolerance"
+                type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Risk Tolerance (including a list of the range of consequences to be considered) –The level of risk an entity is willing to assume in order to achieve a potential desired result; Identify any organization risk tolerance levels set at Tier 1, Tier 2, and Tier 3</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #6, NIST SP 800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="ThreatSourceCapability" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Only applicable to adversarial threat sources. Indicates the adversarial threat source's capability to initiate a threat event</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #8, NIST SP 800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="ThreatSourceIntent" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Only applicable to adversarial threat sources. Indicates the adversarial threat source's intent to initiate a threat event.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #9, NIST SP 800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="ThreatSourceTargeting" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Only applicable to adversarial threat sources. Indicates if the 
+                    adversarial threat source has historically targeted or is actively targeting the system.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #10, NIST SP 800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="ThreatSourceType">
+        <xsd:all>
+            <xsd:element name="Source" type="ism:ShortStringWithSecurityType">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The threat source by name, description, or reference.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="boe:ThreatSourceCapability" minOccurs="0"/>
+            <xsd:element ref="boe:ThreatSourceIntent" minOccurs="0"/>
+            <xsd:element ref="boe:ThreatSourceTargeting" minOccurs="0"/>
+        </xsd:all>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:element name="ThreatSource" type="boe:ThreatSourceType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Identifies a source that could initiate the threat event</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #7, NIST SP 800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="ThreatSourceListType">
+        <xsd:sequence>
+            <xsd:element ref="boe:ThreatSource" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="ThreatSources" type="boe:ThreatSourceListType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Identifies threat sources that could initiate the threat event</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #7, NIST SP 800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="VulnerabilityType">
+        <xsd:simpleContent>
+            <xsd:extension base="ism:LongStringWithSecurityType">
+                <xsd:attribute name="severity" type="boe:RatingScaleEnum">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            <xhtml:p ism:classification="U" ism:ownerProducer="USA">Identifies the severity of vulnerabilities or the pervasiveness of the predisposing conditions as very low, low, moderate, high, very high</xhtml:p>
+                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #13, NIST SP 800-30</xhtml:p>
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="identifier" use="optional" type="ism:ShortStringType">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            <xhtml:p ism:classification="U" ism:ownerProducer="USA">A number used to track and correlate vulnerabilities that are ongoing within the organization. The numbering schema for the vulnerability identifier is organizationally defined and is organizationally derived</xhtml:p>
+                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C SAR, RAR, and POA&amp;M Data elements #2, NIST SP 800-37</xhtml:p>
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:element name="Vulnerability" type="boe:VulnerabilityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Identifies a vulnerability which could be exploited by threat sources and the predisposing conditions which could increase the likelihood of undesirable consequences and/or adverse impacts</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #12, NIST SP 800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="VulnerabilityListType">
+        <xsd:sequence>
+            <xsd:element ref="boe:Vulnerability" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="Vulnerabilities" type="boe:VulnerabilityListType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Identifies vulnerabilities which could be exploited by threat sources and the predisposing conditions which could increase the likelihood of undesirable consequences and/or adverse impacts</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #12, NIST SP 800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="LikelihoodOfOccurance" type="boe:RatedScaleResponseType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Indicates the likelihood the threat event will be initiated 
+                    or occur, taking into consideration the adversarial threat source's capability, intent, and targeting; 
+                    non-adversarial threat source's historical evidence and empirical data; timeframe and frequency of event; state 
+                    of the organization (e.g., environment, architecture, system, and presence/effectiveness of security controls); 
+                    vulnerabilities; and predisposing conditions</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #14, NIST SP 800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="LikelihoodOfSuccess" type="boe:RatedScaleResponseType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Determine the likelihood the threat event, once it is 
+                    initiated or occurs, will result in an adverse impact, regardless of the magnitude of harm (i.e., impact)</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #15, NIST SP 800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="OverallLikelihood" type="boe:RatedScaleResponseType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Indicates the likelihood the threat event will be 
+                    initiated or occur and result in adverse impact (i.e., combination of likelihood of threat event 
+                    initiation/occurrence and likelihood the initiated event succeeds)</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #16, NIST SP 800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="LevelOfImpact" type="boe:RatedScaleResponseType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Determine the level of impact associated with the 
+                    undesirable consequences of the threat event. Determine the undesirable consequences (i.e., potential 
+                    harm to organizational operations, organizational assets, individuals, other organizations, or the 
+                    Nation) of the threat event</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #17, NIST SP 800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="ResidualRiskLevel" type="boe:RatedScaleResponseType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">For individual entries in the RAR, indicates the 
+                    residual risk level expected after mitigations are implemented (as described in the POA&amp;M). Identifies 
+                    the risk level as one of the following: very low, low, moderate, high, and very high)</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #18, NIST SP 800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="ThreatEventType">
+        <xsd:all>
+            <xsd:element name="Event" type="ism:LongStringWithSecurityType">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The threat event by name, description, or reference.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="boe:ThreatSources" minOccurs="0"/>
+            <xsd:element ref="boe:Vulnerabilities" minOccurs="0"/>
+            <xsd:element ref="boe:LikelihoodOfOccurance" minOccurs="0"/>
+            <xsd:element ref="boe:LikelihoodOfSuccess" minOccurs="0"/>
+            <xsd:element ref="boe:OverallLikelihood" minOccurs="0"/>
+            <xsd:element ref="boe:LevelOfImpact" minOccurs="0"/>
+            <xsd:element ref="boe:ResidualRiskLevel" minOccurs="0"/>
+        </xsd:all>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:element name="ThreatEvent" type="boe:ThreatEventType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Identifies the potential threat event</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #11, NIST SP 800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="ThreatEventList">
+        <xsd:sequence>
+            <xsd:element ref="boe:ThreatEvent" maxOccurs="unbounded"/>
+        </xsd:sequence>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:element name="ThreatEvents" type="boe:ThreatEventList">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">A list of the potential threat events</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #11, NIST SP 800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="RatedScaleResponseType">
+        <xsd:simpleContent>
+            <xsd:restriction base="boe:ResponseWithExplanation">
+                <xsd:attribute name="response" type="boe:RatingScaleEnum" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            <xhtml:p ism:classification="U" ism:ownerProducer="USA">Describe the overall level of risk 
+                                (e.g., very low, low, moderate, high, or very high) to the system, considering all individual 
+                                risks, mitigating factors, environment, architecture, system's security categorization, 
+                                historical evidence, etc.</xhtml:p>
+                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #20, NIST SP 800-30</xhtml:p>
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:element name="OverallRiskPosture" type="boe:RatedScaleResponseType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Describe the overall level of risk 
+                    (e.g., very low, low, moderate, high, or very high) to the system, considering all individual 
+                    risks, mitigating factors, environment, architecture, system's security categorization, 
+                    historical evidence, etc. with optional explanation.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #20, NIST SP 800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="RiskAssessmentSummary" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Executive summary from the detailed findings 
+                    generated during risk assessment. An executive summary provides an AO with an abbreviated version 
+                    of the risk assessment report focusing on the highlights of the assessment, purpose, synopsis of 
+                    key findings, and/or recommendations for addressing risk</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #21, NIST SP 800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="DeficiencyType">
+        <xsd:all>
+            <xsd:element ref="boe:Name">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">A short name to describe the deficency, vulnerability, or weakness</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C POA&amp;M Data elements #1, NIST SP 800-37</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="boe:Description">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">A short description of the program or system-level 
+                            information security vulnerability that poses a risk of compromising confidentiality, integrity, or 
+                            availability of information or the system, if applicable</xhtml:p>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Contains both initial vulnerability (does not include 
+                            false positives) from the SAR and the risk assessment level from the RAR</xhtml:p>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Sufficient detail must be provided to permit oversight and tracking.</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C POA&amp;M Data elements #1 and #2, NIST SP 800-37</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:all>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:element name="PointOfContact" type="boe:PersonType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">a person or department that can be approached for information or assistance on a specific topic.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="Name" type="ism:ShortStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">A word or set of words by which a person, animal, 
+                    place, or thing is known, addressed, or referred to.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="Description" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">A representation or account of a person, object, or event.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="ApplicableSecurityControl" type="ism:ShortStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">NIST SP 800-53 security control identifier that was 
+                    found to be deficient. For a security vulnerability (weakness) found by means other than a security 
+                    controls assessment (e.g., vulnerability test), map the deficient function to the applicable security 
+                    control</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C POA&amp;M Data elements #4, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="CompletionStatus" type="boe:StatusResponseWithExplanationType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Indicates the status towards completion of a task, process, or activity.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="CompletionDate" type="boe:DateWithoutTimezoneWithSecurity">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">The date on which the task, process, or activity actually finished.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="ScheduledCompletionDate"
+                type="boe:DateWithoutTimezoneWithSecurity">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">The date on which the task, process, or activity was planned/intended to be finished.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="StatusResponseWithExplanationType">
+        <xsd:simpleContent>
+            <xsd:restriction base="boe:ResponseWithExplanation">
+                <xsd:attribute name="response" type="boe:CompletionStatusEnum" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            <xhtml:p ism:classification="U" ism:ownerProducer="USA">The completion status of the POA&amp;M.</xhtml:p>
+                            <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C POA&amp;M Data elements #9, NIST SP 800-37</xhtml:p>
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:element name="ReviewingOrganization" type="ism:ShortStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">An Organization responsible for performing a review.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="Deficiency" type="boe:DeficiencyType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">A deficiency, weakness, or vulnerability in a system or program.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C POA&amp;M Data elements #1, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="IdentifyingEventType">
+        <xsd:all>
+            <xsd:element name="Event" type="ism:ShortStringWithSecurityType">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The event that identified the deficiency (e.g., security controls assessment, penetration test)</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C POA&amp;M Data elements #3, NIST SP 800-37</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ReviewingOrganization" type="ism:ShortStringWithSecurityType">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The organization responsible for the event where an organization is an entity of any size, complexity, or positioning within an organizational structure (e.g., a federal agency, or, as appropriate, any of its operational elements).</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C POA&amp;M Data elements #3, NIST SP 800-37</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-4009 (Organization)</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:all>
+        <xsd:attribute name="date" type="boe:DateWithoutTimezone">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <xhtml:p ism:classification="U" ism:ownerProducer="USA">The date the weakness was identified.</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C POA&amp;M Data elements #3, NIST SP 800-37</xhtml:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:element name="IdentifyingEvent" type="boe:IdentifyingEventType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Includes the event that identified the deficiency (e.g., security 
+                    controls assessment, penetration test), reviewing organization, and date the weakness was identified</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C POA&amp;M Data elements #3, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="Comments" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Additional detail, clarifications, or other commentary.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="Milestones" type="boe:MilestoneListType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Outlines specific high-level steps to be 
+                    executed in mitigating the weakness and the estimated completion dates for each step. Initial 
+                    milestones and completion dates should not be changed. Changes to milestones should be placed in 
+                    the Changes to Milestones field.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C POA&amp;M Data elements #7, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="MilestoneListType">
+        <xsd:sequence>
+            <xsd:element ref="boe:Milestone" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="Milestone" type="boe:MilestoneType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Outlines a specific high-level step to be 
+                    executed in mitigating the weakness and the estimated completion date for each step. Initial 
+                    milestone and completion date should not be changed. Changes to milestones should be placed in 
+                    the Changes to Milestones field.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C POA&amp;M Data elements #7, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="MilestoneType">
+        <xsd:all>
+            <xsd:element ref="boe:Name">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">A name or identifier for the milestone.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="boe:Description" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">A description of what the milestone entails.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="boe:ScheduledCompletionDate">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The originally scheduled completion date of the milestone.</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="boe:CompletionStatus">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Indicates the stage or state of the vulnerability 
+                            (weakness) in the corrective process cycle (Completed, Ongoing, Delayed, or Planned). The Completed 
+                            status should be used only when a vulnerability (weakness) has been fully resolved and the corrective 
+                            action has been tested. When listing items as "COMPLETE" also include the date of completion.</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C POA&amp;M Data elements #9, NIST SP 800-37</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="boe:CompletionDate">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">The actual completion date of the milestone. 
+                            Only populate if CompletionStatus is "COMPLETE"</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="boe:MilestoneChanges" minOccurs="0"/>
+        </xsd:all>
+    </xsd:complexType>
+
+    <xsd:element name="MilestoneChanges" type="boe:MilestoneChangeListType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">A list of changes to completion dates to the milestone.</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="MilestoneChangeListType">
+        <xsd:sequence>
+            <xsd:element ref="boe:MilestoneChange" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="MilestoneChange" type="boe:MilestoneChangeType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">New estimated date of a milestone’s completion, if the 
+                    original date is not met. The new date and reason for the change in milestone completion should be recorded. 
+                    No changes should be made to the original estimate</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C POA&amp;M Data elements #8, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="MilestoneChangeType">
+        <xsd:attribute name="newTargetDate" type="boe:DateWithoutTimezone">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <xhtml:p ism:classification="U" ism:ownerProducer="USA">New anticipated completion date of milestone.</xhtml:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="changeReason" type="ism:ShortStringType">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <xhtml:p ism:classification="U" ism:ownerProducer="USA">Reason for change in milestone completion.</xhtml:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="AuthorizationStatusResponseWithExplanation">
+        <xsd:simpleContent>
+            <xsd:restriction base="boe:ResponseWithExplanation">
+                <xsd:attribute name="response"
+                           type="CVEnumBOEAuthorizationType:CVEnumBOEAuthorizationType"
+                           use="required">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            <xhtml:p ism:classification="U" ism:ownerProducer="USA">Specifies the authorization status.</xhtml:p>
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:element name="AuthorizationDecision"
+                type="boe:AuthorizationStatusResponseWithExplanation">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Indicates the type of authorization decision for the 
+                    system (i.e., ATO or DATO).</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C Authorization Decision Document
+                    Data elements #1, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="AuthorizingOfficial" type="boe:PersonType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Authorizing Official or Delegated Authorizing Official who signed (manual or Public Key 
+                    Infrastructure (PKI)-certified digital signature) the authorization decision.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C Authorization Decision Document
+                    Data elements #2, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="AuthorizationDecisionDate"
+                type="boe:DateWithoutTimezoneWithSecurity">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Identify the date the authorization decision was determined.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C Authorization Decision Document
+                    Data elements #3, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="AuthorizationDecisionTerminationDate"
+                type="boe:DateWithoutTimezoneWithSecurity">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Identify the date the authorization expires.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C Authorization Decision Document
+                    Data elements #4, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="OverallRiskRatingsType">
+        <xsd:all>
+            <xsd:element name="VeryLow" type="xsd:int">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Indicates the number of items that are in the VeryLow risk category.</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C Authorization Decision Document
+                            Data elements #5, NIST SP 800-37</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #19, NIST SP 800-30</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Low" type="xsd:int">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Indicates the number of items that are in the Low risk category.</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C Authorization Decision Document
+                            Data elements #5, NIST SP 800-37</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #19, NIST SP 800-30</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Moderate" type="xsd:int">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Indicates the number of items that are in the Medium risk category.</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C Authorization Decision Document
+                            Data elements #5, NIST SP 800-37</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #19, NIST SP 800-30</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="High" type="xsd:int">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Indicates the number of items that are in the High risk category.</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C Authorization Decision Document
+                            Data elements #5, NIST SP 800-37</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #19, NIST SP 800-30</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="VeryHigh" type="xsd:int">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <xhtml:p ism:classification="U" ism:ownerProducer="USA">Indicates the number of items that are in the VeryHigh risk category.</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C Authorization Decision Document
+                            Data elements #5, NIST SP 800-37</xhtml:p>
+                        <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #19, NIST SP 800-30</xhtml:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:all>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:element name="OverallRiskRatings" type="boe:OverallRiskRatingsType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Indicates the number of controls identified for each level of risk (i.e., very low, low, moderate, high, or very high)</xhtml:p>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Includes the overall risk posture and listing the number of risks by level (i.e., very low to very high). See the RAR for detailed descriptions on each risk</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C Authorization Decision Document
+                    Data elements #5, NIST SP 800-37</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C RAR Data elements #19, NIST SP 800-30</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="AuthorizationTermsAndConditions"
+                type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">Provides a description of any specific limitations 
+                    or restrictions placed on the operation of the system.</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C Authorization Decision Document
+                    Data elements #8, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="RiskExecutiveInput" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:p ism:classification="U" ism:ownerProducer="USA">The security related-considerations from the Risk Executive which 
+                    the AO deems relevant and affects the final authorization decision. These considerations are viewed from 
+                    organization-wide perspective with regard to the overall strategic goals and objectives in carrying out the mission 
+                    and business functions. (e.g., organizational risk tolerance, organization’s overall risk mitigation strategy, core 
+                    mission and business requirements, dependencies among systems, ongoing risk monitoring requirements, and other types 
+                    of risks not directly associated with the system or its environment of operation)</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U">Source: CNSSI-1254 appendix C Authorization Decision Document
+                    Data elements #6, NIST SP 800-37</xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <!--***************************************************-->
+    <!--End All case-insensitive alphabetically-->
+    <!--***************************************************-->
+
+    <xsd:annotation>
+        <xsd:documentation>
+			      <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Formal Change List
+				BOE-XML</xhtml:h2>
+			      <xhtml:table ism:ownerProducer="USA" ism:classification="U" id="ChangeHistory">
+				        <xhtml:caption>Change History</xhtml:caption>
+				        <xhtml:thead>
+					          <xhtml:tr>
+						            <th>Version</th>
+						            <th>Date</th>
+						            <th>By</th>
+						            <th>Description</th>
+					          </xhtml:tr>
+				        </xhtml:thead>
+				        <xhtml:tbody>
+					          <xhtml:tr>
+						            <xhtml:td>2018-APR</xhtml:td>
+						            <xhtml:td>2018-02-01</xhtml:td>
+						            <xhtml:td>ODNI/IC CIO/IAD</xhtml:td>
+						            <xhtml:td>
+							For schema change history, reference the change history in the DES.
+						</xhtml:td>
+					          </xhtml:tr>
+				        </xhtml:tbody>
+			      </xhtml:table>
+		    </xsd:documentation>
+    </xsd:annotation>
+</xsd:schema>

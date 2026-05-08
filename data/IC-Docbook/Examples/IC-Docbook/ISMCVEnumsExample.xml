@@ -1,0 +1,4400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schema/IC-Docbook/DocbookIC.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<d:book xmlns:d="http://docbook.org/ns/docbook"
+        xmlns:ism="urn:us:gov:ic:ism"
+        version="5.0-variant urn:us:gov:ic:docbook-201804"
+        xml:lang="en"
+        ism:compliesWith="USGov USIC"
+        ism:ownerProducer="USA"
+        ism:classification="U"
+        ism:DESVersion="202111.202211"
+        ism:ISMCATCESVersion="202211"
+        ism:resourceElement="true"
+        ism:createDate="2012-01-04"
+        status="draft">
+  <d:info>
+    <d:author>
+      <d:personname>
+        <d:surname>Marking Classified National Security Information Directive No. 1</d:surname>
+      </d:personname>
+    </d:author>
+    <d:mediaobject xml:id="image_agency">
+      <d:imageobject>
+        <d:imagedata fileref="./images/MIA_Logo.png"
+                     width="1.59in"
+                     align="center" />
+      </d:imageobject>
+    </d:mediaobject>
+    <d:subtitle>Controlled Vocabulary Enumeration Values for ISM</d:subtitle>
+    <d:title>ISM-CVEnums</d:title>
+    <d:productname>ISM-CVEnums</d:productname>
+    <d:edition>Version 2016-SEPr2018-APR</d:edition>
+    <d:author>
+      <d:orgname>ODNI/IC CIO</d:orgname>
+    </d:author>
+    <d:pubdate>November 3, 2017</d:pubdate>
+    <d:date>Target Approval Date: TBD, 2018</d:date>
+    <d:releaseinfo role="footer.notice">This document is subject to distribution restrictions, see Distribution Notice for
+    details.</d:releaseinfo>
+    <d:legalnotice ism:unregisteredNoticeType="DISTRO">
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Distribution Notice:</d:title>
+      <d:para ism:classification="U"
+              ism:ownerProducer="USA">This document is being made available by the Intelligence Community Chief Information Officer to
+              Federal, State, Local, Tribal, and Foreign Partners and associated contractors. Approval for any further distribution must be
+              coordinated via the Intelligence Community Chief Information Officer, at ic-standards-support@iarpa.gov.</d:para>
+    </d:legalnotice>
+  </d:info>
+  <d:chapter xml:id="CVEnumISM25X">
+    <d:title ism:ownerProducer="USA"
+             ism:classification="U">CVEnumISM25X for ISM</d:title>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Descriptive information</d:title>
+      <d:itemizedlist spacing="compact">
+        <d:listitem>
+          <d:para ism:ownerProducer="USA"
+                  ism:classification="U">Description: All currently authorized authority block declass date/event exemptions. This CVE is
+                  used by @ism:declassException.</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Multiplicity: Single-Valued</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">URN: urn:us:gov:ic:cvenum:ism:25x</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Created: 2012-01-04T02:15:00-04:00</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Source: Marking Classified National Security Information Directive No. 1</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Point of contact: 
+          <d:itemizedlist spacing="compact">
+            <d:listitem>
+              <d:para>Office IC CIO</d:para>
+            </d:listitem>
+            <d:listitem>
+              <d:para>E-mail: 
+              <d:email>ic-standards-support@iarpa.gov</d:email></d:para>
+            </d:listitem>
+          </d:itemizedlist></d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:sect1>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Permissible Values</d:title>
+      <d:para ism:ownerProducer="USA"
+              ism:classification="U">The permissible values for this simple type are defined in the Controlled Value Enumeration:
+              CVEnumISM25X.xml</d:para>
+      <d:table>
+        <d:title ism:ownerProducer="USA"
+                 ism:classification="U">CVEnumISM25X Values</d:title>
+        <d:tgroup cols="4">
+          <d:colspec colnum="1"
+                     colname="c1"
+                     colwidth="1.0*" />
+          <d:colspec colnum="2"
+                     colname="c2"
+                     colwidth="1.0*" />
+          <d:colspec colnum="3"
+                     colname="c3"
+                     colwidth="2.0*" />
+          <d:colspec colnum="4"
+                     colname="last"
+                     colwidth="3.31*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last">
+                <d:para>The following table is classified UNCLASSIFIED.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last"
+                       align="center">
+                <d:para ism:ownerProducer="USA"
+                        ism:classification="U">CVEnum­ISM25X Values</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>Classification</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Value</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Documentation</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry align="center">
+                <d:para>Row</d:para>
+              </d:entry>
+              <d:entry align="center">
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row xml:id="md5-d2f817a434147bd94f7de0c9f9c7b949">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>AEA</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">When using a source document that contains portions of Restricted Data (RD) or Formerly
+                        Restricted Data (FRD) where the RD/FRD source document(s) do not have declassification instructions, the
+                        derivatively classified document shall not contain a declassification date or event on the Declassify On line. The
+                        following shall be annotated on the Declassify On line: "Not Applicable or (N/A) to RD/FRD portions" and "See
+                        source list for NSI portions" separated by a period. The source list must include the declassification instruction
+                        for each of the source documents classified under E.O. 13526 and shall not appear in the classification authority
+                        block</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-227e13be319796632f54a07e3e434cb1">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>NATO</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Since NATO information is not to be declassified or downgraded without the prior consent of
+                        NATO, the “Declassify on” line of documents that commingle information classified by NATO and U.S. classified NSI,
+                        will read “N/A to NATO portions. See source list for NSI portions.” The NSI source list will appear beneath the
+                        classification authority block in a manner that clearly identifies it as separate and distinct.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-f896aebeeadf60c1bef533be0295e624">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>NATO-AEA</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Handles special case of BOTH NATO and AEA as a single exemption.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-b9ebdaebc2cba0fc811fe00b2e597a3c">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>25X1</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Reveal the identity of a confidential human source, a human intelligence source, a
+                        relationship with an intelligence or security service of a foreign government or international organization, or a
+                        non-human intelligence source; or impair the effectiveness of an intelligence method currently in use, available
+                        for use, or under development.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-b08ed1a30d818b4ef5f66eac37f43c83">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>25X1-EO-12951</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">"25X1, EO 12951" (prescribed by the DNI for use on information described in E.O. 12951,
+                        Release of Imagery Acquired by Space-Based National Intelligence Reconnaissance Systems)</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-11f56e221c008ee662f68a60364e9c44">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>25X2</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Reveal information that would assist in the development, production, or use of weapons of
+                        mass destruction.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-4cc4d8a5ae6beb5ae373806271ab3fd8">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>25X3</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Reveal information that would impair U.S. cryptologic systems or activities.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-66a42faed92b88d0cbb2d8a5d2983e0b">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>25X4</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Reveal information that would impair the application of state-of-the-art technology within
+                        a U.S. weapon system.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-53754015d196d1f9525cc8fac5a59659">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>25X5</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Reveal formally named or numbered U.S. military war plans that remain in effect, or reveal
+                        operational or tactical elements of prior plans that are contained in such active plans;</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-9957d5ec7f3539b9aef47544008374dd">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>25X6</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Reveal information, including foreign government information, that would cause serious harm
+                        to relations between the United States and a foreign government, or to ongoing diplomatic activities of the United
+                        States</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-3f5430885e48204f18be6ea4865d8d09">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>25X7</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Reveal information that would impair the current ability of United States Government
+                        officials to protect the President, Vice President, and other protectees for whom protection services, in the
+                        interest of the national security, are authorized.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-a989ab899371960bfaca70d10fba83e5">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>25X8</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Reveal information that would seriously impair current national security emergency
+                        preparedness plans or reveal current vulnerabilities of systems, installations, or infrastructures relating to the
+                        national security.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-4f15d090f6668d98f4f5b716fc3ac4eb">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>25X9</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Violate a statute, treaty, or international agreement that does not permit the automatic or
+                        unilateral declassification of information at 25 years.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-23c4cd6a71a432b93ec4a56572c496ba">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>50X1</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">The ISCAP has authorized use of this code in the FBI’s classification guidance (which
+                        results in a 75-year classification period) for any agency sourcing/reusing the information.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-3cc8c02952ba44a531b07df5a783bf56">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>50X1-HUM</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">When the information clearly and demonstrably could be expected to reveal the identity of a
+                        confidential human source or a human intelligence source.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-b0d7fe0679c66b259dc4a9fdef33d899">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>50X2</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Reveal information that would assist in the development, production, or use of weapons of
+                        mass destruction.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-0d5aa76875e3908939896a9ac98d02b5">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>50X2-WMD</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">When the information clearly and demonstrably could reveal key design concepts of weapons
+                        of mass destruction.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-f19fc9173064f84fcd7f64922e798350">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>50X3</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Reveal information that would impair U.S. cryptologic systems or activities.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-7437de52687bfc5932706e85d5eacd6a">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>50X4</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Reveal information that would impair the application of state-of-the-art technology within
+                        a U.S. weapon system.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-df30ecfb14dd7eceabfa582f4aea3fc1">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>50X5</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Reveal formally named or numbered U.S. military war plans that remain in effect, or reveal
+                        operational or tactical elements of prior plans that are contained in such active plans;</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-0a657c12802fb2079d79a6b92a17f9ff">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>50X6</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Reveal information, including foreign government information, that would cause serious harm
+                        to relations between the United States and a foreign government, or to ongoing diplomatic activities of the United
+                        States</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-f2948a0fffedc507c1cf99714e987985">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>50X7</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Reveal information that would impair the current ability of United States Government
+                        officials to protect the President, Vice President, and other protectees for whom protection services, in the
+                        interest of the national security, are authorized.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-5995843e62a72f2196b5fed292e14c28">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>50X8</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Reveal information that would seriously impair current national security emergency
+                        preparedness plans or reveal current vulnerabilities of systems, installations, or infrastructures relating to the
+                        national security.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-62572641c4f425297a3cf6933c7ccb09">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>50X9</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Violate a statute, treaty, or international agreement that does not permit the automatic or
+                        unilateral declassification of information at 25 years.</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:sect1>
+  </d:chapter>
+  <d:chapter xml:id="CVEnumISMatomicEnergyMarkings">
+    <d:title ism:ownerProducer="USA"
+             ism:classification="U">CVEnumISMatomicEnergyMarkings for ISM</d:title>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Descriptive information</d:title>
+      <d:itemizedlist spacing="compact">
+        <d:listitem>
+          <d:para ism:ownerProducer="USA"
+                  ism:classification="U">Description: All currently valid Atomic Energy information markings from the published register.
+                  This CVE is used by @ism:atomicEnergyMarkings.</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Multiplicity: Multi-Valued Max Values: 1000</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">URN: urn:us:gov:ic:cvenum:ism:atomicEnergyMarkings</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Created: 2011-02-04T00:22:00-04:00</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Source: IC Systems Register and Manual</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Point of contact: 
+          <d:itemizedlist spacing="compact">
+            <d:listitem>
+              <d:para>Office IC CIO</d:para>
+            </d:listitem>
+            <d:listitem>
+              <d:para>E-mail: 
+              <d:email>ic-standards-support@iarpa.gov</d:email></d:para>
+            </d:listitem>
+          </d:itemizedlist></d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:sect1>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Permissible Values</d:title>
+      <d:para ism:ownerProducer="USA"
+              ism:classification="U">The permissible values for this simple type are defined in the Controlled Value Enumeration:
+              CVEnumISMatomicEnergyMarkings.xml</d:para>
+      <d:table>
+        <d:title ism:ownerProducer="USA"
+                 ism:classification="U">CVEnumISMatomicEnergyMarkings Patterns</d:title>
+        <d:tgroup cols="4">
+          <d:colspec colnum="1"
+                     colname="c1"
+                     colwidth="1.0*" />
+          <d:colspec colnum="2"
+                     colname="c2"
+                     colwidth="1.0*" />
+          <d:colspec colnum="3"
+                     colname="c3"
+                     colwidth="2.0*" />
+          <d:colspec colnum="4"
+                     colname="last"
+                     colwidth="3.31*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last">
+                <d:para>The following table is classified UNCLASSIFIED.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last"
+                       align="center">
+                <d:para ism:ownerProducer="USA"
+                        ism:classification="U">CVEnum­ISMatomicEnergyMarkings Values</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>Classification</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Pattern</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Documentation</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry align="center">
+                <d:para>Row</d:para>
+              </d:entry>
+              <d:entry align="center">
+                <d:para>Pattern</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row xml:id="md5-b12cfd77e06ebbc58b8fc009e15b0430">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>RD-SG-((14)|(15)|(18)|(20))</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">RD-SIGMA-#, # represents the SIGMA number which may be 14, 15, 18, or 20.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-fc592b61f880bfdec33a5f5f3ffee612">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>FRD-SG-((14)|(15)|(18)|(20))</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">FRD-SIGMA-#, # represents the SIGMA number which may be 14, 15, 18, or 20.</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+      <d:table>
+        <d:title ism:ownerProducer="USA"
+                 ism:classification="U">CVEnumISMatomicEnergyMarkings Values</d:title>
+        <d:tgroup cols="4">
+          <d:colspec colnum="1"
+                     colname="c1"
+                     colwidth="1.0*" />
+          <d:colspec colnum="2"
+                     colname="c2"
+                     colwidth="1.0*" />
+          <d:colspec colnum="3"
+                     colname="c3"
+                     colwidth="2.0*" />
+          <d:colspec colnum="4"
+                     colname="last"
+                     colwidth="3.31*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last">
+                <d:para>The following table is classified UNCLASSIFIED.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last"
+                       align="center">
+                <d:para ism:ownerProducer="USA"
+                        ism:classification="U">CVEnum­ISMatomicEnergyMarkings Values</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>Classification</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Value</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Documentation</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry align="center">
+                <d:para>Row</d:para>
+              </d:entry>
+              <d:entry align="center">
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row xml:id="md5-a11f475f47f0210584d10e681b2cc3b4">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>RD</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">RESTRICTED DATA</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-2015a832a939311824b61b82f9e0844b">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>RD-CNWDI</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">RD-CRITICAL NUCLEAR WEAPON DESIGN INFORMATION</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-31cb6c1f7d39c91da6d3f2ae51c5fe81">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>FRD</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">FORMERLY RESTRICTED DATA</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-52fb251445239af1abff91446a70f457">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>DCNI</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">DoD CONTROLLED NUCLEAR INFORMATION</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-ba7b9acb008478b0fbf572d1c04ed755">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>UCNI</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">DoE CONTROLLED NUCLEAR INFORMATION</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-e341bbac5d6048615283620461cd5983">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>TFNI</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">TRANSCLASSIFIED FOREIGN NUCLEAR INFORMATION</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:sect1>
+  </d:chapter>
+  <d:chapter xml:id="CVEnumISMAttributes">
+    <d:title ism:ownerProducer="USA"
+             ism:classification="U">CVEnumISMAttributes for ISM</d:title>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Descriptive information</d:title>
+      <d:itemizedlist spacing="compact">
+        <d:listitem>
+          <d:para ism:ownerProducer="USA"
+                  ism:classification="U">Description: All currently authorized ISM attribute names. This file is not imported by the
+                  schema.</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Multiplicity: Multi-Valued Max Values: 36</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">URN: urn:us:gov:ic:cvenum:ism:attributes</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Created: 2010-05-30T16:52:00-04:00</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Source: ISM schema</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Point of contact: 
+          <d:itemizedlist spacing="compact">
+            <d:listitem>
+              <d:para>Office IC CIO</d:para>
+            </d:listitem>
+            <d:listitem>
+              <d:para>E-mail: 
+              <d:email>ic-standards-support@iarpa.gov</d:email></d:para>
+            </d:listitem>
+          </d:itemizedlist></d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:sect1>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Permissible Values</d:title>
+      <d:para ism:ownerProducer="USA"
+              ism:classification="U">The permissible values for this simple type are defined in the Controlled Value Enumeration:
+              CVEnumISMAttributes.xml</d:para>
+      <d:table>
+        <d:title ism:ownerProducer="USA"
+                 ism:classification="U">CVEnumISMAttributes Values</d:title>
+        <d:tgroup cols="4">
+          <d:colspec colnum="1"
+                     colname="c1"
+                     colwidth="1.0*" />
+          <d:colspec colnum="2"
+                     colname="c2"
+                     colwidth="1.0*" />
+          <d:colspec colnum="3"
+                     colname="c3"
+                     colwidth="2.0*" />
+          <d:colspec colnum="4"
+                     colname="last"
+                     colwidth="3.31*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last">
+                <d:para>The following table is classified UNCLASSIFIED.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last"
+                       align="center">
+                <d:para ism:ownerProducer="USA"
+                        ism:classification="U">CVEnum­ISMAttributes Values</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>Classification</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Value</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Documentation</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry align="center">
+                <d:para>Row</d:para>
+              </d:entry>
+              <d:entry align="center">
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row xml:id="md5-7175b79da226af974a5626381732716f">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>compliesWith</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">compliesWith attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-742a449bc02013eb76144dbe22abf377">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>classification</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">classification attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-2240c13c4890956aef27c35423c4bc2f">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>ownerProducer</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">ownerProducer attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-1993fdf573b78fb616df82421b632d9d">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>SCIcontrols</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">SCIcontrols attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-21e77d98375d27fa3bb506c59fa458f3">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>SARIdentifier</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">SARIdentifier attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-0e3e41f1df6ef615cc0102e6e96bf653">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>atomicEnergyMarkings</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">atomicEnergyMarkings attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-07aba32ed508fc63277298df4523d078">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>disseminationControls</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">disseminationControls attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-ac5643652b523be5c5a588be07530f28">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>FGIsourceOpen</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">FGIsourceOpen attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-5048a00d852be0428a6a9b87dcb98acb">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>FGIsourceProtected</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">FGIsourceProtected attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-a576eec1b21f0afecf357b617b9551d6">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>hasApproximateMarkings</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">hasApproximateMarkings attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-820c608d246727267bf2fd2b31fd386a">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>releasableTo</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">releasableTo attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-d72344f749c16b14c3d4fd1d2e1d473d">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>displayOnlyTo</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">displayOnlyTo attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-ec697489b400fbc614bbbf87cc7dc8ac">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>nonICmarkings</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">nonICmarkings attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-6097c0458fe81337f2a110dcacb516d3">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>classifiedBy</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">classifiedBy attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-3d6811430f2843d101349019bab9cb50">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>derivativelyClassifiedBy</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">derivativelyClassifiedBy attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-22acb9d6b46b47bdd947c2785d8dcda5">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>classificationReason</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">classificationReason attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-008d6cfeb772b68b46226b5772a3e837">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>nonUSControls</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">nonUSControls attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-3ec7eaba22712d095a8edb461c3d168e">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>derivedFrom</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">derivedFrom attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-0089dcc3235b15d640b12069281fac28">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>declassDate</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">declassDate attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-976b3eddf099dd28f310a29f7145820e">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>declassEvent</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">declassEvent attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-c8af40cb5e279e8de3404036fe35783b">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>declassException</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">declassException attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-75f27e9a918e7a41a5d276c7b77ed714">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>resourceElement</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">resourceElement attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-7035110b7af8b10e645b16f46d0c0e0d">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>excludeFromRollup</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">excludeFromRollup attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-c8ce4c2aa5d90d26e5bd8e9df3475421">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>createDate</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">createDate attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-4b6cf0831ac66543017fe99411f43561">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>compilationReason</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">compilationReason attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-8fec13b19b2819fd31f3f350e7ff5df3">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>noAggregation</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">noAggregation attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-ae0e9dcdf80593cc270035eea8ef6b45">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>noticeType</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">noticeType attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-90fad0628a2e3af97480deee04cb2a1d">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>externalNotice</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">externalNotice attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-8ea2bf38c1ac385a4f4a05a886193d93">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>DESVersion</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">DESVersion attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-d17ebb467660fd1e3361093e36f14e93">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>ISMCATCESVersion</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">ISMCATCESVersion attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-40fae21e6102706bd4639836b58523be">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>noticeDate</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">notice date attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-b0f3776c6fa5f4a1c745a0dc4d6d6747">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>noticeReason</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">notice Reason attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-0047effaeb85e6506384d9b0818c11de">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>exemptFrom</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">exemptFrom attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-1c8c3e9adda274957f6eb5c64be6cad7">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>unregisteredNoticeType</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">unregisteredNoticeType attribute</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-37be6c1d6ed78195a15b258d6ecf921e">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>pocType</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Specifies a point-of contact for a security-related requirement.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-8f6ca0f9eb573000a7aa50c0e1df5037">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>joint</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Indicator that multiple ownerProducers should be interpreted as JOINT.</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:sect1>
+  </d:chapter>
+  <d:chapter xml:id="CVEnumISMClassificationAll">
+    <d:title ism:ownerProducer="USA"
+             ism:classification="U">CVEnumISMClassificationAll for ISM</d:title>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Descriptive information</d:title>
+      <d:itemizedlist spacing="compact">
+        <d:listitem>
+          <d:para ism:ownerProducer="USA"
+                  ism:classification="U">Description: All currently valid classification marks. This CVE is used by
+                  @ism:classification.</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Multiplicity: Single-Valued</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">URN: urn:us:gov:ic:cvenum:ism:classification:all</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Created: 2010-05-31T21:22:00-04:00</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Source: IC Systems Register and Manual</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Point of contact: 
+          <d:itemizedlist spacing="compact">
+            <d:listitem>
+              <d:para>Office IC CIO</d:para>
+            </d:listitem>
+            <d:listitem>
+              <d:para>E-mail: 
+              <d:email>ic-standards-support@iarpa.gov</d:email></d:para>
+            </d:listitem>
+          </d:itemizedlist></d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:sect1>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Permissible Values</d:title>
+      <d:para ism:ownerProducer="USA"
+              ism:classification="U">The permissible values for this simple type are defined in the Controlled Value Enumeration:
+              CVEnumISMClassificationAll.xml</d:para>
+      <d:table>
+        <d:title ism:ownerProducer="USA"
+                 ism:classification="U">CVEnumISMClassificationAll Values</d:title>
+        <d:tgroup cols="4">
+          <d:colspec colnum="1"
+                     colname="c1"
+                     colwidth="1.0*" />
+          <d:colspec colnum="2"
+                     colname="c2"
+                     colwidth="1.0*" />
+          <d:colspec colnum="3"
+                     colname="c3"
+                     colwidth="2.0*" />
+          <d:colspec colnum="4"
+                     colname="last"
+                     colwidth="3.31*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last">
+                <d:para>The following table is classified UNCLASSIFIED.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last"
+                       align="center">
+                <d:para ism:ownerProducer="USA"
+                        ism:classification="U">CVEnum­ISMClassificationAll Values</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>Classification</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Value</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Documentation</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry align="center">
+                <d:para>Row</d:para>
+              </d:entry>
+              <d:entry align="center">
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row xml:id="md5-98d9fad022780172828c0ccdf4131da9">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>R</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">RESTRICTED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-d17e63838b3f57bd88fb9a5e7fb15c08">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>C</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">CONFIDENTIAL</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-ac5805d418a24b65b4a3bbfd285293ef">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>S</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">SECRET</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-9c29f8178effe8edf752c02d0b1448aa">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>TS</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">TOP SECRET</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-7f5346d14ebd77b6d6d993a1f2a69412">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>U</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:sect1>
+  </d:chapter>
+  <d:chapter xml:id="CVEnumISMClassificationUS">
+    <d:title ism:ownerProducer="USA"
+             ism:classification="U">CVEnumISMClassificationUS for ISM</d:title>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Descriptive information</d:title>
+      <d:itemizedlist spacing="compact">
+        <d:listitem>
+          <d:para ism:ownerProducer="USA"
+                  ism:classification="U">Description: All currently valid US classification marks. This file is not imported by the
+                  schema.</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Multiplicity: Single-Valued</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">URN: urn:us:gov:ic:cvenum:ism:classification:us</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Created: 2010-03-12T11:29:00-04:00</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Source: IC Systems Register and Manual</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Point of contact: 
+          <d:itemizedlist spacing="compact">
+            <d:listitem>
+              <d:para>Office IC CIO</d:para>
+            </d:listitem>
+            <d:listitem>
+              <d:para>E-mail: 
+              <d:email>ic-standards-support@iarpa.gov</d:email></d:para>
+            </d:listitem>
+          </d:itemizedlist></d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:sect1>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Permissible Values</d:title>
+      <d:para ism:ownerProducer="USA"
+              ism:classification="U">The permissible values for this simple type are defined in the Controlled Value Enumeration:
+              CVEnumISMClassificationUS.xml</d:para>
+      <d:table>
+        <d:title ism:ownerProducer="USA"
+                 ism:classification="U">CVEnumISMClassificationUS Values</d:title>
+        <d:tgroup cols="4">
+          <d:colspec colnum="1"
+                     colname="c1"
+                     colwidth="1.0*" />
+          <d:colspec colnum="2"
+                     colname="c2"
+                     colwidth="1.0*" />
+          <d:colspec colnum="3"
+                     colname="c3"
+                     colwidth="2.0*" />
+          <d:colspec colnum="4"
+                     colname="last"
+                     colwidth="3.31*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last">
+                <d:para>The following table is classified UNCLASSIFIED.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last"
+                       align="center">
+                <d:para ism:ownerProducer="USA"
+                        ism:classification="U">CVEnum­ISMClassificationUS Values</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>Classification</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Value</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Documentation</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry align="center">
+                <d:para>Row</d:para>
+              </d:entry>
+              <d:entry align="center">
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row xml:id="md5-1a2ad9bb3e231f83def816830fa17c5c">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>TS</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">TOP SECRET</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-6837d4ac5108bcca5247b02cc136617c">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>S</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">SECRET</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-2ed865da07d082544ca2cba1a56651f2">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>C</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">CONFIDENTIAL</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-9f957dd793d90dad5602f481df1f2ac5">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>U</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:sect1>
+  </d:chapter>
+  <d:chapter xml:id="CVEnumISMCompliesWith">
+    <d:title ism:ownerProducer="USA"
+             ism:classification="U">CVEnumISMCompliesWith for ISM</d:title>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Descriptive information</d:title>
+      <d:itemizedlist spacing="compact">
+        <d:listitem>
+          <d:para ism:ownerProducer="USA"
+                  ism:classification="U">Description: ISM rule sets documents may comply with. This CVE is used by
+                  @ism:compliesWith.</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Multiplicity: Multi-Valued Max Values: 4</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">URN: urn:us:gov:ic:cvenum:ism:complieswith</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Created: 2010-05-30T16:52:00-04:00</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Source: ISM schema</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Point of contact: 
+          <d:itemizedlist spacing="compact">
+            <d:listitem>
+              <d:para>Office IC CIO</d:para>
+            </d:listitem>
+            <d:listitem>
+              <d:para>E-mail: 
+              <d:email>ic-standards-support@iarpa.gov</d:email></d:para>
+            </d:listitem>
+          </d:itemizedlist></d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:sect1>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Permissible Values</d:title>
+      <d:para ism:ownerProducer="USA"
+              ism:classification="U">The permissible values for this simple type are defined in the Controlled Value Enumeration:
+              CVEnumISMCompliesWith.xml</d:para>
+      <d:table>
+        <d:title ism:ownerProducer="USA"
+                 ism:classification="U">CVEnumISMCompliesWith Values</d:title>
+        <d:tgroup cols="4">
+          <d:colspec colnum="1"
+                     colname="c1"
+                     colwidth="1.0*" />
+          <d:colspec colnum="2"
+                     colname="c2"
+                     colwidth="1.0*" />
+          <d:colspec colnum="3"
+                     colname="c3"
+                     colwidth="2.0*" />
+          <d:colspec colnum="4"
+                     colname="last"
+                     colwidth="3.31*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last">
+                <d:para>The following table is classified UNCLASSIFIED.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last"
+                       align="center">
+                <d:para ism:ownerProducer="USA"
+                        ism:classification="U">CVEnum­ISMCompliesWith Values</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>Classification</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Value</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Documentation</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry align="center">
+                <d:para>Row</d:para>
+              </d:entry>
+              <d:entry align="center">
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row xml:id="md5-c7c28ffb621562002d526f0b9ce0ed94">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>USGov</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Document claims compliance with all rules encoded in ISM for documents produced by the US
+                        Federal Government. This is the minimum set of rules for US documents to adhere to, and all US documents should
+                        claim compliance with USGov. For example, a US Intelligence Community document should claim ism:compliesWith="USGov
+                        USIC".</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-e5026c233d1eeff4ca5ddc9b0188d6f2">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>USIC</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Document claims compliance with all rules encoded in ISM for documents produced by the US
+                        Intelligence Community. Documents that claim compliance with USIC MUST also claim compliance with USGov.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-14f6c9c53b2ce2c5c2b231144ee2311a">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>USDOD</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Document claims compliance with all rules encoded in ISM for documents produced by the US
+                        Department of Defense. Documents that claim compliance with USDOD MUST also claim compliance with USGov.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-935a632cf487ecf0743d0aca3ff84c56">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>OtherAuthority</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Document claims compliance with an authority other than the USGov, USIC, or USDOD. This
+                        token is not allowed if the ism:ownerProducer contains USA.</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:sect1>
+  </d:chapter>
+  <d:chapter xml:id="CVEnumISMDissem">
+    <d:title ism:ownerProducer="USA"
+             ism:classification="U">CVEnumISMDissem for ISM</d:title>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Descriptive information</d:title>
+      <d:itemizedlist spacing="compact">
+        <d:listitem>
+          <d:para ism:ownerProducer="USA"
+                  ism:classification="U">Description: All currently valid Dissemination controls from the published register. This CVE is
+                  used by @ism:disseminationControls.</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Multiplicity: Multi-Valued Max Values: 13</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">URN: urn:us:gov:ic:cvenum:ism:dissem</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Created: 2012-01-04T00:14:00-04:00</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Source: IC Systems Register and Manual</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Point of contact: 
+          <d:itemizedlist spacing="compact">
+            <d:listitem>
+              <d:para>Office IC CIO</d:para>
+            </d:listitem>
+            <d:listitem>
+              <d:para>E-mail: 
+              <d:email>ic-standards-support@iarpa.gov</d:email></d:para>
+            </d:listitem>
+          </d:itemizedlist></d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:sect1>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Permissible Values</d:title>
+      <d:para ism:ownerProducer="USA"
+              ism:classification="U">The permissible values for this simple type are defined in the Controlled Value Enumeration:
+              CVEnumISMDissem.xml</d:para>
+      <d:table>
+        <d:title ism:ownerProducer="USA"
+                 ism:classification="U">CVEnumISMDissem Values</d:title>
+        <d:tgroup cols="4">
+          <d:colspec colnum="1"
+                     colname="c1"
+                     colwidth="1.0*" />
+          <d:colspec colnum="2"
+                     colname="c2"
+                     colwidth="1.0*" />
+          <d:colspec colnum="3"
+                     colname="c3"
+                     colwidth="2.0*" />
+          <d:colspec colnum="4"
+                     colname="last"
+                     colwidth="3.31*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last">
+                <d:para>The following table is classified UNCLASSIFIED.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last"
+                       align="center">
+                <d:para ism:ownerProducer="USA"
+                        ism:classification="U">CVEnum­ISMDissem Values</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>Classification</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Value</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Documentation</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry align="center">
+                <d:para>Row</d:para>
+              </d:entry>
+              <d:entry align="center">
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row xml:id="md5-dfa302c851a17d5d032c4a608020bc1c">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>RS</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">RISK SENSITIVE</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-768d8a8bb201bdc090a336c919f686f2">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>FOUO</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">FOR OFFICIAL USE ONLY</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-5caa19abc858c7bdb870363d55458b7b">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>OC</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">ORIGINATOR CONTROLLED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-c2a8278db156d8897511de879078e421">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>OC-USGOV</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">ORIGINATOR CONTROLLED US GOVERNMENT</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-56f9e3301e92d810f97acde452fa2075">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>IMC</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">CONTROLLED IMAGERY</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-f4098430a9584d0503bd1e5112eb789d">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>NF</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">NOT RELEASABLE TO FOREIGN NATIONALS</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-520ca5c705276983b3213e804c5b6714">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>PR</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">CAUTION-PROPRIETARY INFORMATION INVOLVED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-cde6a6e8fc623f101465fc5c92a40f99">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>REL</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">AUTHORIZED FOR RELEASE TO</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-bc27ecb78480bf62225e19219e9d3343">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>RELIDO</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">RELEASABLE BY INFORMATION DISCLOSURE OFFICIAL</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-80223bcc3540edab75086a20a3175b57">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>EYES</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">EYES ONLY</d:para>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Deprecation Date:2017-11-01</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-3f58477fcf5eff215526479433332fc0">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>DSEN</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">DEA SENSITIVE</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-61d031fe4af09c453ae5cbb43acdf849">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>FISA</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">FOREIGN INTELLIGENCE SURVEILLANCE ACT</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-bf175b2cf386131087d0d588eb1072d3">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>DISPLAYONLY</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">AUTHORIZED FOR DISPLAY BUT NOT RELEASE TO</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:sect1>
+  </d:chapter>
+  <d:chapter xml:id="CVEnumISMElements">
+    <d:title ism:ownerProducer="USA"
+             ism:classification="U">CVEnumISMElements for ISM</d:title>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Descriptive information</d:title>
+      <d:itemizedlist spacing="compact">
+        <d:listitem>
+          <d:para ism:ownerProducer="USA"
+                  ism:classification="U">Description: All currently authorized ISM element names</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Multiplicity: Single-Valued</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">URN: urn:us:gov:ic:cvenum:ism:attributes</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Created: 2011-04-15T15:16:00-05:00</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Source: ISM schema</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Point of contact: 
+          <d:itemizedlist spacing="compact">
+            <d:listitem>
+              <d:para>Office IC CIO</d:para>
+            </d:listitem>
+            <d:listitem>
+              <d:para>E-mail: 
+              <d:email>ic-standards-support@iarpa.gov</d:email></d:para>
+            </d:listitem>
+          </d:itemizedlist></d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:sect1>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Permissible Values</d:title>
+      <d:para ism:ownerProducer="USA"
+              ism:classification="U">The permissible values for this simple type are defined in the Controlled Value Enumeration:
+              CVEnumISMElements.xml</d:para>
+      <d:table>
+        <d:title ism:ownerProducer="USA"
+                 ism:classification="U">CVEnumISMElements Values</d:title>
+        <d:tgroup cols="4">
+          <d:colspec colnum="1"
+                     colname="c1"
+                     colwidth="1.0*" />
+          <d:colspec colnum="2"
+                     colname="c2"
+                     colwidth="1.0*" />
+          <d:colspec colnum="3"
+                     colname="c3"
+                     colwidth="2.0*" />
+          <d:colspec colnum="4"
+                     colname="last"
+                     colwidth="3.31*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last">
+                <d:para>The following table is classified UNCLASSIFIED.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last"
+                       align="center">
+                <d:para ism:ownerProducer="USA"
+                        ism:classification="U">CVEnum­ISMElements Values</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>Classification</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Value</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Documentation</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry align="center">
+                <d:para>Row</d:para>
+              </d:entry>
+              <d:entry align="center">
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row xml:id="md5-bd273eaee89fe82c9f807a98bc6ce349">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>Notice</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Notice element</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-639f802debccaa3d5f6f02d62509b495">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>NoticeText</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">NoticeText element</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-01b1f92b0f9517aa3c78a361c07f47ee">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>NoticeList</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">NoticeList element</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-5927910aaebc21acf58c9c653c9ac64a">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>NoticeExternal</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">NoticeExternal element</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-9be4431161aded64787461704aab6594">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>NoticeExternalList</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">NoticeExternalList element</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:sect1>
+  </d:chapter>
+  <d:chapter xml:id="CVEnumISMExemptFrom">
+    <d:title ism:ownerProducer="USA"
+             ism:classification="U">CVEnumISMExemptFrom for ISM</d:title>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Descriptive information</d:title>
+      <d:itemizedlist spacing="compact">
+        <d:listitem>
+          <d:para ism:ownerProducer="USA"
+                  ism:classification="U">Description: Current rule set names that documents may comply with. This CVE is used by
+                  @ism:exemptFrom.</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Multiplicity: Multi-Valued Max Values: 2</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">URN: urn:us:gov:ic:cvenum:ism:exemptfrom</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Created: 2010-05-30T16:52:00-04:00</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Source: ISM schema</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Point of contact: 
+          <d:itemizedlist spacing="compact">
+            <d:listitem>
+              <d:para>Office IC CIO</d:para>
+            </d:listitem>
+            <d:listitem>
+              <d:para>E-mail: 
+              <d:email>ic-standards-support@iarpa.gov</d:email></d:para>
+            </d:listitem>
+          </d:itemizedlist></d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:sect1>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Permissible Values</d:title>
+      <d:para ism:ownerProducer="USA"
+              ism:classification="U">The permissible values for this simple type are defined in the Controlled Value Enumeration:
+              CVEnumISMExemptFrom.xml</d:para>
+      <d:table>
+        <d:title ism:ownerProducer="USA"
+                 ism:classification="U">CVEnumISMExemptFrom Values</d:title>
+        <d:tgroup cols="4">
+          <d:colspec colnum="1"
+                     colname="c1"
+                     colwidth="1.0*" />
+          <d:colspec colnum="2"
+                     colname="c2"
+                     colwidth="1.0*" />
+          <d:colspec colnum="3"
+                     colname="c3"
+                     colwidth="2.0*" />
+          <d:colspec colnum="4"
+                     colname="last"
+                     colwidth="3.31*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last">
+                <d:para>The following table is classified UNCLASSIFIED.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last"
+                       align="center">
+                <d:para ism:ownerProducer="USA"
+                        ism:classification="U">CVEnum­ISMExemptFrom Values</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>Classification</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Value</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Documentation</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry align="center">
+                <d:para>Row</d:para>
+              </d:entry>
+              <d:entry align="center">
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row xml:id="md5-7acbe0834a14aa309a68064f9b4e574f">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>IC_710_MANDATORY_FDR</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Document claims exemption from ICD-710 rules mandating the use of Foreign Disclosure and
+                        Release markings that have been encoded in ISM. Currently, the requirement for FD&amp;R is only mandatory for
+                        Disseminated Analytic Product; however, it is strongly encouraged otherwise.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-93fbda5dc73fdc604e17478c643b10cc">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>DOD_DISTRO_STATEMENT</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Document claims exemption from the rules in DoD5230.24 requiring DoD Distribution
+                        Statements that have been encoded into ISM.</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:sect1>
+  </d:chapter>
+  <d:chapter xml:id="CVEnumISMNonIC">
+    <d:title ism:ownerProducer="USA"
+             ism:classification="U">CVEnumISMNonIC for ISM</d:title>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Descriptive information</d:title>
+      <d:itemizedlist spacing="compact">
+        <d:listitem>
+          <d:para ism:ownerProducer="USA"
+                  ism:classification="U">Description: All currently valid Non-IC markings from the published register. This CVE is used by
+                  @ism:nonICmarkings.</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Multiplicity: Multi-Valued Max Values: 10</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">URN: urn:us:gov:ic:cvenum:ism:nonic</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Created: 2012-01-04T00:14:00-04:00</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Source: IC Systems Register and Manual</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Point of contact: 
+          <d:itemizedlist spacing="compact">
+            <d:listitem>
+              <d:para>Office IC CIO</d:para>
+            </d:listitem>
+            <d:listitem>
+              <d:para>E-mail: 
+              <d:email>ic-standards-support@iarpa.gov</d:email></d:para>
+            </d:listitem>
+          </d:itemizedlist></d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:sect1>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Permissible Values</d:title>
+      <d:para ism:ownerProducer="USA"
+              ism:classification="U">The permissible values for this simple type are defined in the Controlled Value Enumeration:
+              CVEnumISMNonIC.xml</d:para>
+      <d:table>
+        <d:title ism:ownerProducer="USA"
+                 ism:classification="U">CVEnumISMNonIC Values</d:title>
+        <d:tgroup cols="4">
+          <d:colspec colnum="1"
+                     colname="c1"
+                     colwidth="1.0*" />
+          <d:colspec colnum="2"
+                     colname="c2"
+                     colwidth="1.0*" />
+          <d:colspec colnum="3"
+                     colname="c3"
+                     colwidth="2.0*" />
+          <d:colspec colnum="4"
+                     colname="last"
+                     colwidth="3.31*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last">
+                <d:para>The following table is classified UNCLASSIFIED.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last"
+                       align="center">
+                <d:para ism:ownerProducer="USA"
+                        ism:classification="U">CVEnum­ISMNonIC Values</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>Classification</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Value</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Documentation</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry align="center">
+                <d:para>Row</d:para>
+              </d:entry>
+              <d:entry align="center">
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row xml:id="md5-725e9ac89a4ad7ae7cc7cc1b4d4edbdf">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>DS</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">LIMITED DISTRIBUTION</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-42b3642553cd59233505adb0a1ce0845">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>XD</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">EXCLUSIVE DISTRIBUTION</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-e37fb2647cdc56d1c05c1906c367f3a9">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>ND</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">NO DISTRIBUTION</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-a43c3c916ccd3f9578fca9e06eedc352">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>SBU</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">SENSITIVE BUT UNCLASSIFIED</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-4a5a5a4493d7c16e5ed53a63f7d1d33b">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>SBU-NF</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">SENSITIVE BUT UNCLASSIFIED NOFORN</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-570f62896a5a8cb48879b835ccaadbea">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>LES</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">LAW ENFORCEMENT SENSITIVE</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-270001b811a9a308cf36e0a0846561a4">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>LES-NF</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">LAW ENFORCEMENT SENSITIVE NOFORN</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-39e027ca50d6ae8817cd373bbee6242b">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>SSI</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">SENSITIVE SECURITY INFORMATION</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-1b452de9aad418dc017987a620ceda2a">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>NNPI</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">NAVAL NUCLEAR PROPULSION INFORMATION</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:sect1>
+  </d:chapter>
+  <d:chapter xml:id="CVEnumISMNonUSControls">
+    <d:title ism:ownerProducer="USA"
+             ism:classification="U">CVEnumISMNonUSControls for ISM</d:title>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Descriptive information</d:title>
+      <d:itemizedlist spacing="compact">
+        <d:listitem>
+          <d:para ism:ownerProducer="USA"
+                  ism:classification="U">Description: NonUS Control markings supported by ISM. This CVE is used by
+                  @ism:nonUSControls.</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Multiplicity: Multi-Valued Max Values: 3</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">URN: urn:us:gov:ic:cvenum:ism:nonuscontrols</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Created: 2010-06-06T20:11:00-04:00</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Source: ISM schema</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Point of contact: 
+          <d:itemizedlist spacing="compact">
+            <d:listitem>
+              <d:para>Office IC CIO</d:para>
+            </d:listitem>
+            <d:listitem>
+              <d:para>E-mail: 
+              <d:email>ic-standards-support@iarpa.gov</d:email></d:para>
+            </d:listitem>
+          </d:itemizedlist></d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:sect1>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Permissible Values</d:title>
+      <d:para ism:ownerProducer="USA"
+              ism:classification="U">The permissible values for this simple type are defined in the Controlled Value Enumeration:
+              CVEnumISMNonUSControls.xml</d:para>
+      <d:table>
+        <d:title ism:ownerProducer="USA"
+                 ism:classification="U">CVEnumISMNonUSControls Values</d:title>
+        <d:tgroup cols="4">
+          <d:colspec colnum="1"
+                     colname="c1"
+                     colwidth="1.0*" />
+          <d:colspec colnum="2"
+                     colname="c2"
+                     colwidth="1.0*" />
+          <d:colspec colnum="3"
+                     colname="c3"
+                     colwidth="2.0*" />
+          <d:colspec colnum="4"
+                     colname="last"
+                     colwidth="3.31*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last">
+                <d:para>The following table is classified UNCLASSIFIED.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last"
+                       align="center">
+                <d:para ism:ownerProducer="USA"
+                        ism:classification="U">CVEnum­ISMNonUSControls Values</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>Classification</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Value</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Documentation</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry align="center">
+                <d:para>Row</d:para>
+              </d:entry>
+              <d:entry align="center">
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row xml:id="md5-05de5ccf346fbbb2c29502adab6dafe2">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>ATOMAL</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">NATO Atomal mark</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-30cbe751e43ed4f2e2f3d3a9cca11a58">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>BOHEMIA</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">NATO Bohemia mark</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-804d308e96d1c9d862f38bedd4abe2ee">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>BALK</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">NATO Balk mark</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:sect1>
+  </d:chapter>
+  <d:chapter xml:id="CVEnumISMNotice">
+    <d:title ism:ownerProducer="USA"
+             ism:classification="U">CVEnumISMNotice for ISM</d:title>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Descriptive information</d:title>
+      <d:itemizedlist spacing="compact">
+        <d:listitem>
+          <d:para ism:ownerProducer="USA"
+                  ism:classification="U">Description: All currently authorized Notice values. This CVE is used by @ism:noticeType.</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Multiplicity: Multi-Valued Max Values: 24</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">URN: urn:us:gov:ic:cvenum:ism:notice</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Created: 2010-03-12T11:29:00-04:00</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Source: DoD Instruction 5200.01; ISOO 32 CFR Parts 2001 and 2003; DoD Instruction
+                  5230.24</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Point of contact: 
+          <d:itemizedlist spacing="compact">
+            <d:listitem>
+              <d:para>Office IC CIO</d:para>
+            </d:listitem>
+            <d:listitem>
+              <d:para>E-mail: 
+              <d:email>ic-standards-support@iarpa.gov</d:email></d:para>
+            </d:listitem>
+          </d:itemizedlist></d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:sect1>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Permissible Values</d:title>
+      <d:para ism:ownerProducer="USA"
+              ism:classification="U">The permissible values for this simple type are defined in the Controlled Value Enumeration:
+              CVEnumISMNotice.xml</d:para>
+      <d:table>
+        <d:title ism:ownerProducer="USA"
+                 ism:classification="U">CVEnumISMNotice Values</d:title>
+        <d:tgroup cols="4">
+          <d:colspec colnum="1"
+                     colname="c1"
+                     colwidth="1.0*" />
+          <d:colspec colnum="2"
+                     colname="c2"
+                     colwidth="1.0*" />
+          <d:colspec colnum="3"
+                     colname="c3"
+                     colwidth="2.0*" />
+          <d:colspec colnum="4"
+                     colname="last"
+                     colwidth="3.31*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last">
+                <d:para>The following table is classified UNCLASSIFIED.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last"
+                       align="center">
+                <d:para ism:ownerProducer="USA"
+                        ism:classification="U">CVEnum­ISMNotice Values</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>Classification</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Value</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Documentation</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry align="center">
+                <d:para>Row</d:para>
+              </d:entry>
+              <d:entry align="center">
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row xml:id="md5-7811af8821d29d187b0099bdf38cbecc">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>FISA</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">FISA Warning statement</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-0f57b0d4192c2d8b7d97a30b08b02dc0">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>IMC</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">IMCON Warning statement</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-d26c14750ae7c1aceabe5d8f1c974b30">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>CNWDI</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Controled Nuclear Weapon Design Information Warning statement</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-4e07cef2d884fd5ca0fea784762ee1fa">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>RD</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">RD Warning statement</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-a630dfc5164912c921bbc63a2f7d81ee">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>FRD</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">FRD Warning statement</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-74b12a8cdd3f236f268518e5f6106613">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>DS</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">LIMDIS caveat</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-e055057ba613b1db83fa2fb7dbe3af98">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>LES</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">LES Notice</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-26187b2a9650349e6f01bcb9c500803f">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>LES-NF</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">LES-NF Notice</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-29416f86e98d9d8c2bea1c3b0ce7ce34">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>DSEN</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">DSEN Notice</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-d8a25498788767f2f556f6e09aa94178">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>DoD-Dist-A</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">DoD Distribution statement A from DoD Directive 5230.24</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-8b2345d1cece34c52b112bc1dc838a3f">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>DoD-Dist-B</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">DoD Distribution statement B from DoD Directive 5230.24</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-304921a31b19bfb84ad6a31cc0cfed37">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>DoD-Dist-C</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">DoD Distribution statement C from DoD Directive 5230.24</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-d57383bc6c7e1717f6742858a8f71a46">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>DoD-Dist-D</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">DoD Distribution statement D from DoD Directive 5230.24</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-8cd90fddca834f8e24d5e71106e8fcb8">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>DoD-Dist-E</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">DoD Distribution statement E from DoD Directive 5230.24</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-2a76021ce4fc09e7bddc9697623dcde7">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>DoD-Dist-F</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">DoD Distribution statement F from DoD Directive 5230.24</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-b9217d7efee7733f48e7f35b9eb18580">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>US-Person</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">US Person info Notice</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-fdb5d5c0274a00560ab8eaa3b773441b">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>pre13526ORCON</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Indicates that an instance document must abide by rules pertaining to ORIGINATOR CONTROLLED
+                        data issued prior to Executive Order 13526.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-cf22936d25e7b8824cfc7fff53ec5bf2">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>POC</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Indicates that the contents of this notice specify the contact information for a required
+                        point-of-contact.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-79917465ba279ec875618eb04e8248a2">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>COMSEC</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">COMSEC Notice</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-90798af3b6337f42c2886a7a940f1ecc">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>SSI</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Indicates that this is the notice for Sensitive Security Information</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-918c90bba5ac284f6980816786cc002e">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>RSEN</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Risk Sensitive Notice</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-e3ef68ad96e69955433934025d603b77">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>IMCON_RSEN</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Indicates SAT warning statements include IMCON and RSEN markings</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-8197ddb44b7ce4f6742f87f1efa51d57">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>GEOCAP</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">GEOCAP Warning statement</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:sect1>
+  </d:chapter>
+  <d:chapter xml:id="CVEnumISMPocType">
+    <d:title ism:ownerProducer="USA"
+             ism:classification="U">CVEnumISMPocType for ISM</d:title>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Descriptive information</d:title>
+      <d:itemizedlist spacing="compact">
+        <d:listitem>
+          <d:para ism:ownerProducer="USA"
+                  ism:classification="U">Description: All currently authorized types for ISM-related points-of-contact. This CVE is used by
+                  @ism:pocType.</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Multiplicity: Multi-Valued Max Values: 7</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">URN: urn:us:gov:ic:cvenum:ism:pocType</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Created: 2011-07-13T14:42:00-04:00</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Source: DoD Directive 5230.24; ICD-710; Originator Controlled Memo, March 11, 2011</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Point of contact: 
+          <d:itemizedlist spacing="compact">
+            <d:listitem>
+              <d:para>Office IC CIO</d:para>
+            </d:listitem>
+            <d:listitem>
+              <d:para>E-mail: 
+              <d:email>ic-standards-support@iarpa.gov</d:email></d:para>
+            </d:listitem>
+          </d:itemizedlist></d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:sect1>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Permissible Values</d:title>
+      <d:para ism:ownerProducer="USA"
+              ism:classification="U">The permissible values for this simple type are defined in the Controlled Value Enumeration:
+              CVEnumISMPocType.xml</d:para>
+      <d:table>
+        <d:title ism:ownerProducer="USA"
+                 ism:classification="U">CVEnumISMPocType Values</d:title>
+        <d:tgroup cols="4">
+          <d:colspec colnum="1"
+                     colname="c1"
+                     colwidth="1.0*" />
+          <d:colspec colnum="2"
+                     colname="c2"
+                     colwidth="1.0*" />
+          <d:colspec colnum="3"
+                     colname="c3"
+                     colwidth="2.0*" />
+          <d:colspec colnum="4"
+                     colname="last"
+                     colwidth="3.31*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last">
+                <d:para>The following table is classified UNCLASSIFIED.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last"
+                       align="center">
+                <d:para ism:ownerProducer="USA"
+                        ism:classification="U">CVEnum­ISMPoc­Type­ Values</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>Classification</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Value</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Documentation</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry align="center">
+                <d:para>Row</d:para>
+              </d:entry>
+              <d:entry align="center">
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row xml:id="md5-aa16021a680ed68c15e55299faf59e01">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>ICD-710</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">Point-of-contact for an ICD-710 notice.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-a24ec212430a8914d67806859e60537b">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>DoD-Dist-B</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">DoD Distribution statement B from DoD Directive 5230.24</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-17d7740369e915de717038935090d1ca">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>DoD-Dist-C</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">DoD Distribution statement C from DoD Directive 5230.24</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-93860c42426b2129f92f3b37eed4213b">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>DoD-Dist-D</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">DoD Distribution statement D from DoD Directive 5230.24</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-3e576e1e0ea1cb895fdd11dff9a949c6">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>DoD-Dist-E</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">DoD Distribution statement E from DoD Directive 5230.24</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-d3d1035033df0739dd1cb781bd800605">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>DoD-Dist-F</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">DoD Distribution statement F from DoD Directive 5230.24</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:sect1>
+  </d:chapter>
+  <d:chapter xml:id="CVEnumISMSAR">
+    <d:title ism:ownerProducer="USA"
+             ism:classification="U">CVEnumISMSAR for ISM</d:title>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Descriptive information</d:title>
+      <d:itemizedlist spacing="compact">
+        <d:listitem>
+          <d:para ism:ownerProducer="USA"
+                  ism:classification="U">Description: All currently valid SAR controls from the published register. This CVE is used by
+                  @ism:SARIdentifier.</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Multiplicity: Multi-Valued Max Values: 0</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">URN: urn:us:gov:ic:cvenum:ism:sar</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Created: 2010-03-12T11:29:00-04:00</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Source: IC Systems Register and Manual</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Point of contact: 
+          <d:itemizedlist spacing="compact">
+            <d:listitem>
+              <d:para>Office IC CIO</d:para>
+            </d:listitem>
+            <d:listitem>
+              <d:para>E-mail: 
+              <d:email>ic-standards-support@iarpa.gov</d:email></d:para>
+            </d:listitem>
+          </d:itemizedlist></d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:sect1>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Permissible Values</d:title>
+      <d:para ism:ownerProducer="USA"
+              ism:classification="U">The permissible values for this simple type are defined in the Controlled Value Enumeration:
+              CVEnumISMSAR.xml</d:para>
+      <d:table>
+        <d:title ism:ownerProducer="USA"
+                 ism:classification="U">CVEnumISMSAR Values</d:title>
+        <d:tgroup cols="4">
+          <d:colspec colnum="1"
+                     colname="c1"
+                     colwidth="1.0*" />
+          <d:colspec colnum="2"
+                     colname="c2"
+                     colwidth="1.0*" />
+          <d:colspec colnum="3"
+                     colname="c3"
+                     colwidth="2.0*" />
+          <d:colspec colnum="4"
+                     colname="last"
+                     colwidth="3.31*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last">
+                <d:para>The following table is classified UNCLASSIFIED.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last"
+                       align="center">
+                <d:para ism:ownerProducer="USA"
+                        ism:classification="U">CVEnum­ISMSAR Values</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>Classification</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Value</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Documentation</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry align="center">
+                <d:para>Row</d:para>
+              </d:entry>
+              <d:entry align="center">
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last"
+                       align="center">
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">No values in this CVE.</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:sect1>
+  </d:chapter>
+  <d:chapter xml:id="CVEnumISMSCIControls">
+    <d:title ism:ownerProducer="USA"
+             ism:classification="U">CVEnumISMSCIControls for ISM</d:title>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Descriptive information</d:title>
+      <d:itemizedlist spacing="compact">
+        <d:listitem>
+          <d:para ism:ownerProducer="USA"
+                  ism:classification="U">Description: All currently valid SCI controls from the published register. This CVE is used by
+                  @ism:SCIcontrols.</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Multiplicity: Multi-Valued Max Values: 12</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">URN: urn:us:gov:ic:cvenum:ism:scicontrols</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Created: 2017-10-20T22:21:38.129Z</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Source: IC Systems Register and Manual</d:para>
+        </d:listitem>
+        <d:listitem>
+          <d:para ism:classification="U"
+                  ism:ownerProducer="USA">Point of contact: 
+          <d:itemizedlist spacing="compact">
+            <d:listitem>
+              <d:para>Office IC CIO</d:para>
+            </d:listitem>
+            <d:listitem>
+              <d:para>E-mail: 
+              <d:email>ic-standards-support@iarpa.gov</d:email></d:para>
+            </d:listitem>
+          </d:itemizedlist></d:para>
+        </d:listitem>
+      </d:itemizedlist>
+    </d:sect1>
+    <d:sect1>
+      <d:title ism:classification="U"
+               ism:ownerProducer="USA">Permissible Values</d:title>
+      <d:para ism:ownerProducer="USA"
+              ism:classification="U">The permissible values for this simple type are defined in the Controlled Value Enumeration:
+              CVEnumISMSCIControls.xml</d:para>
+      <d:table>
+        <d:title ism:ownerProducer="USA"
+                 ism:classification="U">CVEnumISMSCIControls Values</d:title>
+        <d:tgroup cols="4">
+          <d:colspec colnum="1"
+                     colname="c1"
+                     colwidth="1.0*" />
+          <d:colspec colnum="2"
+                     colname="c2"
+                     colwidth="1.0*" />
+          <d:colspec colnum="3"
+                     colname="c3"
+                     colwidth="2.0*" />
+          <d:colspec colnum="4"
+                     colname="last"
+                     colwidth="3.31*" />
+          <d:thead>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last">
+                <d:para>The following table is classified UNCLASSIFIED.</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="last"
+                       align="center">
+                <d:para ism:ownerProducer="USA"
+                        ism:classification="U">CVEnum­ISMSCIControls Values</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry namest="c1"
+                       nameend="c2"
+                       align="center">
+                <d:para>Classification</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Value</d:para>
+              </d:entry>
+              <d:entry morerows="1">
+                <d:para>Documentation</d:para>
+              </d:entry>
+            </d:row>
+            <d:row>
+              <d:entry align="center">
+                <d:para>Row</d:para>
+              </d:entry>
+              <d:entry align="center">
+                <d:para>Value</d:para>
+              </d:entry>
+            </d:row>
+          </d:thead>
+          <d:tbody>
+            <d:row xml:id="md5-1a298b1032bc95a2a25eb106ff9286a0">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>HCS</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">HCS</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-f00854fd8e0e4024bbce773e90a54be6">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>HCS-O</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">HCS-O</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-16ffcd3b3d83497fc7f2765c9a64ad8b">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>HCS-P</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">HCS-P</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-c3427172fe15d42eee9cde4c3cd2e636">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>RSV</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">RESERVE</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-5db16d10dd6ec706811f242048eb03f4">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>SI</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">SPECIAL INTELLIGENCE</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-c617dc33ec75c94af0bf99790159305b">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>SI-EU</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">ECRU</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-c8c21d72e695d1dee2d90e96d3be385d">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>SI-G</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">SI-GAMMA</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-f88ffff79b5687cf016fda3be90c2fb8">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>SI-NK</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">NONBOOK</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-2dd63909ad6c5a9db4fdeda197c70a46">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>TK</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">TALENT KEYHOLE</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-cb51004d8b25e31658bfc8fa729c171b">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>TK-BLFH</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">BLUEFISH</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-765b27322721e4af7b11b9c1ebd7eb78">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>TK-IDIT</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">IDITAROD</d:para>
+              </d:entry>
+            </d:row>
+            <d:row xml:id="md5-aae17bfb19cd0544d7f5dd53b8090c75">
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA" />
+              </d:entry>
+              <d:entry>
+                <d:para>TK-KAND</d:para>
+              </d:entry>
+              <d:entry>
+                <d:para ism:classification="U"
+                        ism:ownerProducer="USA">KANDIK</d:para>
+              </d:entry>
+            </d:row>
+          </d:tbody>
+        </d:tgroup>
+      </d:table>
+    </d:sect1>
+  </d:chapter>
+</d:book>

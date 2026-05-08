@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXTravelTypeType">
+   <define name="CVEnumDOMEXTravelTypeType.cve">
+      <choice>
+         <value>Auto</value>
+         <value>Bicycle</value>
+         <value>Bus</value>
+         <value>Commercial Air</value>
+         <value>Commercial Truck</value>
+         <value>Commercial Vessel</value>
+         <value>Express Consignment</value>
+         <value>Fishing Vessel</value>
+         <value>Mail</value>
+         <value>Motorcycle</value>
+         <value>Pedestrian</value>
+         <value>Private Aircraft</value>
+         <value>Private Vessel</value>
+         <value>Train</value>
+         <value>Truck</value>
+         <value>Van</value>
+         <value>Other</value>
+      </choice>
+   </define>
+</grammar>

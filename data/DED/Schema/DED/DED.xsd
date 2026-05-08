@@ -1,0 +1,1139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns:ded="urn:us:gov:ic:ded"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:xhtml="http://www.w3.org/1999/xhtml-StopBrowserRendering"
+            xmlns:icid="urn:us:gov:ic:id"
+            xmlns:ism="urn:us:gov:ic:ism"
+            xmlns:arh="urn:us:gov:ic:arh"
+            xmlns:edh="urn:us:gov:ic:edh"
+            xmlns:uom="urn:us:gov:ic:cvenum:unece20:measure"
+            targetNamespace="urn:us:gov:ic:ded"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            ism:resourceElement="true"
+            ism:createDate="2018-10-15"
+            ism:classification="U"
+            ism:ownerProducer="USA"
+            version="201903">
+    <xsd:import namespace="urn:us:gov:ic:edh" schemaLocation="../IC-EDH/IC-EDH.xsd"/>
+    <xsd:import namespace="urn:us:gov:ic:ism" schemaLocation="../ISM/IC-ISM.xsd"/>
+    <xsd:import namespace="urn:us:gov:ic:id" schemaLocation="../IC-ID/IC-ID.xsd"/>
+    <xsd:import namespace="urn:us:gov:ic:cvenum:unece20:measure"
+               schemaLocation="CVEGenerated/CVEnumUNECE20UnitsOfMeasure.xsd"/>
+
+    <xsd:annotation>
+        <xsd:documentation>
+            <xhtml:h1 ism:ownerProducer="USA" ism:classification="U">Intelligence Community Technical Specification XML Data Encoding Specification for Data
+                Element Dictionary (DED)</xhtml:h1>
+        </xsd:documentation>
+        <xsd:documentation>
+            <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Notices</xhtml:h2>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+        </xhtml:p>
+        </xsd:documentation>
+        <xsd:documentation>
+            <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Description</xhtml:h2>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U"> W3C XML Schema for the XML Data Encoding Specification Intelligence Community Metadata
+                Standard for Data Element Dictionary (DED).</xhtml:p>
+        </xsd:documentation>
+        <xsd:documentation>
+            <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Introduction</xhtml:h2>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U"> This XML Schema file is one component of the XML Data Encoding Specification (DES). Please
+                see the document titled <xhtml:i>
+                    <xhtml:a href="../../Documents/DED/DesDedXml.pdf">XML Data Encoding Specification for Data Element Dictionary</xhtml:a>
+                </xhtml:i> for a complete description of the encoding as well as list of all components. </xhtml:p>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U"> It is envisioned that this schema or its components, as well as other parts of the DES may
+                be overridden for localized implementations. Therefore, permission to use, copy, modify and distribute this XML Schema and the other parts of
+                the DES for any purpose is hereby granted in perpetuity. </xhtml:p>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Please reference the preceding two paragraphs in all copies or variations. The developers
+                make no representation about the suitability of the schema or DES for any purpose. It is provided "as is" without expressed or implied warranty. </xhtml:p>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U"> If you modify this XML Schema in any way label your schema as a variant of DED.xml. </xhtml:p>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Please direct all questions, bug reports,or suggestions for changes to the points of
+                contact identified in the document referenced above. </xhtml:p>
+        </xsd:documentation>
+        <xsd:documentation>
+            <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Implementation Notes</xhtml:h2>
+            <xhtml:ul>
+                <xhtml:li ism:ownerProducer="USA" ism:classification="U">Refer to the <xhtml:i>
+                        <xhtml:a href="../../Documents/DED/DesDedXml.pdf">XML Data Encoding Specification for Data Element Dictionary</xhtml:a>
+                    </xhtml:i> DesDedXml.pdf for additional information</xhtml:li>
+            </xhtml:ul>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U"> The root element for DED is: <xhtml:ul>
+                    <xhtml:li ism:ownerProducer="USA" ism:classification="U">
+                        <xhtml:a href="DED_xsd_Element_ded_DataElementDictionary.html#DataElementDictionary">ded:DataElementDictionary</xhtml:a>
+                    </xhtml:li>
+                </xhtml:ul>
+            </xhtml:p>
+        </xsd:documentation>
+        <xsd:documentation>
+            <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Creators</xhtml:h2>
+            <xhtml:p ism:ownerProducer="USA" ism:classification="U">Office of the Director of National Intelligence Intelligence Community Chief Information
+                Officer</xhtml:p>
+        </xsd:documentation>
+
+        <xsd:documentation>
+            <xhtml:div ism:DESVersion="202111"
+                    ism:ISMCATCESVersion="202205"
+                    ism:resourceElement="true"
+                    ism:compliesWith="USGov USIC"
+                    ism:createDate="2019-03-01"
+                    ism:classification="U"
+                    ism:ownerProducer="USA"
+                    data-ded="ded:DataElementDictionary">
+                <xhtml:p ism:ownerProducer="USA"
+                     ism:classification="U"
+                     data-ded="ded:DedTitle">ded:DedTitle: Data Element Dictionary XML </xhtml:p>
+                <xhtml:p ism:ownerProducer="USA"
+                     ism:classification="U"
+                     data-ded="ded:DedPurpose">ded:DedPurpose: The DED for DED's this is a Meta DED
+                    since it describes the Elements for Describing a DED</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA"
+                     ism:classification="U"
+                     data-ded="ded:DedShortName">ded:DedShortName: DED.XML</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA"
+                     ism:classification="U"
+                     data-ded="ded:DedVersion">ded:DedVersion: 2019-MAR</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA"
+                     ism:classification="U"
+                     data-ded="ded:DedDate">ded:DedDate: 2019-03-01T00:00:00Z</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U" data-ded="ded:DedId">ded:DedId: guide://2020/abceb58f-cf52-47d8-8cb9-bb45479e9ec3</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA"
+                     ism:classification="U"
+                     data-ded="ded:DedResponsibleAgency">ded:DedResponsibleAgency: DNI</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA"
+                     ism:classification="U"
+                     data-ded="ded:DedPoc">ded:DedPoc: ic-standards-support@iarpa.gov</xhtml:p>
+                <xhtml:p ism:ownerProducer="USA"
+                     ism:classification="U"
+                     data-ded="ded:DedDistroStatement">ded:DedDistroStatement:
+                    Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       </xhtml:p>
+                <xhtml:p ism:ownerProducer="USA"
+                     ism:classification="U"
+                     data-ded="ded:DedSubjectType">ded:DedSubjectType: XML</xhtml:p>
+            </xhtml:div>
+        </xsd:documentation>
+
+    </xsd:annotation>
+    <!--
+	
+	-->
+
+    <!--
+	Global Elements
+	-->
+    <xsd:element name="DataElementDictionary" type="ded:DataElementDictionaryType"/>
+
+    <xsd:element name="ElementName" type="ism:ShortStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div data-ded="ded:DataElement"
+                       ism:classification="U"
+                       ism:ownerProducer="USA">
+                    <xhtml:p data-ded="ded:ElementName"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementName: ElementName</xhtml:p>
+                    <xhtml:p data-ded="ded:ElementDefinition"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementDefinition: The string identifier that represents the Data Element.</xhtml:p>
+                    
+                    <xhtml:p data-ded="ded:ElementId"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementId: ded:ElementName</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="DedTitle" type="ism:ShortStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div ism:ownerProducer="USA"
+                       ism:classification="U"
+                       data-ded="ded:DataElement">
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementName">ded:ElementName: DedTitle</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementDefinition">ded:ElementDefinition: The descriptive phrase that indicates the content of the Data Element Dictionary.</xhtml:p>
+                    
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementId">ded:ElementId: ded:DedTitle</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementObjectType">ded:ElementObjectType: Data_Structure</xhtml:p>
+                    
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    
+    <xsd:element name="DedShortName" type="ism:ShortStringType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div ism:ownerProducer="USA"
+                       ism:classification="U"
+                       data-ded="ded:DataElement">
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementName">ded:ElementName: DedShortName</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementDefinition">ded:ElementDefinition: The short abbreviation that captures the intent of the DedTitle of the Data Element Dictionary (This value MUST be unclassified).</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementId">ded:ElementId: ded:DedShortName</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementObjectType">ded:ElementObjectType: Data_Structure</xhtml:p>
+                    
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    
+    <xsd:element name="DedVersion" type="ism:ShortStringType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div ism:ownerProducer="USA"
+                       ism:classification="U"
+                       data-ded="ded:DataElement">
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementName">ded:ElementName: DedVersion</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementDefinition">ded:ElementDefinition: The short string that represents the unique state of the Data Element Dictionary.</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementId">ded:ElementId: ded:DedVersion</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementObjectType">ded:ElementObjectType: Data_Structure</xhtml:p>
+                    
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="ElementDefinition" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div data-ded="ded:DataElement"
+                       ism:classification="U"
+                       ism:ownerProducer="USA">
+                    <xhtml:p data-ded="ded:ElementName"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementName: ElementDefinition</xhtml:p>
+                    <xhtml:p data-ded="ded:ElementDefinition"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementDefinition: A statement of the meaning of the Data Element, explaining what it is and/or its essential characteristics.</xhtml:p>
+                    
+                    <xhtml:p data-ded="ded:ElementId"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementId: ded:ElementDefinition</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+
+    <xsd:element name="DedPurpose" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div ism:ownerProducer="USA"
+                       ism:classification="U"
+                       data-ded="ded:DataElement">
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementName">ded:ElementName: DedPurpose</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementDefinition">ded:ElementDefinition: The prose that identifies and describes the reason and scope of the model (e.g., the output) about which this Data Element Dictionary is providing guidance.  If the source of the information contained in the DED is different from the DedHeader/edh/ResponsibleEntity, then the author should identify said source.</xhtml:p>
+                    
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementId">ded:ElementId: ded:DedPurpose</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementObjectType">ded:ElementObjectType: Data_Structure</xhtml:p>
+                    
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    
+    <xsd:element name="DedSubjectType" type="ded:SubjectTypeType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div ism:ownerProducer="USA"
+                       ism:classification="U"
+                       data-ded="ded:DataElement">
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementName">ded:ElementName: DedSubjectType</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementDefinition">ded:ElementDefinition: A short descriptor that characterizes the format and/or structure of the output about which this Data Element Dictionary is providing guidance.  The initial possible values are: Logical, UML, Physical, Ontology, Database, XML, JSON, CSV, CVE, and Other:SomeText.  Multiple values may be used. Additional details about the DED Model should be added to DedPurpose.</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementId">ded:ElementId: ded:DedSubjectType</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    
+    <xsd:element name="ElementDefaultValue" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div data-ded="ded:DataElement"
+                       ism:classification="U"
+                       ism:ownerProducer="USA">
+                    <xhtml:p data-ded="ded:ElementName"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementName: ElementDefaultValue</xhtml:p>
+                    <xhtml:p data-ded="ded:ElementDefinition"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementDefinition: The value that should be provided for the Data Element, if the Data Element does not exist or have content.</xhtml:p>
+                    
+                    <xhtml:p data-ded="ded:ElementId"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementId: ded:ElementDefaultValue</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    
+    <xsd:element name="ElementDefinitionSource" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div data-ded="ded:DataElement"
+                       ism:classification="U"
+                       ism:ownerProducer="USA">
+                    <xhtml:p data-ded="ded:ElementName"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementName: ElementDefinitionSource</xhtml:p>
+                    <xhtml:p data-ded="ded:ElementDefinition"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementDefinition: The cited authority(ies) or reference(s) for which the knowledge to develop the ElementDefinition was obtained or derived.</xhtml:p>
+                    
+                    <xhtml:p data-ded="ded:ElementId"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementId: ded:ElementDefinitionSource</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="ElementObligation" type="ded:ObligationType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div data-ded="ded:DataElement"
+                       ism:classification="U"
+                       ism:ownerProducer="USA">
+                    <xhtml:p data-ded="ded:ElementName"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementName: ElementObligation</xhtml:p>
+                    <xhtml:p data-ded="ded:ElementDefinition"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementDefinition: An indicator of whether the Data Element MUST be populated in all cases (i.e., Mandatory); or if the Data Element is NOT required (i.e., Optional); or whether specific conditions for populating it are specified in ElementRestriction (i.e., Conditional).  If conditional, then the condition should be defined in either ElementRestrictions or the Relationship Metadata section.</xhtml:p>
+                    <!--<xhtml:p ism:ownerProducer="USA" ism:classification="U" data-ded="ded:Processing">ded:Processing: The ISM attributes MUST represent the
+                        classification of the ElementObligation and MAY be rendered as portion marks following enterprise portion marking guidance.</xhtml:p>-->
+                    <xhtml:p data-ded="ded:ElementId"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementId: ded:ElementObligation</xhtml:p>
+                    <xhtml:p data-ded="ded:ElementObjectType"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:EnumerationLocation: XSD type
+                        ObligationEnumType</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="ElementDomain" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div data-ded="ded:DataElement"
+                       ism:classification="U"
+                       ism:ownerProducer="USA">
+                    <xhtml:p data-ded="ded:ElementName"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementName: ElementDomain</xhtml:p>
+                    <xhtml:p data-ded="ded:ElementDefinition"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementDefinition: The context within which the Data Element belongs.</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="ElementId" type="xsd:token">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div ism:ownerProducer="USA"
+                       ism:classification="U"
+                       data-ded="ded:DataElement">
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementName">ded:ElementName: ElementId</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementDefinition">ded:ElementDefinition: The locally unique identifier of the Data Element.</xhtml:p>
+                    
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementId">ded:ElementId: ded:ElementId</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="ElementRestrictions" type="ded:ElementRestrictionsType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div data-ded="ded:DataElement"
+                       ism:classification="U"
+                       ism:ownerProducer="USA">
+                    <xhtml:p data-ded="ded:ElementName"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementName: ElementRestrictions</xhtml:p>
+                    <xhtml:p data-ded="ded:ElementDefinition"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementDefinition: A grouping of the additional constraints, if any, on the content entered for the Data Element (e.g., the maximum number of characters, the regex, uniqueness, min and/or max values, precision, scale). Special Cases:
+                        1) If the DataType is an enumeration, then provide either (A) the enumerated list, or (B) a reference to a specific enumerated list;  
+                        2) If the DataType is a regex, then provide the actual regular expression.</xhtml:p>
+                    
+                    <xhtml:p data-ded="ded:ElementId"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementId: ded:ElementRestrictions</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="ElementRestriction" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div data-ded="ded:DataElement"
+                       ism:classification="U"
+                       ism:ownerProducer="USA">
+                    <xhtml:p data-ded="ded:ElementName"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementName: ElementRestriction</xhtml:p>
+                    <xhtml:p data-ded="ded:ElementDefinition"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementDefinition: The additional constraints, if any, on the content entered for the Data Element (e.g., the maximum number of characters, the regex, uniqueness, min and/or max values, precision, scale). Special Cases:
+                        1) If the DataType is an enumeration, then provide either (A) the enumerated list, or (B) a reference to a specific enumerated list;  
+                        2) If the DataType is a regex, then provide the actual regular expression.</xhtml:p>
+                    
+                    <xhtml:p data-ded="ded:ElementId"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementId: ded:ElementRestriction</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="ElementComments" type="ded:ElementCommentsType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div data-ded="ded:DataElement"
+                       ism:classification="U"
+                       ism:ownerProducer="USA">
+                    <xhtml:p data-ded="ded:ElementName"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementName: ElementComments</xhtml:p>
+                    <xhtml:p data-ded="ded:ElementDefinition"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementDefinition: A grouping of additional clarifying notes, beyond what is contained within the Definition. Also, may contain implementation guidance or processing instructions.</xhtml:p>
+                    
+                    <xhtml:p data-ded="ded:ElementId"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementId: ded:ElementComments</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="ElementComment" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div data-ded="ded:DataElement"
+                       ism:classification="U"
+                       ism:ownerProducer="USA">
+                    <xhtml:p data-ded="ded:ElementName"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementName: ElementComment</xhtml:p>
+                    <xhtml:p data-ded="ded:ElementDefinition"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementDefinition: Additional clarifying notes, beyond what is contained within the Definition. Also, may contain implementation guidance or processing instructions.</xhtml:p>
+                    
+                    <xhtml:p data-ded="ded:ElementId"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementId: ded:ElementComment</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="ElementDataType" type="ism:ShortStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div data-ded="ded:DataElement"
+                       ism:classification="U"
+                       ism:ownerProducer="USA">
+                    <xhtml:p data-ded="ded:ElementName"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementName: ElementDataType</xhtml:p>
+                    <xhtml:p data-ded="ded:ElementDefinition"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementDefinition: The format of the allowed values for the Data Element.  (e.g., string, integer, float, uuid, datetime, boolean, alphanumeric, enumeration, regex).</xhtml:p>
+                    
+                    <xhtml:p data-ded="ded:ElementId"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementId: ded:ElementObjectType</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="ElementMultiplicity" type="ded:MultiplicityStringType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div data-ded="ded:DataElement"
+                       ism:classification="U"
+                       ism:ownerProducer="USA">
+                    <xhtml:p data-ded="ded:ElementName"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementName: ElementMultiplicity</xhtml:p>
+                    <xhtml:p data-ded="ded:ElementDefinition"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementDefinition: This element follows the UML section 7.8.8 (MultiplicityElement) definition "A multiplicity is a definition of an inclusive
+                        interval of non-negative integers beginning with a lower bound and ending with a (possibly infinite) upper bound. 
+                        A MultiplicityElement embeds this information to specify the allowable cardinalities for an instantiation of the Element."
+                        The exact tailoring of the UML is shown in the DES. Example notations [0..1], [0..*], [0..n] [1..1], [1..*], [1..n], [n..m]. 
+                        Note that n and m here are variables that represent finite numbers.  Actual use in a DED would replace n and m with
+                        the finite number(s) appropriate for the Element.  For example, [0..6] means the Element is optional and can have up to 6 instances.
+                        [1..5] means the Element is required and can have up to 5 instances.</xhtml:p>
+                    <!--<xhtml:p data-ded="ded:Processing" ism:classification="U" ism:ownerProducer="USA">ded:Processing: The ISM attributes MUST represent the
+                        classification of the NumericMax and MAY be rendered as portion marks following enterprise portion marking guidance.</xhtml:p>-->
+                    <xhtml:p data-ded="ded:ElementId"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementId: ded:ElementMutliplicity</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="ElementObjectType" type="ism:ShortStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div data-ded="ded:DataElement"
+                       ism:classification="U"
+                       ism:ownerProducer="USA">
+                    <xhtml:p data-ded="ded:ElementName"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementName: ElementObjectType</xhtml:p>
+                    <xhtml:p data-ded="ded:ElementDefinition"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementDefinition: The kind of Data Element that is being defined (e.g., class, attribute, element, keyword, table).</xhtml:p>
+                    
+                    <xhtml:p data-ded="ded:ElementId"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementId: ded:ElementObjectType</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="DedPoc" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div ism:ownerProducer="USA"
+                       ism:classification="U"
+                       data-ded="ded:DataElement">
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementName">ded:ElementName: DedPoc</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementDefinition">ded:ElementDefinition: The person or organization that Authored
+                        the DED.</xhtml:p>
+                    
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementId">ded:ElementId: ded:DedPoc</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+
+    <xsd:element name="ElementParentName" type="ded:LocalIdTokenListSecureType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div data-ded="ded:DataElement"
+                       ism:classification="U"
+                       ism:ownerProducer="USA">
+                    <xhtml:p data-ded="ded:ElementName"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementName: ElementParentName</xhtml:p>
+                    <xhtml:p data-ded="ded:ElementDefinition"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementDefinition: The ElementName(s) of another Data Element within the Data Element Dictionary, for which this Data Element is a child element.</xhtml:p>
+                    
+                    <xhtml:p data-ded="ded:ElementId"
+                        ism:classification="U"
+                        ism:ownerProducer="USA">ded:ElementId: ded:UsedByLocal</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="DataElement" type="ded:DataElementType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div ism:ownerProducer="USA"
+                       ism:classification="U"
+                       data-ded="ded:DataElement">
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementName">ded:ElementName: DataElement</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementDefinition">ded:ElementDefinition: A wrapper element for showing the
+                        classification of an Element as a whole and for grouping the values relating to an element.</xhtml:p>
+                    
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementId">ded:ElementId: ded:DataElement</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    
+    <xsd:element name="Relationship" type="ded:RelationshipType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div ism:ownerProducer="USA"
+                       ism:classification="U"
+                       data-ded="ded:DataElement">
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementName">ded:ElementName: Relationship</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementDefinition">ded:ElementDefinition: A wrapper element for showing the
+                        classification of a Relationship as a whole and for grouping the values relating to a relationship.</xhtml:p>
+                    
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementId">ded:ElementId: ded:Relationship</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="ElementUnitOfMeasure" type="uom:CVEnumUNECE20UnitsOfMeasure">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div ism:ownerProducer="USA"
+                       ism:classification="U"
+                       data-ded="ded:DataElement">
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementName">ded:ElementName: ElementUnitOfMeasure</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementDefinition">ded:ElementDefinition: The kind of  determinate quantity or magnitude, taken as a standard of comparison for others of
+                        the same kind, in assigning to them numerical values, such as inches, hours, miles.</xhtml:p>
+                    <!--<xhtml:p ism:ownerProducer="USA" ism:classification="U" data-ded="ded:Processing">ded:Processing: The ISM attributes MUST represent the
+                        classification of the DataElement and MAY be rendered as portion marks following enterprise portion marking guidance.</xhtml:p>-->
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementId">ded:ElementId: ded:ElementUnitOfMeasure</xhtml:p>
+                    
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    
+    <xsd:element name="DedHeader" type="ded:DedHeaderType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div ism:ownerProducer="USA"
+                       ism:classification="U"
+                       data-ded="ded:DataElement">
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementName">ded:ElementName: DedHeader</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementDefinition">ded:ElementDefinition: A container holding a set of resource-level information relevant to the entire Data Element Dictionary. This captures the following information concepts:<xhtml:ul>
+                        <xhtml:li>DedAccessControl (edh:Edh/arh:Security)</xhtml:li>
+                        <xhtml:li>DedDistroStatement (edh:Edh/arh:Security/ism:NoticeList)</xhtml:li>
+                        <xhtml:li>DedTitle (ded:DedTitle)</xhtml:li>
+                        <xhtml:li>DedShortName (ded:DedShortName)</xhtml:li>
+                        <xhtml:li>DedPurpose (ded:DedPurpose)</xhtml:li>
+                        <xhtml:li>DedSubjectType (ded:DedSubjectType)</xhtml:li>
+                        <xhtml:li>DedDate (edh:Edh/edh:DataItemCreateDateTime)</xhtml:li>
+                        <xhtml:li>DedVersion (ded:DedVersion)</xhtml:li>
+                        <xhtml:li>DedId (edh:Edh/icid:Identifier)</xhtml:li>
+                        <xhtml:li>DedResponsibleAgency (edh:Edh/edh:ResponsibleEntity)</xhtml:li>
+                        <xhtml:li>DedPoc (ded:DedPoc)</xhtml:li>
+                    </xhtml:ul>
+               </xhtml:p>
+                    <!--<xhtml:p ism:ownerProducer="USA" ism:classification="U" data-ded="ded:Processing">ded:Processing: The ISM attributes MUST represent the
+                        classification of the DataElement and MAY be rendered as portion marks following enterprise portion marking guidance.</xhtml:p>-->
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementId">ded:ElementId: ded:DedHeader</xhtml:p>
+                    
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    
+    <!-- RelationshipLinkADomain -->
+    <xsd:element name="RelationshipLinkADomain" type="ism:ShortStringType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div ism:ownerProducer="USA"
+                       ism:classification="U"
+                       data-ded="ded:DataElement">
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementName">ded:ElementName: RelationshipLinkADomain</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementDefinition">ded:ElementDefinition: The context within which the Data Element A belongs.</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementId">ded:ElementId: ded:RelationshipLinkADomain</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    
+    <!-- RelationshipLinkAName * -->
+    <xsd:element name="RelationshipLinkAName" type="ism:ShortStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div ism:ownerProducer="USA"
+                       ism:classification="U"
+                       data-ded="ded:DataElement">
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementName">ded:ElementName: RelationshipLinkAName</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementDefinition">ded:ElementDefinition: The string identifier that represents the Data Element A.</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementId">ded:ElementId: ded:RelationshipLinkAName</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    
+    <!-- RelationshipLinkAMultiplicity -->
+    <xsd:element name="RelationshipLinkAMultiplicity" type="ded:MultiplicityStringType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div ism:ownerProducer="USA"
+                       ism:classification="U"
+                       data-ded="ded:DataElement">
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementName">ded:ElementName: RelationshipLinkAMultiplicity</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementDefinition">ded:ElementDefinition: This element follows the UML section 7.8.8 (MultiplicityElement) definition "A multiplicity is a definition of an inclusive
+                        interval of non-negative integers beginning with a lower bound and ending with a (possibly infinite) upper bound. 
+                        A MultiplicityElement embeds this information to specify the allowable cardinalities for an instantiation of the Element."
+                        The exact tailoring of the UML is shown in the DES. Example notations [0..1], [0..*], [0..n] [1..1], [1..*], [1..n], [n..m]. 
+                        Note that n and m here are variables that represent finite numbers.  Actual use in a DED would replace n and m with
+                        the finite number(s) appropriate for the Relationship.  For example, [0..6] means the Relationship is optional and can have up to 6 instances.
+                        [1..5] means the Relationship is required and can have up to 5 instances. This element indicates the multiplicity of instances of A that must exist for a single instance of B and the greatest (or maximum) number of instances of A that can exist for a single instance of B.</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementId">ded:ElementId: ded:RelationshipLinkAMultiplicity</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    
+    <!-- RelationshipLinkBDomain -->
+    <xsd:element name="RelationshipLinkBDomain" type="ism:ShortStringType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div ism:ownerProducer="USA"
+                       ism:classification="U"
+                       data-ded="ded:DataElement">
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementName">ded:ElementName: RelationshipLinkBDomain</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementDefinition">ded:ElementDefinition: The context within which the Data Element B belongs.</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementId">ded:ElementId: ded:RelationshipLinkBDomain</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    
+    <!-- RelationshipLinkBName * -->
+    <xsd:element name="RelationshipLinkBName" type="ism:ShortStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div ism:ownerProducer="USA"
+                       ism:classification="U"
+                       data-ded="ded:DataElement">
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementName">ded:ElementName: RelationshipLinkBName</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementDefinition">ded:ElementDefinition: The string identifier that represents the Data Element B.</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementId">ded:ElementId: ded:RelationshipLinkBName</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    
+    <!-- RelationshipLinkBMultiplicity -->
+    <xsd:element name="RelationshipLinkBMultiplicity" type="ded:MultiplicityStringType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div ism:ownerProducer="USA"
+                       ism:classification="U"
+                       data-ded="ded:DataElement">
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementName">ded:ElementName: RelationshipLinkBMultiplicity</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementDefinition">ded:ElementDefinition: This element follows the UML section 7.8.8 (MultiplicityElement) definition "A multiplicity is a definition of an inclusive
+                        interval of non-negative integers beginning with a lower bound and ending with a (possibly infinite) upper bound. 
+                        A MultiplicityElement embeds this information to specify the allowable cardinalities for an instantiation of the Element."
+                        The exact tailoring of the UML is shown in the DES. Example notations [0..1], [0..*], [0..n] [1..1], [1..*], [1..n], [n..m]. 
+                        Note that n and m here are variables that represent finite numbers.  Actual use in a DED would replace n and m with
+                        the finite number(s) appropriate for the Relationship.  For example, [0..6] means the Relationship is optional and can have up to 6 instances.
+                        [1..5] means the Relationship is required and can have up to 5 instances.
+                        This element indicates the multiplicity of instances of  
+                        B that must exist for a single instance of A and the greatest (or maximum) number of instances of B that can exist for a single instance of A.</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementId">ded:ElementId: ded:RelationshipLinkBMultiplicity</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    
+    <!-- RelationshipDefinition * -->
+    <xsd:element name="RelationshipDefinition" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div ism:ownerProducer="USA"
+                       ism:classification="U"
+                       data-ded="ded:DataElement">
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementName">ded:ElementName: RelationshipDefinition</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementDefinition">ded:ElementDefinition: The additional information of how Link A and Link B interact with each other, beyond multiplicity information.</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementId">ded:ElementId: ded:RelationshipDefinition</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    
+    <!-- RelationshipDefinitionSource * -->
+    <xsd:element name="RelationshipDefinitionSource"
+                type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div ism:ownerProducer="USA"
+                       ism:classification="U"
+                       data-ded="ded:DataElement">
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementName">ded:ElementName: RelationshipDefinitionSource</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementDefinition">ded:ElementDefinition: The cited authority(ies) or reference(s) for which the knowledge to develop the RelationshipDefinition was obtained or derived.</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementId">ded:ElementId: ded:RelationshipDefinitionSource</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    
+    
+    
+    <!-- RelationshipComments -->
+    <xsd:element name="RelationshipComments" type="ded:RelationshipCommentsType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div ism:ownerProducer="USA"
+                       ism:classification="U"
+                       data-ded="ded:DataElement">
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementName">ded:ElementName: RelationshipComments</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementDefinition">ded:ElementDefinition: A grouping of additional clarifying notes, beyond what is contained within the RelationshipDefinition or the Relationship Multiplicities. Also, may contain implementation guidance or processing instructions.</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementId">ded:ElementId: ded:RelationshipComments</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    
+    <!-- RelationshipComment * -->
+    <xsd:element name="RelationshipComment" type="ism:LongStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div ism:ownerProducer="USA"
+                       ism:classification="U"
+                       data-ded="ded:DataElement">
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementName">ded:ElementName: RelationshipComment</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementDefinition">ded:ElementDefinition: Additional clarifying notes, beyond what is contained within the RelationshipDefinition or the Relationship Multiplicities. Also, may contain implementation guidance or processing instructions.</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementId">ded:ElementId: ded:RelationshipComment</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    
+    <!-- RelationshipName * -->
+    <xsd:element name="RelationshipName" type="ism:ShortStringWithSecurityType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div ism:ownerProducer="USA"
+                       ism:classification="U"
+                       data-ded="ded:DataElement">
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementName">ded:ElementName: RelationshipName</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementDefinition">ded:ElementDefinition: The string identifier that represents the Relationship.</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementId">ded:ElementId: ded:RelationshipName</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    
+    <!-- RelationshipId -->
+    <xsd:element name="RelationshipId" type="ism:ShortStringType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <xhtml:div ism:ownerProducer="USA"
+                       ism:classification="U"
+                       data-ded="ded:DataElement">
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementName">ded:ElementName: RelationshipId</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementDefinition">ded:ElementDefinition: The locally unique identifier of the Relationship.</xhtml:p>
+                    <xhtml:p ism:ownerProducer="USA"
+                        ism:classification="U"
+                        data-ded="ded:ElementId">ded:ElementId: ded:RelationshipId</xhtml:p>
+                </xhtml:div>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+
+    <!-- 
+         
+Attributes
+    -->
+    <xsd:attribute name="DESVersion">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <xhtml:p ism:ownerProducer="USA" ism:classification="U"> The version number of the DES
+                </xhtml:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+                <xsd:pattern value="[0-9]{6}(\.[0-9]{6})?(\-.{1,23})?"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:attribute>
+
+    <xsd:attributeGroup name="RootAttributesGroup">
+        <xsd:attribute ref="ded:DESVersion"/>
+        <xsd:attribute ref="icid:DESVersion" use="optional"/>
+    </xsd:attributeGroup>
+
+    <!--
+	Type Definitions
+	
+	-->
+    <xsd:simpleType name="SubjectTypeType">
+        <xsd:list>
+            <xsd:simpleType>
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:token">
+                            <xsd:enumeration value="Logical"/>
+                            <xsd:enumeration value="UML"/>
+                            <xsd:enumeration value="Physical"/>
+                            <xsd:enumeration value="Ontology"/>
+                            <xsd:enumeration value="Database"/>
+                            <xsd:enumeration value="XML"/>
+                            <xsd:enumeration value="JSON"/>
+                            <xsd:enumeration value="CSV"/>
+                            <xsd:enumeration value="CVE"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:token">
+                            <xsd:pattern value="Other:.*"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+        </xsd:list>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="DedHeaderType">
+        <xsd:all>
+            <xsd:element ref="edh:Edh" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="ded:DedTitle" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="ded:DedShortName" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="ded:DedPurpose" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="ded:DedSubjectType" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="ded:DedVersion" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="ded:DedPoc" minOccurs="0" maxOccurs="1"/>
+        </xsd:all>
+    </xsd:complexType>
+    
+    <xsd:complexType name="DataElementDictionaryType">
+        <xsd:sequence maxOccurs="1">
+            <xsd:element ref="ded:DedHeader" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="ded:DataElement" minOccurs="1" maxOccurs="unbounded"/>
+            <xsd:element ref="ded:Relationship" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+        <xsd:attributeGroup ref="ded:RootAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:simpleType name="LocalIdTokenListType">
+        <xsd:list itemType="xsd:token"/>
+    </xsd:simpleType>
+
+
+    <xsd:complexType name="LocalIdTokenListSecureType">
+        <xsd:simpleContent>
+            <xsd:extension base="ded:LocalIdTokenListType">
+                <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="DataElementType">
+        <xsd:all maxOccurs="1">
+            <xsd:element ref="ded:ElementId" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="ded:ElementDomain" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="ded:ElementName" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="ded:ElementObjectType" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="ded:ElementDefinition" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="ded:ElementDefinitionSource" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="ded:ElementDataType" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="ded:ElementUnitOfMeasure" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="ded:ElementRestrictions" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="ded:ElementObligation" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="ded:ElementMultiplicity" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="ded:ElementParentName" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="ded:ElementComments" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="ded:ElementDefaultValue" minOccurs="0" maxOccurs="1"/>
+        </xsd:all>
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+    
+    <xsd:complexType name="RelationshipType">
+        <xsd:all>
+            <xsd:element ref="ded:RelationshipLinkADomain" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="ded:RelationshipLinkAName" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="ded:RelationshipLinkAMultiplicity" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="ded:RelationshipLinkBDomain" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="ded:RelationshipLinkBName" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="ded:RelationshipLinkBMultiplicity" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="ded:RelationshipDefinition" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="ded:RelationshipDefinitionSource" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="ded:RelationshipComments" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="ded:RelationshipName" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="ded:RelationshipId" minOccurs="0" maxOccurs="1"/>
+        </xsd:all>
+        <!-- RelationshipAccessControl -->
+        <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="ElementRestrictionsType">
+        <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" ref="ded:ElementRestriction"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ElementCommentsType">
+        <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" ref="ded:ElementComment"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="RelationshipCommentsType">
+        <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" ref="ded:RelationshipComment"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:simpleType name="ObligationEnumType">
+        <xsd:restriction base="xsd:token">
+            <xsd:enumeration value="Mandatory"/>
+            <xsd:enumeration value="Optional"/>
+            <xsd:enumeration value="Conditional"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="MultiplicityStringType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="\[[0-9]+\.\.([0-9]+|n|\*)\]"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="ObligationType">
+        <xsd:simpleContent>
+            <xsd:extension base="ded:ObligationEnumType">
+                <xsd:attributeGroup ref="ism:SecurityAttributesGroup"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+</xsd:schema>

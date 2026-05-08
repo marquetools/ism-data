@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:ism="urn:us:gov:ic:ism"
+            xmlns:xhtml="http://www.w3.org/1999/xhtml-StopBrowserRendering"
+            xml:lang="en"
+            ism:resourceElement="true"
+            ism:compliesWith="USGov"
+            ism:createDate="2011-12-01"
+            ism:DESVersion="202111"
+            ism:classification="U"
+            ism:ownerProducer="USA"
+            elementFormDefault="qualified"
+            attributeFormDefault="qualified"
+            version="201903">
+   <xsd:annotation>
+      <xsd:documentation>
+         <xhtml:h1 ism:ownerProducer="USA" ism:classification="U">Intelligence Community Whitelist Guidance for ISM and NTK</xhtml:h1>
+      </xsd:documentation>
+      <xsd:documentation>
+         <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Notices</xhtml:h2>
+         <xhtml:p ism:ownerProducer="USA" ism:classification="U">Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       </xhtml:p>
+      </xsd:documentation>
+      <xsd:documentation>
+         <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Description</xhtml:h2>
+         <xhtml:p ism:ownerProducer="USA" ism:classification="U">W3C XML Schema for the XML Encoding Specification
+            defining whitelist rule validation for ISM and NTK.</xhtml:p>
+      </xsd:documentation>
+      <xsd:documentation>
+         <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Introduction</xhtml:h2>
+         <xhtml:p ism:ownerProducer="USA" ism:classification="U">This XML Schema file is one component of the XML
+            Encoding Specification. Please see the document titled<xhtml:i>
+               <xhtml:a href="../../Documents/Whitelist/DesWhitelistXml.pdf">XML Encoding Specification providing 
+                  Whitelist Guidance for ISM and NTK.</xhtml:a>
+            </xhtml:i>for a complete description of the encoding as well as list of all components.</xhtml:p>
+         <xhtml:p ism:ownerProducer="USA" ism:classification="U">If you modify this XML Schema in any way label your
+            schema as a variant of Whtitelist.XML.</xhtml:p>
+         <xhtml:p ism:ownerProducer="USA" ism:classification="U">Please direct all questions, bug reports, or suggestions
+            for changes to the points of contact identified in the document referenced above.</xhtml:p>
+      </xsd:documentation>
+      <xsd:documentation>
+         <xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Creators</xhtml:h2>
+         <xhtml:p ism:ownerProducer="USA" ism:classification="U">Office of the Director of National Intelligence
+            Intelligence Community Chief Information Officer</xhtml:p>
+      </xsd:documentation>
+   </xsd:annotation>
+  <xsd:element name="Whitelist" type="whitelistInfo">
+     <xsd:annotation>
+        <xsd:documentation>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+              This is the root node of the whitelist configuration for implementing whitelist validation
+              of ISM / NTK values.</xhtml:p>
+        </xsd:documentation>
+     </xsd:annotation>
+  </xsd:element>  
+  <xsd:complexType name="whitelistInfo">
+      <xsd:sequence>
+         <xsd:group minOccurs="0" maxOccurs="1" ref="ismGroup"/>
+         <xsd:group minOccurs="0" maxOccurs="1" ref="ntkGroup"/>
+      </xsd:sequence>
+  </xsd:complexType> 
+  <xsd:group name="ismGroup">
+     <xsd:annotation>
+        <xsd:documentation>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U">
+              The set of ISM attributes that can be whitelisted.</xhtml:p>
+        </xsd:documentation>
+     </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element minOccurs="1" maxOccurs="1" ref="ISMAttributes"/>
+         <xsd:element minOccurs="1" maxOccurs="1" ref="Classification"/>
+         <xsd:element minOccurs="1" maxOccurs="1" ref="DisseminationControls"/>
+         <xsd:element minOccurs="1" maxOccurs="1" ref="ReleasableTo"/>
+         <xsd:element minOccurs="1" maxOccurs="1" ref="DisplayOnlyTo"/>
+         <xsd:element minOccurs="1" maxOccurs="1" ref="FGIsourceOpen"/>
+         <xsd:element minOccurs="1" maxOccurs="1" ref="FGIsourceProtected"/>
+         <xsd:element minOccurs="1" maxOccurs="1" ref="AtomicEnergyMarkings"/>
+         <xsd:element minOccurs="1" maxOccurs="1" ref="NonICmarkings"/>
+         <xsd:element minOccurs="1" maxOccurs="1" ref="NonUSControls"/>
+         <xsd:element minOccurs="1" maxOccurs="1" ref="SCIControls"/>
+         <xsd:element minOccurs="1" maxOccurs="1" ref="SARIdentifier"/>
+         <xsd:element minOccurs="1" maxOccurs="1" ref="OwnerProducer"/>
+      </xsd:sequence>
+  </xsd:group>
+  <xsd:group name="ntkGroup">
+     <xsd:annotation>
+        <xsd:documentation>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U"> 
+              The set of NKT elements / attributes that can be whitelisted.</xhtml:p>
+        </xsd:documentation>
+     </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element minOccurs="0" maxOccurs="1" ref="NtkPolicy"/>
+         <xsd:element minOccurs="0" maxOccurs="1" ref="NtkVocabulary"/>
+         <xsd:element maxOccurs="unbounded" ref="NtkAccessProfile"/>
+      </xsd:sequence>
+  </xsd:group>
+  <xsd:element name="ISMAttributes" type="whitelistOnlyValues">
+     <xsd:annotation>
+        <xsd:documentation>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U">Contains the whitelist of ISM attributes supported 
+              by the system implementing the whitelist.</xhtml:p>
+        </xsd:documentation>
+     </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="Classification" type="whitelistOnlyValues">
+     <xsd:annotation>
+        <xsd:documentation>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U">Contains the whitelist of values allowed in the ISM
+              classification attribute. </xhtml:p>
+        </xsd:documentation>
+     </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="DisseminationControls" type="whitelistOnlyValues">
+     <xsd:annotation>
+        <xsd:documentation>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U">Contains the whitelist of values allowed in the ISM 
+              disseminationControls attribute. </xhtml:p>
+        </xsd:documentation>
+     </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="AtomicEnergyMarkings" type="whitelistOnlyValues">
+     <xsd:annotation>
+        <xsd:documentation>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U"> Contains the whitelist of values allowed in the ISM 
+              atomicEnergyMarkings attribute.</xhtml:p>
+        </xsd:documentation>
+     </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="NonICmarkings" type="whitelistOnlyValues">
+     <xsd:annotation>
+        <xsd:documentation>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U">Contains the whitelist of values allowed in the ISM 
+              nonICmarkings attribute.</xhtml:p>
+        </xsd:documentation>
+     </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="NonUSControls" type="whitelistOnlyValues">
+     <xsd:annotation>
+        <xsd:documentation>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U">Contains the whitelist of values allowed in the ISM 
+              nonUSControls attribute.</xhtml:p>
+        </xsd:documentation>
+     </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="SCIControls" type="whitelistOnlyValues">
+     <xsd:annotation>
+        <xsd:documentation>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U"> 
+              Contains the whitelist of values allowed in the ISM SCIcontrols attribute. 
+           </xhtml:p>
+        </xsd:documentation>
+     </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="SARIdentifier" type="whitelistOnlyValues">
+     <xsd:annotation>
+        <xsd:documentation>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U"> 
+              Contains the whitelist of values allowed in the ISM SARIdentifier attribute. 
+           </xhtml:p>
+        </xsd:documentation>
+     </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="DisplayOnlyTo" type="whitelistOnlyValues">
+     <xsd:annotation>
+        <xsd:documentation>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U"> 
+              Contains the whitelist of values allowed in the ISM displayOnlyTo attribute. 
+           </xhtml:p>
+        </xsd:documentation>
+     </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="FGIsourceOpen" type="whitelistOnlyValues">
+     <xsd:annotation>
+        <xsd:documentation>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U"> 
+              Contains the whitelist of values allowed in the ISM FGIsourceOpen attribute. 
+           </xhtml:p>
+        </xsd:documentation>
+     </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="FGIsourceProtected" type="whitelistOnlyValues">
+     <xsd:annotation>
+        <xsd:documentation>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U"> 
+              Contains the whitelist of values allowed in the ISM FGIsourceProtected attribute. 
+           </xhtml:p>
+        </xsd:documentation>
+     </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="OwnerProducer" type="whitelistOrBlacklistValues">
+     <xsd:annotation>
+        <xsd:documentation>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U"> 
+              Contains the whitelist of values allowed in the ISM ownerProducer attribute
+              or the blacklist of values not allowed. 
+           </xhtml:p>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U"> 
+              Since this attribute contains a list of countries, it may be more desirable to 
+              limit a small number of countries with a blacklist than to allow a large number
+              of countries with a whitelist. 
+           </xhtml:p>
+        </xsd:documentation>
+     </xsd:annotation>
+  </xsd:element>
+  
+  <xsd:element name="ReleasableTo">
+     <xsd:annotation>
+        <xsd:documentation>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U"> 
+              Contains the whitelist of values allowed in the ISM releasableTo attribute. 
+           </xhtml:p>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U"> 
+              Allows definition of a minimum set of values that must be included in ism:releasableTo. 
+           </xhtml:p>
+        </xsd:documentation>
+     </xsd:annotation>    
+      <xsd:complexType>
+         <xsd:complexContent>
+            <xsd:extension base="whitelistOnlyValues">
+               <xsd:sequence>
+                  <xsd:element minOccurs="0" maxOccurs="1" ref="minimumValues"/>
+               </xsd:sequence>
+            </xsd:extension>
+         </xsd:complexContent>
+      </xsd:complexType>
+  </xsd:element>
+  
+  <xsd:element name="NtkPolicy">
+     <xsd:annotation>
+        <xsd:documentation>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U"> 
+              Contains the whitelist of values allowed in the NTK AccessPolicy element. 
+           </xhtml:p>
+        </xsd:documentation>
+     </xsd:annotation>
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="value"/>
+         </xsd:sequence>
+      </xsd:complexType>
+  </xsd:element>
+  
+  <xsd:element name="NtkVocabulary">
+     <xsd:annotation>
+        <xsd:documentation>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U"> 
+              Contains the whitelist of values allowed in the name attribute of the NTK VocabularyType element. 
+           </xhtml:p>
+        </xsd:documentation>
+     </xsd:annotation>
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="value"/>
+         </xsd:sequence>
+      </xsd:complexType>
+  </xsd:element>
+  
+  <xsd:element name="value" type="xsd:NMTOKEN"/>
+  
+  <xsd:element name="NtkAccessProfile">
+     <xsd:annotation>
+        <xsd:documentation>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U"> 
+              Contains the whitelist of values allowed in the NTK AccessProfile structure. 
+           </xhtml:p>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U"> 
+              The accessPolicy attribute contains value of NTK AccessPolicy element. There must
+              be one NtkAccessProfile element per unique accessPolicy value.
+           </xhtml:p>
+        </xsd:documentation>
+     </xsd:annotation>
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="profile"/>
+            <xsd:element minOccurs="0" maxOccurs="1" ref="minimumValues"/>
+         </xsd:sequence>
+         <xsd:attribute name="accessPolicy" use="required" type="xsd:NMTOKEN"/>
+      </xsd:complexType>
+  </xsd:element>
+   
+  <xsd:element name="profile">
+     <xsd:annotation>
+        <xsd:documentation>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U"> 
+              Contains the whitelist of values allowed in the NTK AccessProfile structure. 
+           </xhtml:p>
+           <xhtml:p ism:ownerProducer="USA" ism:classification="U"> 
+              Contains a map of the vocabulary attribute and the element value of the NTK AccessProfileValue element.
+           </xhtml:p>
+        </xsd:documentation> 
+     </xsd:annotation>
+      <xsd:complexType>
+         <xsd:attribute name="vocabulary" use="required" type="xsd:anyURI"/>
+         <xsd:attribute name="profileValue" use="required">
+            <xsd:simpleType>
+               <xsd:restriction base="xsd:string">
+                  <xsd:pattern value="[\w\d,-=_:\p{Zs}]+|\*"/>    
+                  <!-- Allow  \p{Zs} => space Do Not Allow '?' or '.' -->
+               </xsd:restriction>
+            </xsd:simpleType>
+         </xsd:attribute>
+      </xsd:complexType>
+  </xsd:element>
+  
+  <xsd:element name="minimumValues">
+     <xsd:annotation>
+        <xsd:documentation>
+           <xhtml:p ism:classification="U" ism:ownerProducer="USA">This element holds the list of a minimum
+              set of values required in an ISM / NTK attribute.</xhtml:p>
+        </xsd:documentation>
+     </xsd:annotation>
+      <xsd:complexType mixed="true">
+         <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="profile"/>
+         </xsd:sequence>
+      </xsd:complexType>
+  </xsd:element>
+  
+  <xsd:complexType name="whitelistOrBlacklistValues">
+     <xsd:annotation>
+        <xsd:documentation>
+           <xhtml:p ism:classification="U" ism:ownerProducer="USA">This type allows either a set of values
+              composing either a whitelist or a blacklist depending upon the value defined in the 
+              type attribute.
+           </xhtml:p>
+        </xsd:documentation>
+     </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="values">
+            <xsd:complexType>
+               <xsd:simpleContent>
+                  <xsd:extension base="xsd:token">
+                     <xsd:attributeGroup ref="typeChoice"/>
+                  </xsd:extension>
+               </xsd:simpleContent>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+  </xsd:complexType> 
+  
+  <xsd:complexType name="whitelistOnlyValues">
+     <xsd:annotation>
+        <xsd:documentation>
+           <xhtml:p ism:classification="U" ism:ownerProducer="USA">This type allows only a set of values
+              for a whitelist.
+           </xhtml:p>
+        </xsd:documentation>
+     </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="values" type="xsd:token"/>
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:attributeGroup name="typeChoice">
+      <xsd:attribute name="type" use="required">
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:token">
+               <xsd:enumeration value="whitelist"/>
+               <xsd:enumeration value="blacklist"/>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:attribute>
+  </xsd:attributeGroup>
+  
+  <xsd:attributeGroup name="typeAnyListChoice">
+      <xsd:attribute name="type" use="required">
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:token">
+               <xsd:enumeration value="whitelist"/>
+               <xsd:enumeration value="blacklist"/>
+               <xsd:enumeration value="minvalues"/>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:attribute>
+  </xsd:attributeGroup>
+
+</xsd:schema>

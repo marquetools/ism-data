@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+                <!DOCTYPE html [
+                <!ENTITY cp_businessObjectClass "Electronic Records Management">
+                <!ENTITY cp_object "ERM">
+                <!ENTITY cp_objectCaseSensitive "Erm">]><html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <title>&cp_object; v2016-JUL Package Description </title>
+   </head>
+    <body>
+        <h1>&cp_object; v2016-JUL Package Description </h1>
+        <p>&cp_businessObjectClass; (&cp_object;)
+            consists of many files all packaged here for you. This is a simple guide to the layout
+            of this package. Before attempting to follow the links in this guide, please ensure that
+            you have extracted the files from the zip file; otherwise, the links will not work.
+        </p>
+        <p id="STANDALONE_INTRO">As this is the standalone package, none of 
+            the dependant specifications will be included and you will have to assemble 
+            the full package with an acceptable version of the dependent specifications 
+            that you wish to use.</p>
+        <ul>
+            <li id="CVE">
+                <p>CVE</p>
+                <p>The collection of Controlled Vocabulary Enumerations (CVEs) 
+                    that this specification is dependent on. Each CVE 
+                    directory has the actual CVE files as XML and also has a 
+                    PDF rendering of them in the Documentation folder.</p>
+            <ul>
+               <li>
+                  <p>ERM</p>
+                  <ul>
+                     <li>
+                        <a href="./CVE/ERM">ERM</a>
+                     </li>
+                     <li>
+                        <a href="./Documents/ERM/ERMCVEnums.pdf">ERMCVEnums.pdf</a>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+         </li>
+            <li>
+            <p>Documentation</p>
+                
+                <p id="STANDALONE_DES">This 
+                    includes the document for this specification and the applicable 
+                    signature memo associated with it.</p>
+                <ul>
+               <li>ERM version
+                        2016-JUL<ul>
+                     <li>
+                        <a href="./Documents/ERM/DesERMXml.pdf">DesERMXml.pdf</a>
+                     </li>
+                     <li>
+                        <a href="./Documents/ERM/SignatureMemo.pdf">SignatureMemo.pdf</a>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+            </li>
+            <li id="EXAMPLES">
+                <p>Examples</p>
+                <p>Collection of example instance documents for this specification and a PDF copy.</p>
+                
+                
+            <ul>
+               <li>
+                  <p>ERM</p>
+                  <ul>
+                     <li>
+                        <a href="./Examples/ERM">ERM Example Files</a>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+         </li>
+            <li id="SCHEMA">
+                <p>Schema</p>
+                <p id="SCHEMA_STANDALONE">The XSD file to implement this specification excluding dependencies.</p>
+                
+            <ul>
+               <li>
+                  <p>ERM</p>
+                  <ul>
+                     <li>
+                        <a href="./Schema/ERM">ERM Schema Files</a>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+         </li>
+            <li id="SCHEMA_GUIDE">
+                <p>SchemaGuide</p>
+                <p>XML Schema documentation generated from the XSD files that includes
+                    element definitions and diagrams of schema components.</p>
+            <ul>
+               <li>
+                  <a href="./SchemaGuide/index.html">SchemaGuide</a>
+               </li>
+            </ul>
+         </li>
+            <li id="SCHEMATRON">
+                <p>Schematron</p>
+                <p>Collection of constraint rules applicable to this specification. These rules depend on 
+                    the CVEs being located at the "correct" relative path they are in this package. 
+                    Many of the dependent specifications have applicable constraint rules; each one is 
+                    documented separately. Each specification has three main files.</p>
+                <ul>
+                    <li>
+                  <p>xxx_Rules.pdf</p>
+                        <p>A generated PDF collection of all the constraint rules. They are actually 
+                            many individual .sch files. This file is a more convenient format to 
+                            read but is not useful for execution of the rules.</p>
+               </li>
+                    <li>
+                  <p>xxx_XML.sch</p>
+                        <p>The top level .sch file that includes all of the others for the particular specification.</p>
+               </li>
+                    <li>
+                  <p>xxx_XML.xsl</p>
+                        <p>A pre "compiled" version of the .sch file ready for execution with any XSLT2 
+                            capable engine.</p>
+               </li>
+                </ul>
+                <p>Applicable constraint rules are as follows:</p>
+            <ul>
+               <li>ERM<ul>
+                     <li>
+                        <a href="./Documents/ERM/ERM_Rules.pdf">ERM_Rules.pdf</a>
+                     </li>
+                     <li>
+                        <a href="./Schematron/ERM">ERM_XML.sch</a>
+                     </li>
+                     <li>
+                        <a href="./Schematron/ERM">ERM_XML.xsl</a>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+         </li>
+            
+            <li>
+            <p>
+               <a href="./manifest.md5">manifest.md5</a>
+            </p>
+                <p>This file contains an MD5 checksum of every file in the package. It can be used to 
+                    determine if any of the files were corrupted in unzipping or if you have modified 
+                    a file.</p>
+            </li>
+            <li>
+            <p><a href="./ERMpackage.properties">ERMpackage.properties</a></p>
+                <p>This file contains information concerning the version, classification, and build
+                    time for the package.</p>
+            </li>
+            
+            
+        </ul>
+    </body>
+</html>

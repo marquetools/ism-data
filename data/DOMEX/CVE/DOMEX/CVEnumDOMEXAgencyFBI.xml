@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       --><cve:CVE xmlns:cve="urn:us:gov:ic:cve" xmlns:ism="urn:us:gov:ic:ism" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  ism:compliesWith="USGov USIC" ism:ownerProducer="USA" ism:classification="U" ism:DESVersion="202111" ism:ISMCATCESVersion="202205" ism:resourceElement="true" CVEVersion="2" ism:createDate="2013-12-10" xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+
+    <!-- artf14837 - Create DOMEX Agency List  -->
+    <cve:IRM>
+        <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:domex:CVEnumDOMEXAgencyFBI</URN>
+        <Title xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">CVEnumDOMEXAgencyFBI</Title>
+        <Description xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">Valid range for FBI agencies.</Description>
+
+        <cve:Created>2013-12-10</cve:Created>
+
+        <Source ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">Authoritative source for FBI Agencies</Source>
+        <PointOfContact ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">
+         <Name>DOMEX Metadata Working Group</Name>
+      </PointOfContact>
+    </cve:IRM>
+
+    <cve:Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">ITOS-I</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation (CONUS)</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">ITOS-II</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation (FUSION CELLS)</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">CEAU</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">CIOS</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">CXS</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">TFOS</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">STAS</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Abu Dhabi</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Accra</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Addis Ababa</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Algiers</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Amman</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Ankara</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Astana</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Athens</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Baghdad</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Bangkok</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Beijing</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Berlin</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Bern</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Bogota</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Brasilia</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Bridgetown</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Brussels</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Bucharest</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Buenos Aires</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Cairo</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Canberra</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Caracas</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATsCopenhagen</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Dakar</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Doha</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Hong Kong</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Islamabad</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Jakarta</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Kabul</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Kuala Lumpur</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Kyiv</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Lagos</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/London</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Madrid</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Manila</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Mexico City</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Moscow</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Mairobi</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/New Delhi</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Ottawa</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Panama City</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Paris</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Phnom Pehn</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Pretoria</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Rabat</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Riga</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Riyadh</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Rome</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/San Juan</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/San Salvador</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Sanaa</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Santiago</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Santo Domingo</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Sarajevo</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Seoul</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Singapore</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Sofia</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Tbilisi</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Tel Aviv</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/The Hague</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Tokyo</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Vienna</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">LEGATs/Warsaw</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Legal Attaches</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Albany</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Albuquerque</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Anchorage</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Atlanta</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Baltimore</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Birmingham</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Boston</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Buffalo</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Charlotte</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Chicago</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Cincinnati</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Cleveland</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Columbia</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Dallas</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Denver</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Detroit</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/El Paso</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Honolulu</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Houston</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Indianapolis</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Jackson</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Jacksonville</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Kansas City</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Knoxville</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Las Vegas</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Little Rock</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Los Angeles</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Louisville</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Memphis</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Miami</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Milwaukee</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Minneapolis</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Mobile</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/New Haven</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/New Orleans</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/New York</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Newark</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Norfolk</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Oklahoma City</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Omaha</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Philadelphia</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Phoenix</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Pittsburgh</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Portland</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Richmond</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Sacramento</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Salt Lake City</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/San Antonio</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/San Diego</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/San Francisco</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Seattle</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Springfield</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/St. Louis</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Tampa</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+        <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">FO/Washington, D.C.</cve:Value>
+            <Description xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">FBI -- Federal Bureau of Investigation - Field Office</Description>
+        </cve:Term>
+    </cve:Enumeration>
+</cve:CVE>

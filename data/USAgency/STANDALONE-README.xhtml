@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+                <!DOCTYPE html [
+                <!ENTITY cp_businessObjectClass "XML CVE Encoding Specification for US Agency Acronym">
+                <!ENTITY cp_object "USAgency">
+                <!ENTITY cp_objectCaseSensitive "Usagency">]><html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <title>&cp_object; v2017-MARr2018-FEB Package Description </title>
+   </head>
+    <body>
+        <h1>&cp_object; v2017-MARr2018-FEB Package Description </h1>
+        <p>&cp_businessObjectClass; (&cp_object;)
+            consists of many files all packaged here for you. This is a simple guide to the layout
+            of this package. Before attempting to follow the links in this guide, please ensure that
+            you have extracted the files from the zip file; otherwise, the links will not work.
+        </p>
+        <p id="STANDALONE_INTRO">As this is the standalone package, none of 
+            the dependant specifications will be included and you will have to assemble 
+            the full package with an acceptable version of the dependent specifications 
+            that you wish to use.</p>
+        <ul>
+            <li id="CVE">
+                <p>CVE</p>
+                <p>The collection of Controlled Vocabulary Enumerations (CVEs) 
+                    that this specification is dependent on. Each CVE 
+                    directory has the actual CVE files as XML and also has a 
+                    PDF rendering of them in the Documentation folder.</p>
+            <ul>
+               <li>
+                  <p>USAgency</p>
+                  <ul>
+                     <li>
+                        <a href="./CVE/USAgency">USAgency</a>
+                     </li>
+                     <li>
+                        <a href="./Documents/USAgency/USAgencyCVEnums.pdf">USAgencyCVEnums.pdf</a>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+         </li>
+            <li>
+            <p>Documentation</p>
+                
+                <p id="STANDALONE_DES">This 
+                    includes the document for this specification and the applicable 
+                    signature memo associated with it.</p>
+                <ul>
+               <li>USAgency version
+                        2017-MARr2018-FEB<ul>
+                     <li>
+                        <a href="./Documents/USAgency/CesUSAgencyXml.pdf">CesUSAgencyXml.pdf</a>
+                     </li>
+                     <li>
+                        <a href="./Documents/USAgency/SignatureMemo.pdf">SignatureMemo.pdf</a>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+            </li>
+            
+            <li id="SCHEMA">
+                <p>Schema</p>
+                <p id="SCHEMA_STANDALONE">The XSD file to implement this specification excluding dependencies.</p>
+                
+            <ul>
+               <li>
+                  <p>USAgency</p>
+                  <ul>
+                     <li>
+                        <a href="./Schema/USAgency">USAgency Schema Files</a>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+         </li>
+            <li id="SCHEMA_GUIDE">
+                <p>SchemaGuide</p>
+                <p>XML Schema documentation generated from the XSD files that includes
+                    element definitions and diagrams of schema components.</p>
+            <ul>
+               <li>
+                  <a href="./SchemaGuide/index.html">SchemaGuide</a>
+               </li>
+            </ul>
+         </li>
+            <li id="SCHEMATRON">
+                <p>Schematron</p>
+                <p>Collection of constraint rules applicable to this specification. These rules depend on 
+                    the CVEs being located at the "correct" relative path they are in this package. 
+                    Many of the dependent specifications have applicable constraint rules; each one is 
+                    documented separately. Each specification has three main files.</p>
+                <ul>
+                    <li>
+                  <p>xxx_Rules.pdf</p>
+                        <p>A generated PDF collection of all the constraint rules. They are actually 
+                            many individual .sch files. This file is a more convenient format to 
+                            read but is not useful for execution of the rules.</p>
+               </li>
+                    <li>
+                  <p>xxx_XML.sch</p>
+                        <p>The top level .sch file that includes all of the others for the particular specification.</p>
+               </li>
+                    <li>
+                  <p>xxx_XML.xsl</p>
+                        <p>A pre "compiled" version of the .sch file ready for execution with any XSLT2 
+                            capable engine.</p>
+               </li>
+                </ul>
+                <p>Applicable constraint rules are as follows:</p>
+            <ul>
+               <li>USAgency<ul>
+                     <li>
+                        <a href="./Documents/USAgency/USAgency_Rules.pdf">USAgency_Rules.pdf</a>
+                     </li>
+                     <li>
+                        <a href="./Schematron/USAgency">USAgency_XML.sch</a>
+                     </li>
+                     <li>
+                        <a href="./Schematron/USAgency">USAgency_XML.xsl</a>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+         </li>
+            
+            <li>
+            <p>
+               <a href="./manifest.md5">manifest.md5</a>
+            </p>
+                <p>This file contains an MD5 checksum of every file in the package. It can be used to 
+                    determine if any of the files were corrupted in unzipping or if you have modified 
+                    a file.</p>
+            </li>
+            <li>
+            <p><a href="./USAgencypackage.properties">USAgencypackage.properties</a></p>
+                <p>This file contains information concerning the version, classification, and build
+                    time for the package.</p>
+            </li>
+            
+            
+        </ul>
+    </body>
+</html>

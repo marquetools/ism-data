@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXRelationshipNatureType">
+   <define name="CVEnumDOMEXRelationshipNatureType.cve">
+      <choice>
+         <value>Is Brother-In-Law Of</value>
+         <value>Is Child Of</value>
+         <value>Is Married To</value>
+         <value>Is Parent Of</value>
+         <value>Sibling Of</value>
+         <value>Is Aunt Of</value>
+         <value>Is Brother Of</value>
+         <value>Is Cousin Of</value>
+         <value>Is Daughter-In-Law Of</value>
+         <value>Is Daughter Of</value>
+         <value>Is Ex-Husband Of</value>
+         <value>Is Ex-Wife Of</value>
+         <value>Is Father Of</value>
+         <value>Is Father-In-Law Of</value>
+         <value>Is Granddaughter Of</value>
+         <value>Is Grandfather Of</value>
+         <value>Is Grandmother Of</value>
+         <value>Is Grandson Of</value>
+         <value>Is Husband Of</value>
+         <value>Is Mother Of</value>
+         <value>Is Mother-In-Law Of</value>
+         <value>Is Nephew Of</value>
+         <value>Is Niece of </value>
+         <value>Is Relative Of</value>
+         <value>Is Sister Of</value>
+         <value>Is Sister-In-Law of</value>
+         <value>Is Son-In-Law Of</value>
+         <value>Is Son Of</value>
+         <value>Is Uncle Of</value>
+         <value>Is Wife Of</value>
+         <value>Is Step-Mother Of</value>
+         <value>Is Step-Father Of</value>
+         <value>Is Step-Parent Of</value>
+         <value>Is Step-Daughter Of</value>
+         <value>Is Step-Son of</value>
+         <value>Is Step-Child Of</value>
+         <value>Is Step-Sister Of</value>
+         <value>Is Step-Brother Of</value>
+         <value>Is Step-Sibling Of</value>
+         <value>Is Spouse Of</value>
+         <value>Is Grandparent Of</value>
+         <value>Is Grandchild Of</value>
+         <value>Is Ex-Spouse Of</value>
+         <value>Employed by</value>
+         <value>Is Officer of</value>
+         <value>Works In</value>
+         <value>Subordinate To</value>
+         <value>Senior To</value>
+         <value>Has Education</value>
+         <value>Conferred By</value>
+         <value>Is a Member Of</value>
+         <value>Is Located At</value>
+         <value>Location Seen At</value>
+         <value>Detained</value>
+         <value>Resides At</value>
+         <value>At Large</value>
+         <value>Escaped From</value>
+         <value>Receives Funds From</value>
+         <value>Supplies Funds To</value>
+         <value>Traveled To</value>
+         <value>Is Phone Contact Of</value>
+         <value>Communicates With</value>
+         <value>Contacts</value>
+         <value>Is Aware Of</value>
+         <value>Equate</value>
+         <value>Other Relationship</value>
+         <value>Related Equipment</value>
+         <value>Has Identity</value>
+         <value>Same As</value>
+         <value>Different From</value>
+         <value>Candidate Same As</value>
+         <value>Associated with Facility</value>
+         <value>Associated with Organization</value>
+         <value>Associated with Person</value>
+         <value>Acquaintance</value>
+         <value>Is Sponsored By</value>
+         <value>Sponsored</value>
+         <value>Is Petitioned By</value>
+         <value>Petitioned For</value>
+         <value>Visited</value>
+         <value>Attended</value>
+         <value>Applied To</value>
+         <value>Is Personal Friend Of</value>
+         <value>Is Facebook Friend Of</value>
+         <value>Is Myspace Friend Of</value>
+         <value>Is Chat Friend Of</value>
+         <value>Is Other Friend Of</value>
+      </choice>
+   </define>
+</grammar>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:domex:CVEnumDOMEXActivityWeaponsImprovised">
+   <define name="CVEnumDOMEXActivityWeaponsImprovised.cve">
+      <choice>
+         <value>Actions</value>
+         <value>Explosives</value>
+         <value>FIS</value>
+         <value>Logistics</value>
+         <value>Logo</value>
+         <value>Martyrdom</value>
+         <value>Other</value>
+         <value>Planning</value>
+         <value>Production</value>
+         <value>R&amp;D</value>
+         <value>Reporting</value>
+         <value>Training</value>
+      </choice>
+   </define>
+</grammar>

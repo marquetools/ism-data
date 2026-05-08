@@ -1,0 +1,1424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for component boe:FIPSValidatedCompartment</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        var propertiesBoxes= new Array('properties_CryptographicKeyType_FIPSValidatedCompartment', 
+				'properties_CryptographicKeyType_FIPSValidatedUnclass', 
+				'properties_CryptographicKeyType_NSAApprovedCrypto', 
+				'properties_CryptographicKeyType_CryptoKeyManagementProcess');
+var usedByBoxes= new Array('usedBy_CryptographicKeyType');
+var sourceBoxes= new Array('source_CryptographicKeyType_FIPSValidatedCompartment', 
+				'source_CryptographicKeyType_FIPSValidatedUnclass', 
+				'source_CryptographicKeyType_NSAApprovedCrypto', 
+				'source_CryptographicKeyType_CryptoKeyManagementProcess', 
+				'source_CryptographicKeyType');
+var diagramBoxes= new Array('diagram_CryptographicKeyType_FIPSValidatedCompartment', 
+				'diagram_CryptographicKeyType_FIPSValidatedUnclass', 
+				'diagram_CryptographicKeyType_NSAApprovedCrypto', 
+				'diagram_CryptographicKeyType_CryptoKeyManagementProcess', 
+				'diagram_CryptographicKeyType');
+var annotationBoxes= new Array('annotations_CryptographicKeyType_FIPSValidatedCompartment', 
+				'annotations_CryptographicKeyType_FIPSValidatedUnclass', 
+				'annotations_CryptographicKeyType_NSAApprovedCrypto', 
+				'annotations_CryptographicKeyType_CryptoKeyManagementProcess', 
+				'annotations_CryptographicKeyType');
+var attributesBoxes= new Array('attributes_CryptographicKeyType_FIPSValidatedCompartment', 
+				'attributes_CryptographicKeyType_FIPSValidatedUnclass', 
+				'attributes_CryptographicKeyType_NSAApprovedCrypto');
+var modelBoxes= new Array('model_CryptographicKeyType');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //
+--></script>
+   </head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_content" rowspan="1" colspan="1">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, annotationBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Annotations</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, attributesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Attributes </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Diagrams</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Model </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Properties </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Source</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Used by </span>
+                        </td>
+                     </tr>
+                  </table>
+                  <div align="right">
+                     <span>
+                        <input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close"></input>
+                     </span>
+                  </div>
+               </td>
+               <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+            </tr>
+         </table>
+      </div>
+      <a id="CryptographicKeyType_FIPSValidatedCompartment" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="15aaa8e0-2219-40fc-b7a6-908b871f6b23.html#CryptographicKeyType" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:CryptographicKeyType')" shape="rect">boe:CryptographicKeyType</a>
+            </b> / boe:FIPSValidatedCompartment</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:boe</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_CryptographicKeyType_FIPSValidatedCompartment" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_CryptographicKeyType_FIPSValidatedCompartment');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_CryptographicKeyType_FIPSValidatedCompartment" style="display:block">
+                              <div class="annotation">
+                                 
+                                 <p>
+                                    Is the system FIPS validated for protection of information that requires compartment
+                                    access?
+                                    </p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_CryptographicKeyType_FIPSValidatedCompartment" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_CryptographicKeyType_FIPSValidatedCompartment');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_CryptographicKeyType_FIPSValidatedCompartment" style="display:block">
+                              <img alt="Diagram" border="0" src="img/2217f91e-3103-4e10-b61b-e4c7f3e6ba8d.png" usemap="#BOE_xsd_Element_boe_FIPSValidatedCompartment"></img>
+                              <map name="BOE_xsd_Element_boe_FIPSValidatedCompartment" id="BOE_xsd_Element_boe_FIPSValidatedCompartment">
+                                 <area alt="BOE_xsd_Complex_Type_boe_ResponseWithExplanation.tmp#ResponseWithExplanation_response" href="bb714c21-f77b-4bb3-b074-8bff40a54022.html#ResponseWithExplanation_response" coords="371,172,465,196" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_ResponseWithExplanation.tmp#ResponseWithExplanation" href="bb714c21-f77b-4bb3-b074-8bff40a54022.html#ResponseWithExplanation" coords="346,61,668,119" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_BooleanResponseWithExplanation.tmp#BooleanResponseWithExplanation_response" href="55a15af0-e78f-4c05-ba10-851e44efb2fe.html#BooleanResponseWithExplanation_response" coords="357,288,492,330" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_BooleanResponseWithExplanation.tmp#BooleanResponseWithExplanation" href="55a15af0-e78f-4c05-ba10-851e44efb2fe.html#BooleanResponseWithExplanation" coords="332,3,598,43" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="55a15af0-e78f-4c05-ba10-851e44efb2fe.html#BooleanResponseWithExplanation" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:BooleanResponseWithExplanation')" shape="rect">boe:BooleanResponseWithExplanation</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type hierarchy</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <ul class="internal">
+                              <li class="internal">
+                                 <b>LongStringWithSecurityType</b>
+                                 <ul class="internal">
+                                    <li class="internal">
+                                       <b>
+                                          <a href="bb714c21-f77b-4bb3-b074-8bff40a54022.html#ResponseWithExplanation" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:ResponseWithExplanation')" shape="rect">boe:ResponseWithExplanation</a>
+                                       </b>
+                                       <ul class="internal">
+                                          <li class="internal">
+                                             <b>
+                                                <a href="55a15af0-e78f-4c05-ba10-851e44efb2fe.html#BooleanResponseWithExplanation" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:BooleanResponseWithExplanation')" shape="rect">boe:BooleanResponseWithExplanation</a>
+                                             </b>
+                                          </li>
+                                       </ul>
+                                    </li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_CryptographicKeyType_FIPSValidatedCompartment" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_CryptographicKeyType_FIPSValidatedCompartment');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_CryptographicKeyType_FIPSValidatedCompartment" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>1</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">maxOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>1</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Attributes</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_attributes_CryptographicKeyType_FIPSValidatedCompartment" type="image" src="img/btM.gif" value="-" onclick="switchState('attributes_CryptographicKeyType_FIPSValidatedCompartment');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="attributes_CryptographicKeyType_FIPSValidatedCompartment" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th rowspan="1" colspan="1">QName</th>
+                                       <th width="10%" rowspan="1" colspan="1">Type</th>
+                                       <th width="5%" rowspan="1" colspan="1">Use</th>
+                                       <th width="100%" rowspan="1" colspan="1">Annotation</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="55a15af0-e78f-4c05-ba10-851e44efb2fe.html#BooleanResponseWithExplanation_response" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:response')" shape="rect">boe:response</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>xsd:boolean</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">required</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">
+                                          
+                                          <p>A boolean true/false response.</p>
+                                          </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_CryptographicKeyType_FIPSValidatedCompartment" type="image" src="img/btM.gif" value="-" onclick="switchState('source_CryptographicKeyType_FIPSValidatedCompartment');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_CryptographicKeyType_FIPSValidatedCompartment" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"FIPSValidatedCompartment"</span><span class="tAN"> type=</span><span class="tAV">"boe:BooleanResponseWithExplanation"</span><span class="tAN"> minOccurs=</span><span class="tAV">"1"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Is the system FIPS validated for protection of information that requires compartment access?</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/BOE/BOE.xsd">BOE.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="CryptographicKeyType_FIPSValidatedUnclass" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="15aaa8e0-2219-40fc-b7a6-908b871f6b23.html#CryptographicKeyType" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:CryptographicKeyType')" shape="rect">boe:CryptographicKeyType</a>
+            </b> / boe:FIPSValidatedUnclass</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:boe</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_CryptographicKeyType_FIPSValidatedUnclass" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_CryptographicKeyType_FIPSValidatedUnclass');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_CryptographicKeyType_FIPSValidatedUnclass" style="display:block">
+                              <div class="annotation">
+                                 
+                                 <p>Is the system FIPS 
+                                    validated for unclassified access?</p>
+                                 
+                                 <p>Source: NIST SP800-37</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_CryptographicKeyType_FIPSValidatedUnclass" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_CryptographicKeyType_FIPSValidatedUnclass');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_CryptographicKeyType_FIPSValidatedUnclass" style="display:block">
+                              <img alt="Diagram" border="0" src="img/0effb308-d86a-4589-b58d-6f7356d100c3.png" usemap="#BOE_xsd_Element_boe_FIPSValidatedUnclass"></img>
+                              <map name="BOE_xsd_Element_boe_FIPSValidatedUnclass" id="BOE_xsd_Element_boe_FIPSValidatedUnclass">
+                                 <area alt="BOE_xsd_Complex_Type_boe_ResponseWithExplanation.tmp#ResponseWithExplanation_response" href="bb714c21-f77b-4bb3-b074-8bff40a54022.html#ResponseWithExplanation_response" coords="371,172,465,196" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_ResponseWithExplanation.tmp#ResponseWithExplanation" href="bb714c21-f77b-4bb3-b074-8bff40a54022.html#ResponseWithExplanation" coords="346,61,668,119" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_BooleanResponseWithExplanation.tmp#BooleanResponseWithExplanation_response" href="55a15af0-e78f-4c05-ba10-851e44efb2fe.html#BooleanResponseWithExplanation_response" coords="357,288,492,330" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_BooleanResponseWithExplanation.tmp#BooleanResponseWithExplanation" href="55a15af0-e78f-4c05-ba10-851e44efb2fe.html#BooleanResponseWithExplanation" coords="332,3,598,43" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="55a15af0-e78f-4c05-ba10-851e44efb2fe.html#BooleanResponseWithExplanation" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:BooleanResponseWithExplanation')" shape="rect">boe:BooleanResponseWithExplanation</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type hierarchy</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <ul class="internal">
+                              <li class="internal">
+                                 <b>LongStringWithSecurityType</b>
+                                 <ul class="internal">
+                                    <li class="internal">
+                                       <b>
+                                          <a href="bb714c21-f77b-4bb3-b074-8bff40a54022.html#ResponseWithExplanation" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:ResponseWithExplanation')" shape="rect">boe:ResponseWithExplanation</a>
+                                       </b>
+                                       <ul class="internal">
+                                          <li class="internal">
+                                             <b>
+                                                <a href="55a15af0-e78f-4c05-ba10-851e44efb2fe.html#BooleanResponseWithExplanation" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:BooleanResponseWithExplanation')" shape="rect">boe:BooleanResponseWithExplanation</a>
+                                             </b>
+                                          </li>
+                                       </ul>
+                                    </li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_CryptographicKeyType_FIPSValidatedUnclass" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_CryptographicKeyType_FIPSValidatedUnclass');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_CryptographicKeyType_FIPSValidatedUnclass" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>1</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">maxOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>1</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Attributes</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_attributes_CryptographicKeyType_FIPSValidatedUnclass" type="image" src="img/btM.gif" value="-" onclick="switchState('attributes_CryptographicKeyType_FIPSValidatedUnclass');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="attributes_CryptographicKeyType_FIPSValidatedUnclass" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th rowspan="1" colspan="1">QName</th>
+                                       <th width="10%" rowspan="1" colspan="1">Type</th>
+                                       <th width="5%" rowspan="1" colspan="1">Use</th>
+                                       <th width="100%" rowspan="1" colspan="1">Annotation</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="55a15af0-e78f-4c05-ba10-851e44efb2fe.html#BooleanResponseWithExplanation_response" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:response')" shape="rect">boe:response</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>xsd:boolean</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">required</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">
+                                          
+                                          <p>A boolean true/false response.</p>
+                                          </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_CryptographicKeyType_FIPSValidatedUnclass" type="image" src="img/btM.gif" value="-" onclick="switchState('source_CryptographicKeyType_FIPSValidatedUnclass');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_CryptographicKeyType_FIPSValidatedUnclass" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"FIPSValidatedUnclass"</span><span class="tAN"> type=</span><span class="tAV">"boe:BooleanResponseWithExplanation"</span><span class="tAN"> minOccurs=</span><span class="tAV">"1"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Is the system FIPS validated for unclassified access?</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Source: NIST SP800-37</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/BOE/BOE.xsd">BOE.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="CryptographicKeyType_NSAApprovedCrypto" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="15aaa8e0-2219-40fc-b7a6-908b871f6b23.html#CryptographicKeyType" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:CryptographicKeyType')" shape="rect">boe:CryptographicKeyType</a>
+            </b> / boe:NSAApprovedCrypto</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:boe</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_CryptographicKeyType_NSAApprovedCrypto" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_CryptographicKeyType_NSAApprovedCrypto');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_CryptographicKeyType_NSAApprovedCrypto" style="display:block">
+                              <div class="annotation">
+                                 
+                                 <p>
+                                    Is the system's cryptographic solution an NSA Approved Cryptographic Solution?</p>
+                                 
+                                 <p>Source: NIST SP800-37</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_CryptographicKeyType_NSAApprovedCrypto" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_CryptographicKeyType_NSAApprovedCrypto');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_CryptographicKeyType_NSAApprovedCrypto" style="display:block">
+                              <img alt="Diagram" border="0" src="img/2fd10e12-e22a-40aa-b11e-c46ab6836923.png" usemap="#BOE_xsd_Element_boe_NSAApprovedCrypto"></img>
+                              <map name="BOE_xsd_Element_boe_NSAApprovedCrypto" id="BOE_xsd_Element_boe_NSAApprovedCrypto">
+                                 <area alt="BOE_xsd_Complex_Type_boe_ResponseWithExplanation.tmp#ResponseWithExplanation_response" href="bb714c21-f77b-4bb3-b074-8bff40a54022.html#ResponseWithExplanation_response" coords="371,172,465,196" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_ResponseWithExplanation.tmp#ResponseWithExplanation" href="bb714c21-f77b-4bb3-b074-8bff40a54022.html#ResponseWithExplanation" coords="346,61,668,119" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_BooleanResponseWithExplanation.tmp#BooleanResponseWithExplanation_response" href="55a15af0-e78f-4c05-ba10-851e44efb2fe.html#BooleanResponseWithExplanation_response" coords="357,288,492,330" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_BooleanResponseWithExplanation.tmp#BooleanResponseWithExplanation" href="55a15af0-e78f-4c05-ba10-851e44efb2fe.html#BooleanResponseWithExplanation" coords="332,3,598,43" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="55a15af0-e78f-4c05-ba10-851e44efb2fe.html#BooleanResponseWithExplanation" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:BooleanResponseWithExplanation')" shape="rect">boe:BooleanResponseWithExplanation</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type hierarchy</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <ul class="internal">
+                              <li class="internal">
+                                 <b>LongStringWithSecurityType</b>
+                                 <ul class="internal">
+                                    <li class="internal">
+                                       <b>
+                                          <a href="bb714c21-f77b-4bb3-b074-8bff40a54022.html#ResponseWithExplanation" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:ResponseWithExplanation')" shape="rect">boe:ResponseWithExplanation</a>
+                                       </b>
+                                       <ul class="internal">
+                                          <li class="internal">
+                                             <b>
+                                                <a href="55a15af0-e78f-4c05-ba10-851e44efb2fe.html#BooleanResponseWithExplanation" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:BooleanResponseWithExplanation')" shape="rect">boe:BooleanResponseWithExplanation</a>
+                                             </b>
+                                          </li>
+                                       </ul>
+                                    </li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_CryptographicKeyType_NSAApprovedCrypto" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_CryptographicKeyType_NSAApprovedCrypto');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_CryptographicKeyType_NSAApprovedCrypto" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>1</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">maxOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>1</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Attributes</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_attributes_CryptographicKeyType_NSAApprovedCrypto" type="image" src="img/btM.gif" value="-" onclick="switchState('attributes_CryptographicKeyType_NSAApprovedCrypto');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="attributes_CryptographicKeyType_NSAApprovedCrypto" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th rowspan="1" colspan="1">QName</th>
+                                       <th width="10%" rowspan="1" colspan="1">Type</th>
+                                       <th width="5%" rowspan="1" colspan="1">Use</th>
+                                       <th width="100%" rowspan="1" colspan="1">Annotation</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="55a15af0-e78f-4c05-ba10-851e44efb2fe.html#BooleanResponseWithExplanation_response" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:response')" shape="rect">boe:response</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>xsd:boolean</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">required</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">
+                                          
+                                          <p>A boolean true/false response.</p>
+                                          </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_CryptographicKeyType_NSAApprovedCrypto" type="image" src="img/btM.gif" value="-" onclick="switchState('source_CryptographicKeyType_NSAApprovedCrypto');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_CryptographicKeyType_NSAApprovedCrypto" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"NSAApprovedCrypto"</span><span class="tAN"> type=</span><span class="tAV">"boe:BooleanResponseWithExplanation"</span><span class="tAN"> minOccurs=</span><span class="tAV">"1"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Is the system's cryptographic solution an NSA Approved Cryptographic Solution?</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Source: NIST SP800-37</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/BOE/BOE.xsd">BOE.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="CryptographicKeyType_CryptoKeyManagementProcess" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="15aaa8e0-2219-40fc-b7a6-908b871f6b23.html#CryptographicKeyType" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:CryptographicKeyType')" shape="rect">boe:CryptographicKeyType</a>
+            </b> / boe:CryptoKeyManagementProcess</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:boe</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_CryptographicKeyType_CryptoKeyManagementProcess" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_CryptographicKeyType_CryptoKeyManagementProcess');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_CryptographicKeyType_CryptoKeyManagementProcess" style="display:block">
+                              <div class="annotation">
+                                 
+                                 <p>If not an NSA-approved 
+                                    crytographic soluiton and the system contains classified, provide 
+                                    cryptographic key management technology and processes</p>
+                                 
+                                 <p>Source: NIST SP800-37</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_CryptographicKeyType_CryptoKeyManagementProcess" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_CryptographicKeyType_CryptoKeyManagementProcess');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_CryptographicKeyType_CryptoKeyManagementProcess" style="display:block">
+                              <img alt="Diagram" border="0" src="img/1c9845a4-318c-4023-8cbb-cd237f701974.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>LongStringWithSecurityType</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_CryptographicKeyType_CryptoKeyManagementProcess" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_CryptographicKeyType_CryptoKeyManagementProcess');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_CryptographicKeyType_CryptoKeyManagementProcess" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">maxOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>1</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_CryptographicKeyType_CryptoKeyManagementProcess" type="image" src="img/btM.gif" value="-" onclick="switchState('source_CryptographicKeyType_CryptoKeyManagementProcess');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_CryptographicKeyType_CryptoKeyManagementProcess" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"CryptoKeyManagementProcess"</span><span class="tAN"> type=</span><span class="tAV">"ism:LongStringWithSecurityType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">If not an NSA-approved crytographic soluiton and the system contains classified, provide cryptographic key management technology and processes</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Source: NIST SP800-37</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/BOE/BOE.xsd">BOE.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="CryptographicKeyType" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Complex Type <span class="qname">boe:CryptographicKeyType</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:boe</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_CryptographicKeyType" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_CryptographicKeyType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_CryptographicKeyType" style="display:block">
+                              <div class="annotation">
+                                 
+                                 <p>
+                                    Data required to track, disseminate, and use a security key needed to secure information.
+                                    All systems containing classified information must use NSA-approved encryption techniques.
+                                    </p>
+                                 
+                                 <p>Source: CNSSI-1254 appendix C SPP Data elements #4, NIST SP 800-37</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_CryptographicKeyType" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_CryptographicKeyType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_CryptographicKeyType" style="display:block">
+                              <img alt="Diagram" border="0" src="img/89d21357-7dcd-425c-93d8-44ba9ef9ac0e.png" usemap="#BOE_xsd_Complex_Type_boe_CryptographicKeyType"></img>
+                              <map name="BOE_xsd_Complex_Type_boe_CryptographicKeyType" id="BOE_xsd_Complex_Type_boe_CryptographicKeyType">
+                                 <area alt="BOE_xsd_Complex_Type_boe_CryptographicKeyType.tmp#CryptographicKeyType_FIPSValidatedCompartment" href="15aaa8e0-2219-40fc-b7a6-908b871f6b23.html#CryptographicKeyType_FIPSValidatedCompartment" coords="300,0,581,42" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_CryptographicKeyType.tmp#CryptographicKeyType_FIPSValidatedUnclass" href="15aaa8e0-2219-40fc-b7a6-908b871f6b23.html#CryptographicKeyType_FIPSValidatedUnclass" coords="300,82,581,124" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_CryptographicKeyType.tmp#CryptographicKeyType_NSAApprovedCrypto" href="15aaa8e0-2219-40fc-b7a6-908b871f6b23.html#CryptographicKeyType_NSAApprovedCrypto" coords="300,190,581,232" shape="rect"></area>
+                                 <area alt="BOE_xsd_Complex_Type_boe_CryptographicKeyType.tmp#CryptographicKeyType_CryptoKeyManagementProcess" href="15aaa8e0-2219-40fc-b7a6-908b871f6b23.html#CryptographicKeyType_CryptoKeyManagementProcess" coords="300,298,537,340" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_CryptographicKeyType" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_CryptographicKeyType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_CryptographicKeyType" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Element </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="4733af74-792d-45e7-b085-2237250416ac.html#CryptographicKey" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:CryptographicKey')" shape="rect">boe:CryptographicKey</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_CryptographicKeyType" type="image" src="img/btM.gif" value="-" onclick="switchState('model_CryptographicKeyType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_CryptographicKeyType" style="display:block">ALL(<b>
+                                 <a href="15aaa8e0-2219-40fc-b7a6-908b871f6b23.html#CryptographicKeyType_FIPSValidatedCompartment" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:FIPSValidatedCompartment')" shape="rect">boe:FIPSValidatedCompartment</a>
+                              </b> 
+                              <b>
+                                 <a href="15aaa8e0-2219-40fc-b7a6-908b871f6b23.html#CryptographicKeyType_FIPSValidatedUnclass" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:FIPSValidatedUnclass')" shape="rect">boe:FIPSValidatedUnclass</a>
+                              </b> 
+                              <b>
+                                 <a href="15aaa8e0-2219-40fc-b7a6-908b871f6b23.html#CryptographicKeyType_NSAApprovedCrypto" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:NSAApprovedCrypto')" shape="rect">boe:NSAApprovedCrypto</a>
+                              </b> 
+                              <b>
+                                 <a href="15aaa8e0-2219-40fc-b7a6-908b871f6b23.html#CryptographicKeyType_CryptoKeyManagementProcess" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:CryptoKeyManagementProcess{0,1}')" shape="rect">boe:CryptoKeyManagementProcess{0,1}</a>
+                              </b>)</div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="15aaa8e0-2219-40fc-b7a6-908b871f6b23.html#CryptographicKeyType_CryptoKeyManagementProcess" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:CryptoKeyManagementProcess')" shape="rect">boe:CryptoKeyManagementProcess</a>
+                           </b>, <b>
+                              <a href="15aaa8e0-2219-40fc-b7a6-908b871f6b23.html#CryptographicKeyType_FIPSValidatedCompartment" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:FIPSValidatedCompartment')" shape="rect">boe:FIPSValidatedCompartment</a>
+                           </b>, <b>
+                              <a href="15aaa8e0-2219-40fc-b7a6-908b871f6b23.html#CryptographicKeyType_FIPSValidatedUnclass" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:FIPSValidatedUnclass')" shape="rect">boe:FIPSValidatedUnclass</a>
+                           </b>, <b>
+                              <a href="15aaa8e0-2219-40fc-b7a6-908b871f6b23.html#CryptographicKeyType_NSAApprovedCrypto" target="mainFrame" title="urn:us:gov:ic:boe" onclick="updatePageTitle('Schema documentation for component boe:NSAApprovedCrypto')" shape="rect">boe:NSAApprovedCrypto</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_CryptographicKeyType" type="image" src="img/btM.gif" value="-" onclick="switchState('source_CryptographicKeyType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_CryptographicKeyType" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:complexType</span><span class="tAN"> name=</span><span class="tAV">"CryptographicKeyType"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Data required to track, disseminate, and use a security key needed to secure information. All systems containing classified information must use NSA-approved encryption techniques.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Source: CNSSI-1254 appendix C SPP Data elements #4, NIST SP 800-37</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:all</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"FIPSValidatedCompartment"</span><span class="tAN"> type=</span><span class="tAV">"boe:BooleanResponseWithExplanation"</span><span class="tAN"> minOccurs=</span><span class="tAV">"1"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Is the system FIPS validated for protection of information that requires compartment access?</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"FIPSValidatedUnclass"</span><span class="tAN"> type=</span><span class="tAV">"boe:BooleanResponseWithExplanation"</span><span class="tAN"> minOccurs=</span><span class="tAV">"1"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Is the system FIPS validated for unclassified access?</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Source: NIST SP800-37</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"NSAApprovedCrypto"</span><span class="tAN"> type=</span><span class="tAV">"boe:BooleanResponseWithExplanation"</span><span class="tAN"> minOccurs=</span><span class="tAV">"1"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Is the system's cryptographic solution an NSA Approved Cryptographic Solution?</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Source: NIST SP800-37</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"CryptoKeyManagementProcess"</span><span class="tAN"> type=</span><span class="tAV">"ism:LongStringWithSecurityType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">If not an NSA-approved crytographic soluiton and the system contains classified, provide cryptographic key management technology and processes</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Source: NIST SP800-37</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:all&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:complexType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/BOE/BOE.xsd">BOE.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //
+--></script>
+   </body>
+</html>
