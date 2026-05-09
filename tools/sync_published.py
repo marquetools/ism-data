@@ -55,6 +55,10 @@ ANCHOR_RE = re.compile(r"^repository\.workspace = true\n", re.MULTILINE)
 
 
 def crate_name(pkg: str) -> str:
+    # Mirror the special case in `crate_name_for` in crates/ism-data/src/lib.rs:
+    # the ISM package's crate is named `ism`, not `ism-ism`.
+    if pkg == "ISM":
+        return "ism"
     return "ism-" + pkg.lower()
 
 

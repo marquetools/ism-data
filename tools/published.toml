@@ -42,9 +42,13 @@ schema_version = 1
 # Per-package crates published to crates.io. Add entries only when a
 # downstream consumer (e.g. Marque) needs the package via crates.io.
 [packages]
-# Marque uses ISMCAT for codegen.
+# Marque uses ISM as its canonical source of CVEnum tokens, IC-ISM.xsd, and
+# the Schematron rules. The ISM crate publishes as `ism` (not `ism-ism`).
+"ISM" = { since = "20230609.0.0" }
+
+# Marque uses ISMCAT for the Tetragraph Taxonomy and trigraph CVE.
 "ISMCAT" = { since = "20230609.0.0" }
 
-# Marque will use IC-GENC for codegen
-"ic-genc" = { since = "20230609.0.0" }
+# Marque will use IC-GENC for country / sub-division codegen.
+"IC-GENC" = { since = "20230609.0.0" }
 

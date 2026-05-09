@@ -91,6 +91,11 @@ def workspace_version() -> str:
 
 
 def crate_name_for_pkg(pkg: str) -> str:
+    # Mirror the special case in `crate_name_for` in
+    # crates/ism-data/src/lib.rs: the ISM package's crate is named `ism`,
+    # not `ism-ism`.
+    if pkg == "ISM":
+        return "ism"
     return "ism-" + pkg.lower()
 
 
