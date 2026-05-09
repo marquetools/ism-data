@@ -32,8 +32,8 @@ name: release
 #
 # Safety rails
 # ------------
-#   - `environment: release` lets you require manual approval in the
-#     repo's Settings → Environments → release.
+#   - `environment: cargo` lets you require manual approval in the
+#     repo's Settings → Environments → cargo.
 #   - Pre-flight `cargo check --workspace --all-features` runs every
 #     per-crate build.rs integrity check before any publish.
 #   - tools/sync_published.py --check ensures derived publish flags match
@@ -76,11 +76,13 @@ jobs:
     environment: release
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98
 
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: dtolnay/rust-toolchain@3c5f7ea28cd621ae0bf5283f0e981fb97b8a7af9
+        with:
+          toolchain: stable
 
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@3d9a6aef83b697b1d758490972e37a033aee461f
 
       - name: Verify tools/published.toml is in sync with derived files
         # Same check that runs in integrity.yml — defense in depth, since
@@ -117,7 +119,7 @@ jobs:
         # The action's post-step revokes the token at job end automatically.
         # Pinned to a release tag; swap to a commit SHA if your supply-chain
         # posture requires it.
-        uses: rust-lang/crates-io-auth-action@v1.0.4
+        uses: rust-lang/crates-io-auth-action@4c854e89b5a69306bb9a1abf09660d9cdb3a1e16
         id: auth
 
       - name: Publish allowlisted crates (paced for crates.io rate limits)
@@ -132,4 +134,4 @@ jobs:
             python3 tools/release.py --cargo-dry-run --live -y
           else
             python3 tools/release.py --live -y
-          fi
+        fi
