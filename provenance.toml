@@ -6,8 +6,9 @@
 [snapshot]
 consolidation_tool = "https://github.com/marquetools/ism-data"
 snapshot_date = "2023-06-09"
-data_files = 15578
-packages = 59
+# doesn't include the ism-data crate, which is a metadata crate, not an ism package
+data_files = 16514
+packages = 60
 notes = '''
 Initial vendor of ODNI 2023-06-09 snapshot. Upstream zip hashes were
 not recorded for this initial vendor (the zips were deleted after

@@ -9,9 +9,9 @@ into one crate per ODNI package. Designed to be consumed as
 `[build-dependencies]` by Rust projects that codegen Rust types from
 the ODNI XSDs (e.g. [Marque](https://github.com/marquetools/marque)).
 
-The workspace ships **59 ODNI packages** (~700 MB of schemas,
-schematron, XSL, and supporting docs) split across 59 per-package
-crates plus a metadata-only meta-crate.
+The workspace ships **60 ODNI packages** (~700 MB of schemas,
+schematron, XSL, and supporting docs) split across 60 per-package
+crates plus a metadata-only meta-crate (61 crates).
 
 ## Layout
 
