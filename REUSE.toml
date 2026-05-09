@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: MIT-0 OR Unlicense
 # NOTE: SPDX identifiers at the top of a file apply only to that file.
-# 
+#
 version = 1
 SPDX-PackageName = "ism-data"
 SPDX-PackageSupplier = "Knitli Inc. <knitli@knitli.com>"
@@ -9,7 +9,7 @@ SPDX-PackageDownloadLocation = "https://github.com/marquetools/ism-data"
 [[annotations]]
 path = [
   "crates/*/README.md",
-  "crates/*/Cargo.toml"
+  "crates/*/Cargo.toml",
   "crates/*/build.rs",
   "crates/*/src/*",
   ".github/**",
@@ -20,9 +20,7 @@ precedence = "closest"
 SPDX-License-Identifier = "MIT-0 OR Unlicense"
 
 [[annotations]]
-path = [
-  "crates/*/data/**"
-]
+path = ["crates/*/data/**"]
 precedence = "closest"
 SPDX-FileCopyrightText = "United States Government, Public Domain"
 SPDX-License-Identifier = "LicenseRef-PublicDomain"
