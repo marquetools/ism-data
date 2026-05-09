@@ -1,0 +1,135 @@
+# SPDX-License-Identifier: MIT-0 OR Unlicense
+
+name: release
+
+# Publish allowlisted crates (tools/published.toml) to crates.io using
+# trusted publishing — no long-lived CRATES_IO_TOKEN secret is stored.
+#
+# How trusted publishing fits this repo
+# -------------------------------------
+#   - Each crate listed in tools/published.toml must be configured as a
+#     Trusted Publisher on its crates.io settings page (Settings →
+#     Trusted Publishers). Required fields:
+#       * Repository owner: marquetools
+#       * Repository name:  ism-data
+#       * Workflow filename: release.yml
+#       * Environment name:  release   (matches `environment:` below)
+#   - The first-ever publish of a NEW crate cannot use trusted publishing
+#     because the publisher binding is per-crate. New crates are published
+#     manually with `python3 tools/release.py --live`, then registered as
+#     trusted publishers on crates.io. After that, all subsequent versions
+#     ship from this workflow.
+#   - The OIDC token issued by GitHub is exchanged for a short-lived
+#     crates.io publishing token by rust-lang/crates-io-auth-action. The
+#     action's post-step revokes the token at job end.
+#
+# Triggers
+# --------
+#   - workflow_dispatch: manual run (e.g. after a tooling-only PATCH bump).
+#   - tag push: any tag matching the workspace version scheme
+#     (v<YYYYMMDD>.<MAJOR>.<PATCH>) auto-publishes whatever is on main at
+#     that tag.
+#
+# Safety rails
+# ------------
+#   - `environment: release` lets you require manual approval in the
+#     repo's Settings → Environments → release.
+#   - Pre-flight `cargo check --workspace --all-features` runs every
+#     per-crate build.rs integrity check before any publish.
+#   - tools/sync_published.py --check ensures derived publish flags match
+#     the source of truth.
+#   - Tag-push runs additionally verify that the tag matches the version
+#     in Cargo.toml (catches "tagged the wrong commit" mistakes).
+#   - tools/release.py auto-skips already-published versions, so a partial
+#     run can be safely re-triggered without double-publishes.
+
+on:
+  workflow_dispatch:
+    inputs:
+      cargo_dry_run:
+        description: "Run `cargo publish --dry-run` per crate before live publish (defense in depth)"
+        type: boolean
+        default: true
+  push:
+    tags:
+      # Matches the workspace version scheme YYYYMMDD.MAJOR.PATCH, e.g.
+      # v20230609.0.1. The 20[0-9][0-9] prefix anchors to 21st-century
+      # snapshot dates and avoids collisions with any pre-existing tags.
+      - 'v20[0-9][0-9][0-1][0-9][0-3][0-9].[0-9]+.[0-9]+'
+
+permissions:
+  contents: read
+  id-token: write   # required for OIDC token exchange with crates.io
+
+# Don't run multiple publish jobs concurrently against crates.io — the
+# rate-limit pacing inside release.py assumes serialized first-publishes.
+concurrency:
+  group: crates-io-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: publish allowlisted crates to crates.io
+    runs-on: ubuntu-latest
+    # Configure Settings → Environments → release with required reviewers
+    # if you want a human "approve before publish" step.
+    environment: release
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Verify tools/published.toml is in sync with derived files
+        # Same check that runs in integrity.yml — defense in depth, since
+        # this workflow can be triggered on any commit (not just merged
+        # PRs that already passed integrity).
+        run: python3 tools/sync_published.py --check
+
+      - name: Pre-flight cargo check (runs every build.rs integrity check)
+        # Refuses to compile any per-crate that has tampered data/, which
+        # transitively prevents publishing tampered bytes.
+        run: cargo check --workspace --all-features
+
+      - name: Tag matches workspace.package.version (push trigger only)
+        if: github.event_name == 'push'
+        run: |
+          set -euo pipefail
+          tag_version="${GITHUB_REF_NAME#v}"
+          ws_version=$(python3 -c '
+          import re, sys
+          src = open("Cargo.toml").read()
+          m = re.search(r"^\s*version\s*=\s*\"([^\"]+)\"", src, re.M)
+          sys.stdout.write(m.group(1) if m else "")
+          ')
+          if [ "$tag_version" != "$ws_version" ]; then
+            echo "::error::tag $GITHUB_REF_NAME implies version $tag_version but Cargo.toml is at $ws_version"
+            exit 1
+          fi
+          echo "tag $GITHUB_REF_NAME matches workspace version $ws_version"
+
+      - name: Print release plan (dry-run, for the GitHub Actions log)
+        run: python3 tools/release.py
+
+      - name: Authenticate to crates.io via trusted publishing (OIDC)
+        # The action's post-step revokes the token at job end automatically.
+        # Pinned to a release tag; swap to a commit SHA if your supply-chain
+        # posture requires it.
+        uses: rust-lang/crates-io-auth-action@v1.0.4
+        id: auth
+
+      - name: Publish allowlisted crates (paced for crates.io rate limits)
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ steps.auth.outputs.token }}
+        run: |
+          # On workflow_dispatch with cargo_dry_run=true, do the cargo-side
+          # dry-run first as defense in depth. On tag push, skip — the tag
+          # implies "publish now".
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] \
+              && [ "${{ github.event.inputs.cargo_dry_run }}" = "true" ]; then
+            python3 tools/release.py --cargo-dry-run --live -y
+          else
+            python3 tools/release.py --live -y
+          fi
