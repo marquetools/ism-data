@@ -7,7 +7,7 @@ SPDX-License-Identifier: MIT-0 OR Unlicense
 Vendored ODNI public XML schemas, deduplicated and consolidated, split
 into one crate per ODNI package. Designed to be consumed as
 `[build-dependencies]` by Rust projects that codegen Rust types from
-the ODNI XSDs (e.g. [Marque](https://github.com/marquetools/marque)).
+the ODNI XSDs (e.g. [Marque](https://knitli.com/marque)).
 
 The workspace ships **60 ODNI packages** (~700 MB of schemas,
 schematron, XSL, and supporting docs) split across 60 per-package
