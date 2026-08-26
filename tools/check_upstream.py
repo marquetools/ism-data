@@ -56,10 +56,10 @@ content, not the exit code, to distinguish "changes" from "errors").
 CONFIG (tools/upstream_baseline.json)
 -------------------------------------
 {
-  "listing_urls": ["https://www.dni.gov/.../ic-technical-specifications"],
+  "listing_urls": ["https://archive.dni.gov/.../ic-technical-specifications"],
   "zips": {
     "ISMCAT-Public-Standalone.zip": {
-      "url": "https://www.odni.gov/files/documents/CIO/ICEA/Dec2022/ISMCAT/ISMCAT-Public-Standalone.zip",
+      "url": "https://archive.odni.gov/files/documents/CIO/ICEA/Dec2022/ISMCAT/ISMCAT-Public-Standalone.zip",
       "last_modified": "Wed, 01 Jun 2023 14:00:00 GMT",
       "content_length": "6815415"
     },
