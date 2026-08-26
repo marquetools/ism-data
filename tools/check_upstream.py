@@ -12,11 +12,20 @@ HTTP HEAD against each zip URL: a change in `Last-Modified` or
 scrape of the standards listing page (to catch entirely new packages),
 this gives us a low-noise weekly canary.
 
+!! IMPORTANT
+-------------
+As of August 2026 ODNI archived all previous site content to `archive.dni.gov`,
+converting odni.gov to a very sparse public relations-only presence. The IC CIO
+pages and ISM XMLs don't seem to have made the cut and are now only on `archive.dni.gov`.
+It is currently unclear if the IC CIO will get a new web presence on the site, or
+even if schemas will be published to either site. I'm going to try to engage
+the IC CIO to see what the plan is, but until then, we're pinning these to the archive.
+
 ODNI URL PATTERNS
 -----------------
 Empirically (as of 2026), ODNI hosts the public standalone packages at:
 
-  https://www.odni.gov/files/documents/CIO/ICEA/<location>/<filename>
+  https://archive.dni.gov/files/documents/CIO/ICEA/<location>/<filename>
 
 where <location> follows three patterns:
 
